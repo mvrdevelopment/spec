@@ -288,7 +288,7 @@ An example of a node definition is shown below:
 
 ```xml
 <Fixture name="Robe Robin MMX WashBeam" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Custom@Robe Robin MMX WashBeam</GDTFSpec>
     <GDTFMode>DMX Mode</GDTFMode>
     <Focus>4A B1 94 62 A6 E3 4C 3B B2 5A D8 09 9F 78 17 0C</Focus>
@@ -444,7 +444,7 @@ An example of a node definition is shown below:
 
 ```xml
 <VideoScreen name="Television" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Generic@TV</GDTFSpec>
     <GDTFMode>DisplayModeWideScreen</GDTFMode>
     <Addresses>
@@ -480,7 +480,7 @@ Node name: `Projector`
 An example of a node definition is shown below:
 ```xml
 <Projector name="Projector" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Generic@Projector</GDTFSpec>
     <GDTFMode>Projector@ThrowRatio1_7_to_2_2</GDTFMode>
     <Addresses>
