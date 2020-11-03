@@ -217,7 +217,7 @@ Node name: `SceneObject`
 
 | Child Node                                | Allowed Count | Description                                                               |
 | ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.           |
+| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: GroupObject
@@ -234,7 +234,7 @@ Node name: `GroupObject`
 
 | Child Node                              | Allowed Count | Description                                                     |
 | --------------------------------------- | ------------- | --------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        | The location of the object inside the parent coordinate system. |
+| [Matrix](#node-definition-matrix)       | 0 or 1        | The location and orientation of the object inside the parent coordinate system. |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the group.           |
 
 ## Node Definition: FocusPoint
@@ -250,7 +250,7 @@ Node name: `FocusPoint`
 
 | Child Node                                | Allowed Count | Description                                                               |
 | ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.           |
+| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: Fixture
@@ -628,7 +628,7 @@ Node name: `Symbol`
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                               |
 | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location and orientation of the geometry inside the local coordinate space of the container. Considered identity when missing. |
+| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location. orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ## Node Definition: Geometry3D
 
@@ -643,7 +643,7 @@ Node name: `Geometry3D`
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                               |
 | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location and orientation of the geometry inside the local coordinate space of the container. Considered identity when missing. |
+| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location, orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ## Node Definition: Matrix
 
