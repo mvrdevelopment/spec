@@ -704,6 +704,14 @@ Here is a list of the available types for node or attribute values:
 | <span id="attrType-FileName">FileName</span>  | A file name defined by letters A-Z , a-z plus numbers 0-9 and the symbol '\_'. The extension is defined by a list of A-Z and a-z letters delimited from the name by '.'                           |
 | <span id="attrType-CIEColor">CIE Color</span> | CIE color representation xyY 1931. The Node value is: {floatx, floaty, floatY}                                                                                                                    |
 
+# Used coordinate system
+
+The metric system consists of the Right-handed Cartesian Coordinates
+XYZ: X – from left (-X) to right (+X) (house left/right), Y – from the outside of the
+monitor (-Y) to the inside of the monitor (+Y), Z – from bottom (-Z) to
+top (+Z) (upstage / downstage). 0,0,0 – center base plate.
+The base unit is millimeter.
+
 # Revision History
 
 This section lists all the changes that are made to MVR.
