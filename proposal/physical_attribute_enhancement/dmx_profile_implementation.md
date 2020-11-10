@@ -33,6 +33,12 @@ Use Channel Set to interpolate
 
 | XML Attribute Name | Value Type    |                                                                                                                                  
 | ------------------ | ------------------------------------ | 
+| Spline |     |         
+| SplineBreakStart |     |         
+| SplineBreakEnd |     |         
+| SplineBreakEnd |     |         
+| StepStart |     |         
+| StepEnd |     |         
 
 
 ```
