@@ -31,23 +31,23 @@ Use Channel Set to interpolate
 
 ## Proposal 1
 
-| XML Attribute Name | Value Type    |                                                                                                                                  
+| XML Attribute Name | Description    |                                                                                                                                  
 | ------------------ | ------------------------------------ | 
-| Spline |     |         
-| SplineBreakStart |     |         
-| SplineBreakEnd |     |         
-| SplineBreakEnd |     |         
-| StepStart |     |         
-| StepEnd |     |         
+| Spline             |     |         
+| SplineBreakStart   |     |         
+| SplineBreakEnd     |         
+| SplineBreakEnd     |   |         
+| StepStart          |     |         
+| StepEnd            |     |         
 
 
 ```
 <DMXProfiles>
     <DmxProfile Name="Fance">
-        <Pointe DMXPercent="0" Type=""Step" PhysicalPercent="0">
-        <Pointe DMXPercent="0" Type=""Linear" PhysicalPercent="0">
-        <Pointe DMXPercent="0" Type=""Spline" PhysicalPercent="0">
-        <Pointe DMXPercent="0" Type=""Log" PhysicalPercent="0">
+        <Point DMXPercent="0" Type=""Step" PhysicalPercent="0">
+        <Point DMXPercent="0" Type=""Linear" PhysicalPercent="0">
+        <Point DMXPercent="0" Type=""Spline" PhysicalPercent="0">
+        <Point DMXPercent="0" Type=""Log" PhysicalPercent="0">
     </DmxProfile>
 </Attributes>
 
