@@ -173,6 +173,13 @@ This Proposal implements the requirements of:
 
 
 ```
+<Attributes>
+    <Attribute Feature="Beam.Beam" MainAttribute="Shutter1" Name="Shutter1Strobe" PhysicalUnit="Frequency" Pretty="Strobe1">
+        <SubPhysicalUnit type="Duration" default="20%">
+        <SubPhysicalUnit type="TimeOffset" default="40%">
+    </Attribute>
+</Attributes>
+
 <DMXChannel DMXBreak="1" Default="32/1" Geometry="Head" Highlight="32/1" Offset="37">
 <LogicalChannel Attribute="Shutter1" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
     <ChannelFunction Attribute="Shutter1Strobe" DMXFrom="64/1" Name="Strobe " OriginalAttribute="" PhysicalFrom="0.300000" PhysicalTo="20.000000" RealFade="0.000000">
@@ -187,8 +194,10 @@ This Proposal implements the requirements of:
         <ChannelSet DMXFrom="89/1" Name="Slow to fast 9/12" PhysicalFrom="7.042000" PhysicalTo="7.576000" WheelSlotIndex="0"/>
         <ChannelSet DMXFrom="92/1" Name="Slow to fast 10/12" PhysicalFrom="7.692000" PhysicalTo="8.065000" WheelSlotIndex="0"/>
         <ChannelSet DMXFrom="95/1" Name="Slow to fast 11/12" PhysicalFrom="8.333000" PhysicalTo="8.333000" WheelSlotIndex="0"/>
-        <ChannelSet Name="This_describes_the_linear Duration" PhysicalFrom="0.01" PhysicalTo="10" PhysicalEntity="Duration" WheelSlotIndex="0"/>
-        <ChannelSet Name="This_describes_the_non_linear_Duty_Cycle" PhysicalFrom="10" PhysicalTo="90" PhysicalEntity="DutyCycle" DMXProfile="CurveDutyCycle" WheelSlotIndex="0"/>
+
+        <SubChannelSet Name="This_describes_the_linear Duration" PhysicalFrom="0.01" PhysicalTo="10" SubPhysicalUnit="Duration" WheelSlotIndex="0"/>
+        <SubChannelSet Name="This_describes_the_non_linear_Duty_Cycle" PhysicalFrom="10" PhysicalTo="90" SubPhysicalUnit="TimeOffset" DMXProfile="CurveDutyCycle" WheelSlotIndex="0"/>
+
     </ChannelFunction>
     <ChannelFunction Attribute="Shutter1StrobePulseOpen" DMXFrom="128/1" Name="StrobePulseOpen" OriginalAttribute="" PhysicalFrom="0.100000" PhysicalTo="0.500000" RealFade="0.000000">
         <ChannelSet DMXFrom="128/1" Name="Slow to fast 1/7" PhysicalFrom="0.087000" PhysicalTo="0.087000" WheelSlotIndex="0"/>
