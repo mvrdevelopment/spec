@@ -31,23 +31,22 @@ Use Channel Set to interpolate
 
 ## Proposal 1
 
-| XML Attribute Name | Description    |                                                                                                                                  
-| ------------------ | ------------------------------------ | 
-| Spline             |     |         
-| SplineBreakStart   |     |         
-| SplineBreakEnd     |         
-| SplineBreakEnd     |   |         
-| StepStart          |     |         
-| StepEnd            |     |         
+| XML Attribute Name | Description                                                                                                                                   |                                                                                                                                  
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | 
+| Linear             | Describes a linear interpolation between defined point and the the next point.                                                               |     
+| Spline             | Describes a spline interpolation between defined point and the the next point. The f''(x) at start and end match the neighbor curves.        |         
+| SplineBreakStart   | Describes a spline interpolation between defined point and the the next point. The f''(x) at the end match the neighbor curve.               |         
+| SplineBreakEnd     | Describes a spline interpolation between defined point and the the next point. The f''(x) at the start match the neighbor curve.             | 
+| StepStart          | Describes a jump to the next value and then a constant to the next point.                                                                    |         
+| StepEnd            | Describes a constant to the next point and then a jump to the next value.                                                                    |         
 
 
 ```
 <DMXProfiles>
-    <DmxProfile Name="Fance">
-        <Point DMXPercent="0" Type=""Step" PhysicalPercent="0">
+    <DmxProfile Name="Fancy">
         <Point DMXPercent="0" Type=""Linear" PhysicalPercent="0">
-        <Point DMXPercent="0" Type=""Spline" PhysicalPercent="0">
-        <Point DMXPercent="0" Type=""Log" PhysicalPercent="0">
+        <Point DMXPercent="30" Type=""Spline" PhysicalPercent="50">
+        <Point DMXPercent="100" Type=""Linear" PhysicalPercent="100">
     </DmxProfile>
 </Attributes>
 
