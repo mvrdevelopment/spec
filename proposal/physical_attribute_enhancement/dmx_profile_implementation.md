@@ -7,9 +7,6 @@ This Proposal implements the requirements of:
 - TODO
 
 # Problem
-
-![Timing](timing_changes.png)
-
 - Non linear Physical behavior in relation to DMX Value.
 
 # Solution
@@ -24,6 +21,7 @@ Use Channel Set to interpolate
     <ChannelFunction Attribute="Shutter1Strobe" DMXFrom="64/1" Name="Strobe " OriginalAttribute="" PhysicalFrom="0.300000" PhysicalTo="20.000000" RealFade="0.000000">
         <ChannelSet DMXFrom="64/1" Name="Slow to fast 1/12" PhysicalFrom="1" PhysicalTo="1" WheelSlotIndex="0"/>
         <ChannelSet DMXFrom="67/1" Name="Slow to fast 2/12" PhysicalFrom="6" PhysicalTo="6" WheelSlotIndex="0"/>
+        ...
 </LogicalChannel>
 </DMXChannel>
 ```
@@ -40,6 +38,9 @@ Use Channel Set to interpolate
 | StepStart          | Describes a jump to the next value and then a constant to the next point.                                                                    |         
 | StepEnd            | Describes a constant to the next point and then a jump to the next value.                                                                    |         
 
+TODO: Update this here
+
+![Timing](graph.png)
 
 ```
 <DMXProfiles>
@@ -50,7 +51,7 @@ Use Channel Set to interpolate
         <Point DMXPercent="90" Type=""Linear" PhysicalPercent="100">
         <Point DMXPercent="100" Type=""Linear" PhysicalPercent="50">
     </DmxProfile>
-</Attributes>
+</DMXProfiles>
 
 <DMXChannel DMXBreak="1" Default="32/1" Geometry="Head" Highlight="32/1" Offset="37">
 <LogicalChannel Attribute="Shutter1" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
