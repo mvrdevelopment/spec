@@ -44,15 +44,17 @@ Use Channel Set to interpolate
 ```
 <DMXProfiles>
     <DmxProfile Name="Fancy">
-        <Point DMXPercent="0" Type=""Linear" PhysicalPercent="0">
+        <Point DMXPercent="0" Type=""Linear" PhysicalPercent="50">
+        <Point DMXPercent="10" Type=""Linear" PhysicalPercent="0">
         <Point DMXPercent="30" Type=""Spline" PhysicalPercent="50">
-        <Point DMXPercent="100" Type=""Linear" PhysicalPercent="100">
+        <Point DMXPercent="90" Type=""Linear" PhysicalPercent="100">
+        <Point DMXPercent="100" Type=""Linear" PhysicalPercent="50">
     </DmxProfile>
 </Attributes>
 
 <DMXChannel DMXBreak="1" Default="32/1" Geometry="Head" Highlight="32/1" Offset="37">
 <LogicalChannel Attribute="Shutter1" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
-    <ChannelFunction Attribute="Shutter1Strobe" DMXFrom="64/1" Name="Strobe " OriginalAttribute="" PhysicalFrom="0.300000" PhysicalTo="20.000000" RealFade="0.000000" DMXProfile="Fancy">
+    <ChannelFunction Attribute="Shutter1Strobe" DMXFrom="64/1" Name="Strobe " OriginalAttribute="" PhysicalFrom="100" PhysicalTo="100" RealFade="0.000000" DMXProfile="Fancy" Min="0" Max="200">
 </LogicalChannel>
 </DMXChannel>
 ```
