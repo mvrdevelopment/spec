@@ -217,7 +217,7 @@ Node name: `SceneObject`
 
 | Child Node                                | Allowed Count | Description                                                               |
 | ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.           |
+| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: GroupObject
@@ -234,7 +234,7 @@ Node name: `GroupObject`
 
 | Child Node                              | Allowed Count | Description                                                     |
 | --------------------------------------- | ------------- | --------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        | The location of the object inside the parent coordinate system. |
+| [Matrix](#node-definition-matrix)       | 0 or 1        | The location and orientation of the object inside the parent coordinate system. |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the group.           |
 
 ## Node Definition: FocusPoint
@@ -250,7 +250,7 @@ Node name: `FocusPoint`
 
 | Child Node                                | Allowed Count | Description                                                               |
 | ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.           |
+| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: Fixture
@@ -288,7 +288,7 @@ An example of a node definition is shown below:
 
 ```xml
 <Fixture name="Robe Robin MMX WashBeam" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Custom@Robe Robin MMX WashBeam</GDTFSpec>
     <GDTFMode>DMX Mode</GDTFMode>
     <Focus>4A B1 94 62 A6 E3 4C 3B B2 5A D8 09 9F 78 17 0C</Focus>
@@ -444,7 +444,7 @@ An example of a node definition is shown below:
 
 ```xml
 <VideoScreen name="Television" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Generic@TV</GDTFSpec>
     <GDTFMode>DisplayModeWideScreen</GDTFMode>
     <Addresses>
@@ -480,7 +480,7 @@ Node name: `Projector`
 An example of a node definition is shown below:
 ```xml
 <Projector name="Projector" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
-    <Matrix>{0.158127,-0.987419,0.000000},{0.987419,0.158127,0.000000},{0.000000,0.000000,1.000000},{6020.939200,2838.588955,4978.134459},</Matrix>
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
     <GDTFSpec>Generic@Projector</GDTFSpec>
     <GDTFMode>Projector@ThrowRatio1_7_to_2_2</GDTFMode>
     <Addresses>
@@ -628,7 +628,7 @@ Node name: `Symbol`
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                               |
 | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location and orientation of the geometry inside the local coordinate space of the container. Considered identity when missing. |
+| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location. orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ## Node Definition: Geometry3D
 
@@ -639,11 +639,11 @@ Node name: `Geometry3D`
 
 | Attribute Name | Attribute Value Type                        | Default Value when Optional | Description                                                                                                                                  |
 | -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| file           | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
+| fileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                               |
 | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location and orientation of the geometry inside the local coordinate space of the container. Considered identity when missing. |
+| [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location, orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ## Node Definition: Matrix
 
