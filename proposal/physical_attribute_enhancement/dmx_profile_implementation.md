@@ -4,10 +4,11 @@
 
 This Proposal implements the requirements of:
 
-- TODO
+- Define DMXProfile for DMXProfiles https://github.com/mvrdevelopment/spec/issues/13
 
 # Problem
-- Non linear Physical behavior in relation to DMX Value.
+
+Some Functions of a Device Non linear Physical behavior in relation to DMX Value.
 
 # Solution
 
@@ -38,17 +39,17 @@ Use Channel Set to interpolate
 | StepStart          | Describes a jump to the next value and then a constant to the next point.                                                                    |         
 | StepEnd            | Describes a constant to the next point and then a jump to the next value.                                                                    |         
 
-TODO: Update this here
-
 ![Timing](graph.png)
 
 ```
 <DMXProfiles>
     <DmxProfile Name="Fancy">
-        <Point DMXPercent="0" Type=""Linear" PhysicalPercent="50">
-        <Point DMXPercent="10" Type=""Linear" PhysicalPercent="0">
-        <Point DMXPercent="30" Type=""Spline" PhysicalPercent="50">
-        <Point DMXPercent="90" Type=""Linear" PhysicalPercent="100">
+        <Point DMXPercent="0"   Type=""Linear" PhysicalPercent="50">
+        <Point DMXPercent="10"  Type=""Linear" PhysicalPercent="0">
+        <Point DMXPercent="30"  Type=""SplineBreakStart" PhysicalPercent="40">
+        <Point DMXPercent="40"  Type=""Linear" PhysicalPercent="60">
+        <Point DMXPercent="60"  Type=""SplineBreakEnd" PhysicalPercent="100">
+        <Point DMXPercent="90"  Type=""Linear" PhysicalPercent="100">
         <Point DMXPercent="100" Type=""Linear" PhysicalPercent="50">
     </DmxProfile>
 </DMXProfiles>
