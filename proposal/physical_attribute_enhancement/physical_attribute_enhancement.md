@@ -6,9 +6,8 @@
 
 This Proposal implements the requirements of:
 
-- Some attributes need more than one physical unit / physical value https://github.com/mvrdevelopment/GeneralDeviceTypeFormat/issues/126
-- Strobe attributes needs more detailed physical description https://github.com/mvrdevelopment/GeneralDeviceTypeFormat/issues/130
-
+- Some attributes need more than one physical unit / physical value https://github.com/mvrdevelopment/spec/issues/33
+- Strobe attributes needs more detailed physical description https://github.com/mvrdevelopment/spec/issues/18
 
 # Problem
 
