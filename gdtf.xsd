@@ -568,7 +568,7 @@
   </xs:element>
   <xs:element name="ColorSpace">
     <xs:complexType>
-      <xs:attribute name="ColorSpace" type="ColorSpaceEnum" use="optional"/>
+      <xs:attribute name="Mode" type="ColorSpaceEnum" use="optional" default="sRGB"/>
       <xs:attribute name="Red" type="colorcietype" use="optional"/>
       <xs:attribute name="Green" type="colorcietype" use="optional"/>
       <xs:attribute name="Blue" type="colorcietype" use="optional"/>
