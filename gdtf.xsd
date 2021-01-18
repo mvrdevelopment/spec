@@ -11,17 +11,17 @@
   </xs:element>
   <xs:element name="FixtureType">
     <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="AttributeDefinitions"/>
-        <xs:element ref="Wheels"/>
-        <xs:element ref="PhysicalDescriptions"/>
-        <xs:element ref="Models"/>
-        <xs:element ref="Geometries"/>
-        <xs:element ref="DMXModes"/>
-        <xs:element ref="Revisions"/>
-        <xs:element ref="FTPresets"/>
-        <xs:element ref="Protocols"/>
-      </xs:choice>
+      <xs:sequence>
+        <xs:element minOccurs="1" ref="AttributeDefinitions"/>
+        <xs:element minOccurs="0" ref="Wheels"/>
+        <xs:element minOccurs="0" ref="PhysicalDescriptions"/>
+        <xs:element minOccurs="0" ref="Models"/>
+        <xs:element minOccurs="1" ref="Geometries"/>
+        <xs:element minOccurs="1" ref="DMXModes"/>
+        <xs:element minOccurs="0" ref="Revisions"/>
+        <xs:element minOccurs="0" ref="FTPresets"/>
+        <xs:element minOccurs="0" ref="Protocols"/>
+      </xs:sequence>
       <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="ShortName" type="xs:string" use="optional"/>
       <xs:attribute name="LongName" type="xs:string" use="optional"/>
