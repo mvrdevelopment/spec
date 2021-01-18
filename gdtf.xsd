@@ -304,7 +304,7 @@
   </xs:element>
   <xs:element name="DMXMode">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:sequence>
         <xs:element ref="DMXChannels"/>
         <xs:element ref="Relations" minOccurs="0" maxOccurs="1"/>
         <xs:element ref="FTMacros" minOccurs="0" maxOccurs="1"/>
