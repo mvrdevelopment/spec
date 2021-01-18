@@ -89,7 +89,7 @@
       <xs:attribute name="Length" type="xs:float" use="optional"/>
       <xs:attribute name="Width" type="xs:float" use="optional"/>
       <xs:attribute name="Height" type="xs:float" use="optional"/>
-      <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum" use="optional"/>
+      <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum" use="optional" default="Undefined"/>
       <xs:attribute name="File" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
@@ -830,6 +830,10 @@
       <xs:enumeration value="Head"/>
       <xs:enumeration value="Scanner"/>
       <xs:enumeration value="Conventional"/>
+      <xs:enumeration value="Pigtail" />
+      <xs:enumeration value="Base1_1" />
+      <xs:enumeration value="Scanner1_1" />
+      <xs:enumeration value="Conventional1_1" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="LampTypeEnum">
