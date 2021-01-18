@@ -345,7 +345,6 @@
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="ChannelFunction"/>
       </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
       <xs:attribute name="Attribute" type="AttributeEnum" use="required"/>
       <xs:attribute name="Snap" type="SnapEnum" use="optional"/>
       <xs:attribute name="Master" type="MasterEnum"/>
