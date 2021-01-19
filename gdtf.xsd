@@ -768,9 +768,11 @@
   </xs:simpleType>
   <xs:simpleType name="dataversion">
     <xs:restriction base="xs:float">
-      <xs:minInclusive value="1.0"/>
-      <xs:maxInclusive value="99"/>
-      <!-- <xs:pattern value="\d{1,2}"/>-->
+      <!-- This matches two Uints, each in the range 0 to 255 (1 Byte), separated by a dot.
+      Leading zeros and a plus sign are allowed for the first UInt, but not for the second one -->
+      <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))" />
+      <xs:minInclusive value="1.0" />
+      <xs:maxInclusive value="1.1" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="guidtype">
