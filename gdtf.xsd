@@ -30,6 +30,7 @@
       <xs:attribute name="FixtureTypeID" type="guidtype" use="required"/>
       <xs:attribute name="Thumbnail" type="xs:string" use="optional"/>
       <xs:attribute name="RefFT" type="guidtype" use="optional"/>
+      <xs:attribute name="CanHaveChildren" type="YesNoEnum" use="optional" default="Yes"/>
     </xs:complexType>
     <xs:keyref name="AttributeKeyReference" refer="UniqueAttribute">
       <xs:selector xpath=".//LogicalChannel|.//ChannelFunction" />
