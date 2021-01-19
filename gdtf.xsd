@@ -764,7 +764,7 @@
   </xs:simpleType>
   <xs:simpleType name="nametype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="None|([a-zA-Z0-9#%()*+-/:;&gt;=&gt;@_` &quot;'])+"/>
+      <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataversion">
