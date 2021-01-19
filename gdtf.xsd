@@ -736,7 +736,7 @@
       <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Pretty" type="xs:string" use="required"/>
       <xs:attribute name="ActivationGroup" type="xs:string" use="optional"/>
-      <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum"/>
+      <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum" default="None"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
       <xs:attribute name="Feature" type="featuretype" use="required"/>
       <!--      <xs:attribute name="Special" type="SpecialEnum" use="optional"/> -->
