@@ -726,6 +726,10 @@
       <xs:selector xpath="Attribute"/>
       <xs:field xpath="@Name"/>
     </xs:unique>
+    <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
+      <xs:selector xpath="Attribute" />
+      <xs:field xpath="@MainAttribute" />
+    </xs:keyref>
   </xs:element>
   <xs:element name="Attribute">
     <xs:complexType>
@@ -737,7 +741,7 @@
       <xs:attribute name="Feature" type="featuretype" use="required"/>
       <!--      <xs:attribute name="Special" type="SpecialEnum" use="optional"/> -->
       <!-- removed in 0.87 -->
-      <xs:attribute name="MainAttribute" type="xs:string" use="optional"/>
+      <xs:attribute name="MainAttribute" type="nametype" use="optional"/>
     </xs:complexType>
   </xs:element>
   <!-- Custom types -->
