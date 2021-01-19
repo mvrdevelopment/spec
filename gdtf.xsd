@@ -709,7 +709,7 @@
   </xs:element>
   <xs:element name="Feature">
     <xs:complexType>
-      <xs:attribute name="Name" type="xs:string" use="optional"/>
+      <xs:attribute name="Name" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Attributes">
