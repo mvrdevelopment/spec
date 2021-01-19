@@ -730,7 +730,7 @@
       <xs:attribute name="ActivationGroup" type="xs:string" use="optional"/>
       <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
-      <xs:attribute name="Feature" type="xs:string" use="optional"/>
+      <xs:attribute name="Feature" type="featuretype" use="required"/>
       <!--      <xs:attribute name="Special" type="SpecialEnum" use="optional"/> -->
       <!-- removed in 0.87 -->
       <xs:attribute name="MainAttribute" type="xs:string" use="optional"/>
@@ -765,6 +765,12 @@
   <xs:simpleType name="nametype">
     <xs:restriction base="xs:string">
       <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="featuretype">
+    <xs:restriction base="xs:string">
+      <!-- Two nametype strings, separated with a dot -->
+      <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+\.([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataversion">
