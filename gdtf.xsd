@@ -604,15 +604,15 @@
   </xs:element>
   <xs:element name="Protocols">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="RDM" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Art-Net" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="sACN" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="KiNET" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="PosiStageNet" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="OpenSoundControl" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="CITP" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
+      <xs:all>
+        <xs:element ref="FTRDM" minOccurs="0" />
+        <xs:element ref="Art-Net" minOccurs="0" />
+        <xs:element ref="sACN" minOccurs="0" />
+        <xs:element ref="KiNET" minOccurs="0" />
+        <xs:element ref="PosiStageNet" minOccurs="0" />
+        <xs:element ref="OpenSoundControl" minOccurs="0" />
+        <xs:element ref="CITP" minOccurs="0" />
+      </xs:all>
     </xs:complexType>
   </xs:element>
   <xs:element name="Art-Net">
@@ -633,7 +633,7 @@
   <xs:element name="CITP">
     <xs:complexType/>
   </xs:element>
-  <xs:element name="RDM">
+  <xs:element name="FTRDM">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="SoftwareVersionID" minOccurs="0" maxOccurs="unbounded"/>
@@ -642,6 +642,7 @@
       <xs:attribute name="DeviceModelID" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RDM" substitutionGroup="FTRDM" />
   <xs:element name="SoftwareVersionID">
     <xs:complexType>
       <xs:sequence>
