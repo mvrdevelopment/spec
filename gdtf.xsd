@@ -36,6 +36,10 @@
       <xs:selector xpath=".//LogicalChannel|.//ChannelFunction" />
       <xs:field xpath="@Attribute" />
     </xs:keyref>
+    <xs:keyref name="FilterKeyReference" refer="UniqueFilter">
+      <xs:selector xpath="Wheels/Wheel/Slot" />
+      <xs:field xpath="@Filter" />
+    </xs:keyref>
   </xs:element>
   <xs:element name="Wheels">
     <xs:complexType>
@@ -66,9 +70,9 @@
         <xs:element ref="Facet"/>
       </xs:sequence>
       <xs:attribute name="Name" type="nametype" use="required"/>
-      <xs:attribute name="Color" type="colorcietype" use="optional"/>
-      <xs:attribute name="Filter" type="xs:string" use="optional"/>
-      <xs:attribute name="MediaFileName" type="xs:string" use="optional"/>
+      <xs:attribute name="Color" type="colorcietype" use="optional" default="0.3127,0.3290,100.0"/>
+      <xs:attribute name="Filter" type="nametype" use="optional"/>
+      <xs:attribute name="MediaFileName" type="xs:string" use="optional" default=""/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Facet">
