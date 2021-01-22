@@ -543,13 +543,17 @@
         <xs:element ref="Filter"/>
       </xs:sequence>
     </xs:complexType>
+    <xs:key name="UniqueFilter">
+      <xs:selector xpath="Filter" />
+      <xs:field xpath="@Name" />
+    </xs:key>
   </xs:element>
   <xs:element name="Filter">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="Measurement"/>
       </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
+      <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
     </xs:complexType>
   </xs:element>
