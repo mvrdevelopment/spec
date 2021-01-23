@@ -660,7 +660,6 @@
       <xs:attribute name="DeviceModelID" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RDM" substitutionGroup="FTRDM" />
   <xs:element name="SoftwareVersionID">
     <xs:complexType>
       <xs:sequence>
