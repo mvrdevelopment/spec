@@ -66,9 +66,10 @@
   </xs:element>
   <xs:element name="Slot">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Facet"/>
-      </xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element ref="Facet" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element ref="AnimationSystem"/>
+      </xs:choice>
       <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Color" type="colorcietype" use="optional" default="0.3127,0.3290,100.0"/>
       <xs:attribute name="Filter" type="nametype" use="optional"/>
@@ -79,6 +80,14 @@
     <xs:complexType>
       <xs:attribute name="Color" type="colorcietype" use="optional" default="0.3127,0.3290,100.0"/>
       <xs:attribute name="Rotation" type="rotationtype" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnimationSystem">
+    <xs:complexType>
+      <xs:attribute name="P1" type="twoarray" use="required"/>
+      <xs:attribute name="P2" type="twoarray" use="required"/>
+      <xs:attribute name="P3" type="twoarray" use="required"/>
+      <xs:attribute name="Radius" type="positivefloat" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Models">
@@ -753,6 +762,16 @@
     </xs:complexType>
   </xs:element>
   <!-- Custom types -->
+  <xs:simpleType name="positivefloat">
+    <xs:restriction base="xs:float">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="twoarray">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="-?[0-9]+\.?[0-9]*,-?[0-9]+\.?[0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="matrixtype">
     <xs:restriction base="xs:string">
       <xs:pattern value="None|(\{-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){3}\}){4}"/>
