@@ -104,9 +104,9 @@
   <xs:element name="Model">
     <xs:complexType>
       <xs:attribute name="Name" type="nametype" use="required"/>
-      <xs:attribute name="Length" type="xs:float" use="optional"/>
-      <xs:attribute name="Width" type="xs:float" use="optional"/>
-      <xs:attribute name="Height" type="xs:float" use="optional"/>
+      <xs:attribute name="Length" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="Width" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="Height" type="xs:float" use="optional" default="0"/>
       <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum" use="optional" default="Undefined"/>
       <xs:attribute name="File" type="xs:string" use="optional"/>
     </xs:complexType>
