@@ -523,14 +523,20 @@
   </xs:element>
   <xs:element name="PhysicalDescriptions">
     <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Emitters"/>
-        <xs:element ref="Filters"/>
-        <xs:element ref="ColorSpace"/>
-        <xs:element ref="DMXProfiles"/>
-        <xs:element ref="CRIs"/>
-      </xs:choice>
+      <xs:all>
+        <xs:element ref="Emitters" minOccurs="0"/>
+        <xs:element ref="Filters" minOccurs="0"/>
+        <xs:element ref="ColorSpace" minOccurs="0"/>
+        <xs:element ref="DMXProfiles" minOccurs="0"/>
+        <xs:element ref="CRIs" minOccurs="0"/>
+        <xs:element ref="Connectors" minOccurs="0"/>
+        <xs:element ref="Properties" minOccurs="0"/>
+      </xs:all>
     </xs:complexType>
+    <xs:keyref name="ConnectorKeyReference" refer="UniqueConnector">
+      <xs:selector xpath="Properties/PowerConsumption"/>
+      <xs:field xpath="@Connector"></xs:field>
+    </xs:keyref>
   </xs:element>
   <xs:element name="Emitters">
     <xs:complexType>
@@ -538,15 +544,28 @@
         <xs:element ref="Emitter"/>
       </xs:sequence>
     </xs:complexType>
+    <xs:key name="UniqueEmitter">
+      <xs:selector xpath="Emitter" />
+      <xs:field xpath="@Name" />
+    </xs:key>
   </xs:element>
   <xs:element name="Emitter">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Measurement"/>
+        <xs:element name="Measurement">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="MeasurementPoint"/>
+            </xs:sequence>
+            <xs:attribute name="Physical" type="physicaltype" use="required"/>
+            <xs:attribute name="LuminousIntensity" type="xs:float" use="required"/>
+            <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
+      <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
-      <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/>
+      <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/> <!-- Required if Color is omitted! -->
       <xs:attribute name="DiodePart" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
@@ -564,27 +583,25 @@
   <xs:element name="Filter">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Measurement"/>
+        <xs:element name="Measurement">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="MeasurementPoint"/>
+            </xs:sequence>
+            <xs:attribute name="Physical" type="physicaltype" use="required"/>
+            <xs:attribute name="Transmission" type="xs:float" use="required"/>
+            <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Measurement">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="MeasurementPoint"/>
-      </xs:sequence>
-      <xs:attribute name="Physical" type="xs:float" use="optional"/>
-      <xs:attribute name="LuminousIntensity" type="xs:float" use="optional"/>
-      <xs:attribute name="Transmission" type="xs:float" use="optional"/>
-      <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="MeasurementPoint">
     <xs:complexType>
-      <xs:attribute name="WaveLength" type="xs:float" use="optional"/>
-      <xs:attribute name="Energy" type="xs:float" use="optional"/>
+      <xs:attribute name="WaveLength" type="xs:float" use="required"/>
+      <xs:attribute name="Energy" type="xs:float" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="ColorSpace">
@@ -605,19 +622,86 @@
   </xs:element>
   <xs:element name="DMXProfile">
     <xs:complexType>
-  </xs:complexType>
+    </xs:complexType>
   </xs:element>
   <xs:element name="CRIs">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="CRIGroup"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CRIGroup">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="99">
         <xs:element ref="CRI"/>
       </xs:sequence>
+      <xs:attribute name="ColorTemperature" type="xs:float" use="optional" default="6000"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="CRI">
     <xs:complexType>
-      <xs:attribute name="CES" type="CESEnum" use="optional"/>
-      <xs:attribute name="ColorRenderingIndex" type="xs:integer" use="optional"/>
+      <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
+      <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional" default="100"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Connectors">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Connector"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="UniqueConnector">
+      <xs:selector xpath="Connector"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="Connector">
+    <xs:complexType>
+      <xs:attribute name="Name" type="nametype" use="required"/>
+      <xs:attribute name="Type" type="nametype" use="required"/>
+      <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
+      <xs:attribute name="Gender" type="xs:integer" use="optional" default="0"/>
+      <xs:attribute name="Length" type="positivefloat" use="optional" default="0"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Properties">
+    <xs:complexType>
+      <!-- The DIN 15800:2020-07 implicitly allows arbitrary order, but that is not easily representable in XSD 1.0.
+        Therefore we restrict order here arbitrarily by using xs:sequence. -->
+      <xs:sequence>
+        <xs:element ref="OperatingTemperature" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="Weight" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="PowerConsumption" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="LegHeight" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperatingTemperature">
+    <xs:complexType>
+      <xs:attribute name="Low" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="High" type="xs:float" use="optional" default="40"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Weight">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PowerConsumption">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="PowerFactor" type="xs:float" use="optional" default="1"/>
+      <xs:attribute name="Connector" type="nametype" use="required"/>
+      <xs:attribute name="VoltageLow" type="xs:float" use="optional" default="90"/>
+      <xs:attribute name="VoltageHigh" type="xs:float" use="optional" default="240"/>
+      <xs:attribute name="FrequencyLow" type="xs:float" use="optional" default="50"/>
+      <xs:attribute name="FrequencyHigh" type="xs:float" use="optional" default="60"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LegHeight">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Protocols">
@@ -764,6 +848,17 @@
   <xs:simpleType name="positivefloat">
     <xs:restriction base="xs:float">
       <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="positiveinteger">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="physicaltype">
+    <xs:restriction base="xs:float">
+      <xs:minExclusive value="0"/>
+      <xs:maxInclusive value="100"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="twoarray">
