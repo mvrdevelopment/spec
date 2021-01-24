@@ -149,7 +149,7 @@
   </xs:element>
   <xs:complexType name="BasicGeometryAttributes">
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Model" type="nametype" use="optional"/>
+    <xs:attribute name="Model" type="nametype" use="required"/>
     <xs:attribute name="Position" type="matrixtype" use="optional" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
   </xs:complexType>
   <xs:complexType name="BasicGeometryType">
