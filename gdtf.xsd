@@ -45,8 +45,12 @@
       .//Beam|.//MediaServerLayer|.//MediaServerCamera|.//MediaServerMaster|.//Display|.//GeometryReference"/>
       <xs:field xpath="@Model"/>
     </xs:keyref>
-    <xs:keyref name="GeometryKeyReference" refer="UniqueGeometriesChildren">
+    <xs:keyref name="TopLevelGeometryKeyReference" refer="UniqueTopLevelGeometries">
       <xs:selector xpath="DMXModes/DMXMode"/>
+      <xs:field xpath="@Geometry"/>
+    </xs:keyref>
+    <xs:keyref name="GeometryKeyReference" refer="UniqueGeometries">
+      <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel"/>
       <xs:field xpath="@Geometry"/>
     </xs:keyref>
   </xs:element>
@@ -142,7 +146,11 @@
     <xs:complexType>
       <xs:group ref="GeometryChildren"/>
     </xs:complexType>
-    <xs:unique name="UniqueGeometriesChildren">
+    <xs:unique name="UniqueGeometries">
+      <xs:selector xpath=".//*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="UniqueTopLevelGeometries">
       <xs:selector xpath="*"/>
       <xs:field xpath="@Name"/>
     </xs:unique>
@@ -159,44 +167,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Geometry" type="BasicGeometryType">
-    <xs:unique name="UniqueGeometryChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
+  <xs:element name="Geometry" type="BasicGeometryType"/>
   <xs:element name="Axis" type="BasicGeometryType">
     <!-- Model attribute is missing in DIN 15800:2020-07 (GDTF 1.1) but still appears in the Wiki (GDTF 1.0). 
     Might be a typo in the DIN standard, since it would break backwards compatibility. Therefore, I still allow it here. -->
-    <xs:unique name="UniqueAxisChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
   </xs:element>
-  <xs:element name="FilterBeam" type="BasicGeometryType">
-    <xs:unique name="UniqueFilterBeamChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
-  <xs:element name="FilterColor" type="BasicGeometryType">
-    <xs:unique name="UniqueFilterColorChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
-  <xs:element name="FilterGobo" type="BasicGeometryType">
-    <xs:unique name="UniqueFilterGoboChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
-  <xs:element name="FilterShaper" type="BasicGeometryType">
-    <xs:unique name="UniqueFilterShaperChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
+  <xs:element name="FilterBeam" type="BasicGeometryType"/>
+  <xs:element name="FilterColor" type="BasicGeometryType"/>
+  <xs:element name="FilterGobo" type="BasicGeometryType"/>
+  <xs:element name="FilterShaper" type="BasicGeometryType"/>
   <xs:element name="Beam">
     <xs:complexType>
       <xs:complexContent>
@@ -215,29 +194,10 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-    <xs:unique name="UniqueBeamChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
   </xs:element>
-  <xs:element name="MediaServerLayer" type="BasicGeometryType">
-    <xs:unique name="UniqueMediaServerLayerChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
-  <xs:element name="MediaServerCamera" type="BasicGeometryType">
-    <xs:unique name="UniqueMediaServerCameraChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
-  <xs:element name="MediaServerMaster" type="BasicGeometryType">
-    <xs:unique name="UniqueMediaServerMasterChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-  </xs:element>
+  <xs:element name="MediaServerLayer" type="BasicGeometryType"/>
+  <xs:element name="MediaServerCamera" type="BasicGeometryType"/>
+  <xs:element name="MediaServerMaster" type="BasicGeometryType"/>
   <xs:element name="Display">
     <xs:complexType>
       <xs:complexContent>
@@ -246,10 +206,6 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-    <xs:unique name="UniqueDisplayChildren">
-      <xs:selector xpath="*"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
   </xs:element>
   <xs:element name="GeometryReference">
     <xs:complexType>
