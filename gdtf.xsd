@@ -40,6 +40,11 @@
       <xs:selector xpath="Wheels/Wheel/Slot" />
       <xs:field xpath="@Filter" />
     </xs:keyref>
+    <xs:keyref name="ModelKeyReference" refer="UniqueModel">
+      <xs:selector xpath=".//Geometry|.//Axis|.//FilterBeam|.//FilterColor|.//FilterGobo|.//FilterShaper|
+      .//Beam|.//MediaServerLayer|.//MediaServerCamera|.//MediaServerMaster|.//Display|.//GeometryReference"/>
+      <xs:field xpath="@Model"/>
+    </xs:keyref>
   </xs:element>
   <xs:element name="Wheels">
     <xs:complexType>
