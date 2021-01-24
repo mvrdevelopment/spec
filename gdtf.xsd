@@ -277,10 +277,10 @@
         <xs:element ref="ChannelFunction"/>
       </xs:sequence>
       <xs:attribute name="Attribute" type="nametype" use="required"/>
-      <xs:attribute name="Snap" type="SnapEnum" use="optional"/>
-      <xs:attribute name="Master" type="MasterEnum"/>
-      <xs:attribute name="MibFade" type="xs:float" use="optional"/>
-      <xs:attribute name="DMXChangeTimeLimit" type="xs:float" use="optional"/>
+      <xs:attribute name="Snap" type="SnapEnum" default="No"/>
+      <xs:attribute name="Master" type="MasterEnum" default="None"/>
+      <xs:attribute name="MibFade" type="xs:float" default="0"/>
+      <xs:attribute name="DMXChangeTimeLimit" type="xs:float" default="0"/>
     </xs:complexType>
     <xs:unique name="UniqueChannelFunctionAttributeAndDMXFrom">
       <xs:selector xpath="ChannelFunction"/>
