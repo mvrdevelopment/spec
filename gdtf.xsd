@@ -37,7 +37,7 @@
       <xs:field xpath="@Attribute" />
     </xs:keyref>
     <xs:keyref name="FilterKeyReference" refer="UniqueFilter">
-      <xs:selector xpath="Wheels/Wheel/Slot" />
+      <xs:selector xpath="Wheels/Wheel/Slot|DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction" />
       <xs:field xpath="@Filter" />
     </xs:keyref>
     <xs:keyref name="ModelKeyReference" refer="UniqueModel">
@@ -52,6 +52,14 @@
     <xs:keyref name="GeometryKeyReference" refer="UniqueGeometries">
       <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel"/>
       <xs:field xpath="@Geometry"/>
+    </xs:keyref>
+    <xs:keyref name="WheelKeyReference" refer="UniqueWheelName">
+      <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+      <xs:field xpath="@Wheel"/>
+    </xs:keyref>
+    <xs:keyref name="EmitterKeyReference" refer="UniqueEmitter">
+      <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+      <xs:field xpath="@Emitter"/>
     </xs:keyref>
   </xs:element>
   <xs:element name="Wheels">
@@ -266,7 +274,7 @@
       </xs:sequence>
       <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
       <xs:attribute name="Offset" type="offsettype" default="None"/>
-      <xs:attribute name="InitialFunction" type="functiontype" use="required"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
+      <xs:attribute name="InitialFunction" type="nodetype" use="required"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
       <xs:attribute name="Highlight" type="dmxtype" default="None"/>
       <xs:attribute name="Geometry" type="nametype" use="required"/>
     </xs:complexType>
@@ -298,21 +306,21 @@
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="ChannelSet"/>
       </xs:sequence>
-      <xs:attribute name="Name" type="xs:string" use="optional"/>
-      <xs:attribute name="Attribute" type="nametype" use="required"/>
-      <xs:attribute name="OriginalAttribute" type="xs:string" use="optional"/>
-      <xs:attribute name="DMXFrom" type="dmxtype" use="optional"/>
-      <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
-      <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
-      <xs:attribute name="RealFade" type="xs:float" use="optional"/>
-      <xs:attribute name="Wheel" type="xs:string" use="optional"/>
-      <xs:attribute name="Emitter" type="xs:string" use="optional"/>
-      <xs:attribute name="Filter" type="xs:string" use="optional"/>
-      <!-- removed 1.0      <xs:attribute name="DMXInvert" type="YesNoEnum" use="optional"/> -->
-      <!--      <xs:attribute name="EncoderInvert" type="YesNoEnum" use="optional"/>-->
-      <xs:attribute name="ModeMaster" type="xs:string" use="optional"/>
-      <xs:attribute name="ModeFrom" type="dmxtype" use="optional" default="0/1"/>
-      <xs:attribute name="ModeTo" type="dmxtype" use="optional"/>
+      <xs:attribute name="Name" type="nametype" use="optional"/>
+      <xs:attribute name="Attribute" type="nametype" default="NoFeature"/>
+      <xs:attribute name="OriginalAttribute" type="xs:string" default=""/>
+      <xs:attribute name="DMXFrom" type="dmxtype" default="0/1"/>
+      <xs:attribute name="Default" type="dmxtype" use="required"/>
+      <xs:attribute name="PhysicalFrom" type="xs:float" default="0"/>
+      <xs:attribute name="PhysicalTo" type="xs:float" default="1"/>
+      <xs:attribute name="RealFade" type="xs:float" default="0"/>
+      <xs:attribute name="RealAcceleration" type="xs:float" default="0"/>
+      <xs:attribute name="Wheel" type="nametype" use="optional"/>
+      <xs:attribute name="Emitter" type="nametype" use="optional"/>
+      <xs:attribute name="Filter" type="nametype" use="optional"/>
+      <xs:attribute name="ModeMaster" type="nodetype" use="optional"/>
+      <xs:attribute name="ModeFrom" type="dmxtype" default="0/1"/>
+      <xs:attribute name="ModeTo" type="dmxtype" default="0/1"/>
     </xs:complexType>
     <xs:unique name="UniqueChannelSetNameAndDMXFrom">
       <xs:selector xpath="ChannelSet"/>
@@ -823,7 +831,7 @@
       <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+\.([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="functiontype">
+  <xs:simpleType name="nodetype">
     <xs:restriction base="xs:string">
       <!-- Arbitrary number of nametype strings, separated with a dot -->
       <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+(\.([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+)*"/>
