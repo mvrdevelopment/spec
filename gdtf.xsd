@@ -45,6 +45,10 @@
       .//Beam|.//MediaServerLayer|.//MediaServerCamera|.//MediaServerMaster|.//Display|.//GeometryReference"/>
       <xs:field xpath="@Model"/>
     </xs:keyref>
+    <xs:keyref name="GeometryKeyReference" refer="UniqueGeometriesChildren">
+      <xs:selector xpath="DMXModes/DMXMode"/>
+      <xs:field xpath="@Geometry"/>
+    </xs:keyref>
   </xs:element>
   <xs:element name="Wheels">
     <xs:complexType>
@@ -284,7 +288,7 @@
         <xs:element ref="FTMacros" minOccurs="0" maxOccurs="1"/>
       </xs:sequence>
       <xs:attribute name="Name" type="nametype" use="required"/>
-      <xs:attribute name="Geometry" type="nametype" use="optional"/>
+      <xs:attribute name="Geometry" type="nametype" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DMXChannels">
