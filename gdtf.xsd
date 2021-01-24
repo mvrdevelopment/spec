@@ -253,7 +253,7 @@
         <xs:element ref="DMXChannel"/>
       </xs:sequence>
     </xs:complexType>
-    <xs:unique name="UniqueAttributeinGeometry">
+    <xs:unique name="UniqueCombinationOfGeometryAndAttributeForLogicalChannel">
       <xs:selector xpath="DMXChannel"/>
       <xs:field xpath="@Geometry"/>
       <xs:field xpath="LogicalChannel/@Attribute"/>
@@ -261,21 +261,14 @@
   </xs:element>
   <xs:element name="DMXChannel">
     <xs:complexType>
-      <xs:sequence>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="LogicalChannel"/>
       </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="DMXBreak" type="xs:integer" use="optional"/>
-      <xs:attribute name="Offset" type="offsettype" use="optional"/>
-      <!--reworked in 1.0      <xs:attribute name="Coarse" type="dmxvalue" use="optional"/>
-      <xs:attribute name="Fine" type="dmxvalue" use="optional"/>
-
-      <xs:attribute name="Ultra" type="dmxvalue" use="optional"/>
-      <xs:attribute name="Uber" type="dmxvalue" use="optional"/>-->
-      <!-- removed in 0.90      <xs:attribute name="Frequency" type="FrequencyEnum" use="optional"/> -->
-      <xs:attribute name="Default" type="dmxtype" use="optional"/>
-      <xs:attribute name="Highlight" type="dmxtype" use="optional"/>
-      <xs:attribute name="Geometry" type="xs:string" use="optional"/>
+      <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
+      <xs:attribute name="Offset" type="offsettype" default="None"/>
+      <xs:attribute name="InitialFunction" type="functiontype" use="required"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
+      <xs:attribute name="Highlight" type="dmxtype" default="None"/>
+      <xs:attribute name="Geometry" type="nametype" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="LogicalChannel">
@@ -803,17 +796,12 @@
   </xs:simpleType>
   <xs:simpleType name="offsettype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]?,?[0-9]?,?[0-9]?,?[0-9]?,?"/>
+      <xs:pattern value="None|([0-9]+(,[0-9]+)*)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dmxtype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="None|[0-9]?[0-9]?[0-9]+/[1-2]"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="dmxvalue">
-    <xs:restriction base="xs:string">
-      <xs:pattern value="None|[0-9]?[0-9]?[0-9]"/>
+      <xs:pattern value="None|([0-9]+/[1-9][0-9]*s?)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dmxaddresstype">
@@ -835,18 +823,30 @@
       <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+\.([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="functiontype">
+    <xs:restriction base="xs:string">
+      <!-- Arbitrary number of nametype strings, separated with a dot -->
+      <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+(\.([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="dataversion">
     <xs:restriction base="xs:float">
       <!-- This matches two Uints, each in the range 0 to 255 (1 Byte), separated by a dot.
       Leading zeros and a plus sign are allowed for the first UInt, but not for the second one -->
       <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))" />
-      <xs:minInclusive value="1.0" />
+      <!-- v1.1 is not backwards compatible to 1.0, so we can only accept 1.1, not 1.0 -->
+      <xs:minInclusive value="1.1" />
       <xs:maxInclusive value="1.1" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="guidtype">
     <xs:restriction base="xs:string">
       <xs:pattern value="\s*|([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dmxbreaktype">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="Overwrite|[0-9]+"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- ENUM SECTION -->
