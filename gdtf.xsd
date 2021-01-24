@@ -111,198 +111,153 @@
       <xs:attribute name="File" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
+  <xs:group name="GeometryChildren">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Geometry"/>
+        <xs:element ref="Axis"/>
+        <xs:element ref="FilterBeam"/>
+        <xs:element ref="FilterColor"/>
+        <xs:element ref="FilterGobo"/>
+        <xs:element ref="FilterShaper"/>
+        <xs:element ref="Beam"/>
+        <xs:element ref="MediaServerLayer"/>
+        <xs:element ref="MediaServerCamera"/>
+        <xs:element ref="MediaServerMaster"/>
+        <xs:element ref="Display"/>
+        <xs:element ref="GeometryReference"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Geometries">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
+      <xs:group ref="GeometryChildren"/>
     </xs:complexType>
-    <xs:unique name="UniqueGeometry">
-      <xs:selector xpath="Geometry"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueAxis">
-      <xs:selector xpath="Axis"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniquFilterBeam">
-      <xs:selector xpath="FilterBeam"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueFilterColor">
-      <xs:selector xpath="FilterColor"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueFilterGobo">
-      <xs:selector xpath="FilterGobo"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueFilterShaper">
-      <xs:selector xpath="FilterShaper"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueBeam">
-      <xs:selector xpath="FilterBeam"/>
-      <xs:field xpath="@Name"/>
-    </xs:unique>
-    <xs:unique name="UniqueGeometryReference">
-      <xs:selector xpath="GeometryReference"/>
+    <xs:unique name="UniqueGeometriesChildren">
+      <xs:selector xpath="*"/>
       <xs:field xpath="@Name"/>
     </xs:unique>
   </xs:element>
-  <xs:element name="Geometry">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-    </xs:complexType>
+  <xs:complexType name="BasicGeometryAttributes">
+    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Model" type="nametype" use="optional"/>
+    <xs:attribute name="Position" type="matrixtype" use="optional" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
+  </xs:complexType>
+  <xs:complexType name="BasicGeometryType">
+    <xs:complexContent>
+      <xs:extension base="BasicGeometryAttributes">
+        <xs:group ref="GeometryChildren"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Geometry" type="BasicGeometryType">
+    <xs:unique name="UniqueGeometryChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
-  <xs:element name="Axis">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-      <!--removed in 1.0      <xs:attribute name="From" type="xs:string" use="optional"/>
-      <xs:attribute name="To" type="xs:string" use="optional"/>
-      <xs:attribute name="Speed" type="xs:string" use="optional"/>-->
-    </xs:complexType>
+  <xs:element name="Axis" type="BasicGeometryType">
+    <!-- Model attribute is missing in DIN 15800:2020-07 (GDTF 1.1) but still appears in the Wiki (GDTF 1.0). 
+    Might be a typo in the DIN standard, since it would break backwards compatibility. Therefore, I still allow it here. -->
+    <xs:unique name="UniqueAxisChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
-  <xs:element name="FilterBeam">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-    </xs:complexType>
+  <xs:element name="FilterBeam" type="BasicGeometryType">
+    <xs:unique name="UniqueFilterBeamChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
-  <xs:element name="FilterColor">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-    </xs:complexType>
+  <xs:element name="FilterColor" type="BasicGeometryType">
+    <xs:unique name="UniqueFilterColorChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
-  <xs:element name="FilterGobo">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-    </xs:complexType>
+  <xs:element name="FilterGobo" type="BasicGeometryType">
+    <xs:unique name="UniqueFilterGoboChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
-  <xs:element name="FilterShaper">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-    </xs:complexType>
+  <xs:element name="FilterShaper" type="BasicGeometryType">
+    <xs:unique name="UniqueFilterShaperChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
   <xs:element name="Beam">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Geometry" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterBeam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterColor" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterGobo" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="FilterShaper" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="Beam" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element ref="GeometryReference" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="required"/>
-      <xs:attribute name="Model" type="nametype" use="required"/>
-      <xs:attribute name="Position" type="matrixtype" use="required"/>
-      <xs:attribute name="LampType" type="LampTypeEnum" use="optional"/>
-      <xs:attribute name="PowerConsumption" type="xs:float" use="optional"/>
-      <xs:attribute name="LuminousFlux" type="xs:float" use="optional"/>
-      <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
-      <xs:attribute name="BeamAngle" type="xs:float" use="optional"/>
-      <xs:attribute name="FieldAngle" type="xs:float" use="optional"/>
-      <xs:attribute name="BeamRadius" type="xs:float" use="optional"/>
-      <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional"/>
-      <xs:attribute name="ColorRenderingIndex" type="xs:integer" use="optional"/>
+      <xs:complexContent>
+        <xs:extension base="BasicGeometryType">
+          <xs:attribute name="LampType" type="LampTypeEnum" use="optional" default="Discharge"/>
+          <xs:attribute name="PowerConsumption" type="xs:float" use="optional" default="1000"/>
+          <xs:attribute name="LuminousFlux" type="xs:float" use="optional" default="10000"/>
+          <xs:attribute name="ColorTemperature" type="xs:float" use="optional" default="6000"/>
+          <xs:attribute name="BeamAngle" type="xs:float" use="optional" default="25"/>
+          <xs:attribute name="FieldAngle" type="xs:float" use="optional" default="25"/>
+          <xs:attribute name="ThrowRatio" type="xs:float" use="optional" default="1"/>
+          <xs:attribute name="RectangleRatio" type="xs:float" use="optional" default="1.7777"/>
+          <xs:attribute name="BeamRadius" type="xs:float" use="optional" default="0.05"/>
+          <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional" default="Wash"/>
+          <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional" default="100"/>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
+    <xs:unique name="UniqueBeamChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="MediaServerLayer" type="BasicGeometryType">
+    <xs:unique name="UniqueMediaServerLayerChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="MediaServerCamera" type="BasicGeometryType">
+    <xs:unique name="UniqueMediaServerCameraChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="MediaServerMaster" type="BasicGeometryType">
+    <xs:unique name="UniqueMediaServerMasterChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="Display">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="BasicGeometryType">
+          <xs:attribute name="Texture" type="xs:string" use="optional"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    <xs:unique name="UniqueDisplayChildren">
+      <xs:selector xpath="*"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
   <xs:element name="GeometryReference">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="Break"/>
-      </xs:sequence>
-      <xs:attribute name="Name" type="nametype" use="optional"/>
-      <xs:attribute name="Position" type="matrixtype" use="optional"/>
-      <xs:attribute name="Geometry" type="nametype" use="optional"/>
-      <xs:attribute name="Model" type="nametype" use="optional"/>
+      <xs:complexContent>
+        <xs:extension base="BasicGeometryAttributes">
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="Break"/>
+          </xs:sequence>
+          <xs:attribute name="Geometry" type="nametype" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:element name="Break">
     <xs:complexType>
-      <xs:attribute name="DMXOffset" type="xs:integer" use="optional"/>
-      <xs:attribute name="DMXBreak" type="xs:integer" use="optional"/>
+      <xs:attribute name="DMXOffset" type="dmxaddresstype" use="optional" default="1"/>
+      <xs:attribute name="DMXBreak" type="xs:unsignedByte" use="optional" default="1"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DMXModes">
@@ -896,6 +851,14 @@
       <xs:pattern value="None|[0-9]?[0-9]?[0-9]"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="dmxaddresstype">
+    <!-- DIN 15800:2020-07 also allows Universe.Address, which seems strange though. Which Universe would that even be?
+    Therefore, this only matches Integers in the valid range. -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="512"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="nametype">
     <xs:restriction base="xs:string">
       <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
@@ -996,6 +959,7 @@
       <xs:enumeration value="Wash"/>
       <xs:enumeration value="Spot"/>
       <xs:enumeration value="None"/>
+      <xs:enumeration value="Rectangle"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- removed in 0.90  <xs:simpleType name="FrequencyEnum">
