@@ -351,8 +351,8 @@
   <xs:element name="Relation">
     <xs:complexType>
       <xs:attribute name="Name" type="xs:string" use="required"/>
-      <xs:attribute name="Master" type="xs:string" use="required"/>
-      <xs:attribute name="Follower" type="xs:string" use="required"/>
+      <xs:attribute name="Master" type="nodetype" use="required"/>
+      <xs:attribute name="Follower" type="nodetype" use="required"/>
       <xs:attribute name="Type" type="RelationTypesEnum" use="required"/>
     </xs:complexType>
   </xs:element>
