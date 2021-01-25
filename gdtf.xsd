@@ -332,11 +332,9 @@
     <xs:complexType>
       <xs:attribute name="Name" type="xs:string" use="optional"/>
       <xs:attribute name="DMXFrom" type="dmxtype" use="optional"/>
-      <xs:attribute name="DMXTo" type="dmxtype" use="optional"/>
       <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
       <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
-      <!--      <xs:attribute name="RealFade" type="xs:float" use="optional"/> -->
-      <xs:attribute name="WheelSlotIndex" type="xs:integer" use="optional"/>
+      <xs:attribute name="WheelSlotIndex" type="xs:int" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Relations">
