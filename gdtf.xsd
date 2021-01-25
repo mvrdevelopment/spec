@@ -633,10 +633,10 @@
   <xs:element name="FTRDM">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="SoftwareVersionID" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="SoftwareVersionID"/>
       </xs:sequence>
-      <xs:attribute name="ManufacturerID" type="xs:string" use="optional"/>
-      <xs:attribute name="DeviceModelID" type="xs:string" use="optional"/>
+      <xs:attribute name="ManufacturerID" type="hextype" use="optional"/>
+      <xs:attribute name="DeviceModelID" type="hextype" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SoftwareVersionID">
@@ -644,12 +644,12 @@
       <xs:sequence>
         <xs:element ref="DMXPersonality" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute name="Value" type="xs:string" use="optional"/>
+      <xs:attribute name="Value" type="hextype" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DMXPersonality">
     <xs:complexType>
-      <xs:attribute name="Value" type="xs:string" use="optional"/>
+      <xs:attribute name="Value" type="hextype" use="optional"/>
       <xs:attribute name="DMXMode" type="nametype" use="optional"/>
     </xs:complexType>
   </xs:element>
@@ -748,6 +748,11 @@
   <xs:simpleType name="positiveinteger">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="hextype">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0x[0-9a-fA-F]+"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="physicaltype">
