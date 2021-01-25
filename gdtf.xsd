@@ -609,7 +609,6 @@
         <xs:element ref="FTRDM" minOccurs="0" />
         <xs:element ref="Art-Net" minOccurs="0" />
         <xs:element ref="sACN" minOccurs="0" />
-        <xs:element ref="KiNET" minOccurs="0" />
         <xs:element ref="PosiStageNet" minOccurs="0" />
         <xs:element ref="OpenSoundControl" minOccurs="0" />
         <xs:element ref="CITP" minOccurs="0" />
@@ -620,9 +619,6 @@
     <xs:complexType/>
   </xs:element>
   <xs:element name="sACN">
-    <xs:complexType/>
-  </xs:element>
-  <xs:element name="KiNET">
     <xs:complexType/>
   </xs:element>
   <xs:element name="PosiStageNet">
