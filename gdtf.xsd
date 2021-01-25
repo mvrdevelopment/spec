@@ -290,12 +290,6 @@
       <xs:attribute name="MibFade" type="xs:float" default="0"/>
       <xs:attribute name="DMXChangeTimeLimit" type="xs:float" default="0"/>
     </xs:complexType>
-    <xs:unique name="UniqueChannelFunctionAttributeAndDMXFrom">
-      <xs:selector xpath="ChannelFunction"/>
-      <xs:field xpath="@Attribute"/>
-      <xs:field xpath="@DMXFrom"/>
-      <xs:field xpath="@ModeFrom"/>
-    </xs:unique>
     <xs:unique name="UniqueChannelFunction">
       <xs:selector xpath="ChannelFunction"/>
       <xs:field xpath="@Name"/>
