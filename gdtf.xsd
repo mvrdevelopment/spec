@@ -386,58 +386,38 @@
         <xs:element ref="FTMacro" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
+    <xs:unique name="UniqueMacroName">
+      <xs:selector xpath="FTMacro"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
   </xs:element>
   <xs:element name="FTMacro">
     <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="MacroDMX" minOccurs="0" maxOccurs="1"/>
-        <xs:element ref="MacroVisual" minOccurs="0" maxOccurs="1"/>
+      <xs:sequence>
+        <xs:element ref="MacroDMX" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute name="Name" type="xs:string" use="optional"/>
+      <xs:attribute name="Name" type="nametype" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="MacroDMX">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="DMXStep" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="MacroDMXStep"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DMXStep">
+  <xs:element name="MacroDMXStep">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="DMXValue" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="MacroDMXValue"/>
       </xs:sequence>
-      <xs:attribute name="Duration" type="xs:integer" use="optional"/>
+      <xs:attribute name="Duration" type="xs:float" use="optional"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DMXValue">
+  <xs:element name="MacroDMXValue">
     <xs:complexType>
-      <xs:attribute name="Value" type="dmxtype" use="optional"/>
-      <xs:attribute name="DMXChannel" type="xs:string" use="optional"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MacroVisual">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="VisualStep" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="VisualStep">
-    <xs:complexType>
-      <xs:sequence minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="VisualValue" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="Duration" type="xs:integer" use="optional"/>
-      <xs:attribute name="Fade" type="xs:string" use="optional"/>
-      <xs:attribute name="Delay" type="xs:string" use="optional"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="VisualValue">
-    <xs:complexType>
-      <xs:attribute name="Value" type="xs:string" use="optional"/>
-      <xs:attribute name="ChannelFunction" type="xs:string" use="optional"/>
+      <xs:attribute name="Value" type="dmxtype" use="required"/>
+      <xs:attribute name="DMXChannel" type="nodetype" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="PhysicalDescriptions">
