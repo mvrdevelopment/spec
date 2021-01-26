@@ -316,9 +316,8 @@
       <xs:attribute name="ModeFrom" type="dmxtype" default="0/1"/>
       <xs:attribute name="ModeTo" type="dmxtype" default="0/1"/>
     </xs:complexType>
-    <xs:unique name="UniqueChannelSetNameAndDMXFrom">
+    <xs:unique name="UniqueChannelSetDMXFrom">
       <xs:selector xpath="ChannelSet"/>
-      <xs:field xpath="@Name"/>
       <xs:field xpath="@DMXFrom"/>
     </xs:unique>
   </xs:element>
