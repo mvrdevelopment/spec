@@ -274,7 +274,7 @@
       </xs:sequence>
       <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
       <xs:attribute name="Offset" type="offsettype" default="None"/>
-      <xs:attribute name="InitialFunction" type="nodetype" use="required"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
+      <xs:attribute name="InitialFunction" type="nodetype" use="optional"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
       <xs:attribute name="Highlight" type="dmxtype" default="None"/>
       <xs:attribute name="Geometry" type="nametype" use="required"/>
     </xs:complexType>
