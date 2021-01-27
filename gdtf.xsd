@@ -530,6 +530,10 @@
       </xs:sequence>
       <xs:attribute name="ColorTemperature" type="xs:float" use="optional" default="6000"/>
     </xs:complexType>
+    <xs:unique name="UniqueCESInGroup">
+      <xs:selector xpath="CRI"/>
+      <xs:field xpath="@CES"/>
+    </xs:unique>
   </xs:element>
   <xs:element name="CRI">
     <xs:complexType>
