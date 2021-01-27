@@ -551,23 +551,6 @@
     <xs:attribute name="Follower" type="nodetype" use="required"/>
     <xs:attribute name="Type" type="RelationTypesEnum" use="required"/>
   </xs:complexType>
-  <!-- Revisions -->
-  <xs:complexType name="Revisions">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Revision" type="Revision"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Revision">
-    <xs:attribute name="Text" type="xs:string" use="optional"/>
-    <xs:attribute name="Date" type="xs:dateTime" use="optional"/>
-    <xs:attribute name="UserID" type="xs:integer" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="FTPresets">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="FTPreset" type="FTPreset"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FTPreset"/>
   <xs:complexType name="FTMacros">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="FTMacro" type="FTMacro" minOccurs="0" maxOccurs="unbounded"/>
@@ -594,6 +577,24 @@
     <xs:attribute name="Value" type="dmxtype" use="required"/>
     <xs:attribute name="DMXChannel" type="nodetype" use="required"/>
   </xs:complexType>
+  <!-- Revisions -->
+  <xs:complexType name="Revisions">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Revision" type="Revision"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Revision">
+    <xs:attribute name="Text" type="xs:string" use="optional"/>
+    <xs:attribute name="Date" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="UserID" type="xs:integer" use="optional"/>
+  </xs:complexType>
+  <!-- FT Presets -->
+  <xs:complexType name="FTPresets">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="FTPreset" type="FTPreset"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FTPreset"/>
   <!-- Protocols -->
   <xs:complexType name="Protocols">
     <xs:all>
