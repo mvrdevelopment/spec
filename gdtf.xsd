@@ -92,14 +92,14 @@
         <xs:element ref="AnimationSystem"/>
       </xs:choice>
       <xs:attribute name="Name" type="nametype" use="required"/>
-      <xs:attribute name="Color" type="colorcietype" use="optional" default="0.3127,0.3290,100.0"/>
+      <xs:attribute name="Color" type="colorcietype" use="optional"/>
       <xs:attribute name="Filter" type="nametype" use="optional"/>
       <xs:attribute name="MediaFileName" type="xs:string" use="optional" default=""/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Facet">
     <xs:complexType>
-      <xs:attribute name="Color" type="colorcietype" use="optional" default="0.3127,0.3290,100.0"/>
+      <xs:attribute name="Color" type="colorcietype" use="optional"/>
       <xs:attribute name="Rotation" type="rotationtype" use="required"/>
     </xs:complexType>
   </xs:element>
@@ -129,7 +129,7 @@
       <xs:attribute name="Width" type="xs:float" use="optional" default="0"/>
       <xs:attribute name="Height" type="xs:float" use="optional" default="0"/>
       <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum" use="optional" default="Undefined"/>
-      <xs:attribute name="File" type="xs:string" use="optional"/>
+      <xs:attribute name="File" type="xs:string" use="optional" default=""/>
     </xs:complexType>
   </xs:element>
   <xs:group name="GeometryChildren">
@@ -188,17 +188,17 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="BasicGeometryType">
-          <xs:attribute name="LampType" type="LampTypeEnum" use="optional" default="Discharge"/>
-          <xs:attribute name="PowerConsumption" type="xs:float" use="optional" default="1000"/>
-          <xs:attribute name="LuminousFlux" type="xs:float" use="optional" default="10000"/>
-          <xs:attribute name="ColorTemperature" type="xs:float" use="optional" default="6000"/>
-          <xs:attribute name="BeamAngle" type="xs:float" use="optional" default="25"/>
-          <xs:attribute name="FieldAngle" type="xs:float" use="optional" default="25"/>
-          <xs:attribute name="ThrowRatio" type="xs:float" use="optional" default="1"/>
-          <xs:attribute name="RectangleRatio" type="xs:float" use="optional" default="1.7777"/>
-          <xs:attribute name="BeamRadius" type="xs:float" use="optional" default="0.05"/>
-          <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional" default="Wash"/>
-          <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional" default="100"/>
+          <xs:attribute name="LampType" type="LampTypeEnum" use="optional"/>
+          <xs:attribute name="PowerConsumption" type="xs:float" use="optional"/>
+          <xs:attribute name="LuminousFlux" type="xs:float" use="optional"/>
+          <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
+          <xs:attribute name="BeamAngle" type="xs:float" use="optional"/>
+          <xs:attribute name="FieldAngle" type="xs:float" use="optional"/>
+          <xs:attribute name="ThrowRatio" type="xs:float" use="optional"/>
+          <xs:attribute name="RectangleRatio" type="xs:float" use="optional"/>
+          <xs:attribute name="BeamRadius" type="xs:float" use="optional"/>
+          <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional"/>
+          <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -287,8 +287,8 @@
       <xs:attribute name="Attribute" type="nametype" use="required"/>
       <xs:attribute name="Snap" type="SnapEnum" default="No"/>
       <xs:attribute name="Master" type="MasterEnum" default="None"/>
-      <xs:attribute name="MibFade" type="xs:float" default="0"/>
-      <xs:attribute name="DMXChangeTimeLimit" type="xs:float" default="0"/>
+      <xs:attribute name="MibFade" type="xs:float" use="optional"/>
+      <xs:attribute name="DMXChangeTimeLimit" type="xs:float" use="optional"/>
     </xs:complexType>
     <xs:unique name="UniqueChannelFunction">
       <xs:selector xpath="ChannelFunction"/>
@@ -305,10 +305,10 @@
       <xs:attribute name="OriginalAttribute" type="xs:string" default=""/>
       <xs:attribute name="DMXFrom" type="dmxtype" default="0/1"/>
       <xs:attribute name="Default" type="dmxtype" use="required"/>
-      <xs:attribute name="PhysicalFrom" type="xs:float" default="0"/>
-      <xs:attribute name="PhysicalTo" type="xs:float" default="1"/>
-      <xs:attribute name="RealFade" type="xs:float" default="0"/>
-      <xs:attribute name="RealAcceleration" type="xs:float" default="0"/>
+      <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
+      <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
+      <xs:attribute name="RealFade" type="xs:float" use="optional"/>
+      <xs:attribute name="RealAcceleration" type="xs:float" use="optional"/>
       <xs:attribute name="Wheel" type="nametype" use="optional"/>
       <xs:attribute name="Emitter" type="nametype" use="optional"/>
       <xs:attribute name="Filter" type="nametype" use="optional"/>
@@ -528,7 +528,7 @@
       <xs:sequence minOccurs="1" maxOccurs="99">
         <xs:element ref="CRI"/>
       </xs:sequence>
-      <xs:attribute name="ColorTemperature" type="xs:float" use="optional" default="6000"/>
+      <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
     </xs:complexType>
     <xs:unique name="UniqueCESInGroup">
       <xs:selector xpath="CRI"/>
@@ -538,7 +538,7 @@
   <xs:element name="CRI">
     <xs:complexType>
       <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
-      <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional" default="100"/>
+      <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Connectors">
@@ -557,8 +557,8 @@
       <xs:attribute name="Name" type="nametype" use="required"/>
       <xs:attribute name="Type" type="nametype" use="required"/>
       <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
-      <xs:attribute name="Gender" type="xs:integer" use="optional" default="0"/>
-      <xs:attribute name="Length" type="positivefloat" use="optional" default="0"/>
+      <xs:attribute name="Gender" type="xs:integer" use="optional"/>
+      <xs:attribute name="Length" type="positivefloat" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Properties">
@@ -575,29 +575,29 @@
   </xs:element>
   <xs:element name="OperatingTemperature">
     <xs:complexType>
-      <xs:attribute name="Low" type="xs:float" use="optional" default="0"/>
-      <xs:attribute name="High" type="xs:float" use="optional" default="40"/>
+      <xs:attribute name="Low" type="xs:float" use="optional"/>
+      <xs:attribute name="High" type="xs:float" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Weight">
     <xs:complexType>
-      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="Value" type="xs:float" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="PowerConsumption">
     <xs:complexType>
-      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
-      <xs:attribute name="PowerFactor" type="xs:float" use="optional" default="1"/>
+      <xs:attribute name="Value" type="xs:float" use="optional"/>
+      <xs:attribute name="PowerFactor" type="xs:float" use="optional"/>
       <xs:attribute name="Connector" type="nametype" use="required"/>
-      <xs:attribute name="VoltageLow" type="xs:float" use="optional" default="90"/>
-      <xs:attribute name="VoltageHigh" type="xs:float" use="optional" default="240"/>
-      <xs:attribute name="FrequencyLow" type="xs:float" use="optional" default="50"/>
-      <xs:attribute name="FrequencyHigh" type="xs:float" use="optional" default="60"/>
+      <xs:attribute name="VoltageLow" type="xs:float" use="optional"/>
+      <xs:attribute name="VoltageHigh" type="xs:float" use="optional"/>
+      <xs:attribute name="FrequencyLow" type="xs:float" use="optional"/>
+      <xs:attribute name="FrequencyHigh" type="xs:float" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="LegHeight">
     <xs:complexType>
-      <xs:attribute name="Value" type="xs:float" use="optional" default="0"/>
+      <xs:attribute name="Value" type="xs:float" use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Protocols">
