@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <!-- updated to 0.88 + robe attributes-->
   <xs:element name="GDTF">
     <xs:complexType>
       <xs:sequence>
@@ -731,8 +730,6 @@
       <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum" default="None"/>
       <xs:attribute name="Color" type="colorcietype" use="optional"/>
       <xs:attribute name="Feature" type="featuretype" use="required"/>
-      <!--      <xs:attribute name="Special" type="SpecialEnum" use="optional"/> -->
-      <!-- removed in 0.87 -->
       <xs:attribute name="MainAttribute" type="nametype" use="optional"/>
     </xs:complexType>
   </xs:element>
@@ -860,17 +857,6 @@
       <xs:enumeration value="ColorComponent"/>
     </xs:restriction>
   </xs:simpleType>
-  <!-- removed in 0.87  -->
-  <!-- <xs:simpleType name="SpecialEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="Dimmer"/>
-      <xs:enumeration value="Pan"/>
-      <xs:enumeration value="Tilt"/>
-      <xs:enumeration value="Color"/>
-    </xs:restriction>
-</xs:simpleType>
--->
   <xs:simpleType name="MasterEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="None"/>
@@ -911,17 +897,6 @@
       <xs:enumeration value="Rectangle"/>
     </xs:restriction>
   </xs:simpleType>
-  <!-- removed in 0.90  <xs:simpleType name="FrequencyEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="60"/>
-      <xs:enumeration value="30"/>
-      <xs:enumeration value="15"/>
-      <xs:enumeration value="Slow1"/>
-      <xs:enumeration value="Slow2"/>
-      <xs:enumeration value="Slow3"/>
-    </xs:restriction>
-      </xs:simpleType>
-  -->
   <xs:simpleType name="ColorSpaceEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Custom"/>
@@ -955,200 +930,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Multiply"/>
       <xs:enumeration value="Override"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMParameterTypeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="RDM"/>
-      <xs:enumeration value="FixtureType"/>
-      <xs:enumeration value="Fixture"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="ThresholdOperatorEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Is"/>
-      <xs:enumeration value="IsNot"/>
-      <xs:enumeration value="Greater"/>
-      <xs:enumeration value="Less"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMParameterDataTypeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="DS_NOT_DEFINED"/>
-      <xs:enumeration value="DS_BIT_FIELD"/>
-      <xs:enumeration value="DS_ASCII"/>
-      <xs:enumeration value="DS_UNSIGNED_BYTE"/>
-      <xs:enumeration value="DS_SIGNED_BYTE"/>
-      <xs:enumeration value="DS_UNSIGNED_WORD"/>
-      <xs:enumeration value="DS_SIGNED_WORD"/>
-      <xs:enumeration value="DS_UNSIGNED_DWORD"/>
-      <xs:enumeration value="DS_SIGNED_DWORD"/>
-      <xs:enumeration value="DS_MS"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMParameterCommandEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="CC_GET"/>
-      <xs:enumeration value="CC_SET"/>
-      <xs:enumeration value="CC_GET_SET"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMSensorTypeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SENS_VOLTAGE"/>
-      <xs:enumeration value="SENS_CURRENT"/>
-      <xs:enumeration value="SENS_FREQUENCY"/>
-      <xs:enumeration value="SENS_RESISTANCE"/>
-      <xs:enumeration value="SENS_POWER"/>
-      <xs:enumeration value="SENS_MASS"/>
-      <xs:enumeration value="SENS_LENGTH"/>
-      <xs:enumeration value="SENS_AREA"/>
-      <xs:enumeration value="SENS_VOLUME"/>
-      <xs:enumeration value="SENS_DENSITY"/>
-      <xs:enumeration value="SENS_VELOCITY"/>
-      <xs:enumeration value="SENS_ACCELERATION"/>
-      <xs:enumeration value="SENS_FORCE"/>
-      <xs:enumeration value="SENS_ENERGY"/>
-      <xs:enumeration value="SENS_PRESSURE"/>
-      <xs:enumeration value="SENS_TIME"/>
-      <xs:enumeration value="SENS_ANGLE"/>
-      <xs:enumeration value="SENS_POSITION_X"/>
-      <xs:enumeration value="SENS_POSITION_Y"/>
-      <xs:enumeration value="SENS_POSITION_Z"/>
-      <xs:enumeration value="SENS_ANGULAR_VELOCITY"/>
-      <xs:enumeration value="SENS_LUMINOUS_INTENSITY"/>
-      <xs:enumeration value="SENS_LUMINOUS_FLUX"/>
-      <xs:enumeration value="SENS_ILLUMINANCE"/>
-      <xs:enumeration value="SENS_CHROMINANCE_RED"/>
-      <xs:enumeration value="SENS_CHROMINANCE_GREEN"/>
-      <xs:enumeration value="SENS_CHROMINANCE_BLUE"/>
-      <xs:enumeration value="SENS_CONTACTS"/>
-      <xs:enumeration value="SENS_MEMORY"/>
-      <xs:enumeration value="SENS_ITEMS"/>
-      <xs:enumeration value="SENS_HUMIDITY"/>
-      <xs:enumeration value="SENS_COUNTER_16BIT"/>
-      <xs:enumeration value="SENS_OTHER"/>
-      <xs:enumeration value="SENS_MS"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMParameterSensorUnitEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="UNITS_NONE"/>
-      <xs:enumeration value="UNITS_CENTIGRADE"/>
-      <xs:enumeration value="UNITS_VOLTS_DC"/>
-      <xs:enumeration value="UNITS_VOLTS_AC_PEAK"/>
-      <xs:enumeration value="UNITS_VOLTS_AC_RMS"/>
-      <xs:enumeration value="UNITS_AMPERE_DC"/>
-      <xs:enumeration value="UNITS_AMPERE_AC_PEAK"/>
-      <xs:enumeration value="UNITS_AMPERE_AC_RMS"/>
-      <xs:enumeration value="UNITS_HERTZ"/>
-      <xs:enumeration value="UNITS_OHM"/>
-      <xs:enumeration value="UNITS_WATT"/>
-      <xs:enumeration value="UNITS_KILOGRAM"/>
-      <xs:enumeration value="UNITS_METERS"/>
-      <xs:enumeration value="UNITS_METERS_SQUARED"/>
-      <xs:enumeration value="UNITS_METERS_CUBED"/>
-      <xs:enumeration value="UNITS_KILOGRAMMES_PER_METER_CUBED"/>
-      <xs:enumeration value="UNITS_METERS_PER_SECOND"/>
-      <xs:enumeration value="UNITS_METERS_PER_SECOND_SQUARED"/>
-      <xs:enumeration value="UNITS_NEWTON"/>
-      <xs:enumeration value="UNITS_JOULE"/>
-      <xs:enumeration value="UNITS_PASCAL"/>
-      <xs:enumeration value="UNITS_SECOND"/>
-      <xs:enumeration value="UNITS_DEGREE"/>
-      <xs:enumeration value="UNITS_STERADIAN"/>
-      <xs:enumeration value="UNITS_CANDELA"/>
-      <xs:enumeration value="UNITS_LUMEN"/>
-      <xs:enumeration value="UNITS_LUX"/>
-      <xs:enumeration value="UNITS_IRE"/>
-      <xs:enumeration value="UNITS_BYTE"/>
-      <xs:enumeration value="UNITS_MS"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMSlotInfoTypeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ST_PRIMARY"/>
-      <xs:enumeration value="ST_SEC_FINE"/>
-      <xs:enumeration value="ST_SEC_TIMING"/>
-      <xs:enumeration value="ST_SEC_SPEED"/>
-      <xs:enumeration value="ST_SEC_CONTROL"/>
-      <xs:enumeration value="ST_SEC_INDEX"/>
-      <xs:enumeration value="ST_SEC_ROTATION"/>
-      <xs:enumeration value="ST_SEC_INDEX_ROTATE"/>
-      <xs:enumeration value="ST_SEC_UNDEFINED"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMSlotLabelIDEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SD_INTENSITY"/>
-      <xs:enumeration value="SD_INTENSITY_MASTER"/>
-      <xs:enumeration value="SD_PAN"/>
-      <xs:enumeration value="SD_TILT"/>
-      <xs:enumeration value="SD_COLOR_WHEEL"/>
-      <xs:enumeration value="SD_COLOR_SUB_CYAN"/>
-      <xs:enumeration value="SD_COLOR_SUB_YELLOW"/>
-      <xs:enumeration value="SD_COLOR_SUB_MAGENTA"/>
-      <xs:enumeration value="SD_COLOR_ADD_RED"/>
-      <xs:enumeration value="SD_COLOR_ADD_GREEN"/>
-      <xs:enumeration value="SD_COLOR_ADD_BLUE"/>
-      <xs:enumeration value="SD_COLOR_CORRECTION"/>
-      <xs:enumeration value="SD_COLOR_SCROLL"/>
-      <xs:enumeration value="SD_COLOR_SEMAPHORE"/>
-      <xs:enumeration value="SD_COLOR_ADD_AMBER"/>
-      <xs:enumeration value="SD_COLOR_ADD_WHITE"/>
-      <xs:enumeration value="SD_COLOR_ADD_W ARM_WHITE"/>
-      <xs:enumeration value="SD_COLOR_ADD_COOL_WHITE"/>
-      <xs:enumeration value="SD_COLOR_SUB_UV"/>
-      <xs:enumeration value="SD_COLOR_HUE"/>
-      <xs:enumeration value="SD_COLOR_SATURATION"/>
-      <xs:enumeration value="SD_STATIC_GOBO_WHEEL"/>
-      <xs:enumeration value="SD_ROTO_GOBO_WHEEL"/>
-      <xs:enumeration value="SD_PRISM_WHEEL"/>
-      <xs:enumeration value="SD_EFFECTS_WHEEL"/>
-      <xs:enumeration value="SD_BEAM_SIZE_IRIS"/>
-      <xs:enumeration value="SD_EDGE"/>
-      <xs:enumeration value="SD_FROST"/>
-      <xs:enumeration value="SD_STROBE"/>
-      <xs:enumeration value="SD_ZOOM"/>
-      <xs:enumeration value="SD_FRAMING_SHUTTER"/>
-      <xs:enumeration value="SD_SHUTTER_ROTATE"/>
-      <xs:enumeration value="SD_DOUSER"/>
-      <xs:enumeration value="SD_BARN_DOOR"/>
-      <xs:enumeration value="SD_LAMP_CONTROL"/>
-      <xs:enumeration value="SD_FIXTURE_CONTROL"/>
-      <xs:enumeration value="SD_FIXTURE_SPEED"/>
-      <xs:enumeration value="SD_MACRO"/>
-      <xs:enumeration value="SD_POWER_CONTROL"/>
-      <xs:enumeration value="SD_FAN_CONTROL"/>
-      <xs:enumeration value="SD_HEATER_CONTROL"/>
-      <xs:enumeration value="SD_FOUNTAIN_CONTROL"/>
-      <xs:enumeration value="SD_UNDEFINED"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RDMParameterSensorUnitPrefixEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="PREFIX_NONE"/>
-      <xs:enumeration value="PREFIX_DECI"/>
-      <xs:enumeration value="PREFIX_CENTI"/>
-      <xs:enumeration value="PREFIX_MILLI"/>
-      <xs:enumeration value="PREFIX_MICRO"/>
-      <xs:enumeration value="PREFIX_NANO"/>
-      <xs:enumeration value="PREFIX_PICO"/>
-      <xs:enumeration value="PREFIX_FEMPTO"/>
-      <xs:enumeration value="PREFIX_ATTO"/>
-      <xs:enumeration value="PREFIX_ZEPTO"/>
-      <xs:enumeration value="PREFIX_YOCTO"/>
-      <xs:enumeration value="PREFIX_DECA"/>
-      <xs:enumeration value="PREFIX_HECTO"/>
-      <xs:enumeration value="PREFIX_KILO"/>
-      <xs:enumeration value="PREFIX_MEGA"/>
-      <xs:enumeration value="PREFIX_GIGA"/>
-      <xs:enumeration value="PREFIX_TERRA"/>
-      <xs:enumeration value="PREFIX_PETA"/>
-      <xs:enumeration value="PREFIX_EXA"/>
-      <xs:enumeration value="PREFIX_ZETTA"/>
-      <xs:enumeration value="PREFIX_YOTTA"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="CESEnum">
