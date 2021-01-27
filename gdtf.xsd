@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- GDTF (Root Element) -->
   <xs:element name="GDTF">
     <xs:complexType>
       <xs:sequence>
@@ -38,6 +39,7 @@
       <xs:attribute name="DataVersion" type="dataversion" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- FixtureType -->
   <xs:complexType name="FixtureType">
     <xs:sequence>
       <xs:element minOccurs="1" name="AttributeDefinitions" type="AttributeDefinitions">
@@ -94,6 +96,75 @@
     <xs:attribute name="RefFT" type="guidtype" use="optional"/>
     <xs:attribute name="CanHaveChildren" type="YesNoEnum" use="optional" default="Yes"/>
   </xs:complexType>
+  <!-- AttributeDefinitions -->
+  <xs:complexType name="AttributeDefinitions">
+    <xs:all>
+      <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0">
+        <xs:unique name="UniqueActivationGroup">
+          <xs:selector xpath="ActivationGroup"/>
+          <xs:field xpath="@Name"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1">
+        <xs:unique name="UniqueFeatureGroup">
+          <xs:selector xpath="FeatureGroup"/>
+          <xs:field xpath="@Name"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="Attributes" type="Attributes" minOccurs="1">
+        <xs:unique name="UniqueAttribute">
+          <xs:selector xpath="Attribute"/>
+          <xs:field xpath="@Name"/>
+        </xs:unique>
+        <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
+          <xs:selector xpath="Attribute" />
+          <xs:field xpath="@MainAttribute" />
+        </xs:keyref>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="ActivationGroups">
+    <xs:sequence>
+      <xs:element name="ActivationGroup" type="ActivationGroup" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FeatureGroups">
+    <xs:sequence>
+      <xs:element name="FeatureGroup" type="FeatureGroup" minOccurs="0" maxOccurs="unbounded">
+        <xs:unique name="UniqueFeature">
+          <xs:selector xpath="Feature"/>
+          <xs:field xpath="@Name"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActivationGroup">
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FeatureGroup">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Feature" type="Feature"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="Pretty" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Feature">
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Attributes">
+    <xs:sequence>
+      <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Attribute">
+    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Pretty" type="xs:string" use="required"/>
+    <xs:attribute name="ActivationGroup" type="xs:string" use="optional"/>
+    <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum" default="None"/>
+    <xs:attribute name="Color" type="colorcietype" use="optional"/>
+    <xs:attribute name="Feature" type="featuretype" use="required"/>
+    <xs:attribute name="MainAttribute" type="nametype" use="optional"/>
+  </xs:complexType>
   <!-- Wheels -->
   <xs:complexType name="Wheels">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -131,6 +202,164 @@
     <xs:attribute name="P3" type="twoarray" use="required"/>
     <xs:attribute name="Radius" type="positivefloat" use="required"/>
   </xs:complexType>
+  <!-- PhysicalDescriptions -->
+  <xs:complexType name="PhysicalDescriptions">
+    <xs:all>
+      <xs:element name="Emitters" type="Emitters" minOccurs="0">
+        <xs:key name="UniqueEmitter">
+          <xs:selector xpath="Emitter" />
+          <xs:field xpath="@Name" />
+        </xs:key>
+      </xs:element>
+      <xs:element name="Filters" type="Filters" minOccurs="0">
+        <xs:key name="UniqueFilter">
+          <xs:selector xpath="Filter" />
+          <xs:field xpath="@Name" />
+        </xs:key>
+      </xs:element>
+      <xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
+      <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
+      <xs:element name="CRIs" type="CRIs" minOccurs="0"/>
+      <xs:element name="Connectors" type="Connectors" minOccurs="0">
+        <xs:unique name="UniqueConnector">
+          <xs:selector xpath="Connector"/>
+          <xs:field xpath="@Name"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="Properties" type="Properties" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Emitters">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Emitter" type="Emitter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Emitter">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Measurement">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
+          </xs:sequence>
+          <xs:attribute name="Physical" type="physicaltype" use="required"/>
+          <xs:attribute name="LuminousIntensity" type="xs:float" use="required"/>
+          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
+        </xs:complexType>
+        <xs:unique name="UniqueWaveLengthInEmitterMeasurement">
+          <xs:selector xpath="MeasurementPoint"/>
+          <xs:field xpath="@WaveLength"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Color" type="colorcietype" use="optional"/>
+    <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/> <!-- Required if Color is omitted! -->
+    <xs:attribute name="DiodePart" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Filters">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Filter" type="Filter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Filter">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Measurement">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
+          </xs:sequence>
+          <xs:attribute name="Physical" type="physicaltype" use="required"/>
+          <xs:attribute name="Transmission" type="xs:float" use="required"/>
+          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
+        </xs:complexType>
+        <xs:unique name="UniqueWaveLengthInFilterMeasurement">
+          <xs:selector xpath="MeasurementPoint"/>
+          <xs:field xpath="@WaveLength"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Color" type="colorcietype" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="MeasurementPoint">
+    <xs:attribute name="WaveLength" type="xs:float" use="required"/>
+    <xs:attribute name="Energy" type="xs:float" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ColorSpace">
+    <xs:attribute name="Mode" type="ColorSpaceEnum" use="optional" default="sRGB"/>
+    <xs:attribute name="Red" type="colorcietype" use="optional"/>
+    <xs:attribute name="Green" type="colorcietype" use="optional"/>
+    <xs:attribute name="Blue" type="colorcietype" use="optional"/>
+    <xs:attribute name="WhitePoint" type="colorcietype" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="DMXProfiles">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="DMXProfile" type="DMXProfile"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DMXProfile"/>
+  <xs:complexType name="CRIs">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CRIGroup" type="CRIGroup">
+        <xs:unique name="UniqueCESInGroup">
+          <xs:selector xpath="CRI"/>
+          <xs:field xpath="@CES"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CRIGroup">
+    <xs:sequence minOccurs="1" maxOccurs="99">
+      <xs:element name="CRI" type="CRI"/>
+    </xs:sequence>
+    <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="CRI">
+    <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
+    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Connectors">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Connector" type="Connector"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Connector">
+    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Type" type="nametype" use="required"/>
+    <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
+    <xs:attribute name="Gender" type="xs:integer" use="optional"/>
+    <xs:attribute name="Length" type="positivefloat" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Properties">
+    <!-- The DIN 15800:2020-07 implicitly allows arbitrary order, but that is not easily representable in XSD 1.0.
+      Therefore we restrict order here arbitrarily by using xs:sequence. -->
+    <xs:sequence>
+      <xs:element name="OperatingTemperature" type="OperatingTemperature" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Weight" type="Weight" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PowerConsumption" type="PowerConsumption" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="LegHeight" type="LegHeight" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperatingTemperature">
+    <xs:attribute name="Low" type="xs:float" use="optional"/>
+    <xs:attribute name="High" type="xs:float" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Weight">
+    <xs:attribute name="Value" type="xs:float" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="PowerConsumption">
+    <xs:attribute name="Value" type="xs:float" use="optional"/>
+    <xs:attribute name="PowerFactor" type="xs:float" use="optional"/>
+    <xs:attribute name="Connector" type="nametype" use="required"/>
+    <xs:attribute name="VoltageLow" type="xs:float" use="optional"/>
+    <xs:attribute name="VoltageHigh" type="xs:float" use="optional"/>
+    <xs:attribute name="FrequencyLow" type="xs:float" use="optional"/>
+    <xs:attribute name="FrequencyHigh" type="xs:float" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="LegHeight">
+    <xs:attribute name="Value" type="xs:float" use="optional"/>
+  </xs:complexType>
+  <!-- Models -->
   <xs:complexType name="Models">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="Model" type="Model"/>
@@ -363,163 +592,7 @@
     <xs:attribute name="Value" type="dmxtype" use="required"/>
     <xs:attribute name="DMXChannel" type="nodetype" use="required"/>
   </xs:complexType>
-  <!-- PhysicalDescriptions -->
-  <xs:complexType name="PhysicalDescriptions">
-    <xs:all>
-      <xs:element name="Emitters" type="Emitters" minOccurs="0">
-        <xs:key name="UniqueEmitter">
-          <xs:selector xpath="Emitter" />
-          <xs:field xpath="@Name" />
-        </xs:key>
-      </xs:element>
-      <xs:element name="Filters" type="Filters" minOccurs="0">
-        <xs:key name="UniqueFilter">
-          <xs:selector xpath="Filter" />
-          <xs:field xpath="@Name" />
-        </xs:key>
-      </xs:element>
-      <xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
-      <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
-      <xs:element name="CRIs" type="CRIs" minOccurs="0"/>
-      <xs:element name="Connectors" type="Connectors" minOccurs="0">
-        <xs:unique name="UniqueConnector">
-          <xs:selector xpath="Connector"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="Properties" type="Properties" minOccurs="0"/>
-    </xs:all>
-  </xs:complexType>
-  <xs:complexType name="Emitters">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Emitter" type="Emitter"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Emitter">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Measurement">
-        <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
-          </xs:sequence>
-          <xs:attribute name="Physical" type="physicaltype" use="required"/>
-          <xs:attribute name="LuminousIntensity" type="xs:float" use="required"/>
-          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
-        </xs:complexType>
-        <xs:unique name="UniqueWaveLengthInEmitterMeasurement">
-          <xs:selector xpath="MeasurementPoint"/>
-          <xs:field xpath="@WaveLength"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/> <!-- Required if Color is omitted! -->
-    <xs:attribute name="DiodePart" type="xs:string" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Filters">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Filter" type="Filter"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Filter">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Measurement">
-        <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
-          </xs:sequence>
-          <xs:attribute name="Physical" type="physicaltype" use="required"/>
-          <xs:attribute name="Transmission" type="xs:float" use="required"/>
-          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
-        </xs:complexType>
-        <xs:unique name="UniqueWaveLengthInFilterMeasurement">
-          <xs:selector xpath="MeasurementPoint"/>
-          <xs:field xpath="@WaveLength"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="MeasurementPoint">
-    <xs:attribute name="WaveLength" type="xs:float" use="required"/>
-    <xs:attribute name="Energy" type="xs:float" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="ColorSpace">
-    <xs:attribute name="Mode" type="ColorSpaceEnum" use="optional" default="sRGB"/>
-    <xs:attribute name="Red" type="colorcietype" use="optional"/>
-    <xs:attribute name="Green" type="colorcietype" use="optional"/>
-    <xs:attribute name="Blue" type="colorcietype" use="optional"/>
-    <xs:attribute name="WhitePoint" type="colorcietype" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="DMXProfiles">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="DMXProfile" type="DMXProfile"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DMXProfile"/>
-  <xs:complexType name="CRIs">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="CRIGroup" type="CRIGroup">
-        <xs:unique name="UniqueCESInGroup">
-          <xs:selector xpath="CRI"/>
-          <xs:field xpath="@CES"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="CRIGroup">
-    <xs:sequence minOccurs="1" maxOccurs="99">
-      <xs:element name="CRI" type="CRI"/>
-    </xs:sequence>
-    <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="CRI">
-    <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
-    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Connectors">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Connector" type="Connector"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Connector">
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Type" type="nametype" use="required"/>
-    <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
-    <xs:attribute name="Gender" type="xs:integer" use="optional"/>
-    <xs:attribute name="Length" type="positivefloat" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Properties">
-    <!-- The DIN 15800:2020-07 implicitly allows arbitrary order, but that is not easily representable in XSD 1.0.
-      Therefore we restrict order here arbitrarily by using xs:sequence. -->
-    <xs:sequence>
-      <xs:element name="OperatingTemperature" type="OperatingTemperature" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Weight" type="Weight" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="PowerConsumption" type="PowerConsumption" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="LegHeight" type="LegHeight" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="OperatingTemperature">
-    <xs:attribute name="Low" type="xs:float" use="optional"/>
-    <xs:attribute name="High" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Weight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="PowerConsumption">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
-    <xs:attribute name="PowerFactor" type="xs:float" use="optional"/>
-    <xs:attribute name="Connector" type="nametype" use="required"/>
-    <xs:attribute name="VoltageLow" type="xs:float" use="optional"/>
-    <xs:attribute name="VoltageHigh" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyLow" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyHigh" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="LegHeight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
-  </xs:complexType>
+  <!-- Protocols -->
   <xs:complexType name="Protocols">
     <xs:all>
       <xs:element name="FTRDM" type="FTRDM" minOccurs="0" />
@@ -551,74 +624,6 @@
   <xs:complexType name="DMXPersonality">
     <xs:attribute name="Value" type="hextype" use="optional"/>
     <xs:attribute name="DMXMode" type="nametype" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="AttributeDefinitions">
-    <xs:all>
-      <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0">
-        <xs:unique name="UniqueActivationGroup">
-          <xs:selector xpath="ActivationGroup"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1">
-        <xs:unique name="UniqueFeatureGroup">
-          <xs:selector xpath="FeatureGroup"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="Attributes" type="Attributes" minOccurs="1">
-        <xs:unique name="UniqueAttribute">
-          <xs:selector xpath="Attribute"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-        <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
-          <xs:selector xpath="Attribute" />
-          <xs:field xpath="@MainAttribute" />
-        </xs:keyref>
-      </xs:element>
-    </xs:all>
-  </xs:complexType>
-  <xs:complexType name="ActivationGroups">
-    <xs:sequence>
-      <xs:element name="ActivationGroup" type="ActivationGroup" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FeatureGroups">
-    <xs:sequence>
-      <xs:element name="FeatureGroup" type="FeatureGroup" minOccurs="0" maxOccurs="unbounded">
-        <xs:unique name="UniqueFeature">
-          <xs:selector xpath="Feature"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ActivationGroup">
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="FeatureGroup">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Feature" type="Feature"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-    <xs:attribute name="Pretty" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="Feature">
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="Attributes">
-    <xs:sequence>
-      <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Attribute">
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Pretty" type="xs:string" use="required"/>
-    <xs:attribute name="ActivationGroup" type="xs:string" use="optional"/>
-    <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum" default="None"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="Feature" type="featuretype" use="required"/>
-    <xs:attribute name="MainAttribute" type="nametype" use="optional"/>
   </xs:complexType>
   <!-- Custom types -->
   <xs:simpleType name="positivefloat">
