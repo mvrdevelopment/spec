@@ -333,12 +333,14 @@
   <xs:complexType name="Properties">
     <!-- The DIN 15800:2020-07 implicitly allows arbitrary order, but that is not easily representable in XSD 1.0.
       Therefore we restrict order here arbitrarily by using xs:sequence. -->
-    <xs:sequence>
-      <xs:element name="OperatingTemperature" type="OperatingTemperature" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Weight" type="Weight" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="PowerConsumption" type="PowerConsumption" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="LegHeight" type="LegHeight" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <!-- OperatingTemperature, Weight and LegHeight must only appear once. 
+      This cannot be succinctly enforced in XSD 1.0 without also restricting the order of the children. -->
+      <xs:element name="OperatingTemperature" type="OperatingTemperature"/>
+      <xs:element name="Weight" type="Weight"/>
+      <xs:element name="PowerConsumption" type="PowerConsumption"/>
+      <xs:element name="LegHeight" type="LegHeight"/>
+    </xs:choice>
   </xs:complexType>
   <xs:complexType name="OperatingTemperature">
     <xs:attribute name="Low" type="xs:float" use="optional"/>
