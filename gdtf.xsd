@@ -406,6 +406,10 @@
           <xs:attribute name="LuminousIntensity" type="xs:float" use="required"/>
           <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
         </xs:complexType>
+        <xs:unique name="UniqueWaveLengthInEmitterMeasurement">
+          <xs:selector xpath="MeasurementPoint"/>
+          <xs:field xpath="@WaveLength"/>
+        </xs:unique>
       </xs:element>
     </xs:sequence>
     <xs:attribute name="Name" type="nametype" use="required"/>
@@ -429,6 +433,10 @@
           <xs:attribute name="Transmission" type="xs:float" use="required"/>
           <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
         </xs:complexType>
+        <xs:unique name="UniqueWaveLengthInFilterMeasurement">
+          <xs:selector xpath="MeasurementPoint"/>
+          <xs:field xpath="@WaveLength"/>
+        </xs:unique>
       </xs:element>
     </xs:sequence>
     <xs:attribute name="Name" type="nametype" use="required"/>
