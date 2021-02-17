@@ -19,10 +19,10 @@ The following requirements for the glTF file apply:
 - Use the `glb` binary formart
 - Only use the v2 format
 - Do not use extension
-- Dp not use animations
+- Do not use animations
 - Only use jpeg or png texture resource
-- The GDTF defind alignment for placing objects in the scene
-- all vertex attributes are GL_FLOAT
+- The GDTF defined alignment for placing objects in the scene
+- all vertex attributes are `GL_FLOAT`
 
 ## Changes to GDTF
 
