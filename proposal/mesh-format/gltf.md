@@ -17,7 +17,7 @@ The we will allow GDTF and MVR to have glTF files https://github.com/KhronosGrou
 The following requirements for the glTF file apply:
 
 - Use the `glb` binary formart
-- Only use the v2 formart
+- Only use the v2 format
 - Do not use extension
 - Dp not use animations
 - Only use jpeg or png texture resource
