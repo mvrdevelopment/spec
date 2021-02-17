@@ -24,6 +24,8 @@ The following requirements for the glTF file apply:
 - The GDTF defined alignment for placing objects in the scene
 - all vertex attributes are `GL_FLOAT`
 
+Note that MVR and GDTF compatible application need to *read* `glTF` and `3ds` files, but only need to export either `glTF` or `3ds`.
+
 ## Changes to GDTF
 
 To describe the device type, an uncompressed zip file with the extension
@@ -49,11 +51,9 @@ all firmware revisions of the device.
 ./models/svg/yoke.svg
 ```
 
-
-
 | Attribute Name | Attribute Value Type                        | Description                          |
 | -------------- | ------------------------------------------- | ------------------------------------ |
-| File           | [Resource](#user-content-attrtype-resource) | Optional; File name without extension and without subfolder containing description of the model. Use the following as a resource file: - 3DS file to provide 3D model. |
+| File           | [Resource](#user-content-attrtype-resource) | Optional; File name without extension and without subfolder containing description of the model. Use the following as a resource file: - 3DS or GLB file to provide 3D model. |
 
 
 - GLB file to provide 3D model.
@@ -61,9 +61,26 @@ all firmware revisions of the device.
 - SVG file to provide the 2D symbol. 
 
 
-
 ## Changes MVR
 
+Example of a typical MVR archive:
+
+```
+GeneralSceneDescription.xml
+Custom@Fixture.gdtf
+Custom@Fixture.gdtf
+geo1.3ds
+geo1.glb
+Textr12.png
+```
+
+## Node Definition: Geometry3D
+
+Node name: `Geometry3D`
+
+| Attribute Name | Attribute Value Type                        | Default Value when Optional | Description                                                                                                                                  |
+| -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| fileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
 ## Best Practices
 
