@@ -19,10 +19,12 @@ The following requirements for the glTF file apply:
 - Use the `glb` binary formart
 - Only use the v2 formart
 - Do not use extension
+- Dp not use animations
 - Only use jpeg or png texture resource
-- The normal alignment for 
+- The GDTF defind alignment for placing objects in the scene
+- all vertex attributes are GL_FLOAT
 
-### Changes to GDTF
+## Changes to GDTF
 
 To describe the device type, an uncompressed zip file with the extension
 "\*.gdtf" is used. The archive shall contain a description XML file and
@@ -60,4 +62,13 @@ all firmware revisions of the device.
 
 
 
-### Changes MVR
+## Changes MVR
+
+
+## Best Practices
+
+### Asset Authoring Flow
+The Khronos Group has a good example of a glTF authoring flow.
+https://www.khronos.org/blog/art-pipeline-for-gltf
+
+### Sample files
