@@ -2,7 +2,7 @@
 
 ## Linked Issue
 
- - Add additional 3D supported formats #8 https://github.com/mvrdevelopment/spec/issues/8 
+ - Add additional 3D supported formats [#8](https://github.com/mvrdevelopment/spec/issues/8 )
 
 # Problem
 
@@ -12,7 +12,7 @@ But also it is important to keep backword compatibility.
 
 # Solution
 
-The we will allow GDTF and MVR to have glTF files https://github.com/KhronosGroup/glTF/blob/master/README.md as default mesh format.
+The we will allow GDTF and MVR to have [glTF files](https://github.com/KhronosGroup/glTF/blob/master/README.md) as default mesh format.
 
 The following requirements for the glTF file apply:
 
