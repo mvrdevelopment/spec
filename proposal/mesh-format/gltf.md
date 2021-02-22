@@ -95,5 +95,5 @@ https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0
 The sample viewer can be used as reference
 http://github.khronos.org/glTF-Sample-Viewer/
 
-## Good Examample explaining PBR materials
+## Good example explaining PBR materials
 https://marmoset.co/posts/pbr-texture-conversion/
