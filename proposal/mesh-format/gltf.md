@@ -91,3 +91,6 @@ https://www.khronos.org/blog/art-pipeline-for-gltf
 ### Sample files
 These samples files are good for testing
 https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0
+
+The sample viewer can be used as reference
+http://github.khronos.org/glTF-Sample-Viewer/
