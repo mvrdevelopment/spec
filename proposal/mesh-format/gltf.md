@@ -89,3 +89,5 @@ The Khronos Group has a good example of a glTF authoring flow.
 https://www.khronos.org/blog/art-pipeline-for-gltf
 
 ### Sample files
+These samples files are good for testing
+https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0
