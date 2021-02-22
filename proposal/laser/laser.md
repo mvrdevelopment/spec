@@ -22,10 +22,12 @@ We will add a new geometry type for lasers in GDTF. This allow you define the pr
 | Model              | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                               |
 | Position           | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                                  |
 | ColorType          | [Enum](#user-content-attrtype-enum )      | The currently defined unit values are: “RGB”, “SingleWaveLength”,  Default: RGB.                               |
-| OutputStrength     | [Float](#user-content-attrtype-float)     | Output Strength of the Laser; Unit: mW                                                                         |
+| Color              | [Float](#user-content-attrtype-float)     | Required if [ColorType] is "SingleWaveLength"; Unit:nm (nanometers)                                            |
+| OutputStrength     | [Float](#user-content-attrtype-float)     | Output Strength of the Laser; Unit: mW (milliwatt)                                                             |
 | Emitter            | [Node](#user-content-attrtype-node )      | Optional link to the emitter group. The starting point is the [Emitters](#user-content-emitter-collect ) node. |
-| BeamDivergenceMin  | [Float](#user-content-attrtype-float)     | Minimum beam divergence; Unit: mrad                                                                            |
-| BeamDivergenceMax  | [Float](#user-content-attrtype-float)     | Maximum beam divergence; Unit: mrad                                                                            |
+| BeamDiameter       | [Float](#user-content-attrtype-float)     | Beam diameter where it leaves the projector; Unit: mm (millimeters)                                            |
+| BeamDivergenceMin  | [Float](#user-content-attrtype-float)     | Minimum beam divergence; Unit: mrad  (milliradian)                                                             |
+| BeamDivergenceMax  | [Float](#user-content-attrtype-float)     | Maximum beam divergence; Unit: mrad  (milliradian)                                                             |
 | ScanAnglePan       | [Float](#user-content-attrtype-float)     | Possible Total Scan Angle Pan of the beam. Assumes symetrical output; Unit: Degree                             |
 | ScanAngleTilt      | [Float](#user-content-attrtype-float)     | Possible Total Scan Angle Pan of the beam. Assumes symetrical output; Unit: Degree                             |
 | ScanSpeed          | [Float](#user-content-attrtype-float)     | Speed of the beam; Unit: kilo point per second                                                                 |
@@ -43,6 +45,7 @@ The following example shows a Laser Geometry:
     ColorType="RGB" 
     OutputStrength="5" 
     Emitter="RGB LASER" 
+    BeamDiameter="100"
     BeamDivergenceMin="1" 
     BeamDivergenceMax="4" 
     ScanAnglePan="90" 
