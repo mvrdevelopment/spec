@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<GDTF DataVersion="1.1">
+
+  <FixtureType CanHaveChildren="Yes" Description="" FixtureTypeID="00000000-0000-0000-0000-000000000000" LongName="Basic Moving Head" Manufacturer="GDTF Template" Name="Basic Moving Head" RefFT="" ShortName="Moving Head" Thumbnail="">
+    <DMXModes>
+      <DMXMode Geometry="Base" Name="Default">
+        <DMXChannels>
+          <DMXChannel DMXBreak="1" Default="0/1" Geometry="Beam" Highlight="255/1" Offset="1" OSC="Beam_Dimmer.Dimmer.Dimmer">
+            <LogicalChannel Attribute="Dimmer" DMXChangeTimeLimit="0.000000" Master="Grand" MibFade="0.000000" Snap="No">
+              <ChannelFunction Attribute="Dimmer" DMXFrom="0/1" Name="Dimmer 1" OriginalAttribute="" PhysicalFrom="0.000000" PhysicalTo="1.000000" RealAcceleration="0.000000" RealFade="0.000000">
+              </ChannelFunction>
+            </LogicalChannel>
+          </DMXChannel>
+          <DMXChannel DMXBreak="1" Default="32768/2" Geometry="Yoke" Highlight="None" Offset="2,3">
+            <LogicalChannel Attribute="Pan" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
+              <ChannelFunction Attribute="Pan" DMXFrom="0/2" Name="Pan 1" OriginalAttribute="" PhysicalFrom="-270.000000" PhysicalTo="270.000000" RealAcceleration="0.000000" RealFade="0.000000">
+              </ChannelFunction>
+            </LogicalChannel>
+          </DMXChannel>
+          <DMXChannel DMXBreak="1" Default="32768/2" Geometry="Head" Highlight="None" Offset="4,5">
+            <LogicalChannel Attribute="Tilt" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
+              <ChannelFunction Attribute="Tilt" DMXFrom="0/2" Name="Tilt 1" OriginalAttribute="" PhysicalFrom="-110.000000" PhysicalTo="110.000000" RealAcceleration="0.000000" RealFade="0.000000">
+              </ChannelFunction>
+            </LogicalChannel>
+          </DMXChannel>
+        </DMXChannels>
+      </DMXMode>
+    </DMXModes>
+    <Protocols>
+      <Art-Net>
+        <Map key="0">0</>
+        <Map key="1">1</>
+        <Map key="2">2</>
+      </Art-Net>
+      <sACN>
+        <Map key="0">0</>
+        <Map key="1">1</>
+        <Map key="2">2</>
+      </Art-Net>
+      <PosiStageNet>
+        <Tracker>
+            <ori_z type="in"> 
+                <Link Mode="Default" Channels="2,3" Min="0" Max="65355" From="0" To="100"></Link>
+            </ori_z>
+            <pos_y type="in"> 
+                <Link Mode="Default" ChannelFunction="Beam_Dimmer.Dimmer.Dimmer" Min="0" Max="100" From="0" To="100"></Link>
+            </pos_x>
+            <ori_y type="out"> 
+                <Link Mode="Default" ChannelFunction="Beam_Dimmer.Dimmer.Dimmer" Min="0" Max="65355" From="0" To="100"></Link>
+            </ori_y>
+        </Tracker>
+      </PosiStageNet>
+      <OpenSoundControl>
+      </OpenSoundControl>
+      <CITP>
+      </CITP>
+    </Protocols>
+    
+  </FixtureType>
+
+</GDTF>
