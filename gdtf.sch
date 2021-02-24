@@ -75,4 +75,19 @@
         </sch:rule>
     </sch:pattern>
 
+    <sch:pattern name="No Conflict between Default ChannelFunction Name and other ChannelFunction Names in a given LogicalChannel">
+        <sch:rule context="//GDTF/FixtureType/DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction[not(@Name)]">
+            <sch:assert test="
+                let $defaultChannelFunctionName := concat(@Attribute, ' ', count(preceding-sibling::ChannelFunction)+1)
+                return count(../ChannelFunction[@Name eq $defaultChannelFunctionName]) eq 0
+            ">Error: In DMX Mode "<xsl:value-of select="../../../../@Name"/>", the Name of Channel Function "<xsl:value-of 
+            select="concat(
+                ../../@Geometry, '_', ../../LogicalChannel[1]/@Attribute, '.', ../@Attribute, '.', concat(@Attribute, ' ', 
+                count(preceding-sibling::ChannelFunction)+1)
+            )"/>" conincides with the default Name of Channel Function Number <xsl:value-of select="
+            count(preceding-sibling::ChannelFunction)+1" /> in the Logical Channel "<xsl:value-of select="
+            concat(../../@Geometry, '_', ../../LogicalChannel[1]/@Attribute, '.', ../@Attribute)"/>".</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
 </sch:schema>
