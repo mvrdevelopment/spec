@@ -5,7 +5,7 @@
     <DMXModes>
       <DMXMode Geometry="Base" Name="Default">
         <DMXChannels>
-          <DMXChannel DMXBreak="1" Default="0/1" Geometry="Beam" Highlight="255/1" Offset="1" OSC="Beam_Dimmer.Dimmer.Dimmer">
+          <DMXChannel DMXBreak="1" Default="0/1" Geometry="Beam" Highlight="255/1" Offset="1" CustomName="Pipe_Pressure.Pressure.Pressure">
             <LogicalChannel Attribute="Dimmer" DMXChangeTimeLimit="0.000000" Master="Grand" MibFade="0.000000" Snap="No">
               <ChannelFunction Attribute="Dimmer" DMXFrom="0/1" Name="Dimmer 1" OriginalAttribute="" PhysicalFrom="0.000000" PhysicalTo="1.000000" RealAcceleration="0.000000" RealFade="0.000000">
               </ChannelFunction>
