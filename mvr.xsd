@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <!-- GDTF (Root Element) -->
   <xs:element name="GeneralSceneDescription">
     <xs:complexType>
       <xs:sequence>
@@ -12,22 +11,37 @@
     </xs:complexType>
   </xs:element>
   <xs:complexType name="UserData">
-    <xs:element name="Data" type="Data" minOccurs="0"/>
+    <xs:sequence>
+      <xs:element name="Data" type="Data" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Data">
     <xs:attribute name="provider" type="xs:string" use="required"/>
     <xs:attribute name="ver" type="xs:string" default="1"/>
   </xs:complexType>
   <xs:complexType name="Scene">
-    <xs:element name="AUXData" type="AUXData" minOccurs="0"/>
-    <xs:element name="Layers" type="Layers" minOccurs="1"/>
+    <xs:sequence>
+      <xs:element name="Layers" type="Layers" minOccurs="1"/>
+      <xs:element name="AUXData" type="AUXData" minOccurs="0"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="AUXData">
-    <xs:element name="Symdef" type="Symdef"/>
-    <xs:element name="Position" type="Position"/>
-    <xs:element name="MappingDefinition" type="MappingDefinition"/>
+    <xs:sequence>
+      <xs:element name="Class" type="Class" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Symdef" type="Symdef" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Position" type="Position" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="MappingDefinition" type="MappingDefinition" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Class">
+    <xs:attribute name="uuid" type="guidtype" use="required"/>
+    <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Symdef">
-    <xs:element name="Geometry3D" type="Geometry3D"/>
-    <xs:element name="Symbol" type="Symbol"/>
+    <xs:sequence>
+      <xs:element name="Geometry3D" type="Geometry3D"/>
+      <xs:element name="Symbol" type="Symbol"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
@@ -36,10 +50,12 @@
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="MappingDefinition">
-    <xs:element name="SizeX" type="SizeX"/>
-    <xs:element name="SizeY" type="SizeY"/>
-    <xs:element name="Source" type="Source"/>
-    <xs:element name="ScaleHandeling" type="ScaleHandeling"/>
+    <xs:sequence>
+      <xs:element name="SizeX" type="xs:integer"/>
+      <xs:element name="SizeY" type="xs:integer"/>
+      <xs:element name="Source" type="Source"/>
+      <xs:element name="ScaleHandeling" type="ScaleHandeling"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
@@ -49,131 +65,181 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Layer">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="SceneObject">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="GroupObject">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="FocusPoint">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
-  <xs:complexType name="FocusPoint">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="GDTFSpec" type="FileName" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="GDTFMode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Focus" type="guidtype" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="FixtureID" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Addresses" type="Addresses" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="CIEColor" type="CIEColor" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Mappings" type="Mappings" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Gobo" type="Gobo" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:complexType name="Fixture">
+    <xs:all>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Classing" type="guidtype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GDTFSpec" type="FileName" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GDTFMode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Focus" type="guidtype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FixtureID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UnitNumber" type="positiveinteger" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Addresses" type="Addresses" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CIEColor" type="ciecolortype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FixtureTypeId" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CustomId" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Color" type="ciecolortype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Mappings" type="Mappings" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gobo" type="Gobo" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Gobo">
-    <xs:attribute name="rotation" type="xs:float" default=""/>
+    <xs:attribute name="rotation" type="xs:float" default="0"/>
   </xs:complexType>
   <xs:complexType name="Addresses">
-    <xs:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Address">
-    <xs:attribute name="break" type="positiveinteger" use="required"/>
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="break" type="positiveinteger" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="Mappings">
-    <xs:element name="Mapping" type="Mappings" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Mapping">
-    <xs:element name="ux" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="uy" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="ox" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="ox" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="rz" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="ux" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="uy" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ox" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="oy" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="rz" type="xs:float" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
     <xs:attribute name="linkedDef" type="guidtype" use="required"/>
   </xs:complexType>
   <xs:complexType name="Truss">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="VideoScreen">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Sources" type="Sources" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Sources" type="Sources" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Projector">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Projections" type="Projections" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Projections" type="Projections" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Projections">
-    <xs:element name="Projection" type="Projection" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Projection" type="Projection" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Projection">
-    <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="ScaleHandeling" type="ScaleHandeling" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ScaleHandeling" type="ScaleHandeling" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Sources">
-    <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="Projector">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Projections" type="Projections" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:attribute name="linkedGeometry" type="xs:string" use="required"/>
-    <xs:attribute name="type" type="sourceenum" use="required"/>
+  <xs:complexType name="Source">
+    <xs:sequence>
+      <xs:element name="linkedGeometry" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="type" type="SourceEnum" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="guidtype" use="required"/>
+    <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="ScaleHandeling">
-    <xs:element name="Enum" type="scaleenum" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Enum" type="scaleenum" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Geometries">
-    <xs:element name="Geometry3D" type="Geometry3D" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Symbol" type="Symbol" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Geometry3D" type="Geometry3D" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Symbol" type="Symbol" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Symbol">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Geometry3D">
-    <xs:element name="Matrix" type="Matrix" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
     <xs:attribute name="fileName" type="FileName" use="required"/>
   </xs:complexType>
-  <xs:complexType name="Matrix">
-    <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
-  </xs:complexType>
   <xs:complexType name="ChildList">
-    <xs:element name="SceneObject" type="SceneObject" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="GroupObject" type="GroupObject" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="FocusPoint" type="FocusPoint" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Fixture" type="Fixture" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:sequence>
+      <xs:sequence>
+        <xs:element name="SceneObject" type="SceneObject" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="GroupObject" type="GroupObject" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="FocusPoint" type="FocusPoint" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Fixture" type="Fixture" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:sequence>
   </xs:complexType>
   <!-- Custom types -->
+  <xs:simpleType name="FileName">
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="positivefloat">
     <xs:restriction base="xs:float">
       <xs:minInclusive value="0"/>
@@ -202,7 +268,7 @@
   </xs:simpleType>
   <xs:simpleType name="matrixtype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="None|(\{-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){3}\}){4}"/>
+      <xs:pattern value="({-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){2}}){4}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="rotationtype">
@@ -269,6 +335,26 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Yes"/>
       <xs:enumeration value="No"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SourceEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NDI"/>
+      <xs:enumeration value="File"/>
+      <xs:enumeration value="CITP"/>
+      <xs:enumeration value="CaptureDevice"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="scaleenum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ScaleKeepRatio"/>
+      <xs:enumeration value="ScaleIgnoreRatio"/>
+      <xs:enumeration value="KeepSizeCenter"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ciecolortype">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){2}"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
