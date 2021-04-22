@@ -78,38 +78,52 @@ Is addressable via "Head_Dimmer.Dimmer.Dimmer" and "Head_Dimmer/Dimmer/Dimmer" r
 
 ### RS232 Communication Protocol example
 
-In some cases, we might like to link a particular protocol command to a GDTF attribute, take this example of a RS232 Communication Protocol bases control (detailed definition in [this issue](https://github.com/mvrdevelopment/spec/issues/74):
+In some cases, we might like to link a particular protocol command to a GDTF ChannelFunction, other parts of the definition (for example Geometry) can be used for sub-addressing, take this example of a RS232 Communication Protocol bases control (detailed definition in [this issue](https://github.com/mvrdevelopment/spec/issues/74):
 
 Type 1: Selection of the preset colors:
 
- ```xml
- <Commands_to_Attributes>
-  <command key="red"      attribute="ColorAdd_R">  
-  <command key="green"    attribute="ColorAdd_G">  
-  <command key="blue"     attribute="ColorAdd_B">  
-  <command key="white"    attribute="ColorAdd_W"> 
-  <command key="yellow"   attribute="ColorAdd_Y"> 
-  <command key="cyan"     attribute="ColorAdd_C"> 
-  <command key="magenta"  attribute="ColorAdd_N"> 
-  <command key="blackout" attribute="Dimmer"> 
- </Attributes>
- ```
+  ```xml
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R 1" Offset="1">
+        <LogicalChannel Attribute="ColorAdd_R" DMXChangeTimeLimit="0.000000" Master="None" MibFade="0.000000" Snap="No">
+          <ChannelFunction Attribute="ColorAdd_R" DMXFrom="0/1" Default="255/1" Name="ColorAdd_R 1" OriginalAttribute="" PhysicalFrom="0.000000" PhysicalTo="1.000000" RealAcceleration="0.000000" RealFade="0.000000"/>
+        </LogicalChannel>
+      </DMXChannel>
+  ```
 
-`zone 4 green;`
-
-Type 2, 3: Color mixing-RGB
-
-This is based on how the attributes are defined sequentially, or one could use the "DMX offset" as a byte offset or define a map:
 
  ```xml
- <Attributes_to_Offsets>
-  <command attribute="ColorAdd_R "offset="0">  
-  <command attribute="ColorAdd_G "offset="1">  
-  <command attribute="ColorAdd_B "offset="2">  
-  <command attribute="ColorAdd_W "offset="3"> 
- </Attributes>
+ <Commands_to_ChannelFunctions>
+  <command key="red"      attribute="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R">  
+  <command key="green"    attribute="Zone1_ColorAdd_G.ColorAdd_G.ColorAdd_G">  
+  <command key="blue"     attribute="Zone1_ColorAdd_B.ColorAdd_B.ColorAdd_B">  
+  <command key="white"    attribute="Zone1_ColorAdd_W.ColorAdd_W.ColorAdd_W"> 
+  <command key="yellow"   attribute="Zone1_ColorAdd_Y.ColorAdd_R.ColorAdd_Y"> 
+  <command key="cyan"     attribute="Zone1_ColorAdd_C.ColorAdd_G.ColorAdd_C"> 
+  <command key="magenta"  attribute="Zone1_ColorAdd_M.ColorAdd_B.ColorAdd_M"> 
+  <command key="blackout" attribute="Zone1_Dimmer.Dimmer.Dimmer"> 
+ </Commands_to_ChannelFunctions>
  ```
-`zone 0 234,126,165;`
+
+`zone 1 green;`
+
+Type 2, 3: Color mixing-RGB/W
+
+This is based on how the attributes are ordered in the RS232 string, one could use the "Offset" as a byte/string offset:
+
+  ```xml
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R" Offset="1">
+        ...
+      </DMXChannel>
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_G.ColorAdd_G.ColorAdd_G" Offset="2">
+        ...
+      </DMXChannel>
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_B.ColorAdd_B.ColorAdd_B" Offset="3">
+        ...
+      </DMXChannel>
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="None" InitialFunction="Zone1_ColorAdd_W.ColorAdd_W.ColorAdd_W" Offset="4">
+        ...
+      </DMXChannel>
+  ```
 `zone 1 5,18,28,148;`
 
 ### Dynalite example:
@@ -117,13 +131,14 @@ This is based on how the attributes are defined sequentially, or one could use t
 This is a DyNet channel to attribute mapping:
 
  ```xml
- <Commands_to_Attributes>
-  <command key="80" attribute="ColorAdd_R">  
-  <command key="81" attribute="ColorAdd_G">  
-  <command key="82" attribute="ColorAdd_B">  
-  <command key="83" attribute="ColorAdd_W"> 
- </Attributes>
+ <Commands_to_ChannelFunctions>
+  <command key="80"      attribute="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R">  
+  <command key="81"    attribute="Zone1_ColorAdd_G.ColorAdd_G.ColorAdd_G">  
+  <command key="82"     attribute="Zone1_ColorAdd_B.ColorAdd_B.ColorAdd_B">  
+  <command key="83"    attribute="Zone1_ColorAdd_W.ColorAdd_W.ColorAdd_W"> 
+ </Commands_to_ChannelFunctions>
  ```
+
 See the [protocols.xml](./protocols.xml) for more examples.
 
 
