@@ -309,7 +309,7 @@ An example of a node definition is shown below:
     <UnitNumber>0</UnitNumber>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
-    <Color>{2.533316,-5.175210,3.699302}</Color>
+    <CIEColor>{0.3127, 0.329, 100}</CIEColor>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
 </Fixture>
 ```
