@@ -82,7 +82,7 @@ DMX Profiles can be assigned to Channel Functions.
 </DMXChannel>
 ```
 
-## Proposal 2
+## Alternative definition of DMX profiles
 
 Introducing Tags for CubicBezierParameter3(CBP3), CubicBezierParameter2(CBP2), CubicBezierParameter1(CBP1), CubicBezierParameter0(CBP0). The default for these Tags is 0. 
 
@@ -102,6 +102,5 @@ Output(x) = CBP3(x-DMXPercent)3 + CBP2(x-DMXPercent)2 + CBP1(x-DMXPercent) +CBP0
         <Point DMXPercent="90" CBP1="-5" CBP0="100">
     </DMXProfile>
 </DMXProfiles>
-
 ```
 
