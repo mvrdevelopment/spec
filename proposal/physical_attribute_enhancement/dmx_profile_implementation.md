@@ -81,3 +81,27 @@ DMX Profiles can be assigned to Channel Functions.
     </LogicalChannel>
 </DMXChannel>
 ```
+
+## Proposal 2
+
+Introducing Tags for CubicBezierParameter3(CBP3), CubicBezierParameter2(CBP2), CubicBezierParameter1(CBP1), CubicBezierParameter0(CBP0). The default for these Tags is 0. 
+
+Where the result of an input x would be calculated as: 
+
+Find last point with a DMXPercent below or equal x. 
+
+Output(x) = CBP3(x-DMXPercent)3 + CBP2(x-DMXPercent)2 + CBP1(x-DMXPercent) +CBP0
+
+```
+<DMXProfiles>
+    <DMXProfile Name="Fancy">
+        <Point DMXPercent="0" CBP1="-5" CBP0=”50”>
+        <Point DMXPercent="10" CBP3="0.002" CBP2="-0.016" CBP1="4.33" CBP0="0">
+        <Point DMXPercent="40" CBP1="1" CBP0="40">
+        <Point DMXPercent="60" CBP3="0.0033" CBP2="-0.073" CBP1="0.55" CBP0="60">
+        <Point DMXPercent="90" CBP1="-5" CBP0="100">
+    </DMXProfile>
+</DMXProfiles>
+
+```
+
