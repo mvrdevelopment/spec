@@ -57,7 +57,8 @@ So this channel:
   </DMXChannel>
 ```
 
-Is addressable via "Head_Dimmer.Dimmer.Dimmer" and "Head_Dimmer/Dimmer/Dimmer" respectively. Fixture individual address is a field defined in the fixture, in case of a simple DMX address, this could look like this: "1/Head_Dimmer/Dimmer/Dimmer".
+Is addressable via "Head_Dimmer.Dimmer.Dimmer" and "Head_Dimmer/Dimmer/Dimmer" respectively. 
+Fixture individual address is a field defined in the fixture and Control unit. It is proposed to use the Identifier for the Fixture as it is easy readable and can be remembered by the users. Usually the so called Fixture ID or Channel ID is unique from the users control standpoint and could look like in this example: "ID/Head_Dimmer/Dimmer/Dimmer". 
 
 ### For other byte buffers protocols, mapping can be added:
 
