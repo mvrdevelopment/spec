@@ -112,19 +112,21 @@ Type 2, 3: Color mixing-RGB/W
 This is based on how the attributes are ordered in the RS232 string, one could use the "Offset" as a byte/string offset:
 
   ```xml
-      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R" Offset="1">
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_R.ColorAdd_R.ColorAdd_R" Offset="1" rs-232-area="zone 1"  rs-232-offset="0">
         ...
       </DMXChannel>
-      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_G.ColorAdd_G.ColorAdd_G" Offset="2">
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_G.ColorAdd_G.ColorAdd_G" Offset="2"  rs-232-area="zone 1" rs-232-offset="1">
         ...
       </DMXChannel>
-      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_B.ColorAdd_B.ColorAdd_B" Offset="3">
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="255/1" InitialFunction="Zone1_ColorAdd_B.ColorAdd_B.ColorAdd_B" Offset="3"  rs-232-area="zone 1" rs-232-offset="2">
         ...
       </DMXChannel>
-      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="None" InitialFunction="Zone1_ColorAdd_W.ColorAdd_W.ColorAdd_W" Offset="4">
+      <DMXChannel DMXBreak="1" Geometry="Zone1" Highlight="None" InitialFunction="Zone1_ColorAdd_W.ColorAdd_W.ColorAdd_W" Offset="4"  rs-232-area="zone 1" rs-232-offset="3">
         ...
       </DMXChannel>
   ```
+`ZONE_IDENT VAL_0,VAL_1,VAL_2,...,VAL_N;`
+
 `zone 1 5,18,28,148;`
 
 ### Dynalite example:
