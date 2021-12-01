@@ -1,0 +1,19 @@
+{
+  "name": "gdtf-din-spec",
+  "version": "1.1.0",
+  "description": "The General Device Type Format is a file format that is used to describe devices of the entertainment industry. This allows to define the geometry and how it reacts to controlling input.",
+  "main": "index.js",
+  "scripts": {
+    "export": "pandoc -s gdtf-spec.md --from markdown -o gdtf.docx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvrdevelopment/gdtf-din-spec.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mvrdevelopment/gdtf-din-spec/issues"
+  },
+  "homepage": "https://github.com/mvrdevelopment/gdtf-din-spec#readme"
+}
