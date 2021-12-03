@@ -1,4 +1,30 @@
 <?xml version="1.0"?>
+<!-- 
+XML Schema for GDTF 1.1
+=======================
+
+This document tries to describes GDTF 1.1 from DIN SPEC 15800:2020-07 to the
+extent possible with XSD 1.0.
+
+Note that due to the restrictions of XSD 1.0, some syntactic properties of GDTF
+are not validated with this XSD but must be checked at a higher (e.g. parser)
+level. These unvalidated properties are:
+- There must be at most 1 OperatingTemperature element.
+- There must be at most 1 Weight element.
+- There must be at most 1 LegHeight element.
+- The name of each DMXChannel must be unique in its DMXMode.
+- For each LogicalChannel, the combination of Attribute and Geometry of its
+  parent DMXChannel must be unique in its DMXMode. 
+- In Attribute, the referenced Feature must exist.
+- If ChannelFunctions don't specify a Name, their default name must not clash
+  with the Names of other ChannelFunctions in the same LogicalChannel. The
+  default name is formed from the Attribute name and the 1-based index of the
+  Channel Function inside its Logical Channel, separated by a space; Example:
+  "Dimmer 1".
+- In ChannelFunction, the referenced ModeMaster must exist. The case where a
+  ChannelFunction does not have a specified name and is referenced by its
+  default name is considered valid.
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!-- GDTF (Root Element) -->
   <xs:element name="GDTF">
@@ -332,9 +358,6 @@
   </xs:complexType>
   <xs:complexType name="Properties">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <!-- OperatingTemperature, Weight and LegHeight must only appear once. 
-      This cannot be succinctly enforced in XSD 1.0 without also restricting the order of the children. 
-      See https://stackoverflow.com/a/12012599 -->
       <xs:element name="OperatingTemperature" type="OperatingTemperature"/>
       <xs:element name="Weight" type="Weight"/>
       <xs:element name="PowerConsumption" type="PowerConsumption"/>
