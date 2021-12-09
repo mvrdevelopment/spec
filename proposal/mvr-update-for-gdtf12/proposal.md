@@ -39,9 +39,14 @@ This also applies to all other control. So you can transfer the value for Focus,
 ## Proposal 2 - Default GDTF Container for MVR
 
 We will add a default GDTF that acts as a resource container for the MVR file. 
-This Files holds custom filters, gobos and emitter data that can be used to overwrite individual GDTF definitions
+This Files holds custom filters, gobos and emitter data that can be used to overwrite individual GDTF definitions.
 
 
 <Fixture name="Fixture With Pan And Tilt Values" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
    ...
+   <Overwrites>
+    <Overwrite universal="Universal Emitter 1">Emitter 1</Overwrite>
+    <Overwrite universal="Universal Filter 1">Filter 1</Overwrite>
+    <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1">Wheel 1.Wheel Slot 1</Overwrite>
+   </Overwrites>
 </Fixture>
