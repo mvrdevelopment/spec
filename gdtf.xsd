@@ -455,13 +455,7 @@
   </xs:complexType>
   <xs:complexType name="DMXMode">
     <xs:sequence>
-      <xs:element name="DMXChannels" type="DMXChannels">
-        <xs:unique name="UniqueCombinationOfGeometryAndAttributeForLogicalChannel">
-          <xs:selector xpath="DMXChannel"/>
-          <xs:field xpath="@Geometry"/>
-          <xs:field xpath="LogicalChannel/@Attribute"/>
-        </xs:unique>
-      </xs:element>
+      <xs:element name="DMXChannels" type="DMXChannels"/>
       <xs:element name="Relations" type="Relations" minOccurs="0" maxOccurs="1">
         <xs:unique name="UniqueRelationName">
           <xs:selector xpath="Relation"/>
