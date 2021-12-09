@@ -309,7 +309,7 @@ An example of a node definition is shown below:
     <UnitNumber>0</UnitNumber>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
-    <Color>{2.533316,-5.175210,3.699302}</Color>
+    <CIEColor>{0.3127, 0.329, 100}</CIEColor>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
 </Fixture>
 ```
@@ -439,7 +439,8 @@ Node name: `VideoScreen`
 | [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.             |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are a part of the object. |
 | [Sources](#node-definition-sources)       | 0 or 1        | A list of video input sources..                                             |
-
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. |
 An example of a node definition is shown below:
 
 ```xml
@@ -476,7 +477,8 @@ Node name: `Projector`
 | [Matrix](#node-definition-matrix)          | 0 or 1        | The location of the object inside the parent coordinate system.             |
 | [Geometries](#node-definition-geometries)  | 1             | A list of geometrical representation objects that are a part of the object. |
 | [Projections](#node-definition-projection) | 1             | A list of video source for Beam Geometries in the GDTF file.                |
-
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. |
 An example of a node definition is shown below:
 ```xml
 <Projector name="Projector" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
