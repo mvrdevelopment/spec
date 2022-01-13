@@ -279,6 +279,8 @@ Node name: `Fixture`
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
+| Overwrites                              | 0 or 1        | [Overwrites](#node-definition-overwrites)    | The container for overwrites for this fixture.                                                                                                |
+| CustomCommands                          | 0 or 1        | [CustomCommands](#node-definition-customCommands)    | The container for custom commands for this fixture.                                                                                                |
 | Gobo                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image ressource must apply to the GDTF standard.                                                           |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
@@ -311,6 +313,16 @@ An example of a node definition is shown below:
     <CustomId>0</CustomId>
     <CIEColor>{0.3127, 0.329, 100}</CIEColor>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
+    <Overwrites>
+      <Overwrite universal="Universal Emitter 1">Emitter 1</Overwrite>
+      <Overwrite universal="Universal Filter 1">Filter 1</Overwrite>
+      <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1">Wheel 1.Wheel Slot 1</Overwrite>
+      <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 2"/>
+   </Overwrites>
+   <CustomCommands>
+        <CustomCommand>Body_Pan,f 50</CustomCommand>
+        <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
+    </CustomCommands>
 </Fixture>
 ```
 
@@ -422,6 +434,46 @@ Node name: `Truss`
 | [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+
+## Node Definition: Support
+
+This node defines a support object.
+
+Node name: `Support`
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+
+| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
+| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
+| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
+| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+
+## Node Definition: Electrical
+
+This node defines a electrical object.
+
+Node name: `Electrical`
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+
+| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
+| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
+| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
+| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 
 ## Node Definition: VideoScreen
 
@@ -690,6 +742,8 @@ The child list contains a list of one of the following nodes:
 | [FocusPoint](#node-definition-focuspoint)   | A definition of a focus point.                                               |
 | [Fixture](#node-definition-fixture)         | A definition of a fixture.                                                   |
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
+| [Support](#node-definition-truss)           | A definition of a hoist.                                                     |
+| [Electrical](#node-definition-truss)        | A definition of a electrical distributor.                                    |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 
 # Generic Value Types

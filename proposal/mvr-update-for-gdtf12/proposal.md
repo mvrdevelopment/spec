@@ -44,7 +44,7 @@ This Files holds custom filters, gobos and emitter data that can be used to over
 You can define the map of replacement based on the objects that the target GDTF has. If you want to define a static gobo or color filter, don't define a target.
 
 ```xml
-<Fixture name="Fixture With Pan And Tilt Values" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
+<Fixture name="Fixtures with Overwrite" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
    ...
    <Overwrites>
    <!--Overwrites for real existing objects in the GDTF-->
@@ -56,3 +56,8 @@ You can define the map of replacement based on the objects that the target GDTF 
    </Overwrites>
 </Fixture>
 ```
+
+## Proposal 3 - Default New MVR Object types Support and Electrical
+
+
+## Proposal 4 - Default New MVR Object types Support and Electrical
