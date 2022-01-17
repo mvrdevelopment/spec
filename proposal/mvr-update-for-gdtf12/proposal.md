@@ -73,9 +73,9 @@ You can define the map of replacement based on the objects that the target GDTF 
    <GDTFSpec>Plugbox HAN 16</GDTFSpec>
    <GDTFMode>Default</GDTFMode>
    <Connections>    
-     <Connection own="Input" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="Output1">
-     <Connection own="1" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN">
-     <Connection own="2" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN">
+     <Connection own="Input" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="Output1"/>
+     <Connection own="1" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
+     <Connection own="2" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
    </Connections>
 </SceneObject>
 ```
@@ -99,3 +99,15 @@ You can define the map of replacement based on the objects that the target GDTF 
    <ChainLength>5000</ChainLength>
 </Fixture>
 ```
+
+
+## Proposal 5 - Universal Fixture
+
+
+You can add a default GDTF what can be used as a resource container to the MVR. It will have the extension `gdtt` (*General Device Type Template*) and the name:
+
+```
+Universal.gdtt
+```
+
+You can only add one template file the to one MVR.

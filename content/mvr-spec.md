@@ -351,8 +351,17 @@ The child list contains a list of the following nodes:
 | ----------------------------------- | ----------------------- |
 | [Overwrite](#node-definition-overwrite) | One overwrite for a wheel, filter or emitter in the GDTF. |
 
+### Node Definition: Overwrite
 
+This node defines a overwrite for a Filter, Wheel Slot or Emitter for a GDTF file.
 
+Node name: `Overwrite`
+
+| Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
+| -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
+| universal       | [String](#user-content-attrtype-string) | 0                           | Defines the Node Name of the Emitter, Filter or Wheel Slot from the universal fixture that will replace the one in the GDTF of the object. |
+
+The value defines the Node Name of the Emitter, Filter or Wheel Slot that will be replaced.
 ### Node Definition: CustomCommands
 
 This node defines a group of value overwrite for the GDTF using the OSC command interface to GDTF.
@@ -365,6 +374,13 @@ The child list contains a list of the following nodes:
 | ----------------------------------- | ----------------------- |
 | [CustomCommand](#node-definition-customcommand) | One command for the fixture to execute. |
 
+### Node Definition: CustomCommand
+
+This node defines a command that you send the fixture as static value. For the defintion of the commands look into the GDTF spec in the section for ChannelFunction.
+
+Node name: `CustomCommand`
+
+The value defines the command string that will be send to the device as static value.
 ### Node Definition: Connections
 
 This node defines a group connection to other objects.
@@ -377,6 +393,21 @@ The child list contains a list of the following nodes:
 | ----------------------------------- | ----------------------- |
 | [Connection](#node-definition-customcommand) | One Connection of the object. |
 
+### Node Definition: Connection
+
+This node defines a group of value overwrite for the GDTF.
+
+Node name: `Connection`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [own](#node-definition-overwrite) | Defines the name if the own geometry that the connection is for. |
+| [toObject](#node-definition-overwrite) | Defines the MVR UUID of the object that you want to connect with. |
+| [other](#node-definition-overwrite) | Defines the name of the other geoemtry that the connection is for. |
+
+Note: Only make connection in one direction: So a connection between object A and object B will have only one representation of the connection either in A or B definition.
 
 ### Node Definition: Addresses
 
