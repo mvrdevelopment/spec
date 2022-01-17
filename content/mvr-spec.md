@@ -339,6 +339,45 @@ Node name: `Gobo`
 The node value is he Gobo used for the fixture. The image ressource must
 apply to the GDTF standard. Use a FileName to specify.
 
+### Node Definition: Overwrites
+
+This node defines a group of value overwrite for the GDTF.
+
+Node name: `Overwrites`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Overwrite](#node-definition-overwrite) | One overwrite for a wheel, filter or emitter in the GDTF. |
+
+
+
+### Node Definition: CustomCommands
+
+This node defines a group of value overwrite for the GDTF using the OSC command interface to GDTF.
+
+Node name: `CustomCommands`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [CustomCommand](#node-definition-customcommand) | One command for the fixture to execute. |
+
+### Node Definition: Connections
+
+This node defines a group connection to other objects.
+
+Node name: `Connections`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Connection](#node-definition-customcommand) | One Connection of the object. |
+
+
 ### Node Definition: Addresses
 
 This node defines a group of DMX Addresses.
@@ -455,6 +494,7 @@ Node name: `Support`
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 | GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| ChainLength                                | 1             | [Float](#user-content-attrtype-Float)      | The length of the chain of the hoist.                                                      |
 
 ## Node Definition: Electrical
 

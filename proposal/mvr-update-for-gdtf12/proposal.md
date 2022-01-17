@@ -19,6 +19,15 @@ In addition, we want to give the option to express:
 # Solution
 
 
+## General information
+
+By  default, the GDTF defintion will be brought to more objects. We still give the option to defines object via the geometry nodes, but also add the option to define an object via GDTF.
+
+GDTF 1.2 ( DIN SPEC 15800:2022 ) we have added support for more object types. We now support trusses, hoists, lasers an hoist directly in GDTF. As GDTF uses a component based system with the geometry concept, one object could adopt multiple options.
+So when you have a Hoist with a power outlet, you can model the supporting functionality with the Support Geometry and the power functionality with the electrical geometry. Same applies for structures that have a power outlet.
+
+All of this different object types still will have their XML-Node Node like Truss, Laser, SceneObject etc, but the actual behavior of the object is more defined by the GDTF.
+
 ## Proposal 1 - Channel Function Definitions in MVR
 
 You can use a Custom Commands for Channel Function like we defined them for OSC to define the state of the fixture. 
@@ -57,7 +66,36 @@ You can define the map of replacement based on the objects that the target GDTF 
 </Fixture>
 ```
 
-## Proposal 3 - Default New MVR Object types Support and Electrical
+## Proposal 3 - Default New MVR Object types Electrical
+```xml
+<SceneObject name="Fixtures with Overwrite" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
+   ...
+   <GDTFSpec>Plugbox HAN 16</GDTFSpec>
+   <GDTFMode>Default</GDTFMode>
+   <Connections>    
+     <Connection own="Input" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="Output1">
+     <Connection own="1" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN">
+     <Connection own="2" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN">
+   </Connections>
+</SceneObject>
+```
+
+## Proposal 4 - Default New MVR Object types Truss
+```xml
+<Truss name="Fixtures with Overwrite" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
+   ...
+   <GDTFSpec>Prolyte H30V 200</GDTFSpec>
+   <GDTFMode>Default</GDTFMode>
+</Fixture>
+```
 
 
-## Proposal 4 - Default New MVR Object types Support and Electrical
+## Proposal 4 - Default New MVR Object types Support
+```xml
+<Support name="Fixtures with Overwrite" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6">
+   ...
+   <GDTFSpec>D8 500Kg</GDTFSpec>
+   <GDTFMode>Default</GDTFMode>
+   <ChainLength>5000</ChainLength>
+</Fixture>
+```
