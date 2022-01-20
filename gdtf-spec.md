@@ -42,25 +42,18 @@ which no specifications can be made at this time, but which will soon
 become necessary, are therefore already included in this DIN SPEC, but
 with a note that no specifications can be made now.
 
-Scope
-=====
 
-# Scope
+## Scope
 
-This document specifies the "General Device Type Format" (GDTF), a
-unified way of listing and describing the hierarchical and logical
-structure and controls of any type of controllable device
-(e.g. luminaires, fog machines, etc.) in the lighting and entertainment
-industry. It will be used as a foundation for the exchange of device
-data between lighting consoles, CAD and 3D-pre-visualization
-applications. The purpose of an existing GDTF file is to reflect the
-real-world physical components of the devices and to provide control
-based on this information. It contains and is derived from the 3D
-geometry (real world or virtual) of the device. This document is only
-applicable for lighting systems and equipment used in the entertainment
-industry. 	
+This document specifies the “General Device Type Format”(GDTF), a unified way of listing and describing the 
+hierarchical and logical structure and controls of any type of controllable device (e.g. luminaires, fog machines, 
+etc.) in the lighting and entertainment industry. It will be used as a foundation for the exchange of device data 
+between lighting consoles, CAD and 3D-pre-visualization applications. The purpose of an existing GDTF-file is 
+to reflect the real-world physical components of the devices and to provide control based on this information. 
+It contains and is derived from the 3D geometry (real world or virtual) of the device. 
+This document is only applicable for lighting systems and equipment used in the entertainment industry. 	
 
-# Normative references
+## Normative references
 
 The following documents are referred to in the text in such a way that
 some or all of their content constitutes requirements of this document.
@@ -82,11 +75,13 @@ amendments) applies.
 - ISO 22028-2:2013, Photography and graphic technology - Extended colour
   encodings for digital image storage, manipulation and interchange - Part 2:
   Reference output medium metric RGB colour image encoding (ROMM RGB)
+  
+- RFC 4122, A Universally Unique IDentifier (UUID) URN Namespace1
 
 - OpenSoundControl http://opensoundcontrol.org/index.html
 
 
-# Terms and definitions
+## Terms and definitions
 
 For the purposes of this document, the following terms and definitions
 apply. DIN and DKE maintain terminological databases for use in
@@ -96,48 +91,45 @@ standardization at the following addresses:
     <https://www.din.de/go/din-term>
   - DKE-IEV: available at <http://www.dke.de/DKE-IEV>
 
-## GDTF
+### General Device Type Format GDTF
 
-Descriptive name of the specification and the acronym for General Device
-Type Format.
+descriptive name of the specification
 
-## Fixture Type Attribute
+### Fixture Type Attribute
 
-Singular mutually exclusive control function. Note 1 to entry:
-Definitions of common attributes can be found in Annex A.
+singular mutually exclusive control function 
+Note 1 to entry: Definitions of common attributes can be found in Annex A.
 
-## Activation Group
+### Activation Group
 
-Attributes which need to be activated together to gain control over one
-logical function Note 1 to entry: As example Pan & Tilt are paired to
-gain control over Position.
+attributes which need to be activated together to gain control over one logical function 
+Note 1 to entry: As example Pan & Tilt are paired to gain control over Position.
 
-## Feature
+### Feature
 
-Groups the Fixture Type Attributes into a structured way for easier
-access and search.
+element that’s groups the Fixture Type Attributes into a structured way for easier access and search
 
-## Feature Groups
+### Feature Groups
 
-Groups the Fixture Type Features into a logical way for easier
-access and search.
+element that’s groups the Fixture Type Features into a logical way for easier access and search
 
-## DMXBreak
+### DMXBreak
 
-Term used when a fixture needs more than one DMX start address.
+term used when a fixture needs more than one DMX start address
 
-## glTF
+### glTF
 
-The Graphics Language Transmission Format is a defined file format for three-dimensional scenes and models.
+file format for three-dimensional scenes and models
+Note 1 to entry: glTF is the acronym for Graphics Language Transmission Format.
 
-## glb
+### glb
 
-The selfcontained binary file format of a glTF scene or model.
+selfcontained binary file format of a glTF scene or model.
 
 ## File Format Definition
 
 To describe the device type, a zip file with the extension
-"\*.gdtf" is used. The archive shall contain a description XML file and
+"*.gdtf" is used. The archive shall contain a description XML file and
 resource files. Some of the resource files are located in a folder
 structure. There are two folders defined: "./wheels" and "./models". The
 folder "./models" has subfolders for a better structural overview:
@@ -287,6 +279,8 @@ sections is mandatory as specified in [table 4](#user-content-table-4 ).
 
 ## Attribute Definitions
 
+### General
+
 This section defines the attribute definitions for the Fixture Type
 Attributes.
 
@@ -320,6 +314,8 @@ are specified in [table 5](#user-content-table-5 ).
 
 
 ### Activation Groups
+  
+#### General
 
 This section defines groups of Fixture Type Attributes that are intended
 to be used together.
@@ -351,6 +347,8 @@ group are specified in [table 6](#user-content-table-6 ).
 The activation group does not have any children.
 
 ### Feature Groups
+  
+#### General
 
 This section defines the logical grouping of Fixture Type Attributes
 (XML node `<FeatureGroups>`).
@@ -364,6 +362,8 @@ so they must be grouped in a Feature PanTilt.
 As children the feature groups has a list of a [feature group](#user-content-feature-group ).
 
 #### Feature Group
+  
+##### General
 
 This section defines the feature group (XML node `<FeatureGroup>`). The
 currently defined XML attributes of the feature group are specified in
@@ -459,6 +459,8 @@ The currently defined XML attributes of the subphysical unit are specified in [t
 The subphysical unit does not have any children.
 
 ## Wheel Collect
+  
+### General
 
 This section defines all physical or virtual wheels of the device. It
 currently does not have any XML attributes (XML node `<Wheels>`). As
@@ -469,6 +471,8 @@ within the device. Typically color, gobo, prism, animation, content and others
 are described by wheels.
 
 ### Wheel
+  
+#### General
 
 Each wheel describes a single physical or virtual wheel of the fixture
 type. If the real device has wheels you can change, then all wheel
@@ -491,6 +495,8 @@ As children, Wheel has a list of [wheel
 slots](#user-content-wheel-slot ).
 
 #### Wheel Slot
+  
+##### General
 
 The wheel slot represents a slot on the wheel (XML node `<Slot>`). The
 currently defined XML attributes of the wheel slot are specified in
@@ -576,6 +582,8 @@ system
 
 
 ## Physical Descriptions
+  
+### General
 
 This section describes the physical constitution of the device. It
 currently does not have any XML Attributes (XML node
@@ -602,6 +610,8 @@ in [table 15](#user-content-table-15 ).
 </div>
 
 ### Emitter Collect
+  
+#### General
 
 This section contains the description of the emitters. Emitter Collect
 defines additive mixing of light sources, such as LEDs and tungsten
@@ -633,6 +643,8 @@ As children, the Emitter has a list of
 [measurements](#user-content-measurement ).
 
 ### Filter Collect
+  
+#### General
 
 This section contains the description of the filters. The Filter Collect
 defines subtractive mixing of light sources by filters, such as
@@ -663,6 +675,8 @@ As children the Filter has a list of
 [measurements](#user-content-measurement ).
 
 ### Measurement
+  
+#### General
 
 The measurement defines the relation between the requested output by a
 control channel and the physically achieved intensity. XML node for
@@ -726,6 +740,8 @@ spacing is 1 nm. Measurement spacing should not exceed 4 nm.
 The measurement point does not have any children.
 
 ### Color Space Collect
+  
+#### General
 
 This section defines color spaces. Currently it does not
 have any XML attributes (XML node `<AdditionalColorSpaces>`). As children, color space collect has a list of a [ColorSpace](#user-content-color-space ).
@@ -775,6 +791,8 @@ specified in [table 21](#user-content-table-21 ).
 The color space does not have any children.
 
 ### Gamut Collect
+  
+#### General
 
 This section defines gamuts. Currently it does not
 have any XML attributes (XML node `<Gamuts>`). As children, gamut collect has a list of a [Gamut](#user-content-gamut ).
@@ -799,6 +817,8 @@ are specified in [table 22](#user-content-table-22 ).
 The gamut does not have any children.
 
 ### DMX Profile Collect
+  
+#### General
 
 This section defines DMX profile descriptions. Currently it does not
 have any XML attributes (XML node `<DMXProfiles>`). As children DMX
@@ -856,12 +876,16 @@ Here is an example where the output follows a function f for 75% of the DMX Rang
 A Point does not have any children.
 
 ### Color Rendering Index Collect
+  
+#### General
 
 This section contains TM-30-15 Fidelity Index (Rf) for 99 color samples.
 Currently it does not have any XML attributes (XML node `<CRIs>`). As
 children, CRIs has a list of [CRI groups](#user-content-color-rendering-index-group ).
 
-### Color Rendering Index Group
+#### Color Rendering Index Group
+  
+##### General
 
 This section contains CRIs for a single color temperature (XML node
 `<CRIGroup>`). The currently defined XML attributes of the CRI group are
@@ -902,6 +926,8 @@ are specified in [table 26](#user-content-table-26 ).
 The color rendering index does not have any children.
 
 ### Connector Collect
+  
+#### General
 
 This section defined the physical connectors and is kept for backwards compatibility. From DIN SPEC 15800:2021 or GDTF v1.2 onwards physical connectors shall be decribed as WiringObjects in the Geometry Collect. 
 It currently does not have any XML attributes (XML node `<Connectors>`). As children, the Connector Collect has a list of a [connectors](#user-content-connector ).
@@ -931,6 +957,8 @@ defined XML attributes of the connector are specified in [table
 The connector does not have any children.
 
 ### Properties Collect
+  
+#### General
 
 This section defines the general properties of the device type (XML node
 `<Properties>`). The Properties Collect currently does not have any XML
@@ -1011,6 +1039,8 @@ The LegHeight currently does not have any children.
 
 
 ## Model Collect
+  
+### General
 
 Each device is divided into smaller parts: body, yoke, head and so on.
 These are called geometries. Each geometry has a separate model
@@ -1158,6 +1188,8 @@ The used glTF files should follow these requirements:
 - Align the viewbox to the top left of the device
 
 ## Geometry Collect
+  
+### General
 
 The physical description of the device parts is defined in the geometry
 collect. Geometry collect can contain a separate geometry or a tree of
@@ -1485,6 +1517,8 @@ The display has the same children types as the geometry collect (see
 
 
 ### Geometry Type Laser
+  
+#### General
 
 This type of geometry is used to describe the position of a laser's 
 light output (XML node `<Laser>`). The currently
@@ -1534,6 +1568,8 @@ attributes of the protocol are specified in [table 47](#user-content-table-47 ).
 The protocol doesn't have any children.
 
 ### Geometry Type Reference
+  
+#### General
 
 The Geometry Type Reference is used to describe multiple instances of
 the same geometry. Example: LED panel with multiple pixels. (XML node ).
@@ -1587,6 +1623,8 @@ attributes of the break are specified in [table 49](#user-content-table-49 ).
 
 
 ### Geometry Type Wiring Object
+  
+#### General
 
 This type of geometry is used to describe an electrical device that can be wired (XML node `<WiringObject>`). The currently
 defined XML attributes of a wiring object geometry are specified in [table 50](#user-content-table-50 ).
@@ -1759,6 +1797,8 @@ The magnet geometry has the same children types as the geometry
 collect (see [table 34](#user-content-table-34 )).
 
 ## DMX Mode Collect
+  
+### General
 
 This section is describes all DMX modes of the device. If firmware
 revisions change a DMX footprint, then such revisions should be
@@ -1801,6 +1841,8 @@ DMX mode children are specified in [table 57](#user-content-table-57 ).
 </div>
 
 #### DMX Channel Collect
+  
+##### General
 
 This section defines the DMX footprint of the device. The DMX channel
 collect currently does not have any attributes (XML node `<DMXChannels>`).
@@ -1808,6 +1850,8 @@ As children the DMX channel collect has a list of a [DMX
 channels](#user-content-dmx-channel ).
 
 ##### DMX Channel
+  
+###### General
 
 This section defines the DMX channel (XML node `<DMXChannel>`). The name
 of a DMX channel cannot be user-defined and must consist of a geometry
@@ -1972,6 +2016,8 @@ are specified in [table 62](#user-content-table-62 ).
 The sub channel set does not have any children.
 
 #### Relation Collect
+  
+##### General
 
 This section describes the dependencies between DMX channels and channel
 functions, such as multiply and override. The relation collect currently
@@ -2049,6 +2095,8 @@ described in XML.
 
 
 #### Macro Collect
+ 
+##### General
 
 This section describes DMX sequences to be executed by the control
 system. The macro collect currently does not have any XML attributes
@@ -2056,6 +2104,8 @@ system. The macro collect currently does not have any XML attributes
 [macro](#user-content-macro ).
 
 ##### Macro
+  
+###### General
 
 This section defines a DMX sequence. (XML node `<FTMacro>`). The currently
 defined XML attributes of the macro are specified in [table
@@ -2133,6 +2183,8 @@ are specified in [table 67](#user-content-table-67 ).
 The DMX value does not have any children.
 
 ## Revision Collect
+  
+### General
 
 This section defines the history of device type. Revision collect
 currently does not have any XML attributes (XML node `<Revisions>`). As
@@ -2165,6 +2217,8 @@ The revision does not have any children.
 
 
 ## Fixture Type Preset Collect
+  
+### General
 
 This section defines fixture type specific presets. It currently does
 not have any XML attributes (XML node `FTPresets>`). As children the
@@ -2176,6 +2230,8 @@ Fixture Preset Collect has a list of [FTPreset](#user-content-fixture-type-prese
 This section has not yet been defined (XML node `<FTPreset>`).
 
 ## Supported Protocol Collect
+  
+### General
 
 If the device supports one or several additional protocols, these
 protocol specific information have to be specified. The supported
@@ -2220,6 +2276,8 @@ attributes of RDM are specified in [table 70](#user-content-table-70 ).
 As children the FTRDM has a list of `SoftwareVersionID`.
 
 #### SoftwareVersionID
+  
+##### General
 
 For each supported software version add an XML node `<SoftwareVersionID>`.
 The currently defined XML attributes are specified in [table 71](#user-content-table-71 ).
@@ -2258,6 +2316,8 @@ To define the supported software versions add an XML node
 The DMXPersonality does not have any children.
 
 ### Art-Net Section
+  
+#### General
 
 If the device supports the Art-Net protocol, this section defines the
 corresponding information (XML node `<Art-Net>`).
@@ -2284,6 +2344,8 @@ By default, it is assumed that all the values are mapped 1:1, so only when you d
 </div>
 
 ### Streaming ACN Section
+  
+#### General
 
 If the device supports the Streaming ACN protocol, this section defines the
 corresponding information (XML node `<sACN>`).
