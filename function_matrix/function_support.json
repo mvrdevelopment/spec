@@ -1,0 +1,48 @@
+{
+    "name": "Gobo(n)WheelIndex",
+    "prettyName": "Wheel Index",
+    "feature": "Gobo.Gobo",
+    "physicalUnit": "Angle",
+    "MainAttribute": "Gobo(n)",
+    "ActivationGroup": "Gobo(n)",
+    "subPhysicalUnits":
+    [
+      {
+        "default": true,
+        "type": "PlacementOffset",
+        "physicalUnit": "Degree",
+        "physicalFrom": 270,
+        "physicalTo": 270,
+        "SupportInfo":
+        [
+            {
+                "Date":"2021-03-03T10:56:26Z",
+                "Version":"0.0.0",
+                "Supported": "NO",
+                "Notes":"We plan to support this feature in the future and actively working on it."
+            },
+            {
+                "Date":"2022-03-03T10:56:26Z",
+                "Version":"1.0.0",
+                "Supported": "YES",
+                "Notes":""
+            }
+        ]
+      }
+    ],
+    "SupportInfo":
+    [
+        {
+            "Date":"2021-03-03T10:56:26Z",
+            "Version":"0.0.0",
+            "Supported": "NO",
+            "Notes":"We plan to support this feature in the future and actively working on it."
+        },
+        {
+            "Date":"2022-03-03T10:56:26Z",
+            "Version":"1.0.0",
+            "Supported": "YES",
+            "Notes":""
+        }
+    ]
+}
