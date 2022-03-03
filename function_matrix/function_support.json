@@ -50,3 +50,223 @@
         }
     ]
 }
+
+{
+	"GDTF": {
+		"FixtureType": {
+			"AttributeDefinitions": {
+				"ActivationGroups": {
+					"ActivationGroup": {
+						"_Name": "PanTilt"
+					}
+				},
+				"FeatureGroups": {
+					"FeatureGroup": [
+						{
+							"Feature": {
+								"_Name": "Dimmer"
+							},
+							"_Name": "Dimmer",
+							"_Pretty": "Dimmer"
+						},
+						{
+							"Feature": {
+								"_Name": "PanTilt"
+							},
+							"_Name": "Position",
+							"_Pretty": "Position"
+						}
+					]
+				},
+				"Attributes": {
+					"Attribute": [
+						{
+							"_Feature": "Dimmer.Dimmer",
+							"_Name": "Dimmer",
+							"_PhysicalUnit": "None",
+							"_Pretty": "Dim"
+						},
+						{
+							"_ActivationGroup": "PanTilt",
+							"_Feature": "Position.PanTilt",
+							"_Name": "Pan",
+							"_PhysicalUnit": "Angle",
+							"_Pretty": "P"
+						},
+						{
+							"_ActivationGroup": "PanTilt",
+							"_Feature": "Position.PanTilt",
+							"_Name": "Tilt",
+							"_PhysicalUnit": "Angle",
+							"_Pretty": "T"
+						}
+					]
+				}
+			},
+			"Wheels": {
+				"Wheel": {
+					"Slot": {
+						"Facet": [
+							{
+								"_Color": "0.312700,0.329000,100.000000",
+								"_Rotation": "{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}"
+							},
+						],
+						"_Color": "0.312700,0.329000,100.000000",
+						"_Name": "Wheel Slot 1"
+					},
+					"_Name": "NewWheel"
+				}
+			},
+			"PhysicalDescriptions": {
+				"ColorSpace": {
+					"_Mode": "sRGB",
+					"_Name": ""
+				},
+				"AdditionalColorSpaces": "",
+				"Gamuts": "",
+				"Filters": {
+					"Filter": {
+						"Measurement": {
+							"_InterpolationTo": "Linear",
+							"_Physical": "100.000000",
+							"_Transmission": "1.000000"
+						},
+						"_Color": "0.312700,0.329000,100.000000",
+						"_Name": "Filter 1"
+					}
+				},
+				"Emitters": {
+					"Emitter": {
+						"Measurement": {
+							"_InterpolationTo": "Linear",
+							"_LuminousIntensity": "1.000000",
+							"_Physical": "100.000000"
+						},
+						"_Color": "0.312700,0.329000,100.000000",
+						"_DiodePart": "",
+						"_DominantWaveLength": "0.000000",
+						"_Name": "Emitter 1"
+					}
+				},
+				"DMXProfiles": "",
+				"CRIs": "",
+				"Connectors": "",
+				"Properties": {
+					"OperatingTemperature": {
+						"_High": "40.000000",
+						"_Low": "0.000000"
+					},
+					"Weight": {
+						"_Value": "0.000000"
+					},
+					"LegHeight": {
+						"_Value": "0.000000"
+					}
+				}
+			},
+			"Models": {
+				"Model": [
+					{
+						"_File": "",
+						"_Height": "0.120000",
+						"_Length": "0.310000",
+						"_Name": "Base",
+						"_PrimitiveType": "Base1_1",
+						"_SVGFrontOffsetX": "0.000000",
+						"_SVGFrontOffsetY": "0.000000",
+						"_SVGOffsetX": "0.000000",
+						"_SVGOffsetY": "0.000000",
+						"_SVGSideOffsetX": "0.000000",
+						"_SVGSideOffsetY": "0.000000",
+						"_Width": "0.310000"
+					},
+				]
+			},
+			"Geometries": {
+				"Geometry": {
+					"_Model": "Base",
+					"_Name": "Base",
+					"_Position": "{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}"
+				}
+			},
+			"DMXModes": {
+				"DMXMode": {
+					"DMXChannels": {
+						"DMXChannel": [
+							{
+								"LogicalChannel": {
+									"ChannelFunction": {
+										"ChannelSet": [
+											{
+												"_DMXFrom": "0/1",
+												"_Name": "Closed",
+												"_WheelSlotIndex": "0"
+											},
+
+										],
+										"_Attribute": "Dimmer",
+										"_CustomName": "StringConv Failed",
+										"_DMXFrom": "0/1",
+										"_Default": "0/1",
+										"_Max": "0.000000",
+										"_Min": "0.000000",
+										"_Name": "Dimmer 1",
+										"_OriginalAttribute": "",
+										"_PhysicalFrom": "0.000000",
+										"_PhysicalTo": "1.000000",
+										"_RealAcceleration": "0.000000",
+										"_RealFade": "0.000000"
+									},
+									"_Attribute": "Dimmer",
+									"_DMXChangeTimeLimit": "0.000000",
+									"_Master": "Grand",
+									"_MibFade": "0.000000",
+									"_Snap": "No"
+								},
+								"_DMXBreak": "1",
+								"_Geometry": "Beam",
+								"_Highlight": "255/1",
+								"_InitialFunction": "Beam_Dimmer.Dimmer.Dimmer 1",
+								"_Offset": "1"
+							},
+						]
+					},
+					"Relations": "",
+					"FTMacros": {
+						"FTMacro": {
+							"_Name": "Macro"
+						}
+					},
+					"_Description": "StringConv Failed",
+					"_Geometry": "Base",
+					"_Name": "Default"
+				}
+			},
+			"Revisions": {
+				"Revision": [
+					{
+						"_Date": "2021-07-05T07:57:28",
+						"_ModifiedBy": "",
+						"_Text": "",
+						"_UserID": "0"
+					},
+				]
+			},
+			"FTPresets": "",
+			"Protocols": "",
+			"_CanHaveChildren": "No",
+			"_Description": "",
+			"_FixtureTypeID": "58F7D3CE-E5C1-46E9-8383-F6AB6FF34F88",
+			"_LongName": "Basic Moving Head",
+			"_Manufacturer": "GDTF Templsdfsdfsdfate",
+			"_Name": "Basic Moving Head",
+			"_RefFT": "",
+			"_ShortName": "Moving Head",
+			"_Thumbnail": "",
+			"_ThumbnailOffsetX": "0",
+			"_ThumbnailOffsetY": "0"
+		},
+		"_DataVersion": "1.2"
+	}
+}
