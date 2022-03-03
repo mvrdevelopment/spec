@@ -16,12 +16,14 @@
         "SupportInfo":
         [
             {
+                "Name":"Software Name",
                 "Date":"2021-03-03T10:56:26Z",
                 "Version":"0.0.0",
                 "Supported": "NO",
                 "Notes":"We plan to support this feature in the future and actively working on it."
             },
             {
+                "Name":"Software Name",
                 "Date":"2022-03-03T10:56:26Z",
                 "Version":"1.0.0",
                 "Supported": "YES",
@@ -33,12 +35,14 @@
     "SupportInfo":
     [
         {
+            "Name":"Software Name",
             "Date":"2021-03-03T10:56:26Z",
             "Version":"0.0.0",
             "Supported": "NO",
             "Notes":"We plan to support this feature in the future and actively working on it."
         },
         {
+            "Name":"Software Name",
             "Date":"2022-03-03T10:56:26Z",
             "Version":"1.0.0",
             "Supported": "YES",
