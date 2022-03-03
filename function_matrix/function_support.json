@@ -57,24 +57,51 @@
 			"AttributeDefinitions": {
 				"ActivationGroups": {
 					"ActivationGroup": {
-						"_Name": "PanTilt"
+						"_Name": "PanTilt",
+                        "_Name_SupportInfo":
+                        [
+                            {
+                                "Name":"Software Name",
+                                "Date":"2021-03-03T10:56:26Z",
+                                "Version":"0.0.0",
+                                "Supported": "NO",
+                                "Notes":"We plan to support this feature in the future and actively working on it."
+                            },
+                            {
+                                "Name":"Software Name",
+                                "Date":"2022-03-03T10:56:26Z",
+                                "Version":"1.0.0",
+                                "Supported": "YES",
+                                "Notes":""
+                            }
+                        ]
 					}
 				},
 				"FeatureGroups": {
 					"FeatureGroup": [
 						{
+                            "SupportInfo":
+                            [
+                                {
+                                    "Name":"Software Name",
+                                    "Date":"2021-03-03T10:56:26Z",
+                                    "Version":"0.0.0",
+                                    "Supported": "NO",
+                                    "Notes":"We plan to support this feature in the future and actively working on it."
+                                },
+                                {
+                                    "Name":"Software Name",
+                                    "Date":"2022-03-03T10:56:26Z",
+                                    "Version":"1.0.0",
+                                    "Supported": "YES",
+                                    "Notes":""
+                                }
+                            ],
 							"Feature": {
 								"_Name": "Dimmer"
 							},
 							"_Name": "Dimmer",
 							"_Pretty": "Dimmer"
-						},
-						{
-							"Feature": {
-								"_Name": "PanTilt"
-							},
-							"_Name": "Position",
-							"_Pretty": "Position"
 						}
 					]
 				},
@@ -85,20 +112,6 @@
 							"_Name": "Dimmer",
 							"_PhysicalUnit": "None",
 							"_Pretty": "Dim"
-						},
-						{
-							"_ActivationGroup": "PanTilt",
-							"_Feature": "Position.PanTilt",
-							"_Name": "Pan",
-							"_PhysicalUnit": "Angle",
-							"_Pretty": "P"
-						},
-						{
-							"_ActivationGroup": "PanTilt",
-							"_Feature": "Position.PanTilt",
-							"_Name": "Tilt",
-							"_PhysicalUnit": "Angle",
-							"_Pretty": "T"
 						}
 					]
 				}
