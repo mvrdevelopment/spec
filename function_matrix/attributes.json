@@ -1,2244 +1,2244 @@
 [
   {
-    "name": "Dimmer",
-    "prettyName": "Dim",
-    "feature": "Dimmer.Dimmer"
+    "_name": "Dimmer",
+    "_prettyName": "Dim",
+    "_feature": "Dimmer.Dimmer"
   },
   {
-    "name": "Pan",
-    "prettyName": "P",
-    "feature": "Position.PanTilt",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "PanTilt"
+    "_name": "Pan",
+    "_prettyName": "P",
+    "_feature": "Position.PanTilt",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "PanTilt"
   },
   {
-    "name": "Tilt",
-    "prettyName": "T",
-    "feature": "Position.PanTilt",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "PanTilt"
+    "_name": "Tilt",
+    "_prettyName": "T",
+    "_feature": "Position.PanTilt",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "PanTilt"
   },
   {
-    "name": "PanRotate",
-    "prettyName": "P Rotate",
-    "feature": "Position.PanTilt",
-    "physicalUnit": "AngularSpeed"
+    "_name": "PanRotate",
+    "_prettyName": "P Rotate",
+    "_feature": "Position.PanTilt",
+    "_physicalUnit": "AngularSpeed"
   },
   {
-    "name": "TiltRotate",
-    "prettyName": "T Rotate",
-    "feature": "Position.PanTilt",
-    "physicalUnit": "AngularSpeed"
+    "_name": "TiltRotate",
+    "_prettyName": "T Rotate",
+    "_feature": "Position.PanTilt",
+    "_physicalUnit": "AngularSpeed"
   },
   {
-    "name": "PositionEffect",
-    "prettyName": "Pos FX",
-    "feature": "Position.PanTilt"
+    "_name": "PositionEffect",
+    "_prettyName": "Pos FX",
+    "_feature": "Position.PanTilt"
   },
   {
-    "name": "PositionEffectRate",
-    "prettyName": "Pos FX Rate",
-    "feature": "Position.PanTilt"
+    "_name": "PositionEffectRate",
+    "_prettyName": "Pos FX Rate",
+    "_feature": "Position.PanTilt"
   },
   {
-    "name": "PositionEffectFade",
-    "prettyName": "Pos FX Fade",
-    "feature": "Position.PanTilt"
+    "_name": "PositionEffectFade",
+    "_prettyName": "Pos FX Fade",
+    "_feature": "Position.PanTilt"
   },
   {
-    "name": "XYZ_X",
-    "prettyName": "X",
-    "feature": "Position.XYZ",
-    "physicalUnit": "Length",
-    "ActivationGroup": "XYZ"
+    "_name": "XYZ_X",
+    "_prettyName": "X",
+    "_feature": "Position.XYZ",
+    "_physicalUnit": "Length",
+    "_ActivationGroup": "XYZ"
   },
   {
-    "name": "XYZ_Y",
-    "prettyName": "Y",
-    "feature": "Position.XYZ",
-    "physicalUnit": "Length",
-    "ActivationGroup": "XYZ"
+    "_name": "XYZ_Y",
+    "_prettyName": "Y",
+    "_feature": "Position.XYZ",
+    "_physicalUnit": "Length",
+    "_ActivationGroup": "XYZ"
   },
   {
-    "name": "XYZ_Z",
-    "prettyName": "Z",
-    "feature": "Position.XYZ",
-    "physicalUnit": "Length",
-    "ActivationGroup": "XYZ"
+    "_name": "XYZ_Z",
+    "_prettyName": "Z",
+    "_feature": "Position.XYZ",
+    "_physicalUnit": "Length",
+    "_ActivationGroup": "XYZ"
   },
   {
-    "name": "Rot_X",
-    "prettyName": "Rot X",
-    "feature": "Position.Rotation",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Rot_XYZ"
+    "_name": "Rot_X",
+    "_prettyName": "Rot X",
+    "_feature": "Position.Rotation",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Rot_XYZ"
   },
   {
-    "name": "Rot_Y",
-    "prettyName": "Rot Y",
-    "feature": "Position.Rotation",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Rot_XYZ"
+    "_name": "Rot_Y",
+    "_prettyName": "Rot Y",
+    "_feature": "Position.Rotation",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Rot_XYZ"
   },
   {
-    "name": "Rot_Z",
-    "prettyName": "Rot Z",
-    "feature": "Position.Rotation",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Rot_XYZ"
+    "_name": "Rot_Z",
+    "_prettyName": "Rot Z",
+    "_feature": "Position.Rotation",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Rot_XYZ"
   },
   {
-    "name": "Scale_X",
-    "prettyName": "Scale X",
-    "feature": "Position.Scale",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "Scale_XYZ"
+    "_name": "Scale_X",
+    "_prettyName": "Scale X",
+    "_feature": "Position.Scale",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "Scale_XYZ"
   },
   {
-    "name": "Scale_Y",
-    "prettyName": "Scale Y",
-    "feature": "Position.Scale",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "Scale_XYZ"
+    "_name": "Scale_Y",
+    "_prettyName": "Scale Y",
+    "_feature": "Position.Scale",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "Scale_XYZ"
   },
   {
-    "name": "Scale_Z",
-    "prettyName": "Scale Z",
-    "feature": "Position.Scale",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "Scale_XYZ"
+    "_name": "Scale_Z",
+    "_prettyName": "Scale Z",
+    "_feature": "Position.Scale",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "Scale_XYZ"
   },
   {
-    "name": "Scale_XYZ",
-    "prettyName": "Scale XYZ",
-    "feature": "Position.Scale",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "Scale_XYZ"
+    "_name": "Scale_XYZ",
+    "_prettyName": "Scale XYZ",
+    "_feature": "Position.Scale",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "Scale_XYZ"
   },
   {
-    "name": "Gobo(n)",
-    "prettyName": "G(n)",
-    "feature": "Gobo.Gobo",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)",
+    "_prettyName": "G(n)",
+    "_feature": "Gobo.Gobo",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)SelectSpin",
-    "prettyName": "Select Spin",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)SelectSpin",
+    "_prettyName": "Select Spin",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)SelectShake",
-    "prettyName": "Select Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)SelectShake",
+    "_prettyName": "Select Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       },
       {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.2,
-        "physicalTo": 0.2,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.2,
+        "_physicalTo": 0.2,
       },
     ]
   },
   {
-    "name": "Gobo(n)SelectEffects",
-    "prettyName": "Select Effects",
-    "feature": "Gobo.Gobo",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)"
+    "_name": "Gobo(n)SelectEffects",
+    "_prettyName": "Select Effects",
+    "_feature": "Gobo.Gobo",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)"
   },
   {
-    "name": "Gobo(n)WheelIndex",
-    "prettyName": "Wheel Index",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Angle",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)WheelIndex",
+    "_prettyName": "Wheel Index",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Angle",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)WheelSpin",
-    "prettyName": "Wheel Spin",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)WheelSpin",
+    "_prettyName": "Wheel Spin",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)WheelShake",
-    "prettyName": "Wheel Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)WheelShake",
+    "_prettyName": "Wheel Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       },
       {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.2,
-        "physicalTo": 0.2,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.2,
+        "_physicalTo": 0.2,
       },
     ]
   },
   {
-    "name": "Gobo(n)WheelRandom",
-    "prettyName": "Wheel Random",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)WheelRandom",
+    "_prettyName": "Wheel Random",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)WheelAudio",
-    "prettyName": "Wheel Audio",
-    "feature": "Gobo.Gobo",
-    "MainAttribute": "Gobo(n)",
-    "ActivationGroup": "Gobo(n)",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)WheelAudio",
+    "_prettyName": "Wheel Audio",
+    "_feature": "Gobo.Gobo",
+    "_MainAttribute": "Gobo(n)",
+    "_ActivationGroup": "Gobo(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Gobo(n)Pos",
-    "prettyName": "G(n) \u003c\u003e",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Gobo(n)Pos"
+    "_name": "Gobo(n)Pos",
+    "_prettyName": "G(n) \u003c\u003e",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Gobo(n)Pos"
   },
   {
-    "name": "Gobo(n)PosRotate",
-    "prettyName": "Rotate",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Gobo(n)Pos",
-    "ActivationGroup": "Gobo(n)Pos"
+    "_name": "Gobo(n)PosRotate",
+    "_prettyName": "Rotate",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Gobo(n)Pos",
+    "_ActivationGroup": "Gobo(n)Pos"
   },
   {
-    "name": "Gobo(n)PosShake",
-    "prettyName": "Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Gobo(n)Pos",
-    "ActivationGroup": "Gobo(n)Pos",
-    "subPhysicalUnits":
+    "_name": "Gobo(n)PosShake",
+    "_prettyName": "Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Gobo(n)Pos",
+    "_ActivationGroup": "Gobo(n)Pos",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.2,
-        "physicalTo": 0.2,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.2,
+        "_physicalTo": 0.2,
       },
     ]
   },
   {
-    "name": "AnimationWheel(n)",
-    "prettyName": "Anim(n)",
-    "feature": "Gobo.Gobo",
-    "ActivationGroup": "AnimationWheel(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)",
+    "_prettyName": "Anim(n)",
+    "_feature": "Gobo.Gobo",
+    "_ActivationGroup": "AnimationWheel(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "AnimationWheel(n)Audio",
-    "prettyName": "Anim Audio",
-    "feature": "Gobo.Gobo",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)Audio",
+    "_prettyName": "Anim Audio",
+    "_feature": "Gobo.Gobo",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "AnimationWheel(n)Macro",
-    "prettyName": "Anim FX",
-    "feature": "Gobo.Gobo",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)"
+    "_name": "AnimationWheel(n)Macro",
+    "_prettyName": "Anim FX",
+    "_feature": "Gobo.Gobo",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)"
   },
   {
-    "name": "AnimationWheel(n)Random",
-    "prettyName": "Anim Random",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)Random",
+    "_prettyName": "Anim Random",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "AnimationWheel(n)SelectEffects",
-    "prettyName": "Anim Select FX",
-    "feature": "Gobo.Gobo",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)"
+    "_name": "AnimationWheel(n)SelectEffects",
+    "_prettyName": "Anim Select FX",
+    "_feature": "Gobo.Gobo",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)"
   },
   {
-    "name": "AnimationWheel(n)SelectShake",
-    "prettyName": "Anim Select Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)SelectShake",
+    "_prettyName": "Anim Select Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       },
       {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.2,
-        "physicalTo": 0.2,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.2,
+        "_physicalTo": 0.2,
       },
     ]
   },
   {
-    "name": "AnimationWheel(n)SelectSpin",
-    "prettyName": "Anim Select Spin",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "AnimationWheel(n)",
-    "ActivationGroup": "AnimationWheel(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)SelectSpin",
+    "_prettyName": "Anim Select Spin",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "AnimationWheel(n)",
+    "_ActivationGroup": "AnimationWheel(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "AnimationWheel(n)Pos",
-    "prettyName": "Anim Pos",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "AnimationWheel(n)Pos"
+    "_name": "AnimationWheel(n)Pos",
+    "_prettyName": "Anim Pos",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "AnimationWheel(n)Pos"
   },
   {
-    "name": "AnimationWheel(n)PosRotate",
-    "prettyName": "Anim Rotate",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "AnimationWheel(n)Pos",
-    "ActivationGroup": "AnimationWheel(n)Pos"
+    "_name": "AnimationWheel(n)PosRotate",
+    "_prettyName": "Anim Rotate",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "AnimationWheel(n)Pos",
+    "_ActivationGroup": "AnimationWheel(n)Pos"
   },
   {
-    "name": "AnimationWheel(n)PosShake",
-    "prettyName": "Anim Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationWheel(n)Pos",
-    "ActivationGroup": "AnimationWheel(n)Pos",
-    "subPhysicalUnits":
+    "_name": "AnimationWheel(n)PosShake",
+    "_prettyName": "Anim Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationWheel(n)Pos",
+    "_ActivationGroup": "AnimationWheel(n)Pos",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.2,
-        "physicalTo": 0.2,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.2,
+        "_physicalTo": 0.2,
       },
     ]
   },
   {
-    "name": "AnimationSystem(n)",
-    "prettyName": "Anim System",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "AnimationSystem(n)"
+    "_name": "AnimationSystem(n)",
+    "_prettyName": "Anim System",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "AnimationSystem(n)"
   },
   {
-    "name": "AnimationSystem(n)Ramp",
-    "prettyName": "Anim System Ramp",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationSystem(n)",
-    "ActivationGroup": "AnimationSystem(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationSystem(n)Ramp",
+    "_prettyName": "Anim System Ramp",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationSystem(n)",
+    "_ActivationGroup": "AnimationSystem(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0.5,
-        "physicalTo": 0.5,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0.5,
+        "_physicalTo": 0.5,
       },
       {
-        "default": true,
-        "type": "AmplitudeMin",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "AmplitudeMin",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
       {
-        "default": true,
-        "type": "AmplitudeMax",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "AmplitudeMax",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "AnimationSystem(n)Shake",
-    "prettyName": "Anim System Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationSystem(n)",
-    "ActivationGroup": "AnimationSystem(n)",
-    "subPhysicalUnits":
+    "_name": "AnimationSystem(n)Shake",
+    "_prettyName": "Anim System Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationSystem(n)",
+    "_ActivationGroup": "AnimationSystem(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "AmplitudeMin",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "AmplitudeMin",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
       {
-        "default": true,
-        "type": "AmplitudeMax",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
-      },
-    ]
-  },
-  {
-    "name": "AnimationSystem(n)Audio",
-    "prettyName": "Anim System Audio",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "None",
-    "MainAttribute": "AnimationSystem(n)",
-    "ActivationGroup": "AnimationSystem(n)"
-  },
-  {
-    "name": "AnimationSystem(n)Random",
-    "prettyName": "Anim System Random",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "None",
-    "MainAttribute": "AnimationSystem(n)",
-    "ActivationGroup": "AnimationSystem(n)"
-  },
-  {
-    "name": "AnimationSystem(n)Pos",
-    "prettyName": "Anim System Pos",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "AnimationSystem(n)Pos"
-  },
-  {
-    "name": "AnimationSystem(n)PosRotate",
-    "prettyName": "Anim System Rotate",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "AnimationSystem(n)Pos",
-    "ActivationGroup": "AnimationSystem(n)Pos"
-  },
-  {
-    "name": "AnimationSystem(n)PosShake",
-    "prettyName": "Anim System Shake",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "AnimationSystem(n)Pos",
-    "ActivationGroup": "AnimationSystem(n)Pos",
-    "subPhysicalUnits":
-    [
-      {
-        "default": true,
-        "type": "Amplitude",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "AmplitudeMax",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "AnimationSystem(n)PosRandom",
-    "prettyName": "Anim System Rot Random",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "None",
-    "MainAttribute": "AnimationSystem(n)Pos",
-    "ActivationGroup": "AnimationSystem(n)Pos"
+    "_name": "AnimationSystem(n)Audio",
+    "_prettyName": "Anim System Audio",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "None",
+    "_MainAttribute": "AnimationSystem(n)",
+    "_ActivationGroup": "AnimationSystem(n)"
   },
   {
-    "name": "AnimationSystem(n)PosAudio",
-    "prettyName": "Anim System Rot Audio",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "None",
-    "MainAttribute": "AnimationSystem(n)Pos",
-    "ActivationGroup": "AnimationSystem(n)Pos"
+    "_name": "AnimationSystem(n)Random",
+    "_prettyName": "Anim System Random",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "None",
+    "_MainAttribute": "AnimationSystem(n)",
+    "_ActivationGroup": "AnimationSystem(n)"
   },
   {
-    "name": "AnimationSystem(n)Macro",
-    "prettyName": "Anim System Macro",
-    "feature": "Gobo.Gobo",
-    "physicalUnit": "None"
+    "_name": "AnimationSystem(n)Pos",
+    "_prettyName": "Anim System Pos",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "AnimationSystem(n)Pos"
   },
   {
-    "name": "MediaFolder(n)",
-    "prettyName": "Media Folder(n)",
-    "feature": "Gobo.Media"
+    "_name": "AnimationSystem(n)PosRotate",
+    "_prettyName": "Anim System Rotate",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "AnimationSystem(n)Pos",
+    "_ActivationGroup": "AnimationSystem(n)Pos"
   },
   {
-    "name": "MediaContent(n)",
-    "prettyName": "Media Content(n)",
-    "feature": "Gobo.Media"
-  },
-  {
-    "name": "ModelFolder(n)",
-    "prettyName": "Model Folder(n)",
-    "feature": "Gobo.Media",
-    "physicalUnit": "None"
-  },
-  {
-    "name": "ModelContent(n)",
-    "prettyName": "Model Content(n)",
-    "feature": "Gobo.Media",
-    "physicalUnit": "None"
-  },
-  {
-    "name": "Playmode",
-    "prettyName": "Playmode",
-    "feature": "Gobo.Media"
-  },
-  {
-    "name": "PlayBegin",
-    "prettyName": "Play Begin",
-    "feature": "Gobo.Media",
-    "physicalUnit": "Time"
-  },
-  {
-    "name": "PlayEnd",
-    "prettyName": "Play End",
-    "feature": "Gobo.Media",
-    "physicalUnit": "Time"
-  },
-  {
-    "name": "PlaySpeed",
-    "prettyName": "Play Speed",
-    "feature": "Gobo.Media",
-    "physicalUnit": "Percent"
-  },
-  {
-    "name": "ColorEffects(n)",
-    "prettyName": "Color FX(n)",
-    "feature": "Color.Color"
-  },
-  {
-    "name": "Color(n)",
-    "prettyName": "C(n)",
-    "feature": "Color.Color",
-    "ActivationGroup": "ColorRGB",
-    "subPhysicalUnits":
+    "_name": "AnimationSystem(n)PosShake",
+    "_prettyName": "Anim System Shake",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "AnimationSystem(n)Pos",
+    "_ActivationGroup": "AnimationSystem(n)Pos",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "Amplitude",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
+      },
+    ]
+  },
+  {
+    "_name": "AnimationSystem(n)PosRandom",
+    "_prettyName": "Anim System Rot Random",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "None",
+    "_MainAttribute": "AnimationSystem(n)Pos",
+    "_ActivationGroup": "AnimationSystem(n)Pos"
+  },
+  {
+    "_name": "AnimationSystem(n)PosAudio",
+    "_prettyName": "Anim System Rot Audio",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "None",
+    "_MainAttribute": "AnimationSystem(n)Pos",
+    "_ActivationGroup": "AnimationSystem(n)Pos"
+  },
+  {
+    "_name": "AnimationSystem(n)Macro",
+    "_prettyName": "Anim System Macro",
+    "_feature": "Gobo.Gobo",
+    "_physicalUnit": "None"
+  },
+  {
+    "_name": "MediaFolder(n)",
+    "_prettyName": "Media Folder(n)",
+    "_feature": "Gobo.Media"
+  },
+  {
+    "_name": "MediaContent(n)",
+    "_prettyName": "Media Content(n)",
+    "_feature": "Gobo.Media"
+  },
+  {
+    "_name": "ModelFolder(n)",
+    "_prettyName": "Model Folder(n)",
+    "_feature": "Gobo.Media",
+    "_physicalUnit": "None"
+  },
+  {
+    "_name": "ModelContent(n)",
+    "_prettyName": "Model Content(n)",
+    "_feature": "Gobo.Media",
+    "_physicalUnit": "None"
+  },
+  {
+    "_name": "Playmode",
+    "_prettyName": "Playmode",
+    "_feature": "Gobo.Media"
+  },
+  {
+    "_name": "PlayBegin",
+    "_prettyName": "Play Begin",
+    "_feature": "Gobo.Media",
+    "_physicalUnit": "Time"
+  },
+  {
+    "_name": "PlayEnd",
+    "_prettyName": "Play End",
+    "_feature": "Gobo.Media",
+    "_physicalUnit": "Time"
+  },
+  {
+    "_name": "PlaySpeed",
+    "_prettyName": "Play Speed",
+    "_feature": "Gobo.Media",
+    "_physicalUnit": "Percent"
+  },
+  {
+    "_name": "ColorEffects(n)",
+    "_prettyName": "Color FX(n)",
+    "_feature": "Color.Color"
+  },
+  {
+    "_name": "Color(n)",
+    "_prettyName": "C(n)",
+    "_feature": "Color.Color",
+    "_ActivationGroup": "ColorRGB",
+    "_subPhysicalUnits":
+    [
+      {
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Color(n)WheelIndex",
-    "prettyName": "Wheel Index",
-    "feature": "Color.Color",
-    "physicalUnit": "Angle",
-    "MainAttribute": "Color(n)",
-    "ActivationGroup": "ColorRGB",
-    "subPhysicalUnits":
+    "_name": "Color(n)WheelIndex",
+    "_prettyName": "Wheel Index",
+    "_feature": "Color.Color",
+    "_physicalUnit": "Angle",
+    "_MainAttribute": "Color(n)",
+    "_ActivationGroup": "ColorRGB",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Color(n)WheelSpin",
-    "prettyName": "Wheel Spin",
-    "feature": "Color.Color",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Color(n)",
-    "ActivationGroup": "ColorRGB",
-    "subPhysicalUnits":
+    "_name": "Color(n)WheelSpin",
+    "_prettyName": "Wheel Spin",
+    "_feature": "Color.Color",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Color(n)",
+    "_ActivationGroup": "ColorRGB",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Color(n)WheelRandom",
-    "prettyName": "Wheel Random",
-    "feature": "Color.Color",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Color(n)",
-    "ActivationGroup": "ColorRGB",
-    "subPhysicalUnits":
+    "_name": "Color(n)WheelRandom",
+    "_prettyName": "Wheel Random",
+    "_feature": "Color.Color",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Color(n)",
+    "_ActivationGroup": "ColorRGB",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "Color(n)WheelAudio",
-    "prettyName": "Wheel Audio",
-    "feature": "Color.Color",
-    "MainAttribute": "Color(n)",
-    "ActivationGroup": "ColorRGB",
-    "subPhysicalUnits":
+    "_name": "Color(n)WheelAudio",
+    "_prettyName": "Wheel Audio",
+    "_feature": "Color.Color",
+    "_MainAttribute": "Color(n)",
+    "_ActivationGroup": "ColorRGB",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "PlacementOffset",
-        "physicalUnit": "Degree",
-        "physicalFrom": 270,
-        "physicalTo": 270,
+        "_default": true,
+        "_type": "PlacementOffset",
+        "_physicalUnit": "Degree",
+        "_physicalFrom": 270,
+        "_physicalTo": 270,
       }
     ]
   },
   {
-    "name": "ColorAdd_R",
-    "prettyName": "R",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.64,0.33,21.3"
-  },
-  {
-    "name": "ColorAdd_G",
-    "prettyName": "G",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.3,0.6,71.5"
-  },
-  {
-    "name": "ColorAdd_B",
-    "prettyName": "B",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.15,0.06,7.2"
-  },
-  {
-    "name": "ColorAdd_C",
-    "prettyName": "C",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.225,0.329,78.7"
-  },
-  {
-    "name": "ColorAdd_M",
-    "prettyName": "M",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.321,0.154,28.5"
-  },
-  {
-    "name": "ColorAdd_Y",
-    "prettyName": "Y",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.419,0.505,92.8"
-  },
-  {
-    "name": "ColorAdd_RY",
-    "prettyName": "Amber",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.477,0.460,57.0"
-  },
-  {
-    "name": "ColorAdd_GY",
-    "prettyName": "Lime",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.372,0.543,82.1"
-  },
-  {
-    "name": "ColorAdd_GC",
-    "prettyName": "Blue-Green",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.250,0.419,75.1"
-  },
-  {
-    "name": "ColorAdd_BC",
-    "prettyName": "Light-Blue ",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.200,0.239,43.0"
-  },
-  {
-    "name": "ColorAdd_BM",
-    "prettyName": "Purple",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.254,0.117,17.9"
+    "_name": "ColorAdd_R",
+    "_prettyName": "R",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.64,0.33,21.3"
+  },
+  {
+    "_name": "ColorAdd_G",
+    "_prettyName": "G",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.3,0.6,71.5"
+  },
+  {
+    "_name": "ColorAdd_B",
+    "_prettyName": "B",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.15,0.06,7.2"
+  },
+  {
+    "_name": "ColorAdd_C",
+    "_prettyName": "C",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.225,0.329,78.7"
+  },
+  {
+    "_name": "ColorAdd_M",
+    "_prettyName": "M",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.321,0.154,28.5"
+  },
+  {
+    "_name": "ColorAdd_Y",
+    "_prettyName": "Y",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.419,0.505,92.8"
+  },
+  {
+    "_name": "ColorAdd_RY",
+    "_prettyName": "Amber",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.477,0.460,57.0"
+  },
+  {
+    "_name": "ColorAdd_GY",
+    "_prettyName": "Lime",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.372,0.543,82.1"
+  },
+  {
+    "_name": "ColorAdd_GC",
+    "_prettyName": "Blue-Green",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.250,0.419,75.1"
+  },
+  {
+    "_name": "ColorAdd_BC",
+    "_prettyName": "Light-Blue ",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.200,0.239,43.0"
+  },
+  {
+    "_name": "ColorAdd_BM",
+    "_prettyName": "Purple",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.254,0.117,17.9"
   },
   {
-    "name": "ColorAdd_RM",
-    "prettyName": "Pink",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.403,0.200,24.9"
+    "_name": "ColorAdd_RM",
+    "_prettyName": "Pink",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.403,0.200,24.9"
   },
   {
-    "name": "ColorAdd_W",
-    "prettyName": "White",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.313,0.329,100.0"
+    "_name": "ColorAdd_W",
+    "_prettyName": "White",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.313,0.329,100.0"
   },
   {
-    "name": "ColorAdd_WW",
-    "prettyName": "WW",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.319,0.340,99.3"
+    "_name": "ColorAdd_WW",
+    "_prettyName": "WW",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.319,0.340,99.3"
   },
   {
-    "name": "ColorAdd_CW",
-    "prettyName": "CW",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.306,0.329,97.9"
+    "_name": "ColorAdd_CW",
+    "_prettyName": "CW",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.306,0.329,97.9"
   },
   {
-    "name": "ColorAdd_UV",
-    "prettyName": "UV",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.176,0.005,0.6"
+    "_name": "ColorAdd_UV",
+    "_prettyName": "UV",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.176,0.005,0.6"
   },
   {
-    "name": "ColorSub_R",
-    "prettyName": "R",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.64,0.33,21.3"
+    "_name": "ColorSub_R",
+    "_prettyName": "R",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.64,0.33,21.3"
   },
   {
-    "name": "ColorSub_G",
-    "prettyName": "G",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.3,0.6,71.5"
+    "_name": "ColorSub_G",
+    "_prettyName": "G",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.3,0.6,71.5"
   },
   {
-    "name": "ColorSub_B",
-    "prettyName": "B",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.15,0.06,7.2"
+    "_name": "ColorSub_B",
+    "_prettyName": "B",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.15,0.06,7.2"
   },
   {
-    "name": "ColorSub_C",
-    "prettyName": "C",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.225,0.329,78.7"
+    "_name": "ColorSub_C",
+    "_prettyName": "C",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.225,0.329,78.7"
   },
   {
-    "name": "ColorSub_M",
-    "prettyName": "M",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.321,0.154,28.5"
+    "_name": "ColorSub_M",
+    "_prettyName": "M",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.321,0.154,28.5"
   },
   {
-    "name": "ColorSub_Y",
-    "prettyName": "Y",
-    "feature": "Color.RGB",
-    "physicalUnit": "ColorComponent",
-    "ActivationGroup": "ColorRGB",
-    "Color": "0.419,0.505,92.8"
+    "_name": "ColorSub_Y",
+    "_prettyName": "Y",
+    "_feature": "Color.RGB",
+    "_physicalUnit": "ColorComponent",
+    "_ActivationGroup": "ColorRGB",
+    "_Color": "0.419,0.505,92.8"
   },
   {
-    "name": "ColorMacro(n)",
-    "prettyName": "Color Macro(n)",
-    "feature": "Color.RGB"
+    "_name": "ColorMacro(n)",
+    "_prettyName": "Color Macro(n)",
+    "_feature": "Color.RGB"
   },
   {
-    "name": "ColorMacro(n)Rate",
-    "prettyName": "Color Macro(n) Rate",
-    "feature": "Color.RGB"
+    "_name": "ColorMacro(n)Rate",
+    "_prettyName": "Color Macro(n) Rate",
+    "_feature": "Color.RGB"
   },
   {
-    "name": "CTO",
-    "prettyName": "CTO",
-    "feature": "Color.Color",
-    "physicalUnit": "Temperature"
+    "_name": "CTO",
+    "_prettyName": "CTO",
+    "_feature": "Color.Color",
+    "_physicalUnit": "Temperature"
   },
   {
-    "name": "CTC",
-    "prettyName": "CTC",
-    "feature": "Color.Color",
-    "physicalUnit": "Temperature"
+    "_name": "CTC",
+    "_prettyName": "CTC",
+    "_feature": "Color.Color",
+    "_physicalUnit": "Temperature"
   },
   {
-    "name": "CTB",
-    "prettyName": "CTB",
-    "feature": "Color.Color",
-    "physicalUnit": "Temperature"
+    "_name": "CTB",
+    "_prettyName": "CTB",
+    "_feature": "Color.Color",
+    "_physicalUnit": "Temperature"
   },
   {
-    "name": "Tint",
-    "prettyName": "Tint",
-    "feature": "Color.Color"
+    "_name": "Tint",
+    "_prettyName": "Tint",
+    "_feature": "Color.Color"
   },
   {
-    "name": "HSB_Hue",
-    "prettyName": "H",
-    "feature": "Color.HSB",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "ColorHSB"
+    "_name": "HSB_Hue",
+    "_prettyName": "H",
+    "_feature": "Color.HSB",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "ColorHSB"
   },
   {
-    "name": "HSB_Saturation",
-    "prettyName": "S",
-    "feature": "Color.HSB",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "ColorHSB"
+    "_name": "HSB_Saturation",
+    "_prettyName": "S",
+    "_feature": "Color.HSB",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "ColorHSB"
   },
   {
-    "name": "HSB_Brightness",
-    "prettyName": "B",
-    "feature": "Color.HSB",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "ColorHSB"
+    "_name": "HSB_Brightness",
+    "_prettyName": "B",
+    "_feature": "Color.HSB",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "ColorHSB"
   },
   {
-    "name": "HSB_Quality",
-    "prettyName": "Q",
-    "feature": "Color.HSB",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "ColorHSB"
+    "_name": "HSB_Quality",
+    "_prettyName": "Q",
+    "_feature": "Color.HSB",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "ColorHSB"
   },
   {
-    "name": "CIE_X",
-    "prettyName": "X",
-    "feature": "Color.CIE",
-    "ActivationGroup": "ColorCIE"
+    "_name": "CIE_X",
+    "_prettyName": "X",
+    "_feature": "Color.CIE",
+    "_ActivationGroup": "ColorCIE"
   },
   {
-    "name": "CIE_Y",
-    "prettyName": "Y",
-    "feature": "Color.CIE",
-    "ActivationGroup": "ColorCIE"
+    "_name": "CIE_Y",
+    "_prettyName": "Y",
+    "_feature": "Color.CIE",
+    "_ActivationGroup": "ColorCIE"
   },
   {
-    "name": "CIE_Brightness",
-    "prettyName": "B",
-    "feature": "Color.CIE",
-    "physicalUnit": "Percent",
-    "ActivationGroup": "ColorCIE"
+    "_name": "CIE_Brightness",
+    "_prettyName": "B",
+    "_feature": "Color.CIE",
+    "_physicalUnit": "Percent",
+    "_ActivationGroup": "ColorCIE"
   },
   {
-    "name": "ColorRGB_Red",
-    "prettyName": "R",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Red",
+    "_prettyName": "R",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Green",
-    "prettyName": "G",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Green",
+    "_prettyName": "G",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Blue",
-    "prettyName": "B",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Blue",
+    "_prettyName": "B",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Cyan",
-    "prettyName": "C",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Cyan",
+    "_prettyName": "C",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Magenta",
-    "prettyName": "M",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Magenta",
+    "_prettyName": "M",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Yellow",
-    "prettyName": "Y",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Yellow",
+    "_prettyName": "Y",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "ColorRGB_Quality",
-    "prettyName": "Q",
-    "feature": "Color.Indirect",
-    "ActivationGroup": "ColorIndirect"
+    "_name": "ColorRGB_Quality",
+    "_prettyName": "Q",
+    "_feature": "Color.Indirect",
+    "_ActivationGroup": "ColorIndirect"
   },
   {
-    "name": "VideoBoost_R",
-    "prettyName": "Boost R",
-    "feature": "Color.ColorCorrection",
-    "physicalUnit": "None",
-    "Color": "0.64,0.33,21.3"
+    "_name": "VideoBoost_R",
+    "_prettyName": "Boost R",
+    "_feature": "Color.ColorCorrection",
+    "_physicalUnit": "None",
+    "_Color": "0.64,0.33,21.3"
   },
   {
-    "name": "VideoBoost_G",
-    "prettyName": "Boost G",
-    "feature": "Color.ColorCorrection",
-    "physicalUnit": "None",
-    "Color": "0.3,0.6,71.5"
+    "_name": "VideoBoost_G",
+    "_prettyName": "Boost G",
+    "_feature": "Color.ColorCorrection",
+    "_physicalUnit": "None",
+    "_Color": "0.3,0.6,71.5"
   },
   {
-    "name": "VideoBoost_B",
-    "prettyName": "Boost B",
-    "feature": "Color.ColorCorrection",
-    "physicalUnit": "None",
-    "Color": "0.15,0.06,7.2"
+    "_name": "VideoBoost_B",
+    "_prettyName": "Boost B",
+    "_feature": "Color.ColorCorrection",
+    "_physicalUnit": "None",
+    "_Color": "0.15,0.06,7.2"
   },
   {
-    "name": "VideoHueShift",
-    "prettyName": "Hue Shift",
-    "feature": "Color.HSBC_Shift",
-    "physicalUnit": "Angle"
+    "_name": "VideoHueShift",
+    "_prettyName": "Hue Shift",
+    "_feature": "Color.HSBC_Shift",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "VideoSaturation",
-    "prettyName": "S",
-    "feature": "Color.HSBC_Shift",
-    "physicalUnit": "Percent"
+    "_name": "VideoSaturation",
+    "_prettyName": "S",
+    "_feature": "Color.HSBC_Shift",
+    "_physicalUnit": "Percent"
   },
   {
-    "name": "VideoBrightness",
-    "prettyName": "B",
-    "feature": "Color.HSBC_Shift",
-    "physicalUnit": "Percent"
+    "_name": "VideoBrightness",
+    "_prettyName": "B",
+    "_feature": "Color.HSBC_Shift",
+    "_physicalUnit": "Percent"
   },
   {
-    "name": "VideoContrast",
-    "prettyName": "C",
-    "feature": "Color.HSBC_Shift",
-    "physicalUnit": "Percent"
+    "_name": "VideoContrast",
+    "_prettyName": "C",
+    "_feature": "Color.HSBC_Shift",
+    "_physicalUnit": "Percent"
   },
   {
-    "name": "VideoKeyColor_R",
-    "prettyName": "R",
-    "feature": "Color.ColorKey",
-    "physicalUnit": "None",
-    "Color": "0.64,0.33,21.3"
+    "_name": "VideoKeyColor_R",
+    "_prettyName": "R",
+    "_feature": "Color.ColorKey",
+    "_physicalUnit": "None",
+    "_Color": "0.64,0.33,21.3"
   },
   {
-    "name": "VideoKeyColor_G",
-    "prettyName": "G",
-    "feature": "Color.ColorKey",
-    "physicalUnit": "None",
-    "Color": "0.3,0.6,71.5"
+    "_name": "VideoKeyColor_G",
+    "_prettyName": "G",
+    "_feature": "Color.ColorKey",
+    "_physicalUnit": "None",
+    "_Color": "0.3,0.6,71.5"
   },
   {
-    "name": "VideoColorKey_B",
-    "prettyName": "B",
-    "feature": "Color.ColorKey",
-    "physicalUnit": "None",
-    "Color": "0.15,0.06,7.2"
+    "_name": "VideoColorKey_B",
+    "_prettyName": "B",
+    "_feature": "Color.ColorKey",
+    "_physicalUnit": "None",
+    "_Color": "0.15,0.06,7.2"
   },
   {
-    "name": "VideoKeyIntensity",
-    "prettyName": "Intensity",
-    "feature": "Color.ColorKey",
-    "physicalUnit": "Percent"
+    "_name": "VideoKeyIntensity",
+    "_prettyName": "Intensity",
+    "_feature": "Color.ColorKey",
+    "_physicalUnit": "Percent"
   },
   {
-    "name": "VideoKeyTolerance",
-    "prettyName": "Tolerance",
-    "feature": "Color.ColorKey",
-    "physicalUnit": "None"
+    "_name": "VideoKeyTolerance",
+    "_prettyName": "Tolerance",
+    "_feature": "Color.ColorKey",
+    "_physicalUnit": "None"
   },
   {
-    "name": "StrobeDuration",
-    "prettyName": "Strobe Duration",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Time"
+    "_name": "StrobeDuration",
+    "_prettyName": "Strobe Duration",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Time"
   },
   {
-    "name": "StrobeRate",
-    "prettyName": "Strobe Rate",
-    "feature": "Beam.Beam"
+    "_name": "StrobeRate",
+    "_prettyName": "Strobe Rate",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "StrobeFrequency",
-    "prettyName": "Strobe Frequency",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency"
+    "_name": "StrobeFrequency",
+    "_prettyName": "Strobe Frequency",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency"
   },
   {
-    "name": "StrobeModeShutter",
-    "prettyName": "StrobeM Shutter",
-    "feature": "Beam.Beam"
+    "_name": "StrobeModeShutter",
+    "_prettyName": "StrobeM Shutter",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "StrobeModeStrobe",
-    "prettyName": "StrobeM Strobe",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeStrobe",
+    "_prettyName": "StrobeM Strobe",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModePulse",
-    "prettyName": "StrobeM Pulse",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModePulse",
+    "_prettyName": "StrobeM Pulse",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModePulseOpen",
-    "prettyName": "StrobeM PulseOpen",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModePulseOpen",
+    "_prettyName": "StrobeM PulseOpen",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModePulseClose",
-    "prettyName": "StrobeM Pulse Close",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModePulseClose",
+    "_prettyName": "StrobeM Pulse Close",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModeRandom",
-    "prettyName": "StrobeM Random",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeRandom",
+    "_prettyName": "StrobeM Random",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModeRandomPulse",
-    "prettyName": "StrobeM Random Pulse",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeRandomPulse",
+    "_prettyName": "StrobeM Random Pulse",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModeRandomPulseOpen",
-    "prettyName": "StrobeM Random Pulse Open",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeRandomPulseOpen",
+    "_prettyName": "StrobeM Random Pulse Open",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModeRandomPulseClose",
-    "prettyName": "StrobeM Random Pulse Close",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeRandomPulseClose",
+    "_prettyName": "StrobeM Random Pulse Close",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "StrobeModeEffect",
-    "prettyName": "StrobeM Effect",
-    "feature": "Beam.Beam",
-    "MainAttribute": "StrobeModeShutter"
+    "_name": "StrobeModeEffect",
+    "_prettyName": "StrobeM Effect",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "StrobeModeShutter"
   },
   {
-    "name": "Shutter(n)",
-    "prettyName": "Sh(n)",
-    "feature": "Beam.Beam"
+    "_name": "Shutter(n)",
+    "_prettyName": "Sh(n)",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "Shutter(n)Strobe",
-    "prettyName": "Strobe(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)",
-    "subPhysicalUnits":
+    "_name": "Shutter(n)Strobe",
+    "_prettyName": "Strobe(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Duration",
-        "physicalUnit": "Time",
-        "physicalFrom": "0.025",
-        "physicalTo": "0.025",
+        "_default": true,
+        "_type": "Duration",
+        "_physicalUnit": "Time",
+        "_physicalFrom": "0.025",
+        "_physicalTo": "0.025",
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Shutter(n)StrobePulse",
-    "prettyName": "Pulse(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)",
-    "subPhysicalUnits":
+    "_name": "Shutter(n)StrobePulse",
+    "_prettyName": "Pulse(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Shutter(n)StrobePulseClose",
-    "prettyName": "Pulse Close(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)",
-    "subPhysicalUnits":
+    "_name": "Shutter(n)StrobePulseClose",
+    "_prettyName": "Pulse Close(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Shutter(n)StrobePulseOpen",
-    "prettyName": "Pulse Open(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)",
-    "subPhysicalUnits":
+    "_name": "Shutter(n)StrobePulseOpen",
+    "_prettyName": "Pulse Open(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Shutter(n)StrobeRandom",
-    "prettyName": "Random(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)",
-    "subPhysicalUnits":
+    "_name": "Shutter(n)StrobeRandom",
+    "_prettyName": "Random(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Duration",
-        "physicalUnit": "Time",
-        "physicalFrom": 0.025,
-        "physicalTo": 0.025,
+        "_default": true,
+        "_type": "Duration",
+        "_physicalUnit": "Time",
+        "_physicalFrom": 0.025,
+        "_physicalTo": 0.025,
       },
     ]
   },
   {
-    "name": "Shutter(n)StrobeRandomPulse",
-    "prettyName": "Random Pulse(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)"
+    "_name": "Shutter(n)StrobeRandomPulse",
+    "_prettyName": "Random Pulse(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)"
   },
   {
-    "name": "Shutter(n)StrobeRandomPulseClose",
-    "prettyName": "Random Pulse Close(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)"
+    "_name": "Shutter(n)StrobeRandomPulseClose",
+    "_prettyName": "Random Pulse Close(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)"
   },
   {
-    "name": "Shutter(n)StrobeRandomPulseOpen",
-    "prettyName": "Random Pulse Open(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)"
+    "_name": "Shutter(n)StrobeRandomPulseOpen",
+    "_prettyName": "Random Pulse Open(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)"
   },
   {
-    "name": "Shutter(n)StrobeEffect",
-    "prettyName": "Effect(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Shutter(n)"
+    "_name": "Shutter(n)StrobeEffect",
+    "_prettyName": "Effect(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Shutter(n)"
   },
   {
-    "name": "Iris",
-    "prettyName": "Iris",
-    "feature": "Beam.Beam"
+    "_name": "Iris",
+    "_prettyName": "Iris",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "IrisStrobe",
-    "prettyName": "Strobe",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisStrobe",
+    "_prettyName": "Strobe",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Duration",
-        "physicalUnit": "Time",
-        "physicalFrom": 0.3,
-        "physicalTo": 0.3,
+        "_default": true,
+        "_type": "Duration",
+        "_physicalUnit": "Time",
+        "_physicalFrom": 0.3,
+        "_physicalTo": 0.3,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "IrisStrobeRandom",
-    "prettyName": "Random Strobe",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisStrobeRandom",
+    "_prettyName": "Random Strobe",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "Duration",
-        "physicalUnit": "Time",
-        "physicalFrom": "0.3",
-        "physicalTo": "0.3",
+        "_default": true,
+        "_type": "Duration",
+        "_physicalUnit": "Time",
+        "_physicalFrom": "0.3",
+        "_physicalTo": "0.3",
       },
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "IrisPulseClose",
-    "prettyName": "Pulse Close",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisPulseClose",
+    "_prettyName": "Pulse Close",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "IrisPulseOpen",
-    "prettyName": "Pulse Open",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisPulseOpen",
+    "_prettyName": "Pulse Open",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "IrisRandomPulseClose",
-    "prettyName": "Random Pulse Close",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisRandomPulseClose",
+    "_prettyName": "Random Pulse Close",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "IrisRandomPulseOpen",
-    "prettyName": "Random Pulse Open",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Iris",
-    "subPhysicalUnits":
+    "_name": "IrisRandomPulseOpen",
+    "_prettyName": "Random Pulse Open",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Iris",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "MinimumOpening",
-        "physicalUnit": "Percent",
-        "physicalFrom": 0,
-        "physicalTo": 0,
+        "_default": true,
+        "_type": "MinimumOpening",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 0,
+        "_physicalTo": 0,
       },
     ]
   },
   {
-    "name": "Frost(n)",
-    "prettyName": "Frost(n)",
-    "feature": "Beam.Beam"
+    "_name": "Frost(n)",
+    "_prettyName": "Frost(n)",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "Frost(n)PulseOpen",
-    "prettyName": "Pulse Open (n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Frost(n)",
-    "subPhysicalUnits":
+    "_name": "Frost(n)PulseOpen",
+    "_prettyName": "Pulse Open (n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Frost(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Frost(n)PulseClose",
-    "prettyName": "Pulse Close (n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Frost(n)",
-    "subPhysicalUnits":
+    "_name": "Frost(n)PulseClose",
+    "_prettyName": "Pulse Close (n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Frost(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Frost(n)Ramp",
-    "prettyName": "Ramp (n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency",
-    "MainAttribute": "Frost(n)",
-    "subPhysicalUnits":
+    "_name": "Frost(n)Ramp",
+    "_prettyName": "Ramp (n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency",
+    "_MainAttribute": "Frost(n)",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "DutyCycle",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "DutyCycle",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "TimeOffset",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "TimeOffset",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "Prism(n)",
-    "prettyName": "Prism(n)",
-    "feature": "Beam.Beam",
-    "ActivationGroup": "Prism"
+    "_name": "Prism(n)",
+    "_prettyName": "Prism(n)",
+    "_feature": "Beam.Beam",
+    "_ActivationGroup": "Prism"
   },
   {
-    "name": "Prism(n)SelectSpin",
-    "prettyName": "Select Spin(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Prism(n)",
-    "ActivationGroup": "Prism"
+    "_name": "Prism(n)SelectSpin",
+    "_prettyName": "Select Spin(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Prism(n)",
+    "_ActivationGroup": "Prism"
   },
   {
-    "name": "Prism(n)Macro",
-    "prettyName": "Prism(n) Macro",
-    "feature": "Beam.Beam",
-    "MainAttribute": "Prism(n)",
-    "ActivationGroup": "Prism"
+    "_name": "Prism(n)Macro",
+    "_prettyName": "Prism(n) Macro",
+    "_feature": "Beam.Beam",
+    "_MainAttribute": "Prism(n)",
+    "_ActivationGroup": "Prism"
   },
   {
-    "name": "Prism(n)Pos",
-    "prettyName": "Prism(n) Pos",
-    "feature": "Beam.Beam",
-    "physicalUnit": "AngularSpeed"
+    "_name": "Prism(n)Pos",
+    "_prettyName": "Prism(n) Pos",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "AngularSpeed"
   },
   {
-    "name": "Prism(n)PosRotate",
-    "prettyName": "Rotate(n)",
-    "feature": "Beam.Beam",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Prism(n)Pos",
-    "ActivationGroup": "Prism"
+    "_name": "Prism(n)PosRotate",
+    "_prettyName": "Rotate(n)",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Prism(n)Pos",
+    "_ActivationGroup": "Prism"
   },
   {
-    "name": "Effects(n)",
-    "prettyName": "FX(n)",
-    "feature": "Beam.Beam"
+    "_name": "Effects(n)",
+    "_prettyName": "FX(n)",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "Effects(n)Rate",
-    "prettyName": "FX(n) Rate",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Frequency"
+    "_name": "Effects(n)Rate",
+    "_prettyName": "FX(n) Rate",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Frequency"
   },
   {
-    "name": "Effects(n)Fade",
-    "prettyName": "FX(n) Fade",
-    "feature": "Beam.Beam"
+    "_name": "Effects(n)Fade",
+    "_prettyName": "FX(n) Fade",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "Effects(n)Adjust(m)",
-    "prettyName": "FX(n) Adjust(m)",
-    "feature": "Beam.Beam"
+    "_name": "Effects(n)Adjust(m)",
+    "_prettyName": "FX(n) Adjust(m)",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "Effects(n)Pos",
-    "prettyName": "FX(n) Pos",
-    "feature": "Beam.Beam",
-    "physicalUnit": "Angle"
+    "_name": "Effects(n)Pos",
+    "_prettyName": "FX(n) Pos",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "Effects(n)PosRotate",
-    "prettyName": "FX(n) Rotate",
-    "feature": "Beam.Beam",
-    "physicalUnit": "AngularSpeed",
-    "MainAttribute": "Effects(n)Pos"
+    "_name": "Effects(n)PosRotate",
+    "_prettyName": "FX(n) Rotate",
+    "_feature": "Beam.Beam",
+    "_physicalUnit": "AngularSpeed",
+    "_MainAttribute": "Effects(n)Pos"
   },
   {
-    "name": "EffectsSync",
-    "prettyName": "FX Sync",
-    "feature": "Beam.Beam"
+    "_name": "EffectsSync",
+    "_prettyName": "FX Sync",
+    "_feature": "Beam.Beam"
   },
   {
-    "name": "BeamShaper",
-    "prettyName": "Beam Shaper",
-    "feature": "Beam.Beam",
-    "ActivationGroup": "BeamShaper",
-    "subPhysicalUnits":
+    "_name": "BeamShaper",
+    "_prettyName": "Beam Shaper",
+    "_feature": "Beam.Beam",
+    "_ActivationGroup": "BeamShaper",
+    "_subPhysicalUnits":
     [
       {
-        "default": true,
-        "type": "RatioHorizontal",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "RatioHorizontal",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
       {
-        "default": true,
-        "type": "RatioVertical",
-        "physicalUnit": "Percent",
-        "physicalFrom": 1,
-        "physicalTo": 1,
+        "_default": true,
+        "_type": "RatioVertical",
+        "_physicalUnit": "Percent",
+        "_physicalFrom": 1,
+        "_physicalTo": 1,
       },
     ]
   },
   {
-    "name": "BeamShaperMacro",
-    "prettyName": "Beam Shaper Macro",
-    "feature": "Beam.Beam",
-    "ActivationGroup": "BeamShaper"
+    "_name": "BeamShaperMacro",
+    "_prettyName": "Beam Shaper Macro",
+    "_feature": "Beam.Beam",
+    "_ActivationGroup": "BeamShaper"
   },
   {
-    "name": "BeamShaperPos",
-    "prettyName": "Beam Shaper \u003c\u003e",
-    "feature": "Beam.Beam",
-    "ActivationGroup": "BeamShaper",
-    "physicalUnit": "Angle"
+    "_name": "BeamShaperPos",
+    "_prettyName": "Beam Shaper \u003c\u003e",
+    "_feature": "Beam.Beam",
+    "_ActivationGroup": "BeamShaper",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "BeamShaperPosRotate",
-    "prettyName": "Beam Shaper Rotate",
-    "feature": "Beam.Beam",
-    "ActivationGroup": "BeamShaper",
-    "physicalUnit": "AngularSpeed"
+    "_name": "BeamShaperPosRotate",
+    "_prettyName": "Beam Shaper Rotate",
+    "_feature": "Beam.Beam",
+    "_ActivationGroup": "BeamShaper",
+    "_physicalUnit": "AngularSpeed"
   },
   {
-    "name": "Zoom",
-    "prettyName": "Zoom",
-    "feature": "Focus.Focus",
-    "physicalUnit": "Angle"
+    "_name": "Zoom",
+    "_prettyName": "Zoom",
+    "_feature": "Focus.Focus",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "ZoomModeSpot",
-    "prettyName": "Zoom Spot",
-    "feature": "Focus.Focus",
-    "physicalUnit": "Angle"
+    "_name": "ZoomModeSpot",
+    "_prettyName": "Zoom Spot",
+    "_feature": "Focus.Focus",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "ZoomModeBeam",
-    "prettyName": "Zoom Beam",
-    "feature": "Focus.Focus",
-    "physicalUnit": "Angle"
+    "_name": "ZoomModeBeam",
+    "_prettyName": "Zoom Beam",
+    "_feature": "Focus.Focus",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "DigitalZoom",
-    "prettyName": "DZoom",
-    "feature": "Focus.Focus",
-    "physicalUnit": "Angle"
+    "_name": "DigitalZoom",
+    "_prettyName": "DZoom",
+    "_feature": "Focus.Focus",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "Focus(n)",
-    "prettyName": "Focus(n)",
-    "feature": "Focus.Focus"
+    "_name": "Focus(n)",
+    "_prettyName": "Focus(n)",
+    "_feature": "Focus.Focus"
   },
   {
-    "name": "Focus(n)Adjust",
-    "prettyName": "Focus(n) Adjust",
-    "feature": "Focus.Focus"
+    "_name": "Focus(n)Adjust",
+    "_prettyName": "Focus(n) Adjust",
+    "_feature": "Focus.Focus"
   },
   {
-    "name": "Focus(n)Distance",
-    "prettyName": "Focus(n) Distance",
-    "feature": "Focus.Focus",
-    "physicalUnit": "Length"
+    "_name": "Focus(n)Distance",
+    "_prettyName": "Focus(n) Distance",
+    "_feature": "Focus.Focus",
+    "_physicalUnit": "Length"
   },
   {
-    "name": "Control(n)",
-    "prettyName": "Ctrl(n)",
-    "feature": "Control.Control"
+    "_name": "Control(n)",
+    "_prettyName": "Ctrl(n)",
+    "_feature": "Control.Control"
   },
   {
-    "name": "DimmerMode",
-    "prettyName": "Dim Mode",
-    "feature": "Control.Control"
+    "_name": "DimmerMode",
+    "_prettyName": "Dim Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "DimmerCurve",
-    "prettyName": "Dim Curve",
-    "feature": "Control.Control"
+    "_name": "DimmerCurve",
+    "_prettyName": "Dim Curve",
+    "_feature": "Control.Control"
   },
   {
-    "name": "BlackoutMode",
-    "prettyName": "Blackout Mode",
-    "feature": "Control.Control"
+    "_name": "BlackoutMode",
+    "_prettyName": "Blackout Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "LEDFrequency",
-    "prettyName": "LED Frequency",
-    "feature": "Control.Control",
-    "physicalUnit": "Frequency"
+    "_name": "LEDFrequency",
+    "_prettyName": "LED Frequency",
+    "_feature": "Control.Control",
+    "_physicalUnit": "Frequency"
   },
   {
-    "name": "LEDZoneMode",
-    "prettyName": "LED Zone Mode",
-    "feature": "Control.Control"
+    "_name": "LEDZoneMode",
+    "_prettyName": "LED Zone Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PixelMode",
-    "prettyName": "Pixel Mode",
-    "feature": "Control.Control"
+    "_name": "PixelMode",
+    "_prettyName": "Pixel Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PanMode",
-    "prettyName": "Pan Mode",
-    "feature": "Control.Control"
+    "_name": "PanMode",
+    "_prettyName": "Pan Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "TiltMode",
-    "prettyName": "Tilt Mode",
-    "feature": "Control.Control"
+    "_name": "TiltMode",
+    "_prettyName": "Tilt Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PanTiltMode",
-    "prettyName": "PanTilt Mode",
-    "feature": "Control.Control"
+    "_name": "PanTiltMode",
+    "_prettyName": "PanTilt Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PositionModes",
-    "prettyName": "Pos Modes",
-    "feature": "Control.Control"
+    "_name": "PositionModes",
+    "_prettyName": "Pos Modes",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Gobo(n)WheelMode",
-    "prettyName": "G(n) Mode",
-    "feature": "Control.Control"
+    "_name": "Gobo(n)WheelMode",
+    "_prettyName": "G(n) Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "GoboWheelShortcutMode",
-    "prettyName": "Gobo Shortcut Mode",
-    "feature": "Control.Control"
+    "_name": "GoboWheelShortcutMode",
+    "_prettyName": "Gobo Shortcut Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "AnimationWheel(n)Mode",
-    "prettyName": "Anim Mode",
-    "feature": "Control.Control"
+    "_name": "AnimationWheel(n)Mode",
+    "_prettyName": "Anim Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "AnimationWheelShortcutMode",
-    "prettyName": "Anim Shortcut Mode",
-    "feature": "Control.Control"
+    "_name": "AnimationWheelShortcutMode",
+    "_prettyName": "Anim Shortcut Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Color(n)Mode",
-    "prettyName": "C(n) Mode",
-    "feature": "Control.Control"
+    "_name": "Color(n)Mode",
+    "_prettyName": "C(n) Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorWheelShortcutMode",
-    "prettyName": "Color Wheel Shortcut Mode",
-    "feature": "Control.Control"
+    "_name": "ColorWheelShortcutMode",
+    "_prettyName": "Color Wheel Shortcut Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CyanMode",
-    "prettyName": "Cyan Mode",
-    "feature": "Control.Control"
+    "_name": "CyanMode",
+    "_prettyName": "Cyan Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "MagentaMode",
-    "prettyName": "Magenta Mode",
-    "feature": "Control.Control"
+    "_name": "MagentaMode",
+    "_prettyName": "Magenta Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "YellowMode",
-    "prettyName": "Yellow Mode",
-    "feature": "Control.Control"
+    "_name": "YellowMode",
+    "_prettyName": "Yellow Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorMixMode",
-    "prettyName": "Color Mix Mode",
-    "feature": "Control.Control"
+    "_name": "ColorMixMode",
+    "_prettyName": "Color Mix Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ChromaticMode",
-    "prettyName": "Chroma Mode",
-    "feature": "Control.Control"
+    "_name": "ChromaticMode",
+    "_prettyName": "Chroma Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorCalibrationMode",
-    "prettyName": "CCalib Mode",
-    "feature": "Control.Control"
+    "_name": "ColorCalibrationMode",
+    "_prettyName": "CCalib Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorConsistency",
-    "prettyName": "Color consistency",
-    "feature": "Control.Control"
+    "_name": "ColorConsistency",
+    "_prettyName": "Color consistency",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorControl",
-    "prettyName": "Color Ctrl",
-    "feature": "Control.Control"
+    "_name": "ColorControl",
+    "_prettyName": "Color Ctrl",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorModelMode",
-    "prettyName": "ColorModel",
-    "feature": "Control.Control"
+    "_name": "ColorModelMode",
+    "_prettyName": "ColorModel",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorSettingsReset",
-    "prettyName": "Color Ctrl Rst",
-    "feature": "Control.Control"
+    "_name": "ColorSettingsReset",
+    "_prettyName": "Color Ctrl Rst",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorUniformity",
-    "prettyName": "ColorUniform",
-    "feature": "Control.Control"
+    "_name": "ColorUniformity",
+    "_prettyName": "ColorUniform",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CRIMode",
-    "prettyName": "CRI Mode",
-    "feature": "Control.Control"
+    "_name": "CRIMode",
+    "_prettyName": "CRI Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CustomColor",
-    "prettyName": "Custom Color",
-    "feature": "Control.Control"
+    "_name": "CustomColor",
+    "_prettyName": "Custom Color",
+    "_feature": "Control.Control"
   },
   {
-    "name": "UVStability",
-    "prettyName": "UV Stab",
-    "feature": "Control.Control"
+    "_name": "UVStability",
+    "_prettyName": "UV Stab",
+    "_feature": "Control.Control"
   },
   {
-    "name": "WaveLengthCorrection",
-    "prettyName": "WaveLength",
-    "feature": "Control.Control"
+    "_name": "WaveLengthCorrection",
+    "_prettyName": "WaveLength",
+    "_feature": "Control.Control"
   },
   {
-    "name": "WhiteCount",
-    "prettyName": "White Count",
-    "feature": "Control.Control"
+    "_name": "WhiteCount",
+    "_prettyName": "White Count",
+    "_feature": "Control.Control"
   },
   {
-    "name": "StrobeMode",
-    "prettyName": "Strobe Mode",
-    "feature": "Control.Control"
+    "_name": "StrobeMode",
+    "_prettyName": "Strobe Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ZoomMode",
-    "prettyName": "Zoom Mode",
-    "feature": "Control.Control"
+    "_name": "ZoomMode",
+    "_prettyName": "Zoom Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FocusMode",
-    "prettyName": "Focus Mode",
-    "feature": "Control.Control"
+    "_name": "FocusMode",
+    "_prettyName": "Focus Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "IrisMode",
-    "prettyName": "Iris Mode",
-    "feature": "Control.Control"
+    "_name": "IrisMode",
+    "_prettyName": "Iris Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FanMode",
-    "prettyName": "Fan Mode",
-    "feature": "Control.Control"
+    "_name": "FanMode",
+    "_prettyName": "Fan Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FollowSpotMode",
-    "prettyName": "FollowSpot Mode",
-    "feature": "Control.Control"
+    "_name": "FollowSpotMode",
+    "_prettyName": "FollowSpot Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "BeamEffectIndexRotateMode",
-    "prettyName": "Beam Effect Index Rotate Mode",
-    "feature": "Control.Control"
+    "_name": "BeamEffectIndexRotateMode",
+    "_prettyName": "Beam Effect Index Rotate Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "IntensityMSpeed",
-    "prettyName": "Intensity MSpeed",
-    "feature": "Control.Control"
+    "_name": "IntensityMSpeed",
+    "_prettyName": "Intensity MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PositionMSpeed",
-    "prettyName": "Pos MSpeed",
-    "feature": "Control.Control"
+    "_name": "PositionMSpeed",
+    "_prettyName": "Pos MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorMixMSpeed",
-    "prettyName": "Color Mix MSpeed",
-    "feature": "Control.Control"
+    "_name": "ColorMixMSpeed",
+    "_prettyName": "Color Mix MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorWheelSelectMSpeed",
-    "prettyName": "Color Wheel Select MSpeed",
-    "feature": "Control.Control"
+    "_name": "ColorWheelSelectMSpeed",
+    "_prettyName": "Color Wheel Select MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "GoboWheel(n)MSpeed",
-    "prettyName": "Gobo Wheel(n) MSpeed",
-    "feature": "Control.Control"
+    "_name": "GoboWheel(n)MSpeed",
+    "_prettyName": "Gobo Wheel(n) MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "IrisMSpeed",
-    "prettyName": "Iris MSpeed",
-    "feature": "Control.Control"
+    "_name": "IrisMSpeed",
+    "_prettyName": "Iris MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Prism(n)MSpeed",
-    "prettyName": "Prism(n) MSpeed",
-    "feature": "Control.Control"
+    "_name": "Prism(n)MSpeed",
+    "_prettyName": "Prism(n) MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FocusMSpeed",
-    "prettyName": "Focus MSpeed",
-    "feature": "Control.Control"
+    "_name": "FocusMSpeed",
+    "_prettyName": "Focus MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Frost(n)MSpeed",
-    "prettyName": "Frost(n) MSpeed",
-    "feature": "Control.Control"
+    "_name": "Frost(n)MSpeed",
+    "_prettyName": "Frost(n) MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ZoomMSpeed",
-    "prettyName": "Zoom MSpeed",
-    "feature": "Control.Control"
+    "_name": "ZoomMSpeed",
+    "_prettyName": "Zoom MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FrameMSpeed",
-    "prettyName": "Frame MSpeed",
-    "feature": "Control.Control"
+    "_name": "FrameMSpeed",
+    "_prettyName": "Frame MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "GlobalMSpeed",
-    "prettyName": "Global MSpeed",
-    "feature": "Control.Control"
+    "_name": "GlobalMSpeed",
+    "_prettyName": "Global MSpeed",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ReflectorAdjust",
-    "prettyName": "Reflector Adj",
-    "feature": "Control.Control"
+    "_name": "ReflectorAdjust",
+    "_prettyName": "Reflector Adj",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FixtureGlobalReset",
-    "prettyName": "Fixture Global Reset",
-    "feature": "Control.Control"
+    "_name": "FixtureGlobalReset",
+    "_prettyName": "Fixture Global Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "DimmerReset",
-    "prettyName": "Dimmer Reset",
-    "feature": "Control.Control"
+    "_name": "DimmerReset",
+    "_prettyName": "Dimmer Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ShutterReset",
-    "prettyName": "Shutter Reset",
-    "feature": "Control.Control"
+    "_name": "ShutterReset",
+    "_prettyName": "Shutter Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "BeamReset",
-    "prettyName": "Beam Reset",
-    "feature": "Control.Control"
+    "_name": "BeamReset",
+    "_prettyName": "Beam Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorMixReset",
-    "prettyName": "Color Mix Reset",
-    "feature": "Control.Control"
+    "_name": "ColorMixReset",
+    "_prettyName": "Color Mix Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ColorWheelReset",
-    "prettyName": "Color Wheel Reset",
-    "feature": "Control.Control"
+    "_name": "ColorWheelReset",
+    "_prettyName": "Color Wheel Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FocusReset",
-    "prettyName": "Focus Reset",
-    "feature": "Control.Control"
+    "_name": "FocusReset",
+    "_prettyName": "Focus Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FrameReset",
-    "prettyName": "Frame Reset",
-    "feature": "Control.Control"
+    "_name": "FrameReset",
+    "_prettyName": "Frame Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "GoboWheelReset",
-    "prettyName": "G Reset",
-    "feature": "Control.Control"
+    "_name": "GoboWheelReset",
+    "_prettyName": "G Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "IntensityReset",
-    "prettyName": "Intensity Reset",
-    "feature": "Control.Control"
+    "_name": "IntensityReset",
+    "_prettyName": "Intensity Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "IrisReset",
-    "prettyName": "Iris Reset",
-    "feature": "Control.Control"
+    "_name": "IrisReset",
+    "_prettyName": "Iris Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PositionReset",
-    "prettyName": "Pos Reset",
-    "feature": "Control.Control"
+    "_name": "PositionReset",
+    "_prettyName": "Pos Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "PanReset",
-    "prettyName": "Pan Reset",
-    "feature": "Control.Control"
+    "_name": "PanReset",
+    "_prettyName": "Pan Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "TiltReset",
-    "prettyName": "Tilt Reset",
-    "feature": "Control.Control"
+    "_name": "TiltReset",
+    "_prettyName": "Tilt Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "ZoomReset",
-    "prettyName": "Zoom Reset",
-    "feature": "Control.Control"
+    "_name": "ZoomReset",
+    "_prettyName": "Zoom Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CTBReset",
-    "prettyName": "CTB Reset",
-    "feature": "Control.Control"
+    "_name": "CTBReset",
+    "_prettyName": "CTB Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CTOReset",
-    "prettyName": "CTO Reset",
-    "feature": "Control.Control"
+    "_name": "CTOReset",
+    "_prettyName": "CTO Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "CTCReset",
-    "prettyName": "CTC Reset",
-    "feature": "Control.Control"
+    "_name": "CTCReset",
+    "_prettyName": "CTC Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "AnimationSystemReset",
-    "prettyName": "Anim Sytem Reset",
-    "feature": "Control.Control"
+    "_name": "AnimationSystemReset",
+    "_prettyName": "Anim Sytem Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "FixtureCalibrationReset",
-    "prettyName": "Fixture Calibration Reset",
-    "feature": "Control.Control"
+    "_name": "FixtureCalibrationReset",
+    "_prettyName": "Fixture Calibration Reset",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Function",
-    "prettyName": "Function",
-    "feature": "Control.Control"
+    "_name": "Function",
+    "_prettyName": "Function",
+    "_feature": "Control.Control"
   },
   {
-    "name": "LampControl",
-    "prettyName": "Lamp Ctrl",
-    "feature": "Control.Control"
+    "_name": "LampControl",
+    "_prettyName": "Lamp Ctrl",
+    "_feature": "Control.Control"
   },
   {
-    "name": "DisplayIntensity",
-    "prettyName": "Display Int",
-    "feature": "Control.Control"
+    "_name": "DisplayIntensity",
+    "_prettyName": "Display Int",
+    "_feature": "Control.Control"
   },
   {
-    "name": "DMXInput",
-    "prettyName": "DMX Input",
-    "feature": "Control.Control"
+    "_name": "DMXInput",
+    "_prettyName": "DMX Input",
+    "_feature": "Control.Control"
   },
   {
-    "name": "NoFeature",
-    "prettyName": "NoFeature",
-    "feature": "Control.Control"
+    "_name": "NoFeature",
+    "_prettyName": "NoFeature",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Dummy",
-    "prettyName": "Dummy",
-    "feature": "Control.Control"
+    "_name": "Dummy",
+    "_prettyName": "Dummy",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Blower(n)",
-    "prettyName": "Blower(n)",
-    "feature": "Control.Control"
+    "_name": "Blower(n)",
+    "_prettyName": "Blower(n)",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Fan(n)",
-    "prettyName": "Fan(n)",
-    "feature": "Control.Control"
+    "_name": "Fan(n)",
+    "_prettyName": "Fan(n)",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Fog(n)",
-    "prettyName": "Fog(n)",
-    "feature": "Control.Control"
+    "_name": "Fog(n)",
+    "_prettyName": "Fog(n)",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Haze(n)",
-    "prettyName": "Haze(n)",
-    "feature": "Control.Control"
+    "_name": "Haze(n)",
+    "_prettyName": "Haze(n)",
+    "_feature": "Control.Control"
   },
   {
-    "name": "LampPowerMode",
-    "prettyName": "Lamp Power Mode",
-    "feature": "Control.Control"
+    "_name": "LampPowerMode",
+    "_prettyName": "Lamp Power Mode",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Fans",
-    "prettyName": "Fans",
-    "feature": "Control.Control"
+    "_name": "Fans",
+    "_prettyName": "Fans",
+    "_feature": "Control.Control"
   },
   {
-    "name": "Blade(n)A",
-    "prettyName": "Blade(n)A",
-    "feature": "Shapers.Shapers",
-    "ActivationGroup": "Shaper"
+    "_name": "Blade(n)A",
+    "_prettyName": "Blade(n)A",
+    "_feature": "Shapers.Shapers",
+    "_ActivationGroup": "Shaper"
   },
   {
-    "name": "Blade(n)B",
-    "prettyName": "Blade(n)B",
-    "feature": "Shapers.Shapers",
-    "ActivationGroup": "Shaper"
+    "_name": "Blade(n)B",
+    "_prettyName": "Blade(n)B",
+    "_feature": "Shapers.Shapers",
+    "_ActivationGroup": "Shaper"
   },
   {
-    "name": "Blade(n)Rot",
-    "prettyName": "Blade(n) Rot",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Shaper"
+    "_name": "Blade(n)Rot",
+    "_prettyName": "Blade(n) Rot",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Shaper"
   },
   {
-    "name": "ShaperRot",
-    "prettyName": "Shaper Rot",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "Angle",
-    "ActivationGroup": "Shaper"
+    "_name": "ShaperRot",
+    "_prettyName": "Shaper Rot",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "Angle",
+    "_ActivationGroup": "Shaper"
   },
   {
-    "name": "ShaperMacros",
-    "prettyName": "Shaper Macros",
-    "feature": "Shapers.Shapers"
+    "_name": "ShaperMacros",
+    "_prettyName": "Shaper Macros",
+    "_feature": "Shapers.Shapers"
   },
   {
-    "name": "ShaperMacrosSpeed",
-    "prettyName": "Shaper Macros Speed",
-    "feature": "Shapers.Shapers"
+    "_name": "ShaperMacrosSpeed",
+    "_prettyName": "Shaper Macros Speed",
+    "_feature": "Shapers.Shapers"
   },
   {
-    "name": "BladeSoft(n)A",
-    "prettyName": "BladeS(n)A",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "None"
+    "_name": "BladeSoft(n)A",
+    "_prettyName": "BladeS(n)A",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "None"
   },
   {
-    "name": "BladeSoft(n)B",
-    "prettyName": "BladeS(n)B",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "None"
+    "_name": "BladeSoft(n)B",
+    "_prettyName": "BladeS(n)B",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "None"
   },
   {
-    "name": "KeyStone(n)A",
-    "prettyName": "KS(n)A",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "None"
+    "_name": "KeyStone(n)A",
+    "_prettyName": "KS(n)A",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "None"
   },
   {
-    "name": "KeyStone(n)B",
-    "prettyName": "KS(n)B",
-    "feature": "Shapers.Shapers",
-    "physicalUnit": "None"
+    "_name": "KeyStone(n)B",
+    "_prettyName": "KS(n)B",
+    "_feature": "Shapers.Shapers",
+    "_physicalUnit": "None"
   },
   {
-    "name": "Video",
-    "prettyName": "Video",
-    "feature": "Video.Video"
+    "_name": "Video",
+    "_prettyName": "Video",
+    "_feature": "Video.Video"
   },
   {
-    "name": "VideoEffect(n)Type",
-    "prettyName": "Video Effect(n) Type",
-    "feature": "Video.Video"
+    "_name": "VideoEffect(n)Type",
+    "_prettyName": "Video Effect(n) Type",
+    "_feature": "Video.Video"
   },
   {
-    "name": "VideoEffect(n)Parameter(m)",
-    "prettyName": "Video Effect(n) Parameter(m)",
-    "feature": "Video.Video"
+    "_name": "VideoEffect(n)Parameter(m)",
+    "_prettyName": "Video Effect(n) Parameter(m)",
+    "_feature": "Video.Video"
   },
   {
-    "name": "VideoCamera(n)",
-    "prettyName": "Video Camera(n)",
-    "feature": "Video.Video"
+    "_name": "VideoCamera(n)",
+    "_prettyName": "Video Camera(n)",
+    "_feature": "Video.Video"
   },
   {
-    "name": "FieldOfView",
-    "prettyName": "FOV",
-    "feature": "Video.Video",
-    "physicalUnit": "Angle"
+    "_name": "FieldOfView",
+    "_prettyName": "FOV",
+    "_feature": "Video.Video",
+    "_physicalUnit": "Angle"
   },
   {
-    "name": "InputSource",
-    "prettyName": "ISrc",
-    "feature": "Video.Video",
-    "physicalUnit": "None"
+    "_name": "InputSource",
+    "_prettyName": "ISrc",
+    "_feature": "Video.Video",
+    "_physicalUnit": "None"
   },
   {
-    "name": "VideoBlendMode",
-    "prettyName": "BlendMode",
-    "feature": "Video.Video",
-    "physicalUnit": "None"
+    "_name": "VideoBlendMode",
+    "_prettyName": "BlendMode",
+    "_feature": "Video.Video",
+    "_physicalUnit": "None"
   },
   {
-    "name": "VideoSoundVolume(n)",
-    "prettyName": "Volume(n)",
-    "feature": "Video.Video",
-    "physicalUnit": "Percent"
+    "_name": "VideoSoundVolume(n)",
+    "_prettyName": "Volume(n)",
+    "_feature": "Video.Video",
+    "_physicalUnit": "Percent"
   }
 ]
