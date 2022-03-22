@@ -25,7 +25,11 @@
       "_prettyName": "T",
       "_feature": "Position.PanTilt",
       "_physicalUnit": "Angle",
-      "_ActivationGroup": "PanTilt"
+      "_ActivationGroup": "PanTilt",
+      "definition": "Controls the fixture's upward and the downward movement (vertical axis).",
+      "description": "...",
+      "explanation": "...",
+      "visual": "link to gif, mov, etc"  
       },
       {
       "_name": "PanRotate",
