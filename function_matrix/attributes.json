@@ -3,14 +3,22 @@
     {
       "_name": "Dimmer",
       "_prettyName": "Dim",
-      "_feature": "Dimmer.Dimmer"
+      "_feature": "Dimmer.Dimmer",
+      "definition": "Controls the intensity of a fixture.",
+      "description": "Any chnage of intensity and brightness or in some cases even opacity shall be controlled with this attribute.",
+      "explanation": "If a control software makes use of an overall intensity control such as a grandmaster, it is important for the application to undertand which attribute to change. In that scenario the dimmer attribute shall the main intensity, brightness of opacity change.",
+      "visual": "link to gif, mov, etc"
       },
       {
       "_name": "Pan",
       "_prettyName": "P",
       "_feature": "Position.PanTilt",
       "_physicalUnit": "Angle",
-      "_ActivationGroup": "PanTilt"
+      "_ActivationGroup": "PanTilt",
+      "definition": "Controls the fixture's sideward movement (horizontal axis).",
+      "description": "...",
+      "explanation": "...",
+      "visual": "link to gif, mov, etc"
       },
       {
       "_name": "Tilt",
