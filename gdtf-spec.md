@@ -1154,19 +1154,6 @@ this color, any software can replace it with another color.
 
 ![Base](media/svg/non-symetric/base.svg)
 
-![Head](media/svg/non-symetric/head.svg)
-
-![Yoke](media/svg/non-symetric/yoke.svg)
-
-![Thumbnail](media/svg/non-symetric/thumbnail.svg)
-
-![Front View Base](media/svg/Spiider/front/base.svg)
-![Front View Head/](media/svg/Spiider/front/head.svg)
-![Front View Yoke](media/svg/Spiider/front/yoke.svg)
-
-![Side View Base](media/svg/Spiider/side/base.svg)
-![Side View Head](media/svg/Spiider/side/head.svg)
-![Side View Yoke](media/svg/Spiider/side/yoke.svg)
 
 SVG images should be drawn in a 1:1 scale to the actual device. Use mm as base unit. Scaling operation from 3D meshes will not be applied to the SVG informations
 
