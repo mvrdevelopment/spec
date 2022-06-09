@@ -309,6 +309,7 @@ An example of a node definition is shown below:
     </Mappings>
     <FixtureID></FixtureID>
     <UnitNumber>0</UnitNumber>
+    <Function>Speaker 1</Function>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
     <Color>{2.533316,-5.175210,3.699302}</Color>
