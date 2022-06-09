@@ -298,6 +298,9 @@ An example of a node definition is shown below:
     <Addresses>
         <Address break="0">45</Address>
     </Addresses>
+    <Alignments>
+        <Alignments geometry="Beam" up="0,0,1" direction="0,0,-1"/>
+    </Alignments>
     <Mappings>
         <Mapping linkedDef="BEF95EB8-98AC-4217-B10D-FB4B83381398">
             <ux>10</ux>
@@ -352,6 +355,8 @@ Node name: `Address`
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
 | break          | [Integer](#user-content-attrtype-integer) | 0                           | This is the break ident for this address. This value has to be unique for one fixture. |
 
+
+
 <table>
 <thead>
 <tr class="header">
@@ -372,6 +377,31 @@ Node name: `Address`
 </tr>
 </tbody>
 </table>
+
+
+### Node Definition: Alignments
+
+This node defines a group of Alignment.
+
+Node name: `Alignments`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Alignment](#node-definition-address) |  |
+
+#### Node Definition: Alignment
+
+This node defines a alignment for an Beam Geometry inside the linked GDTF.
+
+Node name: `Address`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| geometry       | [String](#user-content-attrtype-string)| Lamp Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the lamp that gets aligned. |
+| up             | [String](#user-content-attrtype-Vector)| 0,0,1                            | Defines the up vector of the direction. |
+| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                           | Defines the direction vector of the lamp. |
 
 ### Node Definition: Mappings
 
