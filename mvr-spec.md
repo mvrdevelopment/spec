@@ -273,6 +273,7 @@ Node name: `Fixture`
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
+| Function                                | 1             | [String](#user-content-attrtype-string)      | The name of the function this Fixture is used for.                                                       |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID of the lighting fixture. This is the short name of the fixture.                                                                |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The unit number of the lighting fixture in a position.                                                                                        |
 | [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this fixture.                                                                                             |
@@ -423,6 +424,8 @@ Node name: `Truss`
 | [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
+
 
 ## Node Definition: VideoScreen
 
@@ -440,6 +443,7 @@ Node name: `VideoScreen`
 | [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.             |
 | [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are a part of the object. |
 | [Sources](#node-definition-sources)       | 0 or 1        | A list of video input sources..                                             |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                                       |
 
 An example of a node definition is shown below:
 
