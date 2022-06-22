@@ -6,7 +6,7 @@
       "_feature": "Dimmer.Dimmer",
       "definition": "Controls the intensity of a fixture.",
       "explanation": "Any change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to undertand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change.",
-      "visual": "link to gif, mov, etc"
+      "visual": ""
     },
     {
       "_name": "Pan",
@@ -16,7 +16,7 @@
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's sideward movement (horizontal axis).",
       "explanation": "PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixtuer is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT.",
-      "visual": "link to gif, mov, etc"
+      "visual": ""
     },
     {
       "_name": "Tilt",
@@ -26,7 +26,7 @@
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's upward and the downward movement (vertical axis).",
       "explanation": "TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in releation with PAN.",
-      "visual": "link to gif, mov, etc"
+      "visual": ""
     },
     {
       "_name": "PanRotate",
