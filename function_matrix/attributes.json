@@ -5,8 +5,7 @@
       "_prettyName": "Dim",
       "_feature": "Dimmer.Dimmer",
       "definition": "Controls the intensity of a fixture.",
-      "description": "Any change of intensity or brightness or in some cases even opacity shall be controlled with this attribute.",
-      "explanation": "If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to undertand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change.",
+      "explanation": "Any change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to undertand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change.",
       "visual": "link to gif, mov, etc"
     },
     {
@@ -16,8 +15,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's sideward movement (horizontal axis).",
-      "description": "PAN is one part of the movement that usually controls the horizontal movement.",
-      "explanation": "In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixtuer is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT.",
+      "explanation": "PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixtuer is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT.",
       "visual": "link to gif, mov, etc"
     },
     {
@@ -27,8 +25,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's upward and the downward movement (vertical axis).",
-      "description": "TILT is one part of the movement that usually controls the vertical movement.",
-      "explanation": "In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in releation with PAN.",
+      "explanation": "TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in releation with PAN.",
       "visual": "link to gif, mov, etc"
     },
     {
@@ -36,7 +33,7 @@
       "_prettyName": "P Rotate",
       "_feature": "Position.PanTilt",
       "_physicalUnit": "AngularSpeed",
-      "description": "Controls the speed of the fixture's continuous pan movement (horizontal axis).",
+      "definition": "Controls the speed of the fixture's continuous pan movement (horizontal axis).",
       "explanation": "",
       "visual": ""
     },
@@ -45,7 +42,7 @@
       "_prettyName": "T Rotate",
       "_feature": "Position.PanTilt",
       "_physicalUnit": "AngularSpeed",
-      "description": "Controls the speed of the fixture's continuous tilt movement (vertical axis).",
+      "definition": "Controls the speed of the fixture's continuous tilt movement (vertical axis).",
       "explanation": "",
       "visual": ""
     },
@@ -53,7 +50,7 @@
       "_name": "PositionEffect",
       "_prettyName": "Pos FX",
       "_feature": "Position.PanTilt",
-      "description": "Selects the predefined position effects that are built into the fixture.",
+      "definition": "Selects the predefined position effects that are built into the fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -61,7 +58,7 @@
       "_name": "PositionEffectRate",
       "_prettyName": "Pos FX Rate",
       "_feature": "Position.PanTilt",
-      "description": "Controls the speed of the predefined position effects that are built into the fixture.",
+      "definition": "Controls the speed of the predefined position effects that are built into the fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -69,7 +66,7 @@
       "_name": "PositionEffectFade",
       "_prettyName": "Pos FX Fade",
       "_feature": "Position.PanTilt",
-      "description": "Snaps or smooth fades with timing in running predefined position effects.",
+      "definition": "Snaps or smooth fades with timing in running predefined position effects.",
       "explanation": "",
       "visual": ""
     },
@@ -79,7 +76,7 @@
       "_feature": "Position.XYZ",
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
-      "description": "Defines a fixture’s x-coordinate within an XYZ coordinate system.",
+      "definition": "Defines a fixture’s x-coordinate within an XYZ coordinate system.",
       "explanation": "",
       "visual": ""
     },
@@ -89,7 +86,7 @@
       "_feature": "Position.XYZ",
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
-      "description": "Defines a fixture’s y-coordinate within an XYZ coordinate system.",
+      "definition": "Defines a fixture’s y-coordinate within an XYZ coordinate system.",
       "explanation": "",
       "visual": ""
     },
@@ -99,7 +96,7 @@
       "_feature": "Position.XYZ",
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
-      "description": "Defines a fixture‘s z-coordinate within an XYZ coordinate system.",
+      "definition": "Defines a fixture‘s z-coordinate within an XYZ coordinate system.",
       "explanation": "",
       "visual": ""
     },
@@ -109,7 +106,7 @@
       "_feature": "Position.Rotation",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
-      "description": "Defines rotation around X axis.",
+      "definition": "Defines rotation around X axis.",
       "explanation": "",
       "visual": ""
     },
@@ -119,7 +116,7 @@
       "_feature": "Position.Rotation",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
-      "description": "Defines rotation around Y axis.",
+      "definition": "Defines rotation around Y axis.",
       "explanation": "",
       "visual": ""
     },
@@ -129,7 +126,7 @@
       "_feature": "Position.Rotation",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
-      "description": "Defines rotation around Z axis.",
+      "definition": "Defines rotation around Z axis.",
       "explanation": "",
       "visual": ""
     },
@@ -139,7 +136,7 @@
       "_feature": "Position.Scale",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
-      "description": "Scaling on X axis.",
+      "definition": "Scaling on X axis.",
       "explanation": "",
       "visual": ""
     },
@@ -149,7 +146,7 @@
       "_feature": "Position.Scale",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
-      "description": "Scaling on Y axis.",
+      "definition": "Scaling on Y axis.",
       "explanation": "",
       "visual": ""
     },
@@ -159,7 +156,7 @@
       "_feature": "Position.Scale",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
-      "description": "Scaling on Y axis.",
+      "definition": "Scaling on Y axis.",
       "explanation": "",
       "visual": ""
     },
@@ -169,7 +166,7 @@
       "_feature": "Position.Scale",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
-      "description": "Unified scaling on all axis.",
+      "definition": "Unified scaling on all axis.",
       "explanation": "",
       "visual": ""
     },
@@ -187,7 +184,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation.",
+      "definition": "The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation.",
       "explanation": "",
       "visual": ""
     },
@@ -207,7 +204,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function.",
+      "definition": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function.",
       "explanation": "",
       "visual": ""
     },
@@ -234,7 +231,7 @@
           "_physicalTo": 0.2
         }
       ],
-      "description": "Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.",
+      "definition": "Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.",
       "explanation": "",
       "visual": ""
     },
@@ -244,7 +241,7 @@
       "_feature": "Gobo.Gobo",
       "_MainAttribute": "Gobo(n)",
       "_ActivationGroup": "Gobo(n)",
-      "description": "Selects gobos which run effects in gobo wheel (n).",
+      "definition": "Selects gobos which run effects in gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -264,7 +261,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls angle of indexed rotation of gobo wheel (n).",
+      "definition": "Controls angle of indexed rotation of gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -284,7 +281,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls the speed and direction of continuous rotation of gobo wheel (n).",
+      "definition": "Controls the speed and direction of continuous rotation of gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -311,7 +308,7 @@
           "_physicalTo": 0.2
         }
       ],
-      "description": "Controls frequency of the shake of gobo wheel (n).",
+      "definition": "Controls frequency of the shake of gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -331,7 +328,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls speed of gobo wheel´s (n) random gobo slot selection.",
+      "definition": "Controls speed of gobo wheel´s (n) random gobo slot selection.",
       "explanation": "",
       "visual": ""
     },
@@ -350,7 +347,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls audio-controlled functionality of gobo wheel (n).",
+      "definition": "Controls audio-controlled functionality of gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -360,7 +357,7 @@
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Gobo(n)Pos",
-      "description": "Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.",
+      "definition": "Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.",
       "explanation": "",
       "visual": ""
     },
@@ -371,7 +368,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "Gobo(n)Pos",
       "_ActivationGroup": "Gobo(n)Pos",
-      "description": "Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).",
+      "definition": "Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -391,7 +388,7 @@
           "_physicalTo": 0.2
         }
       ],
-      "description": "Controls frequency of the shake of gobos in gobo wheel (n).",
+      "definition": "Controls frequency of the shake of gobos in gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -409,7 +406,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots.",
+      "definition": "This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots.",
       "explanation": "",
       "visual": ""
     },
@@ -428,7 +425,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls audio-controlled functionality of animation wheel (n).",
+      "definition": "Controls audio-controlled functionality of animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -438,7 +435,7 @@
       "_feature": "Gobo.Gobo",
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
-      "description": "Selects predefined effects in animation wheel (n).",
+      "definition": "Selects predefined effects in animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -458,7 +455,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls frequency of animation wheel (n) random slot selection.",
+      "definition": "Controls frequency of animation wheel (n) random slot selection.",
       "explanation": "",
       "visual": ""
     },
@@ -468,7 +465,7 @@
       "_feature": "Gobo.Gobo",
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
-      "description": "Selects slots which run effects in animation wheel (n).",
+      "definition": "Selects slots which run effects in animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -495,7 +492,7 @@
           "_physicalTo": 0.2
         }
       ],
-      "description": "Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function.",
+      "definition": "Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function.",
       "explanation": "",
       "visual": ""
     },
@@ -515,7 +512,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function",
+      "definition": "Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function",
       "explanation": "",
       "visual": ""
     },
@@ -525,7 +522,7 @@
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "AnimationWheel(n)Pos",
-      "description": "Controls angle of indexed rotation of slots in animation wheel. This is the main attribute of animation wheel (n) wheel slot control.",
+      "definition": "Controls angle of indexed rotation of slots in animation wheel. This is the main attribute of animation wheel (n) wheel slot control.",
       "explanation": "",
       "visual": ""
     },
@@ -536,7 +533,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "AnimationWheel(n)Pos",
       "_ActivationGroup": "AnimationWheel(n)Pos",
-      "description": "Controls the speed and direction of continuous rotation of slots in animation wheel (n).",
+      "definition": "Controls the speed and direction of continuous rotation of slots in animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -556,7 +553,7 @@
           "_physicalTo": 0.2
         }
       ],
-      "description": "Controls frequency of the shake of slots in animation wheel (n).",
+      "definition": "Controls frequency of the shake of slots in animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -566,7 +563,7 @@
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "AnimationSystem(n)",
-      "description": "This is the main attribute of the animation system insertion control. Controls the insertion of the fixture's animation system in the light output. Is used for animation effects where a disk is inserted into the light output.",
+      "definition": "This is the main attribute of the animation system insertion control. Controls the insertion of the fixture's animation system in the light output. Is used for animation effects where a disk is inserted into the light output.",
       "explanation": "",
       "visual": ""
     },
@@ -600,7 +597,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Sets frequency of animation system (n) insertion ramp.",
+      "definition": "Sets frequency of animation system (n) insertion ramp.",
       "explanation": "",
       "visual": ""
     },
@@ -627,7 +624,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Sets frequency of animation system (n) insertion shake.",
+      "definition": "Sets frequency of animation system (n) insertion shake.",
       "explanation": "",
       "visual": ""
     },
@@ -638,7 +635,7 @@
       "_physicalUnit": "None",
       "_MainAttribute": "AnimationSystem(n)",
       "_ActivationGroup": "AnimationSystem(n)",
-      "description": "Controls audio-controlled functionality of animation system (n) insertion.",
+      "definition": "Controls audio-controlled functionality of animation system (n) insertion.",
       "explanation": "",
       "visual": ""
     },
@@ -649,7 +646,7 @@
       "_physicalUnit": "None",
       "_MainAttribute": "AnimationSystem(n)",
       "_ActivationGroup": "AnimationSystem(n)",
-      "description": "Controls frequency of animation system (n) random insertion.",
+      "definition": "Controls frequency of animation system (n) random insertion.",
       "explanation": "",
       "visual": ""
     },
@@ -659,7 +656,7 @@
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "AnimationSystem(n)Pos",
-      "description": "This is the main attribute of the animation system spinning control. Controls angle of indexed rotation of animation system (n) disk.",
+      "definition": "This is the main attribute of the animation system spinning control. Controls angle of indexed rotation of animation system (n) disk.",
       "explanation": "",
       "visual": ""
     },
@@ -670,7 +667,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
-      "description": "Controls the speed and direction of continuous rotation of animation system (n) disk.",
+      "definition": "Controls the speed and direction of continuous rotation of animation system (n) disk.",
       "explanation": "",
       "visual": ""
     },
@@ -690,7 +687,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Controls frequency of the shake of animation system (n) disk.",
+      "definition": "Controls frequency of the shake of animation system (n) disk.",
       "explanation": "",
       "visual": ""
     },
@@ -701,7 +698,7 @@
       "_physicalUnit": "None",
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
-      "description": "Controls random speed of animation system (n) disk.",
+      "definition": "Controls random speed of animation system (n) disk.",
       "explanation": "",
       "visual": ""
     },
@@ -712,7 +709,7 @@
       "_physicalUnit": "None",
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
-      "description": "Controls audio-controlled functionality of animation system (n) disk.",
+      "definition": "Controls audio-controlled functionality of animation system (n) disk.",
       "explanation": "",
       "visual": ""
     },
@@ -721,7 +718,7 @@
       "_prettyName": "Anim System Macro",
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "None",
-      "description": "Selects predefined effects in animation system (n).",
+      "definition": "Selects predefined effects in animation system (n).",
       "explanation": "",
       "visual": ""
     },
@@ -729,7 +726,7 @@
       "_name": "MediaFolder(n)",
       "_prettyName": "Media Folder(n)",
       "_feature": "Gobo.Media",
-      "description": "Selects folder that contains media content.",
+      "definition": "Selects folder that contains media content.",
       "explanation": "",
       "visual": ""
     },
@@ -737,7 +734,7 @@
       "_name": "MediaContent(n)",
       "_prettyName": "Media Content(n)",
       "_feature": "Gobo.Media",
-      "description": "Selects file with media content.",
+      "definition": "Selects file with media content.",
       "explanation": "",
       "visual": ""
     },
@@ -746,7 +743,7 @@
       "_prettyName": "Model Folder(n)",
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
-      "description": "Selects folder that contains 3D model content. For example 3D meshes for mapping.",
+      "definition": "Selects folder that contains 3D model content. For example 3D meshes for mapping.",
       "explanation": "",
       "visual": ""
     },
@@ -755,7 +752,7 @@
       "_prettyName": "Model Content(n)",
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
-      "description": "Selects file with 3D model content.",
+      "definition": "Selects file with 3D model content.",
       "explanation": "",
       "visual": ""
     },
@@ -763,7 +760,7 @@
       "_name": "Playmode",
       "_prettyName": "Playmode",
       "_feature": "Gobo.Media",
-      "description": "",
+      "definition": "",
       "explanation": "",
       "visual": ""
     },
@@ -772,7 +769,7 @@
       "_prettyName": "Play Begin",
       "_feature": "Gobo.Media",
       "_physicalUnit": "Time",
-      "description": "Defines starting point of media content playback.",
+      "definition": "Defines starting point of media content playback.",
       "explanation": "",
       "visual": ""
     },
@@ -781,7 +778,7 @@
       "_prettyName": "Play End",
       "_feature": "Gobo.Media",
       "_physicalUnit": "Time",
-      "description": "Defines end point of media content playback.",
+      "definition": "Defines end point of media content playback.",
       "explanation": "",
       "visual": ""
     },
@@ -790,7 +787,7 @@
       "_prettyName": "Play Speed",
       "_feature": "Gobo.Media",
       "_physicalUnit": "Percent",
-      "description": "Adjusts playback speed of media content.",
+      "definition": "Adjusts playback speed of media content.",
       "explanation": "",
       "visual": ""
     },
@@ -798,7 +795,7 @@
       "_name": "ColorEffects(n)",
       "_prettyName": "Color FX(n)",
       "_feature": "Color.Color",
-      "description": "Selects predefined color effects built into the fixture.",
+      "definition": "Selects predefined color effects built into the fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -816,7 +813,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.",
+      "definition": "The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.",
       "explanation": "",
       "visual": ""
     },
@@ -836,7 +833,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls angle of indexed rotation of color wheel (n)",
+      "definition": "Controls angle of indexed rotation of color wheel (n)",
       "explanation": "",
       "visual": ""
     },
@@ -856,7 +853,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls the speed and direction of continuous rotation of color wheel (n).",
+      "definition": "Controls the speed and direction of continuous rotation of color wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -876,7 +873,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls frequency of color wheel´s (n) random color slot selection.",
+      "definition": "Controls frequency of color wheel´s (n) random color slot selection.",
       "explanation": "",
       "visual": ""
     },
@@ -895,7 +892,7 @@
           "_physicalTo": 270
         }
       ],
-      "description": "Controls audio-controlled functionality of color wheel (n).",
+      "definition": "Controls audio-controlled functionality of color wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -906,7 +903,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.64,0.33,21.3",
-      "description": "Controls the intensity of the fixture's red emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's red emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -917,7 +914,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.3,0.6,71.5",
-      "description": "Controls the intensity of the fixture's green emitters for direct additive color mixing",
+      "definition": "Controls the intensity of the fixture's green emitters for direct additive color mixing",
       "explanation": "",
       "visual": ""
     },
@@ -928,7 +925,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.15,0.06,7.2",
-      "description": "Controls the intensity of the fixture's blue emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's blue emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -939,7 +936,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.225,0.329,78.7",
-      "description": "Controls the intensity of the fixture's cyan emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's cyan emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -950,7 +947,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.321,0.154,28.5",
-      "description": "Controls the intensity of the fixture's magenta emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's magenta emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -961,7 +958,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.419,0.505,92.8",
-      "description": "Controls the intensity of the fixture's yellow emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's yellow emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -972,7 +969,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.477,0.460,57.0",
-      "description": "Controls the intensity of the fixture's amber emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's amber emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -983,7 +980,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.372,0.543,82.1",
-      "description": "Controls the intensity of the fixture's lime emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's lime emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -994,7 +991,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.250,0.419,75.1",
-      "description": "Controls the intensity of the fixture's blue-green emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's blue-green emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1005,7 +1002,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.200,0.239,43.0",
-      "description": "Controls the intensity of the fixture's light-blue emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's light-blue emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1016,7 +1013,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.254,0.117,17.9",
-      "description": "Controls the intensity of the fixture's purple emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's purple emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1027,7 +1024,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.403,0.200,24.9",
-      "description": "Controls the intensity of the fixture's pink emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's pink emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1038,7 +1035,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.313,0.329,100.0",
-      "description": "Controls the intensity of the fixture's white emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's white emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1049,7 +1046,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.319,0.340,99.3",
-      "description": "Controls the intensity of the fixture's warm white emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's warm white emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1060,7 +1057,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.306,0.329,97.9",
-      "description": "Controls the intensity of the fixture's cool white emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's cool white emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1071,7 +1068,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.176,0.005,0.6",
-      "description": "Controls the intensity of the fixture's UV emitters for direct additive color mixing.",
+      "definition": "Controls the intensity of the fixture's UV emitters for direct additive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1082,7 +1079,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.64,0.33,21.3",
-      "description": "Controls the insertion of the fixture's red filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's red filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1093,7 +1090,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.3,0.6,71.5",
-      "description": "Controls the insertion of the fixture's green filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's green filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1104,7 +1101,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.15,0.06,7.2",
-      "description": "Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1115,7 +1112,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.225,0.329,78.7",
-      "description": "Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1126,7 +1123,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.321,0.154,28.5",
-      "description": "Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1137,7 +1134,7 @@
       "_physicalUnit": "ColorComponent",
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.419,0.505,92.8",
-      "description": "Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.",
+      "definition": "Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1145,7 +1142,7 @@
       "_name": "ColorMacro(n)",
       "_prettyName": "Color Macro(n)",
       "_feature": "Color.RGB",
-      "description": "Selects predefined colors that are programed in the fixture's firmware.",
+      "definition": "Selects predefined colors that are programed in the fixture's firmware.",
       "explanation": "",
       "visual": ""
     },
@@ -1153,7 +1150,7 @@
       "_name": "ColorMacro(n)Rate",
       "_prettyName": "Color Macro(n) Rate",
       "_feature": "Color.RGB",
-      "description": "Controls the time between Color Macro steps.",
+      "definition": "Controls the time between Color Macro steps.",
       "explanation": "",
       "visual": ""
     },
@@ -1162,7 +1159,7 @@
       "_prettyName": "CTO",
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
-      "description": "Controls the fixture's \"Correct to orange\" wheel or mixing system.",
+      "definition": "Controls the fixture's \"Correct to orange\" wheel or mixing system.",
       "explanation": "",
       "visual": ""
     },
@@ -1171,7 +1168,7 @@
       "_prettyName": "CTC",
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
-      "description": "Controls the fixture's \"Correct to color\" wheel or mixing system.",
+      "definition": "Controls the fixture's \"Correct to color\" wheel or mixing system.",
       "explanation": "",
       "visual": ""
     },
@@ -1180,7 +1177,7 @@
       "_prettyName": "CTB",
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
-      "description": "Controls the fixture's \"Correct to blue\" wheel or mixing system.",
+      "definition": "Controls the fixture's \"Correct to blue\" wheel or mixing system.",
       "explanation": "",
       "visual": ""
     },
@@ -1188,7 +1185,7 @@
       "_name": "Tint",
       "_prettyName": "Tint",
       "_feature": "Color.Color",
-      "description": "Controls the fixture's \"Correct green to magenta\" wheel or mixing system.",
+      "definition": "Controls the fixture's \"Correct green to magenta\" wheel or mixing system.",
       "explanation": "",
       "visual": ""
     },
@@ -1198,7 +1195,7 @@
       "_feature": "Color.HSB",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "ColorHSB",
-      "description": "Controls the fixture's color attribute regarding the hue.",
+      "definition": "Controls the fixture's color attribute regarding the hue.",
       "explanation": "",
       "visual": ""
     },
@@ -1208,7 +1205,7 @@
       "_feature": "Color.HSB",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
-      "description": "Controls the fixture's color attribute regarding the saturation.",
+      "definition": "Controls the fixture's color attribute regarding the saturation.",
       "explanation": "",
       "visual": ""
     },
@@ -1218,7 +1215,7 @@
       "_feature": "Color.HSB",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
-      "description": "Controls the fixture's color attribute regarding the brightness.",
+      "definition": "Controls the fixture's color attribute regarding the brightness.",
       "explanation": "",
       "visual": ""
     },
@@ -1228,7 +1225,7 @@
       "_feature": "Color.HSB",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
-      "description": "Controls the fixture's color attribute regarding the quality.",
+      "definition": "Controls the fixture's color attribute regarding the quality.",
       "explanation": "",
       "visual": ""
     },
@@ -1237,7 +1234,7 @@
       "_prettyName": "X",
       "_feature": "Color.CIE",
       "_ActivationGroup": "ColorCIE",
-      "description": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity x.",
+      "definition": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity x.",
       "explanation": "",
       "visual": ""
     },
@@ -1246,7 +1243,7 @@
       "_prettyName": "Y",
       "_feature": "Color.CIE",
       "_ActivationGroup": "ColorCIE",
-      "description": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity y.",
+      "definition": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity y.",
       "explanation": "",
       "visual": ""
     },
@@ -1256,7 +1253,7 @@
       "_feature": "Color.CIE",
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorCIE",
-      "description": "Controls the fixture's CIE 1931 color attribute regarding the brightness (Y).",
+      "definition": "Controls the fixture's CIE 1931 color attribute regarding the brightness (Y).",
       "explanation": "",
       "visual": ""
     },
@@ -1265,7 +1262,7 @@
       "_prettyName": "R",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's red attribute for indirect RGB color mixing.",
+      "definition": "Controls the fixture's red attribute for indirect RGB color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1274,7 +1271,7 @@
       "_prettyName": "G",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's green attribute for indirect RGB color mixing.",
+      "definition": "Controls the fixture's green attribute for indirect RGB color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1283,7 +1280,7 @@
       "_prettyName": "B",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's blue attribute for indirect RGB color mixing.",
+      "definition": "Controls the fixture's blue attribute for indirect RGB color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1292,7 +1289,7 @@
       "_prettyName": "C",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's cyan attribute for indirect CMY color mixing.",
+      "definition": "Controls the fixture's cyan attribute for indirect CMY color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1301,7 +1298,7 @@
       "_prettyName": "M",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's magenta attribute for indirect CMY color mixing.",
+      "definition": "Controls the fixture's magenta attribute for indirect CMY color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1310,7 +1307,7 @@
       "_prettyName": "Y",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's yellow attribute for indirect CMY color mixing.",
+      "definition": "Controls the fixture's yellow attribute for indirect CMY color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1319,7 +1316,7 @@
       "_prettyName": "Q",
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
-      "description": "Controls the fixture's quality attribute for indirect color mixing.",
+      "definition": "Controls the fixture's quality attribute for indirect color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -1329,7 +1326,7 @@
       "_feature": "Color.ColorCorrection",
       "_physicalUnit": "None",
       "_Color": "0.64,0.33,21.3",
-      "description": "Adjusts color boost red of content.",
+      "definition": "Adjusts color boost red of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1339,7 +1336,7 @@
       "_feature": "Color.ColorCorrection",
       "_physicalUnit": "None",
       "_Color": "0.3,0.6,71.5",
-      "description": "Adjusts color boost green of content.",
+      "definition": "Adjusts color boost green of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1349,7 +1346,7 @@
       "_feature": "Color.ColorCorrection",
       "_physicalUnit": "None",
       "_Color": "0.15,0.06,7.2",
-      "description": "Adjusts color boost blue of content.",
+      "definition": "Adjusts color boost blue of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1358,7 +1355,7 @@
       "_prettyName": "Hue Shift",
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Angle",
-      "description": "Adjusts color hue shift of content.",
+      "definition": "Adjusts color hue shift of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1367,7 +1364,7 @@
       "_prettyName": "S",
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
-      "description": "Adjusts saturation of content.",
+      "definition": "Adjusts saturation of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1376,7 +1373,7 @@
       "_prettyName": "B",
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
-      "description": "Adjusts brightness of content.",
+      "definition": "Adjusts brightness of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1385,7 +1382,7 @@
       "_prettyName": "C",
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
-      "description": "Adjusts contrast of content.",
+      "definition": "Adjusts contrast of content.",
       "explanation": "",
       "visual": ""
     },
@@ -1395,7 +1392,7 @@
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
       "_Color": "0.64,0.33,21.3",
-      "description": "Adjusts red color for color keying.",
+      "definition": "Adjusts red color for color keying.",
       "explanation": "",
       "visual": ""
     },
@@ -1405,7 +1402,7 @@
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
       "_Color": "0.3,0.6,71.5",
-      "description": "Adjusts green color for color keying.",
+      "definition": "Adjusts green color for color keying.",
       "explanation": "",
       "visual": ""
     },
@@ -1415,7 +1412,7 @@
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
       "_Color": "0.15,0.06,7.2",
-      "description": "",
+      "definition": "",
       "explanation": "",
       "visual": ""
     },
@@ -1424,7 +1421,7 @@
       "_prettyName": "Intensity",
       "_feature": "Color.ColorKey",
       "_physicalUnit": "Percent",
-      "description": "Adjusts intensity of color keying.",
+      "definition": "Adjusts intensity of color keying.",
       "explanation": "",
       "visual": ""
     },
@@ -1433,7 +1430,7 @@
       "_prettyName": "Tolerance",
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
-      "description": "Adjusts tolerance of color keying.",
+      "definition": "Adjusts tolerance of color keying.",
       "explanation": "",
       "visual": ""
     },
@@ -1442,7 +1439,7 @@
       "_prettyName": "Strobe Duration",
       "_feature": "Beam.Beam",
       "_physicalUnit": "Time",
-      "description": "Controls the length of a strobe flash.",
+      "definition": "Controls the length of a strobe flash.",
       "explanation": "",
       "visual": ""
     },
@@ -1450,7 +1447,7 @@
       "_name": "StrobeRate",
       "_prettyName": "Strobe Rate",
       "_feature": "Beam.Beam",
-      "description": "Controls the time between strobe flashes.",
+      "definition": "Controls the time between strobe flashes.",
       "explanation": "",
       "visual": ""
     },
@@ -1459,7 +1456,7 @@
       "_prettyName": "Strobe Frequency",
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
-      "description": "Controls the frequency of strobe flashes.",
+      "definition": "Controls the frequency of strobe flashes.",
       "explanation": "",
       "visual": ""
     },
@@ -1467,7 +1464,7 @@
       "_name": "StrobeModeShutter",
       "_prettyName": "StrobeM Shutter",
       "_feature": "Beam.Beam",
-      "description": "Strobe mode shutter. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode shutter. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1476,7 +1473,7 @@
       "_prettyName": "StrobeM Strobe",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1485,7 +1482,7 @@
       "_prettyName": "StrobeM Pulse",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1494,7 +1491,7 @@
       "_prettyName": "StrobeM PulseOpen",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1503,7 +1500,7 @@
       "_prettyName": "StrobeM Pulse Close",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1512,7 +1509,7 @@
       "_prettyName": "StrobeM Random",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode random strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode random strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1521,7 +1518,7 @@
       "_prettyName": "StrobeM Random Pulse",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode random pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode random pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1530,7 +1527,7 @@
       "_prettyName": "StrobeM Random Pulse Open",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1539,7 +1536,7 @@
       "_prettyName": "StrobeM Random Pulse Close",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1548,7 +1545,7 @@
       "_prettyName": "StrobeM Effect",
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
-      "description": "Strobe mode random shutter effect feature. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
+      "definition": "Strobe mode random shutter effect feature. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
       "explanation": "",
       "visual": ""
     },
@@ -1556,7 +1553,7 @@
       "_name": "Shutter(n)",
       "_prettyName": "Sh(n)",
       "_feature": "Beam.Beam",
-      "description": "Controls the fixture´s mechanical or electronical shutter feature.",
+      "definition": "Controls the fixture´s mechanical or electronical shutter feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1582,7 +1579,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1608,7 +1605,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1634,7 +1631,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function.",
       "explanation": "",
       "visual": ""
     },
@@ -1660,7 +1657,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function.",
       "explanation": "",
       "visual": ""
     },
@@ -1679,7 +1676,7 @@
           "_physicalTo": 0.025
         }
       ],
-      "description": "Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1689,7 +1686,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
-      "description": "Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1699,7 +1696,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
-      "description": "Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function.",
       "explanation": "",
       "visual": ""
     },
@@ -1709,7 +1706,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
-      "description": "Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function.",
       "explanation": "",
       "visual": ""
     },
@@ -1719,7 +1716,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
-      "description": "Controls the frequency of the fixture´s mechanical or electronical shutter effect feature.",
+      "definition": "Controls the frequency of the fixture´s mechanical or electronical shutter effect feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1727,7 +1724,7 @@
       "_name": "Iris",
       "_prettyName": "Iris",
       "_feature": "Beam.Beam",
-      "description": "Controls the diameter of the fixture's beam.",
+      "definition": "Controls the diameter of the fixture's beam.",
       "explanation": "",
       "visual": ""
     },
@@ -1760,7 +1757,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of the iris's strobe feature.",
+      "definition": "Sets frequency of the iris's strobe feature.",
       "explanation": "",
       "visual": ""
     },
@@ -1786,7 +1783,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of the iris's random movement.",
+      "definition": "Sets frequency of the iris's random movement.",
       "explanation": "",
       "visual": ""
     },
@@ -1819,7 +1816,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of iris's closing pulse.",
+      "definition": "Sets frequency of iris's closing pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -1852,7 +1849,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of iris's opening pulse.",
+      "definition": "Sets frequency of iris's opening pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -1871,7 +1868,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of iris's random closing pulse.",
+      "definition": "Sets frequency of iris's random closing pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -1890,7 +1887,7 @@
           "_physicalTo": 0
         }
       ],
-      "description": "Sets frequency of iris's random opening pulse.",
+      "definition": "Sets frequency of iris's random opening pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -1898,7 +1895,7 @@
       "_name": "Frost(n)",
       "_prettyName": "Frost(n)",
       "_feature": "Beam.Beam",
-      "description": "The ability to soften the fixture's spot light with a frosted lens.",
+      "definition": "The ability to soften the fixture's spot light with a frosted lens.",
       "explanation": "",
       "visual": ""
     },
@@ -1924,7 +1921,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Sets frequency of frost's opening pulse",
+      "definition": "Sets frequency of frost's opening pulse",
       "explanation": "",
       "visual": ""
     },
@@ -1950,7 +1947,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Sets frequency of frost's closing pulse.",
+      "definition": "Sets frequency of frost's closing pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -1976,7 +1973,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Sets frequency of frost's ramp.",
+      "definition": "Sets frequency of frost's ramp.",
       "explanation": "",
       "visual": ""
     },
@@ -1985,7 +1982,7 @@
       "_prettyName": "Prism(n)",
       "_feature": "Beam.Beam",
       "_ActivationGroup": "Prism",
-      "description": "The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.",
+      "definition": "The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.",
       "explanation": "",
       "visual": ""
     },
@@ -1996,7 +1993,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
-      "description": "Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.",
+      "definition": "Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.",
       "explanation": "",
       "visual": ""
     },
@@ -2006,7 +2003,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
-      "description": "Macro functions of prism wheel (n).",
+      "definition": "Macro functions of prism wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2015,7 +2012,7 @@
       "_prettyName": "Prism(n) Pos",
       "_feature": "Beam.Beam",
       "_physicalUnit": "AngularSpeed",
-      "description": "Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.",
+      "definition": "Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.",
       "explanation": "",
       "visual": ""
     },
@@ -2026,7 +2023,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "Prism(n)Pos",
       "_ActivationGroup": "Prism",
-      "description": "Controls the speed and direction of continuous rotation of prisms in prism wheel (n).",
+      "definition": "Controls the speed and direction of continuous rotation of prisms in prism wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2034,7 +2031,7 @@
       "_name": "Effects(n)",
       "_prettyName": "FX(n)",
       "_feature": "Beam.Beam",
-      "description": "Generically predefined macros and effects of a fixture.",
+      "definition": "Generically predefined macros and effects of a fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -2043,7 +2040,7 @@
       "_prettyName": "FX(n) Rate",
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
-      "description": "Frequency of running effects.",
+      "definition": "Frequency of running effects.",
       "explanation": "",
       "visual": ""
     },
@@ -2051,7 +2048,7 @@
       "_name": "Effects(n)Fade",
       "_prettyName": "FX(n) Fade",
       "_feature": "Beam.Beam",
-      "description": "Snapping or smooth look of running effects.",
+      "definition": "Snapping or smooth look of running effects.",
       "explanation": "",
       "visual": ""
     },
@@ -2059,7 +2056,7 @@
       "_name": "Effects(n)Adjust(m)",
       "_prettyName": "FX(n) Adjust(m)",
       "_feature": "Beam.Beam",
-      "description": "Controls parameter (m) of effect (n)",
+      "definition": "Controls parameter (m) of effect (n)",
       "explanation": "",
       "visual": ""
     },
@@ -2068,7 +2065,7 @@
       "_prettyName": "FX(n) Pos",
       "_feature": "Beam.Beam",
       "_physicalUnit": "Angle",
-      "description": "Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control.",
+      "definition": "Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control.",
       "explanation": "",
       "visual": ""
     },
@@ -2078,7 +2075,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "Effects(n)Pos",
-      "description": "Controls speed and direction of slot/effect in effect wheel (n).",
+      "definition": "Controls speed and direction of slot/effect in effect wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2086,7 +2083,7 @@
       "_name": "EffectsSync",
       "_prettyName": "FX Sync",
       "_feature": "Beam.Beam",
-      "description": "Sets offset between running effects and effects 2.",
+      "definition": "Sets offset between running effects and effects 2.",
       "explanation": "",
       "visual": ""
     },
@@ -2111,7 +2108,7 @@
           "_physicalTo": 1
         }
       ],
-      "description": "Activates fixture's beam shaper.",
+      "definition": "Activates fixture's beam shaper.",
       "explanation": "",
       "visual": ""
     },
@@ -2120,7 +2117,7 @@
       "_prettyName": "Beam Shaper Macro",
       "_feature": "Beam.Beam",
       "_ActivationGroup": "BeamShaper",
-      "description": "Predefined presets for fixture's beam shaper positions.",
+      "definition": "Predefined presets for fixture's beam shaper positions.",
       "explanation": "",
       "visual": ""
     },
@@ -2130,7 +2127,7 @@
       "_feature": "Beam.Beam",
       "_ActivationGroup": "BeamShaper",
       "_physicalUnit": "Angle",
-      "description": "Indexing of fixture's beam shaper.",
+      "definition": "Indexing of fixture's beam shaper.",
       "explanation": "",
       "visual": ""
     },
@@ -2140,7 +2137,7 @@
       "_feature": "Beam.Beam",
       "_ActivationGroup": "BeamShaper",
       "_physicalUnit": "AngularSpeed",
-      "description": "Continuous rotation of fixture's beam shaper.",
+      "definition": "Continuous rotation of fixture's beam shaper.",
       "explanation": "",
       "visual": ""
     },
@@ -2149,7 +2146,7 @@
       "_prettyName": "Zoom",
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
-      "description": "Controls the spread of the fixture's beam/spot.",
+      "definition": "Controls the spread of the fixture's beam/spot.",
       "explanation": "",
       "visual": ""
     },
@@ -2158,7 +2155,7 @@
       "_prettyName": "Zoom Spot",
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
-      "description": "Selects spot mode of zoom.",
+      "definition": "Selects spot mode of zoom.",
       "explanation": "",
       "visual": ""
     },
@@ -2167,7 +2164,7 @@
       "_prettyName": "Zoom Beam",
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
-      "description": "Selects beam mode of zoom.",
+      "definition": "Selects beam mode of zoom.",
       "explanation": "",
       "visual": ""
     },
@@ -2176,7 +2173,7 @@
       "_prettyName": "DZoom",
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
-      "description": "Controls the image size within the defined projection. Used on digital projection based devices",
+      "definition": "Controls the image size within the defined projection. Used on digital projection based devices",
       "explanation": "",
       "visual": ""
     },
@@ -2184,7 +2181,7 @@
       "_name": "Focus(n)",
       "_prettyName": "Focus(n)",
       "_feature": "Focus.Focus",
-      "description": "Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.",
+      "definition": "Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.",
       "explanation": "",
       "visual": ""
     },
@@ -2192,7 +2189,7 @@
       "_name": "Focus(n)Adjust",
       "_prettyName": "Focus(n) Adjust",
       "_feature": "Focus.Focus",
-      "description": "Autofocuses functionality using presets.",
+      "definition": "Autofocuses functionality using presets.",
       "explanation": "",
       "visual": ""
     },
@@ -2201,7 +2198,7 @@
       "_prettyName": "Focus(n) Distance",
       "_feature": "Focus.Focus",
       "_physicalUnit": "Length",
-      "description": "Autofocuses functionality using distance.",
+      "definition": "Autofocuses functionality using distance.",
       "explanation": "",
       "visual": ""
     },
@@ -2209,7 +2206,7 @@
       "_name": "Control(n)",
       "_prettyName": "Ctrl(n)",
       "_feature": "Control.Control",
-      "description": "Controls the channel of a fixture.",
+      "definition": "Controls the channel of a fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -2217,7 +2214,7 @@
       "_name": "DimmerMode",
       "_prettyName": "Dim Mode",
       "_feature": "Control.Control",
-      "description": "Selects different modes of intensity.",
+      "definition": "Selects different modes of intensity.",
       "explanation": "",
       "visual": ""
     },
@@ -2225,7 +2222,7 @@
       "_name": "DimmerCurve",
       "_prettyName": "Dim Curve",
       "_feature": "Control.Control",
-      "description": "Selects different dimmer curves of the fixture.",
+      "definition": "Selects different dimmer curves of the fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -2233,7 +2230,7 @@
       "_name": "BlackoutMode",
       "_prettyName": "Blackout Mode",
       "_feature": "Control.Control",
-      "description": "Close the light output under certain conditions (movement correction, gobo movement, etc.).",
+      "definition": "Close the light output under certain conditions (movement correction, gobo movement, etc.).",
       "explanation": "",
       "visual": ""
     },
@@ -2242,7 +2239,7 @@
       "_prettyName": "LED Frequency",
       "_feature": "Control.Control",
       "_physicalUnit": "Frequency",
-      "description": "Controls LED frequency.",
+      "definition": "Controls LED frequency.",
       "explanation": "",
       "visual": ""
     },
@@ -2250,7 +2247,7 @@
       "_name": "LEDZoneMode",
       "_prettyName": "LED Zone Mode",
       "_feature": "Control.Control",
-      "description": "Changes zones of LEDs.",
+      "definition": "Changes zones of LEDs.",
       "explanation": "",
       "visual": ""
     },
@@ -2258,7 +2255,7 @@
       "_name": "PixelMode",
       "_prettyName": "Pixel Mode",
       "_feature": "Control.Control",
-      "description": "Controls behavior of LED pixels.",
+      "definition": "Controls behavior of LED pixels.",
       "explanation": "",
       "visual": ""
     },
@@ -2266,7 +2263,7 @@
       "_name": "PanMode",
       "_prettyName": "Pan Mode",
       "_feature": "Control.Control",
-      "description": "Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.",
+      "definition": "Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.",
       "explanation": "",
       "visual": ""
     },
@@ -2274,7 +2271,7 @@
       "_name": "TiltMode",
       "_prettyName": "Tilt Mode",
       "_feature": "Control.Control",
-      "description": "Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.",
+      "definition": "Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.",
       "explanation": "",
       "visual": ""
     },
@@ -2282,7 +2279,7 @@
       "_name": "PanTiltMode",
       "_prettyName": "PanTilt Mode",
       "_feature": "Control.Control",
-      "description": "Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.",
+      "definition": "Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.",
       "explanation": "",
       "visual": ""
     },
@@ -2290,7 +2287,7 @@
       "_name": "PositionModes",
       "_prettyName": "Pos Modes",
       "_feature": "Control.Control",
-      "description": "Selects the fixture's position mode.",
+      "definition": "Selects the fixture's position mode.",
       "explanation": "",
       "visual": ""
     },
@@ -2298,7 +2295,7 @@
       "_name": "Gobo(n)WheelMode",
       "_prettyName": "G(n) Mode",
       "_feature": "Control.Control",
-      "description": "Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).",
+      "definition": "Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2306,7 +2303,7 @@
       "_name": "GoboWheelShortcutMode",
       "_prettyName": "Gobo Shortcut Mode",
       "_feature": "Control.Control",
-      "description": "Defines whether the gobo wheel takes the shortest distance between two positions.",
+      "definition": "Defines whether the gobo wheel takes the shortest distance between two positions.",
       "explanation": "",
       "visual": ""
     },
@@ -2314,7 +2311,7 @@
       "_name": "AnimationWheel(n)Mode",
       "_prettyName": "Anim Mode",
       "_feature": "Control.Control",
-      "description": "Changes control between selecting, indexing, and rotating the slots of animation wheel (n).",
+      "definition": "Changes control between selecting, indexing, and rotating the slots of animation wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2322,7 +2319,7 @@
       "_name": "AnimationWheelShortcutMode",
       "_prettyName": "Anim Shortcut Mode",
       "_feature": "Control.Control",
-      "description": "Defines whether the animation wheel takes the shortest distance between two positions.",
+      "definition": "Defines whether the animation wheel takes the shortest distance between two positions.",
       "explanation": "",
       "visual": ""
     },
@@ -2330,7 +2327,7 @@
       "_name": "Color(n)Mode",
       "_prettyName": "C(n) Mode",
       "_feature": "Control.Control",
-      "description": "Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).",
+      "definition": "Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2338,7 +2335,7 @@
       "_name": "ColorWheelShortcutMode",
       "_prettyName": "Color Wheel Shortcut Mode",
       "_feature": "Control.Control",
-      "description": "Defines whether the color wheel takes the shortest distance between two colors.",
+      "definition": "Defines whether the color wheel takes the shortest distance between two colors.",
       "explanation": "",
       "visual": ""
     },
@@ -2346,7 +2343,7 @@
       "_name": "CyanMode",
       "_prettyName": "Cyan Mode",
       "_feature": "Control.Control",
-      "description": "Controls how Cyan is used within the fixture's cyan CMY-mixing feature.",
+      "definition": "Controls how Cyan is used within the fixture's cyan CMY-mixing feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2354,7 +2351,7 @@
       "_name": "MagentaMode",
       "_prettyName": "Magenta Mode",
       "_feature": "Control.Control",
-      "description": "Controls how Cyan is used within the fixture's magenta CMY-mixing.",
+      "definition": "Controls how Cyan is used within the fixture's magenta CMY-mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -2362,7 +2359,7 @@
       "_name": "YellowMode",
       "_prettyName": "Yellow Mode",
       "_feature": "Control.Control",
-      "description": "Controls how Cyan is used within the fixture's yellow CMY-mixing feature.",
+      "definition": "Controls how Cyan is used within the fixture's yellow CMY-mixing feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2370,7 +2367,7 @@
       "_name": "ColorMixMode",
       "_prettyName": "Color Mix Mode",
       "_feature": "Control.Control",
-      "description": "Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.",
+      "definition": "Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.",
       "explanation": "",
       "visual": ""
     },
@@ -2378,7 +2375,7 @@
       "_name": "ChromaticMode",
       "_prettyName": "Chroma Mode",
       "_feature": "Control.Control",
-      "description": "Selects chromatic behavior of the device.",
+      "definition": "Selects chromatic behavior of the device.",
       "explanation": "",
       "visual": ""
     },
@@ -2386,7 +2383,7 @@
       "_name": "ColorCalibrationMode",
       "_prettyName": "CCalib Mode",
       "_feature": "Control.Control",
-      "description": "Sets calibration mode (for example on/off).",
+      "definition": "Sets calibration mode (for example on/off).",
       "explanation": "",
       "visual": ""
     },
@@ -2394,7 +2391,7 @@
       "_name": "ColorConsistency",
       "_prettyName": "Color consistency",
       "_feature": "Control.Control",
-      "description": "Controls consistent behavior of color.",
+      "definition": "Controls consistent behavior of color.",
       "explanation": "",
       "visual": ""
     },
@@ -2402,7 +2399,7 @@
       "_name": "ColorControl",
       "_prettyName": "Color Ctrl",
       "_feature": "Control.Control",
-      "description": "Controls special color related functions.",
+      "definition": "Controls special color related functions.",
       "explanation": "",
       "visual": ""
     },
@@ -2410,7 +2407,7 @@
       "_name": "ColorModelMode",
       "_prettyName": "ColorModel",
       "_feature": "Control.Control",
-      "description": "Controls color model (CMY/RGB/HSV...).",
+      "definition": "Controls color model (CMY/RGB/HSV...).",
       "explanation": "",
       "visual": ""
     },
@@ -2418,7 +2415,7 @@
       "_name": "ColorSettingsReset",
       "_prettyName": "Color Ctrl Rst",
       "_feature": "Control.Control",
-      "description": "Resets settings of color control channel.",
+      "definition": "Resets settings of color control channel.",
       "explanation": "",
       "visual": ""
     },
@@ -2426,7 +2423,7 @@
       "_name": "ColorUniformity",
       "_prettyName": "ColorUniform",
       "_feature": "Control.Control",
-      "description": "Controls behavior of color uniformity.",
+      "definition": "Controls behavior of color uniformity.",
       "explanation": "",
       "visual": ""
     },
@@ -2434,7 +2431,7 @@
       "_name": "CRIMode",
       "_prettyName": "CRI Mode",
       "_feature": "Control.Control",
-      "description": "Controls CRI settings of output.",
+      "definition": "Controls CRI settings of output.",
       "explanation": "",
       "visual": ""
     },
@@ -2442,7 +2439,7 @@
       "_name": "CustomColor",
       "_prettyName": "Custom Color",
       "_feature": "Control.Control",
-      "description": "Custom color related functions (save, recall..).",
+      "definition": "Custom color related functions (save, recall..).",
       "explanation": "",
       "visual": ""
     },
@@ -2450,7 +2447,7 @@
       "_name": "UVStability",
       "_prettyName": "UV Stab",
       "_feature": "Control.Control",
-      "description": "Settings for UV stability color behavior.",
+      "definition": "Settings for UV stability color behavior.",
       "explanation": "",
       "visual": ""
     },
@@ -2458,7 +2455,7 @@
       "_name": "WaveLengthCorrection",
       "_prettyName": "WaveLength",
       "_feature": "Control.Control",
-      "description": "",
+      "definition": "",
       "explanation": "",
       "visual": ""
     },
@@ -2466,7 +2463,7 @@
       "_name": "WhiteCount",
       "_prettyName": "White Count",
       "_feature": "Control.Control",
-      "description": "Controls if White LED is proportionally added to RGB.",
+      "definition": "Controls if White LED is proportionally added to RGB.",
       "explanation": "",
       "visual": ""
     },
@@ -2474,7 +2471,7 @@
       "_name": "StrobeMode",
       "_prettyName": "Strobe Mode",
       "_feature": "Control.Control",
-      "description": "Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.",
+      "definition": "Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.",
       "explanation": "",
       "visual": ""
     },
@@ -2482,7 +2479,7 @@
       "_name": "ZoomMode",
       "_prettyName": "Zoom Mode",
       "_feature": "Control.Control",
-      "description": "Changes modes of the fixture´s zoom.",
+      "definition": "Changes modes of the fixture´s zoom.",
       "explanation": "",
       "visual": ""
     },
@@ -2490,7 +2487,7 @@
       "_name": "FocusMode",
       "_prettyName": "Focus Mode",
       "_feature": "Control.Control",
-      "description": "Changes modes of the fixture’s focus - manual or auto- focus.",
+      "definition": "Changes modes of the fixture’s focus - manual or auto- focus.",
       "explanation": "",
       "visual": ""
     },
@@ -2498,7 +2495,7 @@
       "_name": "IrisMode",
       "_prettyName": "Iris Mode",
       "_feature": "Control.Control",
-      "description": "Changes modes of the fixture’s iris - linear, strobe, pulse.",
+      "definition": "Changes modes of the fixture’s iris - linear, strobe, pulse.",
       "explanation": "",
       "visual": ""
     },
@@ -2506,7 +2503,7 @@
       "_name": "FanMode",
       "_prettyName": "Fan Mode",
       "_feature": "Control.Control",
-      "description": "",
+      "definition": "",
       "explanation": "",
       "visual": ""
     },
@@ -2514,7 +2511,7 @@
       "_name": "FollowSpotMode",
       "_prettyName": "FollowSpot Mode",
       "_feature": "Control.Control",
-      "description": "Selects follow spot control mode.",
+      "definition": "Selects follow spot control mode.",
       "explanation": "",
       "visual": ""
     },
@@ -2522,7 +2519,7 @@
       "_name": "BeamEffectIndexRotateMode",
       "_prettyName": "Beam Effect Index Rotate Mode",
       "_feature": "Control.Control",
-      "description": "Changes mode to control either index or rotation of the beam effects.",
+      "definition": "Changes mode to control either index or rotation of the beam effects.",
       "explanation": "",
       "visual": ""
     },
@@ -2530,7 +2527,7 @@
       "_name": "IntensityMSpeed",
       "_prettyName": "Intensity MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's intensity.",
+      "definition": "Movement speed of the fixture's intensity.",
       "explanation": "",
       "visual": ""
     },
@@ -2538,7 +2535,7 @@
       "_name": "PositionMSpeed",
       "_prettyName": "Pos MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's pan/tilt.",
+      "definition": "Movement speed of the fixture's pan/tilt.",
       "explanation": "",
       "visual": ""
     },
@@ -2546,7 +2543,7 @@
       "_name": "ColorMixMSpeed",
       "_prettyName": "Color Mix MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's ColorMix presets.",
+      "definition": "Movement speed of the fixture's ColorMix presets.",
       "explanation": "",
       "visual": ""
     },
@@ -2554,7 +2551,7 @@
       "_name": "ColorWheelSelectMSpeed",
       "_prettyName": "Color Wheel Select MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's color wheel.",
+      "definition": "Movement speed of the fixture's color wheel.",
       "explanation": "",
       "visual": ""
     },
@@ -2562,7 +2559,7 @@
       "_name": "GoboWheel(n)MSpeed",
       "_prettyName": "Gobo Wheel(n) MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's gobo wheel (n).",
+      "definition": "Movement speed of the fixture's gobo wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2570,7 +2567,7 @@
       "_name": "IrisMSpeed",
       "_prettyName": "Iris MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's iris.",
+      "definition": "Movement speed of the fixture's iris.",
       "explanation": "",
       "visual": ""
     },
@@ -2578,7 +2575,7 @@
       "_name": "Prism(n)MSpeed",
       "_prettyName": "Prism(n) MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's prism wheel (n).",
+      "definition": "Movement speed of the fixture's prism wheel (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2586,7 +2583,7 @@
       "_name": "FocusMSpeed",
       "_prettyName": "Focus MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's focus.",
+      "definition": "Movement speed of the fixture's focus.",
       "explanation": "",
       "visual": ""
     },
@@ -2594,7 +2591,7 @@
       "_name": "Frost(n)MSpeed",
       "_prettyName": "Frost(n) MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's frost (n).",
+      "definition": "Movement speed of the fixture's frost (n).",
       "explanation": "",
       "visual": ""
     },
@@ -2602,7 +2599,7 @@
       "_name": "ZoomMSpeed",
       "_prettyName": "Zoom MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's zoom.",
+      "definition": "Movement speed of the fixture's zoom.",
       "explanation": "",
       "visual": ""
     },
@@ -2610,7 +2607,7 @@
       "_name": "FrameMSpeed",
       "_prettyName": "Frame MSpeed",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's shapers.",
+      "definition": "Movement speed of the fixture's shapers.",
       "explanation": "",
       "visual": ""
     },
@@ -2618,7 +2615,7 @@
       "_name": "GlobalMSpeed",
       "_prettyName": "Global MSpeed",
       "_feature": "Control.Control",
-      "description": "General speed of fixture's features.",
+      "definition": "General speed of fixture's features.",
       "explanation": "",
       "visual": ""
     },
@@ -2626,7 +2623,7 @@
       "_name": "ReflectorAdjust",
       "_prettyName": "Reflector Adj",
       "_feature": "Control.Control",
-      "description": "Movement speed of the fixture's frost.",
+      "definition": "Movement speed of the fixture's frost.",
       "explanation": "",
       "visual": ""
     },
@@ -2634,7 +2631,7 @@
       "_name": "FixtureGlobalReset",
       "_prettyName": "Fixture Global Reset",
       "_feature": "Control.Control",
-      "description": "Generally resets the entire fixture.",
+      "definition": "Generally resets the entire fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -2642,7 +2639,7 @@
       "_name": "DimmerReset",
       "_prettyName": "Dimmer Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's dimmer.",
+      "definition": "Resets the fixture's dimmer.",
       "explanation": "",
       "visual": ""
     },
@@ -2650,7 +2647,7 @@
       "_name": "ShutterReset",
       "_prettyName": "Shutter Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's shutter.",
+      "definition": "Resets the fixture's shutter.",
       "explanation": "",
       "visual": ""
     },
@@ -2658,7 +2655,7 @@
       "_name": "BeamReset",
       "_prettyName": "Beam Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's beam features.",
+      "definition": "Resets the fixture's beam features.",
       "explanation": "",
       "visual": ""
     },
@@ -2666,7 +2663,7 @@
       "_name": "ColorMixReset",
       "_prettyName": "Color Mix Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's color mixing system.",
+      "definition": "Resets the fixture's color mixing system.",
       "explanation": "",
       "visual": ""
     },
@@ -2674,7 +2671,7 @@
       "_name": "ColorWheelReset",
       "_prettyName": "Color Wheel Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's color wheel.",
+      "definition": "Resets the fixture's color wheel.",
       "explanation": "",
       "visual": ""
     },
@@ -2682,7 +2679,7 @@
       "_name": "FocusReset",
       "_prettyName": "Focus Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's focus.",
+      "definition": "Resets the fixture's focus.",
       "explanation": "",
       "visual": ""
     },
@@ -2690,7 +2687,7 @@
       "_name": "FrameReset",
       "_prettyName": "Frame Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's shapers.",
+      "definition": "Resets the fixture's shapers.",
       "explanation": "",
       "visual": ""
     },
@@ -2698,7 +2695,7 @@
       "_name": "GoboWheelReset",
       "_prettyName": "G Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's gobo wheel.",
+      "definition": "Resets the fixture's gobo wheel.",
       "explanation": "",
       "visual": ""
     },
@@ -2706,7 +2703,7 @@
       "_name": "IntensityReset",
       "_prettyName": "Intensity Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's intensity.",
+      "definition": "Resets the fixture's intensity.",
       "explanation": "",
       "visual": ""
     },
@@ -2714,7 +2711,7 @@
       "_name": "IrisReset",
       "_prettyName": "Iris Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's iris.",
+      "definition": "Resets the fixture's iris.",
       "explanation": "",
       "visual": ""
     },
@@ -2722,7 +2719,7 @@
       "_name": "PositionReset",
       "_prettyName": "Pos Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's pan/tilt.",
+      "definition": "Resets the fixture's pan/tilt.",
       "explanation": "",
       "visual": ""
     },
@@ -2730,7 +2727,7 @@
       "_name": "PanReset",
       "_prettyName": "Pan Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's pan.",
+      "definition": "Resets the fixture's pan.",
       "explanation": "",
       "visual": ""
     },
@@ -2738,7 +2735,7 @@
       "_name": "TiltReset",
       "_prettyName": "Tilt Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's tilt.",
+      "definition": "Resets the fixture's tilt.",
       "explanation": "",
       "visual": ""
     },
@@ -2746,7 +2743,7 @@
       "_name": "ZoomReset",
       "_prettyName": "Zoom Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's zoom.",
+      "definition": "Resets the fixture's zoom.",
       "explanation": "",
       "visual": ""
     },
@@ -2754,7 +2751,7 @@
       "_name": "CTBReset",
       "_prettyName": "CTB Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's CTB.",
+      "definition": "Resets the fixture's CTB.",
       "explanation": "",
       "visual": ""
     },
@@ -2762,7 +2759,7 @@
       "_name": "CTOReset",
       "_prettyName": "CTO Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's CTO.",
+      "definition": "Resets the fixture's CTO.",
       "explanation": "",
       "visual": ""
     },
@@ -2770,7 +2767,7 @@
       "_name": "CTCReset",
       "_prettyName": "CTC Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's CTC.",
+      "definition": "Resets the fixture's CTC.",
       "explanation": "",
       "visual": ""
     },
@@ -2778,7 +2775,7 @@
       "_name": "AnimationSystemReset",
       "_prettyName": "Anim Sytem Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's animation system features.",
+      "definition": "Resets the fixture's animation system features.",
       "explanation": "",
       "visual": ""
     },
@@ -2786,7 +2783,7 @@
       "_name": "FixtureCalibrationReset",
       "_prettyName": "Fixture Calibration Reset",
       "_feature": "Control.Control",
-      "description": "Resets the fixture's calibration.",
+      "definition": "Resets the fixture's calibration.",
       "explanation": "",
       "visual": ""
     },
@@ -2794,7 +2791,7 @@
       "_name": "Function",
       "_prettyName": "Function",
       "_feature": "Control.Control",
-      "description": "Generally controls features of the fixture.",
+      "definition": "Generally controls features of the fixture.",
       "explanation": "",
       "visual": ""
     },
@@ -2802,7 +2799,7 @@
       "_name": "LampControl",
       "_prettyName": "Lamp Ctrl",
       "_feature": "Control.Control",
-      "description": "Controls the fixture's lamp on/lamp off feature.",
+      "definition": "Controls the fixture's lamp on/lamp off feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2810,7 +2807,7 @@
       "_name": "DisplayIntensity",
       "_prettyName": "Display Int",
       "_feature": "Control.Control",
-      "description": "Adjusts intensity of display",
+      "definition": "Adjusts intensity of display",
       "explanation": "",
       "visual": ""
     },
@@ -2818,7 +2815,7 @@
       "_name": "DMXInput",
       "_prettyName": "DMX Input",
       "_feature": "Control.Control",
-      "description": "Selects DMX Input",
+      "definition": "Selects DMX Input",
       "explanation": "",
       "visual": ""
     },
@@ -2826,7 +2823,7 @@
       "_name": "NoFeature",
       "_prettyName": "NoFeature",
       "_feature": "Control.Control",
-      "description": "Ranges without a functionality.",
+      "definition": "Ranges without a functionality.",
       "explanation": "",
       "visual": ""
     },
@@ -2834,7 +2831,7 @@
       "_name": "Dummy",
       "_prettyName": "Dummy",
       "_feature": "Control.Control",
-      "description": "",
+      "definition": "",
       "explanation": "",
       "visual": ""
     },
@@ -2842,7 +2839,7 @@
       "_name": "Blower(n)",
       "_prettyName": "Blower(n)",
       "_feature": "Control.Control",
-      "description": "Fog or hazer‘s blower feature.",
+      "definition": "Fog or hazer‘s blower feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2850,7 +2847,7 @@
       "_name": "Fan(n)",
       "_prettyName": "Fan(n)",
       "_feature": "Control.Control",
-      "description": "Fog or hazer's Fan feature.",
+      "definition": "Fog or hazer's Fan feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2858,7 +2855,7 @@
       "_name": "Fog(n)",
       "_prettyName": "Fog(n)",
       "_feature": "Control.Control",
-      "description": "Fog or hazer's Fog feature.",
+      "definition": "Fog or hazer's Fog feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2866,7 +2863,7 @@
       "_name": "Haze(n)",
       "_prettyName": "Haze(n)",
       "_feature": "Control.Control",
-      "description": "Fog or hazer's Haze feature.",
+      "definition": "Fog or hazer's Haze feature.",
       "explanation": "",
       "visual": ""
     },
@@ -2874,7 +2871,7 @@
       "_name": "LampPowerMode",
       "_prettyName": "Lamp Power Mode",
       "_feature": "Control.Control",
-      "description": "Controls the energy consumption of the lamp.",
+      "definition": "Controls the energy consumption of the lamp.",
       "explanation": "",
       "visual": ""
     },
@@ -2882,7 +2879,7 @@
       "_name": "Fans",
       "_prettyName": "Fans",
       "_feature": "Control.Control",
-      "description": "Controls a fixture or device fan.",
+      "definition": "Controls a fixture or device fan.",
       "explanation": "",
       "visual": ""
     },
@@ -2891,7 +2888,7 @@
       "_prettyName": "Blade(n)A",
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
-      "description": "1 of 2 shutters that shape the top/right/bottom/left of the beam.",
+      "definition": "1 of 2 shutters that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2900,7 +2897,7 @@
       "_prettyName": "Blade(n)B",
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
-      "description": "2 of 2 shutters that shape the top/right/bottom/left of the beam.",
+      "definition": "2 of 2 shutters that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2910,7 +2907,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Shaper",
-      "description": "Rotates position of blade(n).",
+      "definition": "Rotates position of blade(n).",
       "explanation": "",
       "visual": ""
     },
@@ -2920,7 +2917,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Shaper",
-      "description": "Rotates position of blade assembly.",
+      "definition": "Rotates position of blade assembly.",
       "explanation": "",
       "visual": ""
     },
@@ -2928,7 +2925,7 @@
       "_name": "ShaperMacros",
       "_prettyName": "Shaper Macros",
       "_feature": "Shapers.Shapers",
-      "description": "Predefined presets for shaper positions.",
+      "definition": "Predefined presets for shaper positions.",
       "explanation": "",
       "visual": ""
     },
@@ -2936,7 +2933,7 @@
       "_name": "ShaperMacrosSpeed",
       "_prettyName": "Shaper Macros Speed",
       "_feature": "Shapers.Shapers",
-      "description": "Speed of predefined effects on shapers.",
+      "definition": "Speed of predefined effects on shapers.",
       "explanation": "",
       "visual": ""
     },
@@ -2945,7 +2942,7 @@
       "_prettyName": "BladeS(n)A",
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
-      "description": "1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
+      "definition": "1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2954,7 +2951,7 @@
       "_prettyName": "BladeS(n)B",
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
-      "description": "2 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
+      "definition": "2 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2963,7 +2960,7 @@
       "_prettyName": "KS(n)A",
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
-      "description": "1 of 2 corners that shape the top/right/bottom/left of the beam.",
+      "definition": "1 of 2 corners that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2972,7 +2969,7 @@
       "_prettyName": "KS(n)B",
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
-      "description": "2 of 2 corners that shape the top/right/bottom/left of the beam.",
+      "definition": "2 of 2 corners that shape the top/right/bottom/left of the beam.",
       "explanation": "",
       "visual": ""
     },
@@ -2980,7 +2977,7 @@
       "_name": "Video",
       "_prettyName": "Video",
       "_feature": "Video.Video",
-      "description": "Controls video features.",
+      "definition": "Controls video features.",
       "explanation": "",
       "visual": ""
     },
@@ -2988,7 +2985,7 @@
       "_name": "VideoEffect(n)Type",
       "_prettyName": "Video Effect(n) Type",
       "_feature": "Video.Video",
-      "description": "Selects dedicated effects which are used for media.",
+      "definition": "Selects dedicated effects which are used for media.",
       "explanation": "",
       "visual": ""
     },
@@ -2996,7 +2993,7 @@
       "_name": "VideoEffect(n)Parameter(m)",
       "_prettyName": "Video Effect(n) Parameter(m)",
       "_feature": "Video.Video",
-      "description": "Controls parameter (m) of VideoEffect(n)Type.",
+      "definition": "Controls parameter (m) of VideoEffect(n)Type.",
       "explanation": "",
       "visual": ""
     },
@@ -3004,7 +3001,7 @@
       "_name": "VideoCamera(n)",
       "_prettyName": "Video Camera(n)",
       "_feature": "Video.Video",
-      "description": "Selects the video camera(n).",
+      "definition": "Selects the video camera(n).",
       "explanation": "",
       "visual": ""
     },
@@ -3013,7 +3010,7 @@
       "_prettyName": "FOV",
       "_feature": "Video.Video",
       "_physicalUnit": "Angle",
-      "description": "Defines field of view.",
+      "definition": "Defines field of view.",
       "explanation": "",
       "visual": ""
     },
@@ -3022,7 +3019,7 @@
       "_prettyName": "ISrc",
       "_feature": "Video.Video",
       "_physicalUnit": "None",
-      "description": "Defines media input source e.g. a camera input.",
+      "definition": "Defines media input source e.g. a camera input.",
       "explanation": "",
       "visual": ""
     },
@@ -3031,7 +3028,7 @@
       "_prettyName": "BlendMode",
       "_feature": "Video.Video",
       "_physicalUnit": "None",
-      "description": "Defines mode of video blending.",
+      "definition": "Defines mode of video blending.",
       "explanation": "",
       "visual": ""
     },
@@ -3040,7 +3037,7 @@
       "_prettyName": "Volume(n)",
       "_feature": "Video.Video",
       "_physicalUnit": "Percent",
-      "description": "Adjusts sound volume.",
+      "definition": "Adjusts sound volume.",
       "explanation": "",
       "visual": ""
     }
