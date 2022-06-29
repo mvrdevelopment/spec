@@ -5,7 +5,7 @@
       "_prettyName": "Dim",
       "_feature": "Dimmer.Dimmer",
       "definition": "Controls the intensity of a fixture.",
-      "explanation": "Any change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to undertand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change.",
+      "explanation": "Gradual (fading) change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. Physical values go from 0 = no output, to 1 = full output. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to understand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change.",
       "visual": ""
     },
     {
@@ -904,7 +904,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.64,0.33,21.3",
       "definition": "Controls the intensity of the fixture's red emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Red color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1080,7 +1080,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.64,0.33,21.3",
       "definition": "Controls the insertion of the fixture's red filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Red color flag/emitter with direct access to the color. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1554,7 +1554,7 @@
       "_prettyName": "Sh(n)",
       "_feature": "Beam.Beam",
       "definition": "Controls the fixture´s mechanical or electronical shutter feature.",
-      "explanation": "",
+      "explanation": "Open/close style of change of intensity or brightness. Physical values go between 0 = closed, to 1 = open.",
       "visual": ""
     },
     {
@@ -2147,7 +2147,7 @@
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
       "definition": "Controls the spread of the fixture's beam/spot.",
-      "explanation": "",
+      "explanation": "This attribute is used to adjust the beam angle of the light source.",
       "visual": ""
     },
     {
