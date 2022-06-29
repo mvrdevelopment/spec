@@ -242,8 +242,9 @@ Node name: `SceneObject`
 | Child Node                                | Allowed Count | Value Type | Description                                                              |
 | ----------------------------------------- | ------------- |------------|------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
+
 
 ## Node Definition: GroupObject
 
@@ -260,8 +261,8 @@ Node name: `GroupObject`
 | Child Node                              | Allowed Count | Value Type | Description                                                     |
 | --------------------------------------- | ------------- |            | --------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
-| [Classing](#node-definition-classing)   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to. |
-| [ChildList](#node-definition-childlist) | 1             |            |A list of graphic objects that are part of the group.           |
+| Classing                                | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.       |
+| [ChildList](#node-definition-childlist) | 1             |            | A list of graphic objects that are part of the group.           |
 
 ## Node Definition: FocusPoint
 
@@ -276,9 +277,9 @@ Node name: `FocusPoint`
 
 | Child Node                                | Allowed Count | Value Type | Description                                                               |
 | ----------------------------------------- | ------------- |------------|------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        |            |The location and orientation of the object inside the parent coordinate system.           |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.    |
-| [Geometries](#node-definition-geometries) | 1             |            |A list of geometrical representation objects that are part of the object. |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system.           |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
+| [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: Fixture
 
@@ -293,8 +294,8 @@ Node name: `Fixture`
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        |                                              | The location of the object inside the parent coordinate system.                                                                               |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
+| [Matrix](#node-definition-matrix)       | 0 or 1        |                                              | The location of the object inside the parent coordinate system. |
+| Classing                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                |
 | GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
@@ -448,7 +449,7 @@ Node name: `Truss`
 | Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
 | ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 
@@ -466,7 +467,7 @@ Node name: `VideoScreen`
 | Child Node                                | Allowed Count | Value Type | Description                                                                 |
 | ----------------------------------------- | ------------- |            |---------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.    |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Sources](#node-definition-sources)       | 0 or 1        |            | A list of video input sources..                                             |
 
@@ -504,7 +505,7 @@ Node name: `Projector`
 | Child Node                                 | Allowed Count | Value Type | Description                                                                 |
 | ------------------------------------------ | ------------- | ---------- | --------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)          | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.    |
+| Classing                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries)  | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Projections](#node-definition-projection) | 1             |            | A list of video source for Beam Geometries in the GDTF file.                |
 
@@ -737,13 +738,13 @@ Here is a list of the available types for node or attribute values:
 
 | Value Type Name                               | Description                                                                                                                                                                                       |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned decimal integer value. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
-| <span id="attrType-Float"> Float </span>      | A decimal floating point numeric value. Uses full stop '.' (U+002E) to delimit the whole and decimal part.<br/>Implementations shall export sufficient decimal places to precisely round-trip their internal level of precision.<br/>Eg `1.5` |
+| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
+| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2` |
 | <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
 | <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` |
 | <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0` |
 | <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
-| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as `floatx,floaty,floatY`<br/>Eg `<Color>0.314303,0.328065,87.699166</Color>`|
+| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`|
 
 # Revision History
 
