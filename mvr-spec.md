@@ -31,7 +31,7 @@ An MVR file is a ZIP archive file containing one Root File named
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
 - Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
 - Files may be placed into the archive in any order.
-- Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the archive.
+- Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 
 The file name of the ZIP archive can be chosen freely. The extension is:
 
@@ -49,15 +49,15 @@ Textr12.png
 ```
 
 References:
-- [ISO/IEC 21320-1:2015](https://www.iso.org/standard/60101.html)
+- [ISO/IEC 21320-1:2015 Document Container File - Part 1: Core](https://www.iso.org/standard/60101.html)
 - [PKWARE 6.3.3](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)
 - [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 
 ## Root File Definition
 
-This file must be present for a valid MVR.
-
 The name of the file is: `GeneralSceneDescription.xml`
+
+This file is required in the archive for it to be a valid MVR.
 
 The root file is an XML file with root node named:
 `GeneralSceneDescription`
@@ -680,7 +680,7 @@ Node name: `Geometry3D`
 | Format Name                                                                     | File Extensions | Requirements                        | Notes |
 | ------------------------------------------------------------------------------- | --------------  | ----------------------------------- | ----- |
 | [Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                              | 3ds             |                                     | Deprecated |
-| [Khronos glTFv2](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended |
+| [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended |
 
 All referenced files (eg texture images, binary blobs) shall be present in the archive.
 
@@ -737,8 +737,8 @@ Here is a list of the available types for node or attribute values:
 
 | Value Type Name                               | Description                                                                                                                                                                                       |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
-| <span id="attrType-Float"> Float </span>      | A floating point numeric value. Uses full stop '.' (U+002E) as an integer-decimal delimiter.<br/>Implementations shall export sufficient decimal places to precisely round-trip their internal level of precision.<br/>Eg `1.5` |
+| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned decimal integer value. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
+| <span id="attrType-Float"> Float </span>      | A decimal floating point numeric value. Uses full stop '.' (U+002E) to delimit the whole and decimal part.<br/>Implementations shall export sufficient decimal places to precisely round-trip their internal level of precision.<br/>Eg `1.5` |
 | <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
 | <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` |
 | <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0` |
