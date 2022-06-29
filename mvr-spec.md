@@ -680,7 +680,7 @@ Node name: `Geometry3D`
 
 | Format Name                                                                     | File Extensions | Requirements                        | Notes |
 | ------------------------------------------------------------------------------- | --------------  | ----------------------------------- | ----- |
-| [Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                              | 3ds             |                                     | Deprecated |
+| [Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                              | 3ds             | 1 Unit = 1 mm                       | Deprecated |
 | [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended |
 
 All referenced files (eg texture images, binary blobs) shall be present in the archive.
@@ -690,6 +690,10 @@ All file references (URIs etc) shall be relative to the root of the archive. Abs
 ## Node Definition: Matrix
 
 This node contains a definition of a transformation matrix.
+
+- Right-handed
+- Z-Up
+- 1 Distance Unit equals 1 mm
 
 Node name: `Matrix`
 
