@@ -915,7 +915,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.3,0.6,71.5",
       "definition": "Controls the intensity of the fixture's green emitters for direct additive color mixing",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Green color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -926,7 +926,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.15,0.06,7.2",
       "definition": "Controls the intensity of the fixture's blue emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Blue color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -937,7 +937,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.225,0.329,78.7",
       "definition": "Controls the intensity of the fixture's cyan emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -948,7 +948,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.321,0.154,28.5",
       "definition": "Controls the intensity of the fixture's magenta emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -959,7 +959,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.419,0.505,92.8",
       "definition": "Controls the intensity of the fixture's yellow emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Yellow color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -970,7 +970,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.477,0.460,57.0",
       "definition": "Controls the intensity of the fixture's amber emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Amber color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -981,7 +981,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.372,0.543,82.1",
       "definition": "Controls the intensity of the fixture's lime emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Lime color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -992,7 +992,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.250,0.419,75.1",
       "definition": "Controls the intensity of the fixture's blue-green emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Blue-Green color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1003,7 +1003,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.200,0.239,43.0",
       "definition": "Controls the intensity of the fixture's light-blue emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Light Blue color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1014,7 +1014,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.254,0.117,17.9",
       "definition": "Controls the intensity of the fixture's purple emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Purple (Deep Blue) color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1025,7 +1025,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.403,0.200,24.9",
       "definition": "Controls the intensity of the fixture's pink emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Pink color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1036,7 +1036,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.313,0.329,100.0",
       "definition": "Controls the intensity of the fixture's white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1047,7 +1047,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.319,0.340,99.3",
       "definition": "Controls the intensity of the fixture's warm white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Warm White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1058,7 +1058,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.306,0.329,97.9",
       "definition": "Controls the intensity of the fixture's cool white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Cool White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1069,7 +1069,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.176,0.005,0.6",
       "definition": "Controls the intensity of the fixture's UV emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive UV color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1080,7 +1080,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.64,0.33,21.3",
       "definition": "Controls the insertion of the fixture's red filter flag for direct subtractive color mixing.",
-      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Red color flag/emitter with direct access to the color. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Red color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1091,7 +1091,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.3,0.6,71.5",
       "definition": "Controls the insertion of the fixture's green filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Green color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1102,7 +1102,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.15,0.06,7.2",
       "definition": "Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Blue color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1113,7 +1113,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.225,0.329,78.7",
       "definition": "Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Cyan color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1124,7 +1124,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.321,0.154,28.5",
       "definition": "Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Magenta color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
@@ -1135,15 +1135,15 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.419,0.505,92.8",
       "definition": "Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of insertion or saturation of a subtractive Yellow color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation.",
       "visual": ""
     },
     {
       "_name": "ColorMacro(n)",
       "_prettyName": "Color Macro(n)",
       "_feature": "Color.RGB",
-      "definition": "Selects predefined colors that are programed in the fixture's firmware.",
-      "explanation": "",
+      "definition": "Selects predefined colors that are programmed in the fixture's firmware.",
+      "explanation": "Choose this attribute to control the selection of predefined fixed colors, like Color Presets or Swatchbook Colors. The individual colors are defined by linking wheel slots to channel sets.",
       "visual": ""
     },
     {
@@ -1160,7 +1160,7 @@
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
       "definition": "Controls the fixture's \"Correct to orange\" wheel or mixing system.",
-      "explanation": "",
+      "explanation": "Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTO decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature.",
       "visual": ""
     },
     {
@@ -1169,7 +1169,7 @@
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
       "definition": "Controls the fixture's \"Correct to color\" wheel or mixing system.",
-      "explanation": "",
+      "explanation": "Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTC either increases or decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature.",
       "visual": ""
     },
     {
@@ -1178,7 +1178,7 @@
       "_feature": "Color.Color",
       "_physicalUnit": "Temperature",
       "definition": "Controls the fixture's \"Correct to blue\" wheel or mixing system.",
-      "explanation": "",
+      "explanation": "Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTB increases the Color Temperature from its default. Physical values describe the resulting Color Temperature.",
       "visual": ""
     },
     {
@@ -1186,7 +1186,7 @@
       "_prettyName": "Tint",
       "_feature": "Color.Color",
       "definition": "Controls the fixture's \"Correct green to magenta\" wheel or mixing system.",
-      "explanation": "",
+      "explanation": "Choose this attribute to control a function that adjusts the Green/Magenta shift of a fixture's light output.",
       "visual": ""
     },
     {
