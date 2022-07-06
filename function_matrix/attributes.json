@@ -34,7 +34,7 @@
       "_feature": "Position.PanTilt",
       "_physicalUnit": "AngularSpeed",
       "definition": "Controls the speed of the fixture's continuous pan movement (horizontal axis).",
-      "explanation": "",
+      "explanation": "For fixtures with the ability to have a continuous pan rotation, the “Pan Rotate” control defines how fast (speed) a fixture can rotate about the pan axis. Usually, the horizontal axis.",
       "visual": ""
     },
     {
@@ -44,7 +44,7 @@
       "_physicalUnit": "AngularSpeed",
       "definition": "Controls the speed of the fixture's continuous tilt movement (vertical axis).",
       "explanation": "",
-      "visual": ""
+      "visual": "For fixtures with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a fixture can rotate about the tilt axis. Usually, the vertical axis."
     },
     {
       "_name": "PositionEffect",
