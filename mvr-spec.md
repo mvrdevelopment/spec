@@ -277,7 +277,8 @@ Node name: `Fixture`
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID of the lighting fixture. This is the short name of the fixture.                                                                |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The unit number of the lighting fixture in a position.                                                                                        |
 | [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this fixture.                                                                                             |
-| [Alignments](#node-definition-lignments) | 1            |                                              | The container for Alignments for this fixture.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this fixture.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
@@ -302,6 +303,10 @@ An example of a node definition is shown below:
     <Alignments>
         <Alignments geometry="Beam" up="0,0,1" direction="0,0,-1"/>
     </Alignments>
+     <CustomCommands>
+        <CustomCommand>Body_Pan,f 50</CustomCommand>
+        <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
+    </CustomCommands>
     <Mappings>
         <Mapping linkedDef="BEF95EB8-98AC-4217-B10D-FB4B83381398">
             <ux>10</ux>
@@ -390,7 +395,7 @@ The child list contains a list of the following nodes:
 
 | Child Node                          | Description             |
 | ----------------------------------- | ----------------------- |
-| [Alignment](#node-definition-address) |  |
+| [Alignment](#node-definition-address) | Defines a custom alignment for a beam inside the linked GDTF.                       |
 
 #### Node Definition: Alignment
 
@@ -403,6 +408,30 @@ Node name: `Address`
 | geometry       | [String](#user-content-attrtype-string)| Lamp Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the lamp that gets aligned. |
 | up             | [String](#user-content-attrtype-Vector)| 0,0,1                            | Defines the up vector of the direction. |
 | direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                           | Defines the direction vector of the lamp. |
+
+### Node Definition: CustomCommands
+
+This node defines a group of CustomCommand.
+
+Node name: `CustomCommands`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [CustomCommand](#node-definition-customcommand) | Contains a list with custom commands that should be executed on the fixture  |
+
+#### Node Definition: CustomCommand
+
+This node defines a alignment for an Beam Geometry inside the linked GDTF.
+
+Node name: `CustomCommand`
+
+The Custom command contains the command that will be executed on the fixture. The definition from the syntax for the command
+aligns with the [GDTF 1.2 defintion for control based symbol](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#channel-function). 
+
+With this feature you can static properties for fixture that can not be controlled via DMX.
+
 
 ### Node Definition: Mappings
 
