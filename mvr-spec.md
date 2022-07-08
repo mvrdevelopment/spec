@@ -19,12 +19,16 @@ the exchanging programs.
 
 ## Definition
 
-The file is an uncompressed ZIP archive file containing a set of files.
-The files are stored in the root level within the archive without using
-nesting folders. There must be at least one root file and a set of other
-files. Their meaning is defined by the root file or other files that the
-root file defines. The file name of the ZIP archive can be chosen
-freely. The extension is:
+An MVR file is a ZIP archive file containing one Root File named
+`GeneralSceneDescription.xml`, along with all other files referenced via this Root File.
+
+- The archive must not use encryption or password protection.
+- All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
+- Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
+- Files may be placed into the archive in any order.
+- Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
+
+The file name of the ZIP archive can be chosen freely. The extension is:
 
 `*.mvr`
 
@@ -40,12 +44,17 @@ Textr12.png
 Universal.gdtt
 ```
 
-It is not allowed to create folders in this structure.
+References:
+- [ISO/IEC 21320-1:2015 Document Container File - Part 1: Core](https://www.iso.org/standard/60101.html)
+- [PKWARE 6.3.3](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)
+- [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 
 
 ## Root File Definition
 
 The name of the file is: `GeneralSceneDescription.xml`
+
+This file is required in the archive for it to be a valid MVR.
 
 The root file is an XML file with root node named:
 `GeneralSceneDescription`
@@ -104,10 +113,11 @@ This node contains auxiliary data for the scene node.
 Node name: `AUXData`
 
 | Child Node                                              | Allowed Count | Description                                                    |
-| ------------------------------------------------------- | ------------- | -------------------------------------------------------------- |
+| ------------------------------------------------------- | ------------- | ---------------------------------------------------------------|
 | [Symdef](#node-definition-symdef)                       | 0 or any      | Graphical representation that will be instanced in the scene.  |
 | [Position](#node-definition-position)                   | 0 or any      | Defines a logical group of lighting devices.                   |
 | [MappingDefinition](#node-definition-mappingdefinition) | 0 or any      | Defines a input source for fixture color mapping applications. |
+| [Class](#node-definition-class)                         | 0 or any      | Defines a Class for object visiblity filtering.                |
 
 ### Node Definition: Symdef
 
@@ -169,6 +179,19 @@ Node name: `MappingDefinition`
 </MappingDefinition>
 ```
 
+### Node Definition: Class
+
+This node defines a logical grouping across different layers. Primarily used for controlling object visibility of objects across multiple Layers.
+
+Node name: `Class`
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
+| -------------- | ----------------------------------- | --------------------------- | ------------------------------------|
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
+| name           | [name](#attrType-Name)              |                             | The name of the Class.              |
+
+See [Vectorworks: Concept: Classes Overview](https://app-help.vectorworks.net/2022/eng/VW2022_Guide/Structure/Concept_Classes_overview.htm)
+
 ## Node Definition: Layers
 
 This node defines a list of layers inside the scene. The layer is a
@@ -197,7 +220,7 @@ Node name: `Layer`
 
 | Child Node                              | Allowed Count | Description                                                                                                                                                                                                                                                                      |
 | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have an elevation, but no rotation. |
+| [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have a vertical Transform (elevation). Rotation and scale must be identity. |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 # Node Definition for Parametric Objects
@@ -213,10 +236,12 @@ Node name: `SceneObject`
 | uuid           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
 
-| Child Node                                | Allowed Count | Description                                                               |
-| ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
-| [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
+| Child Node                                | Allowed Count | Value Type | Description                                                              |
+| ----------------------------------------- | ------------- |------------|------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
+| [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
+
 
 ## Node Definition: GroupObject
 
@@ -230,10 +255,11 @@ Node name: `GroupObject`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
-| Child Node                              | Allowed Count | Description                                                     |
-| --------------------------------------- | ------------- | --------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        | The location and orientation of the object inside the parent coordinate system. |
-| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the group.           |
+| Child Node                              | Allowed Count | Value Type | Description                                                     |
+| --------------------------------------- | ------------- |            | --------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)       | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
+| Classing                                | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.       |
+| [ChildList](#node-definition-childlist) | 1             |            | A list of graphic objects that are part of the group.           |
 
 ## Node Definition: FocusPoint
 
@@ -246,10 +272,11 @@ Node name: `FocusPoint`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
-| Child Node                                | Allowed Count | Description                                                               |
-| ----------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location and orientation of the object inside the parent coordinate system.           |
-| [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are part of the object. |
+| Child Node                                | Allowed Count | Value Type | Description                                                               |
+| ----------------------------------------- | ------------- |------------|------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system.           |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
+| [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
 
 ## Node Definition: Fixture
 
@@ -264,7 +291,8 @@ Node name: `Fixture`
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)       | 0 or 1        |                                              | The location of the object inside the parent coordinate system.                                                                               |
+| [Matrix](#node-definition-matrix)       | 0 or 1        |                                              | The location of the object inside the parent coordinate system. |
+| Classing                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                |
 | GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
@@ -325,7 +353,7 @@ An example of a node definition is shown below:
     <Function>Speaker 1</Function>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
-    <Color>{2.533316,-5.175210,3.699302}</Color>
+    <Color>2.533316,-5.175210,3.699302</Color>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
 </Fixture>
 ```
@@ -533,6 +561,7 @@ Node name: `Truss`
 | Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
 | ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
@@ -549,11 +578,12 @@ Node name: `VideoScreen`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
-| Child Node                                | Allowed Count | Description                                                                 |
-| ----------------------------------------- | ------------- | --------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        | The location of the object inside the parent coordinate system.             |
-| [Geometries](#node-definition-geometries) | 1             | A list of geometrical representation objects that are a part of the object. |
-| [Sources](#node-definition-sources)       | 0 or 1        | A list of video input sources..                                             |
+| Child Node                                | Allowed Count | Value Type | Description                                                                 |
+| ----------------------------------------- | ------------- |            |---------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
+| [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
+| [Sources](#node-definition-sources)       | 0 or 1        |            | A list of video input sources..                                             |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                                       |
 
 An example of a node definition is shown below:
@@ -587,11 +617,12 @@ Node name: `Projector`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
-| Child Node                                 | Allowed Count | Description                                                                 |
-| ------------------------------------------ | ------------- | --------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)          | 0 or 1        | The location of the object inside the parent coordinate system.             |
-| [Geometries](#node-definition-geometries)  | 1             | A list of geometrical representation objects that are a part of the object. |
-| [Projections](#node-definition-projection) | 1             | A list of video source for Beam Geometries in the GDTF file.                |
+| Child Node                                 | Allowed Count | Value Type | Description                                                                 |
+| ------------------------------------------ | ------------- | ---------- | --------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)          | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
+| Classing                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
+| [Geometries](#node-definition-geometries)  | 1             |            | A list of geometrical representation objects that are a part of the object. |
+| [Projections](#node-definition-projection) | 1             |            | A list of video source for Beam Geometries in the GDTF file.                |
 
 An example of a node definition is shown below:
 ```xml
@@ -748,8 +779,7 @@ Node name: `Symbol`
 
 ## Node Definition: Geometry3D
 
-This node provides a geometry from an external file. The type of the
-file is determined by the extension.
+This node provides geometry from another file within the archive.
 
 Node name: `Geometry3D`
 
@@ -761,9 +791,24 @@ Node name: `Geometry3D`
 | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location, orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
+### Supported 3D file formats
+
+| Format Name                                                                     | File Extensions | Requirements                        | Notes |
+| ------------------------------------------------------------------------------- | --------------  | ----------------------------------- | ----- |
+| [Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                              | 3ds             | 1 Unit = 1 mm                       | Deprecated |
+| [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended |
+
+All referenced files (eg texture images, binary blobs) shall be present in the archive.
+
+All file references (URIs etc) shall be relative to the root of the archive. Absolute URIs and file paths are not permitted.
+
 ## Node Definition: Matrix
 
 This node contains a definition of a transformation matrix.
+
+- Right-handed
+- Z-Up
+- 1 Distance Unit equals 1 mm
 
 Node name: `Matrix`
 
@@ -812,13 +857,13 @@ Here is a list of the available types for node or attribute values:
 
 | Value Type Name                               | Description                                                                                                                                                                                       |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value. Uses a dash ('-') as a prefix to denote negative numbers.                                                                                                     |
-| <span id="attrType-Float"> Float </span>      | A floating point numeric value. Uses a decimal point ('.') as an integer-read delimiter.                                                                                                          |
-| <span id="attrType-String"> String </span>    | Any sequence of symbols. The following symbols will be used (with their meaning in brackets) according to the XML standard: `&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
-| <span id="attrType-UUID"> UUID </span>        | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX                                                                                                                                                              |
-| <span id="attrType-Vector">Vector</span>      | A three Float values separated by ',' defining a 3D vector's X, Y, and Z components.                                                                                                              |
-| <span id="attrType-FileName">FileName</span>  | A file name defined by letters A-Z , a-z plus numbers 0-9 and the symbol '\_'. The extension is defined by a list of A-Z and a-z letters delimited from the name by '.'                           |
-| <span id="attrType-CIEColor">CIE Color</span> | CIE color representation xyY 1931. The Node value is: {floatx, floaty, floatY}                                                                                                                    |
+| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
+| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2` |
+| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
+| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` |
+| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0` |
+| <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
+| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`|
 
 # Revision History
 
