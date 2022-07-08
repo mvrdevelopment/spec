@@ -242,6 +242,13 @@ Node name: `SceneObject`
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
 | Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 
 ## Node Definition: GroupObject
@@ -566,6 +573,14 @@ Node name: `Truss`
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
+
 
 ## Node Definition: Support
 
@@ -586,6 +601,13 @@ Node name: `Support`
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                                       |
 | ChainLength                               | 1             | [Real](#user-content-attrtype-real)      | The chain length that will be applied to the GDTF .                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 
 ## Node Definition: VideoScreen
@@ -606,6 +628,13 @@ Node name: `VideoScreen`
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Sources](#node-definition-sources)       | 0 or 1        |            | A list of video input sources..                                             |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 An example of a node definition is shown below:
 
@@ -644,6 +673,13 @@ Node name: `Projector`
 | Classing                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries)  | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Projections](#node-definition-projection) | 1             |            | A list of video source for Beam Geometries in the GDTF file.                |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 An example of a node definition is shown below:
 ```xml
