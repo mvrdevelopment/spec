@@ -17,11 +17,6 @@ the exchanging programs.
 5.  Program A imports this file and applies the changes to the existing
     objects.
 
-Vectorworks provide a [portable
-library](MVR_portable_library) for convenience. This library
-helps to read and write MVR files. This allows easy implementation of
-the MVR file format.
-
 ## Definition
 
 The file is an uncompressed ZIP archive file containing a set of files.
@@ -37,14 +32,16 @@ Example of a typical MVR archive:
 
 ```
 GeneralSceneDescription.xml
-Custom@Fixture.gdtf
-Custom@Fixture.gdtf
+Custom@Fixture1.gdtf
+Custom@Fixture2.gdtf
 geo1.3ds
 geo1.glb
 Textr12.png
+Universal.gdtt
 ```
 
 It is not allowed to create folders in this structure.
+
 
 ## Root File Definition
 
