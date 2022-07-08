@@ -280,6 +280,7 @@ Node name: `Fixture`
 | [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this fixture.                                                                                             |
 | [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this fixture.                                                                                             |
 | [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this fixture.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
@@ -317,6 +318,11 @@ An example of a node definition is shown below:
             <rz>45</rz>
         </Mapping>
     </Mappings>
+    <Connections>    
+      <Connection own="Input" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="Output1"/>
+      <Connection own="1" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
+      <Connection own="2" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
+    </Connections>
     <FixtureID></FixtureID>
     <UnitNumber>0</UnitNumber>
     <Function>Speaker 1</Function>
@@ -455,6 +461,30 @@ Node name: `Overwrite`
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
 | universal      | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF. |
 | target         | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. |
+
+### Node Definition: Connections
+
+This node defines a group of Connection.
+
+Node name: `Connections`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Connection](#node-definition-Overwrite) | Contains an definition of an object to object connection.  |
+
+#### Node Definition: Connection
+
+This nodes defines an connection of two scene object. The connection can be an electrical or data connection.
+
+Node name: `Connection`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| own      | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.  |
+| other    | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| toObject | [UUID](#user-content-attrtype-uuid)           | Mandatory.                  | UUID of an other object in the scene. |
 
 ### Node Definition: Mappings
 
