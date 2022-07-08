@@ -567,6 +567,26 @@ Node name: `Truss`
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
 | Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
 
+## Node Definition: Support
+
+This node defines a support object.
+
+Node name: `Support`
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+
+| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
+| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
+| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this support belongs to if this reference exists.   |
+| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                                       |
+| ChainLength                               | 1             | [Real](#user-content-attrtype-real)      | The chain length that will be applied to the GDTF .                                                       |
+
 
 ## Node Definition: VideoScreen
 
