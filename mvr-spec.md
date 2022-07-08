@@ -869,6 +869,7 @@ The child list contains a list of one of the following nodes:
 | [GroupObject](#node-definition-groupobject) | A grouping object of other graphical objects inside local coordinate system. |
 | [FocusPoint](#node-definition-focuspoint)   | A definition of a focus point.                                               |
 | [Fixture](#node-definition-fixture)         | A definition of a fixture.                                                   |
+| [Support](#node-definition-support)         | A definition of a support.                                                   |
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 
