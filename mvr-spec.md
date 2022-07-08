@@ -1,4 +1,4 @@
-# MVR Version: 1.5 - draft 2
+# MVR Version: 1.5
 
 In the entertainment industry, the MVR file format allows programs to
 share data and geometry for a scene. A scene is a set of parametric
