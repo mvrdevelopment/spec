@@ -279,6 +279,7 @@ Node name: `Fixture`
 | [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this fixture.                                                                                             |
 | [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this fixture.                                                                                             |
 | [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this fixture.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
@@ -432,6 +433,28 @@ aligns with the [GDTF 1.2 defintion for control based symbol](https://github.com
 
 With this feature you can static properties for fixture that can not be controlled via DMX.
 
+### Node Definition: Overwrites
+
+This node defines a group of Overwrite.
+
+Node name: `Overwrites`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Overwrite](#node-definition-Overwrite) | Contains a list with overwrites for gobos, filters and emitters.  |
+
+#### Node Definition: Overwrite
+
+This node defines a overwrite with Universal Fixture inside the GDTF to overwrite Wheel Slots, Emitters and Filters for the fixture.
+
+Node name: `Overwrite`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| universal      | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF. |
+| target         | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. |
 
 ### Node Definition: Mappings
 
