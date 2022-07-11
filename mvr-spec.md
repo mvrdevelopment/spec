@@ -1,4 +1,4 @@
-# MVR Version: 1.5 - draft 2
+# MVR Version: 1.5
 
 In the entertainment industry, the MVR file format allows programs to
 share data and geometry for a scene. A scene is a set of parametric
@@ -17,11 +17,6 @@ the exchanging programs.
 5.  Program A imports this file and applies the changes to the existing
     objects.
 
-Vectorworks provide a [portable
-library](MVR_portable_library) for convenience. This library
-helps to read and write MVR files. This allows easy implementation of
-the MVR file format.
-
 ## Definition
 
 An MVR file is a ZIP archive file containing one Root File named
@@ -31,6 +26,7 @@ An MVR file is a ZIP archive file containing one Root File named
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
 - Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
 - Files may be placed into the archive in any order.
+- A Universal.gdtt file can be added as template GDTF to define Gobos, Emitters und filter to reference.
 - Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 
 The file name of the ZIP archive can be chosen freely. The extension is:
@@ -41,17 +37,19 @@ Example of a typical MVR archive:
 
 ```
 GeneralSceneDescription.xml
-Custom@Fixture.gdtf
-Custom@Fixture.gdtf
+Custom@Fixture1.gdtf
+Custom@Fixture2.gdtf
 geo1.3ds
 geo1.glb
 Textr12.png
+Universal.gdtt
 ```
 
 References:
 - [ISO/IEC 21320-1:2015 Document Container File - Part 1: Core](https://www.iso.org/standard/60101.html)
 - [PKWARE 6.3.3](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)
 - [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
+
 
 ## Root File Definition
 
@@ -244,6 +242,13 @@ Node name: `SceneObject`
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
 | Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 
 ## Node Definition: GroupObject
@@ -301,9 +306,14 @@ Node name: `Fixture`
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
+| Function                                | 1             | [String](#user-content-attrtype-string)      | The name of the function this Fixture is used for.                                                       |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID of the lighting fixture. This is the short name of the fixture.                                                                |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The unit number of the lighting fixture in a position.                                                                                        |
 | [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this fixture.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this fixture.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this fixture.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this fixture.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
@@ -325,6 +335,13 @@ An example of a node definition is shown below:
     <Addresses>
         <Address break="0">45</Address>
     </Addresses>
+    <Alignments>
+        <Alignments geometry="Beam" up="0,0,1" direction="0,0,-1"/>
+    </Alignments>
+     <CustomCommands>
+        <CustomCommand>Body_Pan,f 50</CustomCommand>
+        <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
+    </CustomCommands>
     <Mappings>
         <Mapping linkedDef="BEF95EB8-98AC-4217-B10D-FB4B83381398">
             <ux>10</ux>
@@ -334,8 +351,14 @@ An example of a node definition is shown below:
             <rz>45</rz>
         </Mapping>
     </Mappings>
+    <Connections>    
+      <Connection own="Input" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="Output1"/>
+      <Connection own="1" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
+      <Connection own="2" toObject="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF6" other="IN"/>
+    </Connections>
     <FixtureID></FixtureID>
     <UnitNumber>0</UnitNumber>
+    <Function>Speaker 1</Function>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
     <Color>2.533316,-5.175210,3.699302</Color>
@@ -378,6 +401,8 @@ Node name: `Address`
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
 | break          | [Integer](#user-content-attrtype-integer) | 0                           | This is the break ident for this address. This value has to be unique for one fixture. |
 
+
+
 <table>
 <thead>
 <tr class="header">
@@ -398,6 +423,101 @@ Node name: `Address`
 </tr>
 </tbody>
 </table>
+
+
+### Node Definition: Alignments
+
+This node defines a group of Alignment.
+
+Node name: `Alignments`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Alignment](#node-definition-address) | Defines a custom alignment for a beam inside the linked GDTF.                       |
+
+#### Node Definition: Alignment
+
+This node defines a alignment for an Beam Geometry inside the linked GDTF.
+
+Node name: `Address`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| geometry       | [String](#user-content-attrtype-string)| Lamp Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the lamp that gets aligned. |
+| up             | [String](#user-content-attrtype-Vector)| 0,0,1                            | Defines the up vector of the direction. |
+| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                           | Defines the direction vector of the lamp. |
+
+### Node Definition: CustomCommands
+
+This node defines a group of CustomCommand.
+
+Node name: `CustomCommands`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [CustomCommand](#node-definition-customcommand) | Contains a list with custom commands that should be executed on the fixture  |
+
+#### Node Definition: CustomCommand
+
+This node defines a alignment for an Beam Geometry inside the linked GDTF.
+
+Node name: `CustomCommand`
+
+The Custom command contains the command that will be executed on the fixture. The definition from the syntax for the command
+aligns with the [GDTF 1.2 defintion for control based symbol](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#channel-function). 
+
+With this feature you can static properties for fixture that can not be controlled via DMX.
+
+### Node Definition: Overwrites
+
+This node defines a group of Overwrite.
+
+Node name: `Overwrites`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Overwrite](#node-definition-Overwrite) | Contains a list with overwrites for gobos, filters and emitters.  |
+
+#### Node Definition: Overwrite
+
+This node defines a overwrite with Universal Fixture inside the GDTF to overwrite Wheel Slots, Emitters and Filters for the fixture.
+
+Node name: `Overwrite`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| universal      | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF. |
+| target         | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. |
+
+### Node Definition: Connections
+
+This node defines a group of Connection.
+
+Node name: `Connections`
+
+The child list contains a list of the following nodes:
+
+| Child Node                          | Description             |
+| ----------------------------------- | ----------------------- |
+| [Connection](#node-definition-Overwrite) | Contains an definition of an object to object connection.  |
+
+#### Node Definition: Connection
+
+This nodes defines an connection of two scene object. The connection can be an electrical or data connection.
+
+Node name: `Connection`
+
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
+| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| own      | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.  |
+| other    | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| toObject | [UUID](#user-content-attrtype-uuid)           | Mandatory.                  | UUID of an other object in the scene. |
 
 ### Node Definition: Mappings
 
@@ -452,6 +572,43 @@ Node name: `Truss`
 | Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
 | [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
+
+
+## Node Definition: Support
+
+This node defines a support object.
+
+Node name: `Support`
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+
+| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
+| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
+| Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
+| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this support belongs to if this reference exists.   |
+| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                                       |
+| ChainLength                               | 1             | [Real](#user-content-attrtype-real)      | The chain length that will be applied to the GDTF .                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
+
 
 ## Node Definition: VideoScreen
 
@@ -470,6 +627,14 @@ Node name: `VideoScreen`
 | Classing                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Sources](#node-definition-sources)       | 0 or 1        |            | A list of video input sources..                                             |
+| Function                                  | 1             | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                                       |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 An example of a node definition is shown below:
 
@@ -508,6 +673,13 @@ Node name: `Projector`
 | Classing                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries)  | 1             |            | A list of geometrical representation objects that are a part of the object. |
 | [Projections](#node-definition-projection) | 1             |            | A list of video source for Beam Geometries in the GDTF file.                |
+| GDTFSpec                                | 1             | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
+| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
+| [Addresses](#node-definition-addresses) | 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
+| [Alignments](#node-definition-alignments) | 1           |                                              | The container for Alignments for this object.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 1   |                                              | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 1           |                                              | The container for overwrites for this object.                                                                                             |
+| [Connections](#node-definition-connections) | 1           |                                             | The container for connections for this object.                                                                                             |
 
 An example of a node definition is shown below:
 ```xml
@@ -733,6 +905,7 @@ The child list contains a list of one of the following nodes:
 | [GroupObject](#node-definition-groupobject) | A grouping object of other graphical objects inside local coordinate system. |
 | [FocusPoint](#node-definition-focuspoint)   | A definition of a focus point.                                               |
 | [Fixture](#node-definition-fixture)         | A definition of a fixture.                                                   |
+| [Support](#node-definition-support)         | A definition of a support.                                                   |
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 
