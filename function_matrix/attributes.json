@@ -185,7 +185,7 @@
         }
       ],
       "definition": "The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation.",
-      "explanation": "",
+      "explanation": "Use this attribute to select gobo in a gobo wheel for fixtures that provide gobo selection on one channel and gobo rotation/indexing on another channel(s). The actual gobo selection way - continuous or steps (when continuous, you can freely index the gobo wheel) is defined via physical properties of channel sets of this attribute.",
       "visual": ""
     },
     {
@@ -242,7 +242,7 @@
       "_MainAttribute": "Gobo(n)",
       "_ActivationGroup": "Gobo(n)",
       "definition": "Selects gobos which run effects in gobo wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a gobo wheel.",
       "visual": ""
     },
     {
@@ -282,7 +282,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of gobo wheel (n).",
-      "explanation": "",
+      "explanation": "Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute.",
       "visual": ""
     },
     {
@@ -309,7 +309,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobo wheel (n).",
-      "explanation": "",
+      "explanation": "For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake.",
       "visual": ""
     },
     {
@@ -329,7 +329,7 @@
         }
       ],
       "definition": "Controls speed of gobo wheel´s (n) random gobo slot selection.",
-      "explanation": "",
+      "explanation": "Use this attribute to set the frequency of a random gobo selection.",
       "visual": ""
     },
     {
@@ -348,7 +348,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of gobo wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music.",
       "visual": ""
     },
     {
@@ -358,7 +358,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Gobo(n)Pos",
       "definition": "Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.",
-      "explanation": "",
+      "explanation": "This attribute allows to set indexed position (angle) of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
       "visual": ""
     },
     {
@@ -369,7 +369,7 @@
       "_MainAttribute": "Gobo(n)Pos",
       "_ActivationGroup": "Gobo(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
       "visual": ""
     },
     {
@@ -389,7 +389,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobos in gobo wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
       "visual": ""
     },
     {
