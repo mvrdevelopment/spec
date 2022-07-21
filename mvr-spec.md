@@ -476,7 +476,7 @@ Node name: `CustomCommand`
 The Custom command contains the command that will be executed on the fixture. The definition from the syntax for the command
 aligns with the [GDTF 1.2 defintion for control based symbol](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#channel-function). 
 
-With this feature you can static properties for fixture that can not be controlled via DMX.
+With this feature you can control static properties for fixture that can not be controlled via DMX.
 
 ### Node Definition: Overwrites
 
