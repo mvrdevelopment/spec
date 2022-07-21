@@ -336,7 +336,7 @@ An example of a node definition is shown below:
         <Address break="0">45</Address>
     </Addresses>
     <Alignments>
-        <Alignments geometry="Beam" up="0,0,1" direction="0,0,-1"/>
+        <Alignment geometry="Beam" up="0,0,1" direction="0,0,-1"/>
     </Alignments>
      <CustomCommands>
         <CustomCommand>Body_Pan,f 50</CustomCommand>
