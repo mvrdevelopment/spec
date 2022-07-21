@@ -490,7 +490,7 @@ The child list contains a list of the following nodes:
 
 #### Node Definition: Overwrite
 
-This node defines a overwrite with Universal Fixture inside the GDTF to overwrite Wheel Slots, Emitters and Filters for the fixture.
+This node defines a overwrite with Universal Fixture inside the MVR to overwrite Wheel Slots, Emitters and Filters for the fixture.
 
 Node name: `Overwrite`
 
