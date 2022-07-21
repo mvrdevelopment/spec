@@ -467,7 +467,7 @@ The child list contains a list of the following nodes:
 
 #### Node Definition: CustomCommand
 
-This node defines a alignment for an Beam Geometry inside the linked GDTF.
+This node defines a custom command for the linked GDTF.
 
 Node name: `CustomCommand`
 
