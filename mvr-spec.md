@@ -191,8 +191,6 @@ Node name: `Class`
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
 | name           | [name](#attrType-Name)              |                             | The name of the Class.              |
 
-See [Vectorworks: Concept: Classes Overview](https://app-help.vectorworks.net/2022/eng/VW2022_Guide/Structure/Concept_Classes_overview.htm)
-
 ## Node Definition: Layers
 
 This node defines a list of layers inside the scene. The layer is a
