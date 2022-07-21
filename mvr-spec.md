@@ -449,7 +449,7 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| geometry       | [String](#user-content-attrtype-string)| Lamp Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the lamp that gets aligned. |
+| geometry       | [Node](#user-content-attrtype-node)| Beam Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the Beam Geometry that gets aligned. |
 | up             | [String](#user-content-attrtype-Vector)| 0,0,1                            | Defines the up vector of the direction. |
 | direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                           | Defines the direction vector of the lamp. |
 
