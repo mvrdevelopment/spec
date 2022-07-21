@@ -856,8 +856,8 @@ Node name: `Geometry3D`
 
 | Format Name                                                                     | File Extensions | Requirements                        | Notes |
 | ------------------------------------------------------------------------------- | --------------  | ----------------------------------- | ----- |
-| [Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                              | 3ds             | 1 Unit = 1 mm                       | Deprecated |
-| [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended |
+| 3DS                            | 3ds             | 1 Unit = 1 mm                       | [Deprecated Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)  |
+| gltf 2.0 | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html)|
 
 All referenced files (eg texture images, binary blobs) shall be present in the archive.
 
