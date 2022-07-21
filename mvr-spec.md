@@ -342,6 +342,12 @@ An example of a node definition is shown below:
         <CustomCommand>Body_Pan,f 50</CustomCommand>
         <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
     </CustomCommands>
+    <Overwrites>
+            <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1" target="Wheel 1.Wheel Slot"/>
+            <Overwrite universal="Universal Emitter 1" target="Emitter 1" />
+            <Overwrite universal="Universal Filter 1" target="Filter 1" />
+            <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 2"/>
+    </Overwrites>
     <Mappings>
         <Mapping linkedDef="BEF95EB8-98AC-4217-B10D-FB4B83381398">
             <ux>10</ux>
@@ -493,7 +499,7 @@ Node name: `Overwrite`
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
 | universal      | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF. |
-| target         | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. |
+| target         | [String](#user-content-attrtype-node)     | Empty String                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
 
 ### Node Definition: Connections
 
