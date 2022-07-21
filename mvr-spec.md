@@ -261,11 +261,13 @@ Node name: `GroupObject`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
+
 | Child Node                              | Allowed Count | Value Type | Description                                                     |
-| --------------------------------------- | ------------- |            | --------------------------------------------------------------- |
+| --------------------------------------- | ------------- |-------------| --------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
 | [[Classing](#node-definition-classing)                          | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.       |
 | [ChildList](#node-definition-childlist) | 1             |            | A list of graphic objects that are part of the group.           |
+
 
 ## Node Definition: FocusPoint
 
@@ -626,7 +628,7 @@ Node name: `VideoScreen`
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                | Allowed Count | Value Type | Description                                                                 |
-| ----------------------------------------- | ------------- |            |---------------------------------------------------------------------------- |
+| ----------------------------------------- | ------------- |-------------|---------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
 | [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
