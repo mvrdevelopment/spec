@@ -26,7 +26,7 @@ An MVR file is a ZIP archive file containing one Root File named
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
 - Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
 - Files may be placed into the archive in any order.
-- A Universal.gdtt file can be added as template GDTF to define Gobos, Emitters und filter to reference.
+- A `Universal.gdtt` file can be added as template GDTF to define Gobos, Emitters und filter to reference.
 - Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 
 The file name of the ZIP archive can be chosen freely. The extension is:
