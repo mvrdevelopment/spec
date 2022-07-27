@@ -77,7 +77,7 @@
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
       "definition": "Defines a fixture’s x-coordinate within an XYZ coordinate system.",
-      "explanation": "",
+      "explanation": "Devices that can move straight in X-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is left/right movement of a video-layer in space.",
       "visual": ""
     },
     {
@@ -87,7 +87,7 @@
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
       "definition": "Defines a fixture’s y-coordinate within an XYZ coordinate system.",
-      "explanation": "",
+      "explanation": "Devices that can move straight in Y-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is forward/backward movement of a video-layer in space.",
       "visual": ""
     },
     {
@@ -97,7 +97,7 @@
       "_physicalUnit": "Length",
       "_ActivationGroup": "XYZ",
       "definition": "Defines a fixture‘s z-coordinate within an XYZ coordinate system.",
-      "explanation": "",
+      "explanation": "Devices that can move straight in Z-direction in space (opposite to distance of a pan/tilt device) describe the movement with this attribute. A typical usage is up/down movement of a video-layer in space.",
       "visual": ""
     },
     {
@@ -107,7 +107,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
       "definition": "Defines rotation around X axis.",
-      "explanation": "",
+      "explanation": "Devices that can be rotated around the X-axis in space use this attribute. A typical usage is horizontal rotation of a video-layer in space (pitch axis).",
       "visual": ""
     },
     {
@@ -117,7 +117,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
       "definition": "Defines rotation around Y axis.",
-      "explanation": "",
+      "explanation": "Devices that can be rotated around the Y-axis in space use this attribute. A typical usage is rolling of a video-layer in space (roll axis).",
       "visual": ""
     },
     {
@@ -127,7 +127,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Rot_XYZ",
       "definition": "Defines rotation around Z axis.",
-      "explanation": "",
+      "explanation": "Devices that can be rotated around the Z-axis in space use this attribute. A typical usage is vertical rotation of a video-layer in space (yaw axis).",
       "visual": ""
     },
     {
