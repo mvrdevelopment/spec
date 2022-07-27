@@ -727,7 +727,7 @@
       "_prettyName": "Media Folder(n)",
       "_feature": "Gobo.Media",
       "definition": "Selects folder that contains media content.",
-      "explanation": "",
+      "explanation": "This attribute selects one of multiple folders that (usually) contain media. Any folder selection process is possible with this attribute.",
       "visual": ""
     },
     {
@@ -735,7 +735,7 @@
       "_prettyName": "Media Content(n)",
       "_feature": "Gobo.Media",
       "definition": "Selects file with media content.",
-      "explanation": "",
+      "explanation": "This attribute selects content that usually is located in one of the folders selected. Any content selection process is possible with this attribute.",
       "visual": ""
     },
     {
@@ -744,7 +744,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
       "definition": "Selects folder that contains 3D model content. For example 3D meshes for mapping.",
-      "explanation": "",
+      "explanation": "This attribute is selects specifically one of multiple folders for 3D content. Any folder selection process is possible with this attribute.",
       "visual": ""
     },
     {
@@ -753,7 +753,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
       "definition": "Selects file with 3D model content.",
-      "explanation": "",
+      "explanation": "This attribute selects a 3D model that usually is located in one of the 3D folders selected. Any content selection process is possible with this attribute.",
       "visual": ""
     },
     {
@@ -814,7 +814,7 @@
         }
       ],
       "definition": "The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.",
-      "explanation": "",
+      "explanation": "Any device that can create colors by changing a mechanical color wheel inside the device or by software created color presets (inside the device), uses this attribute to describe the different colors cpossible. If there is more than one color wheel or sets of color presets, the whild-card (n) will be increased.",
       "visual": ""
     },
     {
@@ -834,7 +834,7 @@
         }
       ],
       "definition": "Controls angle of indexed rotation of color wheel (n)",
-      "explanation": "",
+      "explanation": "The color wheel index describes an agle of rotation of the color wheel to exactly reproduce any mixture/position of the color wheel itself. The wild card will identify which color wheel will be indexed.",
       "visual": ""
     },
     {
@@ -854,7 +854,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of color wheel (n).",
-      "explanation": "",
+      "explanation": "For special effects of a continous rotating color wheel this attribute controls the direction of ration and the speed of rotation. The wild card will identify which color wheel will be spinned.",
       "visual": ""
     },
     {
@@ -874,7 +874,7 @@
         }
       ],
       "definition": "Controls frequency of color wheel´s (n) random color slot selection.",
-      "explanation": "",
+      "explanation": "The device internal random color wheel selection frequency will be controlled by this attribute. The wild card will identify which color wheel will be controlled.",
       "visual": ""
     },
     {
@@ -893,7 +893,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of color wheel (n).",
-      "explanation": "",
+      "explanation": "The device internal audio-based color wheel selection frequency will be controlled by this attribute. The wild card will identify which color wheel will be controlled",
       "visual": ""
     },
     {
@@ -915,7 +915,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.3,0.6,71.5",
       "definition": "Controls the intensity of the fixture's green emitters for direct additive color mixing",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Green color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -926,7 +926,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.15,0.06,7.2",
       "definition": "Controls the intensity of the fixture's blue emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Blue color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -937,7 +937,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.225,0.329,78.7",
       "definition": "Controls the intensity of the fixture's cyan emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -948,7 +948,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.321,0.154,28.5",
       "definition": "Controls the intensity of the fixture's magenta emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -959,7 +959,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.419,0.505,92.8",
       "definition": "Controls the intensity of the fixture's yellow emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Yellow color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -970,7 +970,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.477,0.460,57.0",
       "definition": "Controls the intensity of the fixture's amber emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Amber color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -981,7 +981,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.372,0.543,82.1",
       "definition": "Controls the intensity of the fixture's lime emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Lime color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -992,7 +992,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.250,0.419,75.1",
       "definition": "Controls the intensity of the fixture's blue-green emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Blue-Green color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1003,7 +1003,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.200,0.239,43.0",
       "definition": "Controls the intensity of the fixture's light-blue emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Light-Blue color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1014,7 +1014,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.254,0.117,17.9",
       "definition": "Controls the intensity of the fixture's purple emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Purple color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1025,7 +1025,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.403,0.200,24.9",
       "definition": "Controls the intensity of the fixture's pink emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Pink color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1036,7 +1036,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.313,0.329,100.0",
       "definition": "Controls the intensity of the fixture's white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1047,7 +1047,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.319,0.340,99.3",
       "definition": "Controls the intensity of the fixture's warm white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Warm-White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1058,7 +1058,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.306,0.329,97.9",
       "definition": "Controls the intensity of the fixture's cool white emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Cold-White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1069,7 +1069,7 @@
       "_ActivationGroup": "ColorRGB",
       "_Color": "0.176,0.005,0.6",
       "definition": "Controls the intensity of the fixture's UV emitters for direct additive color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Ultra-Violet color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
