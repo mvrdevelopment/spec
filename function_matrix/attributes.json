@@ -814,7 +814,7 @@
         }
       ],
       "definition": "The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.",
-      "explanation": "Any device that can create colors by changing a mechanical color wheel inside the device or by software created color presets (inside the device), uses this attribute to describe the different colors cpossible. If there is more than one color wheel or sets of color presets, the whild-card (n) will be increased.",
+      "explanation": "Any device that can create colors by changing a mechanical color wheel inside the device uses this attribute to describe the different colors possible. If there is more than one color wheel the wild-card (n) will be increased.",
       "visual": ""
     },
     {
