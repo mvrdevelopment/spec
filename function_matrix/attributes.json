@@ -51,7 +51,7 @@
       "_prettyName": "Pos FX",
       "_feature": "Position.PanTilt",
       "definition": "Selects the predefined position effects that are built into the fixture.",
-      "explanation": "",
+      "explanation": "Effects which are built into the fixture, are based on movement and are of manufacturer specific nature so they cannot really be visualized are described with this attribute.",
       "visual": ""
     },
     {
@@ -59,7 +59,7 @@
       "_prettyName": "Pos FX Rate",
       "_feature": "Position.PanTilt",
       "definition": "Controls the speed of the predefined position effects that are built into the fixture.",
-      "explanation": "",
+      "explanation": "Adjusting speed of some predefined movement effects is described with this attribute.",
       "visual": ""
     },
     {
@@ -67,7 +67,7 @@
       "_prettyName": "Pos FX Fade",
       "_feature": "Position.PanTilt",
       "definition": "Snaps or smooth fades with timing in running predefined position effects.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe functions that are adjusting fading or snapping behavior of some movement effects.",
       "visual": ""
     },
     {
@@ -137,7 +137,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
       "definition": "Scaling on X axis.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that scales the percentage of movement on an X axis.",
       "visual": ""
     },
     {
@@ -147,7 +147,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
       "definition": "Scaling on Y axis.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that scales the percentage of movement on an Y axis.",
       "visual": ""
     },
     {
@@ -157,7 +157,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
       "definition": "Scaling on Y axis.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that scales the percentage of movement on an Z axis.",
       "visual": ""
     },
     {
@@ -167,7 +167,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "Scale_XYZ",
       "definition": "Unified scaling on all axis.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that scales the percentage of movement on all X, Y and Z axes.",
       "visual": ""
     },
     {
