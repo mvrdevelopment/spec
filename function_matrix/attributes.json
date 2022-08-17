@@ -1263,7 +1263,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's red attribute for indirect RGB color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Red color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1272,7 +1272,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's green attribute for indirect RGB color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Green color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1281,7 +1281,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's blue attribute for indirect RGB color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Blue color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1290,7 +1290,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's cyan attribute for indirect CMY color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1299,7 +1299,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's magenta attribute for indirect CMY color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1308,7 +1308,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's yellow attribute for indirect CMY color mixing.",
-      "explanation": "",
+      "explanation": "Gradual (fading) change of intensity or saturation of an additive yellow color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. physical values go from 0 = no output, to 1 = full output/saturation.",
       "visual": ""
     },
     {
@@ -1317,7 +1317,7 @@
       "_feature": "Color.Indirect",
       "_ActivationGroup": "ColorIndirect",
       "definition": "Controls the fixture's quality attribute for indirect color mixing.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function of the device that allows the operator to control the quality parameter of the device's color mixing.",
       "visual": ""
     },
     {
@@ -1440,7 +1440,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Time",
       "definition": "Controls the length of a strobe flash.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that can adjust the duration of an individual flash.",
       "visual": ""
     },
     {
@@ -1448,7 +1448,7 @@
       "_prettyName": "Strobe Rate",
       "_feature": "Beam.Beam",
       "definition": "Controls the time between strobe flashes.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that can adjust the time between individual flashes.",
       "visual": ""
     },
     {
@@ -1457,7 +1457,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "definition": "Controls the frequency of strobe flashes.",
-      "explanation": "",
+      "explanation": "Setting the frequency of strobing is described with this attribute.",
       "visual": ""
     },
     {
@@ -1465,7 +1465,7 @@
       "_prettyName": "StrobeM Shutter",
       "_feature": "Beam.Beam",
       "definition": "Strobe mode shutter. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Shutter Mode.",
       "visual": ""
     },
     {
@@ -1474,7 +1474,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Strobe Mode.",
       "visual": ""
     },
     {
@@ -1483,7 +1483,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Pulsing Strobe Mode.",
       "visual": ""
     },
     {
@@ -1492,7 +1492,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower opening and faster closing behavior.",
       "visual": ""
     },
     {
@@ -1501,7 +1501,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower closing and faster opening behavior.",
       "visual": ""
     },
     {
@@ -1510,7 +1510,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random strobing.",
       "visual": ""
     },
     {
@@ -1519,7 +1519,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random pulse based strobing.",
       "visual": ""
     },
     {
@@ -1528,7 +1528,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower opening and faster closing behavior.",
       "visual": ""
     },
     {
@@ -1537,7 +1537,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower closing and faster opening behavior.",
       "visual": ""
     },
     {
