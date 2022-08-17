@@ -2624,7 +2624,7 @@
       "_prettyName": "Reflector Adj",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's frost.",
-      "explanation": "",
+      "explanation": "Adjustment of the reflector of the device is described with this attribute.",
       "visual": ""
     },
     {
@@ -2632,7 +2632,7 @@
       "_prettyName": "Fixture Global Reset",
       "_feature": "Control.Control",
       "definition": "Generally resets the entire fixture.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger a complete internal reset of the fixture.",
       "visual": ""
     },
     {
@@ -2640,7 +2640,7 @@
       "_prettyName": "Dimmer Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's dimmer.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's dimmer, dimmer flags or other dimming elements.",
       "visual": ""
     },
     {
@@ -2648,7 +2648,7 @@
       "_prettyName": "Shutter Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's shutter.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's shutter flags or elements.",
       "visual": ""
     },
     {
@@ -2656,7 +2656,7 @@
       "_prettyName": "Beam Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's beam features.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's beam lenses or elements.",
       "visual": ""
     },
     {
@@ -2664,7 +2664,7 @@
       "_prettyName": "Color Mix Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's color mixing system.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color mixing system.",
       "visual": ""
     },
     {
@@ -2672,7 +2672,7 @@
       "_prettyName": "Color Wheel Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's color wheel.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color wheels.",
       "visual": ""
     },
     {
@@ -2680,7 +2680,7 @@
       "_prettyName": "Focus Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's focus.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or focus lenses or elements.",
       "visual": ""
     },
     {
@@ -2688,7 +2688,7 @@
       "_prettyName": "Frame Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's shapers.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or framing elements.",
       "visual": ""
     },
     {
@@ -2696,7 +2696,7 @@
       "_prettyName": "G Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's gobo wheel.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's gobo wheels.",
       "visual": ""
     },
     {
@@ -2704,7 +2704,7 @@
       "_prettyName": "Intensity Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's intensity.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's intensity",
       "visual": ""
     },
     {
@@ -2712,7 +2712,7 @@
       "_prettyName": "Iris Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's iris.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's iris.",
       "visual": ""
     },
     {
@@ -2720,7 +2720,7 @@
       "_prettyName": "Pos Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's pan/tilt.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's positional system",
       "visual": ""
     },
     {
@@ -2728,7 +2728,7 @@
       "_prettyName": "Pan Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's pan.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's pan.",
       "visual": ""
     },
     {
@@ -2736,7 +2736,7 @@
       "_prettyName": "Tilt Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's tilt.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's tilt.",
       "visual": ""
     },
     {
@@ -2744,7 +2744,7 @@
       "_prettyName": "Zoom Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's zoom.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's zoom lenses or elements.",
       "visual": ""
     },
     {
@@ -2752,7 +2752,7 @@
       "_prettyName": "CTB Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's CTB.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTB flags or elements.",
       "visual": ""
     },
     {
@@ -2760,7 +2760,7 @@
       "_prettyName": "CTO Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's CTO.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTO flags or elements.",
       "visual": ""
     },
     {
@@ -2768,7 +2768,7 @@
       "_prettyName": "CTC Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's CTC.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTC flags or elements.",
       "visual": ""
     },
     {
@@ -2776,7 +2776,7 @@
       "_prettyName": "Anim Sytem Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's animation system features.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's animation wheels or elements.",
       "visual": ""
     },
     {
@@ -2784,7 +2784,7 @@
       "_prettyName": "Fixture Calibration Reset",
       "_feature": "Control.Control",
       "definition": "Resets the fixture's calibration.",
-      "explanation": "",
+      "explanation": "This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's calibrations.",
       "visual": ""
     },
     {
@@ -2792,7 +2792,7 @@
       "_prettyName": "Function",
       "_feature": "Control.Control",
       "definition": "Generally controls features of the fixture.",
-      "explanation": "",
+      "explanation": "If you cannot find other attribute that would describe a feature of the Power/Control channel, use this generic attribute.",
       "visual": ""
     },
     {
@@ -2800,7 +2800,7 @@
       "_prettyName": "Lamp Ctrl",
       "_feature": "Control.Control",
       "definition": "Controls the fixture's lamp on/lamp off feature.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe functionality that allows to strike and douse the lamp of the fixture.",
       "visual": ""
     },
     {
@@ -2808,7 +2808,7 @@
       "_prettyName": "Display Int",
       "_feature": "Control.Control",
       "definition": "Adjusts intensity of display",
-      "explanation": "",
+      "explanation": "For fixtures with the possibility to adjust the brightness of their menu display screen, use this attribute to describe such functionality.",
       "visual": ""
     },
     {
@@ -2816,7 +2816,7 @@
       "_prettyName": "DMX Input",
       "_feature": "Control.Control",
       "definition": "Selects DMX Input",
-      "explanation": "",
+      "explanation": "Use this attribute to describe behavior that allows changing the source of the DMX signal. ",
       "visual": ""
     },
     {
@@ -2824,7 +2824,7 @@
       "_prettyName": "NoFeature",
       "_feature": "Control.Control",
       "definition": "Ranges without a functionality.",
-      "explanation": "",
+      "explanation": "Use this attribute for functions that do not define any functions. They might be for example reserved for later use.",
       "visual": ""
     },
     {
@@ -2832,7 +2832,7 @@
       "_prettyName": "Dummy",
       "_feature": "Control.Control",
       "definition": "",
-      "explanation": "",
+      "explanation": "Use this attribute for functions that do not define any functions. They might be for example reserved for later use.",
       "visual": ""
     },
     {
@@ -2952,6 +2952,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "2 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
+pick cf6f6af Added some color explanations
       "explanation": "",
       "visual": ""
     },
