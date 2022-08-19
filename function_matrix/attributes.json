@@ -1725,7 +1725,7 @@
       "_prettyName": "Iris",
       "_feature": "Beam.Beam",
       "definition": "Controls the diameter of the fixture's beam.",
-      "explanation": "",
+      "explanation": "An iris diaphragm made of movable leaves which allows to gradually change the diameter of the beam is described with this attribute.",
       "visual": ""
     },
     {
@@ -1758,7 +1758,7 @@
         }
       ],
       "definition": "Sets frequency of the iris's strobe feature.",
-      "explanation": "",
+      "explanation": "Strobing function created by fast movements of an iris is described with this attribute.",
       "visual": ""
     },
     {
@@ -1784,7 +1784,7 @@
         }
       ],
       "definition": "Sets frequency of the iris's random movement.",
-      "explanation": "",
+      "explanation": "Strobing in random intervals created by fast movements of an iris is described with this attribute.",
       "visual": ""
     },
     {
@@ -1817,7 +1817,7 @@
         }
       ],
       "definition": "Sets frequency of iris's closing pulse.",
-      "explanation": "",
+      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower closing and faster opening behavior.",
       "visual": ""
     },
     {
@@ -1850,7 +1850,7 @@
         }
       ],
       "definition": "Sets frequency of iris's opening pulse.",
-      "explanation": "",
+      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower opening and faster closing behavior.",
       "visual": ""
     },
     {
@@ -1869,7 +1869,7 @@
         }
       ],
       "definition": "Sets frequency of iris's random closing pulse.",
-      "explanation": "",
+      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower opening and faster closing behavior.",
       "visual": ""
     },
     {
@@ -1888,7 +1888,7 @@
         }
       ],
       "definition": "Sets frequency of iris's random opening pulse.",
-      "explanation": "",
+      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower closing and faster opening behavior.",
       "visual": ""
     },
     {
