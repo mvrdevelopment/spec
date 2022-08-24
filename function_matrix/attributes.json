@@ -2408,7 +2408,7 @@
       "_prettyName": "ColorModel",
       "_feature": "Control.Control",
       "definition": "Controls color model (CMY/RGB/HSV...).",
-      "explanation": "",
+      "explanation": "In devices that have a function to allow switching between various ways of color mixing (CMY, RGB, HSV...), this attribute is used to describe this function.",
       "visual": ""
     },
     {
@@ -2416,7 +2416,7 @@
       "_prettyName": "Color Ctrl Rst",
       "_feature": "Control.Control",
       "definition": "Resets settings of color control channel.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function which allows to set various color related settings back to the default state.",
       "visual": ""
     },
     {
@@ -2424,7 +2424,7 @@
       "_prettyName": "ColorUniform",
       "_feature": "Control.Control",
       "definition": "Controls behavior of color uniformity.",
-      "explanation": "",
+      "explanation": "In devices that allow to set a color uniformity between multiple fixtures use this attribute to describe a such function.",
       "visual": ""
     },
     {
@@ -2432,7 +2432,7 @@
       "_prettyName": "CRI Mode",
       "_feature": "Control.Control",
       "definition": "Controls CRI settings of output.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to choose a color mixing mode which is prioritizing higher Color Rendering Index.",
       "visual": ""
     },
     {
@@ -2440,7 +2440,7 @@
       "_prettyName": "Custom Color",
       "_feature": "Control.Control",
       "definition": "Custom color related functions (save, recall..).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to save a custom color into the lighting device.",
       "visual": ""
     },
     {
@@ -2448,7 +2448,7 @@
       "_prettyName": "UV Stab",
       "_feature": "Control.Control",
       "definition": "Settings for UV stability color behavior.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to choose a color mixing mode which is prioritizing color stability and suppresses UV color.",
       "visual": ""
     },
     {
@@ -2456,7 +2456,7 @@
       "_prettyName": "WaveLength",
       "_feature": "Control.Control",
       "definition": "",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to adjust color mixing according to corresponding wavelengths in order to achieve same colors from multiple fixtures.",
       "visual": ""
     },
     {
@@ -2464,7 +2464,7 @@
       "_prettyName": "White Count",
       "_feature": "Control.Control",
       "definition": "Controls if White LED is proportionally added to RGB.",
-      "explanation": "",
+      "explanation": "Some devices allow internal automatic intensity control of White LED  by the device, based on proportions of intensity of remaining LED emitters. Use this attribute to describe this behavior.",
       "visual": ""
     },
     {
