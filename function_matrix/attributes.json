@@ -1143,7 +1143,7 @@
       "_prettyName": "Color Macro(n)",
       "_feature": "Color.RGB",
       "definition": "Selects predefined colors that are programmed in the fixture's firmware.",
-      "explanation": "Choose this attribute to control the selection of predefined fixed colors, like Color Presets or Swatchbook Colors. The individual colors are defined by linking wheel slots to channel sets.",
+      "explanation": "Choose this attribute to control the selection of predefined fixed colors, like Color Presets or Swatchbook Colors. The individual colors are defined by linking wheel slots to channel sets. If there is more than one color macro the wild-card (n) will be incremented and the number then indicates which color macro will be controlled.",
       "visual": ""
     },
     {
@@ -2207,7 +2207,7 @@
       "_prettyName": "Ctrl(n)",
       "_feature": "Control.Control",
       "definition": "Controls the channel of a fixture.",
-      "explanation": "",
+      "explanation": "Use this attribute do describe a function (typically a DMX channel) which provides access to settings and to controls allowing changes of the behavior of the device, like striking and dousing of the lamp and so on. These individual settings or for example lamp controls are then described by their specific attributes. If there is more than one control channel the wild-card (n) will be incremented and the number then indicates which control channel will be controlled.",
       "visual": ""
     },
     {
@@ -2215,7 +2215,7 @@
       "_prettyName": "Dim Mode",
       "_feature": "Control.Control",
       "definition": "Selects different modes of intensity.",
-      "explanation": "",
+      "explanation": "Switching between different types of dimming modes is described with this attribute.",
       "visual": ""
     },
     {
@@ -2223,7 +2223,7 @@
       "_prettyName": "Dim Curve",
       "_feature": "Control.Control",
       "definition": "Selects different dimmer curves of the fixture.",
-      "explanation": "",
+      "explanation": "Switching between different types of dimming curves provided by the device is described with this attribute.",
       "visual": ""
     },
     {
@@ -2231,7 +2231,7 @@
       "_prettyName": "Blackout Mode",
       "_feature": "Control.Control",
       "definition": "Close the light output under certain conditions (movement correction, gobo movement, etc.).",
-      "explanation": "",
+      "explanation": "If the device provides a way to disable light output when gobo, color or other elements are moving or when for example movement position is being restored after external manual intervention, use this attribute to describe this behavior/settings.",
       "visual": ""
     },
     {
@@ -2240,7 +2240,7 @@
       "_feature": "Control.Control",
       "_physicalUnit": "Frequency",
       "definition": "Controls LED frequency.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function which allows to change frequency of LEDs.",
       "visual": ""
     },
     {
@@ -2248,7 +2248,7 @@
       "_prettyName": "LED Zone Mode",
       "_feature": "Control.Control",
       "definition": "Changes zones of LEDs.",
-      "explanation": "",
+      "explanation": "For multipixel LED devices that allow to choose which zones of LEDs are being used, use this attribute to describe this function.",
       "visual": ""
     },
     {
@@ -2256,7 +2256,7 @@
       "_prettyName": "Pixel Mode",
       "_feature": "Control.Control",
       "definition": "Controls behavior of LED pixels.",
-      "explanation": "",
+      "explanation": "For multipixel devices that allow to set behavior of pixel control (for example order of LEDs), use this attribute to describe such behavior/settings.",
       "visual": ""
     },
     {
@@ -2264,7 +2264,7 @@
       "_prettyName": "Pan Mode",
       "_feature": "Control.Control",
       "definition": "Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.",
-      "explanation": "",
+      "explanation": "For devices that allow different modes of pan behavior, use this attribute to describe the behavior.",
       "visual": ""
     },
     {
@@ -2272,7 +2272,7 @@
       "_prettyName": "Tilt Mode",
       "_feature": "Control.Control",
       "definition": "Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.",
-      "explanation": "",
+      "explanation": "For devices that allow different modes of tilt behavior, use this attribute to describe the behavior.",
       "visual": ""
     },
     {
@@ -2280,7 +2280,7 @@
       "_prettyName": "PanTilt Mode",
       "_feature": "Control.Control",
       "definition": "Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.",
-      "explanation": "",
+      "explanation": "For devices that allow different modes of behavior of pan and tilt, use this attribute to describe the behavior.",
       "visual": ""
     },
     {
@@ -2504,7 +2504,7 @@
       "_prettyName": "Fan Mode",
       "_feature": "Control.Control",
       "definition": "",
-      "explanation": "",
+      "explanation": "Use this attribute to switch between different types of fan control modes (for example auto, high, silent).",
       "visual": ""
     },
     {
@@ -2512,7 +2512,7 @@
       "_prettyName": "FollowSpot Mode",
       "_feature": "Control.Control",
       "definition": "Selects follow spot control mode.",
-      "explanation": "",
+      "explanation": "For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior. ",
       "visual": ""
     },
     {
@@ -2528,7 +2528,7 @@
       "_prettyName": "Intensity MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's intensity.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of dimming behavior. ",
       "visual": ""
     },
     {
@@ -2536,7 +2536,7 @@
       "_prettyName": "Pos MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's pan/tilt.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement for pan/tilt.",
       "visual": ""
     },
     {
@@ -2544,7 +2544,7 @@
       "_prettyName": "Color Mix MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's ColorMix presets.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement for color mixing elements.",
       "visual": ""
     },
     {
@@ -2552,15 +2552,14 @@
       "_prettyName": "Color Wheel Select MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's color wheel.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of color wheel(s).",
       "visual": ""
     },
     {
       "_name": "GoboWheel(n)MSpeed",
       "_prettyName": "Gobo Wheel(n) MSpeed",
       "_feature": "Control.Control",
-      "definition": "Movement speed of the fixture's gobo wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of color wheel(s). If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -2568,7 +2567,7 @@
       "_prettyName": "Iris MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's iris.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of iris(s).",
       "visual": ""
     },
     {
@@ -2576,7 +2575,7 @@
       "_prettyName": "Prism(n) MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's prism wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of prism(s). If there is more than one prism or prism wheel the wild-card (n) will be incremented and the number then indicates which prism/wheel will be controlled.",
       "visual": ""
     },
     {
@@ -2584,7 +2583,7 @@
       "_prettyName": "Focus MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's focus.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of focus.",
       "visual": ""
     },
     {
@@ -2592,7 +2591,7 @@
       "_prettyName": "Frost(n) MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's frost (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of frost. If there is more than one frost the wild-card (n) will be incremented and the number then indicates which frost will be controlled.",
       "visual": ""
     },
     {
@@ -2600,7 +2599,7 @@
       "_prettyName": "Zoom MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's zoom.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of zoom.",
       "visual": ""
     },
     {
@@ -2608,7 +2607,7 @@
       "_prettyName": "Frame MSpeed",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's shapers.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement of framing.",
       "visual": ""
     },
     {
@@ -2616,7 +2615,7 @@
       "_prettyName": "Global MSpeed",
       "_feature": "Control.Control",
       "definition": "General speed of fixture's features.",
-      "explanation": "",
+      "explanation": "Use this attribute to set a speed of movement which is used on elements of the device.",
       "visual": ""
     },
     {
@@ -2624,7 +2623,7 @@
       "_prettyName": "Reflector Adj",
       "_feature": "Control.Control",
       "definition": "Movement speed of the fixture's frost.",
-      "explanation": "Adjustment of the reflector of the device is described with this attribute.",
+      "explanation": "Adjustment of the reflector of the device (for example setting it to a hot-spot output or a flat-field output) is described with this attribute.",
       "visual": ""
     },
     {
