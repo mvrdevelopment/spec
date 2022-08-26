@@ -185,7 +185,7 @@
         }
       ],
       "definition": "The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation.",
-      "explanation": "Use this attribute to select gobo in a gobo wheel for fixtures that provide gobo selection on one channel and gobo rotation/indexing on another channel(s). The actual gobo selection way - continuous or steps (when continuous, you can freely index the gobo wheel) is defined via physical properties of channel sets of this attribute.",
+      "explanation": "Use this attribute to select gobo in a gobo wheel for fixtures that provide gobo selection on one channel and gobo rotation/indexing on another channel(s). The actual gobo selection way - continuous or steps (when continuous, you can freely index the gobo wheel) is defined via physical properties of channel sets of this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -204,7 +204,7 @@
           "_physicalTo": 270
         }
       ],
-      "definition": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function.",
+      "definition": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "explanation": "",
       "visual": ""
     },
@@ -242,7 +242,7 @@
       "_MainAttribute": "Gobo(n)",
       "_ActivationGroup": "Gobo(n)",
       "definition": "Selects gobos which run effects in gobo wheel (n).",
-      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a gobo wheel.",
+      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a gobo wheel. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -282,7 +282,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of gobo wheel (n).",
-      "explanation": "Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute.",
+      "explanation": "Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -309,7 +309,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobo wheel (n).",
-      "explanation": "For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake.",
+      "explanation": "For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -329,7 +329,7 @@
         }
       ],
       "definition": "Controls speed of gobo wheel´s (n) random gobo slot selection.",
-      "explanation": "Use this attribute to set the frequency of a random gobo selection.",
+      "explanation": "Use this attribute to set the frequency of a random gobo selection. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -348,7 +348,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of gobo wheel (n).",
-      "explanation": "Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music.",
+      "explanation": "Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -358,7 +358,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Gobo(n)Pos",
       "definition": "Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.",
-      "explanation": "This attribute allows to set indexed position (angle) of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
+      "explanation": "This attribute allows to set indexed position (angle) of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -369,7 +369,7 @@
       "_MainAttribute": "Gobo(n)Pos",
       "_ActivationGroup": "Gobo(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).",
-      "explanation": "This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -389,7 +389,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobos in gobo wheel (n).",
-      "explanation": "This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo.",
+      "explanation": "This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -406,7 +406,7 @@
           "_physicalTo": 270
         }
       ],
-      "definition": "This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots.",
+      "definition": "This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "explanation": "",
       "visual": ""
     },
@@ -744,7 +744,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
       "definition": "Selects folder that contains 3D model content. For example 3D meshes for mapping.",
-      "explanation": "This attribute is selects specifically one of multiple folders for 3D content. Any folder selection process is possible with this attribute.",
+      "explanation": "This attribute is selects specifically one of multiple folders for 3D content. Any folder selection process is possible with this attribute. If there is more than one folder the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -753,7 +753,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "None",
       "definition": "Selects file with 3D model content.",
-      "explanation": "This attribute selects a 3D model that usually is located in one of the 3D folders selected. Any content selection process is possible with this attribute.",
+      "explanation": "This attribute selects a 3D model that usually is located in one of the 3D folders selected. Any content selection process is possible with this attribute. If there is more than one content folder the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -814,7 +814,7 @@
         }
       ],
       "definition": "The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.",
-      "explanation": "Any device that can create colors by changing a mechanical color wheel inside the device uses this attribute to describe the different colors possible. If there is more than one color wheel the wild-card (n) will be increased.",
+      "explanation": "Any device that can create colors by changing a mechanical color wheel inside the device uses this attribute to describe the different colors possible. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -854,7 +854,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of color wheel (n).",
-      "explanation": "For special effects of a continous rotating color wheel this attribute controls the direction of ration and the speed of rotation. The wild card will identify which color wheel will be spinned.",
+      "explanation": "For special effects of a continuous rotating color wheel this attribute controls the direction of ration and the speed of rotation. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -874,7 +874,7 @@
         }
       ],
       "definition": "Controls frequency of color wheel´s (n) random color slot selection.",
-      "explanation": "The device internal random color wheel selection frequency will be controlled by this attribute. The wild card will identify which color wheel will be controlled.",
+      "explanation": "The device internal random color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -893,7 +893,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of color wheel (n).",
-      "explanation": "The device internal audio-based color wheel selection frequency will be controlled by this attribute. The wild card will identify which color wheel will be controlled",
+      "explanation": "The device internal audio-based color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -1554,7 +1554,7 @@
       "_prettyName": "Sh(n)",
       "_feature": "Beam.Beam",
       "definition": "Controls the fixture´s mechanical or electronical shutter feature.",
-      "explanation": "Open/close style of change of intensity or brightness. Physical values go between 0 = closed, to 1 = open.",
+      "explanation": "Open/close style of change of intensity or brightness. Physical values go between 0 = closed, to 1 = open. If there is more than one shutter the wild-card (n) will be incremented and the number then indicates which shutter will be controlled.",
       "visual": ""
     },
     {
