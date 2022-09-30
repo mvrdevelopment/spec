@@ -426,7 +426,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of animation wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute controls how the animation wheel will behave when responding to an audio sorce for use with the AnimtionWheel(n).",
       "visual": ""
     },
     {
@@ -436,7 +436,7 @@
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
       "definition": "Selects predefined effects in animation wheel (n).",
-      "explanation": "",
+      "explanation": "This arribute allows for the selection of a fixtures prdefined macro functions for the AnimtionWheel(n). ",
       "visual": ""
     },
     {
