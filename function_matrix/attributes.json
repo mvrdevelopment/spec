@@ -262,7 +262,7 @@
         }
       ],
       "definition": "Controls angle of indexed rotation of gobo wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to define indexed rotation angle of the gobo wheel for the gobos on the wheel",
       "visual": ""
     },
     {
@@ -1196,7 +1196,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "ColorHSB",
       "definition": "Controls the fixture's color attribute regarding the hue.",
-      "explanation": "",
+      "explanation": "Use this attribute to control the fixture's Hue (color)",
       "visual": ""
     },
     {
@@ -1206,7 +1206,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
       "definition": "Controls the fixture's color attribute regarding the saturation.",
-      "explanation": "",
+      "explanation": "Use this attribute to control a fixture's color Saturation (richness)",
       "visual": ""
     },
     {
@@ -1216,7 +1216,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
       "definition": "Controls the fixture's color attribute regarding the brightness.",
-      "explanation": "",
+      "explanation": "Use this attribute to control a fixture's color Brightness",
       "visual": ""
     },
     {
