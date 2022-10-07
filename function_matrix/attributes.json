@@ -232,7 +232,7 @@
         }
       ],
       "definition": "Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.",
-      "explanation": "",
+      "explanation": "Use this attribute to control the frequency (how fast) a gobo will shake.",
       "visual": ""
     },
     {
@@ -534,7 +534,7 @@
       "_MainAttribute": "AnimationWheel(n)Pos",
       "_ActivationGroup": "AnimationWheel(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of slots in animation wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to control an animation wheel's speed and direction for continuous rotation.",
       "visual": ""
     },
     {
