@@ -15,7 +15,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's sideward movement (horizontal axis).",
-      "explanation": "PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixtuer is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT.",
+      "explanation": "PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixture is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT.",
       "visual": ""
     },
     {
@@ -25,7 +25,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "PanTilt",
       "definition": "Controls the fixture's upward and the downward movement (vertical axis).",
-      "explanation": "TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in releation with PAN.",
+      "explanation": "TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in relation with PAN.",
       "visual": ""
     },
     {
@@ -426,8 +426,8 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of animation wheel (n).",
-      "explanation": "This attribute controls how the animation wheel will behave when responding to an audio sorce for use with the AnimtionWheel(n).",
-      "visual": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimtionWheel(n)."
+      "explanation": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n).",
+      "visual": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n)."
     },
     {
       "_name": "AnimationWheel(n)Macro",
@@ -436,7 +436,7 @@
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
       "definition": "Selects predefined effects in animation wheel (n).",
-      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the AnimtionWheel(n).",
+      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the AnimationWheel(n).",
       "visual": ""
     },
     {
@@ -456,7 +456,7 @@
         }
       ],
       "definition": "Controls frequency of animation wheel (n) random slot selection.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe random effects of the Animation wheel prepared by the manufacturer of the fixture.",
       "visual": ""
     },
     {
@@ -466,7 +466,7 @@
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
       "definition": "Selects slots which run effects in animation wheel (n).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe some effects of the AnimationWheel(n) prepared by the manufacturer of the fixture.",
       "visual": ""
     },
     {
@@ -493,7 +493,7 @@
         }
       ],
       "definition": "Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function.",
-      "explanation": "",
+      "explanation": "When selecting a shake of an animation wheel slot and defining the frequency of the shake withing the same channel function, choose this attribute to describe the behavior.",
       "visual": ""
     },
     {
@@ -513,7 +513,7 @@
         }
       ],
       "definition": "Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function",
-      "explanation": "",
+      "explanation": "When selecting a rotation of an animation wheel slot and defining the angular speed of the rotation  withing the same channel function, choose this attribute to describe the behavior.",
       "visual": ""
     },
     {
