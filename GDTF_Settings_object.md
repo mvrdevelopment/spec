@@ -6,7 +6,7 @@ currently not possible to describe via GDTF.
 
 Ref: [#38](https://github.com/mvrdevelopment/spec/issues/38)
 
-**Proposal: **Introduce a Settings object. Settings could be linked to from a
+**Proposal:** Introduce a Settings object. Settings could be linked to from a
 ChannelFunction, to enable it's function and could be get/set via RDM. This can
 solve an issue of physical attributes defined by or linked via
 ChannelFunctions.
