@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<GeneralSceneDescription verMajor="1" verMinor="4">
+
+  <UserData/>
+
+  <Scene>
+    <Layers>
+      <Layer name="None" uuid="00000000-0000-0000-0000-000001000000">
+        <ChildList>
+          <SceneObject name="T1" uuid="A663A2CA-BA35-4E0B-A768-346757DCA800">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{975.153479,-422.203502,4348.757076}</Matrix>
+          </SceneObject>
+          <SceneObject name="Truss Prolyte H30V-300" uuid="A0C48FB5-FE08-46B7-A1E7-E1A37B510B00">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{-524.846521,-422.203502,4205.257076}</Matrix>
+            <Geometries>
+              <Symbol symdef="9E6C97CB-4252-45A0-A5A5-8F859A0C2A9C" uuid="DDA6A1A1-816E-4B3C-BED2-5E83A31A6F00"/>
+            </Geometries>
+          </SceneObject>
+          <Fixture name="Robin MegaPointe" uuid="57DF8884-1570-494E-BF48-F79E06069300">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{-524.846521,-422.203502,4348.757076}</Matrix>
+            <GDTFSpec>Robin MegaPointe.gdtf</GDTFSpec>
+            <GDTFMode>Mode 1 - Standard 16 - bit</GDTFMode>
+            <Addresses>
+              <Address break="0">0</Address>
+              <Address break="1">0</Address>
+              <Address break="2">0</Address>
+              <Address break="3">0</Address>
+            </Addresses>
+            <FixtureID>0</FixtureID>
+            <UnitNumber>0</UnitNumber>
+            <FixtureTypeId>0</FixtureTypeId>
+            <CustomId>0</CustomId>
+            <Color>0.312712,0.329008,100.000000</Color>
+            <CastShadow>false</CastShadow>
+            <Mappings/>
+          </Fixture>
+          <Fixture name="Robin MegaPointe" uuid="ABFCD50C-DC26-462E-9C85-EE073F2E5A00">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{475.153479,-422.203502,4348.757076}</Matrix>
+            <GDTFSpec>Robin MegaPointe.gdtf</GDTFSpec>
+            <GDTFMode>Mode 1 - Standard 16 - bit</GDTFMode>
+            <Addresses>
+              <Address break="0">0</Address>
+              <Address break="1">0</Address>
+              <Address break="2">0</Address>
+              <Address break="3">0</Address>
+            </Addresses>
+            <FixtureID>0</FixtureID>
+            <UnitNumber>0</UnitNumber>
+            <FixtureTypeId>0</FixtureTypeId>
+            <CustomId>0</CustomId>
+            <Color>0.312712,0.329008,100.000000</Color>
+            <CastShadow>false</CastShadow>
+            <Mappings/>
+          </Fixture>
+          <Fixture name="Robin MegaPointe" uuid="BFF2BCA3-5EE6-4050-A315-14DEA1FC0200">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{1475.153479,-422.203502,4348.757076}</Matrix>
+            <GDTFSpec>Robin MegaPointe.gdtf</GDTFSpec>
+            <GDTFMode>Mode 1 - Standard 16 - bit</GDTFMode>
+            <Addresses>
+              <Address break="0">0</Address>
+              <Address break="1">0</Address>
+              <Address break="2">0</Address>
+              <Address break="3">0</Address>
+            </Addresses>
+            <FixtureID>0</FixtureID>
+            <UnitNumber>0</UnitNumber>
+            <FixtureTypeId>0</FixtureTypeId>
+            <CustomId>0</CustomId>
+            <Color>0.312712,0.329008,100.000000</Color>
+            <CastShadow>false</CastShadow>
+            <Mappings/>
+          </Fixture>
+          <Fixture name="Robin MegaPointe" uuid="17BBD271-4929-4092-9E4A-68151F121A00">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{2475.153479,-422.203502,4348.757076}</Matrix>
+            <GDTFSpec>Robin MegaPointe.gdtf</GDTFSpec>
+            <GDTFMode>Mode 1 - Standard 16 - bit</GDTFMode>
+            <Addresses>
+              <Address break="0">0</Address>
+              <Address break="1">0</Address>
+              <Address break="2">0</Address>
+              <Address break="3">0</Address>
+            </Addresses>
+            <FixtureID>0</FixtureID>
+            <UnitNumber>0</UnitNumber>
+            <FixtureTypeId>0</FixtureTypeId>
+            <CustomId>0</CustomId>
+            <Color>0.312712,0.329008,100.000000</Color>
+            <CastShadow>false</CastShadow>
+            <Mappings/>
+          </Fixture>
+          <SceneObject name="Hoist" uuid="0AAA5139-DB32-4A93-8AC7-3B390E259A00">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{2109.757452,-422.203502,4348.757076}</Matrix>
+            <Geometries>
+              <Symbol symdef="40CB6288-90CC-47A3-AAEF-96C05D4F1C00" uuid="EFDB1F3D-075F-4BC8-A512-CE555AF5F500"/>
+            </Geometries>
+          </SceneObject>
+          <SceneObject name="Hoist" uuid="728BE1FD-3377-4ED9-9D40-901892AB9C00">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{2.822749,-422.203502,4348.757076}</Matrix>
+            <Geometries>
+              <Symbol symdef="40CB6288-90CC-47A3-AAEF-96C05D4F1C00" uuid="B82F9E8E-C54A-4FC1-9503-C95C7E223200"/>
+            </Geometries>
+          </SceneObject>
+          <SceneObject name="Structural Model" uuid="D436B7E6-F853-4FEE-9E2E-8A84337D7E00"/>
+          <SceneObject name="Generator 32A CEE" uuid="0C8A0265-CD68-4FFB-9267-3D39B2671300">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{-1485.894538,-2707.456094,0.000000}</Matrix>
+            <Geometries>
+              <Symbol symdef="BA22DE34-0D9A-4B2D-9E00-503AA263D000" uuid="FE5D2C20-F14C-4D55-9454-E2CB7473CA00"/>
+            </Geometries>
+          </SceneObject>
+          <SceneObject name="32ACEE->6 Schuku" uuid="DCF6988A-3ED3-4C16-B497-D43925F07200">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{-1491.584555,-1560.858781,0.000000}</Matrix>
+            <Geometries>
+              <Symbol symdef="7587C5C2-68D1-46E3-B807-7AB280AF0900" uuid="A07CF884-75EC-4CEC-A755-6BCA5146AF00"/>
+            </Geometries>
+          </SceneObject>
+          <SceneObject name="Calculation Result" uuid="696A73D0-9495-4F86-99B6-31A8FD010000"/>
+        </ChildList>
+      </Layer>
+    </Layers>
+    <AUXData>
+      <Class name="None" uuid="00000000-0000-0000-0000-000002000000"/>
+      <Class name="BRB-_chords" uuid="0FDD4714-16F1-4922-A4BE-15B6AA376FAD"/>
+      <Class name="BRB-_trusspattern" uuid="44209452-BFDB-48F6-84EE-03FE3BFCE520"/>
+      <Symdef name="Truss Prolyte H30V-300" uuid="9E6C97CB-4252-45A0-A5A5-8F859A0C2A9C">
+        <ChildList>
+          <Geometry3D fileName=".3ds"/>
+        </ChildList>
+      </Symdef>
+      <Symdef name="Generator 32A CEE" uuid="BA22DE34-0D9A-4B2D-9E00-503AA263D000">
+        <ChildList>
+          <Geometry3D fileName="Geometry4.3ds">
+            <Matrix>{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{7.287318,12.115416,0.000000}</Matrix>
+          </Geometry3D>
+        </ChildList>
+      </Symdef>
+      <Symdef name="32ACEE->6 Schuku" uuid="7587C5C2-68D1-46E3-B807-7AB280AF0900">
+        <ChildList>
+          <Geometry3D fileName="Geometry2.3ds"/>
+        </ChildList>
+      </Symdef>
+      <Symdef name="Hoist" uuid="40CB6288-90CC-47A3-AAEF-96C05D4F1C00">
+        <ChildList/>
+      </Symdef>
+    </AUXData>
+  </Scene>
+
+</GeneralSceneDescription>
