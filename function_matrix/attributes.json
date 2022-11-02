@@ -205,7 +205,7 @@
         }
       ],
       "definition": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
-      "explanation": "",
+      "explanation": "Use this attribute to control selection and spin speed of gobos, with continuous rotation in gobo wheel, within the same channel function. When there is more than one gobo wheel a wild card (numerical identifier (n)) will be automatically added to indicate which wheel is being controlled.",
       "visual": ""
     },
     {
@@ -232,7 +232,7 @@
         }
       ],
       "definition": "Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.",
-      "explanation": "",
+      "explanation": "Use this attribute to control selection and shake speed of gobos, with gobo shake effect in gobo wheel, within the same channel function",
       "visual": ""
     },
     {
