@@ -788,7 +788,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "Percent",
       "definition": "Adjusts playback speed of media content.",
-      "explanation": "",
+      "explanation": "Use this attribute to control the speed of media content playback",
       "visual": ""
     },
     {
@@ -796,7 +796,7 @@
       "_prettyName": "Color FX(n)",
       "_feature": "Color.Color",
       "definition": "Selects predefined color effects built into the fixture.",
-      "explanation": "",
+      "explanation": "Use this attribute to control selecting predefined color effects built into the fixture",
       "visual": ""
     },
     {
