@@ -648,7 +648,7 @@ Node name: `Projector`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | *Not Optional*              | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                              |
@@ -735,8 +735,8 @@ Node name: `Source`
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                            |
 | -------------- | -------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| linkedGeometry | [String](user-content-attrtype-string) | *Not Optional*              | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| type           | [Enum](#attrType-Enum)                 | *Not Optional*              | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice |
+| linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice |
 
 <table>
 <thead>
