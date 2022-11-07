@@ -499,9 +499,9 @@ Node name: `Connection`
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| own      | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.  |
-| other    | [String](#user-content-attrtype-node)           | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
-| toObject | [UUID](#user-content-attrtype-uuid)           | Mandatory.                  | UUID of an other object in the scene. |
+| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.  |
+| other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene. |
 
 ### Node Definition: Mappings
 
@@ -605,20 +605,20 @@ Node name: `VideoScreen`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
-| Child Node                                | Allowed Count | Value Type | Description                                                                 |
-| ----------------------------------------- | ------------- | ---------- | --------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
-| [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
-| [Sources](#node-definition-sources)       | 0 or 1        |            | A list of video input sources..                                             |
-| Function                                  | 0 or 1             | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                                       |
-| GDTFSpec                                | 0 or 1              | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
-| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
-| [Addresses](#node-definition-addresses) | 0 or 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
-| [Alignments](#node-definition-alignments) | 0 or 1           |                                              | The container for Alignments for this object.                                                                                             |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1   |                                              | The container for custom command for this object.                                                                                             |
-| [Overwrites](#node-definition-overwrites) | 0 or 1           |                                              | The container for overwrites for this object.                                                                                             |
-| [Connections](#node-definition-connections) | 0 or 1           |                                             | The container for connections for this object.                                                                                             |
+| Child Node                                        | Allowed Count | Value Type                                   | Description                                                                              |
+| ------------------------------------------------- | ------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)                 | 0 or 1        |                                              | The location of the object inside the parent coordinate system.                          |
+| [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                                         |
+| [Geometries](#node-definition-geometries)         | 1             |                                              | A list of geometrical representation objects that are a part of the object.              |
+| [Sources](#node-definition-sources)               | 0 or 1        |                                              | A list of video input sources..                                                          |
+| Function                                          | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the function this VideoScreen is used for.                                   |
+| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                    |
+| GDTFMode                                          | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. |
+| [Addresses](#node-definition-addresses)           | 0 or 1        |                                              | The container for DMX Addresses for this object.                                         |
+| [Alignments](#node-definition-alignments)         | 0 or 1        |                                              | The container for Alignments for this object.                                            |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this object.                                        |
+| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                            |
+| [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                           |
 
 An example of a node definition is shown below:
 
@@ -733,31 +733,10 @@ This node defines a Source.
 
 Node name: `Source`
 
-<table>
-<thead>
-<tr class="header">
-<th><p>Attribute Name</p></th>
-<th><p>Attribute Value Type</p></th>
-<th><p>Default Value when Optional</p></th>
-<th><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>linkedGeometry</p></td>
-<td><p><a href="#user-content-attrtype-string" title="wikilink"> String</a></p></td>
-<td><p><em><Not Optional></em></p></td>
-<td><p>For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value.</p>
-<p><code> For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".</code></p></td>
-</tr>
-<tr class="even">
-<td><p>type</p></td>
-<td><p><a href="#attrType-Enum" title="wikilink"> Enum</a></p></td>
-<td><p><em><Not Optional></em></p></td>
-<td><p>Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice</p></td>
-</tr>
-</tbody>
-</table>
+| Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                            |
+| -------------- | -------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| linkedGeometry | [String](user-content-attrtype-string) | *Not Optional*              | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#attrType-Enum)                 | *Not Optional*              | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice |
 
 <table>
 <thead>
