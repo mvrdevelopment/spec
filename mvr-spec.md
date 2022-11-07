@@ -407,7 +407,7 @@ Node name: `Address`
 
 | Value Type                                                                          | Default Value When Missing | Description                                                    |
 | ----------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------- |
-| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional               | This is the DMX address. <br/>`Integer Format:` <br/>`Absolute DMX address;` <br/><br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to  512.`*`Universe.Address`* |
+| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional               | This is the DMX address. <br/><br/>`Integer Format:` <br/>`Absolute DMX address;` <br/><br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to  512.`*`Universe.Address`* |
 
 ### Node Definition: Alignments
 
