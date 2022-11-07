@@ -577,21 +577,21 @@ Node name: `Support`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
-| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
-| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
-| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this support belongs to if this reference exists.   |
-| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
-| Function                                  | 0 or 1             | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                                       |
-| ChainLength                               | 1             | [Real](#user-content-attrtype-real)      | The chain length that will be applied to the GDTF .                                                       |
-| GDTFSpec                                | 0 or 1              | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
-| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
-| [Addresses](#node-definition-addresses) | 0 or 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
-| [Alignments](#node-definition-alignments) | 0 or 1           |                                              | The container for Alignments for this object.                                                                                             |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1   |                                              | The container for custom command for this object.                                                                                             |
-| [Overwrites](#node-definition-overwrites) | 0 or 1           |                                              | The container for overwrites for this object.                                                                                             |
-| [Connections](#node-definition-connections) | 0 or 1           |                                             | The container for connections for this object.                                                                                             |
+| Child Node                                        | Allowed Count | Value Type                                   | Description                                                                              |
+| ------------------------------------------------- | ------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)                 | 0 or 1        |                                              | The location of the object inside the parent coordinate system.                          |
+| [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                                         |
+| [Position](#node-definition-position)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this support belongs to if this reference exists.              |
+| [Geometries](#node-definition-geometries)         | 1             |                                              | A list of geometrical representation objects that are a part of the object.              |
+| Function                                          | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                       |
+| ChainLength                                       | 1             | [Real](#user-content-attrtype-real)          | The chain length that will be applied to the GDTF .                                      |
+| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                    |
+| GDTFMode                                          | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. |
+| [Addresses](#node-definition-addresses)           | 0 or 1        |                                              | The container for DMX Addresses for this object.                                         |
+| [Alignments](#node-definition-alignments)         | 0 or 1        |                                              | The container for Alignments for this object.                                            |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this object.                                        |
+| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                            |
+| [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                           |
 
 
 ## Node Definition: VideoScreen
