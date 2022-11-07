@@ -648,7 +648,7 @@ Node name: `Projector`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | *Not Optional*              | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                              |
