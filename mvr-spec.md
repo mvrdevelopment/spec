@@ -626,7 +626,7 @@ Node name: `VideoScreen`
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                | Allowed Count | Value Type | Description                                                                 |
-| ----------------------------------------- | ------------- |            |---------------------------------------------------------------------------- |
+| ----------------------------------------- | ------------- | ---------- | --------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location of the object inside the parent coordinate system.             |
 | [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                   |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are a part of the object. |
@@ -686,6 +686,7 @@ Node name: `Projector`
 | [Connections](#node-definition-connections) | 0 or 1           |                                             | The container for connections for this object.                                                                                             |
 
 An example of a node definition is shown below:
+
 ```xml
 <Projector name="Projector" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
     <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
