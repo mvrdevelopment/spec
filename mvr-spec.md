@@ -738,24 +738,9 @@ Node name: `Source`
 | linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
 | type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice |
 
-<table>
-<thead>
-<tr class="header">
-<th><p>Value Type</p></th>
-<th><p>Default Value When Missing</p></th>
-<th><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>String</p></td>
-<td><p><em><Not Optional></em></p></td>
-<td><p>When NDI/CITP -&gt; Stream Name</p>
-<p><code> When File -&gt; Filename in MVR file</code><br />
-<code> When CaptureDevice -&gt; CaptureDevice Name</code></p></td>
-</tr>
-</tbody>
-</table>
+| Value Type                              | Default Value When Missing | Description                                                                                                                     |
+| --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [String](#user-content-attrtype-string) | Not Optional               | When NDI/CITP -&gt; Stream Name<br /><br />`When File -> Filename in MVR file` <br />`When CaptureDevice -> CaptureDevice Name` |
 
 ### Node Definition: ScaleHandeling
 
