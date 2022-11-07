@@ -187,7 +187,7 @@ This node defines a logical grouping across different layers. Primarily used for
 Node name: `Class`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
-| -------------- | ----------------------------------- | --------------------------- | ------------------------------------|
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
 | name           | [name](#attrType-Name)              |                             | The name of the Class.              |
 
@@ -264,7 +264,7 @@ Node name: `GroupObject`
 | Child Node                              | Allowed Count | Value Type | Description                                                     |
 | --------------------------------------- | ------------- |            | --------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system. |
-| [[Classing](#node-definition-classing)                          | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.       |
+| [Classing](#node-definition-classing)   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.       |
 | [ChildList](#node-definition-childlist) | 1             |            | A list of graphic objects that are part of the group.           |
 
 ## Node Definition: FocusPoint
@@ -279,7 +279,7 @@ Node name: `FocusPoint`
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                                | Allowed Count | Value Type | Description                                                               |
-| ----------------------------------------- | ------------- |------------|------------------------------------------------------------------------- |
+| ----------------------------------------- | ------------- | ---------- | ------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)         | 0 or 1        |            | The location and orientation of the object inside the parent coordinate system.           |
 | [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                 |
 | [Geometries](#node-definition-geometries) | 1             |            | A list of geometrical representation objects that are part of the object. |
@@ -298,20 +298,20 @@ Node name: `Fixture`
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        |                                              | The location of the object inside the parent coordinate system. |
-| [Classing](#node-definition-classing)                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                |
-| GDTFSpec                                | 0 or 1              | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
+| [Classing](#node-definition-classing)   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | The Class the object belongs to.                                |
+| GDTFSpec                                | 0 or 1        | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this light fixture.                                                                  |
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
-| Function                                | 0 or 1             | [String](#user-content-attrtype-string)      | The name of the function this Fixture is used for.                                                       |
+| Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the function this Fixture is used for.                                                       |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID of the lighting fixture. This is the short name of the fixture.                                                                |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The unit number of the lighting fixture in a position.                                                                                        |
-| [Addresses](#node-definition-addresses) | 0 or 1             |                                              | The container for DMX Addresses for this fixture.                                                                                             |
-| [Alignments](#node-definition-alignments) | 0 or 1           |                                              | The container for Alignments for this fixture.                                                                                             |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1   |                                              | The container for custom command for this fixture.                                                                                             |
-| [Overwrites](#node-definition-overwrites) | 0 or 1           |                                              | The container for overwrites for this fixture.                                                                                             |
-| [Connections](#node-definition-connections) | 0 or 1           |                                             | The container for connections for this fixture.                                                                                             |
+| [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
+| [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                             |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                             |
+| [Overwrites](#node-definition-overwrites) | 0 or 1        |                                              | The container for overwrites for this fixture.                                                                                             |
+| [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
@@ -405,29 +405,9 @@ Node name: `Address`
 | -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
 | break          | [Integer](#user-content-attrtype-integer) | 0                           | This is the break ident for this address. This value has to be unique for one fixture. |
 
-
-
-<table>
-<thead>
-<tr class="header">
-<th><p>Value Type</p></th>
-<th><p>Default Value When Missing</p></th>
-<th><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><a href="#user-content-attrtype-integer" title="wikilink"> Integer</a> or<a href="#user-content-attrtype-string" title="wikilink"> String</a></p></td>
-<td><p><Not Optional></p></td>
-<td><p>This is the DMX address.</p>
-<p><code>Integer Format:</code><br />
-<code>Absolute DMX address;</code></p>
-<p><code>String format: </code><br />
-<code>Universe - integer universe number, starting with 1; Address - address within universe from 1 to  512. </code><em><code>Universe.Address</code></em></p></td>
-</tr>
-</tbody>
-</table>
-
+| Value Type                                                                          | Default Value When Missing | Description                                                    |
+| ----------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------- |
+| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional               | This is the DMX address. <br/>`Integer Format:` <br/>`Absolute DMX address;` <br/><br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to  512.`*`Universe.Address`* |
 
 ### Node Definition: Alignments
 
