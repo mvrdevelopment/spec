@@ -205,7 +205,7 @@
         }
       ],
       "definition": "Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
-      "explanation": "Use this attribute to control selection and spin speed of gobos, with continuous rotation in gobo wheel, within the same channel function. When there is more than one gobo wheel a wild card (numerical identifier (n)) will be automatically added to indicate which wheel is being controlled.",
+      "explanation": "Use this attribute to control selection and spin speed of gobos, with continuous rotation in gobo wheel, within the same channel function. When there is more than one gobo wheel a wild card (numerical identifier (n)) will be automatically added to indicate which wheel is being controlled. When using this Gobo(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -232,7 +232,7 @@
         }
       ],
       "definition": "Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.",
-      "explanation": "Use this attribute to control selection and shake speed of gobos, with gobo shake effect in gobo wheel, within the same channel function",
+      "explanation": "Use this attribute to control selection and shake speed of gobos, with gobo shake effect in gobo wheel, within the same channel function When using this Gobo(n)SelectShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -242,7 +242,7 @@
       "_MainAttribute": "Gobo(n)",
       "_ActivationGroup": "Gobo(n)",
       "definition": "Selects gobos which run effects in gobo wheel (n).",
-      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a gobo wheel. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a gobo wheel. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)SelectEffects as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectEffects as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -262,7 +262,7 @@
         }
       ],
       "definition": "Controls angle of indexed rotation of gobo wheel (n).",
-      "explanation": "Use this attribute to define indexed rotation angle of the gobo wheel for the gobos on the wheel",
+      "explanation": "Use this attribute to define indexed rotation angle of the gobo wheel for the gobos on the wheel When using this Gobo(n)WheelIndex as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelIndex as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -282,7 +282,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of gobo wheel (n).",
-      "explanation": "Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -309,7 +309,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobo wheel (n).",
-      "explanation": "For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -329,7 +329,7 @@
         }
       ],
       "definition": "Controls speed of gobo wheel´s (n) random gobo slot selection.",
-      "explanation": "Use this attribute to set the frequency of a random gobo selection. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "Use this attribute to set the frequency of a random gobo selection. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -348,7 +348,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of gobo wheel (n).",
-      "explanation": "Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelAudio as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -369,7 +369,7 @@
       "_MainAttribute": "Gobo(n)Pos",
       "_ActivationGroup": "Gobo(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).",
-      "explanation": "This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n)Pos. In case that Gobo(n)Pos already exists in the same geometry, you can use the Gobo(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -389,7 +389,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of gobos in gobo wheel (n).",
-      "explanation": "This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n)Pos. In case that Gobo(n)Pos already exists in the same geometry, you can use the Gobo(n)PosShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -426,7 +426,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of animation wheel (n).",
-      "explanation": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n).",
+      "explanation": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n). When using this AnimationWheel(n)Audio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Audio as the Logical Channel attribute.",
       "visual": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n)."
     },
     {
@@ -436,7 +436,7 @@
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
       "definition": "Selects predefined effects in animation wheel (n).",
-      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the AnimationWheel(n).",
+      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the AnimationWheel(n). When using this AnimationWheel(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Macro as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -456,7 +456,7 @@
         }
       ],
       "definition": "Controls frequency of animation wheel (n) random slot selection.",
-      "explanation": "Use this attribute to describe random effects of the Animation wheel prepared by the manufacturer of the fixture.",
+      "explanation": "Use this attribute to describe random effects of the Animation wheel prepared by the manufacturer of the fixture. When using this AnimationWheel(n)Random as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Random as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -466,7 +466,7 @@
       "_MainAttribute": "AnimationWheel(n)",
       "_ActivationGroup": "AnimationWheel(n)",
       "definition": "Selects slots which run effects in animation wheel (n).",
-      "explanation": "Use this attribute to describe some effects of the AnimationWheel(n) prepared by the manufacturer of the fixture.",
+      "explanation": "Use this attribute to describe some effects of the AnimationWheel(n) prepared by the manufacturer of the fixture. When using this AnimationWheel(n)SelectEffects as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectEffects as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -493,7 +493,7 @@
         }
       ],
       "definition": "Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function.",
-      "explanation": "When selecting a shake of an animation wheel slot and defining the frequency of the shake withing the same channel function, choose this attribute to describe the behavior.",
+      "explanation": "When selecting a shake of an animation wheel slot and defining the frequency of the shake withing the same channel function, choose this attribute to describe the behavior. When using this AnimationWheel(n)SelectShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -513,7 +513,7 @@
         }
       ],
       "definition": "Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function",
-      "explanation": "When selecting a rotation of an animation wheel slot and defining the angular speed of the rotation  withing the same channel function, choose this attribute to describe the behavior.",
+      "explanation": "When selecting a rotation of an animation wheel slot and defining the angular speed of the rotation  withing the same channel function, choose this attribute to describe the behavior. When using this AnimationWheel(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -534,7 +534,7 @@
       "_MainAttribute": "AnimationWheel(n)Pos",
       "_ActivationGroup": "AnimationWheel(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of slots in animation wheel (n).",
-      "explanation": "",
+      "explanation": "When using this AnimationWheel(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -554,7 +554,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of slots in animation wheel (n).",
-      "explanation": "",
+      "explanation": "When using this AnimationWheel(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -598,7 +598,7 @@
         }
       ],
       "definition": "Sets frequency of animation system (n) insertion ramp.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)Ramp as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Ramp as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -625,7 +625,7 @@
         }
       ],
       "definition": "Sets frequency of animation system (n) insertion shake.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)Shake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Shake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -636,7 +636,7 @@
       "_MainAttribute": "AnimationSystem(n)",
       "_ActivationGroup": "AnimationSystem(n)",
       "definition": "Controls audio-controlled functionality of animation system (n) insertion.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)Audio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Audio as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -647,7 +647,7 @@
       "_MainAttribute": "AnimationSystem(n)",
       "_ActivationGroup": "AnimationSystem(n)",
       "definition": "Controls frequency of animation system (n) random insertion.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)Random as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Random as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -668,7 +668,7 @@
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of animation system (n) disk.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -688,7 +688,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of animation system (n) disk.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -699,7 +699,7 @@
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
       "definition": "Controls random speed of animation system (n) disk.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)PosRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -710,7 +710,7 @@
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
       "definition": "Controls audio-controlled functionality of animation system (n) disk.",
-      "explanation": "",
+      "explanation": "When using this AnimationSystem(n)PosAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosAudio as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -834,7 +834,7 @@
         }
       ],
       "definition": "Controls angle of indexed rotation of color wheel (n)",
-      "explanation": "The color wheel index describes an agle of rotation of the color wheel to exactly reproduce any mixture/position of the color wheel itself. The wild card will identify which color wheel will be indexed.",
+      "explanation": "The color wheel index describes an agle of rotation of the color wheel to exactly reproduce any mixture/position of the color wheel itself. The wild card will identify which color wheel will be indexed. When using this Color(n)WheelIndex as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelIndex as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -854,7 +854,7 @@
         }
       ],
       "definition": "Controls the speed and direction of continuous rotation of color wheel (n).",
-      "explanation": "For special effects of a continuous rotating color wheel this attribute controls the direction of ration and the speed of rotation. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "For special effects of a continuous rotating color wheel this attribute controls the direction of ration and the speed of rotation. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -874,7 +874,7 @@
         }
       ],
       "definition": "Controls frequency of color wheel´s (n) random color slot selection.",
-      "explanation": "The device internal random color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "The device internal random color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -893,7 +893,7 @@
         }
       ],
       "definition": "Controls audio-controlled functionality of color wheel (n).",
-      "explanation": "The device internal audio-based color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
+      "explanation": "The device internal audio-based color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelAudio as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1474,7 +1474,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Strobe Mode.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Strobe Mode. When using this StrobeModeStrobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeStrobe as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1483,7 +1483,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Pulsing Strobe Mode.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a Pulsing Strobe Mode. When using this StrobeModePulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulse as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1492,7 +1492,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower opening and faster closing behavior.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower opening and faster closing behavior. When using this StrobeModePulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1501,7 +1501,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower closing and faster opening behavior.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower closing and faster opening behavior. When using this StrobeModePulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1510,7 +1510,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random strobing.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random strobing. When using this StrobeModeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1519,7 +1519,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random pulse based strobing.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random pulse based strobing. When using this StrobeModeRandomPulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulse as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1528,7 +1528,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower opening and faster closing behavior.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower opening and faster closing behavior. When using this StrobeModeRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1537,7 +1537,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower closing and faster opening behavior.",
+      "explanation": "Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower closing and faster opening behavior. When using this StrobeModeRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1546,7 +1546,7 @@
       "_feature": "Beam.Beam",
       "_MainAttribute": "StrobeModeShutter",
       "definition": "Strobe mode random shutter effect feature. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.",
-      "explanation": "",
+      "explanation": "When using this StrobeModeEffect as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeEffect as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1580,7 +1580,7 @@
         }
       ],
       "definition": "Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)Strobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)Strobe as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1606,7 +1606,7 @@
         }
       ],
       "definition": "Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobePulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulse as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1632,7 +1632,7 @@
         }
       ],
       "definition": "Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobePulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1658,7 +1658,7 @@
         }
       ],
       "definition": "Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobePulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1677,7 +1677,7 @@
         }
       ],
       "definition": "Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1687,7 +1687,7 @@
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
       "definition": "Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobeRandomPulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulse as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1697,7 +1697,7 @@
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
       "definition": "Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobeRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1707,7 +1707,7 @@
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
       "definition": "Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobeRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1717,7 +1717,7 @@
       "_physicalUnit": "Frequency",
       "_MainAttribute": "Shutter(n)",
       "definition": "Controls the frequency of the fixture´s mechanical or electronical shutter effect feature.",
-      "explanation": "",
+      "explanation": "When using this Shutter(n)StrobeEffect as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeEffect as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1758,7 +1758,7 @@
         }
       ],
       "definition": "Sets frequency of the iris's strobe feature.",
-      "explanation": "Strobing function created by fast movements of an iris is described with this attribute.",
+      "explanation": "Strobing function created by fast movements of an iris is described with this attribute. When using this IrisStrobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisStrobe as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1784,7 +1784,7 @@
         }
       ],
       "definition": "Sets frequency of the iris's random movement.",
-      "explanation": "Strobing in random intervals created by fast movements of an iris is described with this attribute.",
+      "explanation": "Strobing in random intervals created by fast movements of an iris is described with this attribute. When using this IrisStrobeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisStrobeRandom as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1817,7 +1817,7 @@
         }
       ],
       "definition": "Sets frequency of iris's closing pulse.",
-      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower closing and faster opening behavior.",
+      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower closing and faster opening behavior. When using this IrisPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisPulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1850,7 +1850,7 @@
         }
       ],
       "definition": "Sets frequency of iris's opening pulse.",
-      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower opening and faster closing behavior.",
+      "explanation": "A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower opening and faster closing behavior. When using this IrisPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisPulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1869,7 +1869,7 @@
         }
       ],
       "definition": "Sets frequency of iris's random closing pulse.",
-      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower opening and faster closing behavior.",
+      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower opening and faster closing behavior. When using this IrisRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisRandomPulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1888,7 +1888,7 @@
         }
       ],
       "definition": "Sets frequency of iris's random opening pulse.",
-      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower closing and faster opening behavior.",
+      "explanation": "A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower closing and faster opening behavior. When using this IrisRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisRandomPulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1922,7 +1922,7 @@
         }
       ],
       "definition": "Sets frequency of frost's opening pulse",
-      "explanation": "",
+      "explanation": "When using this Frost(n)PulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1948,7 +1948,7 @@
         }
       ],
       "definition": "Sets frequency of frost's closing pulse.",
-      "explanation": "",
+      "explanation": "When using this Frost(n)PulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1974,7 +1974,7 @@
         }
       ],
       "definition": "Sets frequency of frost's ramp.",
-      "explanation": "",
+      "explanation": "When using this Frost(n)Ramp as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)Ramp as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1994,7 +1994,7 @@
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
       "definition": "Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.",
-      "explanation": "",
+      "explanation": "When using this Prism(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)SelectSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2004,7 +2004,7 @@
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
       "definition": "Macro functions of prism wheel (n).",
-      "explanation": "",
+      "explanation": "When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2024,7 +2024,7 @@
       "_MainAttribute": "Prism(n)Pos",
       "_ActivationGroup": "Prism",
       "definition": "Controls the speed and direction of continuous rotation of prisms in prism wheel (n).",
-      "explanation": "",
+      "explanation": "When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2076,7 +2076,7 @@
       "_physicalUnit": "AngularSpeed",
       "_MainAttribute": "Effects(n)Pos",
       "definition": "Controls speed and direction of slot/effect in effect wheel (n).",
-      "explanation": "",
+      "explanation": "When using this Effects(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Effects(n)Pos. In case that Effects(n)Pos already exists in the same geometry, you can use the Effects(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
