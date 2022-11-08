@@ -2156,7 +2156,7 @@
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
       "definition": "Selects spot mode of zoom.",
-      "explanation": "",
+      "explanation": "On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a flat projection field definition.",
       "visual": ""
     },
     {
@@ -2165,7 +2165,7 @@
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
       "definition": "Selects beam mode of zoom.",
-      "explanation": "",
+      "explanation": "On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a beamy, hot-spoty type of projection.",
       "visual": ""
     },
     {
@@ -2174,7 +2174,7 @@
       "_feature": "Focus.Focus",
       "_physicalUnit": "Angle",
       "definition": "Controls the image size within the defined projection. Used on digital projection based devices",
-      "explanation": "",
+      "explanation": "Use this to describe a zoom of for example a digital projector, where the image changes size but the beam angle remains the same.",
       "visual": ""
     },
     {
@@ -2182,7 +2182,7 @@
       "_prettyName": "Focus(n)",
       "_feature": "Focus.Focus",
       "definition": "Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe the sharpening/focusing function of the device. Some may call it the Edge.",
       "visual": ""
     },
     {
@@ -2190,7 +2190,7 @@
       "_prettyName": "Focus(n) Adjust",
       "_feature": "Focus.Focus",
       "definition": "Autofocuses functionality using presets.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function which sets some parameters or behaviors that make the optical system of the device to automatically keep the projection focused.",
       "visual": ""
     },
     {
@@ -2199,7 +2199,7 @@
       "_feature": "Focus.Focus",
       "_physicalUnit": "Length",
       "definition": "Autofocuses functionality using distance.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function which sets a distance at which the optical system of the device will automatically keep the projection focused.",
       "visual": ""
     },
     {
