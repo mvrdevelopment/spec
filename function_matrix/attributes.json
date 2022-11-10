@@ -2888,7 +2888,7 @@
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
       "definition": "1 of 2 shutters that shape the top/right/bottom/left of the beam.",
-      "explanation": "Use this attribute to describe framing shutters or barndoors of the device. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the beam.",
+      "explanation": "Use this attribute to describe framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
@@ -2897,7 +2897,7 @@
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
       "definition": "2 of 2 shutters that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe framing shutters or barndoors of the device in which the framing shutter in controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
@@ -2942,7 +2942,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
-      "explanation": "Use this attribute to describe a soft edge framing shutters or barndoors of the device. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the beam.",
+      "explanation": "Use this attribute to describe soft edge framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
@@ -2951,7 +2951,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "2 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe soft edge framing shutters or barndoors of the device in which the framing shutter in controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
