@@ -2871,7 +2871,7 @@
       "_prettyName": "Lamp Power Mode",
       "_feature": "Control.Control",
       "definition": "Controls the energy consumption of the lamp.",
-      "explanation": "",
+      "explanation": "For devices that allow to set different lamp modes (Low Power mode, Eco mode...), use this attribute to describe this function.",
       "visual": ""
     },
     {
@@ -2879,7 +2879,7 @@
       "_prettyName": "Fans",
       "_feature": "Control.Control",
       "definition": "Controls a fixture or device fan.",
-      "explanation": "",
+      "explanation": "For devices that allow to set a fan speed, use this attribute to describe this function.",
       "visual": ""
     },
     {
@@ -2888,7 +2888,7 @@
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
       "definition": "1 of 2 shutters that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe framing shutters or barndoors of the device. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the beam.",
       "visual": ""
     },
     {
@@ -2907,7 +2907,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Shaper",
       "definition": "Rotates position of blade(n).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe rotation of the blades of framing shutters or barndoors. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right).",
       "visual": ""
     },
     {
@@ -2917,7 +2917,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "Shaper",
       "definition": "Rotates position of blade assembly.",
-      "explanation": "",
+      "explanation": "This attribute allows you to describe a function which rotates the complete carousel of framing shutters or barndors.",
       "visual": ""
     },
     {
@@ -2942,7 +2942,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a soft edge framing shutters or barndoors of the device. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the beam.",
       "visual": ""
     },
     {
