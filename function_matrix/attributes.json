@@ -407,7 +407,7 @@
         }
       ],
       "definition": "This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
-      "explanation": "",
+      "explanation": "Use this attribute to select one of the possible animators on an animation wheel for fixtures that provide animation selection on one channel and animation rotation/indexing on another channel(s). The actual animator selection way - continuous or steps (when continuous, you can freely index the animation wheel) is defined via physical properties of channel sets of this attribute. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -523,7 +523,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "AnimationWheel(n)Pos",
       "definition": "Controls angle of indexed rotation of slots in animation wheel. This is the main attribute of animation wheel (n) wheel slot control.",
-      "explanation": "",
+      "explanation": "This attribute allows to set indexed position (angle) of a animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -534,7 +534,7 @@
       "_MainAttribute": "AnimationWheel(n)Pos",
       "_ActivationGroup": "AnimationWheel(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of slots in animation wheel (n).",
-      "explanation": "When using this AnimationWheel(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosRotate as the Logical Channel attribute.",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of an animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationWheel(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -554,7 +554,7 @@
         }
       ],
       "definition": "Controls frequency of the shake of slots in animation wheel (n).",
-      "explanation": "When using this AnimationWheel(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosShake as the Logical Channel attribute.",
+      "explanation": "This attribute allows to set frequency of shaking of an animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationWheel(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosShake as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -564,7 +564,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "AnimationSystem(n)",
       "definition": "This is the main attribute of the animation system insertion control. Controls the insertion of the fixture's animation system in the light output. Is used for animation effects where a disk is inserted into the light output.",
-      "explanation": "",
+      "explanation": "Use this attribute to select or engage an animation wheel for fixtures that provide animation selection on one channel and animation rotation/indexing on another channel(s). The actual animator selection way - continuous or steps (when continuous, you can freely index the animation wheel) is defined via physical properties of channel sets of this attribute. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -657,7 +657,7 @@
       "_physicalUnit": "Angle",
       "_ActivationGroup": "AnimationSystem(n)Pos",
       "definition": "This is the main attribute of the animation system spinning control. Controls angle of indexed rotation of animation system (n) disk.",
-      "explanation": "",
+      "explanation": "This attribute allows to set indexed position (angle) of a animation wheel and is typically used together with AnimationSystem(n) attribute which selects/engages the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -668,7 +668,7 @@
       "_MainAttribute": "AnimationSystem(n)Pos",
       "_ActivationGroup": "AnimationSystem(n)Pos",
       "definition": "Controls the speed and direction of continuous rotation of animation system (n) disk.",
-      "explanation": "When using this AnimationSystem(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRotate as the Logical Channel attribute.",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of an animation wheel and is typically used together with AnimationSystem(n) attribute which selects/engages the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationSystem(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -761,7 +761,7 @@
       "_prettyName": "Playmode",
       "_feature": "Gobo.Media",
       "definition": "",
-      "explanation": "",
+      "explanation": "For devices that allow to set a mode of media playback, for example play and loop, play and stop..., use  this attribute to describe this behavior.",
       "visual": ""
     },
     {
@@ -770,7 +770,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "Time",
       "definition": "Defines starting point of media content playback.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set the starting time of media content playback.",
       "visual": ""
     },
     {
@@ -779,7 +779,7 @@
       "_feature": "Gobo.Media",
       "_physicalUnit": "Time",
       "definition": "Defines end point of media content playback.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set the end time of media content playback.",
       "visual": ""
     },
     {
@@ -1151,7 +1151,7 @@
       "_prettyName": "Color Macro(n) Rate",
       "_feature": "Color.RGB",
       "definition": "Controls the time between Color Macro steps.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function which is setting the time or speed of the Color Macro steps.",
       "visual": ""
     },
     {
@@ -1226,7 +1226,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorHSB",
       "definition": "Controls the fixture's color attribute regarding the quality.",
-      "explanation": "",
+      "explanation": "For devices that allow to adjust quality of HSB colors, use this attribute to describe this feature.",
       "visual": ""
     },
     {
@@ -1235,7 +1235,7 @@
       "_feature": "Color.CIE",
       "_ActivationGroup": "ColorCIE",
       "definition": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity x.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a feature that sets the x parameter of chromaticity of CIE 1931 based color definition.",
       "visual": ""
     },
     {
@@ -1244,7 +1244,7 @@
       "_feature": "Color.CIE",
       "_ActivationGroup": "ColorCIE",
       "definition": "Controls the fixture's CIE 1931 color attribute regarding the chromaticity y.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a feature that sets the y parameter of chromaticity of CIE 1931 based color definition.",
       "visual": ""
     },
     {
@@ -1254,7 +1254,7 @@
       "_physicalUnit": "Percent",
       "_ActivationGroup": "ColorCIE",
       "definition": "Controls the fixture's CIE 1931 color attribute regarding the brightness (Y).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a feature that sets the brightness of chromaticity of CIE 1931 based color definition.",
       "visual": ""
     },
     {
@@ -1327,7 +1327,7 @@
       "_physicalUnit": "None",
       "_Color": "0.64,0.33,21.3",
       "definition": "Adjusts color boost red of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to raise up intensity of red color in the media content.",
       "visual": ""
     },
     {
@@ -1337,7 +1337,7 @@
       "_physicalUnit": "None",
       "_Color": "0.3,0.6,71.5",
       "definition": "Adjusts color boost green of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to raise up intensity of green color in the media content.",
       "visual": ""
     },
     {
@@ -1347,7 +1347,7 @@
       "_physicalUnit": "None",
       "_Color": "0.15,0.06,7.2",
       "definition": "Adjusts color boost blue of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to raise up intensity of green color in the media content.",
       "visual": ""
     },
     {
@@ -1356,7 +1356,7 @@
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Angle",
       "definition": "Adjusts color hue shift of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set color hue shift of media content.",
       "visual": ""
     },
     {
@@ -1365,7 +1365,7 @@
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
       "definition": "Adjusts saturation of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set saturation of media content.",
       "visual": ""
     },
     {
@@ -1374,7 +1374,7 @@
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
       "definition": "Adjusts brightness of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set brightness of media content.",
       "visual": ""
     },
     {
@@ -1383,7 +1383,7 @@
       "_feature": "Color.HSBC_Shift",
       "_physicalUnit": "Percent",
       "definition": "Adjusts contrast of content.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to set contrast of media content.",
       "visual": ""
     },
     {
@@ -1393,7 +1393,7 @@
       "_physicalUnit": "None",
       "_Color": "0.64,0.33,21.3",
       "definition": "Adjusts red color for color keying.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that provides media content color keying by red color.",
       "visual": ""
     },
     {
@@ -1403,7 +1403,7 @@
       "_physicalUnit": "None",
       "_Color": "0.3,0.6,71.5",
       "definition": "Adjusts green color for color keying.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that provides media content color keying by green color.",
       "visual": ""
     },
     {
@@ -1413,7 +1413,7 @@
       "_physicalUnit": "None",
       "_Color": "0.15,0.06,7.2",
       "definition": "",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that provides media content color keying by blue color.",
       "visual": ""
     },
     {
@@ -1422,7 +1422,7 @@
       "_feature": "Color.ColorKey",
       "_physicalUnit": "Percent",
       "definition": "Adjusts intensity of color keying.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that adjusts the intensity of color keying.",
       "visual": ""
     },
     {
@@ -1431,7 +1431,7 @@
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
       "definition": "Adjusts tolerance of color keying.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that adjusts the tolerance value of color keying.",
       "visual": ""
     },
     {
@@ -1896,7 +1896,7 @@
       "_prettyName": "Frost(n)",
       "_feature": "Beam.Beam",
       "definition": "The ability to soften the fixture's spot light with a frosted lens.",
-      "explanation": "",
+      "explanation": "For devices that allow to control insertion of frost lens or flag into the beam, to soften it, use this attribute to describe this function.",
       "visual": ""
     },
     {
@@ -1922,7 +1922,7 @@
         }
       ],
       "definition": "Sets frequency of frost's opening pulse",
-      "explanation": "When using this Frost(n)PulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseOpen as the Logical Channel attribute.",
+      "explanation": "Use this attribute do describe a function that allows to set to frost into a mode where the frost pulses with slower opening and faster closing behavior. When using this Frost(n)PulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseOpen as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1948,7 +1948,7 @@
         }
       ],
       "definition": "Sets frequency of frost's closing pulse.",
-      "explanation": "When using this Frost(n)PulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseClose as the Logical Channel attribute.",
+      "explanation": "Use this attribute do describe a function that allows to set to frost into a mode where the frost pulses with slower closing and faster opening behavior. When using this Frost(n)PulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseClose as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -1983,7 +1983,7 @@
       "_feature": "Beam.Beam",
       "_ActivationGroup": "Prism",
       "definition": "The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.",
-      "explanation": "",
+      "explanation": "Use this attribute to select a prism in a prism wheel for fixtures that provide prism selection on one channel and prism rotation/indexing on another channel(s). If there is more than one prism wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -1994,7 +1994,7 @@
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
       "definition": "Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.",
-      "explanation": "When using this Prism(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)SelectSpin as the Logical Channel attribute.",
+      "explanation": "Selects prism whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)SelectSpin as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2004,7 +2004,7 @@
       "_MainAttribute": "Prism(n)",
       "_ActivationGroup": "Prism",
       "definition": "Macro functions of prism wheel (n).",
-      "explanation": "When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute.",
+      "explanation": "Use this attribute for manufacturer defined fixture specific effects on a prisms. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2013,7 +2013,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "AngularSpeed",
       "definition": "Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.",
-      "explanation": "",
+      "explanation": "This attribute allows to set indexed position (angle) of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.",
       "visual": ""
     },
     {
@@ -2024,7 +2024,7 @@
       "_MainAttribute": "Prism(n)Pos",
       "_ActivationGroup": "Prism",
       "definition": "Controls the speed and direction of continuous rotation of prisms in prism wheel (n).",
-      "explanation": "When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute.",
+      "explanation": "This attribute allows to set speed and direction of continuous rotation of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute.",
       "visual": ""
     },
     {
@@ -2032,7 +2032,7 @@
       "_prettyName": "FX(n)",
       "_feature": "Beam.Beam",
       "definition": "Generically predefined macros and effects of a fixture.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe some effects and macros that are not possible to describe with some specific attribute.",
       "visual": ""
     },
     {
@@ -2041,7 +2041,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Frequency",
       "definition": "Frequency of running effects.",
-      "explanation": "",
+      "explanation": "Use this attribute to set frequency of some unspecified, generic effects.",
       "visual": ""
     },
     {
@@ -2049,7 +2049,7 @@
       "_prettyName": "FX(n) Fade",
       "_feature": "Beam.Beam",
       "definition": "Snapping or smooth look of running effects.",
-      "explanation": "",
+      "explanation": "Use this attribute to set fade of some unspecified, generic effects.",
       "visual": ""
     },
     {
@@ -2057,7 +2057,7 @@
       "_prettyName": "FX(n) Adjust(m)",
       "_feature": "Beam.Beam",
       "definition": "Controls parameter (m) of effect (n)",
-      "explanation": "",
+      "explanation": "Use this to set some parameter of some generic effect.",
       "visual": ""
     },
     {
@@ -2066,7 +2066,7 @@
       "_feature": "Beam.Beam",
       "_physicalUnit": "Angle",
       "definition": "Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control.",
-      "explanation": "",
+      "explanation": "Use this to set angle parameter of some generic effect.",
       "visual": ""
     },
     {
@@ -2084,7 +2084,7 @@
       "_prettyName": "FX Sync",
       "_feature": "Beam.Beam",
       "definition": "Sets offset between running effects and effects 2.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe offsets between some generic effects.",
       "visual": ""
     },
     {
@@ -2109,7 +2109,7 @@
         }
       ],
       "definition": "Activates fixture's beam shaper.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe beam shaper function of the device.",
       "visual": ""
     },
     {
@@ -2118,7 +2118,7 @@
       "_feature": "Beam.Beam",
       "_ActivationGroup": "BeamShaper",
       "definition": "Predefined presets for fixture's beam shaper positions.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe predefined macros of the beam shaper function of the device.",
       "visual": ""
     },
     {
@@ -2128,7 +2128,7 @@
       "_ActivationGroup": "BeamShaper",
       "_physicalUnit": "Angle",
       "definition": "Indexing of fixture's beam shaper.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe indexing of the beam shaper function of the device.",
       "visual": ""
     },
     {
@@ -2138,7 +2138,7 @@
       "_ActivationGroup": "BeamShaper",
       "_physicalUnit": "AngularSpeed",
       "definition": "Continuous rotation of fixture's beam shaper.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe spinning/rotation of the beam shaper function of the device.",
       "visual": ""
     },
     {
@@ -2288,7 +2288,7 @@
       "_prettyName": "Pos Modes",
       "_feature": "Control.Control",
       "definition": "Selects the fixture's position mode.",
-      "explanation": "",
+      "explanation": "For devices that allow different modes of behavior of their positioning system, use this attribute to describe the behavior.",
       "visual": ""
     },
     {
@@ -2296,7 +2296,7 @@
       "_prettyName": "G(n) Mode",
       "_feature": "Control.Control",
       "definition": "Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute describes selecting, indexing, and rotating of gobos in a gobo wheel (n).",
       "visual": ""
     },
     {
@@ -2304,7 +2304,7 @@
       "_prettyName": "Gobo Shortcut Mode",
       "_feature": "Control.Control",
       "definition": "Defines whether the gobo wheel takes the shortest distance between two positions.",
-      "explanation": "",
+      "explanation": "This attribute describes whether the gobo wheel takes the shortest distance between two positions.",
       "visual": ""
     },
     {
@@ -2312,7 +2312,7 @@
       "_prettyName": "Anim Mode",
       "_feature": "Control.Control",
       "definition": "Changes control between selecting, indexing, and rotating the slots of animation wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute describes selecting, indexing, and rotating of slots in an animation wheel (n).",
       "visual": ""
     },
     {
@@ -2320,7 +2320,7 @@
       "_prettyName": "Anim Shortcut Mode",
       "_feature": "Control.Control",
       "definition": "Defines whether the animation wheel takes the shortest distance between two positions.",
-      "explanation": "",
+      "explanation": "This attribute describes whether the animation wheel takes the shortest distance between two positions.",
       "visual": ""
     },
     {
@@ -2328,7 +2328,7 @@
       "_prettyName": "C(n) Mode",
       "_feature": "Control.Control",
       "definition": "Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).",
-      "explanation": "",
+      "explanation": "This attribute describes between selecting, continuous selection, half selection, random selection, color spinning, etc. of colors in a color wheel (n).",
       "visual": ""
     },
     {
@@ -2336,7 +2336,7 @@
       "_prettyName": "Color Wheel Shortcut Mode",
       "_feature": "Control.Control",
       "definition": "Defines whether the color wheel takes the shortest distance between two colors.",
-      "explanation": "",
+      "explanation": "This attribute describes whether the color wheel takes the shortest distance between two colors.",
       "visual": ""
     },
     {
@@ -2344,23 +2344,23 @@
       "_prettyName": "Cyan Mode",
       "_feature": "Control.Control",
       "definition": "Controls how Cyan is used within the fixture's cyan CMY-mixing feature.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe the mode of operation of the Cyan.",
       "visual": ""
     },
     {
       "_name": "MagentaMode",
       "_prettyName": "Magenta Mode",
       "_feature": "Control.Control",
-      "definition": "Controls how Cyan is used within the fixture's magenta CMY-mixing.",
-      "explanation": "",
+      "definition": "Controls how Magenta is used within the fixture's magenta CMY-mixing.",
+      "explanation": "Use this attribute to describe the mode of operation of the Magenta.",
       "visual": ""
     },
     {
       "_name": "YellowMode",
       "_prettyName": "Yellow Mode",
       "_feature": "Control.Control",
-      "definition": "Controls how Cyan is used within the fixture's yellow CMY-mixing feature.",
-      "explanation": "",
+      "definition": "Controls how Yellow is used within the fixture's yellow CMY-mixing feature.",
+      "explanation": "Use this attribute to describe the mode of operation of the Yellow.",
       "visual": ""
     },
     {
@@ -2368,7 +2368,7 @@
       "_prettyName": "Color Mix Mode",
       "_feature": "Control.Control",
       "definition": "Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.",
-      "explanation": "",
+      "explanation": "For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. ",
       "visual": ""
     },
     {
@@ -2376,7 +2376,7 @@
       "_prettyName": "Chroma Mode",
       "_feature": "Control.Control",
       "definition": "Selects chromatic behavior of the device.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that defines if CCT related channels (CTC, CTO, CTB...) influence only white colors or whether CCT is applied also to mixed colors.",
       "visual": ""
     },
     {
@@ -2384,7 +2384,7 @@
       "_prettyName": "CCalib Mode",
       "_feature": "Control.Control",
       "definition": "Sets calibration mode (for example on/off).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a feature that enable or disable color calibrations of the device.",
       "visual": ""
     },
     {
@@ -2392,7 +2392,7 @@
       "_prettyName": "Color consistency",
       "_feature": "Control.Control",
       "definition": "Controls consistent behavior of color.",
-      "explanation": "",
+      "explanation": "Some devices allow to eliminate inconsistencies of color mixing output due to intensity drop caused by thermal management. In devices that allow to enable/disable internal color consistency setting, use this attribute to describe a such function.",
       "visual": ""
     },
     {
@@ -2400,7 +2400,7 @@
       "_prettyName": "Color Ctrl",
       "_feature": "Control.Control",
       "definition": "Controls special color related functions.",
-      "explanation": "",
+      "explanation": "Use this to describe some color related control functions of the device.",
       "visual": ""
     },
     {
@@ -2472,7 +2472,7 @@
       "_prettyName": "Strobe Mode",
       "_feature": "Control.Control",
       "definition": "Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe strobe, pulse, random strobe and other modes of the shutter attribute.",
       "visual": ""
     },
     {
@@ -2480,7 +2480,7 @@
       "_prettyName": "Zoom Mode",
       "_feature": "Control.Control",
       "definition": "Changes modes of the fixture´s zoom.",
-      "explanation": "",
+      "explanation": "Use this to describe the possibility to set different zoom modes, like beam mode or a spot mode.",
       "visual": ""
     },
     {
@@ -2488,7 +2488,7 @@
       "_prettyName": "Focus Mode",
       "_feature": "Control.Control",
       "definition": "Changes modes of the fixture’s focus - manual or auto- focus.",
-      "explanation": "",
+      "explanation": "Use this to describe a function that allows to change the mode of the focus.",
       "visual": ""
     },
     {
@@ -2496,7 +2496,7 @@
       "_prettyName": "Iris Mode",
       "_feature": "Control.Control",
       "definition": "Changes modes of the fixture’s iris - linear, strobe, pulse.",
-      "explanation": "",
+      "explanation": "Use this to describe a function that allows to change the mode of the iris.",
       "visual": ""
     },
     {
@@ -2520,7 +2520,7 @@
       "_prettyName": "Beam Effect Index Rotate Mode",
       "_feature": "Control.Control",
       "definition": "Changes mode to control either index or rotation of the beam effects.",
-      "explanation": "",
+      "explanation": "Use this to describe a function that allows to change the mode of operation of beam effects.",
       "visual": ""
     },
     {
@@ -2839,7 +2839,7 @@
       "_prettyName": "Blower(n)",
       "_feature": "Control.Control",
       "definition": "Fog or hazer‘s blower feature.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a blower function.",
       "visual": ""
     },
     {
@@ -2847,7 +2847,7 @@
       "_prettyName": "Fan(n)",
       "_feature": "Control.Control",
       "definition": "Fog or hazer's Fan feature.",
-      "explanation": "",
+      "explanation": "Use this to describe a function that controls a fan of a device.",
       "visual": ""
     },
     {
@@ -2855,7 +2855,7 @@
       "_prettyName": "Fog(n)",
       "_feature": "Control.Control",
       "definition": "Fog or hazer's Fog feature.",
-      "explanation": "",
+      "explanation": "A function that controls fog/haze function of a fog machine.",
       "visual": ""
     },
     {
@@ -2863,7 +2863,7 @@
       "_prettyName": "Haze(n)",
       "_feature": "Control.Control",
       "definition": "Fog or hazer's Haze feature.",
-      "explanation": "",
+      "explanation": "A function that controls fog/haze function of a haze machine.",
       "visual": ""
     },
     {
@@ -3019,7 +3019,7 @@
       "_feature": "Video.Video",
       "_physicalUnit": "None",
       "definition": "Defines media input source e.g. a camera input.",
-      "explanation": "",
+      "explanation": "This attribute allows to set a video input source.",
       "visual": ""
     },
     {
@@ -3028,7 +3028,7 @@
       "_feature": "Video.Video",
       "_physicalUnit": "None",
       "definition": "Defines mode of video blending.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe a function that allows to choose a mode of blending of a video output.",
       "visual": ""
     },
     {
@@ -3037,7 +3037,7 @@
       "_feature": "Video.Video",
       "_physicalUnit": "Percent",
       "definition": "Adjusts sound volume.",
-      "explanation": "",
+      "explanation": "Describes the audio volume function of a device.",
       "visual": ""
     }
   ]
