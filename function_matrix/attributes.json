@@ -719,7 +719,7 @@
       "_feature": "Gobo.Gobo",
       "_physicalUnit": "None",
       "definition": "Selects predefined effects in animation system (n).",
-      "explanation": "",
+      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the AnimationSystem(n)",
       "visual": ""
     },
     {
@@ -2888,7 +2888,7 @@
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
       "definition": "1 of 2 shutters that shape the top/right/bottom/left of the beam.",
-      "explanation": "Use this attribute to describe framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
+      "explanation": "Use this attribute to describe framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. Eventual rotation of this edge is controlled by Blade(n)Rot attribute. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter, thus together these attributes are controlling the insertion and rotation at the same time. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
@@ -2897,7 +2897,7 @@
       "_feature": "Shapers.Shapers",
       "_ActivationGroup": "Shaper",
       "definition": "2 of 2 shutters that shape the top/right/bottom/left of the beam.",
-      "explanation": "Use this attribute to describe framing shutters or barndoors of the device in which the framing shutter in controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
+      "explanation": "Use this attribute to describe framing shutters or barndoors of the device in which the framing shutter is controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter, thus together these attributes are controlling the insertion and rotation at the same time. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam.",
       "visual": ""
     },
     {
@@ -2925,7 +2925,7 @@
       "_prettyName": "Shaper Macros",
       "_feature": "Shapers.Shapers",
       "definition": "Predefined presets for shaper positions.",
-      "explanation": "",
+      "explanation": "This attribute allows for selecting a fixture's predefined macro functions for the Blades/Shapers.",
       "visual": ""
     },
     {
@@ -2933,7 +2933,7 @@
       "_prettyName": "Shaper Macros Speed",
       "_feature": "Shapers.Shapers",
       "definition": "Speed of predefined effects on shapers.",
-      "explanation": "",
+      "explanation": "Use this attribute to control the speed of effects of shapers",
       "visual": ""
     },
     {
@@ -2960,7 +2960,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "1 of 2 corners that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "This attribute describes a behavior typically used on video projection, to adjust parallax correction.",
       "visual": ""
     },
     {
@@ -2969,7 +2969,7 @@
       "_feature": "Shapers.Shapers",
       "_physicalUnit": "None",
       "definition": "2 of 2 corners that shape the top/right/bottom/left of the beam.",
-      "explanation": "",
+      "explanation": "This attribute describes a behavior typically used on video projection, to adjust parallax correction.",
       "visual": ""
     },
     {
@@ -2977,7 +2977,7 @@
       "_prettyName": "Video",
       "_feature": "Video.Video",
       "definition": "Controls video features.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe generic functions related to video controls.",
       "visual": ""
     },
     {
@@ -2985,7 +2985,7 @@
       "_prettyName": "Video Effect(n) Type",
       "_feature": "Video.Video",
       "definition": "Selects dedicated effects which are used for media.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe generic video effects.",
       "visual": ""
     },
     {
@@ -2993,7 +2993,7 @@
       "_prettyName": "Video Effect(n) Parameter(m)",
       "_feature": "Video.Video",
       "definition": "Controls parameter (m) of VideoEffect(n)Type.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe generic video effects parameters.",
       "visual": ""
     },
     {
@@ -3001,7 +3001,7 @@
       "_prettyName": "Video Camera(n)",
       "_feature": "Video.Video",
       "definition": "Selects the video camera(n).",
-      "explanation": "",
+      "explanation": "Use this attribute to describe features related to a video camera.",
       "visual": ""
     },
     {
@@ -3010,7 +3010,7 @@
       "_feature": "Video.Video",
       "_physicalUnit": "Angle",
       "definition": "Defines field of view.",
-      "explanation": "",
+      "explanation": "Use this attribute to describe features controlling field of view of video projection.",
       "visual": ""
     },
     {
