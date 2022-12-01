@@ -417,9 +417,9 @@ Node name: `Alignments`
 
 The child list contains a list of the following nodes:
 
-| Child Node                          | Description             |
-| ----------------------------------- | ----------------------- |
-| [Alignment](#node-definition-address) | Defines a custom alignment for a beam inside the linked GDTF.                       |
+| Child Node                            | Description                                                   |
+| ------------------------------------- | ------------------------------------------------------------- |
+| [Alignment](#node-definition-address) | Defines a custom alignment for a beam inside the linked GDTF. |
 
 #### Node Definition: Alignment
 
@@ -427,11 +427,11 @@ This node defines a alignment for an Beam Geometry inside the linked GDTF.
 
 Node name: `Address`
 
-| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
-| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| geometry       | [Node](#user-content-attrtype-node)| Beam Geometry of the first Beam in the kinematic chain of the GDTF.                           | Defines the Beam Geometry that gets aligned. |
-| up             | [String](#user-content-attrtype-Vector)| 0,0,1                            | Defines the up vector of the direction. |
-| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                           | Defines the direction vector of the lamp. |
+| Attribute Name | Attribute Value Type                   | Default Value               | Description                                                                          |
+| -------------- | -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
+| geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
+| up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
+| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
 
 ### Node Definition: CustomCommands
 
@@ -441,8 +441,8 @@ Node name: `CustomCommands`
 
 The child list contains a list of the following nodes:
 
-| Child Node                          | Description             |
-| ----------------------------------- | ----------------------- |
+| Child Node                                      | Description                                                                  |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- |
 | [CustomCommand](#node-definition-customcommand) | Contains a list with custom commands that should be executed on the fixture  |
 
 #### Node Definition: CustomCommand
@@ -464,8 +464,8 @@ Node name: `Overwrites`
 
 The child list contains a list of the following nodes:
 
-| Child Node                          | Description             |
-| ----------------------------------- | ----------------------- |
+| Child Node                              | Description                                                       |
+| --------------------------------------- | ----------------------------------------------------------------- |
 | [Overwrite](#node-definition-Overwrite) | Contains a list with overwrites for gobos, filters and emitters.  |
 
 #### Node Definition: Overwrite
@@ -474,10 +474,10 @@ This node defines a overwrite with Universal Fixture inside the MVR to overwrite
 
 Node name: `Overwrite`
 
-| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
-| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| universal      | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF. |
-| target         | [String](#user-content-attrtype-node)     | Empty String                  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
+| Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                                                             |
+| -------------- | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
+| target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
 
 ### Node Definition: Connections
 
@@ -487,9 +487,9 @@ Node name: `Connections`
 
 The child list contains a list of the following nodes:
 
-| Child Node                          | Description             |
-| ----------------------------------- | ----------------------- |
-| [Connection](#node-definition-Overwrite) | Contains an definition of an object to object connection.  |
+| Child Node                               | Description                                               |
+| ---------------------------------------- | --------------------------------------------------------- |
+| [Connection](#node-definition-Overwrite) | Contains an definition of an object to object connection. |
 
 #### Node Definition: Connection
 
@@ -497,11 +497,11 @@ This nodes defines an connection of two scene object. The connection can be an e
 
 Node name: `Connection`
 
-| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                            |
-| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.  |
+| Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                                                                                                                                                                                     |
+| -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
 | other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with [Type Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
-| toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene. |
+| toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
 
 ### Node Definition: Mappings
 
@@ -550,20 +550,20 @@ Node name: `Truss`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
-| Child Node                                | Allowed Count | Value Type                          | Description                                                                 |
-| ----------------------------------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location of the object inside the parent coordinate system.             |
-| [Classing](#node-definition-classing)                                  | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                            |
-| [Position](#node-definition-position)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | A position reference that this truss belongs to if this reference exists.   |
-| [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are a part of the object. |
-| Function                                  | 0 or 1             | [String](#user-content-attrtype-string)      | The name of the function this Truss is used for.                                                       |
-| GDTFSpec                                | 0 or 1              | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object.                                                                  |
-| GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
-| [Addresses](#node-definition-addresses) | 0 or 1             |                                              | The container for DMX Addresses for this object.                                                                                             |
-| [Alignments](#node-definition-alignments) | 0 or 1           |                                              | The container for Alignments for this object.                                                                                             |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1   |                                              | The container for custom command for this object.                                                                                             |
-| [Overwrites](#node-definition-overwrites) | 0 or 1           |                                              | The container for overwrites for this object.                                                                                             |
-| [Connections](#node-definition-connections) | 0 or 1           |                                             | The container for connections for this object.                                                                                             |
+| Child Node                                        | Allowed Count | Value Type                                  | Description                                                                              |
+| ------------------------------------------------- | ------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)                 | 0 or 1        |                                             | The location of the object inside the parent coordinate system.                          |
+| [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)         | The Class the object belongs to.                                                         |
+| [Position](#node-definition-position)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)         | A position reference that this truss belongs to if this reference exists.                |
+| [Geometries](#node-definition-geometries)         | 1             |                                             | A list of geometrical representation objects that are a part of the object.              |
+| Function                                          | 0 or 1        | [String](#user-content-attrtype-string)     | The name of the function this Truss is used for.                                         |
+| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename) | The name of the file containing the GDTF information for this object.                    |
+| GDTFMode                                          | 1             | [String](#user-content-attrtype-string)     | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. |
+| [Addresses](#node-definition-addresses)           | 0 or 1        |                                             | The container for DMX Addresses for this object.                                         |
+| [Alignments](#node-definition-alignments)         | 0 or 1        |                                             | The container for Alignments for this object.                                            |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                        |
+| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                            |
+| [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                           |
 
 
 ## Node Definition: Support
@@ -733,10 +733,10 @@ This node defines a Source.
 
 Node name: `Source`
 
-| Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                            |
-| -------------- | -------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
+| -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice |
+| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
 
 | Value Type                              | Default Value When Missing | Description                                                                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -779,8 +779,8 @@ Node name: `Symbol`
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
 | symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
 
-| Child Node                        | Allowed Count | Description                                                                                                                                                               |
-| --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Child Node                        | Allowed Count | Description                                                                                                                                                                      |
+| --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location. orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ## Node Definition: Geometry3D
@@ -793,16 +793,16 @@ Node name: `Geometry3D`
 | -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | fileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
-| Child Node                        | Allowed Count | Description                                                                                                                                                               |
-| --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Child Node                        | Allowed Count | Description                                                                                                                                                                      |
+| --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix) | 0 or 1        | The transformation matrix that defines the location, orientation and scale of the geometry inside the local coordinate space of the container. Considered identity when missing. |
 
 ### Supported 3D file formats
 
-| Format Name                                                                     | File Extensions | Requirements                        | Notes |
-| ------------------------------------------------------------------------------- | --------------  | ----------------------------------- | ----- |
-| 3DS                            | 3ds             | 1 Unit = 1 mm                       | [Deprecated Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)  |
-| gltf 2.0 | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html)|
+| Format Name | File Extensions | Requirements                        | Notes                                                                                                                        |
+| ----------- | --------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 3DS         | 3ds             | 1 Unit = 1 mm                       | [Deprecated Discreet 3DS](https://en.wikipedia.org/wiki/.3ds)                                                                |
+| gltf 2.0    | gltf, glb       | `extensionsRequired` shall be empty | GLB packaging is recommended [ISO/IEC 12113 Khronos glTF 2.0](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html) |
 
 All referenced files (eg texture images, binary blobs) shall be present in the archive.
 
@@ -818,27 +818,9 @@ This node contains a definition of a transformation matrix.
 
 Node name: `Matrix`
 
-<table>
-<thead>
-<tr class="header">
-<th><p>Value Type</p></th>
-<th><p>Default Value When Missing</p></th>
-<th><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>{float,float,float}{float,float,float}{float,float,float}</p></td>
-<td><p>{1,0,0}{0,1,0}{0,0,1}{0,0,0}</p></td>
-<td><p>This node contains the array for a 4x3 transform matrix.</p>
-<p><code>The order is</code><br />
-<code>u1,u2,u3</code><br />
-<code>v1,v2,v3</code><br />
-<code>w1,w2,w3</code><br />
-<code>o1,o2,o3</code></p></td>
-</tr>
-</tbody>
-</table>
+| Value Type                                                | Default Value When Missing   | Description                                                                                                                                   |
+| --------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| {float,float,float}{float,float,float}{float,float,float} | {1,0,0}{0,1,0}{0,0,1}{0,0,0} | This node contains the array for a 4x3 transform matrix.<br \>The order is:<br \>`u1,u2,u3`<br \> `v1,v2,v3`<br \> `w1,w2,w3`<br \>`o1,o2,o3` |
 
 ## Node Definition: ChildList
 
@@ -862,15 +844,15 @@ The child list contains a list of one of the following nodes:
 
 Here is a list of the available types for node or attribute values:
 
-| Value Type Name                               | Description                                                                                                                                                                                       |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6` |
-| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2` |
-| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
-| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` |
-| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0` |
+| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
+| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
+| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
+| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                                                                                                                                                                                                                                                                  |
+| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
 | <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
-| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`|
+| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                                                                                                                                     |
 
 # Revision History
 
