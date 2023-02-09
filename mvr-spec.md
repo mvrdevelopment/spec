@@ -19,12 +19,12 @@ Typical workflow
     objects.
 
 
-## Scope
+# Scope
 
 This document specifies "My Virtual Rig" (MVR), which is designed to provide a unified way of listing and describing the hierarchical and logical structure based on DIN SPEC 15800 "General Device Type Format" (GDTF) - and further environmental information of a show setup in the lighting and entertainment business. It will be used as a foundation for the exchange of extended device and environmental data between lighting consoles, CAD and 3D-pre-visualization applications. The purpose of an MVR-file is to reflect the real-world physical components of a show setup and the logical patch information of the devices.
 
 
-## Normative references
+# Normative references
 
 The following documents are referred to in the text in such a way that
 some or all of their content constitutes requirements of this document.
@@ -37,7 +37,7 @@ amendments) applies.
 - [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 
 
-## Terms and definitions
+# Terms and definitions
 
 For the purposes of this document, the following terms and definitions
 apply. DIN and DKE maintain terminological databases for use in
@@ -53,7 +53,7 @@ standardization at the following addresses:
 descriptive name of the specification
 
 
-## File Format Definition
+# File Format Definition
 
 To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall containe one Root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. 
 
@@ -83,22 +83,35 @@ Textr12.png
 Universal.gdtt
 ```
 
+# Node Definiftions
+
 ## Root File Definition
 
-The name of the file is specified as follows: 
-`GeneralSceneDescription.xml`
+### General
 
-This file is required inside the archive to be a valid MVR file.
+UTF-8 has to be used to encode the XML file. Each XML file internally
+consists of XML nodes. Each XML node could have XML attributes and XML
+children. Each XML attribute has a value. If a XML attribute is not
+specified, the default value of this XML attribute will be used. If the
+XML attribute value is specified as a string, the format of the string
+will depend on the XML attribute type. 
 
-The root file is an XML file with root node named:
-`GeneralSceneDescription`
+The root file name is defined as `GeneralSceneDescription.xml`.
 
-##### Table 1 — *XML Attribute Value Types*
+This file is mandatory inside the archive to be a valid MVR file.
 
-| Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                         |
+The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
+
+The second XML node is the mandatory GeneralSceneDescription node. The attributes of this node are listed in Table 1. 
+
+##### Table 1 — *Root File Node Attributes*
+
+| Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                  |
 | -------------- | ----------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the major version of the format used when saving this file. |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the minor version of the format used when saving this file. |
+
+##### Table 2 — *Root File Node Children*
 
 | Child Node | Allowed Count | Description                                    |
 | ---------- | ------------- | ---------------------------------------------- |
@@ -116,21 +129,21 @@ provider applications if required.
 
 Node name: `UserData`
 
-##### Table 2 — *UserData Node Attributes*
+##### Table 3 — *UserData Node Attributes*
 
 | Child Node                    | Allowed Count | Description                   |
 | ----------------------------- | ------------- | ----------------------------- |
 | [Data](#node-definition-data) | 0 or many     | Defines a block of user data. |
 
 
-## Node Definition: Data
+### Node Definition: Data
 
 This node contains a collection of data specified by the provider
 application.
 
 Node name: `Data`
 
-##### Table 3 — *Data Node Attributes*
+##### Table 4 — *Data Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                                               |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------------------------------------------- |
@@ -144,7 +157,7 @@ This node contains information about the scene.
 
 Node name: `Scene`
 
-##### Table 4 — *Scene Node Attributes*
+##### Table 5 — *Scene Node Children*
 
 | Child Node                          | Allowed Count | Description                           |
 | ----------------------------------- | ------------- | ------------------------------------- |
@@ -168,7 +181,7 @@ Node name: `AUXData`
 | [Class](#node-definition-class)                         | 0 or any      | Defines a Class for object visiblity filtering.                |
 
 
-## Node Definition: Symdef
+### Node Definition: Symdef
 
 This node contains the graphics so the scene can refer to this, thus
 optimizing repetition of the geometry. The child objects are located
@@ -191,7 +204,7 @@ The child list contains a list of the following nodes:
 | [Symbol](#node-definition-symbol)         | The symbol instance that will provide a geometry of this definition. |
 
 
-## Node Definition: Position
+### Node Definition: Position
 
 This node defines a logical grouping of lighting devices and trusses.
 
@@ -205,7 +218,7 @@ Node name: `Position`
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
-## Node Definition: MappingDefinition
+### Node Definition: MappingDefinition
 
 This node specified a input source for fixture color mapping
 applications.
@@ -237,7 +250,7 @@ Node name: `MappingDefinition`
 ```
 
 
-## Node Definition: Class
+### Node Definition: Class
 
 This node defines a logical grouping across different layers. Primarily used for controlling object visibility of objects across multiple Layers.
 
