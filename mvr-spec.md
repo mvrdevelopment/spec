@@ -1027,6 +1027,7 @@ The child list contains a list of one of the following nodes:
 | [Support](#node-definition-support)         | A definition of a support.                                                   |
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
+| [Projector](#node-definition-projector) | A definition of a projector.                                              |
 
 # Generic Value Types
 
