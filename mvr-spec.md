@@ -231,7 +231,7 @@ Node name: `MappingDefinition`
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                             |
 | -------------- | ----------------------------------- | --------------------------- | --------------------------------------- |
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
-| name           | [name](#attrType-Name)              |                             | The name of the source for the mapping. |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
 
 | Child Node                                        | Allowed Count | Description                                         |
 | ------------------------------------------------- | ------------- | --------------------------------------------------- |
@@ -262,7 +262,7 @@ Node name: `Class`
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
-| name           | [name](#attrType-Name)              |                             | The name of the Class.              |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
 
 
 ## Node Definition: Layers
