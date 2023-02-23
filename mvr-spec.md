@@ -66,9 +66,14 @@ To describe all information within one file, a zip file with the extension `*.mv
 - Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 - The file name of the ZIP archive can be chosen freely.
 
-All objects used have a persistent unique ID to track changes between
-the exchanging programs.
-It is mandatory to preserve the original files for later export. Only the local changes will be placed into the MVR file while all other files will be included as imported. 
+All objects used have a persistent unique ID to track changes between the exchanging programs.
+If there are no changes to the original GDTF file it is mandatory to replace it back into MVR during export.
+If there are changes to the GDTF it is mandatory to add a revision to the GDTF in order to reflect it.
+
+Only the local changes will be placed into the MVR file while all other files will be included as imported.
+
+Only user-intended modifications of any part of the MVR file shall be processed.
+
 This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guranteed that all later steps in the workflow have access to the original intented data.
 
 
