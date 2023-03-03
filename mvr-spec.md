@@ -54,6 +54,14 @@ standardization at the following addresses:
 descriptive name of the specification
 
 
+# MVR Definitions
+
+## General
+
+MVR exists of two parts to enable any applications to exchange GDTF but also general information in the same common format. Therefore, a MVR file format is defined.
+To simplify the exchange of MVR File formats a MVR communication format will be defined.
+
+
 # File Format Definition
 
 To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall containe one Root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. 
@@ -305,7 +313,6 @@ Node name: `Layer`
 | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have a vertical Transform (elevation). Rotation and scale must be identity. Rotation and scale must be identity, means no rotation and no scale. |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
-
 
 
 ## Node Definition for Parametric Objects
@@ -973,29 +980,6 @@ All referenced files (eg texture images, binary blobs) shall be present in the a
 All file references (URIs etc) shall be relative to the root of the archive. Absolute URIs and file paths are not permitted.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Node Definition: Matrix
 
 This node contains a definition of a transformation matrix.
@@ -1034,7 +1018,12 @@ The child list contains a list of one of the following nodes:
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 | [Projector](#node-definition-projector) | A definition of a projector.                                              |
 
+
+
+
 # Generic Value Types
+
+**Question: Should this be at top??**
 
 Here is a list of the available types for node or attribute values:
 
@@ -1049,6 +1038,36 @@ Here is a list of the available types for node or attribute values:
 | <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
 | <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
 | <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
+
+
+
+
+# Communication Format Definition
+
+MVR communication will be organised as Multicast traffic in UDP packets. A client needs to actively join the MVR Multicast group at address 236.9.9.9 (example) over the port xxxx.
+The communication will be based on different types of MVR packets. The protocol defines the maximum size of 1500 bytes for a single UDP packet.
+
+## MVR_INFO packet
+These packets will update all members about the status of the application. It will transmitt the application name, type and status as well as basic information about the MVR file to allow error handling if similarities occur but the basic files are different.
+
+
+## MVR_DATA pacekt
+These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
+
+
+## MVR_REQUEST packet
+This specific packet requests a full MVR file. 
+
+
+## Communication
+Once a new member joins successfully the MVR multicast group, the new member is requested to send a MVR_INFO packet to inform all other members. Within 1s all other memebers reply to this message with their own MVR_INFO packet. Every application writes a list of the active members and the MVR file and only replies to new members MVR_INFO packets.
+
+If there are changes available from one or multiple members of the multicast group they will send MVR_DATA packets to distribute these adjustments to all other members. If there are any data colissions they need to be resolved locally within every application.
+
+tbc...
+
+
+
 
 
 
