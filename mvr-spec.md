@@ -1044,25 +1044,28 @@ Here is a list of the available types for node or attribute values:
 
 # Communication Format Definition
 
-MVR communication will be organised as Multicast traffic in UDP packets. A client needs to actively join the MVR Multicast group at address 236.9.9.9 (example) over the port xxxx.
-The communication will be based on different types of MVR packets. The protocol defines the maximum size of 1500 bytes for a single UDP packet.
+MVR communication shall support the direct exchange of adjusted information. The process remains the same as offline editing and then exporting an MVR file. With every export of MVR the information shall be either stored into an MVR file as specified or be updated live in the local network. Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at once.
+    
+## Discovery
+Discovery of availble MVR communication devices shall be performed by mDNS...
 
 ## MVR_INFO packet
 These packets will update all members about the status of the application. It will transmitt the application name, type and status as well as basic information about the MVR file to allow error handling if similarities occur but the basic files are different.
 
-
 ## MVR_DATA pacekt
 These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
 
-
+## MVR_COMMIT packet
+This packet initiates the update of the current MVR file by one station/device. Automatically all other devices are muted till the update is done and performed by the application.
+    
 ## MVR_REQUEST packet
 This specific packet requests a full MVR file. 
 
 
 ## Communication
-Once a new member joins successfully the MVR multicast group, the new member is requested to send a MVR_INFO packet to inform all other members. Within 1s all other memebers reply to this message with their own MVR_INFO packet. Every application writes a list of the active members and the MVR file and only replies to new members MVR_INFO packets.
+Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device an cash a list of active devices and their MVR status/information. Only if the basic information (tbd) are matching the stations will be included in the MVR update process.
+All other possible stations will not receive updated information.
 
-If there are changes available from one or multiple members of the multicast group they will send MVR_DATA packets to distribute these adjustments to all other members. If there are any data colissions they need to be resolved locally within every application.
 
 tbc...
 
