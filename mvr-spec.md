@@ -1053,7 +1053,7 @@ Discovery of availble MVR communication devices shall be performed by mDNS...
 These packets will update all members about the status of the application. It will transmitt the application name, type and status as well as basic information (tbd) about the MVR file to allow error handling if similarities occur but the basic files are different.
 It also can perform a leave request if the application is shutting down.
 
-## MVR_DATA pacekt
+## MVR_DATA packet
 These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
 
 ## MVR_COMMIT packet
@@ -1064,7 +1064,7 @@ This specific packet requests a full MVR file. (tbd)
 
 
 ## Communication
-Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device an cash a list of active devices and their MVR status/information. Only if the basic informations (tbd) are matching, the stations will be included in the MVR update process.
+Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device can cash a list of active devices and their MVR status/information. Only if the basic informations (tbd) are matching, the stations will be included in the MVR update process.
 All other possible stations will not receive updated information.
 Once a user performs a live export of the MVR file the device shall send a MVR_COMMIT packet to inform all participating devices about the following MVR update. Now all devices are muted till the MVR live export is finished. After the MVR_COMMIT packet the device will send the MVR update via the MVR_DATA packet(s). Every device will cash the changes and present the user with the information that newer MVR data is available. It is the task of each application to resolve the import process.
 It is suggested to present the user with a view of the diff. and a process to import the data accordingly to keep the local MVR file up to date.
