@@ -395,7 +395,7 @@ Node name: `Fixture`
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -406,9 +406,10 @@ Node name: `Fixture`
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
-| Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the function this Fixture is used for.                                                       |
-| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID of the lighting fixture. This is the short name of the fixture.                                                                |
-| UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The unit number of the lighting fixture in a position.                                                                                        |
+| Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture is used for.                                                       |
+| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the intance this fixture that you be used to activate / select them for programming.                                                            |
+| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)      | The Fixture ID is an identifier for the intance this fixture that you be used to activate / select them for programming.                                                            |
+| UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position.                                                                                        |
 | [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
 | [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                             |
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                             |
@@ -416,12 +417,24 @@ Node name: `Fixture`
 | [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
-| CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance this fixture within the Custom ID Type that you be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
 | Gobo                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image ressource must apply to the GDTF standard.                                                           |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
 GDTF file._
+
+CustomID Types
+- 1 Fixture
+- 2 Channel
+- 4 Houselights
+- 5 NonDim
+- 6 Media
+- 7 Fog
+- 8 Effect
+- 9 Pyro
+- 10 Marker
+
 
 An example of a node definition is shown below:
 
