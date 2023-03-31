@@ -64,25 +64,21 @@ To simplify the exchange of MVR File formats a MVR communication format will be 
 
 # File Format Definition
 
-To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall containe one Root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. 
+To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall containe one Root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. The root file `GeneralSceneDescription.xml` is mandatory inside the archive to be a valid MVR file.
 
 - The archive must not use encryption or password protection.
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
 - Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
 - Files may be placed into the archive in any order.
-- A `Universal.gdtt` GDTF template file with a `.gdtt` extension can be added as to define Gobos, Emitters and Filter for referencing.
+- A `Universal.gdtt` GDTF template file with a `.gdtt` extension can be added as to define Gobos, Emitters, Filter and such for referencing.
 - Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 - The file name of the ZIP archive can be chosen freely.
 
 All objects used have a persistent unique ID to track changes between the exchanging programs.
-If there are no changes to the original GDTF file it is mandatory to replace it back into MVR during export.
+If there are no changes to the original GDTF file it is mandatory to keep it in the MVR during export.
 If there are changes to the GDTF it is mandatory to add a revision to the GDTF in order to reflect it.
 
-Only the local changes will be placed into the MVR file while all other files will be included as imported.
-
-Only user-intended modifications of any part of the MVR file shall be processed.
-
-This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guranteed that all later steps in the workflow have access to the original intented data.
+Only user-intended modifications of any part of the MVR file shall be processed. This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guranteed that all later steps in the workflow have access to the original intented data.
 
 
 Example of a typical MVR archive:
@@ -99,9 +95,7 @@ Universal.gdtt
 
 # Node Definiftions
 
-## Root File Definition
-
-### General
+## General
 
 UTF-8 has to be used to encode the XML file. Each XML file internally
 consists of XML nodes. Each XML node could have XML attributes and XML
@@ -110,9 +104,24 @@ specified, the default value of this XML attribute will be used. If the
 XML attribute value is specified as a string, the format of the string
 will depend on the XML attribute type. 
 
-The root file name is defined as `GeneralSceneDescription.xml`.
+## Generic Value Types
 
-This file is mandatory inside the archive to be a valid MVR file.
+Here is a list of the available types for node or attribute values:
+
+##### Table 43 — *XML Generic Value Types*
+
+| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
+| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
+| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
+| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                                                                                                                                                                                                                                                                  |
+| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
+| <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
+| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
+
+
+## Root File Definition
 
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
@@ -313,6 +322,28 @@ Node name: `Layer`
 | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have a vertical Transform (elevation). Rotation and scale must be identity. Rotation and scale must be identity, means no rotation and no scale. |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+## Node Definition: ChildList
+
+This node defines a list of graphical objects.
+
+Node name: `ChildList`
+
+The child list contains a list of one of the following nodes:
+
+##### Table 42 — *ChildList Node Childlist*
+
+| Child Node                                  | Description                                                                  |
+| ------------------------------------------- | ---------------------------------------------------------------------------- |
+| [SceneObject](#node-definition-sceneobject) | A generic graphical object from the scene.                                   |
+| [GroupObject](#node-definition-groupobject) | A grouping object of other graphical objects inside local coordinate system. |
+| [FocusPoint](#node-definition-focuspoint)   | A definition of a focus point.                                               |
+| [Fixture](#node-definition-fixture)         | A definition of a fixture.                                                   |
+| [Support](#node-definition-support)         | A definition of a support.                                                   |
+| [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
+| [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
+| [Projector](#node-definition-projector) | A definition of a projector.                                              |
+
+
 
 
 ## Node Definition for Parametric Objects
@@ -1010,54 +1041,10 @@ Node name: `Matrix`
 | {float,float,float}{float,float,float}{float,float,float} | {1,0,0}{0,1,0}{0,0,1}{0,0,0} | This node contains the array for a 4x3 transform matrix.<br \>The order is:<br \>`u1,u2,u3`<br \> `v1,v2,v3`<br \> `w1,w2,w3`<br \>`o1,o2,o3` |
 
 
-## Node Definition: ChildList
-
-This node defines a list of graphical objects.
-
-Node name: `ChildList`
-
-The child list contains a list of one of the following nodes:
-
-##### Table 42 — *ChildList Node Childlist*
-
-| Child Node                                  | Description                                                                  |
-| ------------------------------------------- | ---------------------------------------------------------------------------- |
-| [SceneObject](#node-definition-sceneobject) | A generic graphical object from the scene.                                   |
-| [GroupObject](#node-definition-groupobject) | A grouping object of other graphical objects inside local coordinate system. |
-| [FocusPoint](#node-definition-focuspoint)   | A definition of a focus point.                                               |
-| [Fixture](#node-definition-fixture)         | A definition of a fixture.                                                   |
-| [Support](#node-definition-support)         | A definition of a support.                                                   |
-| [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
-| [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
-| [Projector](#node-definition-projector) | A definition of a projector.                                              |
-
-
-
-
-# Generic Value Types
-
-**Question: Should this be at top??**
-
-Here is a list of the available types for node or attribute values:
-
-##### Table 43 — *XML Generic Value Types*
-
-| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-Integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
-| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
-| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
-| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                                                                                                                                                                                                                                                                  |
-| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
-| <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
-| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
-
-
-
 
 # Communication Format Definition
 
-MVR communication shall support the direct exchange of adjusted information. The process remains the same as offline editing and then exporting an MVR file. With every export of MVR the information shall be either stored into an MVR file as specified or be updated live in the local network. Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at once.
+MVR communication shall support the direct exchange of adjusted information. The process remains the same as offline editing and then exporting an MVR file. With every export of MVR the information shall be either stored into an MVR file as specified or be updated live in the local network. Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at once. In general conflicting data needs to be resolved by the users.
     
 ## Discovery
 Discovery of availble MVR communication devices shall be performed by mDNS...
