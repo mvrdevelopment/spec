@@ -76,7 +76,7 @@ To describe all information within one file, a zip file with the extension `*.mv
 
 All objects used have a persistent unique ID to track changes between the exchanging programs.
 If there are no changes to the original GDTF file it is mandatory to keep it in the MVR during export.
-If there are changes to the GDTF it is mandatory to add a revision to the GDTF in order to reflect it.
+If there are changes to the GDTF file it is mandatory to add a revision to the GDTF file in order to reflect it.
 
 Only user-intended modifications of any part of the MVR file shall be processed. This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guranteed that all later steps in the workflow have access to the original intented data.
 
@@ -148,7 +148,7 @@ Find a complete example of a file [here
 ## Node Definition: UserData
 
 This node contains a collection of user data nodes defined and used by
-provider applications if required.
+provider applications if required. User data should not be expected to be preserved in the workflow of mulitple applications importing/exporting the data.
 
 Node name: `UserData`
 
