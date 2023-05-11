@@ -36,7 +36,7 @@ amendments) applies.
 - [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 - [DIN SPEC 15800 (General Device Type Format (GDTF))](https://www.beuth.de/en/technical-rule/din-spec-15800/349717520)
 - [UTF-8 - RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629)
-- [UUID - RFC 4122](https://www.rfc-editor.org/rfc/rfc4122) Do we use these specification?
+- [UUID - RFC 4122](https://www.rfc-editor.org/rfc/rfc4122)
 - [DNS - RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
 - [DNS-SD - RFC 6763](https://www.ietf.org/rfc/rfc6763.txt)
 - [mDNS - RFC 6762](https://www.ietf.org/rfc/rfc6762.txt)
