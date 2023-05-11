@@ -520,6 +520,16 @@ An example of a node definition is shown below:
     <CustomId>0</CustomId>
     <Color>2.533316,-5.175210,3.699302</Color>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
+    <ChildList>
+      <Fixture name="Fancy Attachment to the Beam" uuid="8BF13DD7-CBF4-415B-99E4-625FE4D2DAF5">
+        <GDTFSpec>Fancy@Attachment</GDTFSpec>
+        <GDTFMode>DMX Mode</GDTFMode>
+        <!-->The parent GDTF here is the one from the Robe Robin MMX WashBeam</!-->
+        <ChildPosition>Base.Yoke.Head</ChildPosition>
+        <!-->The position is now defined based on the ECS from the geometry of parents GDTF including all applied Rotation via DMX or other protocols</!-->
+        <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
+      </Fixture>
+    </ChildList>
 </Fixture>
 ```
 
