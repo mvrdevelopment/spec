@@ -375,6 +375,7 @@ Node name: `SceneObject`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                        |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                            |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 
 ### Node Definition: GroupObject
@@ -454,6 +455,7 @@ Node name: `Fixture`
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance this fixture within the Custom ID Type that you be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
 | [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image ressource must apply to the GDTF standard.                                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
 GDTF file._
@@ -547,6 +549,7 @@ Node name: `Truss`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                        |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                            |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 
 ## Node Definition: Support
@@ -577,6 +580,7 @@ Node name: `Support`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this object.                                        |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                            |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 
 ## Node Definition: VideoScreen
@@ -606,6 +610,7 @@ Node name: `VideoScreen`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this object.                                        |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                            |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 An example of a node definition is shown below:
 
@@ -654,6 +659,7 @@ Node name: `Projector`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                        |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                            |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                           |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 An example of a node definition is shown below:
 
