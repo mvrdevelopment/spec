@@ -35,12 +35,12 @@ amendments) applies.
 - [PKWARE 6.3.3](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)
 - [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 - [DIN SPEC 15800 (General Device Type Format (GDTF))](https://www.beuth.de/en/technical-rule/din-spec-15800/349717520)
-- [UTF-8 - RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629)
-- [UUID - RFC 4122](https://www.rfc-editor.org/rfc/rfc4122)
-- [DNS - RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
-- [DNS-SD - RFC 6763](https://www.ietf.org/rfc/rfc6763.txt)
-- [mDNS - RFC 6762](https://www.ietf.org/rfc/rfc6762.txt)
-
+- [UTF-8 - RFC3629](https://datatracker.ietf.org/doc/html/rfc3629)
+- [UUID - RFC4122](https://www.rfc-editor.org/rfc/rfc4122)
+- [DNS - RFC1035](https://www.ietf.org/rfc/rfc1035.txt)
+- [DNS-SD - RFC6763](https://www.ietf.org/rfc/rfc6763.txt)
+- [mDNS - RFC6762](https://www.ietf.org/rfc/rfc6762.txt)
+- [Websocket Protocol - RFC6455](https://www.ietf.org/rfc/rfc6455.txt)
 
 # Terms and definitions
 
