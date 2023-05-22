@@ -1095,23 +1095,13 @@ Before starting a server, an application needs to check if there is already an s
 The one application that starts the Websockets server, is responsible for routing the packages to all the connected clients.
 
 ## MVR_JOIN packet
-These packets will update all members about the status of the application. It will transmit the application name, type and status as well as basic information (tbd) about the MVR file to allow error handling if similarities occur but the basic files are different.
-It also can perform a leave request if the application is shutting down.
 
-Example:
-```
-{
-  "Provider":"MVRApplication", 
-  "verMajor":"1", 
-  "verMinor":"6", 
-  "ControllerPriority":"Never", 
-  "StationName":"MVR Application from user A at location B"
-}
-```
+When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
+Only when the 
 
 
 
-##### Table 42 — *MVR_JOIN packet parameters*
+##### Table 42 — *MVR_JOIN message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1120,6 +1110,32 @@ Example:
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | ControllerPriority           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the priority that this device becomes the new Websocket Server when the active disapears from the network. The currently defined types are: Never, Low, High |
+| UUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
+
+Example:
+```
+Request:
+{
+  "Provider":"MVRApplication", 
+  "verMajor":"1", 
+  "verMinor":"6", 
+  "ControllerPriority":"Never", 
+  "StationName":"MVR Application from user A at location B"
+}
+Response:
+{
+  "Type": "MVR_JOIN",
+  "OK": "true",
+  "Message": ""
+}
+```
+##### Table 43 — *MVR_JOIN response parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is sucsessfull, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 ## MVR_DATA packet
 These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
