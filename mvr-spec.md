@@ -1137,11 +1137,23 @@ Response:
 | OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is sucsessfull, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
-## MVR_DATA packet
-These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
 
 ## MVR_COMMIT packet
 This packet initiates the update of the current MVR file by one station/device. Automatically all other devices are muted till the update is done and performed by the application(s).
+
+```
+Request:
+{
+  "verMajor":"1", 
+  "verMinor":"6", 
+}
+Response:
+{
+  "Type": "MVR_COMMIT",
+  "OK": "true",
+  "Message": ""
+}
+```
     
 ## MVR_REQUEST packet
 This specific packet requests a full MVR file. (tbd)
