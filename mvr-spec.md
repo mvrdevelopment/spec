@@ -1077,25 +1077,45 @@ Translation - Rotation
 # Communication Format Definition
 
 MVR communication shall support the direct or live exchange of adjusted information. The process remains the same as offline editing and then exporting an MVR file. With every export of MVR the information shall be either stored into an MVR file as specified or be updated live in the local network. Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users.
+
+The protocol for communication is "RFC 6455 — The WebSocket Protocol". The protocoll for discovery is "RFC 6762 Multicast DNS".
+
+The figure belows shows the communication structure. One station in the MVR network group start the mDNS server and the websockets.
+
+![media/MVR_Websockets.png](media/MVR_Websockets.png)
+
     
 ## Discovery
-Discovery of availble MVR communication devices shall be performed by mDNS...
+Discovery of availble MVR communication devices shall be performed by mDNS. Only application that can host the needed websockets server should start a mDNS Service.
+The name of the servive should be MyVirtualRig_X. Where X is a positive integer starting at 1. 
+Before starting a server, an application needs to check if there is already an service with the same name, and then increment its service name by one.
 
-## MVR_INFO packet
-These packets will update all members about the status of the application. It will transmitt the application name, type and status as well as basic information (tbd) about the MVR file to allow error handling if similarities occur but the basic files are different.
+## WebSockets server
+
+The one application that starts the Websockets server, is responsible for routing the packages to all the connected clients.
+
+## MVR_JOIN packet
+These packets will update all members about the status of the application. It will transmit the application name, type and status as well as basic information (tbd) about the MVR file to allow error handling if similarities occur but the basic files are different.
 It also can perform a leave request if the application is shutting down.
 
-##### Table 42 — *MVR_INFO packet parameters*
+Example:
+```
+{
+  "Provider":"MVRApplication", 
+  "verMajor":"1", 
+  "verMinor":"6", 
+}
+```
+
+
+
+##### Table 42 — *MVR_JOIN packet parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| IPAddress        | ip_address                          | Not Optional                | The transmitter IP address of the application (needs to comply with the discovery process)           |
-| FileName       | [String](#user-content-attrtype-string)                              | new                | It is mandatory to transmit the file name of the ZIP archive without the extension *.mvr. If joining as new member send "new".                 |
-| verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | Comment        | [String](#user-content-attrtype-string)                              | empty                       | User information comming with the updated MVR information.                    |
-| Leave          | Command                              | 0 or 1                     | It is mandatory to keep this field at "0" for communication. Once the application sends a "1" instead of "0" all other applications can remove this application from their cashed list of participants |
 
 ## MVR_DATA packet
 These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
