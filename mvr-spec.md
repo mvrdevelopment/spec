@@ -1104,6 +1104,8 @@ Example:
   "Provider":"MVRApplication", 
   "verMajor":"1", 
   "verMinor":"6", 
+  "ControllerPriority":"Never", 
+  "StationName":"MVR Application from user A at location B"
 }
 ```
 
@@ -1114,8 +1116,10 @@ Example:
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
+| StationName       | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that this station will be shown in UI.                            |
+| verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| Comment        | [String](#user-content-attrtype-string)                              | empty                       | User information comming with the updated MVR information.                    |
+| ControllerPriority           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the priority that this device becomes the new Websocket Server when the active disapears from the network. The currently defined types are: Never, Low, High |
 
 ## MVR_DATA packet
 These packets will upadate all members with the changes (diff) pushed by the application sending the packet. 
