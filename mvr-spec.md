@@ -1126,9 +1126,11 @@ Example:
 ```
 Request:
 {
+  "Type": "MVR_JOIN",
   "Provider":"MVRApplication", 
   "verMajor":"1", 
   "verMinor":"6", 
+  "StationUUID":"", 
   "ControllerPriority":"Never", 
   "StationName":"MVR Application from user A at location B"
 }
@@ -1142,13 +1144,14 @@ Response:
 
 ## MVR_COMMIT packet
 
-
 ```
 Request:
 {
+  "Type": "MVR_COMMIT",
   "verMajor":"1", 
   "verMinor":"6", 
-  "UUID":"", 
+  "FileUUID":"", 
+  "ForStationUUID":[], 
   "Comment":"My complete description of what I have changed",
   "PayloadBase64":""
 }
@@ -1163,6 +1166,38 @@ Response:
 ## MVR_REQUEST packet
 This specific packet requests a full MVR file. (tbd)
 
+```
+Request:
+{
+  "Type": "MVR_REQUEST",
+  "FromStationUUID":"", 
+}
+Response:
+{
+  "Type": "MVR_REQUEST",
+  "OK": "true",
+  "Message": ""
+}
+```
+
+## MVR_SESSION_REQUEST packet
+
+```
+Request:
+{
+  "Type": "MVR_SESSION_REQUEST",
+}
+Response:
+{
+  "Type": "MVR_SESSION_REQUEST",
+  "Stations": [
+    {
+      "StationName":"",
+      "StationUUID":""
+    }
+  ]
+}
+```
 
 ## Communication
 Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device can cash a list of active devices and their MVR status/information. Only if the basic informations (tbd) are matching, the stations will be included in the MVR update process.
