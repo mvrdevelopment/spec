@@ -1199,6 +1199,27 @@ Response:
 }
 ```
 
+## MVR_RESSOURCE_REQUEST packet
+
+```
+Request:
+{
+  "Type": "MVR_RESSOURCE_REQUEST",
+  "FromStationUUID":"", 
+  "FileName":"Filename.glb", 
+}
+Response:
+{
+  "Type": "MVR_SESSION_REQUEST",
+  "Stations": [
+    {
+      "StationName":"",
+      "StationUUID":""
+    }
+  ]
+}
+```
+
 ## Communication
 Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device can cash a list of active devices and their MVR status/information. Only if the basic informations (tbd) are matching, the stations will be included in the MVR update process.
 All other possible stations will not receive updated information.
