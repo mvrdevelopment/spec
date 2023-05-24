@@ -456,7 +456,7 @@ Node name: `Fixture`
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance this fixture within the Custom ID Type that you be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
-| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image ressource must apply to the GDTF standard.                                                           |
+| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must apply to the GDTF standard.                                                           |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
@@ -735,7 +735,7 @@ Node name: `Gobo`
 | -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
 | Rotation       | [Float](#user-content-attrtype-float) | 0                           | The roation of the Gobo in degree. |
 
-The node value is he Gobo used for the fixture. The image ressource must
+The node value is he Gobo used for the fixture. The image resource must
 apply to the GDTF standard. Use a FileName to specify.
 
 
@@ -765,7 +765,7 @@ Node name: `Source`
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
 | -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | LinkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| Type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media ressource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
+| Type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
 
 | Value Type                              | Default Value When Missing | Description                                                                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -1199,12 +1199,12 @@ Response:
 }
 ```
 
-## MVR_RESSOURCE_REQUEST packet
+## MVR_RESOURCE_REQUEST packet
 
 ```
 Request:
 {
-  "Type": "MVR_RESSOURCE_REQUEST",
+  "Type": "MVR_RESOURCE_REQUEST",
   "FromStationUUID":"", 
   "FileName":"Filename.glb", 
 }
