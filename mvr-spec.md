@@ -1112,6 +1112,16 @@ Only when the
 | ControllerPriority           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the priority that this device becomes the new Websocket Server when the active disapears from the network. The currently defined types are: Never, Low, High |
 | UUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
 
+
+##### Table 43 — *MVR_JOIN response parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is sucsessfull, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+
+
 Example:
 ```
 Request:
@@ -1129,23 +1139,18 @@ Response:
   "Message": ""
 }
 ```
-##### Table 43 — *MVR_JOIN response parameters*
-
-| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
-| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is sucsessfull, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
-
 
 ## MVR_COMMIT packet
-This packet initiates the update of the current MVR file by one station/device. Automatically all other devices are muted till the update is done and performed by the application(s).
+
 
 ```
 Request:
 {
   "verMajor":"1", 
   "verMinor":"6", 
+  "UUID":"", 
+  "Comment":"My complete description of what I have changed",
+  "PayloadBase64":""
 }
 Response:
 {
