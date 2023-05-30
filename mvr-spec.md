@@ -1097,8 +1097,11 @@ Translation - Rotation
 
 
 # Communication Format Definition
-
-MVR communication shall support the direct or live exchange of adjusted information. The process remains the same as offline editing and then exporting an MVR file. With every export of MVR the information shall be either stored into an MVR file as specified or be updated live in the local network. Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users.
+## General
+The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an exteranl tranport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup it needs to be possible to have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
+Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users as of today.
+  
+Possibly user-stories are explainer further below...
 
 The protocol for communication is "RFC 6455 — The WebSocket Protocol". The protocoll for discovery is "RFC 6762 Multicast DNS".
 
@@ -1259,13 +1262,49 @@ Response:
 }
 ```
 
-## Communication
-Once a new member performs the Discovery successfully the application shall ask all other devices for their MVR_INFO packets. By this information the device can cash a list of active devices and their MVR status/information. Only if the basic informations (tbd) are matching, the stations will be included in the MVR update process.
-All other possible stations will not receive updated information.
-Once a user performs a live export of the MVR file the device shall send a MVR_COMMIT packet to inform all participating devices about the following MVR update. Now all devices are muted till the MVR live export is finished. After the MVR_COMMIT packet the device will send the MVR update via the MVR_DATA packet(s). Every device will cash the changes and present the user with the information that newer MVR data is available. It is the task of each application to resolve the import process.
-It is suggested to present the user with a view of the diff. and a process to import the data accordingly to keep the local MVR file up to date.
+## The Idea of MVR-exchange Communication
+The MVR exchange protocol should define an online or "on the wire" protocol to exchange MVR files in a network environment. Technically it should replace the USB-stick or file-saving process for an easier update of MVR changes within a working group. There are two basic user-stories to look at to define the goal of MVR exchange:
 
-tbc...
+### Small Setup
+One Programmer/Operator using a lighting desk, one or two visualizer and a planning software. Most likely all computers running the different applications are connected via a switch and are within reach. It would be no problem to use a USB-Stick to exchange files. But it would simplify the workflow by using MVR-exchange protocol because all machines are located and connected “automatically” and the exported files will be shared with all applications. The user still needs to change keyboard & mouse to control each application individually but that is a known “workflow limitation” as it applies for using the different applications anyway.
+ 
+### Advantages of this workflow
+No need to plug in a USB stick several times.
+No need to manually copy the files into the correct folder on different computers.
+ 
+Add on
+If an external person such as a planner or logistic person joins the network, they can instantly exchange the latest MVR files. Following the logic, the system of MVR-exchange can grow and be expanded.
+ 
+### Large Setup
+Multiple consoles each with a visualizer station, a tracking system, a planner, some media server in a rack and a lighting designer sharing a (pre-) programming room. All applications running on different computers are connected via network. One operator per station working locally with the visualizer while all other stations are manned by specialists.
+Many stations need to be able to read and write MVR files to keep track of the current changes in the show. Most likely each and one needs to update at a different time due to the local workload and progress.
+ 
+### Advantages of this workflow
+No need to plug in a USB stick many times.
+No need to manually copy the files into the correct folder on different computers.
+Tracking of latest changes should be easier as in the network the files arrive in logical (timed) order.
+
+### Rules that need to apply for the workflows described.
+The stations that handle MVR files need to find each other “automatically”.
+The stations will handle leaving/adding stations “automatically”.
+Data exchange will be initiated by a user pushing the button “MVR export”.
+The file will be saved locally and will be transmitted to the joined stations in the network.
+The file will be made available to all other stations in the network (stored in the local folder structure).
+The local user will be informed that a new file is available for import.
+  
+### What MVR-exchange cannot do!
+There is no live update of changes.
+There is no rule to always import all changes – ergo: there is no single file or source of truth.
+There is no offline update for stations joining later or leaving earlier.
+There is (currently) no way to connect stations via internet.
+
+
+### Possible process of communication
+Every application can join a particular "MVR group" to seperate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
+Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
+Suggested communication packes are still work in progress...
+
+
 
 
 
