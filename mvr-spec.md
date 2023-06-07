@@ -1244,6 +1244,16 @@ This specific packet requests a MVR file from a station.
 |---|---|
 | ![media/MVR_Commit_3.png](media/MVR_Request_3.png)  |  ![media/MVR_Request_4.png](media/MVR_Request_4.png) |
 
+##### Table 42 — *MVR_REQUEST message parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file that you want to request. |
+| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want this MVR from. |
+
+
 ```
 Request:
 {
