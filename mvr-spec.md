@@ -1178,6 +1178,12 @@ The following chart displays the process when one client sends a `MVR_COMMIT` pa
 |---|---|
 | ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
 
+The following chart display the process when the server is the station who is providing a new MVR file. In this case the MVR info is directly transmitted to the connected stations.
+
+| Server makes the `MVR_COMMIT` itself, and only sends it to connected clients |
+|---|
+| ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |
+
 ```
 Request:
 {
