@@ -1135,6 +1135,7 @@ When a client connects with the web socket server, the clients needs to send a `
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
 | StationName       | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that this station will be shown in UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
@@ -1189,14 +1190,37 @@ The following chart display the process when the server is the station who is pr
 |---|
 | ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |
 
+##### Table 42 — *MVR_COMMIT message parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
+| verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
+| FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
+| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected clients |
+| Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
+
+
+##### Table 43 — *MVR_COMMIT response parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is sucsessfull, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+
+
 ```
 Request:
 {
   "Type": "MVR_COMMIT",
-  "verMajor":"1", 
-  "verMinor":"6", 
+  "verMajor":1, 
+  "verMinor":6, 
   "FileUUID":"", 
-  "ForStationUUID":[], 
+  "ForStationsUUID":[], 
   "FileSize":256, 
   "Comment":"My complete description of what I have changed",
 }
