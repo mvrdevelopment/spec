@@ -1203,8 +1203,17 @@ Response:
 }
 ```
     
-## MVR_REQUEST packet
-This specific packet requests a full MVR file. (tbd)
+## `MVR_REQUEST` packet
+
+This specific packet requests a MVR file from a station. 
+
+| Station requests   | Server send message to all conntected clients but the sender  |
+|---|---|
+| ![media/MVR_Request_1.png](media/MVR_Request_1.png)  |  ![media/MVR_Request_2.png](media/MVR_Request_2.png) |
+
+| Clients sends message to server  | Server send message to all conntected clients but the sender  |
+|---|---|
+| ![media/MVR_Commit_3.png](media/MVR_Request_3.png)  |  ![media/MVR_Request_4.png](media/MVR_Request_4.png) |
 
 ```
 Request:
@@ -1214,11 +1223,7 @@ Request:
   "FileUUID":"", 
 }
 Response:
-{
-  "Type": "MVR_REQUEST",
-  "OK": "true",
-  "Message": ""
-}
+binary frame
 ```
 
 ## MVR_SESSION_REQUEST packet
