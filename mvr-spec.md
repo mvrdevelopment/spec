@@ -1119,7 +1119,7 @@ Before starting a server, an application needs to check if there is already an s
 
 The one application that starts the Websockets server, is responsible for routing the packages to all the connected clients.
 
-## MVR_JOIN packet
+## `MVR_JOIN` packet
 
 When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
 Only when the 
@@ -1167,7 +1167,16 @@ Response:
 }
 ```
 
-## MVR_COMMIT packet
+## `MVR_COMMIT` packet
+
+The MVR commit message informs all connected stations that there is a new MVR Commit. This message only informs the stations about the existence of the new file.
+Stations needs to request the MVR file with a `MVR_REQUEST` package.
+
+The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
+
+| Clients sends message to server  | Server send message to all conntected clients but the sender  |
+|---|---|
+| ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
 
 ```
 Request:
@@ -1177,8 +1186,8 @@ Request:
   "verMinor":"6", 
   "FileUUID":"", 
   "ForStationUUID":[], 
+  "FileSize":256, 
   "Comment":"My complete description of what I have changed",
-  "PayloadBase64":""
 }
 Response:
 {
@@ -1196,6 +1205,7 @@ Request:
 {
   "Type": "MVR_REQUEST",
   "FromStationUUID":"", 
+  "FileUUID":"", 
 }
 Response:
 {
