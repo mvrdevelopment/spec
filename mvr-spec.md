@@ -1122,9 +1122,14 @@ The one application that starts the Websockets server, is responsible for routin
 ## `MVR_JOIN` packet
 
 When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
-Only when the 
 
+| Station requests a MVR from another station    | Server sends the request to the right station  |
+|---|---|
+| ![media/MVR_Join_1.png](media/MVR_Join_1.png)  |  ![media/MVR_Join_2.png](media/MVR_Join_2.png) |
 
+| Station sends the MVR file as binary data to the server | Server sends the MVR the MVR file as binary data to the station  |
+|---|---|
+| ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
 
 ##### Table 42 — *MVR_JOIN message parameters*
 
@@ -1207,11 +1212,11 @@ Response:
 
 This specific packet requests a MVR file from a station. 
 
-| Station requests   | Server send message to all conntected clients but the sender  |
+| Station requests a MVR from another station    | Server sends the request to the right station  |
 |---|---|
 | ![media/MVR_Request_1.png](media/MVR_Request_1.png)  |  ![media/MVR_Request_2.png](media/MVR_Request_2.png) |
 
-| Clients sends message to server  | Server send message to all conntected clients but the sender  |
+| Station sends the MVR file as binary data to the server | Server sends the MVR the MVR file as binary data to the station  |
 |---|---|
 | ![media/MVR_Commit_3.png](media/MVR_Request_3.png)  |  ![media/MVR_Request_4.png](media/MVR_Request_4.png) |
 
