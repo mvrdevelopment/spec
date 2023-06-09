@@ -1231,6 +1231,17 @@ Response:
 
 ## `MVR_LEAVE` packet
 
+A client sends a `MVR_LEAVE` when it wants to quit an MVR Group and don't want to get updates about new MVR files any more.
+
+For the Websocket mode: It is not required to terminate the Websockets connection, but it can be done.
+For the Local Network Mode: It is not required that to turn down the mDNS service, but it can be done.
+
+In order to join again, the client needs to and a `MVR_JOIN` package again.
+
+| In Webssocket mode: Client 4 send a `MVR_LEAVE` message to the websocket server. | In Local Network Mode: Client 2 send a `MVR_LEAVE` message to all stations  |
+|---|---|
+| ![media/MVR_Leave_1.png](media/MVR_Leave_2.png)  |  ![media/MVR_Leave_2.png](media/MVR_Leave_1.png) |
+
 Example:
 ```
 Request:
