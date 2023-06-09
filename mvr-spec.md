@@ -1144,16 +1144,18 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 | MVR_PACKAGE_VERSION |  Number that defines the version of the package format. Use 1. |
 | MVR_PACKAGE_COUNT   |  Number that defines how many package make of the complete message. |
 | MVR_PACKAGE_NUMBER  |  Number that defines what number this package has in the complete message.  |
-| MVR_JSON_LENGTH     |  Number showing the length of transferred buffer. |
-| MVR_JSON_BUFFER     |  Buffer data that stores the JSON UTF-8 encoded. |
+| MVR_PACKAGE_TYPE    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES  |
+| MVR_PAYLOAD_LENGTH  |  Number showing the length of transferred buffer. |
+| MVR_PAYLOAD_BUFFER  |  Buffer data that stores the payload encoded. |
 
 ```
 uint32 MVR_PACKAGE_HEADER
 uint32 MVR_PACKAGE_VERSION
 uint32 MVR_PACKAGE_NUMBER
 uint32 MVR_PACKAGE_COUNT
-uint64 MVR_JSON_LENGTH
-char[] MVR_JSON_BUFFER
+uint32 MVR_PACKAGE_TYPE
+uint64 MVR_PAYLOAD_LENGTH
+char[] MVR_PAYLOAD_BUFFER
 ```
 
 | Type    | Symbol  |
