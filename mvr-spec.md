@@ -1098,26 +1098,30 @@ Translation - Rotation
 
 # Communication Format Definition
 ## General
-The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an exteranl tranport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup it needs to be possible to have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
+The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an external transport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup it needs to be possible to have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
 Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users as of today.
   
 Possibly user-stories are explainer further below...
 
-The protocol for communication is "RFC 6455 — The WebSocket Protocol". The protocoll for discovery is "RFC 6762 Multicast DNS".
-
-The figure belows shows the communication structure. One station in the MVR network group start the mDNS server and the websockets.
+MVR-xchange defines two modes of operation:
+- One Websocket mode which allows routing
+- One Local Network mode which works without configuration but does not support routing
 
 | Websocket Mode of protocol    | Local Network Mode of protocol  |
 |---|---|
 | ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) |
 
     
-## Discovery
+## Local Network Mode of protocol
 Discovery of availble MVR communication devices shall be performed by mDNS. Only application that can host the needed websockets server should start a mDNS Service.
 The name of the servive should be MyVirtualRig_X. Where X is a positive integer starting at 1. 
 Before starting a server, an application needs to check if there is already an service with the same name, and then increment its service name by one.
 
-## WebSockets server
+RFC 6762 Multicast DNS
+
+## Websocket Mode of protocol
+
+RFC 6455 — The WebSocket Protocol
 
 The one application that starts the Websockets server, is responsible for routing the packages to all the connected clients.
 
