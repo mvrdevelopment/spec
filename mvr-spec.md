@@ -1113,17 +1113,23 @@ MVR-xchange defines two modes of operation:
 
     
 ## Local Network Mode of protocol
-Discovery of availble MVR communication devices shall be performed by mDNS. Only application that can host the needed websockets server should start a mDNS Service.
-The name of the servive should be MyVirtualRig_X. Where X is a positive integer starting at 1. 
-Before starting a server, an application needs to check if there is already an service with the same name, and then increment its service name by one.
 
-RFC 6762 Multicast DNS
+The local network mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
+Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register an mDNS service.
+
+The service name should be `MVR/xxxx` where xxxx is the name of the group. 
+When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service, and send an `MVR_JOIN` message to the other stations that register this service name.
+When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other clients to join.
+
+You can upgrade a Local Network mode MVR-xchange group to use the Websocket mode with sending them a `MVR_NEW_SESSION_HOST` message providing the URL of the new service.
 
 ## Websocket Mode of protocol
 
-RFC 6455 — The WebSocket Protocol
+The Websocket mode allows users to create a routable service for the MVR-xchange. 
+Discovery works with the normal DNS and the service name needs to a valid URL that can be resolved by the DNS server.
 
-The one application that starts the Websockets server, is responsible for routing the packages to all the connected clients.
+The DNS entry should point to the IP of the service running the websocket server. Clients that want to join this MVR Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
+
 
 ## `MVR_JOIN` packet
 
