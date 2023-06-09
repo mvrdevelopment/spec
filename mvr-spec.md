@@ -1107,7 +1107,9 @@ The protocol for communication is "RFC 6455 — The WebSocket Protocol". The pro
 
 The figure belows shows the communication structure. One station in the MVR network group start the mDNS server and the websockets.
 
-![media/MVR_Websockets.png](media/MVR_Websockets.png)
+| Websocket Mode of protocol    | Local Network Mode of protocol  |
+|---|---|
+| ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) |
 
     
 ## Discovery
