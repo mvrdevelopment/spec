@@ -1173,6 +1173,24 @@ Response:
 }
 ```
 
+
+## `MVR_LEAVE` packet
+
+Example:
+```
+Request:
+{
+  "Type": "MVR_LEAVE",
+  "StationUUID":"", 
+}
+Response:
+{
+  "Type": "MVR_LEAVE",
+  "OK": "true",
+  "Message": ""
+}
+```
+
 ## `MVR_COMMIT` packet
 
 The MVR commit message informs all connected stations that there is a new MVR Commit. This message only informs the stations about the existence of the new file.
