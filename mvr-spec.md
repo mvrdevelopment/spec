@@ -1168,13 +1168,23 @@ char[] MVR_JSON_BUFFER
 
 When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
 
-| Station requests a MVR from another station    | Server sends the request to the right station  |
+### Websocket Mode
+
+| 1 Is a Websocket Server and has a URL    | Client 2 connects to the websocket sever and send a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_1.png](media/MVR_Join_1.png)  |  ![media/MVR_Join_2.png](media/MVR_Join_2.png) |
 
-| Station sends the MVR file as binary data to the server | Server sends the MVR the MVR file as binary data to the station  |
+| Client 3 connects to the websocket sever and send a `MVR_JOIN` message | Client 3 connects to the websocket sever and send a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
+
+# Local Network Mode
+
+| Client 2 joins the MVR Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
+|---|---|
+| ![media/MVR_Join_mDNS_1.png](media/MVR_Join_mDNS_1.png)  |  ![media/MVR_Join_mDNS_2.png](media/MVR_Join_mDNS_2.png) |
+
+
 
 ##### Table 42 — *MVR_JOIN message parameters*
 
