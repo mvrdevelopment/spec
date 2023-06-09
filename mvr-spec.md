@@ -1140,7 +1140,7 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 
 | Type    | Symbol  |
 |---|---|
-| MVR_PACKAGE_HEADER  |  Number that defines the package. Use 778682 |
+| MVR_PACKAGE_HEADER  |  Number that defines the package. Use 778682. |
 | MVR_PACKAGE_VERSION |  Number that defines the version of the package format. Use 1. |
 | MVR_PACKAGE_COUNT   |  Number that defines how many package make of the complete message. |
 | MVR_PACKAGE_NUMBER  |  Number that defines what number this package has in the complete message.  |
