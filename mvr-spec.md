@@ -1136,15 +1136,32 @@ All the packages define their payload as JSON documents (ISO/IEC 21778:2017).
 
 When in Websocket Mode, all message should be send send as text unless otherwise defined. 
 
-When in Local Network Mode, all messages are send via TCP directly to the client. The JSON package are then encoded the following way:
+When in Local Network Mode, all messages are send via TCP directly to the client. The JSON document are then encoded the following way:
 
+| Type    | Symbol  |
+|---|---|
+| MVR_PACKAGE_HEADER  |  Number that defines the package. Use 778682 |
+| MVR_PACKAGE_VERSION |  Number that defines the version of the package format. Use 1. |
+| MVR_PACKAGE_COUNT   |  Number that defines how many package make of the complete message. |
+| MVR_PACKAGE_NUMBER  |  Number that defines what number this package has in the complete message.  |
+| MVR_JSON_LENGTH     |  Number showing the length of transferred buffer. |
+| MVR_JSON_BUFFER     |  Buffer data that stores the JSON UTF-8 encoded. |
 
 ```
 uint32 MVR_PACKAGE_HEADER
+uint32 MVR_PACKAGE_VERSION
 uint32 MVR_PACKAGE_NUMBER
-uint64 MVR_PACKAGE_LENGTH
-
+uint32 MVR_PACKAGE_COUNT
+uint64 MVR_JSON_LENGTH
+char[] MVR_JSON_BUFFER
 ```
+
+| Type    | Symbol  |
+|---|---|
+| uint32  |  32-bit unsigned integer |
+| uint64  |  64-bit unsigned integer |
+| char[]  |  8-bit character array |
+
 
 
 ## `MVR_JOIN` packet
