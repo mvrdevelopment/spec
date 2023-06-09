@@ -1130,6 +1130,14 @@ Discovery works with the normal DNS and the service name needs to a valid URL th
 
 The DNS entry should point to the IP of the service running the websocket server. Clients that want to join this MVR Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
+## Packet definition
+
+All the packages define their payload as JSON documents (ISO/IEC 21778:2017).
+
+When in Websocket Mode, all message should be send send as text unless otherwise defined. 
+
+When in Local Network Mode, all messages are send via TCP directly to the client.
+
 
 ## `MVR_JOIN` packet
 
