@@ -1396,25 +1396,6 @@ Response:
 }
 ```
 
-## MVR_SESSION_REQUEST packet
-
-```
-Request:
-{
-  "Type": "MVR_SESSION_REQUEST",
-}
-Response:
-{
-  "Type": "MVR_SESSION_REQUEST",
-  "Stations": [
-    {
-      "StationName":"",
-      "StationUUID":""
-    }
-  ]
-}
-```
-
 ## MVR_RESOURCE_REQUEST packet
 
 ```
