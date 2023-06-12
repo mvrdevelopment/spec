@@ -1428,21 +1428,14 @@ OR
 
 ## `MVR_NEW_SESSION_HOST` packet
 
-
-| The host requests that another client to take over the session  | When the client is OK with this, gw starts his WebSocket Server and the mDNS service with the same ServiceName.   |
-|---|---|
-| ![media/MVR_NewSessionHost_1.png](media/MVR_NewSessionHost_1.png)  |  ![media/MVR_NewSessionHost_2.png](media/MVR_NewSessionHost_2.png) |
-
-| All clients see the new mDNS service, and can connect with the new service   |   |
-|---|---|
-| ![media/MVR_NewSessionHost_3.png](media/MVR_NewSessionHost_3.png)  |   |
-
+This package tell other clients additional network configuration. 
 
 ```
 Request:
 {
   "Type": "MVR_NEW_SESSION_HOST",
   "ServiceName":"", 
+  "ServiceURL":"", 
 }
 Response:
 {
