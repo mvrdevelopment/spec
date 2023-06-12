@@ -1363,6 +1363,15 @@ You get the available MVR UUIDs from the `MVR_COMMIT` messages.
 
 When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations.
 
+When the station does not have the specifed MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
+
+> *Note:*
+> When in Websocket Mode, the binery frame flag will be used to tell the receiver if a Buffer or JSON is send.
+
+
+> *Note:* 
+> When in Local Network Mode, the `MVR_PACKAGE_TYPE` flag will be used to tell the receiver if a Buffer or JSON is send
+
 | Station requests a MVR from another station    | Server sends the request to the right station  |
 |---|---|
 | ![media/MVR_Request_1.png](media/MVR_Request_1.png)  |  ![media/MVR_Request_2.png](media/MVR_Request_2.png) |
