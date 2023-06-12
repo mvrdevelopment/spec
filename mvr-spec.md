@@ -1430,12 +1430,39 @@ OR
 
 This package tell other clients additional network configuration. 
 
+When currently in Local Network Mode:
+When the client is connected via Local Network Mode to the MVR Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+
+When the client is connected via Local Network Mode to the MVR Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the websocket mode. Otherwise store the Service Name for the next startup.
+
+When currently in Websocket mode:
+When the client is connected via Websocket Mode to the MVR Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+
+
+
+##### Table 42 — *MVR_NEW_SESSION_HOST message parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | Tells other connected devices the mDNS service name that should be used for this group. When empty, ignore. Otherwise connect with the new mDNS serice with an `MVR_JOIN` message  |
+| ServiceURL      |  [String](#user-content-attrtype-string) |                             | Empty. | Tells other connected devices Service URL for the websocket mode that should be used for this group. When empty, ignore. Otherwise try to connect to the websocket. Only for Local Network Mode.
+
+##### Table 43 — *MVR_NEW_SESSION_HOST error response parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+
+
 ```
 Request:
 {
   "Type": "MVR_NEW_SESSION_HOST",
-  "ServiceName":"", 
-  "ServiceURL":"", 
+  "ServiceName":"MVR/fancyProjectGroup", 
+  "ServiceURL":"www.mvr-share.com/api/fancyProjectGroup", 
 }
 Response:
 {
