@@ -1208,6 +1208,7 @@ When a client connects with the web socket server, the clients needs to send a `
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
 | OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+| Message       | [Array of `MVR_COMMIT`](#user-content-attrtype-string)                              | Empty Array | List all available MVR files that are on this station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
 Example:
@@ -1227,6 +1228,17 @@ Response:
   "Type": "MVR_JOIN",
   "OK": "true",
   "Message": ""
+  "Files": [
+    {
+      ...MVR_COMMIT_MESSAGE_ARGS
+    },
+    {
+      ...MVR_COMMIT_MESSAGE_ARGS
+    },
+    {
+      ...MVR_COMMIT_MESSAGE_ARGS
+    }
+  ]
 }
 ```
 
