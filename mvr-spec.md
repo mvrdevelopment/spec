@@ -1292,7 +1292,13 @@ The following chart display the process when the server is the station who is pr
 
 | Server makes the `MVR_COMMIT` itself, and only sends it to connected clients |
 |---|
-| ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |
+| ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
+
+The following chart display the process when in Local Network Mode. The Client informs all other clients about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
+
+| Client sends the `MVR_COMMIT` message to the connected stations. |
+|---|
+| ![media/MVR_Commit_4.png](media/MVR_Commit_4.png)  |
 
 ##### Table 42 — *MVR_COMMIT message parameters*
 
