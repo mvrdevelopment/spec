@@ -1170,6 +1170,8 @@ char[] MVR_PAYLOAD_BUFFER
 
 When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
 
+Note that a clients can send multiple `MVR_JOIN` packages to the same server during the same connection to update its Name or get the lastest MVR file list.
+
 ### Websocket Mode
 
 | 1 Is a Websocket Server and has a URL    | Client 2 connects to the websocket sever and send a `MVR_JOIN` message  |
