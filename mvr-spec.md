@@ -1354,14 +1354,30 @@ This specific packet requests a MVR file from a station.
 |---|---|
 | ![media/MVR_Commit_3.png](media/MVR_Request_3.png)  |  ![media/MVR_Request_4.png](media/MVR_Request_4.png) |
 
+
+| Clients requests a MVR from another station   | First requested station does not have the MVR and sends back a failure message,  |
+|---|---|
+| ![media/MVR_Request_mDNS1.png](media/MVR_Request_mDNS1.png)  |  ![media/MVR_Request_mDNS2.png](media/MVR_Request_mDNS2.png) |
+
+| Clients requests a MVR from another station | Second requested station does have the MVR and sends back the MVR file  |
+|---|---|
+| ![media/MVR_Request_mDNS3.png](media/MVR_Request_mDNS3.png)  |  ![media/MVR_Request_mDNS4.png](media/MVR_Request_mDNS4.png) |
+
 ##### Table 42 — *MVR_REQUEST message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
-| FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file that you want to request. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want this MVR from. |
+
+##### Table 43 — *MVR_REQUEST error response parameters*
+
+| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
+| -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 ```
@@ -1372,7 +1388,16 @@ Request:
   "FileUUID":"", 
 }
 Response:
+
 binary frame
+
+OR
+
+{
+  "Type": "MVR_REQUEST",
+  "OK": "false",
+  "Message": "The MVR is not available on this client"
+}
 ```
 
 ## `MVR_NEW_SESSION_HOST` packet
