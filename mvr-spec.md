@@ -1344,7 +1344,10 @@ Response:
     
 ## `MVR_REQUEST` packet
 
-This specific packet requests a MVR file from a station. 
+This specific packet requests a MVR file from a station. You either can request a specific MVR via UUID or request and MVR from the current state.
+You get the available MVR UUIDs from the `MVR_COMMIT` messages.
+
+When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations.
 
 | Station requests a MVR from another station    | Server sends the request to the right station  |
 |---|---|
@@ -1368,7 +1371,7 @@ This specific packet requests a MVR file from a station.
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file that you want to request. |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the MVR file that you want to request. If you omit this field, the station should generate a MVR and send this.  |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want this MVR from. |
 
 ##### Table 43 — *MVR_REQUEST error response parameters*
