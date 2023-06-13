@@ -1197,13 +1197,13 @@ Note that a clients can send multiple `MVR_JOIN` packages to the same server dur
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName       | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that this station will be shown in UI.                            |
-| verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| UUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
-| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)                              | Empty Array | List all available MVR files that are on this station in the format of the `MVR_COMMIT` packet.                |                             |
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that sender station will be shown in UI.                            |
+| verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
+| verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
+| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for sender station inside the network. This UUID should be persistent across multiple start ups of the software on the same computer |
+| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
 ##### Table 43 — *MVR_JOIN response parameters*
@@ -1211,15 +1211,14 @@ Note that a clients can send multiple `MVR_JOIN` packages to the same server dur
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK             | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message        | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
-| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)                              | Empty Array | List all available MVR files that are on this station in the format of the `MVR_COMMIT` packet.                |                             |
+| OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successfully, false when there is an error. Check the Message for more information in this case.   |
+| Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message when there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that this station will be shown in UI.                            |
-| verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
-
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that receiver station will be shown in UI.                            |
+| verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
+| verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
+| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiver station inside the network. This UUID should be persistent across multiple start ups of the software on the same computer |
+| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 Example:
 ```
