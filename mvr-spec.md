@@ -1116,8 +1116,8 @@ Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 M
 
 The service name should be `_mvrxchange._tcp.local.`.
 The sub service name should be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
-E
-ach 
+Each client shall negotiate a unique hostname via the methods described in the mDNS standards.
+Each client shall have a SRV and  A and/or AAAA record
 
 When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
 When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other clients to join.
