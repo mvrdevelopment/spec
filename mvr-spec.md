@@ -1098,7 +1098,7 @@ Translation - Rotation
 
 # Communication Format Definition
 ## General
-The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an external transport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup it needs to be possible to have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
+The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an external transport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup you can have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
 Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users as of today.
   
 Possibly user-stories are explainer further below...
