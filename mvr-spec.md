@@ -1098,11 +1098,8 @@ Translation - Rotation
 
 # Communication Format Definition
 ## General
-The MVR communication format - MVR-xchange - shall support the exchange of adjusted information without the need of an external transport device like a USB-stick. The process remains the same as offline editing and then exporting an MVR file. Depending on the setup you can have multiple "MVR-groups" in the same local are network. For the user the process shall be seamless and function the same way as exporting to a file folder or USB-stick. With every export of MVR the information shall be stored into an MVR file as specified and be updated in the local network. 
-Once one device has requested an MVR updated all other devices need to accept the data, compare with the current status before another export can be distributed in the network. This serial update process avoids multiple different versions at the same time. In general conflicting data needs to be resolved by the users as of today.
+The MVR communication format - MVR-xchange - shall support the exchange of MVR files over network without the need of an external transport device like a USB-stick. The exchange allows multiple clients within the same network to share MVR files. 
   
-Possibly user-stories are explainer further below...
-
 MVR-xchange defines two modes of operation:
 - One Websocket mode which allows routing
 - One Local Network mode which works without configuration but does not support routing
@@ -1111,7 +1108,7 @@ MVR-xchange defines two modes of operation:
 |---|---|
 | ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) |
 
-    
+  
 ## Local Network Mode of protocol
 
 The local network mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
