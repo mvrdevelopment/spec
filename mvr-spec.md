@@ -1135,7 +1135,7 @@ The DNS entry should point to the IP of the service running the websocket server
 
 All the packages define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
-When in Websocket Mode, all message should be send send as text unless otherwise defined. 
+When in Websocket Mode, all message should be send as text unless otherwise defined. 
 
 When in Local Network Mode, all messages are send via TCP directly to the client. The JSON document are then encoded the following way:
 
