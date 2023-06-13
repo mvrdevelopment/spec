@@ -1202,7 +1202,6 @@ Note that a clients can send multiple `MVR_JOIN` packages to the same server dur
 | StationName       | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that this station will be shown in UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| ControllerPriority           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the priority that this device becomes the new Websocket Server when the active disapears from the network. The currently defined types are: Never, Low, High |
 | UUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
 
 
