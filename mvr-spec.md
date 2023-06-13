@@ -1116,8 +1116,10 @@ Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 M
 
 The service name should be `_mvrxchange._tcp.local.`.
 The sub service name should be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
+E
+ach 
 
-When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service, and send an `MVR_JOIN` message to the other stations that register this service name.
+When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
 When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other clients to join.
 
 You can upgrade a Local Network mode MVR-xchange group to use the Websocket mode with sending them a `MVR_NEW_SESSION_HOST` message providing the URL of the new service.
