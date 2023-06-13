@@ -1153,15 +1153,15 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 
 | Type    | Symbol  |
 |---|---|
-| MVR_PACKAGE_HEADER  |  Number that defines the package. Use 778682. |
-| MVR_PACKAGE_VERSION |  Number that defines the version of the package format. Use 1. |
-| MVR_PACKAGE_COUNT   |  Number that defines how many package make of the complete message. |
-| MVR_PACKAGE_NUMBER  |  Number that defines what number this package has in the complete message.  |
-| MVR_PACKAGE_TYPE    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
-| MVR_PAYLOAD_LENGTH  |  Number showing the length of transferred buffer. |
-| MVR_PAYLOAD_BUFFER  |  Buffer data that stores the payload encoded. |
+| `MVR_PACKAGE_HEADER`  |  Number that defines the package. Use 778682. |
+| `MVR_PACKAGE_VERSION` |  Number that defines the version of the package format. Use 1. |
+| `MVR_PACKAGE_COUNT`   |  Number that defines how many package make of the complete message. |
+| `MVR_PACKAGE_NUMBER`  |  Number that defines what number this package has in the complete message.  |
+| `MVR_PACKAGE_TYPE`    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
+| `MVR_PAYLOAD_LENGTH`  |  Number showing the length of transferred buffer. |
+| `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
 
-
+The order and size is defined the following way:
 ```
 uint32 MVR_PACKAGE_HEADER
 uint32 MVR_PACKAGE_VERSION
@@ -1172,13 +1172,16 @@ uint64 MVR_PAYLOAD_LENGTH
 char[] MVR_PAYLOAD_BUFFER
 ```
 
+Where the following applies:
+
 | Type    | Symbol  |
 |---|---|
 | uint32  |  32-bit unsigned integer |
 | uint64  |  64-bit unsigned integer |
 | char[]  |  8-bit character array |
 
-All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
+> Note: 
+> All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
 
 
 ## `MVR_JOIN` packet
