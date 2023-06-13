@@ -1133,7 +1133,7 @@ The DNS entry should point to the IP of the service running the websocket server
 
 ## Packet definition
 
-All the packages define their payload as JSON documents (ISO/IEC 21778:2017).
+All the packages define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
 When in Websocket Mode, all message should be send send as text unless otherwise defined. 
 
