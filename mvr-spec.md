@@ -1097,6 +1097,11 @@ Translation - Rotation
 
 
 # Communication Format Definition
+
+# Terminology 
+
+
+
 ## General
 The MVR communication format - MVR-xchange - shall support the exchange of MVR files over network without the need of an external transport device like a USB-stick. The exchange allows multiple clients within the same network to share MVR files. 
   
@@ -1117,7 +1122,7 @@ Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 M
 The service name should be `_mvrxchange._tcp.local.`.
 The sub service name should be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
 Each client shall negotiate a unique hostname via the methods described in the mDNS standards.
-Each client shall have a SRV and  A and/or AAAA record
+Each client shall have a SRV and  A and/or AAAA record.
 
 When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
 When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other clients to join.
@@ -1129,7 +1134,7 @@ You can upgrade a Local Network mode MVR-xchange group to use the Websocket mode
 The Websocket mode allows users to create a routable service for the MVR-xchange. 
 Discovery works with the normal DNS and the service name needs to a valid URL that can be resolved by the DNS server.
 
-The DNS entry should point to the IP of the service running the websocket server. Clients that want to join this MVR Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
+The DNS entry should point to the IP of the service running the websocket server. Clients that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
 ## Packet definition
 
@@ -1187,7 +1192,7 @@ Note that a clients can send multiple `MVR_JOIN` packages to the same server dur
 
 # Local Network Mode
 
-| Client 2 joins the MVR Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
+| Client 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_mDNS_1.png](media/MVR_Join_mDNS_1.png)  |  ![media/MVR_Join_mDNS_2.png](media/MVR_Join_mDNS_2.png) |
 
@@ -1269,7 +1274,7 @@ Response:
 
 ## `MVR_LEAVE` packet
 
-A client sends a `MVR_LEAVE` when it wants to quit an MVR Group and don't want to get updates about new MVR files any more.
+A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and don't want to get updates about new MVR files any more.
 
 For the Websocket mode: It is not required to terminate the Websockets connection, but it can be done.
 For the Local Network Mode: It is not required that to turn down the mDNS service, but it can be done.
@@ -1315,7 +1320,7 @@ Response:
 
 ## `MVR_COMMIT` packet
 
-The MVR commit message informs all connected stations that there is a new MVR Commit. This message only informs the stations about the existence of the new file.
+The MVR commit message informs all connected stations that there is a new MVR commit. This message only informs the stations about the existence of the new file.
 Stations needs to request the MVR file with a `MVR_REQUEST` package.
 
 The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
@@ -1453,12 +1458,12 @@ OR
 This package tell other clients additional network configuration. 
 
 When currently in Local Network Mode:
-When the client is connected via Local Network Mode to the MVR Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
 
-When the client is connected via Local Network Mode to the MVR Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the websocket mode. Otherwise store the Service Name for the next startup.
+When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the websocket mode. Otherwise store the Service Name for the next startup.
 
 When currently in Websocket mode:
-When the client is connected via Websocket Mode to the MVR Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+When the client is connected via Websocket Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
 
 
 
@@ -1483,7 +1488,7 @@ When the client is connected via Websocket Mode to the MVR Group, you can send a
 Request:
 {
   "Type": "MVR_NEW_SESSION_HOST",
-  "ServiceName":"MVR/fancyProjectGroup", 
+  "ServiceName":"fancyProjectGroup._mvrxchange._tcp.local.", 
   "ServiceURL":"www.mvr-share.com/api/fancyProjectGroup", 
 }
 Response:
@@ -1533,8 +1538,8 @@ Many stations need to be able to read and write MVR files to keep track of the c
 
 
 ### Possible process of communication
-Every application can join a particular "MVR group" to seperate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
-Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
+Every application can join a particular "MVR-xchange Group" to seperate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
+Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR-xchange Group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
 Suggested communication packes are still work in progress...
 
 
