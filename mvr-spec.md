@@ -1149,6 +1149,7 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 | MVR_PAYLOAD_LENGTH  |  Number showing the length of transferred buffer. |
 | MVR_PAYLOAD_BUFFER  |  Buffer data that stores the payload encoded. |
 
+
 ```
 uint32 MVR_PACKAGE_HEADER
 uint32 MVR_PACKAGE_VERSION
@@ -1165,6 +1166,7 @@ char[] MVR_PAYLOAD_BUFFER
 | uint64  |  64-bit unsigned integer |
 | char[]  |  8-bit character array |
 
+All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
 
 
 ## `MVR_JOIN` packet
