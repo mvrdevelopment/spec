@@ -1104,7 +1104,7 @@ Translation - Rotation
 |---|---|
 | MVR-xchange  |  Protocol to share MVR files over the network. |
 | *MVR-xchange client*  |  Application that participate in the MVR-xchange. |
-| MVR-xchange group  |  Group of MVR *MVR-xchange client*s that work on the same project and communicate togehter. |
+| MVR-xchange group  |  Group of MVR *MVR-xchange clients* that work on the same project and communicate togehter. |
 | Local Network Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS. |
 | WebSocket Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS. |
 
@@ -1141,7 +1141,7 @@ You can upgrade a Local Network Mode MVR-xchange group to use the WebSocket Mode
 The WebSocket Mode allows users to create a routable service for the MVR-xchange. 
 Discovery works with the normal DNS and the service name needs to a valid URL that can be resolved by the DNS server.
 
-The DNS entry should point to the IP of the service running the websocket server. *MVR-xchange client*s that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
+The DNS entry should point to the IP of the service running the websocket server. *MVR-xchange clients* that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
 ## Packet definition
 
@@ -1193,17 +1193,17 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the *MV
 
 ### WebSocket Mode
 
-| 1 Is a Websocket Server and has a URL    | Client 2 connects to the websocket sever and send a `MVR_JOIN` message  |
+| 1 Is a Websocket Server and has a URL    | *MVR-xchange client* 2 connects to the websocket sever and send a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_1.png](media/MVR_Join_1.png)  |  ![media/MVR_Join_2.png](media/MVR_Join_2.png) |
 
-| Client 3 connects to the websocket sever and send a `MVR_JOIN` message | Client 3 connects to the websocket sever and send a `MVR_JOIN` message  |
+| *MVR-xchange client* 3 connects to the websocket sever and send a `MVR_JOIN` message | *MVR-xchange client* 3 connects to the websocket sever and send a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
 
 # Local Network Mode
 
-| Client 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
+| *MVR-xchange client* 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
 |---|---|
 | ![media/MVR_Join_mDNS_1.png](media/MVR_Join_mDNS_1.png)  |  ![media/MVR_Join_mDNS_2.png](media/MVR_Join_mDNS_2.png) |
 
@@ -1292,7 +1292,7 @@ For the Local Network Mode: It is not required that to turn down the mDNS servic
 
 In order to join again, the client needs to and a `MVR_JOIN` package again.
 
-| In Webssocket mode: Client 4 send a `MVR_LEAVE` message to the websocket server. | In Local Network Mode: Client 2 send a `MVR_LEAVE` message to all stations  |
+| In Webssocket mode: *MVR-xchange client* 4 send a `MVR_LEAVE` message to the websocket server. | In Local Network Mode: *MVR-xchange client* 2 send a `MVR_LEAVE` message to all stations  |
 |---|---|
 | ![media/MVR_Leave_1.png](media/MVR_Leave_2.png)  |  ![media/MVR_Leave_2.png](media/MVR_Leave_1.png) |
 
@@ -1336,19 +1336,19 @@ Stations needs to request the MVR file with a `MVR_REQUEST` package.
 
 The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
 
-| *MVR-xchange client* sends message to server  | Server send message to all connected *MVR-xchange client*s but the sender  |
+| *MVR-xchange client* sends message to server  | Server send message to all connected *MVR-xchange clients* but the sender  |
 |---|---|
 | ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
 
 The following chart display the process when the server is the station who is providing a new MVR file. In this case the MVR info is directly transmitted to the connected stations.
 
-| Server makes the `MVR_COMMIT` itself, and only sends it to connected *MVR-xchange client*s |
+| Server makes the `MVR_COMMIT` itself, and only sends it to connected *MVR-xchange clients* |
 |---|
 | ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
 
-The following chart display the process when in Local Network Mode. The Client informs all other *MVR-xchange client* about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
+The following chart display the process when in Local Network Mode. The *MVR-xchange client* informs all other *MVR-xchange client* about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
 
-| Client sends the `MVR_COMMIT` message to the connected stations. |
+| *MVR-xchange client* sends the `MVR_COMMIT` message to the connected stations. |
 |---|
 | ![media/MVR_Commit_4.png](media/MVR_Commit_4.png)  |
 
@@ -1362,7 +1362,7 @@ The following chart display the process when in Local Network Mode. The Client i
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
-| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange client*s |
+| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
 
@@ -1466,7 +1466,7 @@ OR
 
 ## `MVR_NEW_SESSION_HOST` packet
 
-This package tell other *MVR-xchange client*s additional network configuration. 
+This package tell other *MVR-xchange clients* additional network configuration. 
 
 When currently in Local Network Mode:
 When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
