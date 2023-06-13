@@ -1100,23 +1100,30 @@ Translation - Rotation
 
 # Terminology 
 
+| Name    | Description  |
+|---|---|
+| MVR-xchange  |  Protocol to share MVR files over the network. |
+| MVR-xchange client  |  Application that participate in the MVR-xchange. |
+| MVR-xchange group  |  Group of MVR MVR-xchange clients that work on the same project and communicate togehter. |
+| Local Network Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS. |
+| WebSocket Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS. |
 
 
 ## General
 The MVR communication format - MVR-xchange - shall support the exchange of MVR files over network without the need of an external transport device like a USB-stick. The exchange allows multiple clients within the same network to share MVR files. 
   
 MVR-xchange defines two modes of operation:
-- One Websocket mode which allows routing
-- One Local Network mode which works without configuration but does not support routing
+- One WebSocket Mode which allows routing
+- One Local Network Mode which works without configuration but does not support routing
 
-| Websocket Mode of protocol    | Local Network Mode of protocol  |
+| WebSocket Mode of protocol    | Local Network Mode of protocol  |
 |---|---|
 | ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) |
 
   
 ## Local Network Mode of protocol
 
-The local network mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
+The Local Network Mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
 Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register a mDNS service.
 
 The service name should be `_mvrxchange._tcp.local.`.
@@ -1125,22 +1132,22 @@ Each client shall negotiate a unique hostname via the methods described in the m
 Each client shall have a SRV and  A and/or AAAA record.
 
 When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
-When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other clients to join.
+When a MVR-xchange client wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other MVR-xchange client to join.
 
-You can upgrade a Local Network mode MVR-xchange group to use the Websocket mode with sending them a `MVR_NEW_SESSION_HOST` message providing the URL of the new service.
+You can upgrade a Local Network Mode MVR-xchange group to use the WebSocket Mode with sending them a `MVR_NEW_SESSION_HOST` message providing the URL of the new service.
 
-## Websocket Mode of protocol
+## WebSocket Mode of protocol
 
-The Websocket mode allows users to create a routable service for the MVR-xchange. 
+The WebSocket Mode allows users to create a routable service for the MVR-xchange. 
 Discovery works with the normal DNS and the service name needs to a valid URL that can be resolved by the DNS server.
 
-The DNS entry should point to the IP of the service running the websocket server. Clients that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
+The DNS entry should point to the IP of the service running the websocket server. MVR-xchange clients that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
 ## Packet definition
 
 All the packages define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
-When in Websocket Mode, all message should be send as text unless otherwise defined. 
+When in WebSocket Mode, all message should be send as text unless otherwise defined. 
 
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
@@ -1176,11 +1183,11 @@ All multi-byte fields defined shall be transmitted in network byte (big-endian) 
 
 ## `MVR_JOIN` packet
 
-When a client connects with the web socket server, the clients needs to send a `MVR_JOIN`package to the server. 
+When a client connects with the web socket server, the MVR-xchange client needs to send a `MVR_JOIN`package to the server. 
 
-Note that a clients can send multiple `MVR_JOIN` packages to the same server during the same connection to update its Name or get the lastest MVR file list.
+Note that a MVR-xchange client can send multiple `MVR_JOIN` packages to the same server during the same connection to update its Name or get the lastest MVR file list.
 
-### Websocket Mode
+### WebSocket Mode
 
 | 1 Is a Websocket Server and has a URL    | Client 2 connects to the websocket sever and send a `MVR_JOIN` message  |
 |---|---|
@@ -1276,7 +1283,7 @@ Response:
 
 A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and don't want to get updates about new MVR files any more.
 
-For the Websocket mode: It is not required to terminate the Websockets connection, but it can be done.
+For the WebSocket Mode: It is not required to terminate the Websockets connection, but it can be done.
 For the Local Network Mode: It is not required that to turn down the mDNS service, but it can be done.
 
 In order to join again, the client needs to and a `MVR_JOIN` package again.
@@ -1325,17 +1332,17 @@ Stations needs to request the MVR file with a `MVR_REQUEST` package.
 
 The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
 
-| Clients sends message to server  | Server send message to all conntected clients but the sender  |
+| MVR-xchange client sends message to server  | Server send message to all connected MVR-xchange clients but the sender  |
 |---|---|
 | ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
 
 The following chart display the process when the server is the station who is providing a new MVR file. In this case the MVR info is directly transmitted to the connected stations.
 
-| Server makes the `MVR_COMMIT` itself, and only sends it to connected clients |
+| Server makes the `MVR_COMMIT` itself, and only sends it to connected MVR-xchange clients |
 |---|
 | ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
 
-The following chart display the process when in Local Network Mode. The Client informs all other clients about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
+The following chart display the process when in Local Network Mode. The Client informs all other MVR-xchange client about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
 
 | Client sends the `MVR_COMMIT` message to the connected stations. |
 |---|
@@ -1351,7 +1358,7 @@ The following chart display the process when in Local Network Mode. The Client i
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
-| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected clients |
+| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected MVR-xchange clients |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
 
@@ -1393,7 +1400,7 @@ When you request the current MVR file, the station that exports the MVR should s
 When the station does not have the specified MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
 
 > *Note:*
-> When in Websocket Mode, the binary frame flag will be used to tell the receiver if a Buffer or JSON is send.
+> When in WebSocket Mode, the binary frame flag will be used to tell the receiver if a Buffer or JSON is send.
 
 
 > *Note:* 
@@ -1408,11 +1415,11 @@ When the station does not have the specified MVR file, it returns a MVR_REQUEST 
 | ![media/MVR_Commit_3.png](media/MVR_Request_3.png)  |  ![media/MVR_Request_4.png](media/MVR_Request_4.png) |
 
 
-| Clients requests a MVR from another station   | First requested station does not have the MVR and sends back a failure message,  |
+| MVR-xchange client requests a MVR from another station   | First requested station does not have the MVR and sends back a failure message,  |
 |---|---|
 | ![media/MVR_Request_mDNS1.png](media/MVR_Request_mDNS1.png)  |  ![media/MVR_Request_mDNS2.png](media/MVR_Request_mDNS2.png) |
 
-| Clients requests a MVR from another station | Second requested station does have the MVR and sends back the MVR file  |
+| MVR-xchange client requests a MVR from another station | Second requested station does have the MVR and sends back the MVR file  |
 |---|---|
 | ![media/MVR_Request_mDNS3.png](media/MVR_Request_mDNS3.png)  |  ![media/MVR_Request_mDNS4.png](media/MVR_Request_mDNS4.png) |
 
@@ -1455,15 +1462,15 @@ OR
 
 ## `MVR_NEW_SESSION_HOST` packet
 
-This package tell other clients additional network configuration. 
+This package tell other MVR-xchange clients additional network configuration. 
 
 When currently in Local Network Mode:
 When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
 
-When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the websocket mode. Otherwise store the Service Name for the next startup.
+When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the WebSocket Mode. Otherwise store the Service Name for the next startup.
 
-When currently in Websocket mode:
-When the client is connected via Websocket Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+When currently in WebSocket Mode:
+When the client is connected via WebSocket Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
 
 
 
@@ -1473,7 +1480,7 @@ When the client is connected via Websocket Mode to the MVR-xchange Group, you ca
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | Tells other connected devices the mDNS service name that should be used for this group. When empty, ignore. Otherwise connect with the new mDNS serice with an `MVR_JOIN` message  |
-| ServiceURL      |  [String](#user-content-attrtype-string) |                             | Empty. | Tells other connected devices Service URL for the websocket mode that should be used for this group. When empty, ignore. Otherwise try to connect to the websocket. Only for Local Network Mode.
+| ServiceURL      |  [String](#user-content-attrtype-string) |                             | Empty. | Tells other connected devices Service URL for the WebSocket Mode that should be used for this group. When empty, ignore. Otherwise try to connect to the websocket. Only for Local Network Mode.
 
 ##### Table 43 — *MVR_NEW_SESSION_HOST error response parameters*
 
