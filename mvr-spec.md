@@ -1137,7 +1137,7 @@ All the packages define their payload, unless otherwise stated, as JSON document
 
 When in Websocket Mode, all message should be send as text unless otherwise defined. 
 
-When in Local Network Mode, all messages are send via TCP directly to the client. The JSON document are then encoded the following way:
+When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
 | Type    | Symbol  |
 |---|---|
