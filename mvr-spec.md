@@ -1112,7 +1112,7 @@ MVR-xchange defines two modes of operation:
 ## Local Network Mode of protocol
 
 The local network mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
-Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register an mDNS service.
+Discovery of available MVR-xchange client shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register a mDNS service.
 
 The service name should be `MVR/xxxx` where xxxx is the name of the group. 
 When a MVR-xchange client wants to join a MVR-xchange group, he just needs to register the service, and send an `MVR_JOIN` message to the other stations that register this service name.
