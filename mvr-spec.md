@@ -1193,10 +1193,10 @@ When in WebSocket Mode, all message should be send as data frame Text *[RFC6455 
 
 ## `MVR_JOIN` message
 
-When a  *MVR-xchange client* connects with another *MVR-xchange client*, the first *MVR-xchange client* needs to send a `MVR_JOIN` package. 
+When a  *MVR-xchange client* connects with another *MVR-xchange client*, the first *MVR-xchange client* needs to send a `MVR_JOIN` message. 
 
 > Note: 
->  A *MVR-xchange client* can send multiple `MVR_JOIN` packages to the same server during the same connection to update its name or get the lastest MVR file list.
+>  A *MVR-xchange client* can send multiple `MVR_JOIN` messages to the same server during the same connection to update its name or get the lastest MVR file list.
 
 ### Local Network Mode
 
@@ -1219,7 +1219,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the package. Should be MVR_JOIN                           |
+| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN                           |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
 | StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
@@ -1299,7 +1299,7 @@ A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and does
 For the WebSocket Mode: It is not required to terminate the Websockets connection, but it can be done.
 For the Local Network Mode: It is not required that to turn down the mDNS service, but it can be done.
 
-In order to join again, the client needs to and a `MVR_JOIN` package again.
+In order to join again, the client needs to and a `MVR_JOIN` message again.
 
 | In Webssocket mode: *MVR-xchange client* 4 send a `MVR_LEAVE` message to the websocket server. | In Local Network Mode: *MVR-xchange client* 2 send a `MVR_LEAVE` message to all stations  |
 |---|---|
@@ -1310,7 +1310,7 @@ In order to join again, the client needs to and a `MVR_JOIN` package again.
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the package. Should be MVR_LEAVE                         |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
 | FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
 
 
@@ -1344,9 +1344,9 @@ Response:
 ## `MVR_COMMIT` message
 
 The MVR commit message informs all connected stations that there is a new MVR commit. This message only informs the stations about the existence of the new file.
-Stations needs to request the MVR file with a `MVR_REQUEST` package.
+Stations needs to request the MVR file with a `MVR_REQUEST` message.
 
-The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
+The following chart displays the process when one client sends a `MVR_COMMIT` message to the server, and the server distributes this in the session.
 
 ### Local Network Mode
 
@@ -1373,7 +1373,7 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the package. Should be MVR_COMMIT             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT             |
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
@@ -1447,7 +1447,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the message.                            |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
@@ -1455,7 +1455,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the package. Should be MVR_REQUEST             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST             |
 | OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
@@ -1484,9 +1484,9 @@ OR
 
 ## `MVR_NEW_SESSION_HOST` message
 
-This package is used to inform other *MVR-xchange clients* of impending network configuration changes. This message is sent to all nodes in the network.
+This message is used to inform other *MVR-xchange clients* of impending network configuration changes. This message is sent to all nodes in the network.
 
-This Packet Type is meant for two use cases:
+This message type is meant for two use cases:
 - Change the Service URL (WebSocket Mode) or the Service Name (Local Network Mode) of a network
 - Switch the Mode of a network
 
@@ -1494,7 +1494,7 @@ This requires that only either `ServiceName` or `SerivceURL` are set. Setting bo
 
 ### Change Service URL / Name
 
-This requires, that the current Network mode and the supplied packet data are matching:
+This requires, that the current Network mode and the supplied message data are matching:
 - If in WebSocket Mode, the **ServiceURL** must be set
 - If in Local Network Mode, the **ServiceName** must be set
 
@@ -1508,7 +1508,7 @@ Each receiver will try to connect to the URL given in `ServiceURL` and send a `M
 
 ## Switch Mode of a Network
 
-This requires, that the current Network mode and the supplied packet data are **not** matching:
+This requires, that the current Network mode and the supplied message data are **not** matching:
 - If in WebSocket Mode, the **ServiceName** must be set
 - If in Local Network Mode, the **ServiceURL** must be set
 
@@ -1524,7 +1524,7 @@ Each receiver will try to switch into Local Network Mode by connecting to the mD
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the package. Should be MVR_NEW_SESSION_HOST                           |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
 | ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
@@ -1597,7 +1597,7 @@ Many stations need to be able to read and write MVR files to keep track of the c
 ### Possible process of communication
 Every application can join a particular "MVR-xchange Group" to separate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
 Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR-xchange Group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
-Suggested communication packets are still work in progress...
+Suggested communication messages are still work in progress...
 
 
 
