@@ -1145,8 +1145,6 @@ The DNS entry should point to the IP of the service running the websocket server
 
 ## Packet definition
 
-All the packets define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
-
 When in WebSocket Mode, all message should be send as plain text unless otherwise defined. 
 
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
@@ -1160,6 +1158,8 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 | `MVR_PACKAGE_TYPE`    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
 | `MVR_PAYLOAD_LENGTH`  |  Number showing the byte-length of transferred buffer. |
 | `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
+
+All the packets define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
 The order and size is defined as follows:
 ```
@@ -1179,6 +1179,7 @@ Where the following applies:
 | uint32  |  32-bit unsigned integer |
 | uint64  |  64-bit unsigned integer |
 | char[]  |  8-bit character array |
+
 
 > Note: 
 > All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
