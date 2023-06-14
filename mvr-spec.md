@@ -1189,7 +1189,7 @@ Where the following applies:
 > All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
 
 ### WebSocket Mode
-When in WebSocket Mode, all message should be send as plain text unless otherwise defined. 
+When in WebSocket Mode, all message should be send as data frame Text *[RFC6455 5.6 Text 0x1](https://datatracker.ietf.org/doc/html/rfc6455#section-5.6)* unless otherwise defined. 
 
 ## `MVR_JOIN` message
 
