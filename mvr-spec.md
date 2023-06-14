@@ -1478,43 +1478,70 @@ OR
 
 ## `MVR_NEW_SESSION_HOST` packet
 
-This package tell other *MVR-xchange clients* additional network configuration. 
+This package is used to inform other *MVR-xchange clients* of impending network configuration changes. This message is sent to all nodes in the network.
 
-When currently in Local Network Mode:
-When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+This Packet Type is meant for two use cases:
+- Change the Service URL (WebSocket Mode) or the Service Name (Local Network Mode) of a network
+- Switch the Mode of a network
 
-When the client is connected via Local Network Mode to the MVR-xchange Group, you can send a new Service URL to all connected station. All connected station should search if the URL is reachable. If this is the case return OK and switch to the WebSocket Mode. Otherwise store the Service Name for the next startup.
+This requires that only either `ServiceName` or `SerivceURL` are set. Setting both will return OK: false.
 
-When currently in WebSocket Mode:
-When the client is connected via WebSocket Mode to the MVR-xchange Group, you can send a new Service Name to all connected station. All connected station should search for the new service name and, when available join them. Return OK when this is OK, Return false when this failed.
+### Change Service URL / Name
 
+This requires, that the current Network mode and the supplied packet data are matching:
+- If in WebSocket Mode, the **ServiceURL** must be set
+- If in Local Network Mode, the **ServiceName** must be set
 
+When the receiving nodes are in Local Network Mode: 
+
+Each receiver will try to connect to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes save the new Service Name and modify their own mDNS service. OK: true is returned. If no connection could be established, OK: false is returned. 
+
+When the receiving nodes are in WebSocket Mode: 
+
+Each receiver will try to connect to the URL given in `ServiceURL` and send a `MVR_JOIN` Message. If this is successful, the nodes save the URL and return OK: true. Otherwise OK: false is returned. 
+
+## Switch Mode of a Network
+
+This requires, that the current Network mode and the supplied packet data are **not** matching:
+- If in WebSocket Mode, the **ServiceName** must be set
+- If in Local Network Mode, the **ServiceURL** must be set
+
+When the receiving nodes are in Local Network Mode: 
+
+Each receiver will try to switch into WebSocket Mode by connecting to the URL given in `ServiceURL` and send a `MVR_JOIN` Message. If this is successful, then OK: true is returned and the mode is switched. If the URL is not reachable, then OK: false is returned.
+
+When the receiving nodes are in WebSocket Mode: 
+
+Each receiver will try to switch into Local Network Mode by connecting to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes switches to Local Network Mode and establish their own mDNS client as described above. OK: true is returned in this case. If the new mDNS service is not reachable OK: false is returned.
 
 ##### Table 42 — *MVR_NEW_SESSION_HOST message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
-| ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | Tells other connected devices the mDNS service name that should be used for this group. When empty, ignore. Otherwise connect with the new mDNS serice with an `MVR_JOIN` message  |
-| ServiceURL      |  [String](#user-content-attrtype-string) |                             | Empty. | Tells other connected devices Service URL for the WebSocket Mode that should be used for this group. When empty, ignore. Otherwise try to connect to the websocket. Only for Local Network Mode.
+| ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
+| ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
 ##### Table 43 — *MVR_NEW_SESSION_HOST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
-```
 Request:
+```
 {
   "Type": "MVR_NEW_SESSION_HOST",
   "ServiceName":"fancyProjectGroup._mvrxchange._tcp.local.", 
-  "ServiceURL":"www.mvr-share.com/api/fancyProjectGroup", 
+  "ServiceURL":"", 
 }
+```
+
 Response:
+```
 {
   "Type": "MVR_NEW_SESSION_HOST",
   "OK": "true",
