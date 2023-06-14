@@ -1103,8 +1103,8 @@ Translation - Rotation
 | Name    | Description  |
 |---|---|
 | MVR-xchange  |  Protocol to share MVR files over the network. |
-| *MVR-xchange client*  |  Application that participate in the MVR-xchange. |
-| MVR-xchange group  |  Group of MVR *MVR-xchange clients* that work on the same project and communicate togehter. |
+| *MVR-xchange client*  |  Application that participates in the MVR-xchange. |
+| MVR-xchange group  |  Group of *MVR-xchange clients* that work on the same project and communicate togehter. |
 | Local Network Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS. |
 | WebSocket Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS. |
 
@@ -1113,41 +1113,41 @@ Translation - Rotation
 The MVR communication format - MVR-xchange - shall support the exchange of MVR files over network without the need of an external transport device like a USB-stick. The exchange allows multiple clients within the same network to share MVR files. 
   
 MVR-xchange defines two modes of operation:
-- One WebSocket Mode which allows routing
-- One Local Network Mode which works without configuration but does not support routing
+- Local Network Mode, which works without configuration but does not support routing
+- WebSocket Mode, which allows routing
 
-| WebSocket Mode of protocol    | Local Network Mode of protocol  |
+| Local Network Mode of protocol    | WebSocket Mode of protocol  |
 |---|---|
-| ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) |
+|  ![media/MVR_LocalNetwork.png](media/MVR_LocalNetwork.png) | ![media/MVR_Websockets.png](media/MVR_Websockets.png)  |
 
   
 ## Local Network Mode of protocol
 
-The Local Network Mode allows users to directly use the MVR-xchange without the need of configuration and special hardware. 
-Discovery of available *MVR-xchange client* shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register a mDNS service.
+The Local Network Mode allows users to directly use the MVR-xchange without the need for configuration or special hardware. 
+Discovery of available *MVR-xchange clients* shall be performed by mDNS (RFC 6762 Multicast DNS). Every application that wants to join a MVR-xchange group, need to register a mDNS service.
 
-The service name should be `_mvrxchange._tcp.local.`.
-The sub service name should be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
+The service name shall be `_mvrxchange._tcp.local.`.
+The sub service name shall be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
 Each client shall negotiate a unique hostname via the methods described in the mDNS standards.
-Each client shall have a SRV and  A and/or AAAA record.
+Each client shall have a SRV and A and/or AAAA record.
 
-When a *MVR-xchange client* wants to join a MVR-xchange group, he just needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
-When a *MVR-xchange client* wants to create a MVR-xchange group, he just needs to register a service name which is currently not in use and wait for other *MVR-xchange client* to join.
+When a *MVR-xchange client* wants to join a MVR-xchange group, he needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
+When a *MVR-xchange client* wants to create a MVR-xchange group, he needs to register a service name which is currently not in use and wait for other *MVR-xchange clients* to join.
 
 You can upgrade a Local Network Mode MVR-xchange group to use the WebSocket Mode with sending them a `MVR_NEW_SESSION_HOST` message providing the URL of the new service.
 
 ## WebSocket Mode of protocol
 
 The WebSocket Mode allows users to create a routable service for the MVR-xchange. 
-Discovery works with the normal DNS and the service name needs to a valid URL that can be resolved by the DNS server.
+Discovery works with the normal DNS and the service name needs to be a valid URL that can be resolved by the DNS server.
 
 The DNS entry should point to the IP of the service running the websocket server. *MVR-xchange clients* that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
 ## Packet definition
 
-All the packages define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
+All the packets define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
-When in WebSocket Mode, all message should be send as text unless otherwise defined. 
+When in WebSocket Mode, all message should be send as plain text unless otherwise defined. 
 
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
@@ -1155,10 +1155,10 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 |---|---|
 | `MVR_PACKAGE_HEADER`  |  Number that defines the package. Use 778682. |
 | `MVR_PACKAGE_VERSION` |  Number that defines the version of the package format. Use 1. |
-| `MVR_PACKAGE_COUNT`   |  Number that defines how many package make of the complete message. |
-| `MVR_PACKAGE_NUMBER`  |  Number that defines what number this package has in the complete message.  |
+| `MVR_PACKAGE_COUNT`   |  Number that defines how many packages the current message consists of |
+| `MVR_PACKAGE_NUMBER`  |  Number that defines what number this package  in the complete message has  |
 | `MVR_PACKAGE_TYPE`    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
-| `MVR_PAYLOAD_LENGTH`  |  Number showing the length of transferred buffer. |
+| `MVR_PAYLOAD_LENGTH`  |  Number showing the byte-length of transferred buffer. |
 | `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
 
 The order and size is defined the following way:
