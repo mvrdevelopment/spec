@@ -1191,7 +1191,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 > Note: 
 >  A *MVR-xchange client* can send multiple `MVR_JOIN` packages to the same server during the same connection to update its name or get the lastest MVR file list.
 
-# Local Network Mode
+### Local Network Mode
 
 | *MVR-xchange client* 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
 |---|---|
@@ -1226,7 +1226,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successfully, false when there is an error. Check the Message for more information in this case.   |
+| OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
 | Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
 | StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
@@ -1236,6 +1236,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 Example:
+
 Request:
 ```
 {
@@ -1303,7 +1304,7 @@ In order to join again, the client needs to and a `MVR_JOIN` package again.
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
-| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station. |
+| FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
 
 
 ##### Table 43 — *MVR_LEAVE response parameters*
@@ -1311,18 +1312,21 @@ In order to join again, the client needs to and a `MVR_JOIN` package again.
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 Example:
-```
+
 Request:
+```
 {
   "Type": "MVR_LEAVE",
   "StationUUID":"", 
 }
+```
 Response:
+```
 {
   "Type": "MVR_LEAVE",
   "OK": "true",
@@ -1337,32 +1341,37 @@ Stations needs to request the MVR file with a `MVR_REQUEST` package.
 
 The following chart displays the process when one client sends a `MVR_COMMIT` package to the server, and the server distributes this in the session.
 
-| *MVR-xchange client* sends message to server  | Server send message to all connected *MVR-xchange clients* but the sender  |
-|---|---|
-| ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
+### Local Network Mode
 
-The following chart display the process when the server is the station who is providing a new MVR file. In this case the MVR info is directly transmitted to the connected stations.
-
-| Server makes the `MVR_COMMIT` itself, and only sends it to connected *MVR-xchange clients* |
-|---|
-| ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
-
-The following chart display the process when in Local Network Mode. The *MVR-xchange client* informs all other *MVR-xchange client* about the new commit. Not the that the client needs to respect the `MVR_LEAVE` messages itself.
+The *MVR-xchange client* informs all other *MVR-xchange clients* about the new commit. Note that the client needs to respect any previous `MVR_LEAVE` messages itself.
 
 | *MVR-xchange client* sends the `MVR_COMMIT` message to the connected stations. |
 |---|
 | ![media/MVR_Commit_4.png](media/MVR_Commit_4.png)  |
 
+
+### WebSocket Mode
+
+| *MVR-xchange client* sends message to server  | Server sends messages to all connected *MVR-xchange clients* but the sender  |
+|---|---|
+| ![media/MVR_Commit_1.png](media/MVR_Commit_1.png)  |  ![media/MVR_Commit_2.png](media/MVR_Commit_2.png) |
+
+The following chart displays the process when the server is the station who is providing a new MVR file. In this case the MVR info is directly transmitted to the connected stations.
+
+| Server makes the `MVR_COMMIT` itself, and only sends it to connected *MVR-xchange clients* |
+|---|
+| ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
+
 ##### Table 42 — *MVR_COMMIT message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistant across multiple start ups of the software on the same computer |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using ?? |
+| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
@@ -1372,7 +1381,7 @@ The following chart display the process when in Local Network Mode. The *MVR-xch
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1397,19 +1406,19 @@ Response:
     
 ## `MVR_REQUEST` packet
 
-This specific packet requests a MVR file from a station. You either can request a specific MVR via UUID or request and MVR from the current state.
-You get the available MVR UUIDs from the `MVR_COMMIT` messages.
+This packet requests a MVR file from a station. You either can request a specific MVR via its UUID or get the last available MVR File by leaving the field empty. If no file is available, the underlying software may export one.
+You available MVR UUIDs can be retrieved using the `MVR_COMMIT` message.
 
-When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations.
+When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations. ??
 
-When the station does not have the specified MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
+If the station does not have the specified MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
 
 > *Note:*
 > When in WebSocket Mode, the binary frame flag will be used to tell the receiver if a Buffer or JSON is send.
 
 
 > *Note:* 
-> When in Local Network Mode, the `MVR_PACKAGE_TYPE` flag will be used to tell the receiver if a Buffer or JSON is send
+> When in Local Network Mode, the `MVR_PACKAGE_TYPE` flag will be used to tell the receiver if a Buffer or JSON was sent
 
 | Station requests a MVR from another station    | Server sends the request to the right station  |
 |---|---|
@@ -1433,30 +1442,32 @@ When the station does not have the specified MVR file, it returns a MVR_REQUEST 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the MVR file that you want to request. If you omit this field, the station should generate a MVR and send this.  |
-| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want this MVR from. |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
+| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
 ##### Table 43 — *MVR_REQUEST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successfully, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
-```
 Request:
+```
 {
   "Type": "MVR_REQUEST",
   "FromStationUUID":"", 
   "FileUUID":"", 
 }
+```
 Response:
 
 binary frame
 
 OR
+```
 
 {
   "Type": "MVR_REQUEST",
