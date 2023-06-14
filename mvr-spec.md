@@ -1161,7 +1161,7 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 | `MVR_PAYLOAD_LENGTH`  |  Number showing the byte-length of transferred buffer. |
 | `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
 
-The order and size is defined the following way:
+The order and size is defined as follows:
 ```
 uint32 MVR_PACKAGE_HEADER
 uint32 MVR_PACKAGE_VERSION
@@ -1186,10 +1186,17 @@ Where the following applies:
 
 ## `MVR_JOIN` packet
 
-When a  *MVR-xchange client* connects with another *MVR-xchange client*, the *MVR-xchange client* needs to send a `MVR_JOIN`package to the other *MVR-xchange client*. 
+When a  *MVR-xchange client* connects with another *MVR-xchange client*, the first *MVR-xchange client* needs to send a `MVR_JOIN` package. 
 
 > Note: 
->  A *MVR-xchange client* can send multiple `MVR_JOIN` packages to the same server during the same connection to update its Name or get the lastest MVR file list.
+>  A *MVR-xchange client* can send multiple `MVR_JOIN` packages to the same server during the same connection to update its name or get the lastest MVR file list.
+
+# Local Network Mode
+
+| *MVR-xchange client* 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
+|---|---|
+| ![media/MVR_Join_mDNS_1.png](media/MVR_Join_mDNS_1.png)  |  ![media/MVR_Join_mDNS_2.png](media/MVR_Join_mDNS_2.png) |
+
 
 ### WebSocket Mode
 
@@ -1201,24 +1208,16 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the *MV
 |---|---|
 | ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
 
-# Local Network Mode
-
-| *MVR-xchange client* 2 joins the MVR-xchange Group  | and sends to all mDNS Service a `MVR_JOIN` message  |
-|---|---|
-| ![media/MVR_Join_mDNS_1.png](media/MVR_Join_mDNS_1.png)  |  ![media/MVR_Join_mDNS_2.png](media/MVR_Join_mDNS_2.png) |
-
-
-
 ##### Table 42 — *MVR_JOIN message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the package.                            |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that sender station will be shown in UI.                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
-| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for sender station inside the network. This UUID should be persistent across multiple start ups of the software on the same computer |
+| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
@@ -1228,23 +1227,23 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the *MV
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
 | OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successfully, false when there is an error. Check the Message for more information in this case.   |
-| Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message when there is an error.                |                             |
+| Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name that receiver station will be shown in UI.                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
-| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiver station inside the network. This UUID should be persistent across multiple start ups of the software on the same computer |
+| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 Example:
-```
 Request:
+```
 {
   "Type": "MVR_JOIN",
   "Provider":"MVRApplication", 
   "verMajor":"1", 
   "verMinor":"6", 
-  "StationUUID":"", 
+  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
   "StationName":"MVR Application from user A at location B",
   "Files": [
     {
@@ -1259,14 +1258,16 @@ Request:
   ]
 
 }
+```
 Response:
+```
 {
   "Type": "MVR_JOIN",
   "OK": "true",
   "Message": "",
   "verMajor":"1", 
   "verMinor":"6", 
-  "StationUUID":"", 
+  "StationUUID":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
   "StationName":"MVR Application from user A at location B",
   "Files": [
     {
@@ -1285,7 +1286,7 @@ Response:
 
 ## `MVR_LEAVE` packet
 
-A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and don't want to get updates about new MVR files any more.
+A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and does not want to get updates about new MVR files anymore.
 
 For the WebSocket Mode: It is not required to terminate the Websockets connection, but it can be done.
 For the Local Network Mode: It is not required that to turn down the mDNS service, but it can be done.
