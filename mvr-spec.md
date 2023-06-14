@@ -2,7 +2,7 @@ MVR Version DIN SPEC 15801 Draft 1
 
 # Introduction
 
-GDTF, as specified in DIN SPEC 15800, solved the issue of unifying the description of (lighting) devices. Now several software products make use of the same GDTF file. 
+GDTF, as specified in DIN SPEC 15800, solved the issue of unifying the description of (lighting) devices. Now several software products make use of the same GDTF file format. 
 To enable all applications to exchange environmental information as well as planning data based on GDTF files, the new DIN SPEC shall unify the information exchange of all this data and will be called MVR – My Virtual Rig.
 
 In the entertainment industry, the MVR file format allows programs to
@@ -62,13 +62,13 @@ descriptive name of the specification
 
 ## General
 
-MVR exists of two parts to enable any applications to exchange GDTF but also general information in the same common format. Therefore, a MVR file format is defined.
-To simplify the exchange of MVR File formats a MVR communication format will be defined.
+MVR consists of two parts to enable any applications to exchange GDTF but also general information in the same common format. Firstly the MVR file format as described in the following section.
+Secondly a MVR communication format to simplify exchange between parties.
 
 
 # File Format Definition
 
-To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall containe one Root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. The root file `GeneralSceneDescription.xml` is mandatory inside the archive to be a valid MVR file.
+To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall contain one root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. The root file `GeneralSceneDescription.xml` is mandatory inside the archive to be a valid MVR file.
 
 - The archive must not use encryption or password protection.
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
@@ -82,7 +82,7 @@ All objects used have a persistent unique ID to track changes between the exchan
 If there are no changes to the original GDTF file it is mandatory to keep it in the MVR during export.
 If there are changes to the GDTF file it is mandatory to add a revision to the GDTF file in order to reflect it.
 
-Only user-intended modifications of any part of the MVR file shall be processed. This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guranteed that all later steps in the workflow have access to the original intented data.
+Only user-intended modifications of any part of the MVR file shall be processed. This is particular important if applications in the workflow do not need or accept all data of the MVR file. This way it is guaranteed that all later steps in the workflow have access to the original intended data.
 
 
 Example of a typical MVR archive:
@@ -152,7 +152,7 @@ Find a complete example of a file [here
 ## Node Definition: UserData
 
 This node contains a collection of user data nodes defined and used by
-provider applications if required. User data should not be expected to be preserved in the workflow of mulitple applications importing/exporting the data.
+provider applications if required. User data should not be expected to be preserved in the workflow of multiple applications importing/exporting the data.
 
 Node name: `UserData`
 
@@ -446,11 +446,11 @@ Node name: `Fixture`
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
-| Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture is used for.                                                       |
-| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the intance this fixture that you be used to activate / select them for programming.                                                            |
-| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)      | The Fixture ID is an identifier for the intance this fixture that you be used to activate / select them for programming.                                                            |
+| Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture has.                                                       |
+| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                                                            |
+| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                                                            |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position.                                                                                        |
-| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node Link to the Geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
+| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node link to the geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
 | [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                             |
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                             |
@@ -458,9 +458,9 @@ Node name: `Fixture`
 | [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                             |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
-| CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance this fixture within the Custom ID Type that you be used to activate / select them for programming.   |
+| CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
-| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must apply to the GDTF standard.                                                           |
+| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                                           |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
@@ -1512,17 +1512,17 @@ Response:
 ```
 
 ## The Idea of MVR-exchange Communication
-The MVR exchange protocol should define an online or "on the wire" protocol to exchange MVR files in a network environment. Technically it should replace the USB-stick or file-saving process for an easier update of MVR changes within a working group. There are two basic user-stories to look at to define the goal of MVR exchange:
+The MVR exchange protocol should define an online or "on the wire" protocol to exchange MVR files in a network environment. Technically it should replace the USB-stick or file-saving process for an easier update of MVR changes within a working group. There are two basic use-cases to look at to define the goal of MVR exchange:
 
 ### Small Setup
-One Programmer/Operator using a lighting desk, one or two visualizer and a planning software. Most likely all computers running the different applications are connected via a switch and are within reach. It would be no problem to use a USB-Stick to exchange files. But it would simplify the workflow by using MVR-exchange protocol because all machines are located and connected “automatically” and the exported files will be shared with all applications. The user still needs to change keyboard & mouse to control each application individually but that is a known “workflow limitation” as it applies for using the different applications anyway.
+One Programmer/Operator using a lighting desk, one or two visualizers and an appropriate planning software. Most likely all computers running the different applications are connected via a switch and are within reach. It would be no problem to use a USB-Stick to exchange files. But it would simplify the workflow by using MVR-exchange protocol because all machines are located and connected “automatically” and the exported files will be shared with all applications. The user still needs to change keyboard & mouse to control each application individually but that is a known “workflow limitation” as it applies for using the different applications anyway.
  
 #### Advantages of this workflow
 - No need to plug in a USB stick several times.
 - No need to manually copy the files into the correct folder on different computers.
  
 #### Add on
-If an external person such as a planner or logistic person joins the network, they can instantly exchange the latest MVR files. Following the logic, the system of MVR-exchange can grow and be expanded.
+If an external person such as a planner or logistic person joins the network, they can instantly exchange the latest MVR files. Following the logic, the system of MVR-exchange can grow and be expanded dynamically.
  
 ### Large Setup
 Multiple consoles each with a visualizer station, a tracking system, a planner, some media server in a rack and a lighting designer sharing a (pre-) programming room. All applications running on different computers are connected via network. One operator per station working locally with the visualizer while all other stations are manned by specialists.
@@ -1542,16 +1542,16 @@ Many stations need to be able to read and write MVR files to keep track of the c
 - The local user will be informed that a new file is available for import.
   
 ### What MVR-exchange cannot do!
-- There is no live update of changes.
+- There are no live update of changes.
 - There is no rule to always import all changes – ergo: there is no single file or source of truth.
 - There is no offline update for stations joining later or leaving earlier.
 - There is (currently) no way to connect stations via internet.
 
 
 ### Possible process of communication
-Every application can join a particular "MVR-xchange Group" to seperate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
+Every application can join a particular "MVR-xchange Group" to separate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
 Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR-xchange Group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
-Suggested communication packes are still work in progress...
+Suggested communication packets are still work in progress...
 
 
 
