@@ -1582,7 +1582,7 @@ Many stations need to be able to read and write MVR files to keep track of the c
 - The local user will be informed that a new file is available for import.
   
 ### What MVR-exchange cannot do!
-- There are no live update of changes.
+- There are no live updates of changes.
 - There is no rule to always import all changes – ergo: there is no single file or source of truth.
 - There is no offline update for stations joining later or leaving earlier.
 - There is (currently) no way to connect stations via internet.
