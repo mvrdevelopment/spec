@@ -1371,7 +1371,7 @@ The following chart displays the process when the server is the station who is p
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using ?? |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
 | StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
@@ -1410,7 +1410,7 @@ Response:
 This packet requests a MVR file from a station. You either can request a specific MVR via its UUID or get the last available MVR File by leaving the field empty. If no file is available, the underlying software may export one.
 You available MVR UUIDs can be retrieved using the `MVR_COMMIT` message.
 
-When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations. ??
+When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations.
 
 If the station does not have the specified MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
 
