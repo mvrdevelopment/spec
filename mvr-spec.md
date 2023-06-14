@@ -1143,10 +1143,15 @@ Discovery works with the normal DNS and the service name needs to be a valid URL
 
 The DNS entry should point to the IP of the service running the websocket server. *MVR-xchange clients* that want to join this MVR-xchange Group need to connect with a web socket client (RFC 6455 — The WebSocket Protocol).
 
-## Packet definition
+## Packet & Message definition
 
-When in WebSocket Mode, all message should be send as plain text unless otherwise defined. 
+Packages define how the message will be send to the *MVR-xchange client*, while the message describes the content.
 
+All the messages are defined, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
+
+Packages are defined based on the mode of communication. They are defined for Local Network Mode and WebSocket mode differently.
+
+### Local Network Mode
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
 | Type    | Symbol  |
@@ -1159,7 +1164,6 @@ When in Local Network Mode, all messages are send via TCP directly to the client
 | `MVR_PAYLOAD_LENGTH`  |  Number showing the byte-length of transferred buffer. |
 | `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
 
-All the packets define their payload, unless otherwise stated, as JSON documents (ISO/IEC 21778:2017).
 
 The order and size is defined as follows:
 ```
@@ -1184,8 +1188,10 @@ Where the following applies:
 > Note: 
 > All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
 
+### WebSocket Mode
+When in WebSocket Mode, all message should be send as plain text unless otherwise defined. 
 
-## `MVR_JOIN` packet
+## `MVR_JOIN` message
 
 When a  *MVR-xchange client* connects with another *MVR-xchange client*, the first *MVR-xchange client* needs to send a `MVR_JOIN` package. 
 
@@ -1286,7 +1292,7 @@ Response:
 ```
 
 
-## `MVR_LEAVE` packet
+## `MVR_LEAVE` message
 
 A client sends a `MVR_LEAVE` when it wants to quit an MVR-xchange Group and does not want to get updates about new MVR files anymore.
 
@@ -1335,7 +1341,7 @@ Response:
 }
 ```
 
-## `MVR_COMMIT` packet
+## `MVR_COMMIT` message
 
 The MVR commit message informs all connected stations that there is a new MVR commit. This message only informs the stations about the existence of the new file.
 Stations needs to request the MVR file with a `MVR_REQUEST` package.
@@ -1405,7 +1411,7 @@ Response:
 }
 ```
     
-## `MVR_REQUEST` packet
+## `MVR_REQUEST` message
 
 This packet requests a MVR file from a station. You either can request a specific MVR via its UUID or get the last available MVR File by leaving the field empty. THe underlying software will then generate a file based on the current state. This also triggers a `MVR_COMMIT` message to other connected stations.
 
@@ -1476,7 +1482,7 @@ OR
 }
 ```
 
-## `MVR_NEW_SESSION_HOST` packet
+## `MVR_NEW_SESSION_HOST` message
 
 This package is used to inform other *MVR-xchange clients* of impending network configuration changes. This message is sent to all nodes in the network.
 
