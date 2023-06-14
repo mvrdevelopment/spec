@@ -1549,6 +1549,7 @@ Response:
 
 }
 ```
+---
 
 ## The Idea of MVR-exchange Communication
 The MVR exchange protocol should define an online or "on the wire" protocol to exchange MVR files in a network environment. Technically it should replace the USB-stick or file-saving process for an easier update of MVR changes within a working group. There are two basic use-cases to look at to define the goal of MVR exchange:
