@@ -1407,10 +1407,9 @@ Response:
     
 ## `MVR_REQUEST` packet
 
-This packet requests a MVR file from a station. You either can request a specific MVR via its UUID or get the last available MVR File by leaving the field empty. If no file is available, the underlying software may export one.
-You available MVR UUIDs can be retrieved using the `MVR_COMMIT` message.
+This packet requests a MVR file from a station. You either can request a specific MVR via its UUID or get the last available MVR File by leaving the field empty. THe underlying software will then generate a file based on the current state. This also triggers a `MVR_COMMIT` message to other connected stations.
 
-When you request the current MVR file, the station that exports the MVR should send `MVR_COMMIT` messages to the other connected stations.
+The available MVR UUIDs can be retrieved using the `MVR_COMMIT` message.
 
 If the station does not have the specified MVR file, it returns a MVR_REQUEST Json Response, otherwise it sends the buffer of the MVR file.
 
@@ -1495,7 +1494,7 @@ This requires, that the current Network mode and the supplied packet data are ma
 
 When the receiving nodes are in Local Network Mode: 
 
-Each receiver will try to connect to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes save the new Service Name and modify their own mDNS service. OK: true is returned. If no connection could be established, OK: false is returned. 
+Each receiver will try to connect to the mDNS service given in `ServiceName` and send a `MVR_JOIN` message. If this is successful, the nodes save the new Service Name and modify their own mDNS service. OK: true is returned. If no connection could be established, OK: false is returned. 
 
 When the receiving nodes are in WebSocket Mode: 
 
@@ -1513,7 +1512,7 @@ Each receiver will try to switch into WebSocket Mode by connecting to the URL gi
 
 When the receiving nodes are in WebSocket Mode: 
 
-Each receiver will try to switch into Local Network Mode by connecting to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes switches to Local Network Mode and establish their own mDNS client as described above. OK: true is returned in this case. If the new mDNS service is not reachable OK: false is returned.
+Each receiver will try to switch into Local Network Mode by connecting to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes switch to Local Network Mode and establish their own mDNS client as described above. OK: true is returned in this case. If the new mDNS service is not reachable OK: false is returned.
 
 ##### Table 42 — *MVR_NEW_SESSION_HOST message parameters*
 
