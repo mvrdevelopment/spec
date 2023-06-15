@@ -1630,7 +1630,7 @@ This section lists all the changes that are made to MVR.
   integer values for this.
 - The version attribute from the UserData node is now a String so it
   can contain any data.
-- Make it clear that the SymDef can contain Symbol and Geometry3D
+- Make it clear that the Symdef can contain Symbol and Geometry3D
   nodes.
 - Geometry3D file attribute defines the behavior if there is no
   extension for a file.
