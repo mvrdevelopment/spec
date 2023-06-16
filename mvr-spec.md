@@ -2,8 +2,7 @@ MVR Version DIN SPEC 15801 Draft 1
 
 # Introduction
 
-GDTF, as specified in DIN SPEC 15800, solved the issue of unifying the description of (lighting) devices. Now several software products make use of the same GDTF file format. 
-To enable all applications to exchange environmental information as well as planning data based on GDTF files, the new DIN SPEC shall unify the information exchange of all this data and will be called MVR – My Virtual Rig.
+MVR - My virtual Rig - specified in this DIN SPEC will unify the information exchange between different applications within the entertainment inustry. Based on GDTF, as specified in DIN SPEC 15800, MVR allows the exchange of scenic and environmental information and complete show setups as planning status
 
 In the entertainment industry, the MVR file format allows programs to
 share data and geometry for a scene. A scene is a set of parametric
@@ -123,6 +122,8 @@ Here is a list of the available types for node or attribute values:
 | <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
 | <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
 | <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
+| <span id="attrType-IPv4">IPv4 Address</span> | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
+| <span id="attrType-IPv6">IPv6 Address</span> | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
 
 
 ## Root File Definition
@@ -452,6 +453,7 @@ Node name: `Fixture`
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position.                                                                                        |
 | ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node link to the geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
+| [Protocols](#node-definition-addresses) | 0 or 1        |                                              | The container for protocols assignments.                                                                                             |
 | [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                             |
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                             |
 | [Overwrites](#node-definition-overwrites) | 0 or 1        |                                              | The container for overwrites for this fixture.                                                                                             |
@@ -461,7 +463,7 @@ Node name: `Fixture`
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
 | [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                                           |
-| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+| [ChildList](#node-definition-childlist) | 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
 GDTF file._
@@ -489,7 +491,14 @@ An example of a node definition is shown below:
     <Position>77 BC DE 16 95 A6 47 25 9D 04 16 A0 BD 67 CD 1A</Position>
     <Addresses>
         <Address break="0">45</Address>
+        <Network Interface="ethernet_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
+        <Network Interface="ethernet_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
+        <Network Interface="wireless_1" DHCP="on" />
     </Addresses>
+    <Protocols>
+        <Art-Net Interface="ethernet_1" />
+        <NDI Interface="wireless_1" name="NDI 1"/>
+    </Protocols>
     <Alignments>
         <Alignment geometry="Beam" up="0,0,1" direction="0,0,-1"/>
     </Alignments>
@@ -908,7 +917,7 @@ The child list contains a list of the following nodes:
 
 ### Node Definition: Addresses
 
-This node defines a group of DMX Addresses.
+This node defines a group of Addresses.
 
 Node name: `Addresses`
 
@@ -918,7 +927,8 @@ The child list contains a list of the following nodes:
 
 | Child Node                          | Description             |
 | ----------------------------------- | ----------------------- |
-| [Address](#node-definition-address) | One address of fixture. |
+| [Address](#node-definition-address) | DMX address of the fixture. |
+| [Network](#node-definition-network) | Network address of the fixture. |
 
 
 #### Node Definition: Address
@@ -927,15 +937,57 @@ This node defines a DMX address.
 
 Node name: `Address`
 
-##### Table 18 — *Adress Node Attributes*
+##### Table 18 — *Address Node Attributes*
 
-| Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                                            |
-| -------------- | ----------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- |
-| Break          | [Integer](#user-content-attrtype-integer) | 0                           | This is the break ident for this address. This value has to be unique for one fixture. |
+| Attribute Name | Attribute Value Type  | Default Value when Optional | Description       |
+| -------------- | --------------------- | --------------------------- | ----------------- |
+| Break          | [Integer](#user-content-attrtype-integer) | 0       | This is the break ident for this address. This value has to be unique for one fixture. |
 
-| Value Type                                                                          | Default Value When Missing | Description                                                    |
-| ----------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------- |
-| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional               | This is the DMX address. <br/><br/>`Integer Format:` <br/>`Absolute DMX address;` <br/><br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to  512.`*`Universe.Address`* |
+| Value Type  | Default Value When Missing | Description      |
+| ----------- | -------------------------- | ---------------- |
+| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional      | This is the DMX address. <br/>`Integer Format:` `Absolute DMX address;` <br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to 512. `*`Universe.Address`* |
+
+#### Node Definition: Network
+
+This node defines a network IP-address according to the physical interface.
+
+Node name: `Network`
+
+##### Table 18 — *Network Node Attributes*
+
+| Attribute Name | Attribute Value Type    | Default Value when Optional  | Description   |
+| -------------- | ----------------------- | --------------------------- | -------------- |
+| Interface      | [String](#user-content-attrtype-string) | ethernet_1    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| IPv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
+| SubnetMask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
+| IPv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
+| DHCP | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
+
+### Node Definition: Protocols
+
+This node defines the supported protocols and the used interface.
+
+Node name: `Protocols`
+
+The child list contains a list of the following nodes:
+
+##### Table 17 — *Protocols Node Children*
+
+| Child Node              | Allowed Count            | Description             |
+| ------------------------|----------- | ----------------------- |
+| RDM                     | 0 or 1          | Assigns the RDM protocol network interface |
+| Art-Net                 | 0 or 1          | Assigns the Art-Net protocol network interface |
+| sACN                    | 0 or 1          | Assigns the sACN protocol network interface |
+| PosiStageNet            | 0 or 1          | Assigns the PosiStageNet protocol network interface |
+| OpenSoundControl        | 0 or 1          | Assigns the OpenSoundControl protocol network interface |
+| CITP                    | 0 or 1          | Assigns the CITP protocol network interface |
+| NDI                     | 0 or 1          | Assigns the NDI protocol network interface |
+| Custom                  | 0 or 1          | Assigns the Custom protocol network interface |
+
+| Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
+| -------------- | -------------------- | --------------------------- | -------------- |
+| Interface      | [String](#user-content-attrtype-string) | ethernet_1   | This is the interface name.  |
+| Name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node|
 
 
 ### Node Definition: Alignments
