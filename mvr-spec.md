@@ -175,8 +175,8 @@ Node name: `Data`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                                               |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------------------------------------------- |
-| Provider       | [String](#user-content-attrtype-string) | Not Optional                | Specifies the name of the provider application that created this data.    |
-| Ver            | [String](#user-content-attrtype-string) | 1                           | Version information of the data as specified by the provider application. |
+| provider       | [String](#user-content-attrtype-string) | Not Optional                | Specifies the name of the provider application that created this data.    |
+| ver            | [String](#user-content-attrtype-string) | 1                           | Version information of the data as specified by the provider application. |
 
 
 ## Node Definition: Scene
@@ -221,8 +221,8 @@ Node name: `Symdef`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](user-content-attrtype-uuid)      | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](user-content-attrtype-uuid)      | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of the following nodes:
 
@@ -242,8 +242,8 @@ Node name: `Position`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
 ### Node Definition: MappingDefinition
@@ -257,8 +257,8 @@ Node name: `MappingDefinition`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                             |
 | -------------- | ----------------------------------- | --------------------------- | --------------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
-| Name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
 
 | Child Node                                        | Allowed Count | Description                                         |
 | ------------------------------------------------- | ------------- | --------------------------------------------------- |
@@ -288,8 +288,8 @@ Node name: `Class`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
-| Name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
 
 
 ## Node Definition: Layers
@@ -320,8 +320,8 @@ Node name: `Layer`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                              | Allowed Count | Description                                                                                                                                                                                                                                                                      |
 | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -361,8 +361,8 @@ Node name: `SceneObject`
 
 | Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                          |
 | -------------- | ------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -395,8 +395,8 @@ Node name: `GroupObject`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                              | Allowed Count | Value Type                          | Description                                                                     |
 | --------------------------------------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------- |
@@ -415,8 +415,8 @@ Node name: `FocusPoint`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                                | Allowed Count | Value Type                          | Description                                                                     |
 | ----------------------------------------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------- |
@@ -435,8 +435,8 @@ Node name: `Fixture`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -557,8 +557,8 @@ Node name: `Truss`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
@@ -594,8 +594,8 @@ Node name: `Support`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                                        | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -631,8 +631,8 @@ Node name: `VideoScreen`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -686,8 +686,8 @@ Node name: `Projector`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -764,7 +764,7 @@ Node name: `Gobo`
 
 | Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
 | -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
-| Rotation       | [Float](#user-content-attrtype-float) | 0                           | The roation of the Gobo in degree. |
+| rotation       | [Float](#user-content-attrtype-float) | 0                           | The roation of the Gobo in degree. |
 
 The node value is he Gobo used for the fixture. The image resource must
 apply to the GDTF standard. Use a FileName to specify.
@@ -795,8 +795,8 @@ Node name: `Source`
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
 | -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| LinkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| Type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
+| linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
 
 | Value Type                              | Default Value When Missing | Description                                                                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -845,8 +845,8 @@ Node name: `Symbol`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
-| Symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
+| symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                                      |
 | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -863,7 +863,7 @@ Node name: `Geometry3D`
 
 | Attribute Name | Attribute Value Type                        | Default Value when Optional | Description                                                                                                                                  |
 | -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| FileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
+| fileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                                      |
 | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -941,7 +941,7 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type  | Default Value when Optional | Description       |
 | -------------- | --------------------- | --------------------------- | ----------------- |
-| Break          | [Integer](#user-content-attrtype-integer) | 0       | This is the break ident for this address. This value has to be unique for one fixture. |
+| break          | [Integer](#user-content-attrtype-integer) | 0       | This is the break ident for this address. This value has to be unique for one fixture. |
 
 | Value Type  | Default Value When Missing | Description      |
 | ----------- | -------------------------- | ---------------- |
@@ -957,11 +957,11 @@ Node name: `Network`
 
 | Attribute Name | Attribute Value Type    | Default Value when Optional  | Description   |
 | -------------- | ----------------------- | --------------------------- | -------------- |
-| Interface      | [String](#user-content-attrtype-string) | ethernet_1    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| IPv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
-| SubnetMask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
-| IPv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
-| DHCP | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
+| interface      | [String](#user-content-attrtype-string) | ethernet_1    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| ipv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
+| subnetMask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
+| ipv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
+| dhcp | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
 
 ### Node Definition: Protocols
 
@@ -1015,9 +1015,9 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type                   | Default Value               | Description                                                                          |
 | -------------- | -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
-| Geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
-| Up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
-| Direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
+| geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
+| up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
+| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
 
 
 ### Node Definition: CustomCommands
@@ -1072,8 +1072,8 @@ Node name: `Overwrite`
 
 | Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                                                             |
 | -------------- | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
-| Target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
+| universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
+| target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
 
 
 ### Node Definition: Connections
@@ -1101,9 +1101,9 @@ Node name: `Connection`
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                                                                                                                                                                                     |
 | -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
-| Other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
-| ToObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
+| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
+| other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
 
 ### Node Definition: Mappings
 
@@ -1133,7 +1133,7 @@ Node name: `Mapping`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                                 |
 | -------------- | ----------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- |
-| LinkedDef      | [UUID](#user-content-attrtype-uuid) |                             | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
+| linkedDef      | [UUID](#user-content-attrtype-uuid) |                             | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
 
 | Child Node | Allowed Count | Value Type | Description                                                                                                       |
 | ---------- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
