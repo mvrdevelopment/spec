@@ -1509,9 +1509,9 @@ OR
 ```
 
 {
-  "TYpe": "MVR_REQUEST",
-  "Ok": "false",
-  "MeSsage": "The MVR is not available on this client"
+  "type": "MVR_REQUEST",
+  "ok": "false",
+  "message": "The MVR is not available on this client"
 }
 ```
 
