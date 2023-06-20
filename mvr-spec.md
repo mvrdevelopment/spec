@@ -1209,15 +1209,15 @@ Packages are defined based on the mode of communication. They are defined for Lo
 ### Local Network Mode
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
-| Field                 | Type   | Symbol                                       |
-|-----------------------|-------------------------------------------------------|
-| `MVR_PACKAGE_HEADER`  | [uint32](#user-defined-content-attrtype-uint32) | Number that defines the package. Use 778682. |
-| `MVR_PACKAGE_VERSION` | [uint32](#user-defined-content-attrtype-uint32) | Number that defines the version of the package format. Use 1. |
-| `MVR_PACKAGE_COUNT`   | [uint32](#user-defined-content-attrtype-uint32) | Number that defines how many packages the current message consists of |
-| `MVR_PACKAGE_NUMBER`  | [uint32](#user-defined-content-attrtype-uint32) | Number that defines what number this package  in the complete message has  |
-| `MVR_PACKAGE_TYPE`    | [uint32](#user-defined-content-attrtype-uint32) | Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
-| `MVR_PAYLOAD_LENGTH`  | [uint64](#user-defined-content-attrtype-uint64) | Number showing the byte-length of transferred buffer. |
-| `MVR_PAYLOAD_BUFFER`  | [char[]](#user-defined-content-attrtype-char[]) | Buffer data that stores the payload encoded. |
+| Field                 | Type                                             | Symbol                                       |
+|-----------------------|--------------------------------------------------|----------------------------------------------|
+| `MVR_PACKAGE_HEADER`  | [uint32](#user-defined-content-attrtype-uint32)  | Number that defines the package. Use 778682. |
+| `MVR_PACKAGE_VERSION` | [uint32](#user-defined-content-attrtype-uint32)  | Number that defines the version of the package format. Use 1. |
+| `MVR_PACKAGE_COUNT`   | [uint32](#user-defined-content-attrtype-uint32)  | Number that defines how many packages the current message consists of |
+| `MVR_PACKAGE_NUMBER`  | [uint32](#user-defined-content-attrtype-uint32)  | Number that defines what number this package  in the complete message has  |
+| `MVR_PACKAGE_TYPE`    | [uint32](#user-defined-content-attrtype-uint32)  | Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
+| `MVR_PAYLOAD_LENGTH`  | [uint64](#user-defined-content-attrtype-uint64)  | Number showing the byte-length of transferred buffer. |
+| `MVR_PAYLOAD_BUFFER`  | [char\[\]](#user-defined-content-attrtype-char[]) | Buffer data that stores the payload encoded. |
 
 > Note: 
 > All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
