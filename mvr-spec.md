@@ -491,9 +491,9 @@ An example of a node definition is shown below:
     <Position>77 BC DE 16 95 A6 47 25 9D 04 16 A0 BD 67 CD 1A</Position>
     <Addresses>
         <Address break="0">45</Address>
-        <Network Interface="ethernet_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
-        <Network Interface="ethernet_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
-        <Network Interface="wireless_1" DHCP="on" />
+        <Network geometry="NetworkInOut_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
+        <Network geometrye="NetworkInOut_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
+        <Network geometrye="NetworkInOut_3" DHCP="on"  hostname="SuperFixture" />
     </Addresses>
     <Protocols>
         <Art-Net Interface="ethernet_1" />
@@ -957,11 +957,13 @@ Node name: `Network`
 
 | Attribute Name | Attribute Value Type    | Default Value when Optional  | Description   |
 | -------------- | ----------------------- | --------------------------- | -------------- |
-| Interface      | [String](#user-content-attrtype-string) | ethernet_1    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| IPv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
-| SubnetMask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
-| IPv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
-| DHCP | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
+| geometry      | [geometry](#user-content-attrType-string) | NetworkInOut    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| ipv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
+| subnetmask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
+| ipv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
+| dhcp | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
+| hostname | [hostname](#user-content-attrType-string) | Optional                  | This is the hostname for the device with an automated address. |
+
 
 ### Node Definition: Protocols
 
