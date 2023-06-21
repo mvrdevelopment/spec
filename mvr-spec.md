@@ -449,6 +449,8 @@ Node name: `Fixture`
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
+| DMXInvertPan                            | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Pan Channels of the fixture should be DMX Inverted.                                                                                                             |
+| DMXInvertTilt                           | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Tilt Channels of the fixture should be DMX Inverted.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
 | Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture has.                                                       |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
@@ -534,6 +536,9 @@ An example of a node definition is shown below:
     <Function>Speaker 1</Function>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
+    <CustomId>0</CustomId>
+    <DMXInvertPan>true</DMXInvertPan>
+    <DMXInvertTilt>true</DMXInvertTilt>
     <Color>2.533316,-5.175210,3.699302</Color>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
     <ChildList>
