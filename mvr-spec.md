@@ -496,13 +496,13 @@ An example of a node definition is shown below:
     <Position>77 BC DE 16 95 A6 47 25 9D 04 16 A0 BD 67 CD 1A</Position>
     <Addresses>
         <Address break="0">45</Address>
-        <Network Interface="ethernet_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
-        <Network Interface="ethernet_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
-        <Network Interface="wireless_1" DHCP="on" />
+        <Network geometry="NetworkInOut_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
+        <Network geometry="NetworkInOut_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
+        <Network geometry="NetworkInOut_3" DHCP="on"  hostname="SuperFixture" />
     </Addresses>
     <Protocols>
-        <Art-Net Interface="ethernet_1" />
-        <NDI Interface="wireless_1" name="NDI 1"/>
+        <Art-Net geometry="NetworkInOut_1" />
+        <NDI geometry="NetworkInOut_3" name="NDI 1"/>
     </Protocols>
     <Alignments>
         <Alignment geometry="Beam" up="0,0,1" direction="0,0,-1"/>
@@ -963,13 +963,14 @@ Node name: `Network`
 
 ##### Table 18 — *Network Node Attributes*
 
-| Attribute Name | Attribute Value Type    | Default Value when Optional  | Description   |
-| -------------- | ----------------------- | --------------------------- | -------------- |
-| interface      | [String](#user-content-attrtype-string) | ethernet_1    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| ipv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
-| subnetMask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
-| ipv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
-| dhcp | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
+| Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                                                                              |
+|----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| geometry       | [geometry](#user-content-attrType-string) | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| ipv4           | [IPv4](#user-content-attrType-IPv4)       | Optional                    | This is the IPv4-address.                                                                                                |
+| subnetmask     | [SubetMask](#user-content-attrType-IPv4)  | Optional                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
+| ipv6           | [IPv6](#user-content-attrType-IPv6)       | Optional                    | This is the IPv6-address.                                                                                                |
+| dhcp           | [DHCP](#user-content-attrType-string)     | off                         | This is the automated-address.   DHCP is considered off. If present it should be set "on"                                |
+| hostname       | [hostname](#user-content-attrType-string) | Optional                    | This is the hostname for the device with an automated address.                                                           |
 
 ### Node Definition: Protocols
 
@@ -983,7 +984,7 @@ The child list contains a list of the following nodes:
 
 | Child Node              | Allowed Count            | Description             |
 | ------------------------|----------- | ----------------------- |
-| RDM                     | 0 or 1          | Assigns the RDM protocol network interface |
+| RDMNet                  | 0 or 1          | Assigns the RDMNet protocol network interface |
 | Art-Net                 | 0 or 1          | Assigns the Art-Net protocol network interface |
 | sACN                    | 0 or 1          | Assigns the sACN protocol network interface |
 | PosiStageNet            | 0 or 1          | Assigns the PosiStageNet protocol network interface |
@@ -994,8 +995,10 @@ The child list contains a list of the following nodes:
 
 | Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
 | -------------- | -------------------- | --------------------------- | -------------- |
-| Interface      | [String](#user-content-attrtype-string) | ethernet_1   | This is the interface name.  |
-| Name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node|
+| geometry      | [String](#user-content-attrtype-string) | NetworkInOut_1   | This is the interface name.  |
+| name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node.|
+| version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
+| transmission   | [String](#user-content-attrtype-enum) | undefined   | Unicast, Multicast, Broadcast, Anycast |
 
 
 ### Node Definition: Alignments
