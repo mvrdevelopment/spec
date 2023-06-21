@@ -496,8 +496,8 @@ An example of a node definition is shown below:
         <Network geometry="NetworkInOut_3" DHCP="on"  hostname="SuperFixture" />
     </Addresses>
     <Protocols>
-        <Art-Net Interface="ethernet_1" />
-        <NDI Interface="wireless_1" name="NDI 1"/>
+        <Art-Net geometry="NetworkInOut_1" />
+        <NDI geometry="NetworkInOut_3" name="NDI 1"/>
     </Protocols>
     <Alignments>
         <Alignment geometry="Beam" up="0,0,1" direction="0,0,-1"/>
