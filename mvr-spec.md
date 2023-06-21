@@ -492,8 +492,8 @@ An example of a node definition is shown below:
     <Addresses>
         <Address break="0">45</Address>
         <Network geometry="NetworkInOut_1" IPv4="192.168.11.5" SubnetMask="255.255.0.0" />
-        <Network geometrye="NetworkInOut_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
-        <Network geometrye="NetworkInOut_3" DHCP="on"  hostname="SuperFixture" />
+        <Network geometry="NetworkInOut_2" IPv6="2001:0db8:85a3:0000:0000:8a2e:0370:7344" />
+        <Network geometry="NetworkInOut_3" DHCP="on"  hostname="SuperFixture" />
     </Addresses>
     <Protocols>
         <Art-Net Interface="ethernet_1" />
@@ -977,7 +977,7 @@ The child list contains a list of the following nodes:
 
 | Child Node              | Allowed Count            | Description             |
 | ------------------------|----------- | ----------------------- |
-| RDM                     | 0 or 1          | Assigns the RDM protocol network interface |
+| RDMNet                  | 0 or 1          | Assigns the RDMNet protocol network interface |
 | Art-Net                 | 0 or 1          | Assigns the Art-Net protocol network interface |
 | sACN                    | 0 or 1          | Assigns the sACN protocol network interface |
 | PosiStageNet            | 0 or 1          | Assigns the PosiStageNet protocol network interface |
@@ -988,8 +988,10 @@ The child list contains a list of the following nodes:
 
 | Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
 | -------------- | -------------------- | --------------------------- | -------------- |
-| Interface      | [String](#user-content-attrtype-string) | ethernet_1   | This is the interface name.  |
-| Name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node|
+| geometry      | [String](#user-content-attrtype-string) | NetworkInOut_1   | This is the interface name.  |
+| name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node.|
+| version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
+| transmission   | [String](#user-content-attrtype-enum) | undefined   | Unicast, Multicast, Broadcast, Anycast |
 
 
 ### Node Definition: Alignments
