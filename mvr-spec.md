@@ -439,6 +439,7 @@ Node name: `Fixture`
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
+| multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture.                |
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1641,7 +1642,7 @@ Suggested communication messages are still work in progress...
 
 # Annex A. (normativ/informative)
 
-
+MultiPatch: todo
 
 
 
