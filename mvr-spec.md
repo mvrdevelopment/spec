@@ -115,16 +115,18 @@ Here is a list of the available types for node or attribute values:
 
 | Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="attrType-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
-| <span id="attrType-Float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
-| <span id="attrType-String"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
-| <span id="attrType-UUID"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects. |
-| <span id="attrType-Vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
-| <span id="attrType-FileName">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
-| <span id="attrType-CIEColor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
-| <span id="attrType-IPv4">IPv4 Address</span> | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
-| <span id="attrType-IPv6">IPv6 Address</span> | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
-
+| <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
+| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
+| <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
+| <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects. |
+| <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
+| <span id="user-content-attrtype-filename">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
+| <span id="user-content-attrtype-ciecolor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
+| <span id="user-content-attrtype-ipv4">IPv4 Address</span>  | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
+| <span id="user-content-attrtype-ipv6">IPv6 Address</span>  | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
+| <span id="user-content-attrtype-uint32">uint32</span>      |  32-bit unsigned integer |
+| <span id="user-content-attrtype-uint64">uint64</span>      |  64-bit unsigned integer |
+| <span id="user-content-attrtype-char[]">char[]</span>      |  8-bit character array |
 
 ## Root File Definition
 
@@ -175,8 +177,8 @@ Node name: `Data`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                                               |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------------------------------------------- |
-| Provider       | [String](#user-content-attrtype-string) | Not Optional                | Specifies the name of the provider application that created this data.    |
-| Ver            | [String](#user-content-attrtype-string) | 1                           | Version information of the data as specified by the provider application. |
+| provider       | [String](#user-content-attrtype-string) | Not Optional                | Specifies the name of the provider application that created this data.    |
+| ver            | [String](#user-content-attrtype-string) | 1                           | Version information of the data as specified by the provider application. |
 
 
 ## Node Definition: Scene
@@ -221,8 +223,8 @@ Node name: `Symdef`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](user-content-attrtype-uuid)      | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](user-content-attrtype-uuid)      | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of the following nodes:
 
@@ -242,8 +244,8 @@ Node name: `Position`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
 ### Node Definition: MappingDefinition
@@ -257,8 +259,8 @@ Node name: `MappingDefinition`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                             |
 | -------------- | ----------------------------------- | --------------------------- | --------------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
-| Name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
 
 | Child Node                                        | Allowed Count | Description                                         |
 | ------------------------------------------------- | ------------- | --------------------------------------------------- |
@@ -288,8 +290,8 @@ Node name: `Class`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
-| Name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
+| name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
 
 
 ## Node Definition: Layers
@@ -320,8 +322,8 @@ Node name: `Layer`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                              | Allowed Count | Description                                                                                                                                                                                                                                                                      |
 | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -361,8 +363,8 @@ Node name: `SceneObject`
 
 | Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                          |
 | -------------- | ------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -377,7 +379,7 @@ Node name: `SceneObject`
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                                                                                 |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                           |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The unit number of the object in a position.                                                                                                  |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                     |
 | FixtureTypeId                                     | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
@@ -395,8 +397,8 @@ Node name: `GroupObject`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                              | Allowed Count | Value Type                          | Description                                                                     |
 | --------------------------------------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------- |
@@ -415,8 +417,8 @@ Node name: `FocusPoint`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                                | Allowed Count | Value Type                          | Description                                                                     |
 | ----------------------------------------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------- |
@@ -435,8 +437,9 @@ Node name: `Fixture`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
+| multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture.                |
 
 | Child Node                              | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | --------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -446,24 +449,26 @@ Node name: `Fixture`
 | GDTFMode                                | 1             | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file.                                                      |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
 | CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
+| DMXInvertPan                            | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Pan Channels of the fixture should be DMX Inverted.                                                                                                             |
+| DMXInvertTilt                           | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Tilt Channels of the fixture should be DMX Inverted.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
 | Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture has.                                                       |
-| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                                                            |
-| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                                                            |
-| UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position.                                                                                        |
+| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
+| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
+| UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node link to the geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
-| [Protocols](#node-definition-addresses) | 0 or 1        |                                              | The container for protocols assignments.                                                                                             |
-| [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                             |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                             |
-| [Overwrites](#node-definition-overwrites) | 0 or 1        |                                              | The container for overwrites for this fixture.                                                                                             |
-| [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                             |
+| [Protocols](#node-definition-addresses) | 0 or 1        |                                              | The container for protocols assignments.                                                                                                      |
+| [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                              |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                  |
+| [Overwrites](#node-definition-overwrites) | 0 or 1        |                                              | The container for overwrites for this fixture.                                                                                              |
+| [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                            |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | FixtureTypeId                           | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
 | Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
-| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                                           |
-| [ChildList](#node-definition-childlist) | 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                 |
+| [ChildList](#node-definition-childlist) | 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                    |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
 GDTF file._
@@ -531,6 +536,9 @@ An example of a node definition is shown below:
     <Function>Speaker 1</Function>
     <FixtureTypeId>0</FixtureTypeId>
     <CustomId>0</CustomId>
+    <CustomId>0</CustomId>
+    <DMXInvertPan>true</DMXInvertPan>
+    <DMXInvertTilt>true</DMXInvertTilt>
     <Color>2.533316,-5.175210,3.699302</Color>
     <Gobo rotation="32.5">image_file_forgobo</Gobo>
     <ChildList>
@@ -557,8 +565,8 @@ Node name: `Truss`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
@@ -577,8 +585,8 @@ Node name: `Truss`
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
 | ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node Link to the Geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
-| FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                           |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The unit number of the object in a position.                                                                                                  |
+| FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                            |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | FixtureTypeId                                     | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 
@@ -594,8 +602,8 @@ Node name: `Support`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 | Child Node                                        | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -613,7 +621,7 @@ Node name: `Support`
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                                                                                 |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                                                                                |
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)      | The Fixture ID of the object. This is the short name of the object.                                                                           |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The unit number of the object in a position.                                                                                                  |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | FixtureTypeId                                     | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
@@ -631,8 +639,8 @@ Node name: `VideoScreen`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | <Not Optional>              | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                   | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -650,7 +658,7 @@ Node name: `VideoScreen`
 | [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                                                                                |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)      | The Fixture ID of the object. This is the short name of the object.                                                                           |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The unit number of the object in a position.                                                                                                  |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                                  |
 | FixtureTypeId                                     | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 
@@ -686,8 +694,8 @@ Node name: `Projector`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| UUID           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
-| Name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 
 | Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
 | ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -704,7 +712,7 @@ Node name: `Projector`
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                           |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The unit number of the object in a position.                                                                                                  |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                           |
 | FixtureTypeId                                     | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Fixture Type ID is a value that can be used as a short name of the Fixture Type. This does not have to be unique. The default value is 0. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 
@@ -764,7 +772,7 @@ Node name: `Gobo`
 
 | Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
 | -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
-| Rotation       | [Float](#user-content-attrtype-float) | 0                           | The roation of the Gobo in degree. |
+| rotation       | [Float](#user-content-attrtype-float) | 0                           | The roation of the Gobo in degree. |
 
 The node value is he Gobo used for the fixture. The image resource must
 apply to the GDTF standard. Use a FileName to specify.
@@ -795,8 +803,8 @@ Node name: `Source`
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
 | -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| LinkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| Type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
+| linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
 
 | Value Type                              | Default Value When Missing | Description                                                                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -845,8 +853,8 @@ Node name: `Symbol`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| UUID           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
-| Symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
+| symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                                      |
 | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -863,7 +871,7 @@ Node name: `Geometry3D`
 
 | Attribute Name | Attribute Value Type                        | Default Value when Optional | Description                                                                                                                                  |
 | -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| FileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
+| fileName       | [FileName](#user-content-attrtype-filename) | Not Optional                | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
 | Child Node                        | Allowed Count | Description                                                                                                                                                                      |
 | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -941,7 +949,7 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type  | Default Value when Optional | Description       |
 | -------------- | --------------------- | --------------------------- | ----------------- |
-| Break          | [Integer](#user-content-attrtype-integer) | 0       | This is the break ident for this address. This value has to be unique for one fixture. |
+| break          | [Integer](#user-content-attrtype-integer) | 0       | This is the break ident for this address. This value has to be unique for one fixture. |
 
 | Value Type  | Default Value When Missing | Description      |
 | ----------- | -------------------------- | ---------------- |
@@ -955,15 +963,14 @@ Node name: `Network`
 
 ##### Table 18 — *Network Node Attributes*
 
-| Attribute Name | Attribute Value Type    | Default Value when Optional  | Description   |
-| -------------- | ----------------------- | --------------------------- | -------------- |
-| geometry      | [geometry](#user-content-attrType-string) | NetworkInOut    | This is the interface name. </br> Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| ipv4 | [IPv4](#user-content-attrType-IPv4) | Optional               | This is the IPv4-address.  |
-| subnetmask | [SubetMask](#user-content-attrType-IPv4) | Optional          | This is the SubnetMask-address. Only needed for IPv4. |
-| ipv6 | [IPv6](#user-content-attrType-IPv6) | Optional               | This is the IPv6-address. |
-| dhcp | [DHCP](#user-content-attrType-string) | off                    | This is the automated-address. <br/> DHCP is considered off. If present it should be set "on" |
-| hostname | [hostname](#user-content-attrType-string) | Optional                  | This is the hostname for the device with an automated address. |
-
+| Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                                                                              |
+|----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| geometry       | [geometry](#user-content-attrType-string) | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| ipv4           | [IPv4](#user-content-attrType-IPv4)       | Optional                    | This is the IPv4-address.                                                                                                |
+| subnetmask     | [SubetMask](#user-content-attrType-IPv4)  | Optional                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
+| ipv6           | [IPv6](#user-content-attrType-IPv6)       | Optional                    | This is the IPv6-address.                                                                                                |
+| dhcp           | [DHCP](#user-content-attrType-string)     | off                         | This is the automated-address.   DHCP is considered off. If present it should be set "on"                                |
+| hostname       | [hostname](#user-content-attrType-string) | Optional                    | This is the hostname for the device with an automated address.                                                           |
 
 ### Node Definition: Protocols
 
@@ -1019,9 +1026,9 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type                   | Default Value               | Description                                                                          |
 | -------------- | -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
-| Geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
-| Up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
-| Direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
+| geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
+| up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
+| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
 
 
 ### Node Definition: CustomCommands
@@ -1076,8 +1083,8 @@ Node name: `Overwrite`
 
 | Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                                                             |
 | -------------- | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
-| Target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
+| universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
+| target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
 
 
 ### Node Definition: Connections
@@ -1105,9 +1112,9 @@ Node name: `Connection`
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                                                                                                                                                                                     |
 | -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
-| Other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
-| ToObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
+| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
+| other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
 
 ### Node Definition: Mappings
 
@@ -1137,7 +1144,7 @@ Node name: `Mapping`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                                 |
 | -------------- | ----------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- |
-| LinkedDef      | [UUID](#user-content-attrtype-uuid) |                             | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
+| linkedDef      | [UUID](#user-content-attrtype-uuid) |                             | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
 
 | Child Node | Allowed Count | Value Type | Description                                                                                                       |
 | ---------- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -1210,36 +1217,15 @@ Packages are defined based on the mode of communication. They are defined for Lo
 ### Local Network Mode
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
-| Type    | Symbol  |
-|---|---|
-| `MVR_PACKAGE_HEADER`  |  Number that defines the package. Use 778682. |
-| `MVR_PACKAGE_VERSION` |  Number that defines the version of the package format. Use 1. |
-| `MVR_PACKAGE_COUNT`   |  Number that defines how many packages the current message consists of |
-| `MVR_PACKAGE_NUMBER`  |  Number that defines what number this package  in the complete message has  |
-| `MVR_PACKAGE_TYPE`    |  Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
-| `MVR_PAYLOAD_LENGTH`  |  Number showing the byte-length of transferred buffer. |
-| `MVR_PAYLOAD_BUFFER`  |  Buffer data that stores the payload encoded. |
-
-
-The order and size is defined as follows:
-```
-uint32 MVR_PACKAGE_HEADER
-uint32 MVR_PACKAGE_VERSION
-uint32 MVR_PACKAGE_NUMBER
-uint32 MVR_PACKAGE_COUNT
-uint32 MVR_PACKAGE_TYPE
-uint64 MVR_PAYLOAD_LENGTH
-char[] MVR_PAYLOAD_BUFFER
-```
-
-Where the following applies:
-
-| Type    | Symbol  |
-|---|---|
-| uint32  |  32-bit unsigned integer |
-| uint64  |  64-bit unsigned integer |
-| char[]  |  8-bit character array |
-
+| Field                 | Type                                             | Symbol                                       |
+|-----------------------|--------------------------------------------------|----------------------------------------------|
+| `MVR_PACKAGE_HEADER`  | [uint32](#user-content-attrtype-uint32)  | Number that defines the package. Use 778682. |
+| `MVR_PACKAGE_VERSION` | [uint32](#user-content-attrtype-uint32)  | Number that defines the version of the package format. Use 1. |
+| `MVR_PACKAGE_COUNT`   | [uint32](#user-content-attrtype-uint32)  | Number that defines how many packages the current message consists of |
+| `MVR_PACKAGE_NUMBER`  | [uint32](#user-content-attrtype-uint32)  | Number that defines what number this package  in the complete message has  |
+| `MVR_PACKAGE_TYPE`    | [uint32](#user-content-attrtype-uint32)  | Number that defines the package type. Use 0 for JSON UTF-8 Payload, use 1 for MVR FILES.  |
+| `MVR_PAYLOAD_LENGTH`  | [uint64](#user-content-attrtype-uint64)  | Number showing the byte-length of transferred buffer. |
+| `MVR_PAYLOAD_BUFFER`  | [char\[\]](#user-content-attrtype-char[]) | Buffer data that stores the payload encoded. |
 
 > Note: 
 > All multi-byte fields defined shall be transmitted in network byte (big-endian) order.
@@ -1275,41 +1261,41 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN                           |
-| Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
+| type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN                           |
+| provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
+| stationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
-| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
-| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
+| uuid           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
 ##### Table 43 — *MVR_JOIN response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
-| Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
-| Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
+| type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| ok             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
+| message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
+| provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
+| stationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
-| UUID           | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
-| Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
+| stationUuid    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 Example:
 
 Request:
 ```
 {
-  "Type": "MVR_JOIN",
-  "Provider":"MVRApplication", 
+  "type": "MVR_JOIN",
+  "provider":"MVRApplication", 
   "verMajor":"1", 
   "verMinor":"6", 
-  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
-  "StationName":"MVR Application from user A at location B",
-  "Files": [
+  "stationUuid":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
+  "stationName":"MVR Application from user A at location B",
+  "files": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
     },
@@ -1326,14 +1312,14 @@ Request:
 Response:
 ```
 {
-  "Type": "MVR_JOIN",
-  "OK": "true",
-  "Message": "",
+  "type": "MVR_JOIN",
+  "ok": "true",
+  "message": "",
   "verMajor":"1", 
   "verMinor":"6", 
-  "StationUUID":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
-  "StationName":"MVR Application from user A at location B",
-  "Files": [
+  "stationUuid":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
+  "stationName":"MVR Application from user A at location B",
+  "files": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
     },
@@ -1366,17 +1352,17 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
-| FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
+| fromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
 
 
 ##### Table 43 — *MVR_LEAVE response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| ok                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 Example:
@@ -1385,15 +1371,15 @@ Request:
 ```
 {
   "Type": "MVR_LEAVE",
-  "StationUUID":"", 
+  "stationUuid":"", 
 }
 ```
 Response:
 ```
 {
-  "Type": "MVR_LEAVE",
-  "OK": "true",
-  "Message": ""
+  "type": "MVR_LEAVE",
+  "ok": "true",
+  "message": ""
 }
 ```
 
@@ -1429,41 +1415,41 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT             |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT             |
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
-| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
-| ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
-| Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
+| fileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
+| fileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
+| stationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| forStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
+| comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
 
 ##### Table 43 — *MVR_COMMIT response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| ok                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 ```
 Request:
 {
-  "Type": "MVR_COMMIT",
+  "type": "MVR_COMMIT",
   "verMajor":1, 
   "verMinor":6, 
-  "FileUUID":"", 
-  "ForStationsUUID":[], 
-  "FileSize":256, 
-  "Comment":"My complete description of what I have changed",
+  "fileUuid":"", 
+  "forStationsUUID":[], 
+  "fileSize":256, 
+  "comment":"My complete description of what I have changed",
 }
 Response:
 {
-  "Type": "MVR_COMMIT",
-  "OK": "true",
-  "Message": ""
+  "type": "MVR_COMMIT",
+  "ok": "true",
+  "message": ""
 }
 ```
     
@@ -1503,25 +1489,25 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the message.                            |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
-| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the message.                            |
+| fileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
+| fromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
 ##### Table 43 — *MVR_REQUEST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST             |
+| ok                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 Request:
 ```
 {
-  "Type": "MVR_REQUEST",
-  "FromStationUUID":"", 
-  "FileUUID":"", 
+  "type": "MVR_REQUEST",
+  "fromStationUUID":"", 
+  "fileUuid":"", 
 }
 ```
 Response:
@@ -1532,9 +1518,9 @@ OR
 ```
 
 {
-  "Type": "MVR_REQUEST",
-  "OK": "false",
-  "Message": "The MVR is not available on this client"
+  "type": "MVR_REQUEST",
+  "ok": "false",
+  "message": "The MVR is not available on this client"
 }
 ```
 
@@ -1580,34 +1566,34 @@ Each receiver will try to switch into Local Network Mode by connecting to the mD
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
-| ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
-| ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
+| serviceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
+| serviceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
 ##### Table 43 — *MVR_NEW_SESSION_HOST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
-| Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
+| type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| ok                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
 Request:
 ```
 {
-  "Type": "MVR_NEW_SESSION_HOST",
-  "ServiceName":"fancyProjectGroup._mvrxchange._tcp.local.", 
-  "ServiceURL":"", 
+  "type": "MVR_NEW_SESSION_HOST",
+  "serviceName":"fancyProjectGroup._mvrxchange._tcp.local.", 
+  "serviceURL":"", 
 }
 ```
 
 Response:
 ```
 {
-  "Type": "MVR_NEW_SESSION_HOST",
-  "OK": "true",
-  "Message": ""
+  "type": "MVR_NEW_SESSION_HOST",
+  "ok": "true",
+  "message": ""
 
 }
 ```
@@ -1664,7 +1650,7 @@ Suggested communication messages are still work in progress...
 
 # Annex A. (normativ/informative)
 
-
+MultiPatch: todo
 
 
 
