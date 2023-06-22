@@ -822,6 +822,13 @@ Node name: `ScaleHandeling`
 | ---------- | -------------------------- | ------------------------------------------------------------------------------- |
 | Enum       | ScaleKeepRatio             | The available value are `ScaleKeepRatio`, `ScaleIgnoreRatio`, `KeepSizeCenter`. |
 
+The following tables show how the scaling should look like.
+##### Table 36.1 — *ScaleHandeling Examoles*
+
+| ScaleKeepRatio                                        | ScaleIgnoreRatio                                          | KeepSizeCenter                                        |
+|-------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------|
+| ![media/ScaleKeepRatio.png](media/ScaleKeepRatio.png) | ![media/ScaleIgnoreRatio.png](media/ScaleIgnoreRatio.png) | ![media/KeepSizeCenter.png](media/KeepSizeCenter.png) |
+
 
 ## Node Definition: Geometries
 
