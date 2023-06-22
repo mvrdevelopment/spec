@@ -265,8 +265,8 @@ Node name: `MappingDefinition`
 
 | Child Node                                        | Allowed Count | Description                                         |
 | ------------------------------------------------- | ------------- | --------------------------------------------------- |
-| [SizeX](#node-definition-sizex)                   | 1             | The size in x direction in pixels of the source.    |
-| [SizeY](#node-definition-sizey)                   | 1             | The size in x direction in pixels of the source.    |
+| SizeX                                             | 1             | The size in x direction in pixels of the source. Node Value is [Integer](#user-content-attrtype-integer).   |
+| SizeY                                             | 1             | The size in y direction in pixels of the source.  Node Value is [Integer](#user-content-attrtype-integer).    |
 | [Source](#node-definition-source)                 | 1             | The video source that will be used for the Mapping. |
 | [ScaleHandeling](#node-definition-scalehandeling) | 0 or 1        | How the source will be scaled to the mapping.       |
 
@@ -831,6 +831,7 @@ The following tables show how the scaling should look like.
 | ScaleKeepRatio                                        | ScaleIgnoreRatio                                          | KeepSizeCenter                                        |
 |-------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------|
 | ![media/ScaleKeepRatio.png](media/ScaleKeepRatio.png) | ![media/ScaleIgnoreRatio.png](media/ScaleIgnoreRatio.png) | ![media/KeepSizeCenter.png](media/KeepSizeCenter.png) |
+
 
 
 ## Node Definition: Geometries
