@@ -138,6 +138,9 @@ The second XML node is the mandatory GeneralSceneDescription node. The attribute
 | -------------- | ----------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
 | VerMajor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the major version of the format used when saving this file. |
 | VerMinor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the minor version of the format used when saving this file. |
+| Provider       | [String](#user-content-attrtype-string)   | Not Optional                | The name of the application that is generating the MVR export. This should stay the same between multiple version.     |
+| ProviderVersion| [String](#user-content-attrtype-string)   | Not Optional                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
+
 
 ##### Table 2 — *Root File Node Children*
 
