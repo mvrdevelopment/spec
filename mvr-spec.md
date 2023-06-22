@@ -503,8 +503,8 @@ An example of a node definition is shown below:
         <Network Interface="wireless_1" DHCP="on" />
     </Addresses>
     <Protocols>
-        <Art-Net geometry="NetworkInOut_1" />
-        <NDI geometry="NetworkInOut_3" name="NDI 1"/>
+        <Protocol geometry="NetworkInOut_1" type="Art-Net" />
+        <Protocol geometry="NetworkInOut_3" name="NDI 1" type="NDI"/>
     </Protocols>
     <Alignments>
         <Alignment geometry="Beam" up="0,0,1" direction="0,0,-1"/>
