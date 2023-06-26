@@ -988,20 +988,7 @@ This node defines the supported protocols and the used interface.
 
 Node name: `Protocols`
 
-The child list contains a list of the following nodes:
-
-##### Table 17 — *Protocols Node Children*
-
-| Child Node              | Allowed Count            | Description             |
-| ------------------------|----------- | ----------------------- |
-| RDMNet                  | 0 or 1          | Assigns the RDMNet protocol network interface |
-| Art-Net                 | 0 or 1          | Assigns the Art-Net protocol network interface |
-| sACN                    | 0 or 1          | Assigns the sACN protocol network interface |
-| PosiStageNet            | 0 or 1          | Assigns the PosiStageNet protocol network interface |
-| OpenSoundControl        | 0 or 1          | Assigns the OpenSoundControl protocol network interface |
-| CITP                    | 0 or 1          | Assigns the CITP protocol network interface |
-| NDI                     | 0 or 1          | Assigns the NDI protocol network interface |
-| Custom                  | 0 or 1          | Assigns the Custom protocol network interface |
+The child list contains a list of the node `Protocol`:
 
 | Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
 | -------------- | -------------------- | --------------------------- | -------------- |
@@ -1009,6 +996,33 @@ The child list contains a list of the following nodes:
 | name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node.|
 | version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
 | transmission   | [String](#user-content-attrtype-enum) | undefined   | Unicast, Multicast, Broadcast, Anycast |
+
+### Node Definition: Protocol
+
+This node defines the protocol used by the instance of this object.
+
+Node name: `Protocol`
+
+The child list contains a list of the node `Protocol`:
+
+| Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
+| -------------- | -------------------- | --------------------------- | -------------- |
+| geometry       | [String](#user-content-attrtype-string) | NetworkInOut_1   | This is the interface name.  |
+| name           | [String](#user-content-attrtype-string) | empty    | Custom Name of the protocol to identify the protocol. Needs to be unique for this instance of object. |
+| type           | [String](#user-content-attrtype-string) | empty    | Name of the protocol. |
+| version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
+| transmission   | [String](#user-content-attrtype-enum)   | undefined   | Unicast, Multicast, Broadcast, Anycast |
+
+The following names for the `type` are predefined:
+- RDMNet
+- Art-Net
+- sACN
+- PosiStageNet
+- OpenSoundControl
+- CITP
+- NDI
+
+Any other protocol can be freely defined.
 
 
 ### Node Definition: Alignments
