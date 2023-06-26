@@ -988,14 +988,11 @@ This node defines the supported protocols and the used interface.
 
 Node name: `Protocols`
 
-The child list contains a list of the node `Protocol`:
+The child list contains a list of the following nodes:
 
-| Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
-| -------------- | -------------------- | --------------------------- | -------------- |
-| geometry      | [String](#user-content-attrtype-string) | NetworkInOut_1   | This is the interface name.  |
-| name           | [String](#user-content-attrtype-string) | empty    | This is the protocol name if different from Protocols Child Node.|
-| version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
-| transmission   | [String](#user-content-attrtype-enum) | undefined   | Unicast, Multicast, Broadcast, Anycast |
+| Child Node                        | Description                 |
+| --------------------------------- | --------------------------- |
+| [Protocol](#node-definition-protocol) | The protocol used by this instance of object. |
 
 ### Node Definition: Protocol
 
