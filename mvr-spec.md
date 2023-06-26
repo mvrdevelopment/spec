@@ -478,6 +478,7 @@ Note: _The fixture has no `Geometries` node as geometry is defined in a
 GDTF file._
 
 CustomID Types
+- 0 Undefined
 - 1 Fixture
 - 2 Channel
 - 4 Houselights
@@ -1698,13 +1699,18 @@ Suggested communication messages are still work in progress...
 
 
 
-# Annex A. (normativ/informative)
+# Annex A. Object ID for Selection purposes (normativ/informative)
 
-MultiPatch: todo
+In oder to control or reference, all objects in MVR Spec have human readable object id. For this booth the FixtureID and the CustomID is used. 
 
+The Fixture ID is a generic name pool that applies to all objects. All Fixture IDs should be unique in one scene, so that objects can be selected without collisions.
 
+The Custom ID has a simlar approach, but allows you define the pool type for the numbers as well. An object can so report that it is a Pyro device, and in the Pyro ID Pool it has the number 100.
 
+Normally Fixture IDs are numeric to allow range selection. A lot of tool have a concept of selecting objects with a range. Like 100 thru 200. 
+For Descriptive display on plots, some tools also append a letter like `#` or `A` before the Fixture ID. This kind of display can go into the FixtureID String field.
 
+A similar concept is the multipatch. Sometimes you want to group multiple objects behind the same FixtureID or CustomID. This can be objects of the same GDTF Type, but not forced to be. When you select the FixtureID or CustomID from the multipatch parent, all objects that reference this object is multi patch parent should also be selected.
 
 
 ## Revision History
