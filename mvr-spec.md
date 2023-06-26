@@ -382,6 +382,7 @@ Node name: `SceneObject`
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                           |
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                     |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to.    |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 
@@ -535,7 +536,7 @@ An example of a node definition is shown below:
     <UnitNumber>0</UnitNumber>
     <Function>Speaker 1</Function>
     <CustomId>0</CustomId>
-    <CustomId>0</CustomId>
+    <CustomIdType>0</CustomIdType>
     <DMXInvertPan>true</DMXInvertPan>
     <DMXInvertTilt>true</DMXInvertTilt>
     <Color>2.533316,-5.175210,3.699302</Color>
@@ -587,6 +588,7 @@ Node name: `Truss`
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                            |
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to.    |
 
 
 
@@ -621,6 +623,7 @@ Node name: `Support`
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)      | The Fixture ID of the object. This is the short name of the object.                                                                           |
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to.    |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 
 
@@ -657,6 +660,7 @@ Node name: `VideoScreen`
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)      | The Fixture ID of the object. This is the short name of the object.                                                                           |
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                                  |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to.    |
 
 
 An example of a node definition is shown below:
@@ -709,6 +713,7 @@ Node name: `Projector`
 | FixtureID                                         | 0 or 1        | [String](#user-content-attrtype-string)     | The Fixture ID of the object. This is the short name of the object.                                                                           |
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                           |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
+| CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to.    |
 
 
 An example of a node definition is shown below:
