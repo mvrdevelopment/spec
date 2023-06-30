@@ -113,18 +113,19 @@ Here is a list of the available types for node or attribute values:
 
 ##### Table 43 — *XML Generic Value Types*
 
-| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
-| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in#attrType-Bool base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
-| <span id="user-content-attrtype-bool"> Bool </span>    |TODO 
-| <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
-| <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects. |
-| <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
-| <span id="user-content-attrtype-filename">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf` |
+| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                                           |
+| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in#attrType-Bool base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                         |
+| <span id="user-content-attrtype-bool"> Bool </span>        | TODO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 
+| <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                                          |
+| <span id="user-content-attrtype-enum"> Enum </span>        | Possible values are predefined                                                                                                                                                                                                                                                                                                                                                                                                                                                           |  
+| <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects.                                                                                                                                                                                                                                                                                                             |
+| <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                                                  |
+| <span id="user-content-attrtype-filename">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf`|
 | <span id="user-content-attrtype-ciecolor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
-| <span id="user-content-attrtype-ipv4">IPv4 Address</span> | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
-| <span id="user-content-attrtype-ipv6">IPv6 Address</span> | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
+| <span id="user-content-attrtype-ipv4">IPv4 Address</span>  | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
+| <span id="user-content-attrtype-ipv6">IPv6 Address</span>  | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
 
 
 ## Root File Definition
@@ -225,7 +226,7 @@ Node name: `Symdef`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](user-content-attrtype-uuid)      | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of the following nodes:
@@ -363,10 +364,10 @@ Node name: `SceneObject`
 
 ##### Table 12 — *SceneObject Node Attributes*
 
-| Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                          |
-| -------------- | ------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)   | Not Optional                | The unique identifier of the object. |
-| name           | [String](#user-content-attrtype-name) | Empty                       | The name of the object               |
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | -------------------------------------   | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
 
 
@@ -714,7 +715,7 @@ Node name: `Projector`
 | [Matrix](#node-definition-matrix)                 | 0 or 1        |                                             | The location of the object inside the parent coordinate system.                                                                               |
 | [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)         | The Class the object belongs to.                                                                                                              |
 | [Geometries](#node-definition-geometries)         | 1             |                                             | A list of geometrical representation objects that are a part of the object.                                                                   |
-| [Projections](#node-definition-projection)        | 1             |                                             | A list of video source for Beam Geometries in the GDTF file.                                                                                  |
+| [Projections](#node-definition-projections)        | 1             |                                             | A list of video source for Beam Geometries in the GDTF file.                                                                                  |
 | GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename) | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800.                                       |
 | GDTFMode                                          | 0 or 1        | [String](#user-content-attrtype-string)     | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined.                                                     |
 | [Addresses](#node-definition-addresses)           | 0 or 1        |                                             | The container for DMX Addresses for this object.                                                                                              |
@@ -771,8 +772,7 @@ Node name: `Matrix`
 
 | Value Type                                                | Default Value When Missing   | Description                                                                                                                                   |
 | --------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| {float,float,float}{float,float,float}{float,float,float} | {1,0,0}{0,1,0}{0,0,1}{0,0,0} | This node contains the array for a 4x3 transform matrix.<br \>The order is:<br \>`u1,u2,u3`<br \> `v1,v2,v3`<br \> `w1,w2,w3`<br \>`o1,o2,o3` |
-
+| {[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float)} {[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float)} {[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float)} {[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float),[Float](#user-content-attrtype-float)} | {1,0,0}<br />{0,1,0}<br />{0,0,1}<br />{0,0,0} | This node contains the array for a 4x3 transform matrix.<br />The order is:<br />`u1,u2,u3`<br /> `v1,v2,v3`<br /> `w1,w2,w3`<br />`o1,o2,o3` |
 
 ### Node Definition: Gobo
 
@@ -815,8 +815,8 @@ Node name: `Source`
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
 | -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| linkedGeometry | [String](user-content-attrtype-string) |  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| type           | [Enum](#attrType-Enum)                 |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
+| linkedGeometry | [String](#user-content-attrtype-string)|  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#user-content-attrtype-enum)    |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                                |
 
 | Value Type                              | Default Value When Missing | Description                                                                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -832,12 +832,14 @@ Node name: `ScaleHandeling`
 
 ##### Table 36 — *ScaleHandeling Node Attributes*
 
-| Value Type | Default Value When Missing | Description                                                                     |
-| ---------- | -------------------------- | ------------------------------------------------------------------------------- |
-| Enum       | ScaleKeepRatio             | The available value are `ScaleKeepRatio`, `ScaleIgnoreRatio`, `KeepSizeCenter`. |
+| Value Type                              | Default Value When Missing | Description                                                                     |
+| --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------- |
+| [Enum](#user-content-attrtype-enum)     | ScaleKeepRatio             | The available value are `ScaleKeepRatio`, `ScaleIgnoreRatio`, `KeepSizeCenter`. |
 
 The following tables show how the scaling should look like.
-##### Table 36.1 — *ScaleHandeling Examoles*
+
+
+##### Table 36.1 — *ScaleHandeling Examples*
 
 | ScaleKeepRatio                                        | ScaleIgnoreRatio                                          | KeepSizeCenter                                        |
 |-------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------|
@@ -1018,7 +1020,7 @@ The child list contains a list of the node `Protocol`:
 | name           | [String](#user-content-attrtype-string) | empty    | Custom Name of the protocol to identify the protocol. Needs to be unique for this instance of object. |
 | type           | [String](#user-content-attrtype-string) | empty    | Name of the protocol. |
 | version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
-| transmission   | [String](#user-content-attrtype-enum)   | undefined   | Unicast, Multicast, Broadcast, Anycast |
+| transmission   | [Enum](#user-content-attrtype-enum)   | undefined   | Unicast, Multicast, Broadcast, Anycast |
 
 The following names for the `type` are predefined:
 - RDMNet
@@ -1084,7 +1086,7 @@ This node defines a custom command for the linked GDTF.
 Node name: `CustomCommand`
 
 The Custom command contains the command that will be executed on the fixture. The definition from the syntax for the command
-aligns with the DIN SPEC 15800 [defintion for control based symbol](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#channel-function). 
+aligns with the DIN SPEC 15800 [definition for control based symbol](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#channel-function). 
 
 With this feature you can control static properties for fixture that can not be controlled via DMX.
 
@@ -1101,7 +1103,7 @@ The child list contains a list of the following nodes:
 
 | Child Node                              | Description                                                       |
 | --------------------------------------- | ----------------------------------------------------------------- |
-| [Overwrite](#node-definition-Overwrite) | Contains a list with overwrites for gobos, filters and emitters.  |
+| [Overwrite](#node-definition-overwrite) | Contains a list with overwrites for gobos, filters and emitters.  |
 
 
 #### Node Definition: Overwrite
@@ -1159,10 +1161,10 @@ The child list contains a list of the following nodes:
 
 | Child Node                            | Allowed Count | Description                  |
 | ------------------------------------- | ------------- | ---------------------------- |
-| [Mappings](#node-definition-mappings) | 0 or any      | One Mapping for the fixture. |
+| [Mapping](#node-definition-mapping) | 0 or any      | One Mapping for the fixture. |
 
 It is only allowed to have one Mapping linked to the same
-MappingDefinition once per Fixture.
+Mapping Definition once per Fixture.
 
 
 #### Node Definition: Mapping
@@ -1173,17 +1175,17 @@ Node name: `Mapping`
 
 ##### Table 27 — *Mapping Node Attributes*
 
-| Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                                 |
-| -------------- | ----------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- |
-| linkedDef      | [UUID](#user-content-attrtype-uuid) |                             | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
+| Attribute Name | Attribute Value Type                |  Description                                                                                |
+| -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------- |
+| linkedDef      | [UUID](#user-content-attrtype-uuid) | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
 
-| Child Node | Allowed Count | Value Type | Description                                                                                                       |
-| ---------- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
-| [ux](#ux)  | 0 or 1        | Integer    | The offset in pixels in x direction from top left corner of the source that will be used for the mapped object.   |
-| [uy](#uy)  | 0 or 1        | Integer    | The offset in pixels in y direction from top left corner of the source that will be used for the mapped object.   |
-| [ox](#ox)  | 0 or 1        | Integer    | The size in pixels in x direction from top left of the starting point.                                            |
-| [oy](#uy)  | 0 or 1        | Integer    | The size in pixels in y direction from top left of the starting point.                                            |
-| [rz](#rz)  | 0 or 1        | Float      | The rotation around the middle point of the defined rectangle in degree. Positive direction is counter cock wise. |
+| Child Node | Allowed Count | Value Type | Description                                                                                                                                |
+| ---------- | ------------- | ---------- | -----------------------------------------------------------------------------------------------------------------------------------------  |
+| ux         | 0 or 1        |  [Integer](#user-content-attrtype-integer) | The offset in pixels in x direction from top left corner of the source that will be used for the mapped object.   |
+| uy         | 0 or 1        |  [Integer](#user-content-attrtype-integer) | The offset in pixels in y direction from top left corner of the source that will be used for the mapped object.   |
+| ox         | 0 or 1        |  [Integer](#user-content-attrtype-integer) | The size in pixels in x direction from top left of the starting point.                                            |
+| oy         | 0 or 1        |  [Integer](#user-content-attrtype-integer) | The size in pixels in y direction from top left of the starting point.                                            |
+| rz         | 0 or 1        |  [Float](#user-content-attrtype-float)     | The rotation around the middle point of the defined rectangle in degree. Positive direction is counter cock wise. |
 
 Note: The transformation will be applied in the following order: -
 Translation - Rotation
