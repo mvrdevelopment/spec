@@ -116,7 +116,8 @@ Here is a list of the available types for node or attribute values:
 | Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                    |
-| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
+| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in#attrType-Bool base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                |
+| <span id="user-content-attrtype-bool"> Bool </span>    |TODO 
 | <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                   |
 | <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects. |
 | <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                           |
@@ -136,10 +137,10 @@ The second XML node is the mandatory GeneralSceneDescription node. The attribute
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                  |
 | -------------- | ----------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
-| VerMajor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the major version of the format used when saving this file. |
-| VerMinor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the minor version of the format used when saving this file. |
-| Provider       | [String](#user-content-attrtype-string)   | Not Optional                | The name of the application that is generating the MVR export. This should stay the same between multiple version.     |
-| ProviderVersion| [String](#user-content-attrtype-string)   | Not Optional                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
+| verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the major version of the format used when saving this file. |
+| verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the minor version of the format used when saving this file. |
+| provider       | [String](#user-content-attrtype-string)   | Not Optional                | The name of the application that is generating the MVR export. This should stay the same between multiple version.     |
+| providerVersion| [String](#user-content-attrtype-string)   | Not Optional                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
 
 
 ##### Table 2 — *Root File Node Children*
@@ -263,12 +264,12 @@ Node name: `MappingDefinition`
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
 | name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
 
-| Child Node                                        | Allowed Count | Description                                         |
-| ------------------------------------------------- | ------------- | --------------------------------------------------- |
-| SizeX                                             | 1             | The size in x direction in pixels of the source. Node Value is [Integer](#user-content-attrtype-integer).   |
-| SizeY                                             | 1             | The size in y direction in pixels of the source.  Node Value is [Integer](#user-content-attrtype-integer).    |
-| [Source](#node-definition-source)                 | 1             | The video source that will be used for the Mapping. |
-| [ScaleHandeling](#node-definition-scalehandeling) | 0 or 1        | How the source will be scaled to the mapping.       |
+| Child Node                                        | Allowed Count | Value Type                                | Description                                         |
+| ------------------------------------------------- | ------------- | ----------------------------------------- | --------------------------------------------------- |
+| SizeX                                             | 1             | [Integer](#user-content-attrtype-integer) | The size in x direction in pixels of the source.    |
+| SizeY                                             | 1             | [Integer](#user-content-attrtype-integer) | The size in y direction in pixels of the source.    |
+| [Source](#node-definition-source)                 | 1             |                                           | The video source that will be used for the Mapping. |
+| [ScaleHandeling](#node-definition-scalehandeling) | 0 or 1        |                                           | How the source will be scaled to the mapping.       |
 
 ```xml
 <MappingDefinition name="MappingStyle for View 1" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381398">
@@ -452,26 +453,26 @@ Node name: `Fixture`
 | GDTFSpec                                | 0 or 1        | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800. |
 | GDTFMode                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined.                                                     |
 | Focus                                   | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A focus point reference that this lighting fixture aims at if this reference exists.                                                          |
-| CastShadow                              | 0 or 1        | [Bool](#attrType-Bool)                       | Defines if a Object cast Shadows.                                                                                                             |
-| DMXInvertPan                            | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Pan Channels of the fixture should be DMX Inverted.                                                                                                             |
-| DMXInvertTilt                           | 0 or 1        | [Bool](#attrType-Bool)                       | Defines of all Tilt Channels of the fixture should be DMX Inverted.                                                                                                             |
+| CastShadow                              | 0 or 1        | [Bool](#user-content-attrtype-bool)                       | Defines if a Object cast Shadows.                                                                                                             |
+| DMXInvertPan                            | 0 or 1        | [Bool](#user-content-attrtype-bool)                       | Defines of all Pan Channels of the fixture should be DMX Inverted.                                                                                                             |
+| DMXInvertTilt                           | 0 or 1        | [Bool](#user-content-attrtype-bool)                       | Defines of all Tilt Channels of the fixture should be DMX Inverted.                                                                                                             |
 | Position                                | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this lighting fixture belongs to if this reference exists.                                                          |
 | Function                                | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the purpose this Fixture has.                                                       |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
 | FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
 | UnitNumber                              | 1             | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
-| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node link to the geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
+| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-string)        | Node link to the geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [Addresses](#node-definition-addresses) | 0 or 1        |                                              | The container for DMX Addresses for this fixture.                                                                                             |
-| [Protocols](#node-definition-addresses) | 0 or 1        |                                              | The container for protocols assignments.                                                                                                      |
-| [Alignments](#node-definition-alignments) | 0 or 1        |                                              | The container for Alignments for this fixture.                                                                                              |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this fixture.                                                                                  |
-| [Overwrites](#node-definition-overwrites) | 0 or 1        |                                              | The container for overwrites for this fixture.                                                                                              |
-| [Connections](#node-definition-connections) | 0 or 1        |                                             | The container for connections for this fixture.                                                                                            |
+| [Protocols](#node-definition-protocols) | 0 or 1        |                                              | The container for protocols assignments.                                                                                                      |
+| [Alignments](#node-definition-alignments) | 0 or 1      |                                              | The container for Alignments for this fixture.                                                                                              |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1 |                                           | The container for custom command for this fixture.                                                                                  |
+| [Overwrites](#node-definition-overwrites) | 0 or 1      |                                              | The container for overwrites for this fixture.                                                                                              |
+| [Connections](#node-definition-connections) | 0 or 1    |                                              | The container for connections for this fixture.                                                                                            |
 | CIEColor                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
-| Mappings                                | 0 or 1        | [Mappings](#node-definition-mappings)        | The container for Mappings for this fixture.                                                                                                  |
-| [Gobo](#node-definition-gobo)                                    | 0 or 1        | [Gobo](#node-definition-gobo)                | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                 |
+| [Mappings](#node-definition-mappings)   | 0 or 1        |                                              | The container for Mappings for this fixture.                                                                                                  |
+| [Gobo](#node-definition-gobo)           | 0 or 1        |                                              | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                 |
 | [ChildList](#node-definition-childlist) | 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                    |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a
@@ -589,7 +590,7 @@ Node name: `Truss`
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                                                                             |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                                                                                 |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
-| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-node)        | Node Link to the Geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
+| ChildPosition                           | 0 or 1        | [String](#user-content-attrtype-string)        | Node Link to the Geometry. Starting point is the Geometry Collect of the linked parent GDTF of this object.                                   |
 | [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
 | FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
@@ -620,7 +621,7 @@ Node name: `Support`
 | [Position](#node-definition-position)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)          | A position reference that this support belongs to if this reference exists.                                                                   |
 | [Geometries](#node-definition-geometries)         | 1             |                                              | A list of geometrical representation objects that are a part of the object.                                                                   |
 | Function                                          | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the function this support is used for.                                                                                            |
-| ChainLength                                       | 1             | [Real](#user-content-attrtype-real)          | The chain length that will be applied to the GDTF .                                                                                           |
+| ChainLength                                       | 1             | [Float](#user-content-attrtype-float)          | The chain length that will be applied to the GDTF .                                                                                           |
 | GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename)  | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800.                                       |
 | GDTFMode                                          | 0 or 1        | [String](#user-content-attrtype-string)      | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined.                                                     |
 | [Addresses](#node-definition-addresses)           | 0 or 1        |                                              | The container for DMX Addresses for this object.                                                                                              |
@@ -984,12 +985,12 @@ Node name: `Network`
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                                                                              |
 |----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| geometry       | [geometry](#user-content-attrType-string) | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| ipv4           | [IPv4](#user-content-attrType-IPv4)       | Optional                    | This is the IPv4-address.                                                                                                |
-| subnetmask     | [SubetMask](#user-content-attrType-IPv4)  | Optional                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
-| ipv6           | [IPv6](#user-content-attrType-IPv6)       | Optional                    | This is the IPv6-address.                                                                                                |
-| dhcp           | [DHCP](#user-content-attrType-string)     | off                         | This is the automated-address.   DHCP is considered off. If present it should be set "on"                                |
-| hostname       | [hostname](#user-content-attrType-string) | Optional                    | This is the hostname for the device with an automated address.                                                           |
+| geometry       | [String](#user-content-attrtype-string)   | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| ipv4           | [IPv4](#user-content-attrtype-ipv4)       | Optional                    | This is the IPv4-address.                                                                                                |
+| subnetmask     | [IPv4](#user-content-attrtype-ipv4)  | optional                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
+| ipv6           | [IPv6](#user-content-attrtype-ipv6)       | optional                    | This is the IPv6-address.                                                                                                |
+| dhcp           | [Bool](#user-content-attrtype-bool)     | false                         | This is the automated-address.   DHCP is considered off. If present it should be set "on" (true).                                |
+| hostname       | [hostname](#user-content-attrtype-string) | optional                    | This is the hostname for the device with an automated address.                                                           |
 
 ### Node Definition: Protocols
 
@@ -1043,7 +1044,7 @@ The child list contains a list of the following nodes:
 
 | Child Node                            | Description                                                   |
 | ------------------------------------- | ------------------------------------------------------------- |
-| [Alignment](#node-definition-address) | Defines a custom alignment for a beam inside the linked GDTF. |
+| [Alignment](#node-definition-alignment) | Defines a custom alignment for a beam inside the linked GDTF. |
 
 
 #### Node Definition: Alignment
@@ -1056,9 +1057,9 @@ Node name: `Address`
 
 | Attribute Name | Attribute Value Type                   | Default Value               | Description                                                                          |
 | -------------- | -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
-| geometry       | [Node](#user-content-attrtype-node)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
-| up             | [String](#user-content-attrtype-Vector)| 0,0,1                                                               | Defines the up vector of the direction.      |
-| direction      | [String](#user-content-attrtype-Vector)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
+| geometry       | [String](#user-content-attrtype-string)    | Beam Geometry of the first Beam in the kinematic chain of the GDTF. | Defines the Beam Geometry that gets aligned. |
+| up             | [String](#user-content-attrtype-string)| 0,0,1                                                               | Defines the up vector of the direction.      |
+| direction      | [String](#user-content-attrtype-string)| 0,0,-1                                                              | Defines the direction vector of the lamp.    |
 
 
 ### Node Definition: CustomCommands
@@ -1113,8 +1114,8 @@ Node name: `Overwrite`
 
 | Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                                                             |
 | -------------- | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| universal      | [String](#user-content-attrtype-node)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
-| target         | [String](#user-content-attrtype-node)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
+| universal      | [String](#user-content-attrtype-string)     | Mandatory.    | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the Universal GDTF.                                                                                                                     |
+| target         | [String](#user-content-attrtype-string)     | Empty String  | Node Link to the Wheel, Emitter or Filter. Starting point is the the collect of the linked GDTF of the fixture. When no target is given, it will be like a static gobo or filter that you attach in front of all beams. |
 
 
 ### Node Definition: Connections
@@ -1129,7 +1130,7 @@ The child list contains a list of the following nodes:
 
 | Child Node                               | Description                                               |
 | ---------------------------------------- | --------------------------------------------------------- |
-| [Connection](#node-definition-Overwrite) | Contains an definition of an object to object connection. |
+| [Connection](#node-definition-connection) | Contains an definition of an object to object connection. |
 
 
 #### Node Definition: Connection
@@ -1142,8 +1143,8 @@ Node name: `Connection`
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                                                                                                                                                                                     |
 | -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| own            | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
-| other          | [String](#user-content-attrtype-node)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
+| own            | [String](#user-content-attrtype-string)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
+| other          | [String](#user-content-attrtype-string)     | Mandatory.                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
 | toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory.                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
 
 ### Node Definition: Mappings
@@ -1326,7 +1327,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK             | [Bool](#attrType-Bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
+| OK             | [Bool](#user-content-attrtype-bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
 | Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
 | StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
@@ -1412,7 +1413,7 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1481,7 +1482,7 @@ The following chart displays the process when the server is the station who is p
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1549,7 +1550,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1626,7 +1627,7 @@ Each receiver will try to switch into Local Network Mode by connecting to the mD
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
-| OK                  | [Bool](#attrType-Bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
