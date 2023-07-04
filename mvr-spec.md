@@ -1328,7 +1328,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN_RET                            |
 | OK             | [Bool](#user-content-attrtype-bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
 | Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
@@ -1366,7 +1366,7 @@ Request:
 Response:
 ```
 {
-  "Type": "MVR_JOIN",
+  "Type": "MVR_JOIN_RET",
   "OK": "true",
   "Message": "",
   "verMajor":"1", 
@@ -1414,7 +1414,7 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |     Defines the type of the message. Should be MVR_LEAVE_RET.                         |
 | OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
@@ -1431,7 +1431,7 @@ Request:
 Response:
 ```
 {
-  "Type": "MVR_LEAVE",
+  "Type": "MVR_LEAVE_RET",
   "OK": "true",
   "Message": ""
 }
@@ -1469,7 +1469,7 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT.             |
 | verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
@@ -1483,7 +1483,7 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |  Defines the type of the message. Should be MVR_COMMIT_RET.                          |
 | OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
@@ -1501,7 +1501,7 @@ Request:
 }
 Response:
 {
-  "Type": "MVR_COMMIT",
+  "Type": "MVR_COMMIT_RET",
   "OK": "true",
   "Message": ""
 }
@@ -1543,7 +1543,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the name of the message.                            |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_REQUEST-                           |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
@@ -1551,7 +1551,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST_RET             |
 | OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
@@ -1572,7 +1572,7 @@ OR
 ```
 
 {
-  "Type": "MVR_REQUEST",
+  "Type": "MVR_REQUEST_RET",
   "OK": "false",
   "Message": "The MVR is not available on this client"
 }
@@ -1628,7 +1628,7 @@ Each receiver will try to switch into Local Network Mode by connecting to the mD
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                             |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_NEW_SESSION_HOST_RET                            |
 | OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
@@ -1645,7 +1645,7 @@ Request:
 Response:
 ```
 {
-  "Type": "MVR_NEW_SESSION_HOST",
+  "Type": "MVR_NEW_SESSION_HOST_RET",
   "OK": "true",
   "Message": ""
 
