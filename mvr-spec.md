@@ -519,11 +519,29 @@ An example of a node definition is shown below:
         <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
     </CustomCommands>
     <Overwrites>
-            <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1" target="Wheel 1.Wheel Slot"/>
-            <Overwrite universal="Universal Emitter 1" target="Emitter 1" />
-            <Overwrite universal="Universal Filter 1" target="Filter 1" />
-            <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 2"/>
+      <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1" target="Wheel 1.Wheel Slot"/>
+      <Overwrite universal="Universal Emitter 1" target="Emitter 1" />
+      <Overwrite universal="Universal Filter 1" target="Filter 1" />
+      <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 2"/>
     </Overwrites>
+    <CustomSettings>
+      <!--> Selecting a predefined Setting from the GDTF file<!-->
+      <CustomSetting setting="DimmerCurve.Setting1"/>
+      
+      <!--> Defining a custom Setting to overwrite the GDTF file <!-->
+      <CustomSetting node="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+      <CustomSetting node="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+      <CustomSetting node="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+      <CustomSetting node="ColorWheel1.Open/white" Filter="Deep Red"/>
+      <CustomSetting node="ColorWheel1" Attribute="Fancy"/>
+      
+      <!--> Overwriting an entire section in GDTF <!-->
+      <CustomSetting node="DMX Mode.Head.CTO" />
+        <ChannelSet DMXFrom="0/2" Name="" WheelSlotIndex="0"/>
+        <ChannelSet DMXFrom="32768/2" Name="Center" WheelSlotIndex="-2147483648"/>
+        <ChannelSet DMXFrom="32769/2" Name="" WheelSlotIndex="0"/>
+      </CustomSetting>
+    </CustomSettings>
     <Mappings>
         <Mapping linkedDef="BEF95EB8-98AC-4217-B10D-FB4B83381398">
             <ux>10</ux>
