@@ -269,6 +269,7 @@ Fixture type node children are specified in [table 4](#user-content-table-4 ).
 | [DMXModes](#user-content-dmx-mode-collect )                  | Yes       | Contains descriptions of the DMX modes.                                                     |
 | [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the fixture type.                                                  |
 | [FTPresets](#user-content-fixture-type-preset-collect )              | No        | Is used to transfer user-defined and fixture type specific presets to other show files.     |
+| [Settings](#user-content-fixture-type-Settings )              | No        | Allows to define settings in GDTF.     |
 | [Protocols](#user-content-fixture-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
 
 
@@ -2215,6 +2216,33 @@ Fixture Preset Collect has a list of [FTPreset](#user-content-fixture-type-prese
 ### Fixture Type Preset
 
 This section has not yet been defined (XML node `<FTPreset>`).
+
+
+## Fixture Type Settings Collect
+
+    <Settings>
+      <Setting name="DimmerCurve">
+        <Set name="Setting1" >
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="ColorWheel1.Open/white" Filter="Deep Red"/>
+        </Set>
+        <Set name="Setting2" >
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="ColorWheel1.Open/white" Filter="Deep Red"/>
+
+        </Set>
+      </Setting>
+      <Setting name="SellingMode">
+        <Set name="Default">
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="DMX Mode.Head.CTO.6500K" PhysicalFrom="1000"/>
+          <Overwrite name="ColorWheel1.Open/white" Filter="Deep Red"/>
+
+        </Set>
+      </Setting>
+
 
 ## Supported Protocol Collect
   
