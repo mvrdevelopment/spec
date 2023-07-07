@@ -1225,7 +1225,21 @@ Discovery of available *MVR-xchange clients* shall be performed by mDNS (RFC 676
 The service name shall be `_mvrxchange._tcp.local.`.
 The sub service name shall be `xxxx._mvrxchange._tcp.local.` where *xxxx* is the name of the group. 
 Each client shall negotiate a unique hostname via the methods described in the mDNS standards.
-Each client shall have a PTR, SRV and A and/or AAAA record.
+Each client shall have a PTR, SRV, TXT and A and/or AAAA record.
+
+The TXT record should contain the following information:
+
+| Attribute Name | Attribute Value Type                |  Description                                                                   |
+| -------------- | ----------------------------------- | ----------------------------------------------------------------------------- |
+| StationName    | [String](#user-content-attrtype-string)  | The Name of the sending station to be shown on the clients UI.                            |
+| StationUUID    | [UUID](#user-content-attrtype-uuid) | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+
+The information is stored as a `;` separated list.
+
+Example of entry of TXT record:
+```
+StationName=My Station Name;StationUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+```
 
 When a *MVR-xchange client* wants to join a MVR-xchange group, he needs to register the service and sub service, and send an `MVR_JOIN` message to the other stations that register this sub service name.
 When a *MVR-xchange client* wants to create a MVR-xchange group, he needs to register a service name which is currently not in use and wait for other *MVR-xchange clients* to join.
