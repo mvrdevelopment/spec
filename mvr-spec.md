@@ -40,6 +40,8 @@ amendments) applies.
 - [DNS-SD - RFC6763](https://www.ietf.org/rfc/rfc6763.txt)
 - [mDNS - RFC6762](https://www.ietf.org/rfc/rfc6762.txt)
 - [Websocket Protocol - RFC6455](https://www.ietf.org/rfc/rfc6455.txt)
+- [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)
+- [Extensible Markup Language (XML) 1.0](https://www.w3.org/TR/2008/REC-xml-20081126/)
 
 # Terms and definitions
 
