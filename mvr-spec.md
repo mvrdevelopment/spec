@@ -2,12 +2,7 @@ MVR Version 1.6 - DIN SPEC 15801 Draft
 
 # Introduction
 
-MVR - My virtual Rig - specified in this DIN SPEC will unify the information exchange between different applications within the entertainment inustry. Based on GDTF, as specified in DIN SPEC 15800, MVR allows the exchange of scenic and environmental information and complete show setups as planning status
-
-In the entertainment industry, the MVR file format allows programs to
-share data and geometry for a scene. A scene is a set of parametric
-objects such as fixtures, trusses, video screens, and other objects that
-are used in the entertainment industry.
+MVR - My virtual Rig - specified in this DIN SPEC will unify the information exchange between different applications within the entertainment industry. Based on GDTF, as specified in DIN SPEC 15800, MVR allows the exchange of scenic and environmental information and complete show setups as planning status. Furthermore the MVR file format allows programs to share data and geometry for a scene. A scene is a set of parametric objects such as fixtures, trusses, video screens, and other objects that are used secifically in the entertainment industry.
 
 Typical workflow
 1.  Program A saves an MVR file containing a scene;
@@ -19,15 +14,15 @@ Typical workflow
 
 # Scope
 
-This document specifies "My Virtual Rig" (MVR), which is designed to provide a unified way of listing and describing the hierarchical and logical structure based on DIN SPEC 15800 "General Device Type Format" (GDTF) - and further environmental information of a show setup in the lighting and entertainment business. It will be used as a foundation for the exchange of extended device and environmental data between lighting consoles, CAD and 3D-pre-visualization applications. The purpose of an MVR-file is to reflect the real-world physical components of a show setup and the logical patch information of the devices while maintaining the kinematic chain.
+This document specifies "My Virtual Rig" (MVR), which is designed to provide a unified way of listing and describing the hierarchical and logical structure based on DIN SPEC 15800 "General Device Type Format" (GDTF) - and further environmental information of a show setup in the entertainment business. It will be used as a foundation for the exchange of extended device and environmental data between lighting consoles, CAD and 3D-pre-visualization applications. The purpose of an MVR-file is to reflect the real-world physical components of a show setup and the logical patch information of the devices while maintaining the kinematic chain.
 
 
 # Normative references
 
 The following documents are referred to in the text in such a way that
 some or all of their content constitutes requirements of this document.
-For dated references, only the edition cited applies. For undated
-references, the latest edition of the referenced document (including any
+For dated references, only the edition cited applies. 
+For undated references, the latest edition of the referenced document (including any
 amendments) applies. 
 
 - [ISO/IEC 21320-1:2015 Document Container File - Part 1: Core](https://www.iso.org/standard/60101.html)
@@ -42,6 +37,7 @@ amendments) applies.
 - [Websocket Protocol - RFC6455](https://www.ietf.org/rfc/rfc6455.txt)
 - [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)
 - [Extensible Markup Language (XML) 1.0](https://www.w3.org/TR/2008/REC-xml-20081126/)
+- [JSON documents - ISO/IEC 21778:2017](https://www.iso.org/standard/71616.html)
 
 # Terms and definitions
 
@@ -54,28 +50,46 @@ standardization at the following addresses:
   - DKE-IEV: available at <http://www.dke.de/DKE-IEV>
 
 
-### My Virtual Rig MVR
+### My Virtual Rig (MVR)
+Descriptive name of the specification.
 
-descriptive name of the specification
+### MVR-xchange
+Protocol to share MVR files over the network.
+
+### *MVR-xchange client*
+Application that participates in the MVR-xchange.
+
+### MVR-xchange group
+Group of *MVR-xchange clients* that work on the same project and communicate togehter.
+
+### Local Network Mode
+Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS.
+
+### WebSocket Mode
+Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS.
+
 
 
 # MVR Definitions
 
 ## General
 
-MVR consists of two parts to enable any applications to exchange GDTF but also general information in the same common format. Firstly the MVR file format as described in the following section.
-Secondly a MVR communication format to simplify exchange between parties.
+MVR consists of two parts to enable any application to exchange GDTF but also general information in the same common format. </br>
+Firstly the MVR file format as described in the following section. </br>
+Secondly a MVR communication format to simplify exchange between applications.
 
 
-# File Format Definition
+## File Format Definition
 
 To describe all information within one file, a zip file with the extension `*.mvr` is used. The archive shall contain one root file named `GeneralSceneDescription.xml`, along with all other resource files referenced via this Root File. The root file `GeneralSceneDescription.xml` is mandatory inside the archive to be a valid MVR file.
+
+UTF-8 has to be used to encode the XML file. Each XML file internally consists of XML nodes. Each XML node could have XML attributes and XML children. Each XML attribute has a value. If a XML attribute is not specified, the default value of this XML attribute will be used. If the XML attribute value is specified as a string, the format of the string will depend on the XML attribute type. 
 
 - The archive must not use encryption or password protection.
 - All files referenced by the Root File shall be placed at the root level. They shall not be placed in folders.
 - Files shall be placed using either STORE (uncompressed) or DEFLATE compression. No other compression algorithms are supported.
 - Files may be placed into the archive in any order.
-- A `Universal.gdtt` GDTF template file with a `.gdtt` extension can be added as to define Gobos, Emitters, Filter and such for referencing.
+- A `Universal.gdtt` GDTF template file with a `.gdtt` extension can be added to define Gobos, Emitters, Filter and such for referencing.
 - Filenames within the archive must not differ only by case. Eg it is prohibited to have the files `GEO1.glb` and `geo1.glb` within the same archive.
 - The file name of the ZIP archive can be chosen freely.
 
@@ -98,45 +112,37 @@ Textr12.png
 Universal.gdtt
 ```
 
-# Node Definiftions
-
-## General
-
-UTF-8 has to be used to encode the XML file. Each XML file internally
-consists of XML nodes. Each XML node could have XML attributes and XML
-children. Each XML attribute has a value. If a XML attribute is not
-specified, the default value of this XML attribute will be used. If the
-XML attribute value is specified as a string, the format of the string
-will depend on the XML attribute type. 
 
 ## Generic Value Types
 
 Here is a list of the available types for node or attribute values:
 
-##### Table 43 — *XML Generic Value Types*
+##### Table 1 — *XML Generic Value Types*
 
-| Value Type Name                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`                                                                                                                                                                                                                                                                                                                                           |
-| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in#attrType-Bool base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`                                                         |
-| <span id="user-content-attrtype-bool"> Bool </span>        | A boolean value. When representing `true` inidcate with true, when `false` indicate with false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 
-| <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (')                                                                                                                                                                                                                                                                          |
-| <span id="user-content-attrtype-enum"> Enum </span>        | Possible values are predefined                                                                                                                                                                                                                                                                                                                                                                                                                                                           |  
-| <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects.                                                                                                                                                                                                                                                                                                             |
-| <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`                                                                                                                                                                                                                                                                                                                                                                                  |
+| Value Type Name    | Description                                      |
+| ------------------ |--------------------------------------------------------------------------- |
+| <span id="user-content-attrtype-integer"> Integer </span>  | A signed or unsigned integer value represented in base 10. Uses a dash '-' (U+002D) as a prefix to denote negative numbers<br/>Eg `15` or `-6`|
+| <span id="user-content-attrtype-float"> Float </span>      | A floating point numeric value represented in#attrType-Bool base 10 decimal or scientific format.<br/>Uses full stop '.' (U+002E) to delimit the whole and decimal part and 'e' or 'E' to delimit mantissa and exponent.<br/>Implementations shall write sufficient decimal places to precisely round-trip their internal level of precision.<br/>Infinities and not-a-number (NaN) are not permitted.<br/>Eg `1.5`, `3.9265e+2`|
+| <span id="user-content-attrtype-bool"> Bool </span>        | A boolean value. When representing `true` inidcate with true, when `false` indicate with false. | 
+| <span id="user-content-attrtype-string"> String </span>    | Any sequence of Unicode codepoints, encoded as necessary for XML.<br>Eg The following XML encodings (with their meaning in brackets):<br/>`&lt;` (\<), `&amp;` (&), `&gt;` (\>), `&quot;` ("), and `&apos;` (') |
+| <span id="user-content-attrtype-enum"> Enum </span>        | Possible values are predefined |  
+| <span id="user-content-attrtype-uuid"> UUID </span>        | A UUID to RFC4122 in text representation.<br/>The nil UUID (all zeros) is not permitted.<br/>Formatted as `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.<br/> Used to link objects. |
+| <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`|
 | <span id="user-content-attrtype-filename">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf`|
-| <span id="user-content-attrtype-ciecolor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`                                                                                                                                                                                                                                            |
-| <span id="user-content-attrtype-ipv4">IPv4 Address</span>  | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10`                                                                                                                                                                                                                                              |
-| <span id="user-content-attrtype-ipv6">IPv6 Address</span>  | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344`                                                                                                                                                                                                                                              |
+| <span id="user-content-attrtype-ciecolor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`|
+| <span id="user-content-attrtype-ipv4">IPv4 Address</span>  | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10` |
+| <span id="user-content-attrtype-ipv6">IPv6 Address</span>  | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344` |
 
 
-## Root File Definition
+## Node Definiftions
 
-The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
+The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>` 
 
-The second XML node is the mandatory GeneralSceneDescription node. The attributes of this node are listed in Table 1. 
+## GeneralSceneDescription Node 
 
-##### Table 1 — *Root File Node Attributes*
+The second XML node is the mandatory GeneralSceneDescription node. The attributes of this node are listed in Table 2. 
+
+##### Table 2 — *GeneralSceneDescription Node Attributes*
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                  |
 | -------------- | ----------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
@@ -146,25 +152,23 @@ The second XML node is the mandatory GeneralSceneDescription node. The attribute
 | providerVersion| [String](#user-content-attrtype-string)   | Not Optional                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
 
 
-##### Table 2 — *Root File Node Children*
+##### Table 3 — *GeneralSceneDescription Node Children*
 
 | Child Node | Allowed Count | Description                                    |
 | ---------- | ------------- | ---------------------------------------------- |
 | UserData   | 0 or 1        | Specifies user data associated with this file. |
 | Scene      | 1             | Defines the scene described in this file.      |
 
-Find a complete example of a file [here
-](Sample_GeneralSceneDescription).
+Find a complete example of a file [here](Sample_GeneralSceneDescription).
 
 
 ## Node Definition: UserData
 
-This node contains a collection of user data nodes defined and used by
-provider applications if required. User data should not be expected to be preserved in the workflow of multiple applications importing/exporting the data.
+This node contains a collection of user data nodes defined and used by provider applications if required. User data should not be expected to be preserved in the workflow of multiple applications importing/exporting the data.
 
 Node name: `UserData`
 
-##### Table 3 — *UserData Node Attributes*
+##### Table 4 — *UserData Node Attributes*
 
 | Child Node                    | Allowed Count | Description                   |
 | ----------------------------- | ------------- | ----------------------------- |
@@ -173,12 +177,11 @@ Node name: `UserData`
 
 ### Node Definition: Data
 
-This node contains a collection of data specified by the provider
-application.
+This node contains a collection of data specified by the provider application.
 
 Node name: `Data`
 
-##### Table 4 — *Data Node Attributes*
+##### Table 5 — *Data Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                                               |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------------------------------------------- |
@@ -192,7 +195,7 @@ This node contains information about the scene.
 
 Node name: `Scene`
 
-##### Table 5 — *Scene Node Children*
+##### Table 6 — *Scene Node Children*
 
 | Child Node                          | Allowed Count | Description                           |
 | ----------------------------------- | ------------- | ------------------------------------- |
@@ -206,7 +209,7 @@ This node contains auxiliary data for the scene node.
 
 Node name: `AUXData`
 
-##### Table 5 — *AUXData Node Attributes*
+##### Table 7 — *AUXData Node Attributes*
 
 | Child Node                                              | Allowed Count | Description                                                    |
 | ------------------------------------------------------- | ------------- | ---------------------------------------------------------------|
@@ -218,13 +221,11 @@ Node name: `AUXData`
 
 ### Node Definition: Symdef
 
-This node contains the graphics so the scene can refer to this, thus
-optimizing repetition of the geometry. The child objects are located
-within a local coordinate system.
+This node contains the graphics so the scene can refer to this, thus optimizing repetition of the geometry. The child objects are located within a local coordinate  system.
 
 Node name: `Symdef`
 
-##### Table 6 — *Symdef Node Attributes*
+##### Table 8 — *Symdef Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -245,7 +246,7 @@ This node defines a logical grouping of lighting devices and trusses.
 
 Node name: `Position`
 
-##### Table 7 — *Position Node Attributes*
+##### Table 9 — *Position Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -255,12 +256,11 @@ Node name: `Position`
 
 ### Node Definition: MappingDefinition
 
-This node specified a input source for fixture color mapping
-applications.
+This node specified a input source for fixture color mapping applications.
 
 Node name: `MappingDefinition`
 
-##### Table 8 — *MappingDefinition Node Attributes*
+##### Table 10 — *MappingDefinition Node Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                             |
 | -------------- | ----------------------------------- | --------------------------- | --------------------------------------- |
@@ -291,7 +291,7 @@ This node defines a logical grouping across different layers. Primarily used for
 
 Node name: `Class`
 
-##### Table 9 — *Class Node Attributes*
+##### Table 11 — *Class Node Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
@@ -299,50 +299,49 @@ Node name: `Class`
 | name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
 
 
-## Node Definition: Layers
+### Node Definition: Layers
 
-This node defines a list of layers inside the scene. The layer is a
-container of graphical objects defining a local coordinate system.
+This node defines a list of layers inside the scene. The layer is a container of graphical objects defining a local coordinate system.
 
 Node name: `Layers`
 
 The child list contains a list of layer nodes:
 
-##### Table 10 — *Layers Node Childs*
+##### Table 12 — *Layers Node Childs*
 
 | Child Node                      | Description             |
 | ------------------------------- | ----------------------- |
 | [Layer](#node-definition-layer) | A layer representation. |
 
 
-### Node Definition: Layer
+#### Node Definition: Layer
 
-This node defines a layer. The layer is a spatial representation of a
-geometric container. The child objects are located inside a local
-coordinate system.
+This node defines a layer. The layer is a spatial representation of a geometric container. The child objects are located inside a local coordinate system.
 
 Node name: `Layer`
 
-##### Table 11 — *Layer Node Attributes*
+##### Table 13 — *Layer Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
-| Child Node                              | Allowed Count | Description                                                                                                                                                                                                                                                                      |
-| --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Child Node                              | Allowed Count | Description                                                          |
+| --------------------------------------- | ------------- | -------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have a vertical Transform (elevation). Rotation and scale must be identity. Rotation and scale must be identity, means no rotation and no scale. |
-| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.           |
+
+
 ## Node Definition: ChildList
 
 This node defines a list of graphical objects.
 
 Node name: `ChildList`
 
-The child list contains a list of one of the following nodes:
+The childlist contains a list of one of the following nodes:
 
-##### Table 42 — *ChildList Node Childlist*
+##### Table 14 — *ChildList Node Childlist*
 
 | Child Node                                  | Description                                                                  |
 | ------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -353,7 +352,7 @@ The child list contains a list of one of the following nodes:
 | [Support](#node-definition-support)         | A definition of a support.                                                   |
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
-| [Projector](#node-definition-projector) | A definition of a projector.                                              |
+| [Projector](#node-definition-projector)     | A definition of a projector.                                                 |
 
 
 ## Node Definition for Parametric Objects
@@ -364,44 +363,43 @@ This node defines a generic graphical object.
 
 Node name: `SceneObject`
 
-##### Table 12 — *SceneObject Node Attributes*
+##### Table 15 — *SceneObject Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | -------------------------------------   | --------------------------- | ------------------------------------ |
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
-| multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
+| multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.   |
 
 
-| Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
-| ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Matrix](#node-definition-matrix)                 | 0 or 1        |                                             | The location and orientation of the object inside the parent coordinate system.                                                               |
-| [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)         | The Class the object belongs to.                                                                                                              |
-| [Geometries](#node-definition-geometries)         | 1             |                                             | A list of geometrical representation objects that are part of the object.                                                                     |
-| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename) | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800.                                       |
+| Child Node                                        | Allowed Count | Value Type                                  | Description                                     |
+| ------------------------------------------------- | ------------- | ------------------------------------------- | ----------------------------------------------- |
+| [Matrix](#node-definition-matrix)                 | 0 or 1        |                                             | The location and orientation of the object inside the parent coordinate system. |
+| [Classing](#node-definition-classing)             | 0 or 1        | [UUID](#user-content-attrtype-uuid)         | The Class the object belongs to.                |
+| [Geometries](#node-definition-geometries)         | 1             |                                             | A list of geometrical representation objects that are part of the object.       |
+| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename) | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800. |
 | GDTFMode                                          | 0 or 1        | [String](#user-content-attrtype-string)     | The name of the used DMX mode. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined.                                                      |
-| [Addresses](#node-definition-addresses)           | 0 or 1        |                                             | The container for DMX Addresses for this object.                                                                                              |
-| [Alignments](#node-definition-alignments)         | 0 or 1        |                                             | The container for Alignments for this object.                                                                                                 |
-| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                                                                             |
-| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                                                                                 |
-| [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
-| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
-| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
-| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                     |
+| [Addresses](#node-definition-addresses)           | 0 or 1        |                                             | The container for DMX Addresses for this object.|
+| [Alignments](#node-definition-alignments)         | 0 or 1        |                                             | The container for Alignments for this object.   |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.|
+| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.   |
+| [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.  |
+| FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming. |
+| FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming. |
+| UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.  |
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this object belongs to.    |
-| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+| [ChildList](#node-definition-childlist) | 1             | A list of graphic objects that are part of the layer.   |
 
 
 
 ### Node Definition: GroupObject
 
-This node defines logical group of objects. The child objects are
-located inside a local coordinate system.
+This node defines logical group of objects. The child objects are located inside a local coordinate system.
 
 Node name: `GroupObject`
 
-##### Table 13 — *GroupObject Node Attributes*
+##### Table 16 — *GroupObject Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -421,7 +419,7 @@ This node defines a focus point object.
 
 Node name: `FocusPoint`
 
-##### Table 14 — *FocusPoint Node Attributes*
+##### Table 17 — *FocusPoint Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -441,7 +439,7 @@ This node defines a light fixture object.
 
 Node name: `Fixture`
 
-##### Table 15 — *Fixture Node Attributes*
+##### Table 18 — *Fixture Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -478,8 +476,7 @@ Node name: `Fixture`
 | [Gobo](#node-definition-gobo)           | 0 or 1        |                                              | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                 |
 | [ChildList](#node-definition-childlist) | 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                    |
 
-Note: _The fixture has no `Geometries` node as geometry is defined in a
-GDTF file._
+Note: _The fixture has no `Geometries` node as geometry is defined in a GDTF file._
 
 CustomID Types
 - 0 Undefined
@@ -569,7 +566,7 @@ This node defines a truss object.
 
 Node name: `Truss`
 
-##### Table 28 — *Truss Node Attributes*
+##### Table 19 — *Truss Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -609,7 +606,7 @@ This node defines a support object.
 
 Node name: `Support`
 
-##### Table 29 — *Support Node Attributes*
+##### Table 20 — *Support Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -648,7 +645,7 @@ This node defines a video screen object.
 
 Node name: `VideoScreen`
 
-##### Table 30 — *VideoScreen Node Attributes*
+##### Table 21 — *VideoScreen Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -704,7 +701,7 @@ This node defines a video projector object.
 
 Node name: `Projector`
 
-##### Table 31 — *Projector Node Attributes*
+##### Table 22 — *Projector Node Attributes*
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
@@ -770,7 +767,7 @@ This node contains a definition of a transformation matrix.
 
 Node name: `Matrix`
 
-##### Table 41 — *Matrix Node Value Types*
+##### Table 23 — *Matrix Node Value Types*
 
 | Value Type                                                | Default Value When Missing   | Description                                                                                                                                   |
 | --------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -782,7 +779,7 @@ This node defines a Gobo.
 
 Node name: `Gobo`
 
-##### Table 16 — *Gobo Node Attributes*
+##### Table 24 — *Gobo Node Attributes*
 
 | Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
 | -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
@@ -798,7 +795,7 @@ This node defines a group of sources for VideoScreen.
 
 Node name: `Sources`
 
-##### Table 34 — *Sources Node Children*
+##### Table 25 — *Sources Node Children*
 
 The child list contains a list of the following nodes:
 
@@ -813,7 +810,7 @@ This node defines a Source.
 
 Node name: `Source`
 
-##### Table 35 — *Source Node Attributes*
+##### Table 26 — *Source Node Attributes*
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                                                                                                                                                                                         |
 | -------------- | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -827,12 +824,11 @@ Node name: `Source`
 
 ### Node Definition: ScaleHandeling
 
-This node defines how the MappingDefinition will react if the video
-source has not the same resolution.
+This node defines how the MappingDefinition will react if the video source has not the same resolution.
 
 Node name: `ScaleHandeling`
 
-##### Table 36 — *ScaleHandeling Node Attributes*
+##### Table 27 — *ScaleHandeling Node Attributes*
 
 | Value Type                              | Default Value When Missing | Description                                                                     |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------- |
@@ -841,7 +837,7 @@ Node name: `ScaleHandeling`
 The following tables show how the scaling should look like.
 
 
-##### Table 36.1 — *ScaleHandeling Examples*
+##### Table 28 — *ScaleHandeling Examples*
 
 | ScaleKeepRatio                                        | ScaleIgnoreRatio                                          | KeepSizeCenter                                        |
 |-------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------|
@@ -857,7 +853,7 @@ Node name: `Geometries`
 
 The child list contains a list of the following nodes:
 
-##### Table 37 — *Geometries Node Attributes*
+##### Table 29 — *Geometries Node Attributes*
 
 | Child Node                                | Description                                                          |
 | ----------------------------------------- | -------------------------------------------------------------------- |
@@ -873,7 +869,7 @@ Symdef](#node-definition-symdef) node.
 
 Node name: `Symbol`
 
-##### Table 38 — *Symbol Node Attributes*
+##### Table 30 — *Symbol Node Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -891,7 +887,7 @@ This node provides geometry from another file within the archive.
 
 Node name: `Geometry3D`
 
-##### Table 39 — *Geometry3D Node Attributes*
+##### Table 31 — *Geometry3D Node Attributes*
 
 | Attribute Name | Attribute Value Type                        | Default Value when Optional | Description                                                                                                                                  |
 | -------------- | ------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -904,7 +900,7 @@ Node name: `Geometry3D`
 
 ### Supported 3D file formats
 
-##### Table 40 — *Supported 3D file formats*
+##### Table 32 — *Supported 3D file formats*
 
 | Format Name | File Extensions | Requirements                        | Notes                                                                                                                        |
 | ----------- | --------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -924,7 +920,7 @@ Node name: `Projections`
 
 The child list contains a list of the following nodes:
 
-##### Table 32 — *Projections Node Children*
+##### Table 33 — *Projections Node Children*
 
 | Child Node                                | Description             |
 | ----------------------------------------- | ----------------------- |
@@ -939,7 +935,7 @@ Node name: `Projection`
 
 The child list contains a list of the following nodes:
 
-##### Table 33 — *Projection Node Attributes*
+##### Table 34 — *Projection Node Attributes*
 
 | Child Node                                        | Description                                      |
 | ------------------------------------------------- | ------------------------------------------------ |
@@ -955,7 +951,7 @@ Node name: `Addresses`
 
 The child list contains a list of the following nodes:
 
-##### Table 17 — *Adresses Node Children*
+##### Table 35 — *Adresses Node Children*
 
 | Child Node                          | Description             |
 | ----------------------------------- | ----------------------- |
@@ -969,7 +965,7 @@ This node defines a DMX address.
 
 Node name: `Address`
 
-##### Table 18 — *Address Node Attributes*
+##### Table 36 — *Address Node Attributes*
 
 | Attribute Name | Attribute Value Type  | Default Value when Optional | Description       |
 | -------------- | --------------------- | --------------------------- | ----------------- |
@@ -985,7 +981,7 @@ This node defines a network IP-address according to the physical interface.
 
 Node name: `Network`
 
-##### Table 18 — *Network Node Attributes*
+##### Table 37 — *Network Node Attributes*
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                                                                              |
 |----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -1004,6 +1000,8 @@ Node name: `Protocols`
 
 The child list contains a list of the following nodes:
 
+##### Table 38 — *Protocols Node Children*
+
 | Child Node                        | Description                 |
 | --------------------------------- | --------------------------- |
 | [Protocol](#node-definition-protocol) | The protocol used by this instance of object. |
@@ -1015,6 +1013,8 @@ This node defines the protocol used by the instance of this object.
 Node name: `Protocol`
 
 The child list contains a list of the node `Protocol`:
+
+##### Table 39 — *Protocol Node Attributes*
 
 | Attribute Name | Attribute Value Type | Default Value when Optional  | Description  |
 | -------------- | -------------------- | --------------------------- | -------------- |
@@ -1044,7 +1044,7 @@ Node name: `Alignments`
 
 The child list contains a list of the following nodes:
 
-##### Table 19 — *Alignments Node Children*
+##### Table 40 — *Alignments Node Children*
 
 | Child Node                            | Description                                                   |
 | ------------------------------------- | ------------------------------------------------------------- |
@@ -1057,7 +1057,7 @@ This node defines a alignment for an Beam Geometry inside the linked GDTF.
 
 Node name: `Address`
 
-##### Table 20 — *Adress Node Attributes*
+##### Table 41 — *Adress Node Attributes*
 
 | Attribute Name | Attribute Value Type                   | Default Value               | Description                                                                          |
 | -------------- | -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
@@ -1074,7 +1074,7 @@ Node name: `CustomCommands`
 
 The child list contains a list of the following nodes:
 
-##### Table 21 — *CustomCommands Node Children*
+##### Table 42 — *CustomCommands Node Children*
 
 | Child Node                                      | Description                                                                  |
 | ----------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -1101,7 +1101,7 @@ Node name: `Overwrites`
 
 The child list contains a list of the following nodes:
 
-##### Table 22 — *Overwrites Node Children*
+##### Table 43 — *Overwrites Node Children*
 
 | Child Node                              | Description                                                       |
 | --------------------------------------- | ----------------------------------------------------------------- |
@@ -1114,7 +1114,7 @@ This node defines a overwrite with Universal Fixture inside the MVR to overwrite
 
 Node name: `Overwrite`
 
-##### Table 23 — *Overwrtie Node Attributes*
+##### Table 44 — *Overwrtie Node Attributes*
 
 | Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                                                             |
 | -------------- | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1130,7 +1130,7 @@ Node name: `Connections`
 
 The child list contains a list of the following nodes:
 
-##### Table 24 — *Connections Node Children*
+##### Table 45 — *Connections Node Children*
 
 | Child Node                               | Description                                               |
 | ---------------------------------------- | --------------------------------------------------------- |
@@ -1143,7 +1143,7 @@ This nodes defines an connection of two scene object. The connection can be an e
 
 Node name: `Connection`
 
-##### Table 25 — *Connection Node Attributes*
+##### Table 46 — *Connection Node Attributes*
 
 | Attribute Name | Attribute Value Type                      | Default Value               | Description                                                                                                                                                                                                                                     |
 | -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1159,7 +1159,7 @@ Node name: `Mappings`
 
 The child list contains a list of the following nodes:
 
-##### Table 26 — *Mappings Node Children*
+##### Table 47 — *Mappings Node Children*
 
 | Child Node                            | Allowed Count | Description                  |
 | ------------------------------------- | ------------- | ---------------------------- |
@@ -1175,7 +1175,7 @@ This node defines a Mapping.
 
 Node name: `Mapping`
 
-##### Table 27 — *Mapping Node Attributes*
+##### Table 48 — *Mapping Node Attributes*
 
 | Attribute Name | Attribute Value Type                |  Description                                                                                |
 | -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -1196,23 +1196,13 @@ Translation - Rotation
 
 # Communication Format Definition
 
-# Terminology 
-
-| Name    | Description  |
-|---|---|
-| MVR-xchange  |  Protocol to share MVR files over the network. |
-| *MVR-xchange client*  |  Application that participates in the MVR-xchange. |
-| MVR-xchange group  |  Group of *MVR-xchange clients* that work on the same project and communicate togehter. |
-| Local Network Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS. |
-| WebSocket Mode  |  Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS. |
-
 
 ## General
 The MVR communication format - MVR-xchange - shall support the exchange of MVR files over network without the need of an external transport device like a USB-stick. The exchange allows multiple clients within the same network to share MVR files. 
   
 MVR-xchange defines two modes of operation:
-- Local Network Mode, which works without configuration but does not support routing
-- WebSocket Mode, which allows routing
+- Local Network Mode, which works without configuration but does not support routing.
+- WebSocket Mode, which need minimal configuration but allows for routing.
 
 | Local Network Mode of protocol    | WebSocket Mode of protocol  |
 |---|---|
@@ -1230,6 +1220,8 @@ Each client shall negotiate a unique hostname via the methods described in the m
 Each client shall have a PTR, SRV, TXT and A and/or AAAA record.
 
 The TXT record should contain the following information:
+
+##### Table 49 — *TXT Record Attributes*
 
 | Attribute Name | Attribute Value Type                |  Description                                                                   |
 | -------------- | ----------------------------------- | ----------------------------------------------------------------------------- |
@@ -1266,6 +1258,9 @@ Packages are defined based on the mode of communication. They are defined for Lo
 ### Local Network Mode
 When in Local Network Mode, all messages are send via TCP directly to the client. The packet is encoded the following way:
 
+
+##### Table 50 — *Packet & Message Definitions*
+
 | Type    | Symbol  |
 |---|---|
 | `MVR_PACKAGE_HEADER`  |  Number that defines the package. Use 778682. |
@@ -1289,6 +1284,8 @@ char[] MVR_PAYLOAD_BUFFER
 ```
 
 Where the following applies:
+
+##### Table 51 — *Name of the Table??*
 
 | Type    | Symbol  |
 |---|---|
@@ -1327,7 +1324,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 |---|---|
 | ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
 
-##### Table 42 — *MVR_JOIN message parameters*
+##### Table 52 — *MVR_JOIN message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1340,7 +1337,7 @@ When a  *MVR-xchange client* connects with another *MVR-xchange client*, the fir
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
-##### Table 43 — *MVR_JOIN response parameters*
+##### Table 53 — *MVR_JOIN response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1418,7 +1415,7 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 | ![media/MVR_Leave_1.png](media/MVR_Leave_2.png)  |  ![media/MVR_Leave_2.png](media/MVR_Leave_1.png) |
 
 
-##### Table 42 — *MVR_LEAVE message parameters*
+##### Table 54 — *MVR_LEAVE message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1426,7 +1423,7 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 | FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
 
 
-##### Table 43 — *MVR_LEAVE response parameters*
+##### Table 55 — *MVR_LEAVE response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1481,7 +1478,7 @@ The following chart displays the process when the server is the station who is p
 |---|
 | ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
 
-##### Table 42 — *MVR_COMMIT message parameters*
+##### Table 56 — *MVR_COMMIT message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1495,7 +1492,7 @@ The following chart displays the process when the server is the station who is p
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
 
-##### Table 43 — *MVR_COMMIT response parameters*
+##### Table 57 — *MVR_COMMIT response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1555,7 +1552,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 |---|---|
 | ![media/MVR_Request_mDNS3.png](media/MVR_Request_mDNS3.png)  |  ![media/MVR_Request_mDNS4.png](media/MVR_Request_mDNS4.png) |
 
-##### Table 42 — *MVR_REQUEST message parameters*
+##### Table 58 — *MVR_REQUEST message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1563,7 +1560,7 @@ If the station does not have the specified MVR file, it returns a MVR_REQUEST Js
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
-##### Table 43 — *MVR_REQUEST error response parameters*
+##### Table 59 — *MVR_REQUEST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1632,7 +1629,7 @@ When the receiving nodes are in WebSocket Mode:
 
 Each receiver will try to switch into Local Network Mode by connecting to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes switch to Local Network Mode and establish their own mDNS client as described above. OK: true is returned in this case. If the new mDNS service is not reachable OK: false is returned.
 
-##### Table 42 — *MVR_NEW_SESSION_HOST message parameters*
+##### Table 60 — *MVR_NEW_SESSION_HOST message parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1640,7 +1637,7 @@ Each receiver will try to switch into Local Network Mode by connecting to the mD
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
 | ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
-##### Table 43 — *MVR_NEW_SESSION_HOST error response parameters*
+##### Table 61 — *MVR_NEW_SESSION_HOST error response parameters*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1668,53 +1665,6 @@ Response:
 }
 ```
 ---
-
-## The Idea of MVR-exchange Communication
-The MVR exchange protocol should define an online or "on the wire" protocol to exchange MVR files in a network environment. Technically it should replace the USB-stick or file-saving process for an easier update of MVR changes within a working group. There are two basic use-cases to look at to define the goal of MVR exchange:
-
-### Small Setup
-One Programmer/Operator using a lighting desk, one or two visualizers and an appropriate planning software. Most likely all computers running the different applications are connected via a switch and are within reach. It would be no problem to use a USB-Stick to exchange files. But it would simplify the workflow by using MVR-exchange protocol because all machines are located and connected “automatically” and the exported files will be shared with all applications. The user still needs to change keyboard & mouse to control each application individually but that is a known “workflow limitation” as it applies for using the different applications anyway.
- 
-#### Advantages of this workflow
-- No need to plug in a USB stick several times.
-- No need to manually copy the files into the correct folder on different computers.
- 
-#### Add on
-If an external person such as a planner or logistic person joins the network, they can instantly exchange the latest MVR files. Following the logic, the system of MVR-exchange can grow and be expanded dynamically.
- 
-### Large Setup
-Multiple consoles each with a visualizer station, a tracking system, a planner, some media server in a rack and a lighting designer sharing a (pre-) programming room. All applications running on different computers are connected via network. One operator per station working locally with the visualizer while all other stations are manned by specialists.
-Many stations need to be able to read and write MVR files to keep track of the current changes in the show. Most likely each and one needs to update at a different time due to the local workload and progress.
- 
-#### Advantages of this workflow
-- No need to plug in a USB stick many times.
-- No need to manually copy the files into the correct folder on different computers.
-- Tracking of latest changes should be easier as in the network the files arrive in logical (timed) order.
-
-### Rules that need to apply for the workflows described.
-- The stations that handle MVR files need to find each other “automatically”.
-- The stations will handle leaving/adding stations “automatically”.
-- Data exchange will be initiated by a user pushing the button “MVR export”.
-- The file will be saved locally and will be transmitted to the joined stations in the network.
-- The file will be made available to all other stations in the network (stored in the local folder structure).
-- The local user will be informed that a new file is available for import.
-  
-### What MVR-exchange cannot do!
-- There are no live updates of changes.
-- There is no rule to always import all changes – ergo: there is no single file or source of truth.
-- There is no offline update for stations joining later or leaving earlier.
-- There is (currently) no way to connect stations via internet.
-
-
-### Possible process of communication
-Every application can join a particular "MVR-xchange Group" to separate between different working groups within one network. This will be a setting within the application and transmitted during the Discovery process.
-Discovery will be executed by mDNS and by the rule-set of station priority the highest priority will create a Websocket Server and all other devices of the same "MVR-xchange Group" will be able to communicate with the server. Once a user decides to export an MVR file with the current changes the information will be distributed via the Server to all applications. Each station has the option to decide to request an MVR-file as well. At least the server should hold the latest MVR files available. 
-Suggested communication messages are still work in progress...
-
-
-
-
-
 
 
 
