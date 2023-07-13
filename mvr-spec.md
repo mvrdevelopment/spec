@@ -159,9 +159,6 @@ The second XML node is the mandatory GeneralSceneDescription node. The attribute
 | UserData   | 0 or 1        | Specifies user data associated with this file. |
 | Scene      | 1             | Defines the scene described in this file.      |
 
-Find a complete example of a file [here](Sample_GeneralSceneDescription).
-
-
 ## Node Definition: UserData
 
 This node contains a collection of user data nodes defined and used by provider applications if required. User data should not be expected to be preserved in the workflow of multiple applications importing/exporting the data.
