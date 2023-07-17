@@ -27,7 +27,6 @@ amendments) applies.
 
 - [ISO/IEC 21320-1:2015 Document Container File - Part 1: Core](https://www.iso.org/standard/60101.html)
 - [PKWARE 6.3.3](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)
-- [Wikipedia ZIP (file format)](https://en.wikipedia.org/wiki/ZIP_(file_format))
 - [DIN SPEC 15800 (General Device Type Format (GDTF))](https://www.beuth.de/en/technical-rule/din-spec-15800/349717520)
 - [UTF-8 - RFC3629](https://datatracker.ietf.org/doc/html/rfc3629)
 - [UUID - RFC4122](https://www.rfc-editor.org/rfc/rfc4122)
@@ -35,9 +34,8 @@ amendments) applies.
 - [DNS-SD - RFC6763](https://www.ietf.org/rfc/rfc6763.txt)
 - [mDNS - RFC6762](https://www.ietf.org/rfc/rfc6762.txt)
 - [Websocket Protocol - RFC6455](https://www.ietf.org/rfc/rfc6455.txt)
-- [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)
 - [Extensible Markup Language (XML) 1.0](https://www.w3.org/TR/2008/REC-xml-20081126/)
-- [JSON documents - ISO/IEC 21778:2017](https://www.iso.org/standard/71616.html)
+- [JSON documents - ISO/IEC 21778:2017](https://standards.iso.org/ittf/PubliclyAvailableStandards/c071616_ISO_IEC_21778_2017.zip)
 
 # Terms and definitions
 
@@ -63,10 +61,10 @@ Application that participates in the MVR-xchange.
 Group of MVR-xchange clients that work on the same project and communicate togehter.
 
 ### TCP Mode
-Type of how the communication within one MVR-xchange group works. Describes communication via TCP packages and discovery via mDNS.
+Describes MVR-xchange communication via TCP packages and discovery via mDNS.
 
 ### WebSocket Mode
-Type of how the communication within one MVR-xchange group works. Describes communication via WebSockets and discovery via DNS.
+Describes MVR-xchange communication via WebSockets and discovery via DNS.
 
 
 
