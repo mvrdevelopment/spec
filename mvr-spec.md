@@ -848,7 +848,7 @@ Node name: `Source`
 
 | Value Type                              | Default Value When Missing | Description                                                                    |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------ |
-| [String](#user-content-attrtype-string) | Not Optional               | Based on the Attribute name `type`: <br/>- If type is NDI or CITP use the Stream Name <br/>- If type is File use the Filenmae in MVR file <br/>- If type is CaptureDevice use the CaptureDevice Name   |
+| [String](#user-content-attrtype-string) | Not Optional               | Based on the Attribute name `type`: <br/>- If type is NDI or CITP use the Stream Name <br/>- If type is File use the filename in MVR file <br/>- If type is CaptureDevice use the CaptureDevice Name   |
 
 ### Node Definition: ScaleHandeling
 
