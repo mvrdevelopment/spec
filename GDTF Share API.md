@@ -1,9 +1,3 @@
-<style>
-    table th {
-        text-align: left;
-    }
-</style>
-
 # GDTF Share API
 
 ## Introduction
