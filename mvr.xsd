@@ -76,16 +76,21 @@
   </xs:complexType>
   <xs:complexType name="SceneObject">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Geometries" type="Geometries"/>
       <xs:element name="GDTFSpec" type="FileName" minOccurs="0"/>
-      <xs:element name="GDTFMode" type="xs:string"/>
+      <xs:element name="GDTFMode" type="xs:string" minOccurs="0"/>
       <xs:element name="Addresses" type="Addresses" minOccurs="0"/>
       <xs:element name="Alignments" type="Alignments" minOccurs="0"/>
       <xs:element name="CustomCommands" type="CustomCommands" minOccurs="0"/>
       <xs:element name="Overwrites"  type="Overwrites" minOccurs="0"/>
       <xs:element name="Connections" type="Connections" minOccurs="0"/>
+	  <xs:element name="FixtureID" type="xs:string"/>
+	  <xs:element name="FixtureIDNumeric" type="positiveinteger"/>
+	  <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
+	  <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>      
+	  <xs:element name="ChildList" type="ChildList"/>	  
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
