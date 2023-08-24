@@ -169,9 +169,9 @@
   </xs:complexType>
   <xs:complexType name="Alignment">
       <xs:attribute name="geometry" type="xs:string"/>
-          <xs:attribute name="up" type="xs:string" default="0,0,1"/>
-          <xs:attribute name="direction" type="xs:string" default="0,0,-1"/>
-      </xs:complexType>
+       <xs:attribute name="up" type="xs:string" default="0,0,1"/>
+       <xs:attribute name="direction" type="xs:string" default="0,0,-1"/>
+  </xs:complexType>
   <xs:complexType name="Mappings">
     <xs:sequence>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
