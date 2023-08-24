@@ -327,7 +327,7 @@
   </xs:complexType>
   <xs:complexType name="Geometry3D">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="fileName" type="FileName" use="required"/>
   </xs:complexType>
