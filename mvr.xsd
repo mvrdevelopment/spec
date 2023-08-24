@@ -177,6 +177,17 @@
 	   <xs:element name="CustomCommand" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="Overwrites">
+	<xs:sequence>
+	   <xs:element name="Overwrite" type="Overwrite" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="Overwrite">
+	<xs:sequence>
+		<xs:attribute name="universal" type="xs:string" use="required"/>
+		<xs:attribute name="target" type="xs:string" default=""/>
+    </xs:sequence>
+  </xs:complexType>    
   <xs:complexType name="Mappings">
     <xs:sequence>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
