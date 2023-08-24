@@ -124,7 +124,7 @@
 	  <xs:element name="DMXInvertPan" type="xs:boolean" minOccurs="0" />
 	  <xs:element name="DMXInvertTilt" type="xs:boolean" minOccurs="0" />
       <xs:element name="Position" type="guidtype" minOccurs="0" />      
-      <xs:element name="Function" type="Function" minOccurs="0"/>
+      <xs:element name="Function" type="xs:string" minOccurs="0"/>
       <xs:element name="FixtureID" type="xs:string"/>
 	  <xs:element name="FixtureIDNumeric" type="positiveinteger"/>	  
       <xs:element name="UnitNumber" type="positiveinteger"/>
