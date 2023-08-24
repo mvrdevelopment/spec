@@ -8,6 +8,8 @@
       </xs:sequence>
       <xs:attribute name="verMajor" type="positiveinteger" use="required"/>
       <xs:attribute name="verMinor" type="positiveinteger" use="required"/>
+	  <xs:attribute name="provider" type="xs:string" use="required"/>
+	  <xs:attribute name="providerVersion" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="UserData">
