@@ -162,15 +162,15 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="Alignments">
-    <xsd::sequence>
-      <xsd:element name="Alignment" type="Alignment" minOccurs="0" maxOccurs="unbounded"/>
-    </xsd::sequence>
+    <xs:sequence>
+      <xs:element name="Alignment" type="Alignment" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Alignment">
-      <xsd::attribute name="geometry" type="xs::string">
-      <xsd::attribute name="up" type="xs::string" default="0,0,1">
-      <xsd::attribute name="direction" type="xs::string" default="0,0,-1">
-  <xs:complexType>
+      <xs:attribute name="geometry" type="xs:string"/>
+          <xs:attribute name="up" type="xs:string" default="0,0,1"/>
+          <xs:attribute name="direction" type="xs:string" default="0,0,-1"/>
+      </xs:complexType>
   <xs:complexType name="Mappings">
     <xs:sequence>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
@@ -421,7 +421,7 @@
   </xs:simpleType>
   <xs:simpleType name="Ipv6_Adress">
     <xs:restriction base="xs:string">      
-	<xs:pattern value="^[0-9a-f:]+$"> <!-- There are a lot of notation styles so we better keep the pattern simple instead of being to restrictive. -->
+        <xs:pattern value="^[0-9a-f:]+$" /> <!-- There are a lot of notation styles so we better keep the pattern simple instead of being to restrictive. -->
     </xs:restriction>
   </xs:simpleType>  
   
