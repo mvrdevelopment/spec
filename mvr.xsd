@@ -117,8 +117,8 @@
     <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0"/>
-      <xs:element name="GDTFSpec" type="FileName" minOccurs="0" />
-      <xs:element name="GDTFMode" type="xs:string"/>
+      <xs:element name="GDTFSpec" type="FileName" minOccurs="0"/>
+      <xs:element name="GDTFMode" type="xs:string" minOccurs="0"/>
       <xs:element name="Focus" type="guidtype" minOccurs="0" />
       <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" />
 	  <xs:element name="DMXInvertPan" type="xs:boolean" minOccurs="0" />
@@ -194,6 +194,7 @@
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
+	<xs:attribute name="multipatch" type="guidtype" default=""/>
   </xs:complexType>
   <xs:complexType name="VideoScreen">
     <xs:sequence>
