@@ -217,7 +217,7 @@
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Position" type="guidtype" minOccurs="0"/>	  
       <xs:element name="Geometries" type="Geometries"/>
-	  <xs:element name="Function" type="Function" minOccurs="0"/>
+	  <xs:element name="Function" type="xs:string" minOccurs="0"/>
       <xs:element name="GDTFSpec" type="FileName" minOccurs="0" />
       <xs:element name="GDTFMode" type="xs:string" minOccurs="0"/>			  	  
 	  <xs:element name="Addresses" type="Addresses" minOccurs="0" />
@@ -243,7 +243,7 @@
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Position" type="guidtype" minOccurs="0"/>	  
       <xs:element name="Geometries" type="Geometries"/>
-	  <xs:element name="Function" type="Function" minOccurs="0"/>
+	  <xs:element name="Function" type="xs:string" minOccurs="0"/>
 	  <xs:element name="ChainLength" type="xs:float"/>
       <xs:element name="GDTFSpec" type="FileName" minOccurs="0" />
       <xs:element name="GDTFMode" type="xs:string" minOccurs="0"/>			  	  
@@ -270,7 +270,7 @@
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
 	  <xs:element name="Geometries" type="Geometries"/>
 	  <xs:element name="Sources" type="Sources" minOccurs="0"/>
-	  <xs:element name="Function" type="Function" minOccurs="0"/>
+	  <xs:element name="Function" type="xs:string" minOccurs="0"/>
 	  <xs:element name="GDTFSpec" type="FileName" minOccurs="0" />
 	  <xs:element name="GDTFMode" type="xs:string" minOccurs="0"/>			  	  
 	  <xs:element name="Addresses" type="Addresses" minOccurs="0" />
