@@ -152,6 +152,7 @@
   <xs:complexType name="Addresses">
     <xs:sequence>
       <xs:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
+	  <xs:element name="Network" type="Network" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Address">
