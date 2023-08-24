@@ -305,12 +305,8 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Source">
-    <xs:sequence>
-      <xs:element name="linkedGeometry" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="type" type="SourceEnum" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-    <xs:attribute name="uuid" type="guidtype" use="required"/>
-    <xs:attribute name="name" type="xs:string" default=""/>
+      <xs:attribute name="linkedGeometry" type="xs:string" use="required"/>
+      <xs:attribute name="type" type="SourceEnum" use="required"/>  
   </xs:complexType>
   <xs:complexType name="ScaleHandeling">
     <xs:sequence>
