@@ -114,30 +114,37 @@
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Fixture">
-    <xs:all> <!-- XXX use sequence here? -->
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Classing" type="guidtype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="GDTFSpec" type="FileName" minOccurs="0" maxOccurs="1"/>
+    <xs:all>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
+      <xs:element name="Classing" type="guidtype" minOccurs="0"/>
+      <xs:element name="GDTFSpec" type="FileName" minOccurs="0" />
       <xs:element name="GDTFMode" type="xs:string"/>
-      <xs:element name="Focus" type="guidtype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="1"/>      
-      <xs:element name="Function" type="Function" minOccurs="1"/>
+      <xs:element name="Focus" type="guidtype" minOccurs="0" />
+      <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" />
+	  <xs:element name="DMXInvertPan" type="xs:boolean" minOccurs="0" />
+	  <xs:element name="DMXInvertTilt" type="xs:boolean" minOccurs="0" />
+      <xs:element name="Position" type="guidtype" minOccurs="0" />      
+      <xs:element name="Function" type="Function" minOccurs="0"/>
       <xs:element name="FixtureID" type="xs:string"/>
+	  <xs:element name="FixtureIDNumeric" type="positiveinteger"/>	  
       <xs:element name="UnitNumber" type="positiveinteger"/>
-      <xs:element name="Addresses" type="Addresses" minOccurs="0" maxOccurs="1"/>
+	  <xs:element name="ChildPosition" type="xs:string" minOccurs="0"/>
+      <xs:element name="Addresses" type="Addresses" minOccurs="0" />
+	  <xs:element name="Protocols" type="Protocols" minOccurs="0" />
       <xs:element name="Alignments" type="Alignments" minOccurs="0"/>
       <xs:element name="CustomCommands" type="CustomCommands" minOccurs="0"/>
       <xs:element name="Overwrites" type="Overwrites" minOccurs="0"/>
       <xs:element name="Connections" type="Connections" minOccurs="0"/>
-      <xs:element name="CIEColor" type="ciecolortype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="FixtureTypeId" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="CustomId" type="xs:integer" minOccurs="0" maxOccurs="1"/>      
-      <xs:element name="Mappings" type="Mappings" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Gobo" type="Gobo" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CIEColor" type="ciecolortype" minOccurs="0" />
+      <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
+      <xs:element name="CustomId" type="xs:integer" minOccurs="0" />      
+      <xs:element name="Mappings" type="Mappings" minOccurs="0" />
+      <xs:element name="Gobo" type="Gobo" minOccurs="0" />
+	  <xs:element name="ChildList" type="ChildList"/>
     </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
+	<xs:attribute name="multipatch" type="guidtype" default=""/>
   </xs:complexType>
   <xs:complexType name="Gobo">
     <xs:attribute name="rotation" type="xs:float" default="0"/>
