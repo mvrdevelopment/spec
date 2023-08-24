@@ -3,7 +3,7 @@
   <xs:element name="GeneralSceneDescription">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="UserData" type="UserData"/>
+        <xs:element name="UserData" type="UserData" minOccurs="0"/>
         <xs:element name="Scene" type="Scene"/>
       </xs:sequence>
       <xs:attribute name="verMajor" type="positiveinteger" use="required"/>
@@ -54,7 +54,7 @@
       <xs:element name="SizeX" type="xs:integer"/>
       <xs:element name="SizeY" type="xs:integer"/>
       <xs:element name="Source" type="Source"/>
-      <xs:element name="ScaleHandeling" type="ScaleHandeling"/>
+      <xs:element name="ScaleHandeling" type="ScaleHandeling" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
@@ -66,8 +66,8 @@
   </xs:complexType>
   <xs:complexType name="Layer">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
+      <xs:element name="ChildList" type="ChildList"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
@@ -75,43 +75,57 @@
   <xs:complexType name="SceneObject">
     <xs:sequence>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Classing" type="guidtype" minOccurs="0"/>
+      <xs:element name="Geometries" type="Geometries"/>
+      <xs:element name="GDTFSpec" type="FileName" minOccurs="0"/>
+      <xs:element name="GDTFMode" type="xs:string"/>
+      <xs:element name="Addresses" type="Addresses" minOccurs="0"/>
+      <xs:element name="Alignments" type="Alignments" minOccurs="0"/>
+      <xs:element name="CustomCommands" type="CustomCommands" minOccurs="0"/>
+      <xs:element name="Overwrites"  type="Overwrites" minOccurs="0"/>
+      <xs:element name="Connections" type="Connections" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="GroupObject">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="ChildList" type="ChildList" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
+      <xs:element name="Classing" type="guidtype" minOccurs="0"/>
+      <xs:element name="ChildList" type="ChildList"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="FocusPoint">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="Geometries" type="Geometries" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
+      <xs:element name="Classing" type="guidtype" minOccurs="0"/>
+      <xs:element name="Geometries" type="Geometries"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Fixture">
-    <xs:all>
+    <xs:all> <!-- XXX use sequence here? -->
       <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="GDTFSpec" type="FileName" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="GDTFMode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GDTFSpec" type="FileName" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GDTFMode" type="xs:string"/>
       <xs:element name="Focus" type="guidtype" minOccurs="0" maxOccurs="1"/>
       <xs:element name="CastShadow" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="FixtureID" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="UnitNumber" type="positiveinteger" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Addresses" type="Addresses" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Position" type="guidtype" minOccurs="0" maxOccurs="1"/>      
+      <xs:element name="Function" type="Function" minOccurs="1"/>
+      <xs:element name="FixtureID" type="xs:string"/>
+      <xs:element name="UnitNumber" type="positiveinteger"/>
+      <xs:element name="Addresses" type="Addresses" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Alignments" type="Alignments" minOccurs="0"/>
+      <xs:element name="CustomCommands" type="CustomCommands" minOccurs="0"/>
+      <xs:element name="Overwrites" type="Overwrites" minOccurs="0"/>
+      <xs:element name="Connections" type="Connections" minOccurs="0"/>
       <xs:element name="CIEColor" type="ciecolortype" minOccurs="0" maxOccurs="1"/>
       <xs:element name="FixtureTypeId" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="CustomId" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Color" type="ciecolortype" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CustomId" type="xs:integer" minOccurs="0" maxOccurs="1"/>      
       <xs:element name="Mappings" type="Mappings" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gobo" type="Gobo" minOccurs="0" maxOccurs="1"/>
     </xs:all>
@@ -129,9 +143,14 @@
   <xs:complexType name="Address">
     <xs:simpleContent>
       <xs:extension base="xs:integer">
-        <xs:attribute name="break" type="positiveinteger" use="required"/>
+        <xs:attribute name="break" type="positiveinteger" default="0"/>
       </xs:extension>
     </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Alignments">
+    <xsd::sequence>
+      <xsd:element name="Alignment" type="Alignment" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd::sequence>
   </xs:complexType>
   <xs:complexType name="Mappings">
     <xs:sequence>
@@ -268,7 +287,7 @@
   </xs:simpleType>
   <xs:simpleType name="matrixtype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="({-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){2}}){4}"/>
+      <xs:pattern value="(\{-?[0-9]+\.?[0-9]*(,-?[0-9]+\.?[0-9]*){2}\}){4}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="rotationtype">
