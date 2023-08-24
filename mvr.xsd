@@ -351,6 +351,18 @@
 	<xs:attribute name="dhcp" type="xs:boolean" default="false"/>
 	<xs:attribute name="hostname" type="xs:string"/>
   </xs:complexType>
+  <xs:complexType name="Protocols">
+	<xs:sequence>
+		<xs:element name="Protocol" type="Protocol" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Protocol">	
+	<xs:attribute name="geometry" type="xs:string" default="NetworkInOut_1"/>
+	<xs:attribute name="name" type="xs:string" default=""/>
+	<xs:attribute name="type" type="xs:string" default=""/>
+	<xs:attribute name="version" type="xs:string" default=""/>
+	<xs:attribute name="transmission" type="Transmission_enum"/>
+  </xs:complexType>  
   <!-- Custom types -->
   <xs:simpleType name="FileName">
     <xs:restriction base="xs:string">
@@ -483,5 +495,12 @@
         <xs:pattern value="^[0-9a-f:]+$" /> <!-- There are a lot of notation styles so we better keep the pattern simple instead of being to restrictive. -->
     </xs:restriction>
   </xs:simpleType>  
-  
+  <xs:simpleType name="Transmission_enum">
+    <xs:restriction base="xs:string"/>
+      <xs:enumeration value="Unicast"/>
+      <xs:enumeration value="Multicast"/>
+      <xs:enumeration value="Broadcast"/>
+      <xs:enumeration value="Anycast"/>
+    </xs:restriction>
+  </xs:simpleType>  
 </xs:schema>
