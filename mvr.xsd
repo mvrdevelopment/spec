@@ -182,12 +182,20 @@
 	   <xs:element name="Overwrite" type="Overwrite" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>  
-  <xs:complexType name="Overwrite">
+  <xs:complexType name="Overwrite">	
+	<xs:attribute name="universal" type="xs:string" use="required"/>
+	<xs:attribute name="target" type="xs:string" default=""/>    
+  </xs:complexType>   
+  <xs:complexType name="Connections">
 	<xs:sequence>
-		<xs:attribute name="universal" type="xs:string" use="required"/>
-		<xs:attribute name="target" type="xs:string" default=""/>
+	   <xs:element name="Connection" type="Connection" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>    
+  <xs:complexType name="Connection">	
+	<xs:attribute name="own" type="xs:string" use="required"/>
+	<xs:attribute name="other" type="xs:string" use="required"/>    
+    <xs:attribute name="toObject" type="guidtype" use="required"/>    
+  </xs:complexType>  
   <xs:complexType name="Mappings">
     <xs:sequence>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
