@@ -256,8 +256,10 @@
         <xs:element name="GroupObject" type="GroupObject" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="FocusPoint" type="FocusPoint" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="Fixture" type="Fixture" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>
+		<xs:element name="Support" type="Support" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>        
+		<xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>		
+		<xs:element name="Projector" type="Projector" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:sequence>
   </xs:complexType>
