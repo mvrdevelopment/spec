@@ -345,6 +345,14 @@
       </xs:sequence>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="Network">
+	<xs:attribute name="geometry" type="xs:string" use="required"/>
+	<xs:attribute name="ipv4" type="Ipv4_Adress"/>
+	<xs:attribute name="subnetmask" type="Ipv4_Adress"/>
+	<xs:attribute name="ipv6" type="Ipv6_Adress"/>
+	<xs:attribute name="dhcp" type="xs:boolean" default="false"/>
+	<xs:attribute name="hostname" type="xs:string"/>
+  </xs:complexType>
   <!-- Custom types -->
   <xs:simpleType name="FileName">
     <xs:restriction base="xs:string">
