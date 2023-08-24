@@ -520,7 +520,7 @@
     </xs:restriction>
   </xs:simpleType>  
   <xs:simpleType name="Transmission_enum">
-    <xs:restriction base="xs:string"/>
+    <xs:restriction base="xs:string">
       <xs:enumeration value="Unicast"/>
       <xs:enumeration value="Multicast"/>
       <xs:enumeration value="Broadcast"/>
