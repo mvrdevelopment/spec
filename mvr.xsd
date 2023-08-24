@@ -319,10 +319,10 @@
   </xs:complexType>
   <xs:complexType name="Symbol">
     <xs:sequence>
-      <xs:element name="Matrix" type="matrixtype" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
-    <xs:attribute name="name" type="xs:string" default=""/>
+    <xs:attribute name="symdef" type="xs:string" use="required"/>
   </xs:complexType>
   <xs:complexType name="Geometry3D">
     <xs:sequence>
