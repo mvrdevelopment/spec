@@ -154,6 +154,11 @@
       <xsd:element name="Alignment" type="Alignment" minOccurs="0" maxOccurs="unbounded"/>
     </xsd::sequence>
   </xs:complexType>
+  <xs:complexType name="Alignment">
+      <xsd::attribute name="geometry" type="xs::string">
+      <xsd::attribute name="up" type="xs::string" default="0,0,1">
+      <xsd::attribute name="direction" type="xs::string" default="0,0,-1">
+  <xs:complexType>
   <xs:complexType name="Mappings">
     <xs:sequence>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
