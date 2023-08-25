@@ -330,8 +330,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Source">
-      <xs:attribute name="linkedGeometry" type="xs:string" use="required"/>
-      <xs:attribute name="type" type="SourceEnum" use="required"/>  
+	  <xs:simpleContent>
+		  <xs:extension base="xs:string">
+			  <xs:attribute name="linkedGeometry" type="xs:string" use="required"/>
+			  <xs:attribute name="type" type="SourceEnum" use="required"/>
+		  </xs:extension>
+	  </xs:simpleContent>	  
   </xs:complexType>
   <xs:complexType name="ScaleHandeling">    
       <xs:attribute name="Enum" type="scaleenum" default="ScaleKeepRatio"/>    
