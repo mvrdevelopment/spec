@@ -342,7 +342,7 @@ This node defines a list of graphical objects.
 
 Node name: `ChildList`
 
-The child list contains a list of one of the following nodes:
+The child list contains a list of the following nodes:
 
 ##### Table 17 — *ChildList Node Childs*
 
