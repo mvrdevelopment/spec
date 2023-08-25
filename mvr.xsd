@@ -2,10 +2,10 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="GeneralSceneDescription">
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
         <xs:element name="UserData" type="UserData" minOccurs="0"/>
         <xs:element name="Scene" type="Scene"/>
-      </xs:sequence>
+      </xs:all>
       <xs:attribute name="verMajor" type="positiveinteger" use="required"/>
       <xs:attribute name="verMinor" type="positiveinteger" use="required"/>
 	  <xs:attribute name="provider" type="xs:string" use="required"/>
@@ -13,37 +13,37 @@
     </xs:complexType>
   </xs:element>
   <xs:complexType name="UserData">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Data" type="Data" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Data">
     <xs:attribute name="provider" type="xs:string" use="required"/>
     <xs:attribute name="ver" type="xs:string" default="1"/>
   </xs:complexType>
   <xs:complexType name="Scene">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Layers" type="Layers" minOccurs="1"/>
       <xs:element name="AUXData" type="AUXData" minOccurs="0"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="AUXData">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Class" type="Class" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="Symdef" type="Symdef" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="Position" type="Position" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="MappingDefinition" type="MappingDefinition" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Class">
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Symdef">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Geometry3D" type="Geometry3D"/>
       <xs:element name="Symbol" type="Symbol"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
@@ -52,30 +52,30 @@
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="MappingDefinition">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="SizeX" type="xs:integer"/>
       <xs:element name="SizeY" type="xs:integer"/>
       <xs:element name="Source" type="Source"/>
       <xs:element name="ScaleHandeling" type="ScaleHandeling" minOccurs="0"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Layers">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Layer" type="Layer" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Layer">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="ChildList" type="ChildList"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="SceneObject">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Geometries" type="Geometries"/>
@@ -91,25 +91,25 @@
 	  <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
 	  <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>      
 	  <xs:element name="ChildList" type="ChildList"/>	  
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="GroupObject">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="ChildList" type="ChildList"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="FocusPoint">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
       <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Geometries" type="Geometries"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
   </xs:complexType>
@@ -150,10 +150,10 @@
     <xs:attribute name="rotation" type="xs:float" default="0"/>
   </xs:complexType>
   <xs:complexType name="Addresses">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
 	  <xs:element name="Network" type="Network" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Address">
     <xs:simpleContent>
@@ -163,9 +163,9 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="Alignments">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Alignment" type="Alignment" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Alignment">
       <xs:attribute name="geometry" type="xs:string"/>
@@ -173,23 +173,23 @@
        <xs:attribute name="direction" type="xs:string" default="0,0,-1"/>
   </xs:complexType>
   <xs:complexType name="CustomCommands">
-	<xs:sequence>
+	<xs:all>
 	   <xs:element name="CustomCommand" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Overwrites">
-	<xs:sequence>
+	<xs:all>
 	   <xs:element name="Overwrite" type="Overwrite" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>  
   <xs:complexType name="Overwrite">	
 	<xs:attribute name="universal" type="xs:string" use="required"/>
 	<xs:attribute name="target" type="xs:string" default=""/>    
   </xs:complexType>   
   <xs:complexType name="Connections">
-	<xs:sequence>
+	<xs:all>
 	   <xs:element name="Connection" type="Connection" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>    
   <xs:complexType name="Connection">	
 	<xs:attribute name="own" type="xs:string" use="required"/>
@@ -197,22 +197,22 @@
     <xs:attribute name="toObject" type="guidtype" use="required"/>    
   </xs:complexType>  
   <xs:complexType name="Mappings">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Mapping" type="Mapping" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Mapping">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="ux" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="uy" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ox" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="oy" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="rz" type="xs:float" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="linkedDef" type="guidtype" use="required"/>
   </xs:complexType>
   <xs:complexType name="Truss">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Position" type="guidtype" minOccurs="0"/>	  
@@ -232,13 +232,13 @@
       <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
       <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
       <xs:element name="CustomId" type="xs:integer" minOccurs="0" />	  
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
 	<xs:attribute name="multipatch" type="guidtype" default=""/>
   </xs:complexType>
   <xs:complexType name="Support">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
       <xs:element name="Position" type="guidtype" minOccurs="0"/>	  
@@ -258,14 +258,14 @@
       <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
       <xs:element name="CustomId" type="xs:integer" minOccurs="0" />	  
 	  <xs:element name="ChildList" type="ChildList"/>
-    </xs:sequence>	
+    </xs:all>	
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
 	<xs:attribute name="multipatch" type="guidtype" default=""/>	
   </xs:complexType>
   
   <xs:complexType name="VideoScreen">
-    <xs:sequence>
+    <xs:all>
 	  <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
 	  <xs:element name="Geometries" type="Geometries"/>
@@ -284,13 +284,13 @@
 	  <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
 	  <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
 	  <xs:element name="CustomId" type="xs:integer" minOccurs="0" />
-  </xs:sequence>
+  </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
 	<xs:attribute name="multipatch" type="guidtype" default=""/>
   </xs:complexType>
   <xs:complexType name="Projector">
-    <xs:sequence>
+    <xs:all>
 	  <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
 	  <xs:element name="Classing" type="guidtype" minOccurs="0"/>
 	  <xs:element name="Geometries" type="Geometries"/>  
@@ -308,26 +308,26 @@
 	  <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
 	  <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
 	  <xs:element name="CustomId" type="xs:integer" minOccurs="0" />	    
-	</xs:sequence>
+	</xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="name" type="xs:string" default=""/>
 	<xs:attribute name="multipatch" type="guidtype" default=""/>	
   </xs:complexType>
   <xs:complexType name="Projections">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Projection" type="Projection" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Projection">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="ScaleHandeling" type="ScaleHandeling" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Sources">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Source">
 	  <xs:simpleContent>
@@ -341,26 +341,26 @@
       <xs:attribute name="Enum" type="scaleenum" default="ScaleKeepRatio"/>    
   </xs:complexType>
   <xs:complexType name="Geometries">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Geometry3D" type="Geometry3D" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="Symbol" type="Symbol" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Symbol">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="uuid" type="guidtype" use="required"/>
     <xs:attribute name="symdef" type="xs:string" use="required"/>
   </xs:complexType>
   <xs:complexType name="Geometry3D">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="Matrix" type="matrixtype" minOccurs="0"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="fileName" type="FileName" use="required"/>
   </xs:complexType>
   <xs:complexType name="ChildList">
-    <xs:sequence>
+    <xs:all>
 		<xs:element name="SceneObject" type="SceneObject" minOccurs="0" maxOccurs="unbounded"/>
 		<xs:element name="GroupObject" type="GroupObject" minOccurs="0" maxOccurs="unbounded"/>
 		<xs:element name="FocusPoint" type="FocusPoint" minOccurs="0" maxOccurs="unbounded"/>
@@ -369,7 +369,7 @@
 		<xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>        
 		<xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>		
 		<xs:element name="Projector" type="Projector" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="Network">
 	<xs:attribute name="geometry" type="xs:string" use="required"/>
@@ -380,9 +380,9 @@
 	<xs:attribute name="hostname" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="Protocols">
-	<xs:sequence>
+	<xs:all>
 		<xs:element name="Protocol" type="Protocol" minOccurs="0" maxOccurs="unbounded"/>
-	</xs:sequence>
+	</xs:all>
   </xs:complexType>
   <xs:complexType name="Protocol">	
 	<xs:attribute name="geometry" type="xs:string" default="NetworkInOut_1"/>
