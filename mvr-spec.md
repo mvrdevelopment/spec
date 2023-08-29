@@ -1482,11 +1482,13 @@ Response:
 The MVR commit message informs all connected stations that there is a new MVR commit. This message only informs the stations about the existence of the new file.
 Stations needs to request the MVR file with a `MVR_REQUEST` message.
 
+Each MVR commit represents one revision of the project. Therefore an array of MVR commits, as found in the `MVR_JOIN` message, represents the working history of the project. It is up to the client, how many commits are kept in store at any time.
+
 The following chart displays the process when one client sends a `MVR_COMMIT` message to the server, and the server distributes this in the session.
 
 ### TCP Mode
 
-The MVR-xchange client informs all other MVR-xchange clients about the new commit. Note that the client needs to respect any previous `MVR_LEAVE` messages itself.
+The MVR-xchange client informs all other MVR-xchange clients about the new commit. Note that the client needs to respect any previous `MVR_LEAVE` messages themselves.
 
 | MVR-xchange client sends the `MVR_COMMIT` message to the connected stations. |
 |---|
