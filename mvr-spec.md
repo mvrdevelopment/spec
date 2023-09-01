@@ -955,9 +955,9 @@ The child list contains a list of the following nodes:
 
 ##### Table 48 — *Projections Node Children*
 
-| Child Node                                | Description             |
-| ----------------------------------------- | ----------------------- |
-| [Projection](#node-definition-projection) | Defines the Projection. |
+| Child Node                                | Allowed Count | Description             |
+| ----------------------------------------- | -------------| ----------------------- |
+| [Projection](#node-definition-projection) | 1 or any| Defines the Projection. |
 
 
 #### Node Definition: Projection
