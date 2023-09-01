@@ -165,7 +165,7 @@ Node name: `UserData`
 
 | Child Node                    | Allowed Count | Description                   |
 | ----------------------------- | ------------- | ----------------------------- |
-| [Data](#node-definition-data) | 0 or many     | Defines a block of user data. |
+| [Data](#node-definition-data) | 0 or any     | Defines a block of user data. |
 
 
 ### Node Definition: Data
