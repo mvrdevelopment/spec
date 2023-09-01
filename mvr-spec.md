@@ -1211,9 +1211,9 @@ Node name: `Mapping`
 
 ##### Table 64 — *Mapping Node Attributes*
 
-| Attribute Name | Attribute Value Type                |  Description                                                                                |
-| -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------- |
-| linkedDef      | [UUID](#user-content-attrtype-uuid) | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
+| Attribute Name | Attribute Value Type                | Default Value |  Description                                                                                |
+| -------------- | ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| linkedDef      | [UUID](#user-content-attrtype-uuid) | Mandatory | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
 
 The child list contains a list of the following nodes:
 
