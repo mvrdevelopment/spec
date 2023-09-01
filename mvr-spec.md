@@ -1027,7 +1027,7 @@ Node name: `Network`
 | subnetmask     | [IPv4](#user-content-attrtype-ipv4)  | Empty                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
 | ipv6           | [IPv6](#user-content-attrtype-ipv6)       | Empty                    | This is the IPv6-address.                                                                                                |
 | dhcp           | [Bool](#user-content-attrtype-bool)     | false                         | This is the automated-address.   DHCP is considered off. If present it should be set "on" (true).                                |
-| hostname       | [hostname](#user-content-attrtype-string) | Empty                    | This is the hostname for the device with an automated address.                                                           |
+| hostname       | [String](#user-content-attrtype-string) | Empty                    | This is the hostname for the device with an automated address.                                                           |
 
 ### Node Definition: Protocols
 
