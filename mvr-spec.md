@@ -882,10 +882,10 @@ The child list contains a list of the following nodes:
 
 ##### Table 41 — *Geometries Node Childs*
 
-| Child Node                                | Description                                                          |
-| ----------------------------------------- | -------------------------------------------------------------------- |
-| [Geometry3D](#node-definition-geometry3d) | The geometry of this definition that will be instanced in the scene. |
-| [Symbol](#node-definition-symbol)         | The symbol instance that will provide a geometry of this definition. |
+| Child Node                                | Allowed Count | Description                                                          |
+| ----------------------------------------- |  | -------------------------------------------------------------------- |
+| [Geometry3D](#node-definition-geometry3d) | 0 or any | The geometry of this definition that will be instanced in the scene. |
+| [Symbol](#node-definition-symbol)         | 0 or any | The symbol instance that will provide a geometry of this definition. |
 
 
 ## Node Definition: Symbol
