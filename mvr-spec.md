@@ -1023,11 +1023,11 @@ Node name: `Network`
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                  |
 |----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------|
 | geometry       | [String](#user-content-attrtype-string)   | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
-| ipv4           | [IPv4](#user-content-attrtype-ipv4)       | Optional                    | This is the IPv4-address.                                                                                                |
-| subnetmask     | [IPv4](#user-content-attrtype-ipv4)  | optional                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
-| ipv6           | [IPv6](#user-content-attrtype-ipv6)       | optional                    | This is the IPv6-address.                                                                                                |
+| ipv4           | [IPv4](#user-content-attrtype-ipv4)       | Empty                    | This is the IPv4-address.                                                                                                |
+| subnetmask     | [IPv4](#user-content-attrtype-ipv4)  | Empty                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
+| ipv6           | [IPv6](#user-content-attrtype-ipv6)       | Empty                    | This is the IPv6-address.                                                                                                |
 | dhcp           | [Bool](#user-content-attrtype-bool)     | false                         | This is the automated-address.   DHCP is considered off. If present it should be set "on" (true).                                |
-| hostname       | [hostname](#user-content-attrtype-string) | optional                    | This is the hostname for the device with an automated address.                                                           |
+| hostname       | [hostname](#user-content-attrtype-string) | Empty                    | This is the hostname for the device with an automated address.                                                           |
 
 ### Node Definition: Protocols
 
