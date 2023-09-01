@@ -1054,10 +1054,10 @@ Node name: `Protocol`
 | Attribute Name | Attribute Value Type | Default Value when Optional | Description  |
 | -------------- | -------------------- | --------------------------- | ------------ |
 | geometry       | [String](#user-content-attrtype-string) | NetworkInOut_1   | This is the interface name.  |
-| name           | [String](#user-content-attrtype-string) | empty    | Custom Name of the protocol to identify the protocol. Needs to be unique for this instance of object. |
-| type           | [String](#user-content-attrtype-string) | empty    | Name of the protocol. |
-| version        | [String](#user-content-attrtype-string) | empty    | This is the protocol version if available.|
-| transmission   | [Enum](#user-content-attrtype-enum)    | undefined   | Unicast, Multicast, Broadcast, Anycast |
+| name           | [String](#user-content-attrtype-string) | Empty    | Custom Name of the protocol to identify the protocol. Needs to be unique for this instance of object. |
+| type           | [String](#user-content-attrtype-string) | Empty    | Name of the protocol. |
+| version        | [String](#user-content-attrtype-string) | Empty    | This is the protocol version if available.|
+| transmission   | [Enum](#user-content-attrtype-enum)    | Undefined  | Undefined, Unicast, Multicast, Broadcast, Anycast |
 
 The following names for the `type` are predefined:
 - RDMNet
