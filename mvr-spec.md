@@ -142,10 +142,10 @@ The second XML node is the mandatory GeneralSceneDescription node. The attribute
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                  |
 | -------------- | ----------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
-| verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the major version of the format used when saving this file. |
-| verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional                | Denotes the minor version of the format used when saving this file. |
-| provider       | [String](#user-content-attrtype-string)   | Not Optional                | The name of the application that is generating the MVR export. This should stay the same between multiple version.     |
-| providerVersion| [String](#user-content-attrtype-string)   | Not Optional                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
+| verMajor       | [Integer](#user-content-attrtype-integer) | Mandatory                | Denotes the major version of the format used when saving this file. |
+| verMinor       | [Integer](#user-content-attrtype-integer) | Mandatory                | Denotes the minor version of the format used when saving this file. |
+| provider       | [String](#user-content-attrtype-string)   | Mandatory                | The name of the application that is generating the MVR export. This should stay the same between multiple version.     |
+| providerVersion| [String](#user-content-attrtype-string)   | Mandatory                | The version of the software that is generating the MVR export. This should be different for each version that is available.    |
 
 
 ##### Table 3 — *GeneralSceneDescription Node Children*
@@ -178,7 +178,7 @@ Node name: `Data`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                                               |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------------------------------------------- |
-| provider       | [String](#user-content-attrtype-string) | Not Optional                | Specifies the name of the provider application that created this data.    |
+| provider       | [String](#user-content-attrtype-string) | Mandatory                | Specifies the name of the provider application that created this data.    |
 | ver            | [String](#user-content-attrtype-string) | 1                           | Version information of the data as specified by the provider application. |
 
 
@@ -222,7 +222,7 @@ Node name: `Symdef`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of the following nodes:
@@ -245,7 +245,7 @@ Node name: `Position`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 
@@ -259,7 +259,7 @@ Node name: `MappingDefinition`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                             |
 | -------------- | ----------------------------------- | --------------------------- | --------------------------------------- |
-| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.    |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Mandatory                | The unique identifier of the object.    |
 | name           | [String](#user-content-attrtype-string)              |                             | The name of the source for the mapping. |
 
 The child list contains a list of the following nodes:
@@ -294,7 +294,7 @@ Node name: `Class`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                         |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
-| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Mandatory                | The unique identifier of the class. |
 | name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
 
 
@@ -323,7 +323,7 @@ Node name: `Layer`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of layer nodes:
@@ -370,7 +370,7 @@ Node name: `SceneObject`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | -------------------------------------   | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.   |
 
@@ -409,7 +409,7 @@ Node name: `GroupObject`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of one of the following nodes:
@@ -433,7 +433,7 @@ Node name: `FocusPoint`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
 The child list contains a list of one of the following nodes:
@@ -457,7 +457,7 @@ Node name: `Fixture`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The Name is the value that represents the fixture object. Is is not unique, and normally pairs with  FID in Display               |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
 
@@ -588,7 +588,7 @@ Node name: `Truss`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
 
@@ -630,7 +630,7 @@ Node name: `Support`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     | Mandatory                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
 
@@ -731,7 +731,7 @@ Node name: `Projector`
 
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Mandatory               | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
 | multipatch     | [UUID](#user-content-attrtype-uuid)     | Empty                       | The unique identifier of the parent multipatch fixture. When this value is set, you may not define a FixtureID or CustomID for this fixture. The FixtureID and CustomID from the object defined as multi parent also applies to this object.              |
 
@@ -841,14 +841,14 @@ Node name: `Source`
 
 | Attribute Name | Attribute Value Type                   | Default Value when Optional | Description                                                    |
 | -------------- | -------------------------------------- | --------------------------- | -------------------------------------------------------------- |
-| linkedGeometry | [String](#user-content-attrtype-string)|  Not Optional               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
-| type           | [Enum](#user-content-attrtype-enum)    |  Not Optional               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                              |
+| linkedGeometry | [String](#user-content-attrtype-string)|  Mandatory               | For a Display: The GDTF Geometry Type Display whose linked texture will get replaced by the source value. <br/><br/>`For a Beam: Defines the source for the GDTF Geometry Type Beam. Only applicable when BeamType is "Rectangle".` |
+| type           | [Enum](#user-content-attrtype-enum)    |  Mandatory               | Defines the type of source of the media resource that will be used. The currently defined types are: NDI, File, CITP, CaptureDevice                                                                                              |
 
 ##### Table 38 — *Source Node Value Types*
 
 | Value Type                              | Default Value When Missing | Description                                                                    |
 | --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------ |
-| [String](#user-content-attrtype-string) | Not Optional               | Based on the Attribute name `type`: <br/>- If type is NDI or CITP use the Stream Name <br/>- If type is File use the filename in MVR file <br/>- If type is CaptureDevice use the CaptureDevice Name   |
+| [String](#user-content-attrtype-string) | Mandatory               | Based on the Attribute name `type`: <br/>- If type is NDI or CITP use the Stream Name <br/>- If type is File use the filename in MVR file <br/>- If type is CaptureDevice use the CaptureDevice Name   |
 
 ### Node Definition: ScaleHandeling
 
@@ -898,8 +898,8 @@ Node name: `Symbol`
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the object.                                          |
-| symdef         | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the Symdef node that will be the source of geometry. |
+| uuid           | [UUID](#user-content-attrtype-uuid) | Mandatory                | The unique identifier of the object.                                          |
+| symdef         | [UUID](#user-content-attrtype-uuid) | Mandatory                | The unique identifier of the Symdef node that will be the source of geometry. |
 
 The child list contains a list of the following nodes:
 
@@ -920,7 +920,7 @@ Node name: `Geometry3D`
 
 | Attribute Name | Attribute Value Type          | Default Value when Optional | Description                                                               |
 | -------------- | ----------------------------- | --------------------------- | ------------------------------------------------------------------------- |
-| fileName       | [FileName](#user-content-attrtype-filename) | Not Optional          | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
+| fileName       | [FileName](#user-content-attrtype-filename) | Mandatory          | The file name, including extension, of the external file in the archive. If there is no extension, it will assume that the extension is 3ds. |
 
 The child list contains a list of the following nodes:
 
@@ -1010,7 +1010,7 @@ The child list contains a list of the following nodes:
 
 | Value Type  | Default Value When Missing | Description      |
 | ----------- | -------------------------- | ---------------- |
-| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Not Optional      | This is the DMX address. <br/>`Integer Format:` `Absolute DMX address;` <br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to 512. `*`Universe.Address`* |
+| [Integer](#user-content-attrtype-integer) or [String](#user-content-attrtype-string)| Mandatory      | This is the DMX address. <br/>`Integer Format:` `Absolute DMX address;` <br/>`String format:` `Universe - integer universe number, starting with 1; Address - address within universe from 1 to 512. `*`Universe.Address`* |
 
 #### Node Definition: Network
 
@@ -1022,7 +1022,7 @@ Node name: `Network`
 
 | Attribute Name | Attribute Value Type                      | Default Value when Optional | Description                                                  |
 |----------------|-------------------------------------------|-----------------------------|--------------------------------------------------------------|
-| geometry       | [String](#user-content-attrtype-string)   | Not Optional                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
+| geometry       | [String](#user-content-attrtype-string)   | Mandatory                | This is the name of the wire geometry of the linked GDTF that this information is of..   Typically used "ethernet_x", "wireless_x", "loopback_x" (x starting at 1 and incrementing) |
 | ipv4           | [IPv4](#user-content-attrtype-ipv4)       | Empty                    | This is the IPv4-address.                                                                                                |
 | subnetmask     | [IPv4](#user-content-attrtype-ipv4)  | Empty                    | This is the SubnetMask-address. Only needed for IPv4.                                                                    |
 | ipv6           | [IPv6](#user-content-attrtype-ipv6)       | Empty                    | This is the IPv6-address.                                                                                                |
@@ -1355,12 +1355,12 @@ Note: A MVR-xchange client can send multiple `MVR_JOIN` messages to the same ser
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN                           |
-| Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
+| Type           | [String](#user-content-attrtype-string)                              | Mandatory                | Defines the type of the message. Should be MVR_JOIN                           |
+| Provider       | [String](#user-content-attrtype-string)                              | Mandatory                | The application name providing MVR Import & Export                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Mandatory                | The Name of the sending station to be shown on the clients UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
-| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Mandatory                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 
@@ -1368,14 +1368,14 @@ Note: A MVR-xchange client can send multiple `MVR_JOIN` messages to the same ser
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN_RET                            |
-| OK             | [Bool](#user-content-attrtype-bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
+| Type           | [String](#user-content-attrtype-string)                              | Mandatory                | Defines the type of the message. Should be MVR_JOIN_RET                            |
+| OK             | [Bool](#user-content-attrtype-bool)                       | Mandatory                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
 | Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
-| Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
+| Provider       | [String](#user-content-attrtype-string)                              | Mandatory                | The application name providing MVR Import & Export                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Mandatory                | The Name of the receiving station to be shown on the UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
-| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Mandatory                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Files          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 Example:
@@ -1446,16 +1446,16 @@ In order to join again, the client needs to and a `MVR_JOIN` message again.
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
-| FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                | Defines the type of the message. Should be MVR_LEAVE                         |
+| FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Mandatory                  | The UUID of the station. |
 
 
 ##### Table 72 — *MVR_LEAVE response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |     Defines the type of the message. Should be MVR_LEAVE_RET.                         |
-| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                |     Defines the type of the message. Should be MVR_LEAVE_RET.                         |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Mandatory | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1511,12 +1511,12 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |               Defines the type of the message. Should be MVR_COMMIT.             |
-| verMajor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
-| FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
-| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
-| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                |               Defines the type of the message. Should be MVR_COMMIT.             |
+| verMajor       | [Integer](#user-content-attrtype-integer) | Mandatory          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
+| verMinor       | [Integer](#user-content-attrtype-integer) | Mandatory          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
+| FileSize       | [Integer](#user-content-attrtype-integer) | Mandatory          |                |
+| FileUUID      | [UUID](#user-content-attrtype-uuid) |   Mandatory                          | The UUID of the MVR file. Generate a UUID using |
+| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Mandatory                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 
@@ -1525,8 +1525,8 @@ The following chart displays the process when the server is the station who is p
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |  Defines the type of the message. Should be MVR_COMMIT_RET.                          |
-| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                |  Defines the type of the message. Should be MVR_COMMIT_RET.                          |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Mandatory | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1581,7 +1581,7 @@ Note: When in TCP Mode, the `MVR_PACKAGE_TYPE` flag will be used to tell the rec
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_REQUEST-                           |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                | Defines the type of the message. Should be MVR_REQUEST-                           |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
@@ -1589,8 +1589,8 @@ Note: When in TCP Mode, the `MVR_PACKAGE_TYPE` flag will be used to tell the rec
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |                Defines the type of the message. Should be MVR_REQUEST_RET             |
-| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                |                Defines the type of the message. Should be MVR_REQUEST_RET             |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Mandatory | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
@@ -1658,7 +1658,7 @@ Each receiver will try to switch into TCP Mode by connecting to the mDNS service
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
 | ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
@@ -1666,8 +1666,8 @@ Each receiver will try to switch into TCP Mode by connecting to the mDNS service
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_NEW_SESSION_HOST_RET                            |
-| OK                  | [Bool](#user-content-attrtype-bool)                       | Not Optional | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
+| Type       | [String](#user-content-attrtype-string)                              | Mandatory                | Defines the type of the message. Should be MVR_NEW_SESSION_HOST_RET                            |
+| OK                  | [Bool](#user-content-attrtype-bool)                       | Mandatory | True when operation is successful, false when there is an error. Check the Message for more information in this case.                                                                                                             |
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
