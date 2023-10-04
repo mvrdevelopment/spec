@@ -225,6 +225,12 @@ Node name: `Symdef`
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
 
+##### Table 12 — *MappingDefinition Node Children*
+
+| Child Node                                        | Allowed Count | Value Type                                | Description                                         |
+| ------------------------------------------------- | ------------- | ----------------------------------------- | --------------------------------------------------- |
+| ChildList                                        | 1             | [Integer](#user-content-attrtype-integer) | The size in x direction in pixels of the source.    |
+
 The child list contains a list of the following nodes:
 
 ##### Table 9 — *Symdef Node Children*
@@ -1519,6 +1525,7 @@ The following chart displays the process when the server is the station who is p
 | StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
+| FileName   | [String](#user-content-attrtype-string) |                 | Describes the file name that can be used to store the file on disk to preserve it across multiple MVR-xchange clients. The usage of this attribute is optional, when not defined, the receiving  MVR-xchange client can decide which file name it uses to store it on disk.                   |
 
 
 ##### Table 74 — *MVR_COMMIT response Attributes*
