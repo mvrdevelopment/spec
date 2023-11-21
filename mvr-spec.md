@@ -1,4 +1,4 @@
-MVR Version 1.6 - DIN SPEC 15801 Draft
+MVR Version 1.6 - DIN SPEC 15801
 
 # Introduction
 
