@@ -1,0 +1,24 @@
+name: Generate doc from markdown
+
+on: push
+
+jobs:
+  generate_doc:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: List files
+        run: |
+          ls -la
+          mkdir output
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: >- # allows you to break string into multiple lines
+            --standalone
+            --from markdown
+            --output=mvr-spec.docx
+            mvr-spec.md
+      - uses: actions/upload-artifact@v3
+        with:
+          name: mvr-spec
+          path: mvr-spec.docx
