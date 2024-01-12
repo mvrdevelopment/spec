@@ -24,9 +24,10 @@ mvrxchange.fields.message_station_name = ProtoField.string('mvrxchange.message_s
 mvrxchange.fields.message_ver_major = ProtoField.string('mvrxchange.message_ver_major', "MESSAGE_VER_MAJOR")
 mvrxchange.fields.message_ver_minor = ProtoField.string('mvrxchange.message_ver_minor', "MESSAGE_VER_MINOR")
 mvrxchange.fields.message_comment = ProtoField.string('mvrxchange.message_comment', "MESSAGE_COMMENT")
-mvrxchange.fields.message_files = ProtoField.string('mvrxchange.message_files', "MESSAGE_FILES")
-mvrxchange.fields.message_station_uuid = ProtoField.string('mvrxchange.message_station_name', "MESSAGE_STATION_UUID")
+mvrxchange.fields.message_commits = ProtoField.string('mvrxchange.message_commits', "MESSAGE_COMMITS")
+mvrxchange.fields.message_station_uuid = ProtoField.string('mvrxchange.message_station_uuid', "MESSAGE_STATION_UUID")
 mvrxchange.fields.message_from_station_uuid = ProtoField.string('mvrxchange.message_from_station_uuid', "MESSAGE_FROM_STATION_UUID")
+mvrxchange.fields.message_file_uuid = ProtoField.string('mvrxchange.message_file_uuid', "MESSAGE_FILE_UUID")
 
 
 
@@ -52,14 +53,17 @@ function process_message(data, subtree)
    if data["Comment"] ~= nil then
        subtree:add(mvrxchange.fields.message_comment):append_text(data["Comment"])
    end
-   if data["Files"] ~= nil then
-       subtree:add(mvrxchange.fields.message_files):append_text("Number:" .. tostring(#data["Files"]) .. "")
+   if data["Commits"] ~= nil then
+       subtree:add(mvrxchange.fields.message_commits):append_text("Number:" .. tostring(#data["Commits"]) .. "")
    end
    if data["StationName"] ~= nil then
        subtree:add(mvrxchange.fields.message_station_name):append_text(data["StationName"])
    end
    if data["StationUUID"] ~= nil then
        subtree:add(mvrxchange.fields.message_station_uuid):append_text(data["StationUUID"])
+   end
+   if data["FileUUID"] ~= nil then
+       subtree:add(mvrxchange.fields.message_file_uuid):append_text(data["FileUUID"])
    end
    if data["FromStationUUID"] ~= nil then
        if is_not_table(data["FromStationUUID"]) then
