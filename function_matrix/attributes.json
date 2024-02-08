@@ -1302,7 +1302,7 @@
       "definition": "Controls the fixture's color attribute regarding the saturation.",
       "explanation": "Use this attribute to control a fixture's color Saturation (richness)",
       "visual": "",
-      "_label": "H S B Saturation"
+      "_label": "HSB Saturation"
     },
     {
       "_name": "HSB_Brightness",
