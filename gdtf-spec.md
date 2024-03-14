@@ -165,6 +165,8 @@ all firmware revisions of the device.
 ./models/svg_side/yoke.svg
 ./models/svg_front/base.svg
 ./models/svg_front/yoke.svg
+./light_distribution/lamp1.aes
+./light_distribution/lamp1.ldt
 
 ```
 
@@ -1380,6 +1382,7 @@ the Beam are specified in [table 41](#user-content-table-41 ).
 | BeamType            | [Enum](#user-content-attrtype-enum )     | Beam Type; Specified values: "Wash", "Spot", "None", "Rectangle", "PC", "Fresnel", "Glow". Default value "Wash"
 | ColorRenderingIndex | [Uint](#user-content-attrtype-uint )     | The CRI according to TM-30 is a quantitative measure of the ability of the light source showing the object color naturally as it does as daylight reference. Size 1 byte. Default value 100.                                                                                                                                                                                                                                                                                                                                                             |
 | EmitterSpectrum     | [Node](#user-content-attrtype-node )     | Optional link to emitter in the physical description; use this to define the white light source of a subtractive color mixing system. Starting point: Emitter Collect; Default spectrum is a Black-Body with the defined ColorTemperature.                                                                                                                                                                                                                                                                                                                                                                   |
+| LightDistribution     | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the AES or EULUMDAT file in the subfolder `./light_distribution/`.                                                                                                                                                                                                                                                                                                                                                                |
 
 </div>
 
@@ -1973,6 +1976,7 @@ are specified in [table 61](#user-content-table-61 ).
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value. Default value is the PhysicalFrom from the parent channel function.                                                                                               |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value. Default value is the PhysicalTo from the parent channel function.                                                                                                   |
 | WheelSlotIndex     | [Int](#user-content-attrtype-int )           | If the channel function has a link to a wheel, a corresponding slot index shall be specified. The wheel slot index results from the order of slots of the wheel which is linked in the channel function. The wheel slot index is normalized to 1. Size: 4 bytes |
+| LightDistribution     | [Resource](#user-content-attrtype-resource )           | Name of the LightDistribution to be used for the Active Channel Set |
 
 
 </div>
