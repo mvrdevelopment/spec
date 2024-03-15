@@ -25,10 +25,13 @@ mvrxchange.fields.message_ver_major = ProtoField.string('mvrxchange.message_ver_
 mvrxchange.fields.message_ver_minor = ProtoField.string('mvrxchange.message_ver_minor', "MESSAGE_VER_MINOR")
 mvrxchange.fields.message_comment = ProtoField.string('mvrxchange.message_comment', "MESSAGE_COMMENT")
 mvrxchange.fields.message_commits = ProtoField.string('mvrxchange.message_commits', "MESSAGE_COMMITS")
+mvrxchange.fields.message_commit = ProtoField.string('mvrxchange.message_commit', "MESSAGE_COMMIT")
 mvrxchange.fields.message_files = ProtoField.string('mvrxchange.message_files', "MESSAGE_FILES")
 mvrxchange.fields.message_station_uuid = ProtoField.string('mvrxchange.message_station_uuid', "MESSAGE_STATION_UUID")
 mvrxchange.fields.message_from_station_uuid = ProtoField.string('mvrxchange.message_from_station_uuid', "MESSAGE_FROM_STATION_UUID")
 mvrxchange.fields.message_file_uuid = ProtoField.string('mvrxchange.message_file_uuid', "MESSAGE_FILE_UUID")
+mvrxchange.fields.message_file_comment = ProtoField.string('mvrxchange.message_file_comment', "MESSAGE_FILE_COMMENT")
+mvrxchange.fields.message_file_file_name = ProtoField.string('mvrxchange.message_file_file_name', "MESSAGE_FILE_FILE_NAME")
 mvrxchange.fields.message_errors = ProtoField.string('mvrxchange.message_errors', "MESSAGE_ERRORS")
 
 
@@ -55,7 +58,18 @@ function process_message(data, subtree)
        subtree:add(mvrxchange.fields.message_comment):append_text(data["Comment"])
    end
    if data["Commits"] ~= nil then
-       subtree:add(mvrxchange.fields.message_commits):append_text("" .. tostring(#data["Commits"]) .. "")
+       commits = subtree:add(mvrxchange.fields.message_commits):append_text("" .. tostring(#data["Commits"]) .. "")
+       for k, v in pairs(data["Commits"]) do
+           print("Commit", v.Type, v.FileUUID, v.StationUUID, v.Comment, v.FileName)
+           commit = commits:add(mvrxchange.fields.message_commit):append_text(v.FileUUID)
+           if v.Comment ~= nil then
+               commit:add(mvrxchange.fields.message_file_comment):append_text(v.Comment)
+           end
+           if v.FileName ~= nil then
+               commit:add(mvrxchange.fields.message_file_file_name):append_text(v.FileName)
+           end
+        end
+
    end
 
    if data["Files"] ~= nil then
