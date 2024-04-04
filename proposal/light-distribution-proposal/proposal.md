@@ -17,7 +17,7 @@ We want to add the option to define the light distribution for fixtures inside t
 We will add attribute LightDistribution to the Beam Geometry. This defines the default light distribution for the fixture. 
 Inside the ChannelSet we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. 
 
-Example
+Example:
 
 ```
 <FixtureType>
@@ -52,6 +52,14 @@ Example
     </DMXModes>
 </FixtureType>
 ```
+
+#### Challenges
+- How do we handle multiple beam in one fixture
+    - Multi LED Strip Light (Challenge is how you measure device)
+    - Multi LED Wash Light (You want to measure all at once, but represent the beam as one)
+    - LED Ring and normal beam (You only need the beam as AES file)
+    - Multi head fixtures (You need for each an individual beam, and it also needs to change)
+
 
 ## MVR
 
