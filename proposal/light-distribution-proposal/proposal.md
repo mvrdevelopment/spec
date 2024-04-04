@@ -122,6 +122,8 @@ Example Two Beam Fixture:
     - LED Ring and normal beam (You only need the beam as AES file)
     - Multi head fixtures (You need for each an individual beam, and it also needs to change)
 
+- Only one AES file (or and interpolation between two AES files) can be active. This is challenging when multiple Attributes have effects on the light output.
+
 
 ## MVR
 
