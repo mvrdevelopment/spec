@@ -27,7 +27,7 @@ Example
         <Axis
             Name="Yoke" >
             <Axis Name="Head" >
-                <Beam  Name="Beam" />
+                <Beam  Name="Beam" LightDistribution="sample_default_file"/>
             </Axis>
         </Axis>
         </Geometry>
