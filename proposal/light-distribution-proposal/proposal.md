@@ -124,6 +124,9 @@ Example Two Beam Fixture:
 
 - Only one AES file (or and interpolation between two AES files) can be active. This is challenging when multiple Attributes have effects on the light output.
 
+- Do we need to add measurement instruction to the GDTF spec or only reference the AES spec. 
+    - You measure devices in such a distance that the actual shape of the device has no influence on the measurement. For strip lights, this means a big distance. Not all can measure strip lights at such distance. The distance that AES recommends is 7x the beam diameter.
+
 
 ## MVR
 
