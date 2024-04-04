@@ -17,7 +17,7 @@ We want to add the option to define the light distribution for fixtures inside t
 We will add attribute LightDistribution to the Beam Geometry. This defines the default light distribution for the fixture. 
 Inside the ChannelSet we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. 
 
-Example:
+Example Simple Fixture:
 
 ```
 <FixtureType>
@@ -39,9 +39,71 @@ Example:
             <DMXChannel Geometry="Beam" >
             <LogicalChannel >
                 <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5">
-                <ChannelSet DMXFrom="0/1" Name="Wide" />
-                <ChannelSet DMXFrom="1/1" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
-                <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file"/>
+                    <ChannelSet DMXFrom="0/1" Name="Wide" />
+                    <ChannelSet DMXFrom="1/1" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
+                    <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file"/>
+                </ChannelFunction>
+            </LogicalChannel>
+            </DMXChannel>
+        </DMXChannels>
+        <Relations/>
+        <FTMacros/>
+        </DMXMode>
+    </DMXModes>
+</FixtureType>
+```
+
+Example Two Beam Fixture:
+
+```
+<FixtureType>
+    <Geometries>
+        <Geometry 
+            Name="Base" >
+        <Axis
+            Name="Yoke" >
+            <Axis Name="Head" >
+                <Beam  Name="Beam1" LightDistribution="sample_default_file1"/>
+                <Beam  Name="Beam2" LightDistribution="sample_default_file2"/>
+            </Axis>
+        </Axis>
+        </Geometry>
+        </Geometry>
+    </Geometries>
+    <DMXModes>
+        <DMXMode Description="" Geometry="Base" Name="Mode 1">
+        <DMXChannels>
+            <DMXChannel Geometry="Yoke" >
+            <LogicalChannel >
+                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5">
+                    <ChannelSet DMXFrom="0/1" Name="Wide" >
+                    </ChannelSet>
+                    <ChannelSet DMXFrom="1/1" >
+                        <SubChannelSet
+                            Beam="Beam1"
+                            LightDistributionFrom="sample_default_file1"
+                            LightDistributionTo="narrow_file1"
+                        />
+                        <SubChannelSet
+                            Beam="Beam2"
+                            LightDistributionFrom="sample_default_file2"
+                            LightDistributionTo="narrow_file2"
+                        />
+
+                    </ChannelSet>
+                    <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file">
+                        <SubChannelSet
+                            Beam="Beam1"
+                            LightDistributionFrom="narrow_file1"
+                            LightDistributionTo="narrow_file1"
+                        />
+                        <SubChannelSet
+                            Beam="Beam2"
+                            LightDistributionFrom="narrow_file2"
+                            LightDistributionTo="narrow_file2"
+                        />
+
+                    </ChannelSet>
                 </ChannelFunction>
             </LogicalChannel>
             </DMXChannel>
