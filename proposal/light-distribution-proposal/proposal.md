@@ -12,13 +12,15 @@ We want to add the option to define the light distribution for fixtures inside t
 
 ## GDTF
 
-### New Geometry Type Speaker
+### New Attribute LightDistribution
 
-We will add a new geometry type speaker. This represents one speaker inside the device and will act like the origin of the audio source. By default a audio device with two "real-world" speakers will have one GDTF Geometry speakers, as the properties for visualization and planning will be combined by this two things.
+We will add attribute LightDistribution to the Beam Geometry. This defines the default light distribution for the fixture. 
+Inside the ChannelSet we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. 
 
 
 
 ## MVR
 
+Currently there will be no impact on the MVR.
 
 
