@@ -38,10 +38,10 @@ Example:
         <DMXChannels>
             <DMXChannel Geometry="Beam" >
             <LogicalChannel >
-                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="5" PhysicalTo="45">
-                <ChannelSet DMXFrom="0/1" Name="Narrow" />
-                <ChannelSet DMXFrom="1/1" />
-                <ChannelSet DMXFrom="255/1" Name="Wide"/>
+                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5">
+                <ChannelSet DMXFrom="0/1" Name="Wide" />
+                <ChannelSet DMXFrom="1/1" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
+                <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file"/>
                 </ChannelFunction>
             </LogicalChannel>
             </DMXChannel>
