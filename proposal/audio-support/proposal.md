@@ -29,5 +29,8 @@ We will add a new geometry type speaker. This represents one speaker inside the 
 
 ## MVR
 
+We need to add data for the venue transfer.
+
+We need to add data how the individual speakers, amps usw are placed and wired.
 
 
