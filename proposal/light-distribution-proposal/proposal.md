@@ -119,13 +119,13 @@ Example Two Beam Fixture:
 - How do we handle multiple beam in one fixture
     - Multi LED Strip Light (Challenge is how you measure device)
     - Multi LED Wash Light (You want to measure all at once, but represent the beam as one)
-    - LED Ring and normal beam (You only need the beam as AES file)
+    - LED Ring and normal beam (You only need the beam as IES file)
     - Multi head fixtures (You need for each an individual beam, and it also needs to change)
 
-- Only one AES file (or and interpolation between two AES files) can be active. This is challenging when multiple Attributes have effects on the light output.
+- Only one IES file (or and interpolation between two IES files) can be active. This is challenging when multiple Attributes have effects on the light output.
 
-- Do we need to add measurement instruction to the GDTF spec or only reference the AES spec. 
-    - You measure devices in such a distance that the actual shape of the device has no influence on the measurement. For strip lights, this means a big distance. Not all can measure strip lights at such distance. The distance that AES recommends is 7x the beam diameter.
+- Do we need to add measurement instruction to the GDTF spec or only reference the IES spec. 
+    - You measure devices in such a distance that the actual shape of the device has no influence on the measurement. For strip lights, this means a big distance. Not all can measure strip lights at such distance. The distance that IES recommends is 7x the beam diameter.
 
 
 ## MVR
