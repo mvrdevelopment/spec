@@ -22,3 +22,17 @@ Attached examples:
 ![labeled thumbnail](./thumbnail_labeled.png)
 
 ![resulted thumbnail](./thumbnail.svg)
+
+> **Note**
+> The top SVG contains this element generating the pigtail. As the opacity is set the zero, in the rendered SVG you will not see it.
+
+```svg
+<rect
+    style="fill:#00ff00;stroke:#00ff00;stroke-width:1.5;stroke-linejoin:bevel;fill-opacity:0;stroke-opacity:0"
+    id="rect5567"
+    width="202.29604"
+    height="38.859127"
+    x="136.35199"
+    y="89.147408"
+    inkscape:label="pigtailRectangle" />
+```
