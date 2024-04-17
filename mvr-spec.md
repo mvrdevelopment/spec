@@ -1419,16 +1419,18 @@ The defined MVR_JOIN response Attributes are specified in Table 69.
 
 EXAMPLE
 
+>ℹ NOTE: This example has been adjusted post-publishing to match the MVR Spec.
+
 Request:
 ```
 {
   "Type": "MVR_JOIN",
   "Provider":"MVRApplication", 
-  "verMajor":"1", 
-  "verMinor":"6", 
+  "verMajor":1,
+  "verMinor":6, 
   "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
   "StationName":"MVR Application from user A at location B",
-  "Files": [
+  "Commits": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
     },
@@ -1442,17 +1444,18 @@ Request:
 
 }
 ```
+
 Response:
 ```
 {
   "Type": "MVR_JOIN_RET",
-  "OK": "true",
+  "OK": true,
   "Message": "",
-  "verMajor":"1", 
-  "verMinor":"6", 
+  "verMajor":1, 
+  "verMinor":6, 
   "StationUUID":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
   "StationName":"MVR Application from user A at location B",
-  "Files": [
+  "Commits": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
     },
@@ -1503,6 +1506,8 @@ The defined MVR_LEAVE response Attributes are specified in Table 71.
 
 EXAMPLE
 
+>ℹ NOTE: This example has been adjusted post-publishing to match the MVR Spec.
+
 Request:
 ```
 {
@@ -1514,7 +1519,7 @@ Response:
 ```
 {
   "Type": "MVR_LEAVE_RET",
-  "OK": "true",
+  "OK": true,
   "Message": ""
 }
 ```
@@ -1585,6 +1590,8 @@ The defined MVR_COMMIT response Attributes are specified in Table 73.
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
+>ℹ NOTE: This example has been adjusted post-publishing to match the MVR Spec.
+
 ```
 Request:
 {
@@ -1599,7 +1606,7 @@ Request:
 Response:
 {
   "Type": "MVR_COMMIT_RET",
-  "OK": "true",
+  "OK": true,
   "Message": ""
 }
 ```
@@ -1660,6 +1667,8 @@ The defined MVR_REQUEST error response Attributes are specified in Table 75.
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
+>ℹ NOTE: This example has been adjusted post-publishing to match the MVR Spec.
+
 Request:
 ```
 {
@@ -1677,7 +1686,7 @@ OR
 
 {
   "Type": "MVR_REQUEST_RET",
-  "OK": "false",
+  "OK": false,
   "Message": "The MVR is not available on this client"
 }
 ```
@@ -1741,6 +1750,8 @@ The defined MVR_NEW_SESSION_HOST error response Attributes Attributes are specif
 | Message       | [String](#user-content-attrtype-string)                              | Empty String | Human readable message when there is an error.                |                             |
 
 
+>ℹ NOTE: This example has been adjusted post-publishing to match the MVR Spec.
+
 Request:
 ```
 {
@@ -1754,7 +1765,7 @@ Response:
 ```
 {
   "Type": "MVR_NEW_SESSION_HOST_RET",
-  "OK": "true",
+  "OK": true,
   "Message": ""
 
 }
