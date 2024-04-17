@@ -255,7 +255,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 Fixture type node children are specified in [table 4](#user-content-table-4 ).
 
-For SVG files defining the `Thumbnail` you can mark the elements defining Movement Range and the  Connection Input position. 
+For SVG files defining the `Thumbnail` you can mark the elements defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
 * Connection Input (Pigtail): shapes inside the SVG with fill and stroke color Green (#00FF00 (RGB: 0, 255, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a connection input (pigtail) part of the device.
 
