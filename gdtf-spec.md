@@ -978,8 +978,8 @@ Properties are specified in [table 29](#user-content-table-29 ).
 | XML Attribute Name | Value Type                          | Description                                                                 |
 |----|----|----|
 | IPRating    | [String](#user-content-attrtype-string )         | IP Rating of the device of the format of IEC 60529. Example: IP65  |
-| DistanceToFlammable       | [Float](#user-content-attrtype-float )    | Distance in meter from flammable objects; Default value: 0   |
-| DistanceToOther       | [Float](#user-content-attrtype-float )    | Distance in meter from other objects; Default value: 0   |
+| DistanceToFlammable       | [Float](#user-content-attrtype-float )    | Minimal distance in meter from flammable objects; Default value: 0   |
+| DistanceToOther       | [Float](#user-content-attrtype-float )    | Minimal distance in meter from other objects; Default value: 0   |
 
 
 The currently defined children nodes of properties collect
