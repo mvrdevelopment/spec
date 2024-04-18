@@ -1983,6 +1983,8 @@ are specified in [table 61](#user-content-table-61 ).
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value. Default value is the PhysicalTo from the parent channel function.                                                                                                   |
 | WheelSlotIndex     | [Int](#user-content-attrtype-int )           | If the channel function has a link to a wheel, a corresponding slot index shall be specified. The wheel slot index results from the order of slots of the wheel which is linked in the channel function. The wheel slot index is normalized to 1. Size: 4 bytes |
 | LightDistribution     | [Resource](#user-content-attrtype-resource )           | Name of the LightDistribution to be used for the Active Channel Set |
+| LightDistributionFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Set. |
+| LightDistributionTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Set. |
 
 
 </div>
