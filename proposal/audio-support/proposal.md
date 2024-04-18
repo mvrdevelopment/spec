@@ -66,6 +66,8 @@ We need an flag if an object is an obstacle for the audio calculation or should 
 
 We need to decide oif we create an object for the Listening Plane that just lives in the MVR, or let a Scene object just contain a GDTF with a listening plane inside.
 
+We need to define, how we allow Line Arrays to define the load that this adds to the truss.
+
 | Attribute Name | Value Type / Unit | Description  |
 |----|----|----|
 | AudioType               | Enum          | Obstacle, Ignore       | 
