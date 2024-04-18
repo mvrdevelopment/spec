@@ -14,8 +14,14 @@ We want to add the option to define the light distribution for fixtures inside t
 
 ### New Attribute LightDistribution
 
-We will add attribute LightDistribution to the Beam Geometry. This defines the default light distribution for the fixture. 
-Inside the ChannelSet we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. 
+We will add attribute `LightDistribution` to the Beam Geometry. This defines the default light distribution for the fixture. 
+Inside the `ChannelFunction` and the `SubChannelSet` we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. This will also define a range.
+
+When the `LightDistribution` in inside the `ChannelFunction` it applies to all Beams, while when it is in a `SubChannelSet` you can specify the beam it is for.
+
+The rules are the following:
+- When a Beam does not have `LightDistribution`, it will not be affected by any `LightDistribution` definition in the file (Allow LED rings to have no spectral data while the main light source have this and you still not need to use the `SubChannelSets`)
+- Only one DMX Channel can have `LightDistribution` links inside their `ChannelFunction` or `SubChannelSet`.
 
 Example Simple Fixture:
 
@@ -38,10 +44,10 @@ Example Simple Fixture:
         <DMXChannels>
             <DMXChannel Geometry="Beam" >
             <LogicalChannel >
-                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5">
+                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
                     <ChannelSet DMXFrom="0/1" Name="Wide" />
-                    <ChannelSet DMXFrom="1/1" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
-                    <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file"/>
+                    <ChannelSet DMXFrom="1/1" />
+                    <ChannelSet DMXFrom="255/1"/>
                 </ChannelFunction>
             </LogicalChannel>
             </DMXChannel>
@@ -91,7 +97,7 @@ Example Two Beam Fixture:
                         />
 
                     </ChannelSet>
-                    <ChannelSet DMXFrom="255/1" Name="Narrow" LightDistributionFrom="narrow_file" LightDistributionTo="narrow_file">
+                    <ChannelSet DMXFrom="255/1" Name="Narrow">
                         <SubChannelSet
                             Beam="Beam1"
                             LightDistributionFrom="narrow_file1"

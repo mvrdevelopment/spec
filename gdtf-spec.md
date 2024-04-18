@@ -1943,6 +1943,8 @@ currently defined XML attributes of channel function are specified in
 | Min                | [Float](#user-content-attrtype-float )       | Minimum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalFrom                                                                |
 | Max                | [Float](#user-content-attrtype-float )       | Maximum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalTo                                                                  |
 | CustomName         | [String](#user-content-attrtype-string )     | Custom Name that can he used do adress this channel function with other command based protocols like OSC. Default: Node Name of the Channel function Example: Head_Dimmer.Dimmer.Dimmer   |
+| LightDistributionFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Function for all Beams of the fixture. |
+| LightDistributionTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Function for all Beams of the fixture. |
 
 
 
@@ -1982,9 +1984,6 @@ are specified in [table 61](#user-content-table-61 ).
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value. Default value is the PhysicalFrom from the parent channel function.                                                                                               |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value. Default value is the PhysicalTo from the parent channel function.                                                                                                   |
 | WheelSlotIndex     | [Int](#user-content-attrtype-int )           | If the channel function has a link to a wheel, a corresponding slot index shall be specified. The wheel slot index results from the order of slots of the wheel which is linked in the channel function. The wheel slot index is normalized to 1. Size: 4 bytes |
-| LightDistribution     | [Resource](#user-content-attrtype-resource )           | Name of the LightDistribution to be used for the Active Channel Set |
-| LightDistributionFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Set. |
-| LightDistributionTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Set. |
 
 
 </div>
