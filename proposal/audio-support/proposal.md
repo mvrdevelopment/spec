@@ -63,3 +63,29 @@ We need to add data for the venue transfer.
 We need to add data how the individual speakers, amps usw are placed and wired.
 
 
+## User Story
+
+Acceptance Criteria:
+
+**Data Export from Various Sources:**
+- Ability to export MVR files containing complete scenes and all objects from software such as Blender, Capture, Depence,grandMA3, Production Assist, Unreal Engine ,Vectorworks,WYSIWYG ,zactrack.
+- Ensure that all relevant data, including geometric information and object properties, are correctly encapsulated in the MVR files.
+
+**Importing and Building the Venue in Array Calc:**
+- Import the MVR containing 3D data and geometries into Array Calc.
+- Use the imported data to construct a detailed 3D venue that includes audience areas.
+
+**Audio System Configuration in Array Calc:**
+- Place and align arrays and speakers according to the predefined truss configurations within the MVR.
+-Configure the cabling, digital signal processing (DSP) settings, and verify sight lines for optimal audio distribution and audience visibility.
+
+**Export from Array Calc:**
+- Export the newly positioned arrays and speakers with updated tilt angles.
+- Export the bumper with load calculations for both front and rear attachments.
+- Ensure all components such as cabling, DSP/amps settings, and speaker orientations are exported accurately.
+- Export SPL (Sound Pressure Level) textures mapping on audience areas, if applicable.
+
+**Reintegration into Other MVR-Compatible Software:**
+- Import the updated MVR files into another MVR-compatible application.
+- Adjust the positioning of arrays and speakers to maintain sight lines.
+- Display the SPL textures to visually represent the sound levels across different audience zones.
