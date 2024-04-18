@@ -970,8 +970,7 @@ The connector does not have any children.
 #### General
 
 This section defines the general properties of the device type (XML node
-`<Properties>`). The Properties Collect currently does not have any XML
-attributes. 
+`<Properties>`).
 
 The currently defined XML attributes of the
 Properties are specified in [table 29](#user-content-table-29 ).
