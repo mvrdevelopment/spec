@@ -8,7 +8,7 @@ The MVR file format is standardized in [DIN SPEC 15801](https://www.beuth.de/en/
 
 ## About this repo 
 
-This repo contain the [MVR](mvr-spec.md) and [GDTF](gdtf-spec.md) spec in markdown format for convenience. 
+This repo contains the [MVR](mvr-spec.md) and [GDTF](gdtf-spec.md) spec in markdown format for convenience. 
 
 The [main](https://github.com/mvrdevelopment/spec/tree/main) branch contains the latest specs for the MVR and GDTF spec.
 
@@ -17,9 +17,9 @@ The [next](https://github.com/mvrdevelopment/spec/tree/next) branch contains the
 The folder [proposal](https://github.com/mvrdevelopment/spec/tree/main/proposal) contains the proposals that where considered for the given version of GDTF and MVR. This contains the changes to the GDTF/MVR spec together with a description of the changes. Normally this also has information about the motivation of the change, considered alternatives and examples.
 
 
-The folder [examples](https://github.com/mvrdevelopment/spec/tree/main/examples) contain some examples of usage of the GDTF file format
+The folder [examples](https://github.com/mvrdevelopment/spec/tree/main/examples) contains some examples of usage of the GDTF file format.
 
-The folder [meshes](https://github.com/mvrdevelopment/spec/tree/main/meshes) contain the default meshes that are used by the GDTF spec.
+The folder [meshes](https://github.com/mvrdevelopment/spec/tree/main/meshes) contains the default meshes that are used by the GDTF spec.
 
 ## How we work in the spec
 
