@@ -2238,7 +2238,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 | XML node                                                   | Mandatory | Description                            |
 |----|----|----|
-| [RDM](#user-content-rdm-section )                             | No        | Describes RDM information              |
+| [FTRDM](#user-content-rdm-section )                           | No        | Describes Fixture Type RDM information              |
 | [Art-Net](#user-content-art-net-section )                     | No        | Describes Art-Net information          |
 | [sACN](#user-content-streaming-acn-section )                  | No        | Describes sACN information             |
 | [PosiStageNet](#user-content-posi-stage-net-section )         | No        | Describes PosiStageNet information     |
@@ -2248,7 +2248,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 </div>
 
-### RDM Section
+### Fixture Type RDM Section
 
 If the device supports the RDM protocol, this section defines the
 corresponding information (XML node `<FTRDM>`). The currently defined XML
@@ -2256,7 +2256,7 @@ attributes of RDM are specified in [table 70](#user-content-table-70 ).
 
 <div id="table-70">
 
-#### Table 70. *RDM Attributes*
+#### Table 70. *FTRDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
