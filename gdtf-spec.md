@@ -2248,7 +2248,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 </div>
 
-### Fixture Type RDM Section
+### RDM Section
 
 If the device supports the RDM protocol, this section defines the
 corresponding information (XML node `<FTRDM>`). The currently defined XML
