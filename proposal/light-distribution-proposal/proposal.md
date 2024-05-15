@@ -25,7 +25,7 @@ The rules are the following:
 
 Example Simple Fixture:
 
-```
+``` xml
 <FixtureType>
     <Geometries>
         <Geometry 
@@ -59,9 +59,11 @@ Example Simple Fixture:
 </FixtureType>
 ```
 
-Example Two Beam Fixture:
+## Option A: Use Children of the Channel Set to make multi Beam assign
 
-```
+Example Two Beam Fixture: 
+
+``` xml
 <FixtureType>
     <Geometries>
         <Geometry 
@@ -110,6 +112,72 @@ Example Two Beam Fixture:
                         />
 
                     </ChannelSet>
+                </ChannelFunction>
+            </LogicalChannel>
+            </DMXChannel>
+        </DMXChannels>
+        <Relations/>
+        <FTMacros/>
+        </DMXMode>
+    </DMXModes>
+</FixtureType>
+```
+
+## Option B: Use Children of the Channel Set to make multi Beam assign
+
+
+``` xml
+<FixtureType>
+    <Geometries>
+        <Geometry 
+            Name="Base" >
+        <Axis
+            Name="Yoke" >
+            <Axis Name="Head" >
+                <Beam  Name="Beam1" LightDistribution="sample_default_file1"/>
+                <Beam  Name="Beam2" LightDistribution="sample_default_file2"/>
+            </Axis>
+        </Axis>
+        </Geometry>
+        </Geometry>
+    </Geometries>
+    <DMXModes>
+        <DMXMode Description="" Geometry="Base" Name="Mode 1">
+        <DMXChannels>
+            <DMXChannel Geometry="Yoke" >
+            <LogicalChannel >
+                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5">
+                    
+                    <ChannelSet DMXFrom="0/1" Name="Wide" />
+                    <ChannelSet DMXFrom="1/1" />
+                    <ChannelSet DMXFrom="255/1" Name="Narrow"/>
+
+                    <LightDistribution
+                        Beam="Beam1"
+                        DMXFrom="0/1" 
+                        LightDistributionFrom="sample_default_file1"
+                        LightDistributionTo="narrow_file1"
+                    />
+                    <LightDistribution
+                        Beam="Beam2"
+                        DMXFrom="0/1" 
+                        LightDistributionFrom="sample_default_file2"
+                        LightDistributionTo="narrow_file2"
+                    />
+
+                    <LightDistribution
+                        Beam="Beam1"
+                        DMXFrom="255/1"
+                        LightDistributionFrom="narrow_file1"
+                        LightDistributionTo="narrow_file1"
+                    />
+                    <LightDistribution
+                        Beam="Beam2"
+                        DMXFrom="255/1"
+                        LightDistributionFrom="narrow_file2"
+                        LightDistributionTo="narrow_file2"
+                    />
+
                 </ChannelFunction>
             </LogicalChannel>
             </DMXChannel>
