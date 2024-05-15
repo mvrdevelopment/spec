@@ -17,11 +17,15 @@ We want to add the option to define the light distribution for fixtures inside t
 We will add attribute `LightDistribution` to the Beam Geometry. This defines the default light distribution for the fixture. 
 Inside the `ChannelFunction` and the `SubChannelSet` we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. This will also define a range.
 
-When the `LightDistribution` in inside the `ChannelFunction` it applies to all Beams, while when it is in a `SubChannelSet` you can specify the beam it is for.
+When the `LightDistribution` is an attribute of the `ChannelFunction` it applies to all Beams, while when it is in a child node  you can specify the beam it is for.
+
+> **Note**
+> We are currently discussing how `LightDistribution` can be defined as child of a `ChannelFunction`
 
 The rules are the following:
 - When a Beam does not have `LightDistribution`, it will not be affected by any `LightDistribution` definition in the file (Allow LED rings to have no spectral data while the main light source have this and you still not need to use the `SubChannelSets`)
 - Only one DMX Channel can have `LightDistribution` links inside their `ChannelFunction` or `SubChannelSet`.
+
 
 Example Simple Fixture:
 
@@ -60,10 +64,10 @@ Example Simple Fixture:
 ```
 ## Multi Beam defining
 
-When a device has multiple beams, that need different Light Distribution files, we need to assign the files per Beam. This could be done either as a child of the channel function, or as a child of the channel set.
+When a device has multiple beams, that need different Light Distribution files, we need to assign the files per Beam. This could be done either as a child of the `ChannelFunction`, or as a child of the `ChannelSet`.
 
-When using the channel set, we can use the DMX ranges from the channel sets. But we are also forced to use existing structure of channel sets or even create channel set just for this propose.
-When using the channel function, we need to also define a DMX range here. The requirements for the DMX range for channel set also applies for the `<LightDistribution>` node.
+When using the `ChannelSet`, we can use the DMX ranges from the `ChannelSet`. But we are also forced to use existing structure of `ChannelSet` or even create `ChannelSet` just for this propose.
+When using the `ChannelFunction`, we need to also define a DMX range here. The requirements for the DMX range for channel set also applies for the `<LightDistribution>` node.
 
 #### Option A: Use Children of the Channel Set to make multi Beam assign
 
