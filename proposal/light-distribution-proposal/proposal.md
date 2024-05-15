@@ -15,6 +15,7 @@ We want to add the option to define the light distribution for fixtures inside t
 ### New Attribute LightDistribution
 
 We will add attribute `LightDistribution` to the Beam Geometry. This defines the default light distribution for the fixture. 
+We will add attribute `LightDistribution` to the Reference Geometry. This overwrites the default light distribution for the linked Beam. 
 Inside the `ChannelFunction` and the `SubChannelSet` we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. This will also define a range.
 
 When the `LightDistribution` is an attribute of the `ChannelFunction` it applies to all Beams, while when it is in a child node  you can specify the beam it is for.
