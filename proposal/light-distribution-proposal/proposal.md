@@ -85,12 +85,12 @@ Example Two Beam Fixture:
                     <ChannelSet DMXFrom="0/1" Name="Wide" >
                     </ChannelSet>
                     <ChannelSet DMXFrom="1/1" >
-                        <SubChannelSet
+                        <ChannelSetLightDistribution
                             Beam="Beam1"
                             LightDistributionFrom="sample_default_file1"
                             LightDistributionTo="narrow_file1"
                         />
-                        <SubChannelSet
+                        <ChannelSetLightDistribution
                             Beam="Beam2"
                             LightDistributionFrom="sample_default_file2"
                             LightDistributionTo="narrow_file2"
@@ -98,12 +98,12 @@ Example Two Beam Fixture:
 
                     </ChannelSet>
                     <ChannelSet DMXFrom="255/1" Name="Narrow">
-                        <SubChannelSet
+                        <ChannelSetLightDistribution
                             Beam="Beam1"
                             LightDistributionFrom="narrow_file1"
                             LightDistributionTo="narrow_file1"
                         />
-                        <SubChannelSet
+                        <ChannelSetLightDistribution
                             Beam="Beam2"
                             LightDistributionFrom="narrow_file2"
                             LightDistributionTo="narrow_file2"
