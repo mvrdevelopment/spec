@@ -516,7 +516,7 @@ currently defined XML attributes of the wheel slot are specified in
 
 | XML Attribute Name | Value Type | Description                                                                                                                                                                                                                                                                                                                       |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )        | The unique name of the wheel slot                                                                                                                                                                                                                                                                                                 |
+| Name               | [String](#user-content-attrtype-string )        | The unique name of the wheel slot                                                                                                                                                                                                                                                                                                 |
 | Color              | [ColorCIE](#user-content-attrtype-colorcie )   | Color of the wheel slot, Default value: {0.3127, 0.3290, 100.0 } (white) For Y give relative value compared to overall output defined in property Luminous Flux of related Beam Geometry (transmissive case).                                                                                                                     |
 | Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description; Do not define color if filter is used; Starting point: Filter Collect                                                                                                                                                                                                       |
 | MediaFileName | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
@@ -2246,7 +2246,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 | XML node                                                   | Mandatory | Description                            |
 |----|----|----|
-| [RDM](#user-content-rdm-section )                             | No        | Describes RDM information              |
+| [FTRDM](#user-content-rdm-section )                           | No        | Describes Fixture Type RDM information              |
 | [Art-Net](#user-content-art-net-section )                     | No        | Describes Art-Net information          |
 | [sACN](#user-content-streaming-acn-section )                  | No        | Describes sACN information             |
 | [PosiStageNet](#user-content-posi-stage-net-section )         | No        | Describes PosiStageNet information     |
@@ -2264,7 +2264,7 @@ attributes of RDM are specified in [table 70](#user-content-table-70 ).
 
 <div id="table-70">
 
-#### Table 70. *RDM Attributes*
+#### Table 70. *FTRDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
