@@ -58,8 +58,14 @@ Example Simple Fixture:
     </DMXModes>
 </FixtureType>
 ```
+## Multi Beam defining
 
-## Option A: Use Children of the Channel Set to make multi Beam assign
+When a device has multiple beams, that need different Light Distribution files, we need to assign the files per Beam. This could be done either as a child of the channel function, or as a child of the channel set.
+
+When using the channel set, we can use the DMX ranges from the channel sets. But we are also forced to use existing structure of channel sets or even create channel set just for this propose.
+When using the channel function, we need to also define a DMX range here. The requirements for the DMX range for channel set also applies for the `<LightDistribution>` node.
+
+#### Option A: Use Children of the Channel Set to make multi Beam assign
 
 Example Two Beam Fixture: 
 
@@ -123,7 +129,7 @@ Example Two Beam Fixture:
 </FixtureType>
 ```
 
-## Option B: Use Children of the Channel Set to make multi Beam assign
+#### Option B: Use Children of the Channel Set to make multi Beam assign
 
 
 ``` xml
