@@ -1,6 +1,11 @@
 # Tracking Proposal
 
+We will support tracking systems with new attributes. By default it is intended that the tracking info will be a child of the fixture it is for. This uses the Kinematic Chain feature from MVR.
+
 ![Kinematic Chain](./KinematicChain.png)
+
+On the control side, you can use the encoders to group the properties also of the child fixtures.
+
 ![ControlSide](./ControlSide.png)
 
 | Attribute  | Description  | What will happen in visualizers  | What the Physical Value will mean  |
