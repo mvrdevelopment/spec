@@ -1,4 +1,11 @@
+# Tracking Proposal
 
+![Kinematic Chain](./KinematicChain.png)
+![ControlSide](./ControlSide.png)
+
+| Attribute  | Description  | What will happen in visualizers  | What the Physical Value will mean  |
+|---|---|---|---|
+| TrackerID  | Defines the tracker ID that be used as a target for the fixture.   | The fixture that is the parent of the tracker fixture, will point to the tracker with the given ID.   | The Physical Value will be interpreted as an integer ID with rounding.   |
 
 
 ```xml
