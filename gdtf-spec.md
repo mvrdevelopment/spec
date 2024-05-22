@@ -2779,7 +2779,7 @@ are not enumerated. The enumeration starts with 1. Attributes names are
 considered as normalized. The upper and lower case of attribute names is
 not taken into account.
 
-```
+``` xml
    <AttributeDefinitions>  
        <ActivationGroups>  
            <ActivationGroup  Name="PanTilt" />  
@@ -2799,6 +2799,7 @@ not taken into account.
            <ActivationGroup  Name="Prism" />  
            <ActivationGroup  Name="BeamShaper" />  
            <ActivationGroup  Name="Shaper" />  
+           <ActivationGroup  Name="Tracking" />  
        </ActivationGroups>  
        <FeatureGroups>  
            <FeatureGroup  Name="Dimmer">  
@@ -2838,6 +2839,10 @@ not taken into account.
            </FeatureGroup>  
            <FeatureGroup  Name="Video">  
                <Feature  Name="Video" />  
+           </FeatureGroup>  
+           <FeatureGroup  Name="Tracking">  
+               <Feature  Name="Tracking" />  
+               <Feature  Name="TrackingControl" />  
            </FeatureGroup>  
        </FeatureGroups>  
        <Attributes>  
@@ -3179,6 +3184,23 @@ not taken into account.
            <Attribute Name="InputSource" Pretty="ISrc" Feature="Video.Video" PhysicalUnit="None" />  
            <Attribute Name="VideoBlendMode" Pretty="BlendMode" Feature="Video.Video" PhysicalUnit="None" />  
            <Attribute Name="VideoSoundVolume(n)" Pretty="Volume(n)" Feature="Video.Video" PhysicalUnit="Percent" />  
+           <Attribute Name="TrackerID" Pretty="ID" Feature="Tracking.Tracking" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerCrossFade" Pretty="Cross Fade" Feature="Tracking.Tracking" PhysicalUnit="Percent"/>  
+           <Attribute Name="TrackerTime" Pretty="Tine" Feature="Tracking.Tracking" PhysicalUnit="Time"/>  
+           <Attribute Name="TrackerOffsetX" Pretty="Offset X" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerOffsetY" Pretty="Offset Y" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerOffsetZ" Pretty="Offset Z" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerMode" Pretty="Mode" Feature="Tracking.Tracking" PhysicalUnit="None"/>  
+
+           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.TrackingControl" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.TrackingControl" PhysicalUnit="Speed"/>  
+           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.TrackingControl" PhysicalUnit="Percent"/>  
+           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.TrackingControl" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.TrackingControl" PhysicalUnit="None"/>  
+
+           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.TrackingControl" PhysicalUnit="None"/>  
+       </Attributes>  
+
        </Attributes>  
    </AttributeDefinitions>
 
@@ -3186,7 +3208,7 @@ not taken into account.
 
 Example for enumeration:
 
-```
+```xml
    <Attribute Name="Gobo1" Pretty="G1" ActivationGroup="Gobo1" Feature="Gobo.Gobo" />  
    <Attribute Name="Gobo2" Pretty="G2" ActivationGroup="Gobo2" Feature="Gobo.Gobo" />
 ```
