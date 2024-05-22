@@ -29,7 +29,7 @@ On the control side, you can use the encoders to group the properties also of th
    <AttributeDefinitions>  
        <ActivationGroups>  
            ... 
-           <ActivationGroup  Name="Shaper" />  
+           <ActivationGroup  Name="Tracking" />  
        </ActivationGroups>  
        <FeatureGroups>  
         ...
