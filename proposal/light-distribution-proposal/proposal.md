@@ -134,7 +134,7 @@ Example Two Beam Fixture:
 </FixtureType>
 ```
 
-#### Option B: Use Children of the Channel Set to make multi Beam assign
+#### Option B: Use Children of the Channel Function to make multi Beam assign
 
 
 ``` xml
