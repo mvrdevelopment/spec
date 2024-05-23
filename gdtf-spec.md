@@ -1959,7 +1959,7 @@ Where:
 
 
 As children the channel function has list of a [channel
-sets](#user-content-channel-set ) and a [sub channel
+sets](#user-content-channel-set ) and a [subchannel
 sets](#user-content-sub-channel-set ).
 
 ###### Channel Set
@@ -1985,28 +1985,28 @@ are specified in [table 61](#user-content-table-61 ).
 
 The channel set does not have any children.
 
-###### Sub Channel Set
+###### SubChannel Set
 
-This section defines the sub channel sets of the channel function (XML node
-<SubChannelSet>). The currently defined XML attributes of the sub channel set
+This section defines the subchannel sets of the channel function (XML node
+<SubChannelSet>). The currently defined XML attributes of the subchannel set
 are specified in [table 62](#user-content-table-62 ).
 
 <div id="table-62">
 
-#### Table 62. *Sub Channel Set Attributes*
+#### Table 62. *SubChannel Set Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                     |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | The name of the sub channel set. Default: Empty                                                                                                                                                                                                              |
+| Name               | [Name](#user-content-attrtype-name )         | The name of the subchannel set. Default: Empty                                                                                                                                                                                                              |
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value                                                                                                                                                                                                                                         |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value                                                                                                                                                                                                                                           |
-| SubPhysicalUnit    | [Node](#user-content-attrtype-node )         | Link to the sub physical unit; Starting Point: Attribute                                                                                                                                                                                                     |
+| SubPhysicalUnit    | [Node](#user-content-attrtype-node )         | Link to the subphysical unit; Starting Point: Attribute                                                                                                                                                                                                     |
 | DMXProfile         | [Node](#user-content-attrtype-node )         | Optional link to the DMX Profile; Starting Point: DMX Profile Collect                                                                                                                                                                                        |
 
 
 </div>
 
-The sub channel set does not have any children.
+The subchannel set does not have any children.
 
 #### Relation Collect
   
