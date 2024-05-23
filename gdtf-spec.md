@@ -2409,9 +2409,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 
 <div id="table-a1">
 
-#### Table A1. *Structure of Attribute and Subattribute*
+#### Table A1. *Structure of Attribute*
 
-| Description                      | Attribute                                                                                                                                                                                                                                                                                                 
+| Attribute                      | Description                                                                                                                                                                                                                                                                                                 
 |----------------------------------|-----------------------------| 
 | Dimmer                           | Controls the intensity of a fixture.                                                                                                                                                                                                                                                                      |
 | Pan                              | Controls the fixture's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
