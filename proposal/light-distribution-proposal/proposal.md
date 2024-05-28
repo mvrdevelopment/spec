@@ -1,4 +1,4 @@
-# Support for Spectral Distribution in MVR and GDTF
+# Support for more Photometric Data in MVR and GDTF
 
 ## Linked Issue
 
@@ -12,20 +12,20 @@ We want to add the option to define the light distribution for fixtures inside t
 
 ## GDTF
 
-### New Attribute LightDistribution
+### New Attribute Photometric
 
-We will add attribute `LightDistribution` to the Beam Geometry. This defines the default light distribution for the fixture. 
-We will add attribute `LightDistribution` to the Reference Geometry. This overwrites the default light distribution for the linked Beam. 
+We will add attribute `Photometric` to the Beam Geometry. This defines the default light distribution for the fixture. 
+We will add attribute `Photometric` to the Reference Geometry. This overwrites the default light distribution for the linked Beam. 
 Inside the `ChannelFunction` and the `SubChannelSet` we also will add this this attribute, so that the fixture can change the behavior depending on the current status of the fixture. This will also define a range.
 
-When the `LightDistribution` is an attribute of the `ChannelFunction` it applies to all Beams, while when it is in a child node  you can specify the beam it is for.
+When the `Photometric` is an attribute of the `ChannelFunction` it applies to all Beams, while when it is in a child node  you can specify the beam it is for.
 
 > **Note**
-> We are currently discussing how `LightDistribution` can be defined as child of a `ChannelFunction`
+> We are currently discussing how `Photometric` can be defined as child of a `ChannelFunction`
 
 The rules are the following:
-- When a Beam does not have `LightDistribution`, it will not be affected by any `LightDistribution` definition in the file (Allow LED rings to have no spectral data while the main light source have this and you still not need to use the `SubChannelSets`)
-- Only one DMX Channel can have `LightDistribution` links inside their `ChannelFunction` or `SubChannelSet`.
+- When a Beam does not have `Photometric`, it will not be affected by any `Photometric` definition in the file (Allow LED rings to have no spectral data while the main light source have this and you still not need to use the `SubChannelSets`)
+- Only one DMX Channel can have `Photometric` links inside their `ChannelFunction` or `SubChannelSet`.
 
 
 Example Simple Fixture:
@@ -38,7 +38,7 @@ Example Simple Fixture:
         <Axis
             Name="Yoke" >
             <Axis Name="Head" >
-                <Beam  Name="Beam" LightDistribution="sample_default_file"/>
+                <Beam  Name="Beam" Photometric="sample_default_file"/>
             </Axis>
         </Axis>
         </Geometry>
@@ -49,7 +49,7 @@ Example Simple Fixture:
         <DMXChannels>
             <DMXChannel Geometry="Beam" >
             <LogicalChannel >
-                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5" LightDistributionFrom="sample_default_file" LightDistributionTo="narrow_file"/>
+                <ChannelFunction Attribute="Zoom" DMXFrom="0/1" Name="Zoom 1" PhysicalFrom="45" PhysicalTo="5" PhotometricFrom="sample_default_file" PhotometricTo="narrow_file"/>
                     <ChannelSet DMXFrom="0/1" Name="Wide" />
                     <ChannelSet DMXFrom="1/1" />
                     <ChannelSet DMXFrom="255/1"/>
@@ -65,10 +65,10 @@ Example Simple Fixture:
 ```
 ## Multi Beam defining
 
-When a device has multiple beams, that need different Light Distribution files, we need to assign the files per Beam. This could be done either as a child of the `ChannelFunction`, or as a child of the `ChannelSet`.
+When a device has multiple beams, that need different Photometric files, we need to assign the files per Beam. This could be done either as a child of the `ChannelFunction`, or as a child of the `ChannelSet`.
 
 When using the `ChannelSet`, we can use the DMX ranges from the `ChannelSet`. But we are also forced to use existing structure of `ChannelSet` or even create `ChannelSet` just for this propose.
-When using the `ChannelFunction`, we need to also define a DMX range here. The requirements for the DMX range for channel set also applies for the `<LightDistribution>` node.
+When using the `ChannelFunction`, we need to also define a DMX range here. The requirements for the DMX range for channel set also applies for the `<Photometric>` node.
 
 #### Option A: Use Children of the Channel Set to make multi Beam assign
 
@@ -82,8 +82,8 @@ Example Two Beam Fixture:
         <Axis
             Name="Yoke" >
             <Axis Name="Head" >
-                <Beam  Name="Beam1" LightDistribution="sample_default_file1"/>
-                <Beam  Name="Beam2" LightDistribution="sample_default_file2"/>
+                <Beam  Name="Beam1" Photometric="sample_default_file1"/>
+                <Beam  Name="Beam2" Photometric="sample_default_file2"/>
             </Axis>
         </Axis>
         </Geometry>
@@ -98,28 +98,28 @@ Example Two Beam Fixture:
                     <ChannelSet DMXFrom="0/1" Name="Wide" >
                     </ChannelSet>
                     <ChannelSet DMXFrom="1/1" >
-                        <ChannelSetLightDistribution
+                        <ChannelSetPhotometric
                             Beam="Beam1"
-                            LightDistributionFrom="sample_default_file1"
-                            LightDistributionTo="narrow_file1"
+                            PhotometricFrom="sample_default_file1"
+                            PhotometricTo="narrow_file1"
                         />
-                        <ChannelSetLightDistribution
+                        <ChannelSetPhotometric
                             Beam="Beam2"
-                            LightDistributionFrom="sample_default_file2"
-                            LightDistributionTo="narrow_file2"
+                            PhotometricFrom="sample_default_file2"
+                            PhotometricTo="narrow_file2"
                         />
 
                     </ChannelSet>
                     <ChannelSet DMXFrom="255/1" Name="Narrow">
-                        <ChannelSetLightDistribution
+                        <ChannelSetPhotometric
                             Beam="Beam1"
-                            LightDistributionFrom="narrow_file1"
-                            LightDistributionTo="narrow_file1"
+                            PhotometricFrom="narrow_file1"
+                            PhotometricTo="narrow_file1"
                         />
-                        <ChannelSetLightDistribution
+                        <ChannelSetPhotometric
                             Beam="Beam2"
-                            LightDistributionFrom="narrow_file2"
-                            LightDistributionTo="narrow_file2"
+                            PhotometricFrom="narrow_file2"
+                            PhotometricTo="narrow_file2"
                         />
 
                     </ChannelSet>
@@ -145,8 +145,8 @@ Example Two Beam Fixture:
         <Axis
             Name="Yoke" >
             <Axis Name="Head" >
-                <Beam  Name="Beam1" LightDistribution="sample_default_file1"/>
-                <Beam  Name="Beam2" LightDistribution="sample_default_file2"/>
+                <Beam  Name="Beam1" Photometric="sample_default_file1"/>
+                <Beam  Name="Beam2" Photometric="sample_default_file2"/>
             </Axis>
         </Axis>
         </Geometry>
@@ -163,30 +163,30 @@ Example Two Beam Fixture:
                     <ChannelSet DMXFrom="1/1" />
                     <ChannelSet DMXFrom="255/1" Name="Narrow"/>
 
-                    <LightDistribution
+                    <PhotometricSet
                         Beam="Beam1"
                         DMXFrom="0/1" 
-                        LightDistributionFrom="sample_default_file1"
-                        LightDistributionTo="narrow_file1"
+                        PhotometricFrom="sample_default_file1"
+                        PhotometricTo="narrow_file1"
                     />
-                    <LightDistribution
+                    <PhotometricSet
                         Beam="Beam2"
                         DMXFrom="0/1" 
-                        LightDistributionFrom="sample_default_file2"
-                        LightDistributionTo="narrow_file2"
+                        PhotometricFrom="sample_default_file2"
+                        PhotometricTo="narrow_file2"
                     />
 
-                    <LightDistribution
+                    <PhotometricSet
                         Beam="Beam1"
                         DMXFrom="255/1"
-                        LightDistributionFrom="narrow_file1"
-                        LightDistributionTo="narrow_file1"
+                        PhotometricFrom="narrow_file1"
+                        PhotometricTo="narrow_file1"
                     />
-                    <LightDistribution
+                    <PhotometricSet
                         Beam="Beam2"
                         DMXFrom="255/1"
-                        LightDistributionFrom="narrow_file2"
-                        LightDistributionTo="narrow_file2"
+                        PhotometricFrom="narrow_file2"
+                        PhotometricTo="narrow_file2"
                     />
 
                 </ChannelFunction>
