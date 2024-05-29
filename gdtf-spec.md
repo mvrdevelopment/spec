@@ -165,8 +165,8 @@ all firmware revisions of the device.
 ./models/svg_side/yoke.svg
 ./models/svg_front/base.svg
 ./models/svg_front/yoke.svg
-./light_distribution/lamp1.IES
-./light_distribution/lamp1.ldt
+./photometric/lamp1.ies
+./photometric/lamp1.ldt
 
 ```
 
@@ -1388,7 +1388,7 @@ the Beam are specified in [table 41](#user-content-table-41 ).
 | BeamType            | [Enum](#user-content-attrtype-enum )     | Beam Type; Specified values: "Wash", "Spot", "None", "Rectangle", "PC", "Fresnel", "Glow". Default value "Wash"
 | ColorRenderingIndex | [Uint](#user-content-attrtype-uint )     | The CRI according to TM-30 is a quantitative measure of the ability of the light source showing the object color naturally as it does as daylight reference. Size 1 byte. Default value 100.                                                                                                                                                                                                                                                                                                                                                             |
 | EmitterSpectrum     | [Node](#user-content-attrtype-node )     | Optional link to emitter in the physical description; use this to define the white light source of a subtractive color mixing system or the color for the beam when no color mixing is defined. Starting point: Emitter Collect; Default spectrum is a Black-Body with the defined ColorTemperature.                                                                                                                                                                                                                                                                                                                                                                   |
-| LightDistribution     | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./light_distribution/`.                                                                                                                                                                                                                                                                                                                                                                |
+| Photometric     | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./photometric/`.                                                                                                                                                                                                                                                                                                                                                                |
 
 </div>
 
@@ -1585,7 +1585,7 @@ for these geometries.
 | Position           | [Matrix](#user-content-attrtype-matrix ) | Relative position of geometry; Default value: Identity Matrix                                                                                                                                                                                                                                              |
 | Geometry           | [Name](#user-content-attrtype-name )     | Name of the referenced geometry. Only top level geometries are allowed to be referenced.                                                                                                                                                                                                                   |
 | Model              | [Name](#user-content-attrtype-name )     | Optional. Link to the corresponding model. The model only replaces the model of the parent of the referenced geometry. The models of the children of the referenced geometry are not affected. The starting point is Models Collect. If model is not set, the model is taken from the referenced geometry. |
-| LightDistribution              | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./light_distribution/`.   The LightDistribution only replaces the LightDistribution of the parent of the referenced geometry. The LightDistribution of the children of the referenced geometry are not affected. The starting point is Models Collect. If LightDistribution is not set, the LightDistribution is taken from the referenced geometry. |
+| Photometric              | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./photometric/`.   The Photometric only replaces the Photometric of the parent of the referenced geometry. The Photometric of the children of the referenced geometry are not affected. The starting point is Models Collect. If Photometric is not set, the Photometric is taken from the referenced geometry. |
 
 
 </div>
@@ -1944,8 +1944,8 @@ currently defined XML attributes of channel function are specified in
 | Min                | [Float](#user-content-attrtype-float )       | Minimum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalFrom                                                                |
 | Max                | [Float](#user-content-attrtype-float )       | Maximum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalTo                                                                  |
 | CustomName         | [String](#user-content-attrtype-string )     | Custom Name that can he used do adress this channel function with other command based protocols like OSC. Default: Node Name of the Channel function Example: Head_Dimmer.Dimmer.Dimmer   |
-| LightDistributionFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Function for all Beams of the fixture. |
-| LightDistributionTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Function for all Beams of the fixture. |
+| PhotometricFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Function for all Beams of the fixture. |
+| PhotometricTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Function for all Beams of the fixture. |
 
 
 
