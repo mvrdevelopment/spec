@@ -2009,8 +2009,6 @@ are specified in [table 62](#user-content-table-62 ).
 | SubPhysicalUnit    | [Node](#user-content-attrtype-node )         | Link to the sub physical unit; Starting Point: Attribute |
 | DMXProfile         | [Node](#user-content-attrtype-node )         | Optional link to the DMX Profile; Starting Point: DMX Profile Collect |
 | Beam         | [Name](#user-content-attrtype-name )         | Optional link to the Beam Geometry this is for |
-| LightDistributionFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start of this range. |
-| LightDistributionTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end of this range. |
 
 
 </div>
