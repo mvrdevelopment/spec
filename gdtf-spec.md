@@ -2015,6 +2015,29 @@ are specified in [table 62](#user-content-table-62 ).
 
 The sub channel set does not have any children.
 
+###### PhotometricSet
+
+This section defines the PhotometricSets of the channel function (XML node
+<PhotometricSet>). The currently defined XML attributes of the PhotometricSet
+are specified in [table 62](#user-content-table-62 ).
+
+<div id="table-62">
+
+#### Table 62. *PhotometricSet Attributes*
+
+| XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                     |
+|----|----|----|
+| Beam         | [Name](#user-content-attrtype-name )         | Optional link to the Beam Geometry this is for |
+| DMXFrom            | [DMXValue](#user-content-attrtype-dmxvalue ) | Start DMX value; The end DMX value is calculated as a DMXFrom of the next PhotometricSet – 1 or the maximum value of the current channel function; Default value: 0/1                      |
+| PhotometricFrom       | [Node](#user-content-attrtype-node)       | Photometric start value to start interpolating to. function.                                                                                               |
+| PhotometricTo         | [Node](#user-content-attrtype-node)       | Photometric end value.  function.                                                                                                   |
+
+
+</div>
+
+The PhotometricSet does not have any children.
+
+
 #### Relation Collect
   
 ##### General
