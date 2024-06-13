@@ -24,7 +24,7 @@ When the `Photometric` is an attribute of the `ChannelFunction` it applies to al
 > We are currently discussing how `Photometric` can be defined as child of a `ChannelFunction`
 
 The rules are the following:
-- When a Beam does not have `Photometric`, it will not be affected by any `Photometric` definition in the file (Allow LED rings to have no spectral data while the main light source have this and you still not need to use the `SubChannelSets`)
+- When a Beam does not have `Photometric`, it will not be affected by any `Photometric` definition in the file (Allow LED rings to have no photometric while the main light source have this and you still not need to use the `SubChannelSets`)
 - Only one DMX Channel can have `Photometric` links inside their `ChannelFunction` or `SubChannelSet`.
 
 
