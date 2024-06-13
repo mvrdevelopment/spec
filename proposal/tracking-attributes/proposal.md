@@ -35,7 +35,7 @@ On the control side, you can use the encoders to group the properties also of th
         ...
            <FeatureGroup  Name="Tracking">  
                <Feature  Name="Tracking" />  
-               <Feature  Name="TrackingControl" />  
+               <Feature  Name="Actor" />  
            </FeatureGroup>  
        </FeatureGroups>  
        <Attributes>  

@@ -2737,7 +2737,8 @@ not taken into account.
            </FeatureGroup>  
            <FeatureGroup  Name="Tracking">  
                <Feature  Name="Fixture" />  
-               <Feature  Name="TrackingControl" />  
+               <Feature  Name="Actor" />  
+               <Feature  Name="Control" />  
            </FeatureGroup>  
        </FeatureGroups>  
        <Attributes>  
@@ -3087,13 +3088,13 @@ not taken into account.
            <Attribute Name="TrackerOffsetZ" Pretty="Offset Z" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
            <Attribute Name="TrackerMode" Pretty="Mode" Feature="Tracking.Fixture" PhysicalUnit="None"/>  
 
-           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.FixtureControl" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.FixtureControl" PhysicalUnit="Speed"/>  
-           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.FixtureControl" PhysicalUnit="Percent"/>  
-           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.FixtureControl" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.FixtureControl" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.Actor" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.Actor" PhysicalUnit="Speed"/>  
+           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.Actor" PhysicalUnit="Percent"/>  
+           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.Actor" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.Actor" PhysicalUnit="None"/>  
 
-           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.FixtureControl" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.Control" PhysicalUnit="None"/>  
        </Attributes>  
 
        </Attributes>  
