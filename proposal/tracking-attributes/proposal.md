@@ -39,21 +39,21 @@ On the control side, you can use the encoders to group the properties also of th
            </FeatureGroup>  
        </FeatureGroups>  
        <Attributes>  
-           <Attribute Name="TrackerID" Pretty="ID" Feature="Tracking.Tracking" PhysicalUnit="None"/>  
-           <Attribute Name="TrackerCrossFade" Pretty="Cross Fade" Feature="Tracking.Tracking" PhysicalUnit="Percent"/>  
-           <Attribute Name="TrackerTime" Pretty="Tine" Feature="Tracking.Tracking" PhysicalUnit="Time"/>  
-           <Attribute Name="TrackerOffsetX" Pretty="Offset X" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerOffsetY" Pretty="Offset Y" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerOffsetZ" Pretty="Offset Z" Feature="Tracking.Tracking" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerMode" Pretty="Mode" Feature="Tracking.Tracking" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerID" Pretty="ID" Feature="Tracking.Fixture" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerCrossFade" Pretty="Cross Fade" Feature="Tracking.Fixture" PhysicalUnit="Percent"/>  
+           <Attribute Name="TrackerTime" Pretty="Tine" Feature="Tracking.Fixture" PhysicalUnit="Time"/>  
+           <Attribute Name="TrackerOffsetX" Pretty="Offset X" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerOffsetY" Pretty="Offset Y" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerOffsetZ" Pretty="Offset Z" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerMode" Pretty="Mode" Feature="Tracking.Fixture" PhysicalUnit="None"/>  
 
-           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.TrackingControl" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.TrackingControl" PhysicalUnit="Speed"/>  
-           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.TrackingControl" PhysicalUnit="Percent"/>  
-           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.TrackingControl" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.TrackingControl" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.FixtureControl" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.FixtureControl" PhysicalUnit="Speed"/>  
+           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.FixtureControl" PhysicalUnit="Percent"/>  
+           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.FixtureControl" PhysicalUnit="Length"/>  
+           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.FixtureControl" PhysicalUnit="None"/>  
 
-           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.TrackingControl" PhysicalUnit="None"/>  
+           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.FixtureControl" PhysicalUnit="None"/>  
        </Attributes>  
    </AttributeDefinitions>
 ```
