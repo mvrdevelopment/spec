@@ -54,6 +54,7 @@ WASM is currently shipped in Firefox, Chrome, Safari and Edge.
 
 ## Option 2 - Shader language
 
+An other option is to use shader languages like glsl. 
 
 
 ## Questions
