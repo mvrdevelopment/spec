@@ -1565,7 +1565,7 @@ The protocol doesn't have any children.
 #### General
 
 The Geometry Type Reference is used to describe multiple instances of
-the same geometry. Example: LED panel with multiple pixels. (XML node ).
+the same geometry. Example: LED panel with multiple pixels. (XML node `<GeometryReference>`).
 The currently defined XML attributes of reference are specified in
 [table 48](#user-content-table-48). 
 
