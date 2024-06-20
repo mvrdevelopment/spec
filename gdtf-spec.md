@@ -3221,6 +3221,7 @@ Table D.1 table shows the predefined connector types.
 
 | Type             | Description                |
 | ---------------- | -------------------------- |
+| Bare End         | Bare Ends cable            |
 | BNC              | BNC connector              |
 | TBLK             | Tag block                  |
 | TAG              | Solder tag                 |
