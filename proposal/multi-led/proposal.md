@@ -22,7 +22,7 @@ This proposal wants to add an approach to allow to define this behavior in such 
 
 ## Solution
 
-## Virtual Channel Functions
+## Generator Modules
 
 The idea that was produced back in 2022 was to add an API to GDTF, that allows to add additional `ChannelFunctions` to the GDTF and then control them via code. 
 
@@ -34,9 +34,9 @@ In order for this to work the following assumptions have been made:
 1. You need to expose the DMX Data to the code of the fixture (When there are other protocolls that control the device, these also needs to be given.)
 1. The geometry tree of the fixture can not be changed, and every Beam Geometry or other geometry that will be changed already needs to be there. 
 
-The basic idea of the proposal is that first, the normal calculation of the `ChannelFunctions` of the GDTF, the *virtual* `ChannelFunctions` created by the interface will also be applied to the Geometries of the GDTF.
+The basic idea of the proposal is that first, the normal calculation of the `ChannelFunctions` of the GDTF, the `Generator Modules` also defines Attributes and physical values applied to the Geometries of the GDTF.
 
-To entertain this idea you need some kind of code execution. There are currently two proposals
+To entertain this idea you need some kind of code execution. There are currently two proposals:
 
 ## Option 1 - WASM / LLVM Code
 
@@ -58,4 +58,4 @@ An other option is to use shader languages like glsl.
 
 
 ## Questions
-- When using a code approach, we need to think about a way to debug. M
+- When using a code approach, we need to think about a way to debug.
