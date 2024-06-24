@@ -36,6 +36,8 @@ In order for this to work the following assumptions have been made:
 
 The basic idea of the proposal is that first, the normal calculation of the `ChannelFunctions` of the GDTF, the `Generator Modules` also defines Attributes and physical values applied to the Geometries of the GDTF.
 
+The process of this is explained in *Appendix A - Display of the Channel Functions and Generator modules*
+
 To entertain this idea you need some kind of code execution. There are currently two proposals:
 
 ## Option 1 - WASM / LLVM Code
@@ -59,3 +61,44 @@ An other option is to use shader languages like glsl.
 
 ## Questions
 - When using a code approach, we need to think about a way to debug.
+
+
+### Appendix A - Display of the Channel Functions and Generator modules
+
+The following images show how Channel functions and Generator modules interact.
+
+## Understanding Channel Functions
+
+In GDTF, with Channel Functions you can control the physical data of geometries. The parent DMX Channel is linked to a geometry of the fixture. This ensures that only one Channel Functions inside the DMX Mode is controlling a Attribute for one given Geometry.
+
+The physical From and To are now used to calculate the resulting physical value for the linked geometry.
+
+![!1_ChannelFunctions](1_ChannelFunctions.png)
+
+An important part of this concept is the tickling down principle. So when you assign a physical value to a geometry, all child geometries of this also take over this value.
+
+So when you set the head to the color red, all child geometries will also be considered to be red, unless another channel functions overwrites this value.
+
+![!2_TickleDown](2_TickleDown.png)
+
+This scheme works well for direct controlled fixtures, so where the is one control per pixel / feature.
+
+But for example Macro Channels or multi LED fixtures do not follow this approach and are therefor hard to visualize.
+
+For LED Fixtures, there is often a concept of a foreground and background color for LED pixels. This do not will well into the controlling approach described above, as the assigning to for a pixel to be part of foreground / background can change over time. The normal parenting approach from GDTF here is not enough to fully describe this.
+
+We want to overcome this with Generator Modules. This are parts of the system that calculate the physical values for geometries.
+
+First the default calculation with the channel function is done. Then the generator modules will be calculated.
+
+The input of the generator module can be:
+- DMX Data
+- Audio Data
+- Time Point
+- Other protocols
+- ... (Any other signal that as impact on the functionality of the fixture)
+
+
+![!3_GeneratorIdea](3_GeneratorIdea.png)
+
+The output if the Generator module, are multiple new physical values for given geometries that need to be visualized.
