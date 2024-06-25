@@ -59,6 +59,15 @@ WASM is currently shipped in Firefox, Chrome, Safari and Edge.
 An other option is to use shader languages like glsl. 
 
 
+## Option 3 - Network approach
+
+The generator could be a network protocol. Manufacturers could provide an App, or even just an web service that hosts the generators. The visualizer makes a network request to the generator.
+
+The main advantage is that the actual technology used by the manufacturer is up to him self. We only define an interface.
+
+In this case the generator code would also not be part of the GDTF file. 
+
+
 ## Questions
 - When using a code approach, we need to think about a way to debug.
 
