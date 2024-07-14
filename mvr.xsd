@@ -135,7 +135,7 @@
       <xs:element name="CustomCommands" type="CustomCommands" minOccurs="0"/>
       <xs:element name="Overwrites" type="Overwrites" minOccurs="0"/>
       <xs:element name="Connections" type="Connections" minOccurs="0"/>
-      <xs:element name="CIEColor" type="ciecolortype" minOccurs="0" />
+      <xs:element name="Color" type="ciecolortype" minOccurs="0" />
       <xs:element name="CustomIdType" type="xs:integer" minOccurs="0" />
       <xs:element name="CustomId" type="xs:integer" minOccurs="0" />      
       <xs:element name="Mappings" type="Mappings" minOccurs="0" />
