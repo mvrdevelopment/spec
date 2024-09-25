@@ -80,6 +80,9 @@ amendments) applies.
 
 - OpenSoundControl http://opensoundcontrol.org/index.html
 
+- IEC 60529 Degrees of protection provided by enclosures (IP Code)
+
+
 
 ## Terms and definitions
 
@@ -969,10 +972,20 @@ The connector does not have any children.
 #### General
 
 This section defines the general properties of the device type (XML node
-`<Properties>`). The Properties Collect currently does not have any XML
-attributes. The currently defined children nodes of properties collect
-are specified in [table 28](#user-content-table-28 ).
+`<Properties>`).
 
+The currently defined XML attributes of the
+Properties are specified in [table 29](#user-content-table-29 ).
+
+| XML Attribute Name | Value Type                          | Description                                                                 |
+|----|----|----|
+| IPRating    | [String](#user-content-attrtype-string )         | IP Rating of the device of the format of IEC 60529. Example: IP65  |
+| DistanceToFlammable       | [Float](#user-content-attrtype-float )    | Minimal distance in meter from flammable objects; Default value: 0   |
+| DistanceToIlluminated       | [Float](#user-content-attrtype-float )    | Minimal distance in meter from other objects; Default value: 0   |
+
+
+The currently defined children nodes of properties collect
+are specified in [table 28](#user-content-table-28 ).
 <div id="table-28">
 
 #### Table 28. *Properties Collect*
