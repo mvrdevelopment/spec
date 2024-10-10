@@ -537,9 +537,9 @@ from the order of a wheel's slots. The wheel slot index is normalized to
 1.
 
 If the wheel slot describes a prism, it has to have one or several children
-called [Prism Facet](#user-content-prism-facet ). If the wheel slot describes an
-AnimationWheel, it has to have one child called [Animation
-Wheel](#user-content-animation-wheel ).
+called [Prism Facet](#user-content-prism-facet ). If the wheel slot describes
+an AnimationSystem it has to have one child called
+[AnimationSystem](#user-content-animation-system).
 
 The [attribute](#annex-a-normative-attribute-definitions) of a parent channel
 function of the linked channel set defines which XML attributes of a wheel slot
