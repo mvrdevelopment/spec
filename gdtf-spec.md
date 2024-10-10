@@ -551,7 +551,7 @@ should be utilized and in what order of importance:
 | Gobo(n)               | MediaFileName                                             |
 | Prism(n)              | Facet                                                     |
 | AnimationWheel(n)     | MediaFileName                                             |
-| AnimationSystem(n)    | AnimationSystem                                           |
+| AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
 | MediaContent(n)       | MediaFileName                                             |
 
 
