@@ -546,7 +546,7 @@ function of the linked channel set defines which XML attributes of a wheel slot
 should be utilized and in what order of importance:
 
 | GDTF Attribute Name | Utilized XML attribute                                      |
-|----|----|----|
+|----|----|
 | Color(n)              | MediaFileName, Filter, Color                              |
 | Gobo(n)               | MediaFileName                                             |
 | Prism(n)              | Facet                                                     |
