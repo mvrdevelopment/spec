@@ -543,17 +543,27 @@ level. These unvalidated properties are:
   </xs:complexType>
   <!-- Laser Geometry -->
   <xs:complexType name="Laser">
-  	<xs:attribute name="ColorType" type="LaserColorType"
-  		default="RGB" use="optional"/>
-  	<xs:attribute name="Color" type="xs:float" use="optional"/>
-  	<xs:attribute name="OutputStrength" type="xs:float" use="optional"/>
-  	<xs:attribute name="Emitter" type="nodetype" use="optional"/>
-  	<xs:attribute name="BeamDiameter" type="xs:float" use="optional"/>
-  	<xs:attribute name="BeamDivergenceMin" type="xs:float" use="optional"/>
-  	<xs:attribute name="BeamDivergenceMax" type="xs:float" use="optional"/>
-  	<xs:attribute name="ScanAnglePan" type="xs:float" use="optional"/>
-  	<xs:attribute name="ScanAngleTilt" type="xs:float" use="optional"/>
-  	<xs:attribute name="ScanSpeed" type="xs:float" use="optional"/>
+    <xs:complexContent>
+      <xs:extension base="BasicGeometryAttributes">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Protocol" type="Protocol"/>
+        </xs:sequence>
+        <xs:attribute name="ColorType" type="LaserColorType"
+          default="RGB" use="optional"/>
+        <xs:attribute name="Color" type="xs:float" use="optional"/>
+        <xs:attribute name="OutputStrength" type="xs:float" use="optional"/>
+        <xs:attribute name="Emitter" type="nodetype" use="optional"/>
+        <xs:attribute name="BeamDiameter" type="xs:float" use="optional"/>
+        <xs:attribute name="BeamDivergenceMin" type="xs:float" use="optional"/>
+        <xs:attribute name="BeamDivergenceMax" type="xs:float" use="optional"/>
+        <xs:attribute name="ScanAnglePan" type="xs:float" use="optional"/>
+        <xs:attribute name="ScanAngleTilt" type="xs:float" use="optional"/>
+        <xs:attribute name="ScanSpeed" type="xs:float" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+   <xs:complexType name="Protocol">
+    <xs:attribute name="Name" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="GeometryReference">
     <xs:complexContent>
