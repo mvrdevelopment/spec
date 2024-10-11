@@ -603,38 +603,46 @@ level. These unvalidated properties are:
   </xs:complexType>
   <!-- Inventory Geometry -->
   <xs:complexType name="Inventory">
-  	<xs:attribute name="Count" type="xs:int"/>
+    <xs:complexContent>
+      <xs:extension base="BasicGeometryAttributes">
+        <xs:attribute name="Count" type="xs:int"/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <!-- Structure Geometry -->
   <xs:complexType name="Structure">
     <xs:complexContent>
       <xs:extension base="BasicGeometryAttributes">
-  	     <xs:attribute name="LinkedGeometry" type="nametype" use="optional"/>
-  	     <xs:attribute name="StructureType" type="StructureType" use="optional"/>
-  	     <xs:attribute name="CrossSectionType " type="CrossSectionType" use="optional"/>
-  	     <xs:attribute name="CrossSectionHeight" type="xs:float" use="optional"/>
-  	     <xs:attribute name="CrossSectionWallThickness" type="xs:float" use="optional"/>
-  	     <xs:attribute name="TrussCrossSection" type="xs:string" use="optional"/>
+        <xs:attribute name="LinkedGeometry" type="nametype" use="optional"/>
+        <xs:attribute name="StructureType" type="StructureType" use="optional"/>
+        <xs:attribute name="CrossSectionType " type="CrossSectionType" use="optional"/>
+        <xs:attribute name="CrossSectionHeight" type="xs:float" use="optional"/>
+        <xs:attribute name="CrossSectionWallThickness" type="xs:float" use="optional"/>
+        <xs:attribute name="TrussCrossSection" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <!-- Support Geometry -->
   <xs:complexType name="Support">
-  	<xs:attribute name="SupportType " type="SupportType" use="optional"/>
-  	<xs:attribute name="RopeCrossSection" type="xs:string" use="optional"/>
-  	<xs:attribute name="RopeOffset" type="xs:string" use="optional"/>
-  	<xs:attribute name="CapacityX" type="xs:float" use="optional"/>
-  	<xs:attribute name="CapacityY" type="xs:float" use="optional"/>
-  	<xs:attribute name="CapacityZ" type="xs:float" use="optional"/>
-  	<xs:attribute name="CapacityXX" type="xs:float" use="optional"/>
-  	<xs:attribute name="CapacityYY" type="xs:float" use="optional"/>
-  	<xs:attribute name="CapacityZZ" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceX" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceY" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceZ" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceXX" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceYY" type="xs:float" use="optional"/>
-  	<xs:attribute name="ResistanceZZ" type="xs:float" use="optional"/>
+    <xs:complexContent>
+      <xs:extension base="BasicGeometryAttributes">
+        <xs:attribute name="SupportType " type="SupportType" use="optional"/>
+        <xs:attribute name="RopeCrossSection" type="xs:string" use="optional"/>
+        <xs:attribute name="RopeOffset" type="xs:string" use="optional"/>
+        <xs:attribute name="CapacityX" type="xs:float" use="optional"/>
+        <xs:attribute name="CapacityY" type="xs:float" use="optional"/>
+        <xs:attribute name="CapacityZ" type="xs:float" use="optional"/>
+        <xs:attribute name="CapacityXX" type="xs:float" use="optional"/>
+        <xs:attribute name="CapacityYY" type="xs:float" use="optional"/>
+        <xs:attribute name="CapacityZZ" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceX" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceY" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceZ" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceXX" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceYY" type="xs:float" use="optional"/>
+        <xs:attribute name="ResistanceZZ" type="xs:float" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <!-- DMXModes -->
   <xs:complexType name="DMXModes">
