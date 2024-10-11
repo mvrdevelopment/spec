@@ -32,12 +32,12 @@ level. These unvalidated properties are:
       <xs:sequence>
         <xs:element name="FixtureType" type="FixtureType">
           <xs:keyref name="AttributeKeyReference" refer="UniqueAttribute">
-            <xs:selector xpath=".//LogicalChannel|.//ChannelFunction" />
-            <xs:field xpath="@Attribute" />
+            <xs:selector xpath=".//LogicalChannel|.//ChannelFunction"/>
+            <xs:field xpath="@Attribute"/>
           </xs:keyref>
           <xs:keyref name="FilterKeyReference" refer="UniqueFilter">
-            <xs:selector xpath="Wheels/Wheel/Slot|DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction" />
-            <xs:field xpath="@Filter" />
+            <xs:selector xpath="Wheels/Wheel/Slot|DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+            <xs:field xpath="@Filter"/>
           </xs:keyref>
           <xs:keyref name="ModelKeyReference" refer="UniqueModel">
             <xs:selector xpath=".//Geometry|.//Axis|.//FilterBeam|.//FilterColor|.//FilterGobo|.//FilterShaper|
@@ -73,63 +73,63 @@ level. These unvalidated properties are:
   			type="AttributeDefinitions">
   			<xs:keyref name="ActivationGroupReference"
   				refer="UniqueActivationGroup">
-  				<xs:selector xpath="Attributes/Attribute" />
-  				<xs:field xpath="@ActivationGroup" />
+  				<xs:selector xpath="Attributes/Attribute"/>
+  				<xs:field xpath="@ActivationGroup"/>
   			</xs:keyref>
   		</xs:element>
   		<xs:element minOccurs="0" maxOccurs="1" name="Wheels" type="Wheels">
   			<xs:unique name="UniqueWheelName">
-  				<xs:selector xpath="Wheel" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="Wheel"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   		<xs:element minOccurs="0" maxOccurs="1" name="PhysicalDescriptions"
   			type="PhysicalDescriptions">
   			<xs:keyref name="ConnectorKeyReference"
   				refer="UniqueConnector">
-  				<xs:selector xpath="Properties/PowerConsumption" />
-  				<xs:field xpath="@Connector"></xs:field>
+  				<xs:selector xpath="Properties/PowerConsumption"/>
+  				<xs:field xpath="@Connector"/>
   			</xs:keyref>
   		</xs:element>
   		<xs:element minOccurs="0" maxOccurs="1" name="Models" type="Models">
   			<xs:unique name="UniqueModel">
-  				<xs:selector xpath="Model" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="Model"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   		<xs:element minOccurs="1" maxOccurs="1" name="Geometries"
   			type="Geometries">
   			<xs:unique name="UniqueGeometries">
-  				<xs:selector xpath=".//*" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath=".//*"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   			<xs:unique name="UniqueTopLevelGeometries">
-  				<xs:selector xpath="*" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="*"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   		<xs:element minOccurs="1" maxOccurs="1" name="DMXModes" type="DMXModes">
   			<xs:unique name="UniqueDMXModeName">
-  				<xs:selector xpath="DMXMode" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="DMXMode"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
-  		<xs:element minOccurs="0" maxOccurs="1" name="Revisions" type="Revisions" />
-  		<xs:element minOccurs="0" maxOccurs="1" name="FTPresets" type="FTPresets" />
-  		<xs:element minOccurs="0" maxOccurs="1" name="Protocols" type="Protocols" />
+  		<xs:element minOccurs="0" maxOccurs="1" name="Revisions" type="Revisions"/>
+  		<xs:element minOccurs="0" maxOccurs="1" name="FTPresets" type="FTPresets"/>
+  		<xs:element minOccurs="0" maxOccurs="1" name="Protocols" type="Protocols"/>
   	</xs:sequence>
-  	<xs:attribute name="Name" type="nametype" use="required" />
-  	<xs:attribute name="ShortName" type="xs:string" use="optional" />
-  	<xs:attribute name="LongName" type="xs:string" use="optional" />
-  	<xs:attribute name="Manufacturer" type="xs:string" use="required" />
-  	<xs:attribute name="Description" type="xs:string" use="required" />
-  	<xs:attribute name="FixtureTypeID" type="guidtype" use="required" />
-  	<xs:attribute name="Thumbnail" type="xs:string" use="optional" />
+  	<xs:attribute name="Name" type="nametype" use="required"/>
+  	<xs:attribute name="ShortName" type="xs:string"/>
+  	<xs:attribute name="LongName" type="xs:string"/>
+  	<xs:attribute name="Manufacturer" type="xs:string" use="required"/>
+  	<xs:attribute name="Description" type="xs:string" use="required"/>
+  	<xs:attribute name="FixtureTypeID" type="guidtype" use="required"/>
+  	<xs:attribute name="Thumbnail" type="xs:string"/>
         <xs:attribute name="ThumbnailOffsetX" type="xs:int"/>
         <xs:attribute name="ThumbnailOffsetY" type="xs:int"/>
-        <xs:attribute name="RefFT" type="guidtype" use="optional" />
+        <xs:attribute name="RefFT" type="guidtype"/>
         <xs:attribute name="CanHaveChildren" type="YesNoEnum"
-  		use="optional" default="Yes" />
+  		 default="Yes"/>
   </xs:complexType>
   <!-- AttributeDefinitions -->
   <xs:complexType name="AttributeDefinitions">
@@ -152,8 +152,8 @@ level. These unvalidated properties are:
           <xs:field xpath="@Name"/>
         </xs:unique>
         <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
-          <xs:selector xpath="Attribute" />
-          <xs:field xpath="@MainAttribute" />
+          <xs:selector xpath="Attribute"/>
+          <xs:field xpath="@MainAttribute"/>
         </xs:keyref>
       </xs:element>
     </xs:all>
@@ -195,15 +195,14 @@ level. These unvalidated properties are:
   	<xs:sequence>
   		<xs:element name="SubPhysicalUnit" type="SubPhysicalUnit" minOccurs="0" maxOccurs="unbounded"/>
   	</xs:sequence>
-  	<xs:attribute name="Name" type="nametype" use="required" />
-  	<xs:attribute name="Pretty" type="xs:string" use="required" />
-  	<xs:attribute name="ActivationGroup" type="xs:string"
-  		use="optional" />
-  	<xs:attribute name="Feature" type="featuretype" use="required" />
-  	<xs:attribute name="MainAttribute" type="nametype" use="optional" />
+  	<xs:attribute name="Name" type="nametype" use="required"/>
+  	<xs:attribute name="Pretty" type="xs:string" use="required"/>
+  	<xs:attribute name="ActivationGroup" type="xs:string"/>
+  	<xs:attribute name="Feature" type="featuretype" use="required"/>
+  	<xs:attribute name="MainAttribute" type="nametype"/>
   	<xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum"
-  		default="None" />
-  	<xs:attribute name="Color" type="colorcietype" use="optional" />
+  		default="None"/>
+  	<xs:attribute name="Color" type="colorcietype"/>
   </xs:complexType>
    <xs:complexType name="SubPhysicalUnit">
   	<xs:attribute name="Type" type="SubPhysicalTypeEnum"/>
@@ -226,7 +225,7 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="Slot" type="Slot"/>
     </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="optional"/>
+    <xs:attribute name="Name" type="nametype"/>
   </xs:complexType>
   <xs:complexType name="Slot">
     <xs:choice minOccurs="0" maxOccurs="1">
@@ -234,12 +233,12 @@ level. These unvalidated properties are:
       <xs:element name="AnimationSystem" type="AnimationSystem"/>
     </xs:choice>
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="Filter" type="nametype" use="optional"/>
-    <xs:attribute name="MediaFileName" type="xs:string" use="optional" default=""/>
+    <xs:attribute name="Color" type="colorcietype"/>
+    <xs:attribute name="Filter" type="nametype"/>
+    <xs:attribute name="MediaFileName" type="xs:string" default=""/>
   </xs:complexType>
   <xs:complexType name="Facet">
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
+    <xs:attribute name="Color" type="colorcietype"/>
     <xs:attribute name="Rotation" type="rotationtype" use="required"/>
   </xs:complexType>
   <xs:complexType name="AnimationSystem">
@@ -253,28 +252,28 @@ level. These unvalidated properties are:
     <xs:all>
     	<xs:element name="Emitters" type="Emitters" minOccurs="0">
     		<xs:key name="UniqueEmitter">
-    			<xs:selector xpath="Emitter" />
-    			<xs:field xpath="@Name" />
+    			<xs:selector xpath="Emitter"/>
+    			<xs:field xpath="@Name"/>
     		</xs:key>
     	</xs:element>
     	<xs:element name="Filters" type="Filters" minOccurs="0">
     		<xs:key name="UniqueFilter">
-    			<xs:selector xpath="Filter" />
-    			<xs:field xpath="@Name" />
+    			<xs:selector xpath="Filter"/>
+    			<xs:field xpath="@Name"/>
     		</xs:key>
     	</xs:element>
-    	<xs:element name="ColorSpace" type="ColorSpace" minOccurs="0" />
+    	<xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
       <xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces" maxOccurs="1"/>
       <xs:element name="Gamuts" type="Gamuts" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0" />
-    	<xs:element name="CRIs" type="CRIs" minOccurs="0" />
+      <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
+    	<xs:element name="CRIs" type="CRIs" minOccurs="0"/>
     	<xs:element name="Connectors" type="Connectors" minOccurs="0">
     		<xs:unique name="UniqueConnector">
-    			<xs:selector xpath="Connector" />
-    			<xs:field xpath="@Name" />
+    			<xs:selector xpath="Connector"/>
+    			<xs:field xpath="@Name"/>
     		</xs:unique>
     	</xs:element>
-    	<xs:element name="Properties" type="Properties" minOccurs="0" />
+    	<xs:element name="Properties" type="Properties" minOccurs="0"/>
     </xs:all>
   </xs:complexType>
   <!-- Emitter -->
@@ -293,21 +292,21 @@ level. These unvalidated properties are:
       </xs:element>
     </xs:sequence>
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/> <!-- Required if Color is omitted! -->
-    <xs:attribute name="DiodePart" type="xs:string" use="optional"/>
+    <xs:attribute name="Color" type="colorcietype"/>
+    <xs:attribute name="DominantWaveLength" type="xs:float"/> <!-- Required if Color is omitted! -->
+    <xs:attribute name="DiodePart" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="EmitterMeasurement">
         	<xs:sequence minOccurs="0" maxOccurs="unbounded">
         		<xs:element name="MeasurementPoint"
-        			type="MeasurementPoint" />
+        			type="MeasurementPoint"/>
         	</xs:sequence>
         	<xs:attribute name="Physical" type="physicaltype"
-        		use="required" />
+        		use="required"/>
         	<xs:attribute name="LuminousIntensity" type="xs:float"
-        		use="required" />
+        		use="required"/>
         	<xs:attribute name="InterpolationTo"
-        		type="InterpolationToEnum" use="optional" default="Linear" />
+        		type="InterpolationToEnum" default="Linear"/>
         	<xs:attribute name="Transmission" type="xs:float"/>
   </xs:complexType>
   <!-- Filter -->
@@ -326,7 +325,7 @@ level. These unvalidated properties are:
       </xs:element>
     </xs:sequence>
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
+    <xs:attribute name="Color" type="colorcietype"/>
   </xs:complexType>
   <xs:complexType name="FilterMeasurement">
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -334,7 +333,7 @@ level. These unvalidated properties are:
           </xs:sequence>
           <xs:attribute name="Physical" type="physicaltype" use="required"/>
           <xs:attribute name="Transmission" type="xs:float" use="required"/>
-          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
+          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" default="Linear"/>
    </xs:complexType>
   <xs:complexType name="MeasurementPoint">
     <xs:attribute name="WaveLength" type="xs:float" use="required"/>
@@ -343,11 +342,11 @@ level. These unvalidated properties are:
   <!-- ColorSpace -->
   <xs:complexType name="ColorSpace">
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Mode" type="ColorSpaceEnum" use="optional" default="sRGB"/>
-    <xs:attribute name="Red" type="colorcietype" use="optional"/>
-    <xs:attribute name="Green" type="colorcietype" use="optional"/>
-    <xs:attribute name="Blue" type="colorcietype" use="optional"/>
-    <xs:attribute name="WhitePoint" type="colorcietype" use="optional"/>
+    <xs:attribute name="Mode" type="ColorSpaceEnum" default="sRGB"/>
+    <xs:attribute name="Red" type="colorcietype"/>
+    <xs:attribute name="Green" type="colorcietype"/>
+    <xs:attribute name="Blue" type="colorcietype"/>
+    <xs:attribute name="WhitePoint" type="colorcietype"/>
   </xs:complexType>
   <xs:complexType name="AdditionalColorSpaces">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -397,11 +396,11 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="1" maxOccurs="99">
       <xs:element name="CRI" type="CRI"/>
     </xs:sequence>
-    <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
+    <xs:attribute name="ColorTemperature" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="CRI">
-    <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
-    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
+    <xs:attribute name="CES" type="CESEnum" default="CES01"/>
+    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte"/>
   </xs:complexType>
   <!-- Connector -->
   <xs:complexType name="Connectors">
@@ -412,9 +411,9 @@ level. These unvalidated properties are:
   <xs:complexType name="Connector">
     <xs:attribute name="Name" type="nametype" use="required"/>
     <xs:attribute name="Type" type="nametype" use="required"/>
-    <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
-    <xs:attribute name="Gender" type="xs:integer" use="optional"/>
-    <xs:attribute name="Length" type="positivefloat" use="optional"/>
+    <xs:attribute name="DMXBreak" type="positiveinteger"/>
+    <xs:attribute name="Gender" type="xs:integer"/>
+    <xs:attribute name="Length" type="positivefloat"/>
   </xs:complexType>
   <!-- Properties -->
   <xs:complexType name="Properties">
@@ -426,23 +425,23 @@ level. These unvalidated properties are:
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="OperatingTemperature">
-    <xs:attribute name="Low" type="xs:float" use="optional"/>
-    <xs:attribute name="High" type="xs:float" use="optional"/>
+    <xs:attribute name="Low" type="xs:float"/>
+    <xs:attribute name="High" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="Weight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="PowerConsumption">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
-    <xs:attribute name="PowerFactor" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
+    <xs:attribute name="PowerFactor" type="xs:float"/>
     <xs:attribute name="Connector" type="nametype" use="required"/>
-    <xs:attribute name="VoltageLow" type="xs:float" use="optional"/>
-    <xs:attribute name="VoltageHigh" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyLow" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyHigh" type="xs:float" use="optional"/>
+    <xs:attribute name="VoltageLow" type="xs:float"/>
+    <xs:attribute name="VoltageHigh" type="xs:float"/>
+    <xs:attribute name="FrequencyLow" type="xs:float"/>
+    <xs:attribute name="FrequencyHigh" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="LegHeight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
   </xs:complexType>
   <!-- Models -->
   <xs:complexType name="Models">
@@ -451,17 +450,17 @@ level. These unvalidated properties are:
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Model">
-  	<xs:attribute name="Name" type="nametype" use="required" />
-  	<xs:attribute name="Length" type="xs:float" use="optional"
-  		default="0" />
-  	<xs:attribute name="Width" type="xs:float" use="optional"
-  		default="0" />
-  	<xs:attribute name="Height" type="xs:float" use="optional"
-  		default="0" />
+  	<xs:attribute name="Name" type="nametype" use="required"/>
+  	<xs:attribute name="Length" type="xs:float"
+  		default="0"/>
+  	<xs:attribute name="Width" type="xs:float"
+  		default="0"/>
+  	<xs:attribute name="Height" type="xs:float"
+  		default="0"/>
   	<xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum"
-  		use="optional" default="Undefined" />
-  	<xs:attribute name="File" type="xs:string" use="optional"
-  		default="" />
+  		use="optional" default="Undefined"/>
+  	<xs:attribute name="File" type="xs:string"
+  		default=""/>
   	<xs:attribute name="SVGOffsetX" type="xs:float"/>
   	<xs:attribute name="SVGOffsetY" type="xs:float"/>
   	<xs:attribute name="SVGSideOffsetX" type="xs:float"/>
@@ -471,29 +470,29 @@ level. These unvalidated properties are:
   </xs:complexType>
   <!-- Geometries -->
   <xs:complexType name="Geometries">
-  	<xs:group ref="GeometryChildren" />
+  	<xs:group ref="GeometryChildren"/>
   </xs:complexType>
   <xs:group name="GeometryChildren">
     <xs:sequence>
     	<xs:choice minOccurs="0" maxOccurs="unbounded">
-    		<xs:element name="Geometry" type="BasicGeometryType" />
-    		<xs:element name="Axis" type="BasicGeometryType" />
+    		<xs:element name="Geometry" type="BasicGeometryType"/>
+    		<xs:element name="Axis" type="BasicGeometryType"/>
     		<!-- Attribute Model missing in DIN 15800:2020-07 -->
-    		<xs:element name="FilterBeam" type="BasicGeometryType" />
-    		<xs:element name="FilterColor" type="BasicGeometryType" />
-    		<xs:element name="FilterGobo" type="BasicGeometryType" />
-    		<xs:element name="FilterShaper" type="BasicGeometryType" />
-    		<xs:element name="Beam" type="Beam" />
+    		<xs:element name="FilterBeam" type="BasicGeometryType"/>
+    		<xs:element name="FilterColor" type="BasicGeometryType"/>
+    		<xs:element name="FilterGobo" type="BasicGeometryType"/>
+    		<xs:element name="FilterShaper" type="BasicGeometryType"/>
+    		<xs:element name="Beam" type="Beam"/>
     		<xs:element name="MediaServerLayer"
-    			type="BasicGeometryType" />
+    			type="BasicGeometryType"/>
     		<xs:element name="MediaServerCamera"
-    			type="BasicGeometryType" />
+    			type="BasicGeometryType"/>
     		<xs:element name="MediaServerMaster"
-    			type="BasicGeometryType" />
-    		<xs:element name="Display" type="Display" />
+    			type="BasicGeometryType"/>
+    		<xs:element name="Display" type="Display"/>
     		<xs:element name="Laser" type="Laser"/>
     		<xs:element name="GeometryReference"
-    			type="GeometryReference" />
+    			type="GeometryReference"/>
     		<xs:element name="WiringObject" type="WiringObject"/>
     		<xs:element name="Inventory" type="Inventory"/>
     		<xs:element name="Structure" type="Structure"/>
@@ -504,8 +503,8 @@ level. These unvalidated properties are:
   </xs:group>
   <xs:complexType name="BasicGeometryAttributes">
     <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Model" type="nametype" use="optional"/>
-    <xs:attribute name="Position" type="matrixtype" use="optional" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
+    <xs:attribute name="Model" type="nametype"/>
+    <xs:attribute name="Position" type="matrixtype" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
   </xs:complexType>
   <xs:complexType name="BasicGeometryType">
     <xs:complexContent>
@@ -518,18 +517,18 @@ level. These unvalidated properties are:
   <xs:complexType name="Beam">
     <xs:complexContent>
       <xs:extension base="BasicGeometryType">
-        <xs:attribute name="LampType" type="LampTypeEnum" use="optional"/>
-        <xs:attribute name="PowerConsumption" type="xs:float" use="optional"/>
-        <xs:attribute name="LuminousFlux" type="xs:float" use="optional"/>
-        <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamAngle" type="xs:float" use="optional"/>
-        <xs:attribute name="FieldAngle" type="xs:float" use="optional"/>
-        <xs:attribute name="ThrowRatio" type="xs:float" use="optional"/>
-        <xs:attribute name="RectangleRatio" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamRadius" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional"/>
-        <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
-        <xs:attribute name="EmitterSpectrum" type="nodetype" use="optional"/>
+        <xs:attribute name="LampType" type="LampTypeEnum"/>
+        <xs:attribute name="PowerConsumption" type="xs:float"/>
+        <xs:attribute name="LuminousFlux" type="xs:float"/>
+        <xs:attribute name="ColorTemperature" type="xs:float"/>
+        <xs:attribute name="BeamAngle" type="xs:float"/>
+        <xs:attribute name="FieldAngle" type="xs:float"/>
+        <xs:attribute name="ThrowRatio" type="xs:float"/>
+        <xs:attribute name="RectangleRatio" type="xs:float"/>
+        <xs:attribute name="BeamRadius" type="xs:float"/>
+        <xs:attribute name="BeamType" type="BeamTypeEnum"/>
+        <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte"/>
+        <xs:attribute name="EmitterSpectrum" type="nodetype"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -537,7 +536,7 @@ level. These unvalidated properties are:
   <xs:complexType name="Display">
     <xs:complexContent>
       <xs:extension base="BasicGeometryType">
-        <xs:attribute name="Texture" type="xs:string" use="optional"/>
+        <xs:attribute name="Texture" type="xs:string"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -549,16 +548,16 @@ level. These unvalidated properties are:
           <xs:element name="Protocol" type="Protocol"/>
         </xs:sequence>
         <xs:attribute name="ColorType" type="LaserColorType"
-          default="RGB" use="optional"/>
-        <xs:attribute name="Color" type="xs:float" use="optional"/>
-        <xs:attribute name="OutputStrength" type="xs:float" use="optional"/>
-        <xs:attribute name="Emitter" type="nodetype" use="optional"/>
-        <xs:attribute name="BeamDiameter" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamDivergenceMin" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamDivergenceMax" type="xs:float" use="optional"/>
-        <xs:attribute name="ScanAnglePan" type="xs:float" use="optional"/>
-        <xs:attribute name="ScanAngleTilt" type="xs:float" use="optional"/>
-        <xs:attribute name="ScanSpeed" type="xs:float" use="optional"/>
+          default="RGB"/>
+        <xs:attribute name="Color" type="xs:float"/>
+        <xs:attribute name="OutputStrength" type="xs:float"/>
+        <xs:attribute name="Emitter" type="nodetype"/>
+        <xs:attribute name="BeamDiameter" type="xs:float"/>
+        <xs:attribute name="BeamDivergenceMin" type="xs:float"/>
+        <xs:attribute name="BeamDivergenceMax" type="xs:float"/>
+        <xs:attribute name="ScanAnglePan" type="xs:float"/>
+        <xs:attribute name="ScanAngleTilt" type="xs:float"/>
+        <xs:attribute name="ScanSpeed" type="xs:float"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -576,8 +575,8 @@ level. These unvalidated properties are:
     </xs:complexContent>
   </xs:complexType>
    <xs:complexType name="Break">
-    <xs:attribute name="DMXOffset" type="dmxaddresstype" use="optional" default="1"/>
-    <xs:attribute name="DMXBreak" type="xs:unsignedByte" use="optional" default="1"/>
+    <xs:attribute name="DMXOffset" type="dmxaddresstype" default="1"/>
+    <xs:attribute name="DMXBreak" type="xs:unsignedByte" default="1"/>
   </xs:complexType>
   <!-- WiringObject Geometry -->
   <xs:complexType name="WiringObject">
@@ -586,23 +585,23 @@ level. These unvalidated properties are:
         <xs:sequence>
           <xs:element name="PinPatch" type="PinPatch" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="ConnectorType " type="xs:string" use="optional"/>
-        <xs:attribute name="ComponentType" type="WiringComponentType" use="optional"/>
-        <xs:attribute name="SignalType" type="xs:string" use="optional"/>
-        <xs:attribute name="PinCount" type="xs:int" use="optional"/>
-        <xs:attribute name="ElectricalPayLoad" type="xs:float" use="optional"/>
-        <xs:attribute name="VoltageRangeMax" type="xs:float" use="optional"/>
-        <xs:attribute name="VoltageRangeMin" type="xs:float" use="optional"/>
-        <xs:attribute name="FrequencyRangeMax" type="xs:float" use="optional"/>
-        <xs:attribute name="FrequencyRangeMin" type="xs:float" use="optional"/>
-      	<xs:attribute name="MaxPayLoad" type="xs:float" use="optional"/>
-      	<xs:attribute name="Voltage" type="xs:float" use="optional"/>
-       	<xs:attribute name="SignalLayer" type="xs:int" use="optional"/>
-      	<xs:attribute name="CosPhi" type="xs:float" use="optional"/>
-      	<xs:attribute name="FuseCurrent" type="xs:float" use="optional"/>
-      	<xs:attribute name="FuseRating" type="WiringFuseRating" use="optional"/>
-      	<xs:attribute name="Orientation" type="WiringOrientation" use="optional"/>
-  	   <xs:attribute name="WireGroup" type="xs:string" use="optional"/>
+        <xs:attribute name="ConnectorType " type="xs:string"/>
+        <xs:attribute name="ComponentType" type="WiringComponentType"/>
+        <xs:attribute name="SignalType" type="xs:string"/>
+        <xs:attribute name="PinCount" type="xs:int"/>
+        <xs:attribute name="ElectricalPayLoad" type="xs:float"/>
+        <xs:attribute name="VoltageRangeMax" type="xs:float"/>
+        <xs:attribute name="VoltageRangeMin" type="xs:float"/>
+        <xs:attribute name="FrequencyRangeMax" type="xs:float"/>
+        <xs:attribute name="FrequencyRangeMin" type="xs:float"/>
+      	<xs:attribute name="MaxPayLoad" type="xs:float"/>
+      	<xs:attribute name="Voltage" type="xs:float"/>
+       	<xs:attribute name="SignalLayer" type="xs:int"/>
+      	<xs:attribute name="CosPhi" type="xs:float"/>
+      	<xs:attribute name="FuseCurrent" type="xs:float"/>
+      	<xs:attribute name="FuseRating" type="WiringFuseRating"/>
+      	<xs:attribute name="Orientation" type="WiringOrientation"/>
+  	   <xs:attribute name="WireGroup" type="xs:string"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -623,12 +622,12 @@ level. These unvalidated properties are:
   <xs:complexType name="Structure">
     <xs:complexContent>
       <xs:extension base="BasicGeometryAttributes">
-        <xs:attribute name="LinkedGeometry" type="nametype" use="optional"/>
-        <xs:attribute name="StructureType" type="StructureType" use="optional"/>
-        <xs:attribute name="CrossSectionType " type="CrossSectionType" use="optional"/>
-        <xs:attribute name="CrossSectionHeight" type="xs:float" use="optional"/>
-        <xs:attribute name="CrossSectionWallThickness" type="xs:float" use="optional"/>
-        <xs:attribute name="TrussCrossSection" type="xs:string" use="optional"/>
+        <xs:attribute name="LinkedGeometry" type="nametype"/>
+        <xs:attribute name="StructureType" type="StructureType"/>
+        <xs:attribute name="CrossSectionType " type="CrossSectionType"/>
+        <xs:attribute name="CrossSectionHeight" type="xs:float"/>
+        <xs:attribute name="CrossSectionWallThickness" type="xs:float"/>
+        <xs:attribute name="TrussCrossSection" type="xs:string"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -636,21 +635,21 @@ level. These unvalidated properties are:
   <xs:complexType name="Support">
     <xs:complexContent>
       <xs:extension base="BasicGeometryAttributes">
-        <xs:attribute name="SupportType " type="SupportType" use="optional"/>
-        <xs:attribute name="RopeCrossSection" type="xs:string" use="optional"/>
-        <xs:attribute name="RopeOffset" type="xs:string" use="optional"/>
-        <xs:attribute name="CapacityX" type="xs:float" use="optional"/>
-        <xs:attribute name="CapacityY" type="xs:float" use="optional"/>
-        <xs:attribute name="CapacityZ" type="xs:float" use="optional"/>
-        <xs:attribute name="CapacityXX" type="xs:float" use="optional"/>
-        <xs:attribute name="CapacityYY" type="xs:float" use="optional"/>
-        <xs:attribute name="CapacityZZ" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceX" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceY" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceZ" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceXX" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceYY" type="xs:float" use="optional"/>
-        <xs:attribute name="ResistanceZZ" type="xs:float" use="optional"/>
+        <xs:attribute name="SupportType " type="SupportType"/>
+        <xs:attribute name="RopeCrossSection" type="xs:string"/>
+        <xs:attribute name="RopeOffset" type="xs:string"/>
+        <xs:attribute name="CapacityX" type="xs:float"/>
+        <xs:attribute name="CapacityY" type="xs:float"/>
+        <xs:attribute name="CapacityZ" type="xs:float"/>
+        <xs:attribute name="CapacityXX" type="xs:float"/>
+        <xs:attribute name="CapacityYY" type="xs:float"/>
+        <xs:attribute name="CapacityZZ" type="xs:float"/>
+        <xs:attribute name="ResistanceX" type="xs:float"/>
+        <xs:attribute name="ResistanceY" type="xs:float"/>
+        <xs:attribute name="ResistanceZ" type="xs:float"/>
+        <xs:attribute name="ResistanceXX" type="xs:float"/>
+        <xs:attribute name="ResistanceYY" type="xs:float"/>
+        <xs:attribute name="ResistanceZZ" type="xs:float"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -662,24 +661,24 @@ level. These unvalidated properties are:
   </xs:complexType>
   <xs:complexType name="DMXMode">
   	<xs:sequence>
-  		<xs:element name="DMXChannels" type="DMXChannels" />
+  		<xs:element name="DMXChannels" type="DMXChannels"/>
   		<xs:element name="Relations" type="Relations" minOccurs="0"
   			maxOccurs="1">
   			<xs:unique name="UniqueRelationName">
-  				<xs:selector xpath="Relation" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="Relation"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   		<xs:element name="FTMacros" type="FTMacros" minOccurs="0"
   			maxOccurs="1">
   			<xs:unique name="UniqueMacroName">
-  				<xs:selector xpath="FTMacro" />
-  				<xs:field xpath="@Name" />
+  				<xs:selector xpath="FTMacro"/>
+  				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   	</xs:sequence>
-  	<xs:attribute name="Name" type="nametype" use="required" />
-  	<xs:attribute name="Geometry" type="nametype" use="required" />
+  	<xs:attribute name="Name" type="nametype" use="required"/>
+  	<xs:attribute name="Geometry" type="nametype" use="required"/>
   	<xs:attribute name="Description" type="xs:string"/>
   </xs:complexType>
   <!-- DMXChannel -->
@@ -699,7 +698,7 @@ level. These unvalidated properties are:
     </xs:sequence>
     <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
     <xs:attribute name="Offset" type="offsettype" default="None"/>
-    <xs:attribute name="InitialFunction" type="nodetype" use="optional"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
+    <xs:attribute name="InitialFunction" type="nodetype"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
     <xs:attribute name="Highlight" type="dmxtype" default="None"/>
     <xs:attribute name="Geometry" type="nametype" use="required"/>
   </xs:complexType>
@@ -716,48 +715,48 @@ level. These unvalidated properties are:
     <xs:attribute name="Attribute" type="nametype" use="required"/>
     <xs:attribute name="Snap" type="SnapEnum" default="No"/>
     <xs:attribute name="Master" type="MasterEnum" default="None"/>
-    <xs:attribute name="MibFade" type="xs:float" use="optional"/>
-    <xs:attribute name="DMXChangeTimeLimit" type="xs:float" use="optional"/>
+    <xs:attribute name="MibFade" type="xs:float"/>
+    <xs:attribute name="DMXChangeTimeLimit" type="xs:float"/>
   </xs:complexType>
   <!-- ChannelFunction -->
   <xs:complexType name="ChannelFunction">
   	<xs:sequence minOccurs="0" maxOccurs="unbounded">
-  		<xs:element name="ChannelSet" type="ChannelSet" />
+  		<xs:element name="ChannelSet" type="ChannelSet"/>
   		<xs:sequence minOccurs="0" maxOccurs="unbounded">
   			<xs:element name="SubChannelSet" type="SubChannelSet"/>
   		</xs:sequence>
   	</xs:sequence>
-  	<xs:attribute name="Name" type="nametype" use="optional" />
+  	<xs:attribute name="Name" type="nametype"/>
   	<xs:attribute name="Attribute" type="nametype"
-  		default="NoFeature" />
+  		default="NoFeature"/>
   	<xs:attribute name="OriginalAttribute" type="xs:string"
-  		default="" />
-  	<xs:attribute name="DMXFrom" type="dmxtype" default="0/1" />
-  	<xs:attribute name="Default" type="dmxtype" use="required" />
-  	<xs:attribute name="PhysicalFrom" type="xs:float" use="optional" />
-  	<xs:attribute name="PhysicalTo" type="xs:float" use="optional" />
-  	<xs:attribute name="RealFade" type="xs:float" use="optional" />
+  		default=""/>
+  	<xs:attribute name="DMXFrom" type="dmxtype" default="0/1"/>
+  	<xs:attribute name="Default" type="dmxtype" use="required"/>
+  	<xs:attribute name="PhysicalFrom" type="xs:float"/>
+  	<xs:attribute name="PhysicalTo" type="xs:float"/>
+  	<xs:attribute name="RealFade" type="xs:float"/>
   	<xs:attribute name="RealAcceleration" type="xs:float"
-  		use="optional" />
-  	<xs:attribute name="Wheel" type="nametype" use="optional" />
-  	<xs:attribute name="Emitter" type="nametype" use="optional" />
-  	<xs:attribute name="Filter" type="nametype" use="optional" />
-  	<xs:attribute name="ColorSpace" type="nametype" use="optional" />
-  	<xs:attribute name="Gammut" type="nametype" use="optional" />
-  	<xs:attribute name="ModeMaster" type="nodetype" use="optional" />
-  	<xs:attribute name="ModeFrom" type="dmxtype" default="0/1" />
-  	<xs:attribute name="ModeTo" type="dmxtype" default="0/1" />
+  		use="optional"/>
+  	<xs:attribute name="Wheel" type="nametype"/>
+  	<xs:attribute name="Emitter" type="nametype"/>
+  	<xs:attribute name="Filter" type="nametype"/>
+  	<xs:attribute name="ColorSpace" type="nametype"/>
+  	<xs:attribute name="Gammut" type="nametype"/>
+  	<xs:attribute name="ModeMaster" type="nodetype"/>
+  	<xs:attribute name="ModeFrom" type="dmxtype" default="0/1"/>
+  	<xs:attribute name="ModeTo" type="dmxtype" default="0/1"/>
   	<xs:attribute name="DMXProfile" type="nodetype"/>
   	<xs:attribute name="Min" type="xs:float"/>
   	<xs:attribute name="Max" type="xs:float"/>
   	<xs:attribute name="CustomName" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="ChannelSet">
-    <xs:attribute name="Name" type="nametype" use="optional"/>
-    <xs:attribute name="DMXFrom" type="dmxtype" use="optional"/>
-    <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
-    <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
-    <xs:attribute name="WheelSlotIndex" type="xs:int" use="optional"/>
+    <xs:attribute name="Name" type="nametype"/>
+    <xs:attribute name="DMXFrom" type="dmxtype"/>
+    <xs:attribute name="PhysicalFrom" type="xs:float"/>
+    <xs:attribute name="PhysicalTo" type="xs:float"/>
+    <xs:attribute name="WheelSlotIndex" type="xs:int"/>
   </xs:complexType>
   <xs:complexType name="SubChannelSet">
     <xs:attribute name="Name" type="nametype"/>
@@ -786,9 +785,9 @@ level. These unvalidated properties are:
   </xs:complexType>
   <xs:complexType name="FTMacro">
   	<xs:sequence>
-  		<xs:element name="MacroDMX" type="MacroDMX" minOccurs="0" />
+  		<xs:element name="MacroDMX" type="MacroDMX" minOccurs="0"/>
   	</xs:sequence>
-  	<xs:attribute name="Name" type="nametype" use="required" />
+  	<xs:attribute name="Name" type="nametype" use="required"/>
   	<xs:attribute name="ChannelFunction" type="nodetype"/>
   </xs:complexType>
   <xs:complexType name="MacroDMX">
@@ -800,7 +799,7 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="MacroDMXValue" type="MacroDMXValue"/>
     </xs:sequence>
-    <xs:attribute name="Duration" type="xs:float" use="optional"/>
+    <xs:attribute name="Duration" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="MacroDMXValue">
     <xs:attribute name="Value" type="dmxtype" use="required"/>
@@ -813,10 +812,10 @@ level. These unvalidated properties are:
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Revision">
-  	<xs:attribute name="Text" type="xs:string" use="optional" />
-  	<xs:attribute name="Date" type="xs:dateTime" use="optional" />
-  	<xs:attribute name="UserID" type="xs:integer" use="optional" />
-  	<xs:attribute name="ModifiedBy" type="xs:string"/>
+  	<xs:attribute name="Text" type="xs:string" default=""/>
+  	<xs:attribute name="Date" type="xs:dateTime"/>
+  	<xs:attribute name="UserID" type="xs:integer" default="0"/>
+  	<xs:attribute name="ModifiedBy" type="xs:string" default=""/>
   </xs:complexType>
   <!-- FT Presets -->
   <xs:complexType name="FTPresets">
@@ -853,18 +852,18 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="SoftwareVersionID" type="SoftwareVersionID"/>
     </xs:sequence>
-    <xs:attribute name="ManufacturerID" type="hextype" use="optional"/>
-    <xs:attribute name="DeviceModelID" type="hextype" use="optional"/>
+    <xs:attribute name="ManufacturerID" type="hextype"/>
+    <xs:attribute name="DeviceModelID" type="hextype"/>
   </xs:complexType>
   <xs:complexType name="SoftwareVersionID">
     <xs:sequence>
       <xs:element name="DMXPersonality" type="DMXPersonality" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="Value" type="hextype" use="optional"/>
+    <xs:attribute name="Value" type="hextype"/>
   </xs:complexType>
   <xs:complexType name="DMXPersonality">
-    <xs:attribute name="Value" type="hextype" use="optional"/>
-    <xs:attribute name="DMXMode" type="nametype" use="optional"/>
+    <xs:attribute name="Value" type="hextype"/>
+    <xs:attribute name="DMXMode" type="nametype"/>
   </xs:complexType>
   <!-- Custom types -->
   <xs:simpleType name="positivefloat">
@@ -948,10 +947,10 @@ level. These unvalidated properties are:
     <xs:restriction base="xs:float">
       <!-- This matches two Uints, each in the range 0 to 255 (1 Byte), separated by a dot.
       Leading zeros and a plus sign are allowed for the first UInt, but not for the second one -->
-      <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))" />
+      <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))"/>
       <!-- v1.1 is not backwards compatible to 1.0, so we can only accept 1.1, not 1.0 -->
-      <xs:minInclusive value="1.1" />
-      <xs:maxInclusive value="1.2" />
+      <xs:minInclusive value="1.1"/>
+      <xs:maxInclusive value="1.2"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="guidtype">
@@ -1009,10 +1008,10 @@ level. These unvalidated properties are:
       <xs:enumeration value="Head"/>
       <xs:enumeration value="Scanner"/>
       <xs:enumeration value="Conventional"/>
-      <xs:enumeration value="Pigtail" />
-      <xs:enumeration value="Base1_1" />
-      <xs:enumeration value="Scanner1_1" />
-      <xs:enumeration value="Conventional1_1" />
+      <xs:enumeration value="Pigtail"/>
+      <xs:enumeration value="Base1_1"/>
+      <xs:enumeration value="Scanner1_1"/>
+      <xs:enumeration value="Conventional1_1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="LampTypeEnum">
