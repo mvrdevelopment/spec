@@ -607,12 +607,16 @@ level. These unvalidated properties are:
   </xs:complexType>
   <!-- Structure Geometry -->
   <xs:complexType name="Structure">
-  	<xs:attribute name="LinkedGeometry" type="nametype" use="optional"/>
-  	<xs:attribute name="StructureType" type="StructureType" use="optional"/>
-  	<xs:attribute name="CrossSectionType " type="CrossSectionType" use="optional"/>
-  	<xs:attribute name="CrossSectionHeight" type="xs:float" use="optional"/>
-  	<xs:attribute name="CrossSectionWallThickness" type="xs:float" use="optional"/>
-  	<xs:attribute name="TrussCrossSection" type="xs:string" use="optional"/>
+    <xs:complexContent>
+      <xs:extension base="BasicGeometryAttributes">
+  	     <xs:attribute name="LinkedGeometry" type="nametype" use="optional"/>
+  	     <xs:attribute name="StructureType" type="StructureType" use="optional"/>
+  	     <xs:attribute name="CrossSectionType " type="CrossSectionType" use="optional"/>
+  	     <xs:attribute name="CrossSectionHeight" type="xs:float" use="optional"/>
+  	     <xs:attribute name="CrossSectionWallThickness" type="xs:float" use="optional"/>
+  	     <xs:attribute name="TrussCrossSection" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <!-- Support Geometry -->
   <xs:complexType name="Support">
