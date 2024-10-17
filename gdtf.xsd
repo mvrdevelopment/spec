@@ -69,7 +69,7 @@ level. These unvalidated properties are:
   <!-- FixtureType -->
   <xs:complexType name="FixtureType">
   	<xs:sequence>
-  		<xs:element minOccurs="1" maxOccurs="1" name="AttributeDefinitions"
+  		<xs:element minOccurs="1" name="AttributeDefinitions"
   			type="AttributeDefinitions">
   			<xs:keyref name="ActivationGroupReference"
   				refer="UniqueActivationGroup">
@@ -77,13 +77,13 @@ level. These unvalidated properties are:
   				<xs:field xpath="@ActivationGroup"/>
   			</xs:keyref>
   		</xs:element>
-  		<xs:element minOccurs="0" maxOccurs="1" name="Wheels" type="Wheels">
+  		<xs:element minOccurs="0" name="Wheels" type="Wheels">
   			<xs:unique name="UniqueWheelName">
   				<xs:selector xpath="Wheel"/>
   				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
-  		<xs:element minOccurs="0" maxOccurs="1" name="PhysicalDescriptions"
+  		<xs:element minOccurs="0" name="PhysicalDescriptions"
   			type="PhysicalDescriptions">
   			<xs:keyref name="ConnectorKeyReference"
   				refer="UniqueConnector">
@@ -91,13 +91,13 @@ level. These unvalidated properties are:
   				<xs:field xpath="@Connector"/>
   			</xs:keyref>
   		</xs:element>
-  		<xs:element minOccurs="0" maxOccurs="1" name="Models" type="Models">
+  		<xs:element minOccurs="0" name="Models" type="Models">
   			<xs:unique name="UniqueModel">
   				<xs:selector xpath="Model"/>
   				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
-  		<xs:element minOccurs="1" maxOccurs="1" name="Geometries"
+  		<xs:element minOccurs="1" name="Geometries"
   			type="Geometries">
   			<xs:unique name="UniqueGeometries">
   				<xs:selector xpath=".//*"/>
@@ -108,15 +108,15 @@ level. These unvalidated properties are:
   				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
-  		<xs:element minOccurs="1" maxOccurs="1" name="DMXModes" type="DMXModes">
+  		<xs:element minOccurs="1" name="DMXModes" type="DMXModes">
   			<xs:unique name="UniqueDMXModeName">
   				<xs:selector xpath="DMXMode"/>
   				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
-  		<xs:element minOccurs="0" maxOccurs="1" name="Revisions" type="Revisions"/>
-  		<xs:element minOccurs="0" maxOccurs="1" name="FTPresets" type="FTPresets"/>
-  		<xs:element minOccurs="0" maxOccurs="1" name="Protocols" type="Protocols"/>
+  		<xs:element minOccurs="0" name="Revisions" type="Revisions"/>
+  		<xs:element minOccurs="0" name="FTPresets" type="FTPresets"/>
+  		<xs:element minOccurs="0" name="Protocols" type="Protocols"/>
   	</xs:sequence>
   	<xs:attribute name="Name" type="nametype" use="required"/>
   	<xs:attribute name="ShortName" type="xs:string"/>
@@ -134,19 +134,19 @@ level. These unvalidated properties are:
   <!-- AttributeDefinitions -->
   <xs:complexType name="AttributeDefinitions">
     <xs:all>
-      <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0" maxOccurs="1">
+      <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0">
         <xs:unique name="UniqueActivationGroup">
           <xs:selector xpath="ActivationGroup"/>
           <xs:field xpath="@Name"/>
         </xs:unique>
       </xs:element>
-      <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1" maxOccurs="1">
+      <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1">
         <xs:unique name="UniqueFeatureGroup">
           <xs:selector xpath="FeatureGroup"/>
           <xs:field xpath="@Name"/>
         </xs:unique>
       </xs:element>
-      <xs:element name="Attributes" type="Attributes" minOccurs="1" maxOccurs="1">
+      <xs:element name="Attributes" type="Attributes" minOccurs="1">
         <xs:unique name="UniqueAttribute">
           <xs:selector xpath="Attribute"/>
           <xs:field xpath="@Name"/>
@@ -228,7 +228,7 @@ level. These unvalidated properties are:
     <xs:attribute name="Name" type="nametype"/>
   </xs:complexType>
   <xs:complexType name="Slot">
-    <xs:choice minOccurs="0" maxOccurs="1">
+    <xs:choice minOccurs="0">
       <xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="unbounded"/>
       <xs:element name="AnimationSystem" type="AnimationSystem"/>
     </xs:choice>
@@ -263,8 +263,8 @@ level. These unvalidated properties are:
     		</xs:key>
     	</xs:element>
     	<xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
-      <xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces" maxOccurs="1"/>
-      <xs:element name="Gamuts" type="Gamuts" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces"/>
+      <xs:element name="Gamuts" type="Gamuts" minOccurs="0"/>
       <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
     	<xs:element name="CRIs" type="CRIs" minOccurs="0"/>
     	<xs:element name="Connectors" type="Connectors" minOccurs="0">
@@ -663,14 +663,14 @@ level. These unvalidated properties are:
   	<xs:sequence>
   		<xs:element name="DMXChannels" type="DMXChannels"/>
   		<xs:element name="Relations" type="Relations" minOccurs="0"
-  			maxOccurs="1">
+  			>
   			<xs:unique name="UniqueRelationName">
   				<xs:selector xpath="Relation"/>
   				<xs:field xpath="@Name"/>
   			</xs:unique>
   		</xs:element>
   		<xs:element name="FTMacros" type="FTMacros" minOccurs="0"
-  			maxOccurs="1">
+  			>
   			<xs:unique name="UniqueMacroName">
   				<xs:selector xpath="FTMacro"/>
   				<xs:field xpath="@Name"/>
@@ -827,12 +827,12 @@ level. These unvalidated properties are:
   <!-- Protocols -->
   <xs:complexType name="Protocols">
     <xs:all>
-      <xs:element name="FTRDM" type="FTRDM" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Art-Net" type="Art-Net" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="sACN" type="sACN" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="PosiStageNet" type="PosiStageNet" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="OpenSoundControl" type="OpenSoundControl" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="CITP" type="CITP" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FTRDM" type="FTRDM" minOccurs="0"/>
+      <xs:element name="Art-Net" type="Art-Net" minOccurs="0"/>
+      <xs:element name="sACN" type="sACN" minOccurs="0"/>
+      <xs:element name="PosiStageNet" type="PosiStageNet" minOccurs="0"/>
+      <xs:element name="OpenSoundControl" type="OpenSoundControl" minOccurs="0"/>
+      <xs:element name="CITP" type="CITP" minOccurs="0"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="Art-Net">
