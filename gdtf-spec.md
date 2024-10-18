@@ -1052,7 +1052,7 @@ currently defined XML Attributes of the Battery are specifies in
 
 | XML Attribute Name | Value Type                          | Description                                                                                                      |
 |----|----|----|
-| Duration           | [Float](#user-content-attrtype-float ) | Defines height duration of the Battery - Battery Duration on max fixture intensity. Unit: Hours. Default value: 0 |
+| Duration           | [Float](#user-content-attrtype-float ) | Defines duration of the Battery - Battery Duration on maximum fixture intensity. Unit: Hours. Default value: 0 |
 | Standalone         | [Bool](#user-content-attrtype-boolean ) | Defines if the Fixture can be used Standalone - Fixture can be unsed without Power Connection. |
 
 </div>
