@@ -1053,7 +1053,8 @@ of the Battery are specifies in [table 31.1](#user-content-table-31.1 ).
 | XML Attribute Name | Value Type                          | Description                                                                                                      |
 |----|----|----|
 | Duration           | [Float](#user-content-attrtype-float ) | Defines duration of the Battery - Battery Duration on maximum fixture intensity. Unit: Hours. Default value: 0 |
-| Standalone         | [Bool](#user-content-attrtype-boolean ) | Defines if the Fixture can be used Standalone - Fixture can be used without Power Connection. |
+| ChargingTime       | [Float](#user-content-attrtype-float ) | Defines the charging time - Time it takes to charge Battery. Unit: Hours. |
+| BatteryOperation   | [Enum](#user-content-attrtype-enum ) | Mode of operation on battery Power. Defined Modes are "Configuration" and "Standalone". Default Value "Standalone" |
 
 </div>
 
