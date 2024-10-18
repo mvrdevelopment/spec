@@ -192,6 +192,7 @@ specified in [Table 1](#user-content-table-1 ).
 |Int<a id="attrtype-int" />                         | Integer               | Signed integer|
 |Hex<a id="attrtype-hex" />                         | Integer               | Number in hexadecimal  notation; Default value: 0|
 |Float<a id="user-content-attrtype-float" />        | float                 | Floating point numeric; Separator: "."|
+|Bool<a id="User-content-attrtrype-boolean" />   | Bool               | A boolean value. When representing true inidcate with true, when false indicate with false.|
 |String<a id="attrtype-string" />                   | Literal               | Text|
 |Name<a id="attrtype-name" />                       | restricted Literal    | Unique object names; The allowed characters are listed in [AnnexC](#user-content-table-c1) Default value: object type with an index in parent.|
 |Date<a id="attrtype-date" />                       | yyyy-mm-ddThh:mm:ss   |  Date and time corresponding to UTC +00:00 (Coordinated Universal Time): yyyy – year, mm – month, dd – day, hh – hours (24 format), mm – minutes, ss – seconds. Example: “2016-06-21T11:22:48” |
@@ -975,6 +976,7 @@ are specified in [table 28](#user-content-table-28 ).
 | [Weight](#user-content-weight )                             | 0 or 1 | Weight of the device including all accessories.        |
 | [PowerConsumption](#user-content-powerconsumption )         | Any    | Power information for a given connector.               |
 | [LegHeight](#user-content-legheight )                       | 0 or 1 | Height of the legs.                                    |
+| [Battery](#user-content-battery )                           | 0 or 1 | Definition of Battery from Fixture                     |
 
 
 </div>
@@ -1036,6 +1038,26 @@ currently defined XML attributes of the LegHeight are specified in
 </div>
 
 The LegHeight currently does not have any children.
+
+
+#### Battery
+
+This section defines the Battery of the Fixture (XML node `<Battery>`). The
+currently defined XML Attributes of the Battery are specifies in 
+[table 31.1](#user-content-table-31.1 ).
+
+<div id="table-31.1">
+
+#### Table 31.1. *Battery Attributes*
+
+| XML Attribute Name | Value Type                          | Description                                                                                                      |
+|----|----|----|
+| Duration           | [Float](#user-content-attrtype-float ) | Defines height duration of the Battery - Battery Duration on max fixture intensity. Unit: Hours. Default value: 0 |
+| Standalone         | [Bool](#user-content-attrtype-boolean ) | Defines if the Fixture can be used Standalone - Fixture can be unsed without Power Connection. |
+
+</div>
+
+The Battery currently does not have any children.
 
 
 ## Model Collect
