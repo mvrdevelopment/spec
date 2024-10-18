@@ -232,7 +232,7 @@ level. These unvalidated properties are:
       <xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="unbounded"/>
       <xs:element name="AnimationSystem" type="AnimationSystem"/>
     </xs:choice>
-    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
     <xs:attribute name="Color" type="colorcietype"/>
     <xs:attribute name="Filter" type="nametype"/>
     <xs:attribute name="MediaFileName" type="xs:string" default=""/>
