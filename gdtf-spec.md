@@ -1042,9 +1042,9 @@ The LegHeight currently does not have any children.
 
 #### Battery
 
-This section defines the Battery of the Fixture (XML node `<Battery>`). The
-currently defined XML Attributes of the Battery are specifies in 
-[table 31.1](#user-content-table-31.1 ).
+This section defines the Battery of the Fixture (XML node `<Battery>`) not 
+used if the Fixtures has not Battery. The currently defined XML Attributes 
+of the Battery are specifies in [table 31.1](#user-content-table-31.1 ).
 
 <div id="table-31.1">
 
