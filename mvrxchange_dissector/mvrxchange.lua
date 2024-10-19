@@ -107,6 +107,9 @@ function mvrxchange.dissector(tvbuf, pinfo, tree)
   local mvr_type =tvbuf(16, 4)
   local message = tvbuf(28, len)
 
+  -- sets Protocol column to "MVR"
+  pinfo.cols.protocol = "MVR"
+
   local t = tree:add(mvrxchange, tvbuf, "")
   t:add(mvrxchange.fields.header, tvbuf(0, 4))
   t:add(mvrxchange.fields.version, tvbuf(4, 4))
