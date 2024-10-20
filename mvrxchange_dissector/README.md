@@ -37,6 +37,6 @@ If you improve the plugin, please consider contributing your changes back here.
 
 It can happen that sometimes packets are dissected as other protocols since
 MVR-Exchange uses available TCP ports for communication.<br>
-Example: [mvr_cbsp.pcapng](mvrxchange_dissector\misc\mvr_cbsp.pcapng)<br>
+Example: [mvr_cbsp.pcapng](/mvrxchange_dissector/misc/mvr_cbsp.pcapng)<br>
 Packets `5` & `6` are identified as **CBSP** packets since port `48049` is defined to be
 interpretted as **CBSP** protocol at `Line-60`, [here](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-gsm_cbsp.c).<br>
