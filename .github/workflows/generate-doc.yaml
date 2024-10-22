@@ -4,21 +4,22 @@ on: push
 
 jobs:
   generate_doc:
-    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: List files
         run: |
           ls -la
           mkdir output
-      - uses: docker://pandoc/core:2.9
+      - uses: docker://pandoc/core:latest
         with:
           args: >- # allows you to break string into multiple lines
             --standalone
             --from markdown
             --output=mvr-spec.docx
             mvr-spec.md
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: mvr-spec
           path: mvr-spec.docx
