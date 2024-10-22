@@ -4,12 +4,13 @@ on: push
 
 jobs:
   test_links_in_readme:
-    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: List files
         run: ls -la
-      - uses: docker://pandoc/core:2.9
+      - uses: docker://pandoc/core:latest
         with:
           args: >- # allows you to break string into multiple lines
             --standalone
