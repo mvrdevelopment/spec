@@ -2265,15 +2265,14 @@ protocol collect currently does not have any XML attributes (XML node
 
 #### Table 69. *Supported Protocol Collect Children*
 
-| XML node                                                   | Mandatory | Description                            |
-|----|----|----|
-| [FTRDM](#user-content-rdm-section )                           | No        | Describes Fixture Type RDM information              |
-| [Art-Net](#user-content-art-net-section )                     | No        | Describes Art-Net information          |
-| [sACN](#user-content-streaming-acn-section )                  | No        | Describes sACN information             |
-| [PosiStageNet](#user-content-posi-stage-net-section )         | No        | Describes PosiStageNet information     |
-| [OpenSoundControl](#user-content-open-sound-control-section ) | No        | Describes OpenSoundControl information |
-| [CITP](#user-content-citp-section )                           | No        | Describes CITP information             |
-
+| XML node                                                      | Mandatory | Amount | Description                            |
+|----|----|----|----|
+| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Fixture Type RDM information |
+| [Art-Net](#user-content-art-net-section )                     | No   |  0 or 1     | Describes Art-Net information          |
+| [sACN](#user-content-streaming-acn-section )                  | No   |  0 or 1     | Describes sACN information             |
+| [PosiStageNet](#user-content-posi-stage-net-section )         | No   |  0 or 1     | Describes PosiStageNet information     |
+| [OpenSoundControl](#user-content-open-sound-control-section ) | No   |  0 or 1     | Describes OpenSoundControl information |
+| [CITP](#user-content-citp-section )                           | No   |  0 or 1     | Describes CITP information             |
 
 </div>
 
