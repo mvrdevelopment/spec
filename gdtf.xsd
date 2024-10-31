@@ -263,7 +263,7 @@ level. These unvalidated properties are:
     		</xs:key>
     	</xs:element>
     	<xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
-      <xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces"/>
+      <xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces" minOccurs="0"/>
       <xs:element name="Gamuts" type="Gamuts" minOccurs="0"/>
       <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
     	<xs:element name="CRIs" type="CRIs" minOccurs="0"/>
