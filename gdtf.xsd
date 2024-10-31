@@ -341,7 +341,7 @@ level. These unvalidated properties are:
   </xs:complexType>
   <!-- ColorSpace -->
   <xs:complexType name="ColorSpace">
-    <xs:attribute name="Name" type="nametype" use="required"/>
+    <xs:attribute name="Name" type="nametype"/>
     <xs:attribute name="Mode" type="ColorSpaceEnum" default="sRGB"/>
     <xs:attribute name="Red" type="colorcietype"/>
     <xs:attribute name="Green" type="colorcietype"/>
