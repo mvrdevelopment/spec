@@ -6,6 +6,8 @@ This Schema aims to be backwards compatible but some properties
 must be checked at parser level because of limitations of XSD 1.0.
 
 -Provider and ProviderVersion must be present in MVR Version 1.6 but not previous versions
+-FixtureTypeId should only be present in MVR 1.5
+-Fixture should have ChildList in MVR 1.6
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="GeneralSceneDescription">
@@ -16,8 +18,8 @@ must be checked at parser level because of limitations of XSD 1.0.
       </xs:sequence>
       <xs:attribute name="verMajor" type="positiveinteger" use="required"/>
       <xs:attribute name="verMinor" type="positiveinteger" use="required"/>
-      <xs:attribute name="provider" type="xs:string" use="optional"/>
-      <xs:attribute name="providerVersion" type="xs:string" use="optional"/>
+      <xs:attribute name="provider" type="xs:string" use="optional"/> <!-- optional for backwards compatability -->
+      <xs:attribute name="providerVersion" type="xs:string" use="optional"/> <!-- optional for backwards compatability -->
     </xs:complexType>
   </xs:element>
   <!-- UserData -->
@@ -62,8 +64,8 @@ must be checked at parser level because of limitations of XSD 1.0.
   </xs:complexType>
   <xs:complexType name="SymdefChildList">
     <xs:sequence>
-      <xs:element name="Geometry3D" type="Geometry3D"/>
-      <xs:element name="Symbol" type="Symbol"/>
+      <xs:element name="Geometry3D" type="Geometry3D" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Symbol" type="Symbol" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <!-- Mapping Definition -->
@@ -113,6 +115,7 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="Connections" type="Connections" minOccurs="0"/>
           <xs:element name="FixtureID" type="xs:string" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->
           <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->
           <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>      
           <xs:element name="CustomIdType" type="xs:integer" minOccurs="0"/>      
@@ -161,7 +164,8 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="Position" type="guidtype" minOccurs="0"/>      
           <xs:element name="Function" type="xs:string" minOccurs="0"/>
           <xs:element name="FixtureID" type="xs:string"/>
-          <xs:element name="FixtureIDNumeric" type="positiveinteger"/>    
+          <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->
           <xs:element name="UnitNumber" type="positiveinteger"/>
           <xs:element name="ChildPosition" type="xs:string" minOccurs="0"/>
           <xs:element name="Addresses" type="Addresses" minOccurs="0"/>
@@ -175,7 +179,7 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>      
           <xs:element name="Mappings" type="Mappings" minOccurs="0"/>
           <xs:element name="Gobo" type="Gobo" minOccurs="0"/>
-          <xs:element name="ChildList" type="ChildList"/>
+          <xs:element name="ChildList" type="ChildList" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
         </xs:all>
         <xs:attribute name="multipatch" type="guidtype" default=""/>
       </xs:extension>
@@ -274,7 +278,8 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="ChildPosition" type="xs:string" minOccurs="0"/>
           <xs:element name="ChildList" type="ChildList"/>
           <xs:element name="FixtureID" type="xs:string"/>
-          <xs:element name="FixtureIDNumeric" type="positiveinteger"/>    
+          <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->  
           <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
           <xs:element name="CustomIdType" type="xs:integer" minOccurs="0"/>
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>  
@@ -303,7 +308,8 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="Overwrites" type="Overwrites" minOccurs="0"/>
           <xs:element name="Connections" type="Connections" minOccurs="0"/>     
           <xs:element name="FixtureID" type="xs:string"/>
-          <xs:element name="FixtureIDNumeric" type="positiveinteger"/>    
+          <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->  
           <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
           <xs:element name="CustomIdType" type="xs:integer" minOccurs="0"/>
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>    
@@ -334,7 +340,8 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="Connections" type="Connections" minOccurs="0"/>  
           <xs:element name="ChildList" type="ChildList"/>
           <xs:element name="FixtureID" type="xs:string"/>
-          <xs:element name="FixtureIDNumeric" type="positiveinteger"/>    
+          <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->  
           <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
           <xs:element name="CustomIdType" type="xs:integer" minOccurs="0"/>
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>
@@ -362,7 +369,8 @@ must be checked at parser level because of limitations of XSD 1.0.
           <xs:element name="Connections" type="Connections" minOccurs="0"/>  
           <xs:element name="ChildList" type="ChildList"/>
           <xs:element name="FixtureID" type="xs:string"/>
-          <xs:element name="FixtureIDNumeric" type="positiveinteger"/>    
+          <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
+          <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->  
           <xs:element name="UnitNumber" type="positiveinteger" minOccurs="0"/>
           <xs:element name="CustomIdType" type="xs:integer" minOccurs="0"/>
           <xs:element name="CustomId" type="xs:integer" minOccurs="0"/>   
@@ -421,7 +429,7 @@ must be checked at parser level because of limitations of XSD 1.0.
   </xs:complexType>
   <!-- ChildList -->
   <xs:complexType name="ChildList">
-    <xs:sequence>
+    <xs:choice maxOccurs="unbounded">
         <xs:element name="SceneObject" type="SceneObject" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="GroupObject" type="GroupObject" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="FocusPoint" type="FocusPoint" minOccurs="0" maxOccurs="unbounded"/>
@@ -430,7 +438,7 @@ must be checked at parser level because of limitations of XSD 1.0.
         <xs:element name="Truss" type="Truss" minOccurs="0" maxOccurs="unbounded"/>        
         <xs:element name="VideoScreen" type="VideoScreen" minOccurs="0" maxOccurs="unbounded"/>     
         <xs:element name="Projector" type="Projector" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    </xs:choice>
   </xs:complexType>
   <xs:complexType name="Network">
     <xs:attribute name="geometry" type="xs:string" use="required"/>
