@@ -1028,6 +1028,9 @@ level. These unvalidated properties are:
       <xs:enumeration value="Spot"/>
       <xs:enumeration value="None"/>
       <xs:enumeration value="Rectangle"/>
+      <xs:enumeration value="PC"/>
+      <xs:enumeration value="Fresnel"/>
+      <xs:enumeration value="Glow"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ColorSpaceEnum">
