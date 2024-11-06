@@ -543,7 +543,7 @@ level. These unvalidated properties are:
   <!-- Laser Geometry -->
   <xs:complexType name="Laser">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="BasicGeometryType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
           <xs:element name="Protocol" type="Protocol"/>
         </xs:sequence>
@@ -561,12 +561,12 @@ level. These unvalidated properties are:
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-   <xs:complexType name="Protocol">
+  <xs:complexType name="Protocol">
     <xs:attribute name="Name" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="GeometryReference">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="BasicGeometryType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
           <xs:element name="Break" type="Break"/>
         </xs:sequence>
@@ -581,7 +581,7 @@ level. These unvalidated properties are:
   <!-- WiringObject Geometry -->
   <xs:complexType name="WiringObject">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="BasicGeometryType">
         <xs:sequence>
           <xs:element name="PinPatch" type="PinPatch" minOccurs="0"/>
         </xs:sequence>
@@ -613,7 +613,7 @@ level. These unvalidated properties are:
   <!-- Inventory Geometry -->
   <xs:complexType name="Inventory">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="GeometryReference">
         <xs:attribute name="Count" type="xs:int"/>
       </xs:extension>
     </xs:complexContent>
@@ -621,7 +621,7 @@ level. These unvalidated properties are:
   <!-- Structure Geometry -->
   <xs:complexType name="Structure">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="GeometryReference">
         <xs:attribute name="LinkedGeometry" type="nametype"/>
         <xs:attribute name="StructureType" type="StructureType"/>
         <xs:attribute name="CrossSectionType " type="CrossSectionType"/>
@@ -634,7 +634,7 @@ level. These unvalidated properties are:
   <!-- Support Geometry -->
   <xs:complexType name="Support">
     <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
+      <xs:extension base="GeometryReference">
         <xs:attribute name="SupportType " type="SupportType"/>
         <xs:attribute name="RopeCrossSection" type="xs:string"/>
         <xs:attribute name="RopeOffset" type="xs:string"/>
