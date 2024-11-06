@@ -705,12 +705,7 @@ level. These unvalidated properties are:
   <!-- LogicalChannel -->
   <xs:complexType name="LogicalChannel">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="ChannelFunction" type="ChannelFunction">
-        <xs:unique name="UniqueChannelSetDMXFrom">
-          <xs:selector xpath="ChannelSet"/>
-          <xs:field xpath="@DMXFrom"/>
-        </xs:unique>
-      </xs:element>
+      <xs:element name="ChannelFunction" type="ChannelFunction"/>
     </xs:sequence>
     <xs:attribute name="Attribute" type="nametype" use="required"/>
     <xs:attribute name="Snap" type="SnapEnum" default="No"/>
