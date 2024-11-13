@@ -80,6 +80,8 @@ amendments) applies.
 
 - OpenSoundControl http://opensoundcontrol.org/index.html
 
+- [ANSI E1.20 - 2010 Entertainment Technology—RDM Remote Device Management Over DMX512 Networks](https://tsp.esta.org/tsp/documents/docs/ANSI_E1-20&E1-37-1&E1-37-2.zip)
+
 
 ## Terms and definitions
 
@@ -2295,6 +2297,12 @@ attributes of RDM are specified in [table 70](#user-content-table-70 ).
 
 </div>
 
+
+The ManufacturerID corresponds to the RDM "ESTA Manufacturer ID".
+
+The DeviceModelID corresponds to the RDM "Device Model ID" in PID 0x0060 DEVICE_INFO.
+
+
 As children the FTRDM has a list of `SoftwareVersionID`.
 
 #### SoftwareVersionID
@@ -2315,6 +2323,8 @@ The currently defined XML attributes are specified in [table 71](#user-content-t
 
 </div>
 
+The Value of SoftwareVersionID corresponds to the RDM "Software Version ID" in PID 0x0060 DEVICE_INFO.
+
 As children the SoftwareVersionID has a list of `DMXPersonality`.
 
 ##### DMXPersonality
@@ -2334,6 +2344,8 @@ To define the supported software versions add an XML node
 
 
 </div>
+
+The Value of DMXPersonality corresponds to the RDM PID 0x00E0 DMX_PERSONALITY.
 
 The DMXPersonality does not have any children.
 
