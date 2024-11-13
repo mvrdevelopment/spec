@@ -33,6 +33,7 @@ the latest edition of the referenced document (including any amendments) applies
 - [RFC6455, The WebSocket Protocol](https://www.ietf.org/rfc/rfc6455.txt)
 - [RFC6762, Multicast DNS](https://www.ietf.org/rfc/rfc6762.txt)
 - [RFC6763, DNS-Based Service Discovery](https://www.ietf.org/rfc/rfc6763.txt)
+- [ANSI E1.37-5 – 2024 General Purpose Messages for E1.20 RDM](https://tsp.esta.org/tsp/documents/docs/ANSI%20E1.37-5%20-%202024.pdf)
 
 
 # Terms and definitions
@@ -1783,6 +1784,7 @@ Normally FixtureIDs are numeric to allow range selection. For Descriptive displa
 A similar concept is the multipatch. Sometimes you want to group multiple objects behind the same FixtureIDNumeric or CustomId. This can be objects of the same GDTF Type, but not forced to be. When you select the FixtureIDNumeric or CustomId from the multipatch parent, all objects that reference this object in multipatch
 parent should also be selected.
 
+If the device supports the RDM protocol, the FixtureIDNumeric corresponds to the RDM PID 0x0656 DEVICE_UNIT_NUMBER.
 
 # Annex B. UUID purposes (informative)
 
