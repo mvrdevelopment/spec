@@ -2124,9 +2124,9 @@ described in XML.
        </DMXChannel>  
    </DMXChannels>  
    <Relations>  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_R.ColorAdd_R.ColorAdd_R 1" Type="Multiply" />  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 1" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_R.ColorAdd_R.ColorAdd_R 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 2" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 3" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
    </Relations>
 </DMXMode> 
 
@@ -3426,3 +3426,27 @@ If there aren't any value given by the user, the TimeOffset and DutyCycle SubPhy
 ![Graph of a default PulseOpen-like attribute and their SubPhysicalUnits](media/PulseOpen\_Default.png "default PulseOpen-like attribute and their SubPhysicalUnits")
 
 *Figure 10. Default PulseOpen-like attribute and their SubPhysicalUnits*
+
+# Annex G. Virtual Channels, Virtual Dimmers, Visual Channels (informative)
+
+[DMX Channel](#user-content-dmx-channel) with Offset of value None becomes a
+**Virtual Channel**. Virtual Channel typically does create a control surface
+(an encoder) on control desks. It does not produce real world (DMX) output, but
+it can have an effect on it's linked Geometry in a visualizer.
+
+A Virtual Channel can contain (multiple)
+[Relations](#user-content-relation-collect), for example to color mixing
+channels, which creates a **Virtual Dimmer**. See example in [Listing
+1](#listing-1-dmx-mode-with-relations). Through linking to other DMX Channels,
+the Virtual Dimmer can have a real world effect.
+
+A Virtual Channel with Logical Channel Attribute set as NoFeature and with
+Channel Functions Attributes set to control functions on Geometries linked via
+DMX Channel becomes a **Visual Channel**. Visual Channel typically does not
+create an encoder in a controller, does not produce real world (DMX) output,
+but it can have an effect on it's linked Geometry in a visualizer.
+
+
+
+
+
