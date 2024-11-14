@@ -246,7 +246,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 | Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
 | Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
 | FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
-| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic.  <br />- These resource files are located in the root directory of the zip file.  |
+| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced fixture type. |
@@ -257,7 +257,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 Fixture type node children are specified in [table 4](#user-content-table-4 ).
 
-For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the 'Thumbnail' defining Movement Range and the Connection Input position. 
+For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the `Thumbnail` defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
 * Connection Input (Pigtail): shapes inside the SVG with fill and stroke color Green (#00FF00 (RGB: 0, 255, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a connection input (pigtail) part of the device.
 
