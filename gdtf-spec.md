@@ -257,7 +257,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 Fixture type node children are specified in [table 4](#user-content-table-4 ).
 
-For SVG files defining the `Thumbnail` you can mark the elements defining Movement Range and the Connection Input position. 
+For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the 'Thumbnail' defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
 * Connection Input (Pigtail): shapes inside the SVG with fill and stroke color Green (#00FF00 (RGB: 0, 255, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a connection input (pigtail) part of the device.
 
@@ -1154,12 +1154,12 @@ define the insertion point in relation to the view box.
 SVG can have background filling. This filling should have the color #C8C8C8. By
 this color, any software can replace it with another color.
 
-| Type  | Description  | Folder 3DS / gltf |
+| Type  | Description  | Folder |
 |---|---|---|
 | Top View  | View from top in -Z direction. | `svg` |
-| Bottom View  | View from  fron in Z direction  | `svg_bottom` |
-| Front View  | View from  fron in Y direction | `svg_front` |
-| Side View  | View from  fron in -X direction  | `svg_side` |
+| Bottom View  | View from  bottom in Z direction  | `svg_bottom` |
+| Front View  | View from  front in Y direction | `svg_front` |
+| Side View  | View from  front in -X direction  | `svg_side` |
 
 
 ![Base](media/svg/non-symetric/base.svg)
