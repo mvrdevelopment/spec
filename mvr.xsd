@@ -34,10 +34,10 @@ must be checked at parser level because of limitations of XSD 1.0.
   </xs:complexType>
   <!-- Scene -->
   <xs:complexType name="Scene">
-    <xs:sequence>
-      <xs:element name="Layers" type="Layers"/>
+    <xs:all>
       <xs:element name="AUXData" type="AUXData" minOccurs="0"/>
-    </xs:sequence>
+      <xs:element name="Layers" type="Layers"/>
+    </xs:all>
   </xs:complexType>
   <!-- AuxData -->
   <xs:complexType name="AUXData">
@@ -276,7 +276,7 @@ must be checked at parser level because of limitations of XSD 1.0.
         <xs:element name="Overwrites" type="Overwrites" minOccurs="0"/>
         <xs:element name="Connections" type="Connections" minOccurs="0"/>
         <xs:element name="ChildPosition" type="xs:string" minOccurs="0"/>
-        <xs:element name="ChildList" type="ChildList"/>
+        <xs:element name="ChildList" type="ChildList" minOccurs="0"/>
         <xs:element name="FixtureID" type="xs:string"/>
         <xs:element name="FixtureIDNumeric" type="positiveinteger" minOccurs="0"/> <!-- minOccurs="0" for backwards compatability -->   
         <xs:element name="FixtureTypeId" type="positiveinteger" minOccurs="0"/> <!-- backwards compatability -->  
@@ -321,7 +321,6 @@ must be checked at parser level because of limitations of XSD 1.0.
 </xs:complexType>
 <!-- VideoScreen -->
 <xs:complexType name="VideoScreen">
-
   <xs:complexContent>
     <xs:extension base="BasicChildListAttribute">
       <xs:sequence>
