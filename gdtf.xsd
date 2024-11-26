@@ -585,7 +585,7 @@ level. These unvalidated properties are:
                     <xs:sequence>
                       <xs:element name="PinPatch" type="PinPatch" minOccurs="0"/>
                     </xs:sequence>
-                    <xs:attribute name="ConnectorType " type="xs:string"/>
+                    <xs:attribute name="ConnectorType" type="xs:string"/>
                     <xs:attribute name="ComponentType" type="WiringComponentType"/>
                     <xs:attribute name="SignalType" type="xs:string"/>
                     <xs:attribute name="PinCount" type="xs:int"/>
@@ -624,7 +624,7 @@ level. These unvalidated properties are:
                 <xs:extension base="GeometryReference">
                   <xs:attribute name="LinkedGeometry" type="nametype"/>
                   <xs:attribute name="StructureType" type="StructureType"/>
-                  <xs:attribute name="CrossSectionType " type="CrossSectionType"/>
+                  <xs:attribute name="CrossSectionType" type="CrossSectionType"/>
                   <xs:attribute name="CrossSectionHeight" type="xs:float"/>
                   <xs:attribute name="CrossSectionWallThickness" type="xs:float"/>
                   <xs:attribute name="TrussCrossSection" type="xs:string"/>
@@ -635,7 +635,7 @@ level. These unvalidated properties are:
             <xs:complexType name="Support">
               <xs:complexContent>
                 <xs:extension base="GeometryReference">
-                  <xs:attribute name="SupportType " type="SupportType"/>
+                  <xs:attribute name="SupportType" type="SupportType"/>
                   <xs:attribute name="RopeCrossSection" type="xs:string"/>
                   <xs:attribute name="RopeOffset" type="xs:string"/>
                   <xs:attribute name="CapacityX" type="xs:float"/>
@@ -1223,7 +1223,7 @@ level. These unvalidated properties are:
   <xs:enumeration value="Detail"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:simpleType name="CrossSectionType ">
+<xs:simpleType name="CrossSectionType">
  <xs:restriction base="xs:string">
   <xs:enumeration value="TrussFramework"/>
   <xs:enumeration value="Tube"/>
