@@ -976,7 +976,6 @@ are specified in [table 28](#user-content-table-28 ).
 | [Weight](#user-content-weight )                             | 0 or 1 | Weight of the device including all accessories.        |
 | [PowerConsumption](#user-content-powerconsumption )         | Any    | Power information for a given connector.               |
 | [LegHeight](#user-content-legheight )                       | 0 or 1 | Height of the legs.                                    |
-| [Battery](#user-content-battery )                           | 0 or 1 | Definition of Battery from Fixture                     |
 
 
 </div>
@@ -1038,27 +1037,6 @@ currently defined XML attributes of the LegHeight are specified in
 </div>
 
 The LegHeight currently does not have any children.
-
-
-#### Battery
-
-This section defines the Battery of the Fixture (XML node `<Battery>`) not 
-used if the Fixtures has not Battery. The currently defined XML Attributes 
-of the Battery are specifies in [table 31.1](#user-content-table-31.1 ).
-
-<div id="table-31.1">
-
-#### Table 31.1. *Battery Attributes*
-
-| XML Attribute Name | Value Type                          | Description                                                                                                      |
-|----|----|----|
-| Duration           | [Float](#user-content-attrtype-float ) | Defines duration of the Battery - Battery Duration on maximum fixture intensity. Unit: Hours. Default value: 0 |
-| ChargingTime       | [Float](#user-content-attrtype-float ) | Defines the charging time - Time it takes to charge Battery. Unit: Hours. |
-| BatteryOperation   | [Enum](#user-content-attrtype-enum ) | Mode of operation on battery Power. Defined Modes are "Configuration" and "Standalone". Default Value "Standalone" |
-
-</div>
-
-The Battery currently does not have any children.
 
 
 ## Model Collect
@@ -1649,7 +1627,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | Model               | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                  |
 | ConnectorType   <a id="attrtype-connectortype" />    | [Name](#user-content-attrtype-name )      | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). This is not applicable for Component Types Fuses. Custom type of connector can also be defined, for example "Loose End".|
 | Position            | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                     |
-| ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut". |
+| ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut", "Battery". |
 | SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
 | PinCount            | [Int](#user-content-attrtype-int )        | The number of available pins of the connector type to connect internal wiring to it.              |
 | ElectricalPayLoad   | [Float](#user-content-attrtype-float )    | The electrical consumption in Watts. Only for [Consumers](#user-content-attrtype-connectortype ). Unit: Watt.                                         |
@@ -1665,6 +1643,10 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Defined values are "B", "C", "D", "K", "Z".                                          |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
 | WireGroup           | [String](#user-content-attrtype-string )  | Name of the group to which this wiring object belong.                                             |
+| BatteryType         | [Enum](#ser-content-attrtype-enum )       | The Type of the Battery Unit. Defined values are "Soldered", "Replacable", "Quickswap", "External". |
+| BatteryOperation  <a id="attrtype-batteryoperation" />  | [Enum](#user-content-attrtype-enum )      | The  function of the Fixture under Battery Power. Defined values are "Configuration", "Operation". |
+| BatteryRuntime      | [Float](#user-content-attrtype-float )    | The Runtime of the Fixture under Battery Power. Only for [Operation](#attrtype-batteryoperation ).
+| ChargingTime        | [Float](#user-content-attrtype-float )    | The Time it takes to charge the Fixture from 0 to 100%.                                           |
 
 
 </div>
