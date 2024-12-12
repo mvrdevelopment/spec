@@ -409,6 +409,7 @@ The child list (Table 20) contains a list of one of the following nodes:
 | CustomId                                          | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The Custom ID is a value that can be used as a short name of the Fixture Instance. This does not have to be unique. The default value is 0.   |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this object belongs to.    |
 | [ChildList](#node-definition-childlist) | 0 or 1             | A list of graphic objects that are part of the layer.   |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 
@@ -434,6 +435,7 @@ The child list (Table 22) contains a list of one of the following nodes:
 | [Matrix](#node-definition-matrix)       | 0 or 1        |                                     | The location and orientation of the object inside the parent coordinate system. |
 | [Classing](#node-definition-class)   | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                                |
 | [ChildList](#node-definition-childlist) | 0 or 1             |                                     | A list of graphic objects that are part of the group.                           |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 ### Node Definition: FocusPoint
@@ -458,6 +460,7 @@ The child list (Table 24) contains a list of one of the following nodes:
 | [Matrix](#node-definition-matrix)         | 0 or 1        |                                     | The location and orientation of the object inside the parent coordinate system. |
 | [Classing](#node-definition-class)     | 0 or 1        | [UUID](#user-content-attrtype-uuid) | The Class the object belongs to.                                                |
 | [Geometries](#node-definition-geometries) | 1             |                                     | A list of geometrical representation objects that are part of the object.       |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 ### Node Definition: Fixture
@@ -506,6 +509,7 @@ The child list (Table 26) contains a list of one of the following nodes:
 | [Mappings](#node-definition-mappings)   | 0 or 1        |                                              | The container for Mappings for this fixture.                                                                                                  |
 | [Gobo](#node-definition-gobo)           | 0 or 1        |                                              | The Gobo used for the fixture. The image resource must conform to the GDTF standard.                                 |
 | [ChildList](#node-definition-childlist) | 0 or 1             |   | A list of graphic objects that are part of the layer.                                                                                                                                    |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 Note: _The fixture has no `Geometries` node as geometry is defined in a GDTF file._
 
@@ -589,6 +593,7 @@ EXAMPLE An example of a node definition is shown below:
         <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
       </Fixture>
     </ChildList>
+    <Comment>Example Comment</Comment>
 </Fixture>
 ```
 
@@ -633,6 +638,7 @@ The child list (Table 28) contains a list of one of the following nodes:
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different. |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 
@@ -676,6 +682,7 @@ The child list (Table 30) contains a list of one of the following nodes:
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
 | [ChildList](#node-definition-childlist) | 0 or 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 ## Node Definition: VideoScreen
@@ -717,6 +724,7 @@ The child list (Table 32) contains a list of one of the following nodes:
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                                  |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 EXAMPLE An example of a node definition is shown below:
@@ -735,6 +743,7 @@ EXAMPLE An example of a node definition is shown below:
     <Sources>
     movie.mov
    </Sources>
+   <Comment> Example Comment </Comment>
 </Fixture>
 ```
 
@@ -777,6 +786,7 @@ The child list (Table 34) contains a list of one of the following nodes:
 | UnitNumber                                        | 0 or 1        | [Integer](#user-content-attrtype-integer)   | The identification of a fixture on its position. </b> Use this as an alternative numbering scheme if the planning and programming numbering is different.                                                                                           |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
+| Comment                                           | 0 or 1        | [String](#user-content-attrtype-string)     | Comments for this Objects.                      |
 
 
 EXAMPLE An example of a node definition is shown below:
@@ -799,6 +809,7 @@ EXAMPLE An example of a node definition is shown below:
             <ScaleHandeling>UpScale</ScaleHandeling>
         </Projection>
     </Projections>
+    <Comment> Example Comment </Comment>
 </Projector> 
 ```
 
