@@ -518,12 +518,14 @@ currently defined XML attributes of the wheel slot are specified in
 |----|----|----|
 | Name               | [String](#user-content-attrtype-string )        | The name of the wheel slot                                                                                                                                                                                                                                                                                                 |
 | Color              | [ColorCIE](#user-content-attrtype-colorcie )   | Color of the wheel slot, Default value: {0.3127, 0.3290, 100.0 } (white) For Y give relative value compared to overall output defined in property Luminous Flux of related Beam Geometry (transmissive case).                                                                                                                     |
-| Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description; Do not define color if filter is used; Starting point: Filter Collect                                                                                                                                                                                                       |
+| Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description, Starting point: Filter Collect                                                                                                                                                                                                       |
 | MediaFileName | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
-
-
-
+| BeamInfluence      | [Enum](#user-content-attrtype-enum )   | Optional. Describes how the slot is affecting the beam. Currently defined values are "Open" - the slot is not affecting the beam, "Closed" - the slot is completely blocking the beam.|
 </div>
+
+As children the attribute node can have a list of [Prism
+Facet](#user-content-prism-facet) or [Animation
+System](#user-content-animation-system).
 
 Note 1: More information on the definitions of images used in wheel slots to
 visualize gobos, animation wheels or color wheels can be found in Annex E
@@ -534,10 +536,24 @@ done via the wheel slot index. The wheel slot index of a slot is derived
 from the order of a wheel's slots. The wheel slot index is normalized to
 1.
 
-If the wheel slot has a prism, it has to have one or several children
-called [prism facet](#user-content-prism-facet ). If the wheel slot has an
-AnimationWheel, it has to have one child called [Animation
-Wheel](#user-content-animation-wheel ).
+If the wheel slot describes a prism, it has to have one or several children
+called [Prism Facet](#user-content-prism-facet ). If the wheel slot describes
+an AnimationSystem it has to have one child called
+[AnimationSystem](#user-content-animation-system).
+
+The [attribute](#annex-a-normative-attribute-definitions) of a parent channel
+function in the linked channel set defines which XML attributes of a wheel slot
+should be used and in what order of importance:
+
+| GDTF Attribute Name | Utilized XML attribute                                      |
+|----|----|
+| Color(n)              | MediaFileName, Filter, Color                              |
+| Gobo(n)               | MediaFileName                                             |
+| Prism(n)              | Facet                                                     |
+| AnimationWheel(n)     | MediaFileName                                             |
+| AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
+| MediaContent(n)       | MediaFileName                                             |
+
 
 ##### Prism Facet
 
