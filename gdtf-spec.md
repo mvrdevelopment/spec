@@ -246,7 +246,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 | Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
 | Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
 | FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
-| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic.  <br />- These resource files are located in the root directory of the zip file.  |
+| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced fixture type. |
@@ -257,7 +257,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 Fixture type node children are specified in [table 4](#user-content-table-4 ).
 
-For SVG files defining the `Thumbnail` you can mark the elements defining Movement Range and the Connection Input position. 
+For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the `Thumbnail` defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
 * Connection Input (Pigtail): shapes inside the SVG with fill and stroke color Green (#00FF00 (RGB: 0, 255, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a connection input (pigtail) part of the device.
 
@@ -1093,6 +1093,8 @@ specified in [table 32](#user-content-table-32 ).
 | File               | [Resource](#user-content-attrtype-resource )   | Optional. File name without extension and without subfolder containing description of the model. Use the following as a resource file:<br />- 3DS or GLB to file to provide 3D model.<br />- SVG file to provide the 2D symbol.<br />It is possible to add several files with the same name but different formats. Preferable format for the 3D model is GLTF. The resource files are located in subfolders of a folder called <code>./models</code>. The names of the subfolders correspond to the file format of the resource files (3ds, step, svg). The path for 3ds files would be <code>./models/3ds</code>. For glb files, it would be <code>./models/gltf</code>.</p> Software that is utilizing GDTF files should always be able to read both 3ds and GlTF file formats and should be able to write at least one of these formats. It is preferable that only one type of 3D model file formats is used within one GDTF file. |
 | SVGOffsetX            | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
 | SVGOffsetY            | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
+| SVGBottomOffsetX      | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the bottom view svg. Unit based on the SVG. Default value: 0|
+| SVGBottomOffsetY      | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the bottom view svg. Unit based on the SVG. Default value: 0|
 | SVGSideOffsetX        | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the side view svg. Unit based on the SVG. Default value: 0|
 | SVGSideOffsetY        | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the side view svg. Unit based on the SVG. Default value: 0|
 | SVGFrontOffsetX       | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the front view svg. Unit based on the SVG. Default value: 0|
@@ -1168,12 +1170,12 @@ define the insertion point in relation to the view box.
 SVG can have background filling. This filling should have the color #C8C8C8. By
 this color, any software can replace it with another color.
 
-| Type  | Description  | Folder 3DS / gltf |
+| Type  | Description  | Folder |
 |---|---|---|
 | Top View  | View from top in -Z direction. | `svg` |
-| Front View  | View from  fron in Y direction | `svg_front` |
-| Side View  | View from  fron in -X direction  | `svg_side` |
-
+| Bottom View  | View from  bottom in Z direction  | `svg_bottom` |
+| Front View  | View from  front in Y direction | `svg_front` |
+| Side View  | View from  front in -X direction  | `svg_side` |
 
 
 ![Base](media/svg/non-symetric/base.svg)
