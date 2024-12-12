@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!-- 
-XML Schema for GDTF 1.1
+XML Schema for GDTF 1.2
 =======================
 
-This document tries to describes GDTF 1.1 from DIN SPEC 15800:2020-07 to the
+This document tries to describes GDTF 1.2 from DIN SPEC 15800:2022-02 to the
 extent possible with XSD 1.0.
 
 Note that due to the restrictions of XSD 1.0, some syntactic properties of GDTF
@@ -32,298 +32,356 @@ level. These unvalidated properties are:
       <xs:sequence>
         <xs:element name="FixtureType" type="FixtureType">
           <xs:keyref name="AttributeKeyReference" refer="UniqueAttribute">
-            <xs:selector xpath=".//LogicalChannel|.//ChannelFunction" />
-            <xs:field xpath="@Attribute" />
+            <xs:selector xpath=".//LogicalChannel|.//ChannelFunction"/>
+            <xs:field xpath="@Attribute"/>
           </xs:keyref>
           <xs:keyref name="FilterKeyReference" refer="UniqueFilter">
-            <xs:selector xpath="Wheels/Wheel/Slot|DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction" />
-            <xs:field xpath="@Filter" />
+            <xs:selector xpath="Wheels/Wheel/Slot|DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+            <xs:field xpath="@Filter"/>
           </xs:keyref>
           <xs:keyref name="ModelKeyReference" refer="UniqueModel">
             <xs:selector xpath=".//Geometry|.//Axis|.//FilterBeam|.//FilterColor|.//FilterGobo|.//FilterShaper|
-            .//Beam|.//MediaServerLayer|.//MediaServerCamera|.//MediaServerMaster|.//Display|.//GeometryReference"/>
-            <xs:field xpath="@Model"/>
-          </xs:keyref>
-          <xs:keyref name="TopLevelGeometryKeyReference" refer="UniqueTopLevelGeometries">
-            <xs:selector xpath="DMXModes/DMXMode"/>
-            <xs:field xpath="@Geometry"/>
-          </xs:keyref>
-          <xs:keyref name="GeometryKeyReference" refer="UniqueGeometries">
-            <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel"/>
-            <xs:field xpath="@Geometry"/>
-          </xs:keyref>
-          <xs:keyref name="WheelKeyReference" refer="UniqueWheelName">
-            <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
-            <xs:field xpath="@Wheel"/>
-          </xs:keyref>
-          <xs:keyref name="EmitterKeyReference" refer="UniqueEmitter">
-            <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
-            <xs:field xpath="@Emitter"/>
-          </xs:keyref>
+              .//Beam|.//MediaServerLayer|.//MediaServerCamera|.//MediaServerMaster|.//Display|.//GeometryReference|
+              .//Laser|.//WiringObject|.//Inventory|.//Structure|.//Support|.//Magnet"/>
+              <xs:field xpath="@Model"/>
+            </xs:keyref>
+            <xs:keyref name="TopLevelGeometryKeyReference" refer="UniqueTopLevelGeometries">
+              <xs:selector xpath="DMXModes/DMXMode"/>
+              <xs:field xpath="@Geometry"/>
+            </xs:keyref>
+            <xs:keyref name="GeometryKeyReference" refer="UniqueGeometries">
+              <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel"/>
+              <xs:field xpath="@Geometry"/>
+            </xs:keyref>
+            <xs:keyref name="WheelKeyReference" refer="UniqueWheelName">
+              <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+              <xs:field xpath="@Wheel"/>
+            </xs:keyref>
+            <xs:keyref name="EmitterKeyReference" refer="UniqueEmitter">
+              <xs:selector xpath="DMXModes/DMXMode/DMXChannels/DMXChannel/LogicalChannel/ChannelFunction"/>
+              <xs:field xpath="@Emitter"/>
+            </xs:keyref>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="DataVersion" type="dataversion" use="required"/>
+      </xs:complexType>
+    </xs:element>
+    <!-- FixtureType -->
+    <xs:complexType name="FixtureType">
+     <xs:sequence>
+      <xs:element minOccurs="1" name="AttributeDefinitions"
+       type="AttributeDefinitions">
+       <xs:keyref name="ActivationGroupReference"
+        refer="UniqueActivationGroup">
+        <xs:selector xpath="Attributes/Attribute"/>
+        <xs:field xpath="@ActivationGroup"/>
+      </xs:keyref>
+    </xs:element>
+    <xs:element minOccurs="0" name="Wheels" type="Wheels">
+     <xs:unique name="UniqueWheelName">
+      <xs:selector xpath="Wheel"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element minOccurs="0" name="PhysicalDescriptions"
+   type="PhysicalDescriptions">
+   <xs:keyref name="ConnectorKeyReference"
+    refer="UniqueConnector">
+    <xs:selector xpath="Properties/PowerConsumption"/>
+    <xs:field xpath="@Connector"/>
+  </xs:keyref>
+</xs:element>
+<xs:element minOccurs="0" name="Models" type="Models">
+ <xs:unique name="UniqueModel">
+  <xs:selector xpath="Model"/>
+  <xs:field xpath="@Name"/>
+</xs:unique>
+</xs:element>
+<xs:element minOccurs="1" name="Geometries"
+ type="Geometries">
+ <xs:unique name="UniqueGeometries">
+  <xs:selector xpath=".//*"/>
+  <xs:field xpath="@Name"/>
+</xs:unique>
+<xs:unique name="UniqueTopLevelGeometries">
+  <xs:selector xpath="*"/>
+  <xs:field xpath="@Name"/>
+</xs:unique>
+</xs:element>
+<xs:element minOccurs="1" name="DMXModes" type="DMXModes">
+ <xs:unique name="UniqueDMXModeName">
+  <xs:selector xpath="DMXMode"/>
+  <xs:field xpath="@Name"/>
+</xs:unique>
+</xs:element>
+<xs:element minOccurs="0" name="Revisions" type="Revisions"/>
+<xs:element minOccurs="0" name="FTPresets" type="FTPresets"/>
+<xs:element minOccurs="0" name="Protocols" type="Protocols"/>
+</xs:sequence>
+<xs:attribute name="Name" type="nametype" use="required"/>
+<xs:attribute name="ShortName" type="xs:string"/>
+<xs:attribute name="LongName" type="xs:string"/>
+<xs:attribute name="Manufacturer" type="xs:string" use="required"/>
+<xs:attribute name="Description" type="xs:string" use="required"/>
+<xs:attribute name="FixtureTypeID" type="guidtype" use="required"/>
+<xs:attribute name="Thumbnail" type="xs:string"/>
+<xs:attribute name="ThumbnailOffsetX" type="xs:int"/>
+<xs:attribute name="ThumbnailOffsetY" type="xs:int"/>
+<xs:attribute name="RefFT" type="guidtype"/>
+<xs:attribute name="CanHaveChildren" type="YesNoEnum"
+ default="Yes"/>
+</xs:complexType>
+<!-- AttributeDefinitions -->
+<xs:complexType name="AttributeDefinitions">
+  <xs:all>
+    <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0">
+      <xs:unique name="UniqueActivationGroup">
+        <xs:selector xpath="ActivationGroup"/>
+        <xs:field xpath="@Name"/>
+      </xs:unique>
+    </xs:element>
+    <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1">
+      <xs:unique name="UniqueFeatureGroup">
+        <xs:selector xpath="FeatureGroup"/>
+        <xs:field xpath="@Name"/>
+      </xs:unique>
+    </xs:element>
+    <xs:element name="Attributes" type="Attributes" minOccurs="1">
+      <xs:unique name="UniqueAttribute">
+        <xs:selector xpath="Attribute"/>
+        <xs:field xpath="@Name"/>
+      </xs:unique>
+      <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
+        <xs:selector xpath="Attribute"/>
+        <xs:field xpath="@MainAttribute"/>
+      </xs:keyref>
+    </xs:element>
+  </xs:all>
+</xs:complexType>
+<xs:complexType name="ActivationGroups">
+  <xs:sequence>
+    <xs:element name="ActivationGroup" type="ActivationGroup" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="FeatureGroups">
+  <xs:sequence>
+    <xs:element name="FeatureGroup" type="FeatureGroup" minOccurs="0" maxOccurs="unbounded">
+      <xs:unique name="UniqueFeature">
+        <xs:selector xpath="Feature"/>
+        <xs:field xpath="@Name"/>
+      </xs:unique>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="ActivationGroup">
+  <xs:attribute name="Name" type="nametype" use="required"/>
+</xs:complexType>
+<xs:complexType name="FeatureGroup">
+  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="Feature" type="Feature"/>
+  </xs:sequence>
+  <xs:attribute name="Name" type="nametype" use="required"/>
+  <xs:attribute name="Pretty" type="xs:string" use="required"/>
+</xs:complexType>
+<xs:complexType name="Feature">
+  <xs:attribute name="Name" type="nametype" use="required"/>
+</xs:complexType>
+<xs:complexType name="Attributes">
+  <xs:sequence>
+    <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="Attribute">
+ <xs:sequence>
+  <xs:element name="SubPhysicalUnit" type="SubPhysicalUnit" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="Name" type="nametype" use="required"/>
+<xs:attribute name="Pretty" type="xs:string" use="required"/>
+<xs:attribute name="ActivationGroup" type="xs:string"/>
+<xs:attribute name="Feature" type="featuretype" use="required"/>
+<xs:attribute name="MainAttribute" type="nametype"/>
+<xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum"
+  default="None"/>
+  <xs:attribute name="Color" type="colorcietype"/>
+</xs:complexType>
+<xs:complexType name="SubPhysicalUnit">
+ <xs:attribute name="Type" type="SubPhysicalTypeEnum"/>
+ <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum"/>
+ <xs:attribute name="PhysicalFrom" type="xs:float"/>
+ <xs:attribute name="PhysicalTo" type="xs:float"/>
+</xs:complexType>
+<!-- Wheels -->
+<xs:complexType name="Wheels">
+  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="Wheel" type="Wheel">
+      <xs:unique name="UniqueSlotName">
+        <xs:selector xpath="Slot"/>
+        <xs:field xpath="@Name"/>
+      </xs:unique>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="Wheel">
+  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="Slot" type="Slot"/>
+  </xs:sequence>
+  <xs:attribute name="Name" type="nametype"/>
+</xs:complexType>
+<xs:complexType name="Slot">
+  <xs:choice minOccurs="0">
+    <xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="unbounded"/>
+    <xs:element name="AnimationSystem" type="AnimationSystem"/>
+  </xs:choice>
+  <xs:attribute name="Name" type="xs:string" use="required"/>
+  <xs:attribute name="Color" type="colorcietype"/>
+  <xs:attribute name="Filter" type="nametype"/>
+  <xs:attribute name="MediaFileName" type="xs:string" default=""/>
+</xs:complexType>
+<xs:complexType name="Facet">
+  <xs:attribute name="Color" type="colorcietype"/>
+  <xs:attribute name="Rotation" type="rotationtype" use="required"/>
+</xs:complexType>
+<xs:complexType name="AnimationSystem">
+  <xs:attribute name="P1" type="twoarray" use="required"/>
+  <xs:attribute name="P2" type="twoarray" use="required"/>
+  <xs:attribute name="P3" type="twoarray" use="required"/>
+  <xs:attribute name="Radius" type="positivefloat" use="required"/>
+</xs:complexType>
+<!-- PhysicalDescriptions -->
+<xs:complexType name="PhysicalDescriptions">
+  <xs:all>
+   <xs:element name="Emitters" type="Emitters" minOccurs="0">
+    <xs:key name="UniqueEmitter">
+     <xs:selector xpath="Emitter"/>
+     <xs:field xpath="@Name"/>
+   </xs:key>
+ </xs:element>
+ <xs:element name="Filters" type="Filters" minOccurs="0">
+  <xs:key name="UniqueFilter">
+   <xs:selector xpath="Filter"/>
+   <xs:field xpath="@Name"/>
+ </xs:key>
+</xs:element>
+<xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
+<xs:element name="AdditionalColorSpaces" type="AdditionalColorSpaces" minOccurs="0"/>
+<xs:element name="Gamuts" type="Gamuts" minOccurs="0"/>
+<xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
+<xs:element name="CRIs" type="CRIs" minOccurs="0"/>
+<xs:element name="Connectors" type="Connectors" minOccurs="0">
+  <xs:unique name="UniqueConnector">
+   <xs:selector xpath="Connector"/>
+   <xs:field xpath="@Name"/>
+ </xs:unique>
+</xs:element>
+<xs:element name="Properties" type="Properties" minOccurs="0"/>
+</xs:all>
+</xs:complexType>
+<!-- Emitter -->
+<xs:complexType name="Emitters">
+  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="Emitter" type="Emitter"/>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="Emitter">
+  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="Measurement" type="EmitterMeasurement">
+      <xs:unique name="UniqueWaveLengthInEmitterMeasurement">
+        <xs:selector xpath="MeasurementPoint"/>
+        <xs:field xpath="@WaveLength"/>
+      </xs:unique>
+    </xs:element>
+  </xs:sequence>
+  <xs:attribute name="Name" type="nametype" use="required"/>
+  <xs:attribute name="Color" type="colorcietype"/>
+  <xs:attribute name="DominantWaveLength" type="xs:float"/> <!-- Required if Color is omitted! -->
+  <xs:attribute name="DiodePart" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="EmitterMeasurement">
+ <xs:sequence minOccurs="0" maxOccurs="unbounded">
+  <xs:element name="MeasurementPoint"
+   type="MeasurementPoint"/>
+ </xs:sequence>
+ <xs:attribute name="Physical" type="physicaltype"
+  use="required"/>
+  <xs:attribute name="LuminousIntensity" type="xs:float"
+    use="required"/>
+    <xs:attribute name="InterpolationTo"
+      type="InterpolationToEnum" default="Linear"/>
+      <xs:attribute name="Transmission" type="xs:float"/>
+    </xs:complexType>
+    <!-- Filter -->
+    <xs:complexType name="Filters">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Filter" type="Filter"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Filter">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Measurement" type="FilterMeasurement">
+          <xs:unique name="UniqueWaveLengthInFilterMeasurement">
+            <xs:selector xpath="MeasurementPoint"/>
+            <xs:field xpath="@WaveLength"/>
+          </xs:unique>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="DataVersion" type="dataversion" use="required"/>
+      <xs:attribute name="Name" type="nametype" use="required"/>
+      <xs:attribute name="Color" type="colorcietype"/>
     </xs:complexType>
-  </xs:element>
-  <!-- FixtureType -->
-  <xs:complexType name="FixtureType">
-    <xs:sequence>
-      <xs:element minOccurs="1" name="AttributeDefinitions" type="AttributeDefinitions">
-        <xs:keyref name="ActivationGroupReference" refer="UniqueActivationGroup">
-          <xs:selector xpath="Attributes/Attribute" />
-          <xs:field xpath="@ActivationGroup" />
-        </xs:keyref>
-      </xs:element>
-      <xs:element minOccurs="0" name="Wheels" type="Wheels">
-        <xs:unique name="UniqueWheelName">
-          <xs:selector xpath="Wheel"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element minOccurs="0" name="PhysicalDescriptions" type="PhysicalDescriptions">
-        <xs:keyref name="ConnectorKeyReference" refer="UniqueConnector">
-          <xs:selector xpath="Properties/PowerConsumption"/>
-          <xs:field xpath="@Connector"></xs:field>
-        </xs:keyref>
-      </xs:element>
-      <xs:element minOccurs="0" name="Models" type="Models">
-        <xs:unique name="UniqueModel">
-          <xs:selector xpath="Model"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element minOccurs="1" name="Geometries" type="Geometries">
-        <xs:unique name="UniqueGeometries">
-          <xs:selector xpath=".//*"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-        <xs:unique name="UniqueTopLevelGeometries">
-          <xs:selector xpath="*"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element minOccurs="1" name="DMXModes" type="DMXModes">
-        <xs:unique name="UniqueDMXModeName">
-          <xs:selector xpath="DMXMode"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element minOccurs="0" name="Revisions" type="Revisions"/>
-      <xs:element minOccurs="0" name="FTPresets" type="FTPresets"/>
-      <xs:element minOccurs="0" name="Protocols" type="Protocols"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="ShortName" type="xs:string" use="optional"/>
-    <xs:attribute name="LongName" type="xs:string" use="optional"/>
-    <xs:attribute name="Manufacturer" type="xs:string" use="required"/>
-    <xs:attribute name="Description" type="xs:string" use="required"/>
-    <xs:attribute name="FixtureTypeID" type="guidtype" use="required"/>
-    <xs:attribute name="Thumbnail" type="xs:string" use="optional"/>
-    <xs:attribute name="RefFT" type="guidtype" use="optional"/>
-    <xs:attribute name="CanHaveChildren" type="YesNoEnum" use="optional" default="Yes"/>
-  </xs:complexType>
-  <!-- AttributeDefinitions -->
-  <xs:complexType name="AttributeDefinitions">
-    <xs:all>
-      <xs:element name="ActivationGroups" type="ActivationGroups" minOccurs="0">
-        <xs:unique name="UniqueActivationGroup">
-          <xs:selector xpath="ActivationGroup"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="FeatureGroups" type="FeatureGroups" minOccurs="1">
-        <xs:unique name="UniqueFeatureGroup">
-          <xs:selector xpath="FeatureGroup"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="Attributes" type="Attributes" minOccurs="1">
-        <xs:unique name="UniqueAttribute">
-          <xs:selector xpath="Attribute"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-        <xs:keyref name="MainAttributeReference" refer="UniqueAttribute">
-          <xs:selector xpath="Attribute" />
-          <xs:field xpath="@MainAttribute" />
-        </xs:keyref>
-      </xs:element>
-    </xs:all>
-  </xs:complexType>
-  <xs:complexType name="ActivationGroups">
-    <xs:sequence>
-      <xs:element name="ActivationGroup" type="ActivationGroup" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:complexType name="FilterMeasurement">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
+      </xs:sequence>
+      <xs:attribute name="Physical" type="physicaltype" use="required"/>
+      <xs:attribute name="Transmission" type="xs:float" use="required"/>
+      <xs:attribute name="InterpolationTo" type="InterpolationToEnum" default="Linear"/>
+    </xs:complexType>
+    <xs:complexType name="MeasurementPoint">
+      <xs:attribute name="WaveLength" type="xs:float" use="required"/>
+      <xs:attribute name="Energy" type="xs:float" use="required"/>
+    </xs:complexType>
+    <!-- ColorSpace -->
+    <xs:complexType name="ColorSpace">
+      <xs:attribute name="Name" type="nametype"/>
+      <xs:attribute name="Mode" type="ColorSpaceEnum" default="sRGB"/>
+      <xs:attribute name="Red" type="colorcietype"/>
+      <xs:attribute name="Green" type="colorcietype"/>
+      <xs:attribute name="Blue" type="colorcietype"/>
+      <xs:attribute name="WhitePoint" type="colorcietype"/>
+    </xs:complexType>
+    <xs:complexType name="AdditionalColorSpaces">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ColorSpace" type="ColorSpace"/>
+      </xs:sequence>
+    </xs:complexType>
+    <!--Gamuts -->
+    <xs:complexType name="Gamuts">
+     <xs:sequence minOccurs="0">
+      <xs:element name="Gamut" type="Gamut"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="FeatureGroups">
-    <xs:sequence>
-      <xs:element name="FeatureGroup" type="FeatureGroup" minOccurs="0" maxOccurs="unbounded">
-        <xs:unique name="UniqueFeature">
-          <xs:selector xpath="Feature"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ActivationGroup">
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="FeatureGroup">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Feature" type="Feature"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-    <xs:attribute name="Pretty" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="Feature">
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="Attributes">
-    <xs:sequence>
-      <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Attribute">
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Pretty" type="xs:string" use="required"/>
-    <xs:attribute name="ActivationGroup" type="xs:string" use="optional"/>
-    <xs:attribute name="PhysicalUnit" type="PhysicalUnitEnum" default="None"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="Feature" type="featuretype" use="required"/>
-    <xs:attribute name="MainAttribute" type="nametype" use="optional"/>
-  </xs:complexType>
-  <!-- Wheels -->
-  <xs:complexType name="Wheels">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Wheel" type="Wheel">
-        <xs:unique name="UniqueSlotName">
-          <xs:selector xpath="Slot"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Wheel">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Slot" type="Slot"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Slot">
-    <xs:choice minOccurs="0" maxOccurs="1">
-      <xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="unbounded"/>
-      <xs:element name="AnimationSystem" type="AnimationSystem"/>
-    </xs:choice>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="Filter" type="nametype" use="optional"/>
-    <xs:attribute name="MediaFileName" type="xs:string" use="optional" default=""/>
-  </xs:complexType>
-  <xs:complexType name="Facet">
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="Rotation" type="rotationtype" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="AnimationSystem">
-    <xs:attribute name="P1" type="twoarray" use="required"/>
-    <xs:attribute name="P2" type="twoarray" use="required"/>
-    <xs:attribute name="P3" type="twoarray" use="required"/>
-    <xs:attribute name="Radius" type="positivefloat" use="required"/>
-  </xs:complexType>
-  <!-- PhysicalDescriptions -->
-  <xs:complexType name="PhysicalDescriptions">
-    <xs:all>
-      <xs:element name="Emitters" type="Emitters" minOccurs="0">
-        <xs:key name="UniqueEmitter">
-          <xs:selector xpath="Emitter" />
-          <xs:field xpath="@Name" />
-        </xs:key>
-      </xs:element>
-      <xs:element name="Filters" type="Filters" minOccurs="0">
-        <xs:key name="UniqueFilter">
-          <xs:selector xpath="Filter" />
-          <xs:field xpath="@Name" />
-        </xs:key>
-      </xs:element>
-      <xs:element name="ColorSpace" type="ColorSpace" minOccurs="0"/>
-      <xs:element name="DMXProfiles" type="DMXProfiles" minOccurs="0"/>
-      <xs:element name="CRIs" type="CRIs" minOccurs="0"/>
-      <xs:element name="Connectors" type="Connectors" minOccurs="0">
-        <xs:unique name="UniqueConnector">
-          <xs:selector xpath="Connector"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="Properties" type="Properties" minOccurs="0"/>
-    </xs:all>
-  </xs:complexType>
-  <xs:complexType name="Emitters">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Emitter" type="Emitter"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Emitter">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Measurement">
-        <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
-          </xs:sequence>
-          <xs:attribute name="Physical" type="physicaltype" use="required"/>
-          <xs:attribute name="LuminousIntensity" type="xs:float" use="required"/>
-          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
-        </xs:complexType>
-        <xs:unique name="UniqueWaveLengthInEmitterMeasurement">
-          <xs:selector xpath="MeasurementPoint"/>
-          <xs:field xpath="@WaveLength"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-    <xs:attribute name="DominantWaveLength" type="xs:float" use="optional"/> <!-- Required if Color is omitted! -->
-    <xs:attribute name="DiodePart" type="xs:string" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Filters">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Filter" type="Filter"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Filter">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Measurement">
-        <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="MeasurementPoint" type="MeasurementPoint"/>
-          </xs:sequence>
-          <xs:attribute name="Physical" type="physicaltype" use="required"/>
-          <xs:attribute name="Transmission" type="xs:float" use="required"/>
-          <xs:attribute name="InterpolationTo" type="InterpolationToEnum" use="optional" default="Linear"/>
-        </xs:complexType>
-        <xs:unique name="UniqueWaveLengthInFilterMeasurement">
-          <xs:selector xpath="MeasurementPoint"/>
-          <xs:field xpath="@WaveLength"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Color" type="colorcietype" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="MeasurementPoint">
-    <xs:attribute name="WaveLength" type="xs:float" use="required"/>
-    <xs:attribute name="Energy" type="xs:float" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="ColorSpace">
-    <xs:attribute name="Mode" type="ColorSpaceEnum" use="optional" default="sRGB"/>
-    <xs:attribute name="Red" type="colorcietype" use="optional"/>
-    <xs:attribute name="Green" type="colorcietype" use="optional"/>
-    <xs:attribute name="Blue" type="colorcietype" use="optional"/>
-    <xs:attribute name="WhitePoint" type="colorcietype" use="optional"/>
+  <xs:complexType name="Gamut">
+  	<xs:attribute name="Name" type="nametype"/>
+  	<xs:attribute name="Points" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="DMXProfiles">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="DMXProfile" type="DMXProfile"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DMXProfile"/>
+  <xs:complexType name="DMXProfile">
+  	<xs:sequence minOccurs="0">
+  		<xs:element name="Point" type="Point"/>
+  	</xs:sequence>
+  	<xs:attribute name="Name" type="nametype"/>
+  </xs:complexType>
+  <xs:complexType name="Point">
+  	<xs:attribute name="DMXPercentage" type="xs:float"/>
+  	<xs:attribute name="CFC0" type="xs:float"/>
+  	<xs:attribute name="CFC1" type="xs:float"/>
+  	<xs:attribute name="CFC2" type="xs:float"/>
+  	<xs:attribute name="CFC3" type="xs:float"/>
+  </xs:complexType>
+  <!-- CRI -->
   <xs:complexType name="CRIs">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="CRIGroup" type="CRIGroup">
@@ -338,12 +396,13 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="1" maxOccurs="99">
       <xs:element name="CRI" type="CRI"/>
     </xs:sequence>
-    <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
+    <xs:attribute name="ColorTemperature" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="CRI">
-    <xs:attribute name="CES" type="CESEnum" use="optional" default="CES01"/>
-    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
+    <xs:attribute name="CES" type="CESEnum" default="CES01"/>
+    <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte"/>
   </xs:complexType>
+  <!-- Connector -->
   <xs:complexType name="Connectors">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="Connector" type="Connector"/>
@@ -352,10 +411,11 @@ level. These unvalidated properties are:
   <xs:complexType name="Connector">
     <xs:attribute name="Name" type="nametype" use="required"/>
     <xs:attribute name="Type" type="nametype" use="required"/>
-    <xs:attribute name="DMXBreak" type="positiveinteger" use="optional" />
-    <xs:attribute name="Gender" type="xs:integer" use="optional"/>
-    <xs:attribute name="Length" type="positivefloat" use="optional"/>
+    <xs:attribute name="DMXBreak" type="positiveinteger"/>
+    <xs:attribute name="Gender" type="xs:integer"/>
+    <xs:attribute name="Length" type="positivefloat"/>
   </xs:complexType>
+  <!-- Properties -->
   <xs:complexType name="Properties">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="OperatingTemperature" type="OperatingTemperature"/>
@@ -365,23 +425,23 @@ level. These unvalidated properties are:
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="OperatingTemperature">
-    <xs:attribute name="Low" type="xs:float" use="optional"/>
-    <xs:attribute name="High" type="xs:float" use="optional"/>
+    <xs:attribute name="Low" type="xs:float"/>
+    <xs:attribute name="High" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="Weight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="PowerConsumption">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
-    <xs:attribute name="PowerFactor" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
+    <xs:attribute name="PowerFactor" type="xs:float"/>
     <xs:attribute name="Connector" type="nametype" use="required"/>
-    <xs:attribute name="VoltageLow" type="xs:float" use="optional"/>
-    <xs:attribute name="VoltageHigh" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyLow" type="xs:float" use="optional"/>
-    <xs:attribute name="FrequencyHigh" type="xs:float" use="optional"/>
+    <xs:attribute name="VoltageLow" type="xs:float"/>
+    <xs:attribute name="VoltageHigh" type="xs:float"/>
+    <xs:attribute name="FrequencyLow" type="xs:float"/>
+    <xs:attribute name="FrequencyHigh" type="xs:float"/>
   </xs:complexType>
   <xs:complexType name="LegHeight">
-    <xs:attribute name="Value" type="xs:float" use="optional"/>
+    <xs:attribute name="Value" type="xs:float"/>
   </xs:complexType>
   <!-- Models -->
   <xs:complexType name="Models">
@@ -390,239 +450,395 @@ level. These unvalidated properties are:
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Model">
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Length" type="xs:float" use="optional" default="0"/>
-    <xs:attribute name="Width" type="xs:float" use="optional" default="0"/>
-    <xs:attribute name="Height" type="xs:float" use="optional" default="0"/>
-    <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum" use="optional" default="Undefined"/>
-    <xs:attribute name="File" type="xs:string" use="optional" default=""/>
-  </xs:complexType>
-  <!-- Geometries -->
-  <xs:complexType name="Geometries">
-    <xs:group ref="GeometryChildren"/>
-  </xs:complexType>
-  <xs:group name="GeometryChildren">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Geometry" type="BasicGeometryType"/>
-        <xs:element name="Axis" type="BasicGeometryType"/> <!-- Attribute Model missing in DIN 15800:2020-07 -->
-        <xs:element name="FilterBeam" type="BasicGeometryType"/>
-        <xs:element name="FilterColor" type="BasicGeometryType"/>
-        <xs:element name="FilterGobo" type="BasicGeometryType"/>
-        <xs:element name="FilterShaper" type="BasicGeometryType"/>
-        <xs:element name="Beam" type="Beam"/>
-        <xs:element name="MediaServerLayer" type="BasicGeometryType"/>
-        <xs:element name="MediaServerCamera" type="BasicGeometryType"/>
-        <xs:element name="MediaServerMaster" type="BasicGeometryType"/>
-        <xs:element name="Display" type="Display"/>
-        <xs:element name="GeometryReference" type="GeometryReference"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="BasicGeometryAttributes">
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Model" type="nametype" use="optional"/>
-    <xs:attribute name="Position" type="matrixtype" use="optional" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
-  </xs:complexType>
-  <xs:complexType name="BasicGeometryType">
-    <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
-        <xs:group ref="GeometryChildren"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Beam">
-    <xs:complexContent>
-      <xs:extension base="BasicGeometryType">
-        <xs:attribute name="LampType" type="LampTypeEnum" use="optional"/>
-        <xs:attribute name="PowerConsumption" type="xs:float" use="optional"/>
-        <xs:attribute name="LuminousFlux" type="xs:float" use="optional"/>
-        <xs:attribute name="ColorTemperature" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamAngle" type="xs:float" use="optional"/>
-        <xs:attribute name="FieldAngle" type="xs:float" use="optional"/>
-        <xs:attribute name="ThrowRatio" type="xs:float" use="optional"/>
-        <xs:attribute name="RectangleRatio" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamRadius" type="xs:float" use="optional"/>
-        <xs:attribute name="BeamType" type="BeamTypeEnum" use="optional"/>
-        <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Display">
-    <xs:complexContent>
-      <xs:extension base="BasicGeometryType">
-        <xs:attribute name="Texture" type="xs:string" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="GeometryReference">
-    <xs:complexContent>
-      <xs:extension base="BasicGeometryAttributes">
-        <xs:sequence minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="Break" type="Break"/>
+  	<xs:attribute name="Name" type="nametype" use="required"/>
+  	<xs:attribute name="Length" type="xs:float"
+  		default="0"/>
+     <xs:attribute name="Width" type="xs:float"
+      default="0"/>
+      <xs:attribute name="Height" type="xs:float"
+        default="0"/>
+        <xs:attribute name="PrimitiveType" type="PrimitiveTypeEnum"
+          use="optional" default="Undefined"/>
+          <xs:attribute name="File" type="xs:string"
+            default=""/>
+            <xs:attribute name="SVGOffsetX" type="xs:float"/>
+            <xs:attribute name="SVGOffsetY" type="xs:float"/>
+            <xs:attribute name="SVGSideOffsetX" type="xs:float"/>
+            <xs:attribute name="SVGSideOffsetY" type="xs:float"/>
+            <xs:attribute name="SVGFrontOffsetX" type="xs:float"/>
+            <xs:attribute name="SVGFrontOffsetY" type="xs:float"/>
+          </xs:complexType>
+          <!-- Geometries -->
+          <xs:complexType name="Geometries">
+           <xs:group ref="GeometryChildren"/>
+         </xs:complexType>
+         <xs:group name="GeometryChildren">
+          <xs:sequence>
+           <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Geometry" type="BasicGeometryType"/>
+            <xs:element name="Axis" type="BasicGeometryType"/>
+            <!-- Attribute Model missing in DIN 15800:2020-07 -->
+            <xs:element name="FilterBeam" type="BasicGeometryType"/>
+            <xs:element name="FilterColor" type="BasicGeometryType"/>
+            <xs:element name="FilterGobo" type="BasicGeometryType"/>
+            <xs:element name="FilterShaper" type="BasicGeometryType"/>
+            <xs:element name="Beam" type="Beam"/>
+            <xs:element name="MediaServerLayer"
+             type="BasicGeometryType"/>
+             <xs:element name="MediaServerCamera"
+               type="BasicGeometryType"/>
+               <xs:element name="MediaServerMaster"
+                 type="BasicGeometryType"/>
+                 <xs:element name="Display" type="Display"/>
+                 <xs:element name="Laser" type="Laser"/>
+                 <xs:element name="GeometryReference"
+                   type="GeometryReference"/>
+                   <xs:element name="WiringObject" type="WiringObject"/>
+                   <xs:element name="Inventory" type="Inventory"/>
+                   <xs:element name="Structure" type="Structure"/>
+                   <xs:element name="Support" type="Support"/>
+                   <xs:element name="Magnet" type="BasicGeometryType"/>
+                 </xs:choice>
+               </xs:sequence>
+             </xs:group>
+             <xs:complexType name="BasicGeometryAttributes">
+              <xs:attribute name="Name" type="nametype" use="required"/>
+              <xs:attribute name="Model" type="nametype"/>
+              <xs:attribute name="Position" type="matrixtype" default="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"/>
+            </xs:complexType>
+            <xs:complexType name="BasicGeometryType">
+              <xs:complexContent>
+                <xs:extension base="BasicGeometryAttributes">
+                  <xs:group ref="GeometryChildren"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- Beam Geometry -->
+            <xs:complexType name="Beam">
+              <xs:complexContent>
+                <xs:extension base="BasicGeometryType">
+                  <xs:attribute name="LampType" type="LampTypeEnum"/>
+                  <xs:attribute name="PowerConsumption" type="xs:float"/>
+                  <xs:attribute name="LuminousFlux" type="xs:float"/>
+                  <xs:attribute name="ColorTemperature" type="xs:float"/>
+                  <xs:attribute name="BeamAngle" type="xs:float"/>
+                  <xs:attribute name="FieldAngle" type="xs:float"/>
+                  <xs:attribute name="ThrowRatio" type="xs:float"/>
+                  <xs:attribute name="RectangleRatio" type="xs:float"/>
+                  <xs:attribute name="BeamRadius" type="xs:float"/>
+                  <xs:attribute name="BeamType" type="BeamTypeEnum"/>
+                  <xs:attribute name="ColorRenderingIndex" type="xs:unsignedByte"/>
+                  <xs:attribute name="EmitterSpectrum" type="nodetype"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- Display Geometry -->
+            <xs:complexType name="Display">
+              <xs:complexContent>
+                <xs:extension base="BasicGeometryType">
+                  <xs:attribute name="Texture" type="xs:string"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- Laser Geometry -->
+            <xs:complexType name="Laser">
+              <xs:complexContent>
+                <xs:extension base="BasicGeometryType">
+                  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="Protocol" type="Protocol"/>
+                  </xs:sequence>
+                  <xs:attribute name="ColorType" type="LaserColorType"
+                    default="RGB"/>
+                    <xs:attribute name="Color" type="xs:float"/>
+                    <xs:attribute name="OutputStrength" type="xs:float"/>
+                    <xs:attribute name="Emitter" type="nodetype"/>
+                    <xs:attribute name="BeamDiameter" type="xs:float"/>
+                    <xs:attribute name="BeamDivergenceMin" type="xs:float"/>
+                    <xs:attribute name="BeamDivergenceMax" type="xs:float"/>
+                    <xs:attribute name="ScanAnglePan" type="xs:float"/>
+                    <xs:attribute name="ScanAngleTilt" type="xs:float"/>
+                    <xs:attribute name="ScanSpeed" type="xs:float"/>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+              <xs:complexType name="Protocol">
+                <xs:attribute name="Name" type="xs:string"/>
+              </xs:complexType>
+              <xs:complexType name="GeometryReference">
+                <xs:complexContent>
+                  <xs:extension base="BasicGeometryType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                      <xs:element name="Break" type="Break"/>
+                    </xs:sequence>
+                    <xs:attribute name="Geometry" type="nametype" use="required"/>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+              <xs:complexType name="Break">
+                <xs:attribute name="DMXOffset" type="dmxaddresstype" default="1"/>
+                <xs:attribute name="DMXBreak" type="xs:unsignedByte" default="1"/>
+              </xs:complexType>
+              <!-- WiringObject Geometry -->
+              <xs:complexType name="WiringObject">
+                <xs:complexContent>
+                  <xs:extension base="BasicGeometryType">
+                    <xs:sequence>
+                      <xs:element name="PinPatch" type="PinPatch" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="ConnectorType" type="xs:string"/>
+                    <xs:attribute name="ComponentType" type="WiringComponentType"/>
+                    <xs:attribute name="SignalType" type="xs:string"/>
+                    <xs:attribute name="PinCount" type="xs:int"/>
+                    <xs:attribute name="ElectricalPayLoad" type="xs:float"/>
+                    <xs:attribute name="VoltageRangeMax" type="xs:float"/>
+                    <xs:attribute name="VoltageRangeMin" type="xs:float"/>
+                    <xs:attribute name="FrequencyRangeMax" type="xs:float"/>
+                    <xs:attribute name="FrequencyRangeMin" type="xs:float"/>
+                    <xs:attribute name="MaxPayLoad" type="xs:float"/>
+                    <xs:attribute name="Voltage" type="xs:float"/>
+                    <xs:attribute name="SignalLayer" type="xs:int"/>
+                    <xs:attribute name="CosPhi" type="xs:float"/>
+                    <xs:attribute name="FuseCurrent" type="xs:float"/>
+                    <xs:attribute name="FuseRating" type="WiringFuseRating"/>
+                    <xs:attribute name="Orientation" type="WiringOrientation"/>
+                    <xs:attribute name="WireGroup" type="xs:string"/>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+              <xs:complexType name="PinPatch">
+               <xs:attribute name="ToWiringObject" type="nodetype"/>
+               <xs:attribute name="FromPin" type="xs:int"/>
+               <xs:attribute name="ToPin" type="xs:int"/>
+             </xs:complexType>
+             <!-- Inventory Geometry -->
+             <xs:complexType name="Inventory">
+              <xs:complexContent>
+                <xs:extension base="GeometryReference">
+                  <xs:attribute name="Count" type="xs:int"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- Structure Geometry -->
+            <xs:complexType name="Structure">
+              <xs:complexContent>
+                <xs:extension base="GeometryReference">
+                  <xs:attribute name="LinkedGeometry" type="nametype"/>
+                  <xs:attribute name="StructureType" type="StructureType"/>
+                  <xs:attribute name="CrossSectionType" type="CrossSectionType"/>
+                  <xs:attribute name="CrossSectionHeight" type="xs:float"/>
+                  <xs:attribute name="CrossSectionWallThickness" type="xs:float"/>
+                  <xs:attribute name="TrussCrossSection" type="xs:string"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- Support Geometry -->
+            <xs:complexType name="Support">
+              <xs:complexContent>
+                <xs:extension base="GeometryReference">
+                  <xs:attribute name="SupportType" type="SupportType"/>
+                  <xs:attribute name="RopeCrossSection" type="xs:string"/>
+                  <xs:attribute name="RopeOffset" type="xs:string"/>
+                  <xs:attribute name="CapacityX" type="xs:float"/>
+                  <xs:attribute name="CapacityY" type="xs:float"/>
+                  <xs:attribute name="CapacityZ" type="xs:float"/>
+                  <xs:attribute name="CapacityXX" type="xs:float"/>
+                  <xs:attribute name="CapacityYY" type="xs:float"/>
+                  <xs:attribute name="CapacityZZ" type="xs:float"/>
+                  <xs:attribute name="ResistanceX" type="xs:float"/>
+                  <xs:attribute name="ResistanceY" type="xs:float"/>
+                  <xs:attribute name="ResistanceZ" type="xs:float"/>
+                  <xs:attribute name="ResistanceXX" type="xs:float"/>
+                  <xs:attribute name="ResistanceYY" type="xs:float"/>
+                  <xs:attribute name="ResistanceZZ" type="xs:float"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+            <!-- DMXModes -->
+            <xs:complexType name="DMXModes">
+              <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="DMXMode" type="DMXMode"/>
+              </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DMXMode">
+             <xs:sequence>
+              <xs:element name="DMXChannels" type="DMXChannels"/>
+              <xs:element name="Relations" type="Relations" minOccurs="0"
+               >
+               <xs:unique name="UniqueRelationName">
+                <xs:selector xpath="Relation"/>
+                <xs:field xpath="@Name"/>
+              </xs:unique>
+            </xs:element>
+            <xs:element name="FTMacros" type="FTMacros" minOccurs="0"
+             >
+             <xs:unique name="UniqueMacroName">
+              <xs:selector xpath="FTMacro"/>
+              <xs:field xpath="@Name"/>
+            </xs:unique>
+          </xs:element>
         </xs:sequence>
+        <xs:attribute name="Name" type="nametype" use="required"/>
         <xs:attribute name="Geometry" type="nametype" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Break">
-    <xs:attribute name="DMXOffset" type="dmxaddresstype" use="optional" default="1"/>
-    <xs:attribute name="DMXBreak" type="xs:unsignedByte" use="optional" default="1"/>
-  </xs:complexType>
-  <!-- DMXModes -->
-  <xs:complexType name="DMXModes">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="DMXMode" type="DMXMode"/>
+        <xs:attribute name="Description" type="xs:string"/>
+      </xs:complexType>
+      <!-- DMXChannel -->
+      <xs:complexType name="DMXChannels">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DMXChannel" type="DMXChannel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DMXChannel">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="LogicalChannel" type="LogicalChannel">
+            <xs:unique name="UniqueChannelFunction">
+              <xs:selector xpath="ChannelFunction"/>
+              <xs:field xpath="@Name"/>
+            </xs:unique>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
+        <xs:attribute name="Offset" type="offsettype" default="None"/>
+        <xs:attribute name="InitialFunction" type="nodetype"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
+        <xs:attribute name="Highlight" type="dmxtype" default="None"/>
+        <xs:attribute name="Geometry" type="nametype" use="required"/>
+      </xs:complexType>
+      <!-- LogicalChannel -->
+      <xs:complexType name="LogicalChannel">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="ChannelFunction" type="ChannelFunction"/>
+        </xs:sequence>
+        <xs:attribute name="Attribute" type="nametype" use="required"/>
+        <xs:attribute name="Snap" type="SnapEnum" default="No"/>
+        <xs:attribute name="Master" type="MasterEnum" default="None"/>
+        <xs:attribute name="MibFade" type="xs:float"/>
+        <xs:attribute name="DMXChangeTimeLimit" type="xs:float"/>
+      </xs:complexType>
+      <!-- ChannelFunction -->
+      <xs:complexType name="ChannelFunction">
+       <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ChannelSet" type="ChannelSet"/>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="SubChannelSet" type="SubChannelSet"/>
+       </xs:sequence>
+     </xs:sequence>
+     <xs:attribute name="Name" type="nametype"/>
+     <xs:attribute name="Attribute" type="nametype"
+      default="NoFeature"/>
+      <xs:attribute name="OriginalAttribute" type="xs:string"
+        default=""/>
+        <xs:attribute name="DMXFrom" type="dmxtype" default="0/1"/>
+        <xs:attribute name="Default" type="dmxtype" use="required"/>
+        <xs:attribute name="PhysicalFrom" type="xs:float"/>
+        <xs:attribute name="PhysicalTo" type="xs:float"/>
+        <xs:attribute name="RealFade" type="xs:float"/>
+        <xs:attribute name="RealAcceleration" type="xs:float"
+          use="optional"/>
+          <xs:attribute name="Wheel" type="nametype"/>
+          <xs:attribute name="Emitter" type="nametype"/>
+          <xs:attribute name="Filter" type="nametype"/>
+          <xs:attribute name="ColorSpace" type="nametype"/>
+          <xs:attribute name="Gammut" type="nametype"/>
+          <xs:attribute name="ModeMaster" type="nodetype"/>
+          <xs:attribute name="ModeFrom" type="dmxtype" default="0/1"/>
+          <xs:attribute name="ModeTo" type="dmxtype" default="0/1"/>
+          <xs:attribute name="DMXProfile" type="nodetype"/>
+          <xs:attribute name="Min" type="xs:float"/>
+          <xs:attribute name="Max" type="xs:float"/>
+          <xs:attribute name="CustomName" type="xs:string"/>
+        </xs:complexType>
+        <xs:complexType name="ChannelSet">
+          <xs:attribute name="Name" type="nametype"/>
+          <xs:attribute name="DMXFrom" type="dmxtype"/>
+          <xs:attribute name="PhysicalFrom" type="xs:float"/>
+          <xs:attribute name="PhysicalTo" type="xs:float"/>
+          <xs:attribute name="WheelSlotIndex" type="xs:int"/>
+        </xs:complexType>
+        <xs:complexType name="SubChannelSet">
+          <xs:attribute name="Name" type="nametype"/>
+          <xs:attribute name="PhysicalFrom" type="xs:string"/>
+          <xs:attribute name="PhysicalTo" type="xs:string"/>
+          <xs:attribute name="SubPhysicalUnit" type="nodetype"/>
+          <xs:attribute name="DMXProfile" type="nodetype"/>
+        </xs:complexType>
+        <!-- Relation -->
+        <xs:complexType name="Relations">
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Relation" type="Relation"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="Relation">
+          <xs:attribute name="Name" type="nametype" use="required"/>
+          <xs:attribute name="Master" type="nodetype" use="required"/>
+          <xs:attribute name="Follower" type="nodetype" use="required"/>
+          <xs:attribute name="Type" type="RelationTypesEnum" use="required"/>
+        </xs:complexType>
+        <!-- FTMacros -->
+        <xs:complexType name="FTMacros">
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="FTMacro" type="FTMacro" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="FTMacro">
+         <xs:sequence>
+          <xs:element name="MacroDMX" type="MacroDMX" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="Name" type="nametype" use="required"/>
+        <xs:attribute name="ChannelFunction" type="nodetype"/>
+      </xs:complexType>
+      <xs:complexType name="MacroDMX">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="MacroDMXStep" type="MacroDMXStep"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MacroDMXStep">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="MacroDMXValue" type="MacroDMXValue"/>
+        </xs:sequence>
+        <xs:attribute name="Duration" type="xs:float"/>
+      </xs:complexType>
+      <xs:complexType name="MacroDMXValue">
+        <xs:attribute name="Value" type="dmxtype" use="required"/>
+        <xs:attribute name="DMXChannel" type="nodetype" use="required"/>
+      </xs:complexType>
+      <!-- Revisions -->
+      <xs:complexType name="Revisions">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Revision" type="Revision"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Revision">
+       <xs:attribute name="Text" type="xs:string" default=""/>
+       <xs:attribute name="Date" type="xs:dateTime"/>
+       <xs:attribute name="UserID" type="xs:integer" default="0"/>
+       <xs:attribute name="ModifiedBy" type="xs:string" default=""/>
+     </xs:complexType>
+     <!-- FT Presets -->
+     <xs:complexType name="FTPresets">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FTPreset" type="FTPreset"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FTPreset"/>
+    <!-- Protocols -->
+    <xs:complexType name="Protocols">
+      <xs:all>
+        <xs:element name="FTRDM" type="FTRDM" minOccurs="0"/>
+        <xs:element name="Art-Net" type="Art-Net" minOccurs="0"/>
+        <xs:element name="sACN" type="sACN" minOccurs="0"/>
+        <xs:element name="PosiStageNet" type="PosiStageNet" minOccurs="0"/>
+        <xs:element name="OpenSoundControl" type="OpenSoundControl" minOccurs="0"/>
+        <xs:element name="CITP" type="CITP" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+    <xs:complexType name="Art-Net">
+     <xs:sequence>
+      <xs:element name="Map" type="Map" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DMXMode">
-    <xs:sequence>
-      <xs:element name="DMXChannels" type="DMXChannels"/>
-      <xs:element name="Relations" type="Relations" minOccurs="0" maxOccurs="1">
-        <xs:unique name="UniqueRelationName">
-          <xs:selector xpath="Relation"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-      <xs:element name="FTMacros" type="FTMacros" minOccurs="0" maxOccurs="1">
-        <xs:unique name="UniqueMacroName">
-          <xs:selector xpath="FTMacro"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-    <xs:attribute name="Geometry" type="nametype" use="required"/>
+  <xs:complexType name="Map">
+    <xs:attribute name="Key" type="xs:unsignedInt"/>
+    <xs:attribute name="Value" type="xs:unsignedInt"/>
   </xs:complexType>
-  <xs:complexType name="DMXChannels">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="DMXChannel" type="DMXChannel"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DMXChannel">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="LogicalChannel" type="LogicalChannel">
-        <xs:unique name="UniqueChannelFunction">
-          <xs:selector xpath="ChannelFunction"/>
-          <xs:field xpath="@Name"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="DMXBreak" type="dmxbreaktype" default="1"/> <!-- DIN 15800:2020-07 allows signed Int (?) -->
-    <xs:attribute name="Offset" type="offsettype" default="None"/>
-    <xs:attribute name="InitialFunction" type="nodetype" use="optional"/> <!-- can't be ensured to be valid reference in XSD 1.0 -->
-    <xs:attribute name="Highlight" type="dmxtype" default="None"/>
-    <xs:attribute name="Geometry" type="nametype" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="LogicalChannel">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="ChannelFunction" type="ChannelFunction">
-        <xs:unique name="UniqueChannelSetDMXFrom">
-          <xs:selector xpath="ChannelSet"/>
-          <xs:field xpath="@DMXFrom"/>
-        </xs:unique>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="Attribute" type="nametype" use="required"/>
-    <xs:attribute name="Snap" type="SnapEnum" default="No"/>
-    <xs:attribute name="Master" type="MasterEnum" default="None"/>
-    <xs:attribute name="MibFade" type="xs:float" use="optional"/>
-    <xs:attribute name="DMXChangeTimeLimit" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="ChannelFunction">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="ChannelSet" type="ChannelSet"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="optional"/>
-    <xs:attribute name="Attribute" type="nametype" default="NoFeature"/>
-    <xs:attribute name="OriginalAttribute" type="xs:string" default=""/>
-    <xs:attribute name="DMXFrom" type="dmxtype" default="0/1"/>
-    <xs:attribute name="Default" type="dmxtype" use="required"/>
-    <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
-    <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
-    <xs:attribute name="RealFade" type="xs:float" use="optional"/>
-    <xs:attribute name="RealAcceleration" type="xs:float" use="optional"/>
-    <xs:attribute name="Wheel" type="nametype" use="optional"/>
-    <xs:attribute name="Emitter" type="nametype" use="optional"/>
-    <xs:attribute name="Filter" type="nametype" use="optional"/>
-    <xs:attribute name="ModeMaster" type="nodetype" use="optional"/>
-    <xs:attribute name="ModeFrom" type="dmxtype" default="0/1"/>
-    <xs:attribute name="ModeTo" type="dmxtype" default="0/1"/>
-  </xs:complexType>
-  <xs:complexType name="ChannelSet">
-    <xs:attribute name="Name" type="xs:string" use="optional"/>
-    <xs:attribute name="DMXFrom" type="dmxtype" use="optional"/>
-    <xs:attribute name="PhysicalFrom" type="xs:float" use="optional"/>
-    <xs:attribute name="PhysicalTo" type="xs:float" use="optional"/>
-    <xs:attribute name="WheelSlotIndex" type="xs:int" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="Relations">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Relation" type="Relation"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Relation">
-    <xs:attribute name="Name" type="xs:string" use="required"/>
-    <xs:attribute name="Master" type="nodetype" use="required"/>
-    <xs:attribute name="Follower" type="nodetype" use="required"/>
-    <xs:attribute name="Type" type="RelationTypesEnum" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="FTMacros">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="FTMacro" type="FTMacro" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FTMacro">
-    <xs:sequence>
-      <xs:element name="MacroDMX" type="MacroDMX" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="Name" type="nametype" use="required"/>
-  </xs:complexType>
-  <xs:complexType name="MacroDMX">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="MacroDMXStep" type="MacroDMXStep"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MacroDMXStep">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="MacroDMXValue" type="MacroDMXValue"/>
-    </xs:sequence>
-    <xs:attribute name="Duration" type="xs:float" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="MacroDMXValue">
-    <xs:attribute name="Value" type="dmxtype" use="required"/>
-    <xs:attribute name="DMXChannel" type="nodetype" use="required"/>
-  </xs:complexType>
-  <!-- Revisions -->
-  <xs:complexType name="Revisions">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="Revision" type="Revision"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Revision">
-    <xs:attribute name="Text" type="xs:string" use="optional"/>
-    <xs:attribute name="Date" type="xs:dateTime" use="optional"/>
-    <xs:attribute name="UserID" type="xs:integer" use="optional"/>
-  </xs:complexType>
-  <!-- FT Presets -->
-  <xs:complexType name="FTPresets">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="FTPreset" type="FTPreset"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FTPreset"/>
-  <!-- Protocols -->
-  <xs:complexType name="Protocols">
-    <xs:all>
-      <xs:element name="FTRDM" type="FTRDM" minOccurs="0" />
-      <xs:element name="Art-Net" type="Art-Net" minOccurs="0" />
-      <xs:element name="sACN" type="sACN" minOccurs="0" />
-      <xs:element name="PosiStageNet" type="PosiStageNet" minOccurs="0" />
-      <xs:element name="OpenSoundControl" type="OpenSoundControl" minOccurs="0" />
-      <xs:element name="CITP" type="CITP" minOccurs="0" />
-    </xs:all>
-  </xs:complexType>
-  <xs:complexType name="Art-Net"/>
   <xs:complexType name="sACN"/>
   <xs:complexType name="PosiStageNet"/>
   <xs:complexType name="OpenSoundControl"/>
@@ -631,18 +847,18 @@ level. These unvalidated properties are:
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="SoftwareVersionID" type="SoftwareVersionID"/>
     </xs:sequence>
-    <xs:attribute name="ManufacturerID" type="hextype" use="optional"/>
-    <xs:attribute name="DeviceModelID" type="hextype" use="optional"/>
+    <xs:attribute name="ManufacturerID" type="hextype"/>
+    <xs:attribute name="DeviceModelID" type="hextype"/>
   </xs:complexType>
   <xs:complexType name="SoftwareVersionID">
     <xs:sequence>
       <xs:element name="DMXPersonality" type="DMXPersonality" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="Value" type="hextype" use="optional"/>
+    <xs:attribute name="Value" type="hextype"/>
   </xs:complexType>
   <xs:complexType name="DMXPersonality">
-    <xs:attribute name="Value" type="hextype" use="optional"/>
-    <xs:attribute name="DMXMode" type="nametype" use="optional"/>
+    <xs:attribute name="Value" type="hextype"/>
+    <xs:attribute name="DMXMode" type="nametype"/>
   </xs:complexType>
   <!-- Custom types -->
   <xs:simpleType name="positivefloat">
@@ -657,7 +873,7 @@ level. These unvalidated properties are:
   </xs:simpleType>
   <xs:simpleType name="hextype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="0x[0-9a-fA-F]+"></xs:pattern>
+      <xs:pattern value="0x[0-9a-fA-F]+"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="physicaltype">
@@ -706,7 +922,8 @@ level. These unvalidated properties are:
   </xs:simpleType>
   <xs:simpleType name="nametype">
     <xs:restriction base="xs:string">
-      <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+"/>
+      <!-- Original Regex ([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+ -->
+      <xs:pattern value="([a-zA-Z0-9#%()*+-/:;&lt;=&gt;@_` &quot;'])+|"/> <!-- Fixed NameType not matching Empty Strings, important for Standart ColorSpace -->
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="featuretype">
@@ -725,10 +942,10 @@ level. These unvalidated properties are:
     <xs:restriction base="xs:float">
       <!-- This matches two Uints, each in the range 0 to 255 (1 Byte), separated by a dot.
       Leading zeros and a plus sign are allowed for the first UInt, but not for the second one -->
-      <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))" />
+      <xs:pattern value="((\+)?(0)*([0-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1}))).(0+|([1-9]{1}[0-9]{0,1}|[1]{1}[0-9]{0,2}|[2]{1}([0-4]{1}[0-9]{1}|[5]{1}[0-5]{1})))"/>
       <!-- v1.1 is not backwards compatible to 1.0, so we can only accept 1.1, not 1.0 -->
-      <xs:minInclusive value="1.1" />
-      <xs:maxInclusive value="1.1" />
+      <xs:minInclusive value="1.1"/>
+      <xs:maxInclusive value="1.2"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="guidtype">
@@ -786,10 +1003,10 @@ level. These unvalidated properties are:
       <xs:enumeration value="Head"/>
       <xs:enumeration value="Scanner"/>
       <xs:enumeration value="Conventional"/>
-      <xs:enumeration value="Pigtail" />
-      <xs:enumeration value="Base1_1" />
-      <xs:enumeration value="Scanner1_1" />
-      <xs:enumeration value="Conventional1_1" />
+      <xs:enumeration value="Pigtail"/>
+      <xs:enumeration value="Base1_1"/>
+      <xs:enumeration value="Scanner1_1"/>
+      <xs:enumeration value="Conventional1_1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="LampTypeEnum">
@@ -806,6 +1023,9 @@ level. These unvalidated properties are:
       <xs:enumeration value="Spot"/>
       <xs:enumeration value="None"/>
       <xs:enumeration value="Rectangle"/>
+      <xs:enumeration value="PC"/>
+      <xs:enumeration value="Fresnel"/>
+      <xs:enumeration value="Glow"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ColorSpaceEnum">
@@ -946,4 +1166,73 @@ level. These unvalidated properties are:
       <xs:enumeration value="CES99"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="SubPhysicalTypeEnum">
+    <xs:restriction base="xs:string">
+     <xs:enumeration value="PlacementOffset"/>
+     <xs:enumeration value="Amplitude"/>
+     <xs:enumeration value="AmplitudeMin"/>
+     <xs:enumeration value="Duration"/>
+     <xs:enumeration value="DutyCycle"/>
+     <xs:enumeration value="TimeOffset"/>
+     <xs:enumeration value="MinimumOpening"/>
+     <xs:enumeration value="Value"/>
+     <xs:enumeration value="RatioHorizontal"/>
+     <xs:enumeration value="RatioVertical"/>
+     <xs:enumeration value="AmplitudeMax"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="LaserColorType">
+   <xs:restriction base="xs:string">
+    <xs:enumeration value="RGB"/>
+    <xs:enumeration value="SingleWaveLength"/>
+  </xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="WiringComponentType">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="Input"/>
+  <xs:enumeration value="Output"/>
+  <xs:enumeration value="PowerSource"/>
+  <xs:enumeration value="Consumer"/>
+  <xs:enumeration value="Fuse"/>
+  <xs:enumeration value="NetworkProvider"/>
+  <xs:enumeration value="NetworkInput"/>
+  <xs:enumeration value="NetworkOutput"/>
+  <xs:enumeration value="NetworkInOut"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="WiringFuseRating">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="B"/>
+  <xs:enumeration value="C"/>
+  <xs:enumeration value="D"/>
+  <xs:enumeration value="K"/>
+  <xs:enumeration value="Z"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="WiringOrientation">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="Left"/>
+  <xs:enumeration value="Right"/>
+  <xs:enumeration value="Top"/>
+  <xs:enumeration value="Bottom"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="StructureType">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="CenterLineBased"/>
+  <xs:enumeration value="Detail"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CrossSectionType">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="TrussFramework"/>
+  <xs:enumeration value="Tube"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="SupportType">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="Rope"/>
+  <xs:enumeration value="GroundSupport"/>
+</xs:restriction>
+</xs:simpleType>
 </xs:schema>
