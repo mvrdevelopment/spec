@@ -1647,6 +1647,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | BatteryOperation  <a id="attrtype-batteryoperation" />  | [Enum](#user-content-attrtype-enum )      | The  function of the Fixture under Battery Power. Defined values are "Configuration", "Operation". |
 | BatteryRuntime      | [Float](#user-content-attrtype-float )    | The Runtime of the Fixture under Battery Power. Only for [Operation](#attrtype-batteryoperation ).
 | ChargingTime        | [Float](#user-content-attrtype-float )    | The Time it takes to charge the Fixture from 0 to 100%.                                           |
+| UN                  | [Integer](#user-content-attrtype-integer ) | Defines the Battery UN number for fixture transport                   |
 
 
 </div>
