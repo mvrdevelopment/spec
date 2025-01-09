@@ -624,8 +624,8 @@ in [table 15](#user-content-table-15 ).
 |----|----|----|
 | [Emitters](#user-content-emitter-collect )       | No        | Describes device emitters                                                           |
 | [Filters](#user-content-filter-collect )         | No        | Describes device filters                                                            |
-| [ColorSpace](#user-content-color-space )   | No        | Describes device default color space                                                       |
-| [AdditionalColorSpaces](#user-content-color-spaces )   | No        | Describes additional device color spaces                                                        |
+| [ColorSpace](#user-content-color-space )   | No        | This section defined the device default color space and is kept for backwards compatibility. From DIN SPEC 15800:TODO or GDTF v1.3 onwards all color spaces of a device shall be decribed in the Color Space Collect (XMLnode <AdditionalColorSpaces>)                                                       |
+| [AdditionalColorSpaces](#user-content-color-spaces )   | No        | Describes device color spaces                                                        |
 | [Gamuts](#user-content-gamuts )   | No        | Describes device gamuts                                                        |
 | [DMXProfiles](#user-content-dmx-profile-collect) | No        | Describes nonlinear correlation between DMX input and physical output of a channel. |
 | [CRIs](#user-content-color-rendering-index-collect)               | No        | Describes color rendering with IES TM-30-15 (99 color samples).                     |
