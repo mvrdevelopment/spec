@@ -629,7 +629,6 @@ in [table 15](#user-content-table-15 ).
 | [Gamuts](#user-content-gamuts )   | No        | Describes device gamuts                                                        |
 | [DMXProfiles](#user-content-dmx-profile-collect) | No        | Describes nonlinear correlation between DMX input and physical output of a channel. |
 | [CRIs](#user-content-color-rendering-index-collect)               | No        | Describes color rendering with IES TM-30-15 (99 color samples).                     |
-| [Connectors](#user-content-connector-collect )   | No        | Obsolete now. See Geometry Collect, WiringObject. Describes physical connectors of the device.              |
 | [Properties](#user-content-properties-collect )   | No        | Describes physical properties of the device.                                        |
 
 
@@ -950,37 +949,6 @@ are specified in [table 26](#user-content-table-26 ).
 </div>
 
 The color rendering index does not have any children.
-
-### Connector Collect
-  
-#### General
-
-This section defined the physical connectors and is kept for backwards compatibility. From DIN SPEC 15800:2021 or GDTF v1.2 onwards physical connectors shall be decribed as WiringObjects in the Geometry Collect. 
-It currently does not have any XML attributes (XML node `<Connectors>`). As children, the Connector Collect has a list of a [connectors](#user-content-connector ).
-
-#### Connector
-
-See Geometry Collect WiringObject. For easier transition find below the equivalent of the WiringObject.
-This section defines the connector (XML node `<Connector>`). The currently
-defined XML attributes of the connector are specified in [table
-27](#user-content-table-27 ).
-
-<div id="table-27">
-
-#### Table 27. *Connector Attributes*
-
-| XML Attribute Name | Value Type                          | Description                                                                                                                                            |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name )   | Unique Name of the connector. Now: Geometry Type WiringObject, XML Attribute: Name                                                                                                                         |
-| Type               | [Name](#user-content-attrtype-name )   | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). Now: Geometry Type WiringObject, XML Attribute: ConnectorType.                                                        |
-| DMXBreak           | [Uint](#user-content-attrtype-uint )   | Optional. Defines to which DMX Break this connector belongs to.  Obsolete now.                                                                                       |
-| Gender             | [Int](#user-content-attrtype-int )     | Connectors where the addition of the Gender value equal 0, can be connected; Default value: 0; Male Connectors are -1, Female are +1, Universal are 0. Obsolete now.  |
-| Length             | [Float](#user-content-attrtype-float ) | Defines the length of the connector's wire in meters. "0" means that there is no cable and the connector is build into the housing. Default value "0".  Obsolete now. |
-
-
-</div>
-
-The connector does not have any children.
 
 ### Properties Collect
   
