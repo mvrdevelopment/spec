@@ -967,7 +967,6 @@ are specified in [table 28](#user-content-table-28 ).
 |----|----|----|
 | [OperatingTemperature](#user-content-operatingtemperature ) | 0 or 1 | Temperature range in which the device can be operated. |
 | [Weight](#user-content-weight )                             | 0 or 1 | Weight of the device including all accessories.        |
-| [PowerConsumption](#user-content-powerconsumption )         | Any    | Power information for a given connector.               |
 | [LegHeight](#user-content-legheight )                       | 0 or 1 | Height of the legs.                                    |
 
 
