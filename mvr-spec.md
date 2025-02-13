@@ -1412,6 +1412,7 @@ The defined MVR_JOIN message Attributes are specified in Table 68.
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
 | StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Commits          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
+| Password       | [String](#user-content-attrtype-string)                               | Optional                    | The SHA256 of the Password and the Station UUID to authenticate with WebSocket Server.     |
 
 The defined MVR_JOIN response Attributes are specified in Table 69.
 
