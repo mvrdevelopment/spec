@@ -1203,6 +1203,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
 | [Magnet](#user-content-geometry-type-magnet )                         | Any    | Geometry that describes a point where other geometries should be attached.                     |
+| [Speaker](#user-content-geometry-type-audio )                         | Any    | Geometry that describes a audio source.                     |
 
 
 </div>
@@ -1798,6 +1799,32 @@ defined XML attributes of a magnet geometry are specified in
 | Name                      | [Name](#user-content-attrtype-name )      | The unique name of the geometry.                                                                |
 | Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
+
+
+### Geometry Type Speaker
+
+This type of geometry is used to describe a speaker in a audio device. (XML node `<Speaker>`). The currently
+defined XML attributes of a speaker geometry are specified in
+[table 55](#user-content-table-XX ).
+
+
+<div id="table-XX">
+
+#### Table XX. *Magnet Attributes*
+
+| XML Attribute Name        | Value Type                                | Description                                                                                     |
+|----|----|----|
+| Name                      | [Name](#user-content-attrtype-name )      | The unique name of the geometry.                                                                |
+| Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
+| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
+| LinkedConsumer                  | [Node](#user-content-attrtype-node )  | Name of the Wire Geometry that this speaker is connected to. Need to an consumer type.                                   |
+| Impedance                  | [Float](#user-content-attrtype-float )  |  Impedance of the speaker. Note that Power consumption is defined be the LinkedConsumer consumptions.                  |
+| VerticalCoverage     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the X db drop of the speaker in vertical distance.                                  |
+| HorizontalCoverage     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the X db drop of the speaker in horizontal distance. Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
+| FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimum Frequency that the speaker supports.                                 |
+| FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximum Frequency that the speaker supports.                                 |
+| MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum SPL of the speaker in the center of distribution.                                 |
+
 
 
 </div>
