@@ -1578,15 +1578,40 @@ for these geometries.
 
 </div>
 
-As children, the Geometry Type Reference has a list of breaks. The
-count of the children depends on the number of different breaks in the
-DMX channels of the referenced geometry. If the referenced geometry, for
-example, has DMX channels with DMX break 2 and 4, the geometry reference
-has to have 2 children. The first child with DMX offset for DMX break 2
-and the second child for DMX break 4. If one or more of the DMX channels
-of the referenced geometry have the special value “Overwrite” as a DMX
-break, the DMX break for those channels and the DMX offsets need to be
-defined.
+As children, the Geometry Type Reference has a list of [Breaks](#break). The
+count of the children depends on the number of different breaks in the DMX
+channels of the referenced geometry. [Listing
+Breaks](#user-content-listing-breaks) shows an example where referenced
+geometry has DMX channels with DMX break 2 and 4, the geometry reference has to
+have 2 children. The first child with DMX offset for DMX break 2 and the second
+child for DMX break 4.
+
+<div id="listing-breaks">
+
+#### Listing *Breaks*
+
+```xml
+<GeometryReference Geometry="Pixel" Name="Reference 1" Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}">
+      <Break DMXBreak="1" DMXOffset="1"/>
+      <Break DMXBreak="2" DMXOffset="1"/>
+</GeometryReference>
+```
+
+If one or more of the DMX channels of the referenced geometry have the special
+value “Overwrite” as a DMX break, the DMX break for those channels and the DMX
+offsets need to be defined and it must be the last child of the list of Breaks.
+
+<div id="listing-breaks-overwrite">
+
+#### Listing *Breaks With Overwrite*
+
+```xml
+<GeometryReference Geometry="Pixel" Name="Reference 1" Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}">
+    <Break DMXBreak="1" DMXOffset="1"/>
+    <Break DMXBreak="2" DMXOffset="1"/>
+    <Break DMXBreak="1" DMXOffset="2"/>
+</GeometryReference>
+```
 
 #### Break
 
@@ -2055,12 +2080,12 @@ XML attributes of the relations are specified in [table 63](#user-content-table-
 </div>
 
 The relation does not have any children. [Listing
-1](#user-content-listing-1 ) shows an example of a simple DMX mode
+DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple DMX mode
 described in XML.
 
-<div id="listing-1">
+<div id="listing-dmx-mode-with-relations">
 
-#### Listing 1. *DMX mode with relations*
+#### Listing *DMX Mode With Relations*
 
 ```
 <DMXMode Name="Default" Geometry="Body">
@@ -3406,7 +3431,7 @@ it can have an effect on it's linked Geometry in a visualizer.
 A Virtual Channel can contain (multiple)
 [Relations](#user-content-relation-collect), for example to color mixing
 channels, which creates a **Virtual Dimmer**. See example in [Listing
-1](#listing-1-dmx-mode-with-relations). Through linking to other DMX Channels,
+DMX Mode With Relations](#listing-dmx-mode-with-relations). Through linking to other DMX Channels,
 the Virtual Dimmer can have a real world effect.
 
 A Virtual Channel with Logical Channel Attribute set as NoFeature and with
