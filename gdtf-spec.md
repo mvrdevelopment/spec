@@ -206,10 +206,17 @@ specified in [Table 1](#user-content-table-1 ).
 |Rotation<a id="attrtype-rotation"/>                | {float, float, float}<br/>{float, float, float} <br/>{float, float, float} | Rotation matrix, consist of 3\*3 floats. Stored as row-major matrix, i.e. each row of the matrix is stored as a 3-component vector. Mathematical definition of the matrix is column-major, i.e. the matrix rotation is stored in the three columns. Metric system, right-handed Cartesian coordinates XYZ:<br/>X – from left (-X) to right (+X),<br/>Y – from the outside of the monitor (-Y) to the inside of the monitor (+Y),<br/>Z – from the bottom (-Z) to the top (+Z). |
 |Enum<a id="attrtype-enum"/>                        | Literal               | Possible values are predefined.|
 |DMXAddress<a id="attrtype-dmxaddress"/>            |Int, Alternative format: Universe.Address | Absolute DMX address (size 4 bytes); Alternative format: Universe – integer universe number, starting with 1; Address: address within universe from 1 to 512. Format: integer |
-|DMXValue<a id="attrtype-dmxvalue"/>                | Uint/n for ByteMirroring values <br/>Uint/ns for ByteShifting values |Special type to define DMX value where n is the byte count. The byte count can be individually specified without depending on the resolution of the DMX Channel.<br/> By default byte mirroring is used for the conversion. So 255/1 in a 16 bit channel will result in 65535.<br/>You can use the byte shifting operator to use byte shifting for the conversion. So 255/1s in a 16 bit channel will result in 65280. |
+|DMXValue<a id="attrtype-dmxvalue"/>                | Uint/n for ByteMirroring values <br/>Uint/ns for ByteShifting values|Special type to define DMX value where n is the byte count. The byte count can be individually specified without depending on the resolution of the DMX Channel.<br/> By default byte mirroring is used for the conversion. See examples below. Byte shifting and mirroring will be obsoleted in next version of the Spec and the DMXValue will have to be specified including and matching the resolution of the DMX Channel|
 |GUID<a id="attrtype-guid"/>                        | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Unique ID corresponding to RFC 4122: X–1 digit in hexadecimal notation. Example: “308EA87D-7164-42DE-8106-A6D273F57A51”. |
 |Resource<a id="attrtype-resource"/>                | String|File name of the resource file without extension and without subfolder. |
 |Pixel<a id="attrtype-pixel"/>                      | Pixel| 	Integer value representing one Pixel inside a MediaFile. Pixel count starts with zero in the top left corner.| 
+
+Examples for DMXValue:
+
+Byte mirroring: 255/1 definition in a 16 bit channel will result in 255/255 in two component notation and in 65535 integer.
+
+Byte shifting: 255/1s definition in a 16 bit channel will result in 255/0 in two component notation and in 65280 integer.
+
 
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
