@@ -211,6 +211,13 @@ specified in [Table 1](#user-content-table-1 ).
 |Resource<a id="attrtype-resource"/>                | String|File name of the resource file without extension and without subfolder. |
 |Pixel<a id="attrtype-pixel"/>                      | Pixel| 	Integer value representing one Pixel inside a MediaFile. Pixel count starts with zero in the top left corner.| 
 
+Examples for DMXValue:
+
+Byte mirroring: 255/1 definition in a 16 bit channel will result in 255/255 in two component notation and in 65535 integer.
+
+Byte shifting: 255/1s definition in a 16 bit channel will result in 255/0 in two component notation and in 65280 integer.
+
+
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
 The second XML node is the GDTF node. The attribute of this node is the
