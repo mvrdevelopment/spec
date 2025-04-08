@@ -1828,7 +1828,7 @@ mode collect has DMX modes.
 
 Each DMX mode describes logical control part of the device in a specific
 mode (XML node `<DMXMode>`). The currently defined XML attributes of the
-DMX mode are specified in [table 56](#user-content-table-57 ).
+DMX mode are specified in [table 57](#user-content-table-57 ).
 
 <div id="table-57">
 
