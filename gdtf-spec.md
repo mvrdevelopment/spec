@@ -192,6 +192,7 @@ specified in [Table 1](#user-content-table-1 ).
 |Int<a id="attrtype-int" />                         | Integer               | Signed integer|
 |Hex<a id="attrtype-hex" />                         | Integer               | Number in hexadecimal  notation; Default value: 0|
 |Float<a id="user-content-attrtype-float" />        | float                 | Floating point numeric; Separator: "."|
+|Bool<a id="User-content-attrtrype-boolean" />   | Bool               | A boolean value. When representing true inidcate with true, when false indicate with false.|
 |String<a id="attrtype-string" />                   | Literal               | Text|
 |Name<a id="attrtype-name" />                       | restricted Literal    | Unique object names; The allowed characters are listed in [AnnexC](#user-content-table-c1) Default value: object type with an index in parent.|
 |Date<a id="attrtype-date" />                       | yyyy-mm-ddThh:mm:ss   |  Date and time corresponding to UTC +00:00 (Coordinated Universal Time): yyyy – year, mm – month, dd – day, hh – hours (24 format), mm – minutes, ss – seconds. Example: “2016-06-21T11:22:48” |
@@ -1627,7 +1628,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | Model               | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                  |
 | ConnectorType   <a id="attrtype-connectortype" />    | [Name](#user-content-attrtype-name )      | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). This is not applicable for Component Types Fuses. Custom type of connector can also be defined, for example "Loose End".|
 | Position            | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                     |
-| ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut". |
+| ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut", "Battery". |
 | SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
 | PinCount            | [Int](#user-content-attrtype-int )        | The number of available pins of the connector type to connect internal wiring to it.              |
 | ElectricalPayLoad   | [Float](#user-content-attrtype-float )    | The electrical consumption in Watts. Only for [Consumers](#user-content-attrtype-connectortype ). Unit: Watt.                                         |
@@ -1643,6 +1644,11 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Defined values are "B", "C", "D", "K", "Z".                                          |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
 | WireGroup           | [String](#user-content-attrtype-string )  | Name of the group to which this wiring object belong.                                             |
+| BatteryType         | [Enum](#ser-content-attrtype-enum )       | The Type of the Battery Unit. Defined values are "Soldered", "Replacable", "Quickswap", "External". |
+| BatteryOperation  <a id="attrtype-batteryoperation" />  | [Enum](#user-content-attrtype-enum )      | The  function of the Fixture under Battery Power. Defined values are "Configuration", "Operation". |
+| BatteryRuntime      | [Float](#user-content-attrtype-float )    | The Runtime of the Fixture under Battery Power. Only for [Operation](#attrtype-batteryoperation ).
+| ChargingTime        | [Float](#user-content-attrtype-float )    | The Time it takes to charge the Fixture from 0 to 100%.                                           |
+| UN                  | [Integer](#user-content-attrtype-integer ) | Defines the Battery UN number for fixture transport                   |
 
 
 </div>
