@@ -1208,7 +1208,6 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
 | [Magnet](#user-content-geometry-type-magnet )                         | Any    | Geometry that describes a point where other geometries should be attached.                     |
-| [Speaker](#user-content-geometry-type-speaker )                       | Any    | Geometry with a speaker as the source of sound from an audio device.                           |
 
 
 </div>
@@ -1718,6 +1717,8 @@ defined XML attributes of a structure geometry are specified in
 | TrussCrossSection         | [String](#user-content-attrtype-string )  | The name of the truss cross section. Only for [Trusses](#user-content-attrtype-crosssectiontype ).                  |
 
 
+
+
 </div>
 
 The structure geometry has the same children types as the geometry
@@ -1782,38 +1783,6 @@ defined XML attributes of a magnet geometry are specified in
 The magnet geometry has the same children types as the geometry
 collect (see [table 34](#user-content-table-34 )).
 
-### Geometry Type Speaker
-
-This type of geometry is used to describe the position of the speaker which is a source of sound (XML node <Speaker>). 
-The currently defined XML attributes of the speaker are specified in [table 56](#user-content-table-56 ).
-
-<div id="table-56">
-
-#### Table 56. *Speaker Attributes*
-
-| XML Attribute Name        | Value Type                                | Description                                                                                     |
-|----|----|----| 
-| Name                      | [Name](#user-content-attrtype-name )      | The unique name of the geometry.                                                                |
-| Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
-| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
-| FrequencyMin              | [Float](#user-content-attrtype-float )    | Minimal Frequency of the Speaker.                                                               |
-| FrequencyMax              | [Float](#user-content-attrtype-float )    | Maximal Frequency of the Speaker.                                                               |
-| AngleVertical             | [Float](#user-content-attrtype-float )    | Angle of the vertical distribution.                                                             |
-| AngleHorizontal           | [Float](#user-content-attrtype-float )    | Angle of the horizontal distribution.                                                           |
-| MaxSPL                    | [Float](#user-content-attrtype-float )    | Max Sound Pressure.                                                                             |
-| Impedance                 | [Float](#user-content-attrtype-float )    | Nominal impedance of the speaker.                                                               |
-
-
-</div>
-
-The speaker geometry has the same children types as the geometry
-collect (see [table 34](#user-content-table-34 )).
-
-Use the Geometry Type "Speaker" to describe the position of the fixture's sound output. The origin of the Geometry Type "Speaker" should not be covered by 
-any faces of other geometries in order to not block the rendered sound plane.
-
-The speaker geometry emits its sound into negative Y direction.
-
 ## DMX Mode Collect
   
 ### General
@@ -1828,11 +1797,11 @@ mode collect has DMX modes.
 
 Each DMX mode describes logical control part of the device in a specific
 mode (XML node `<DMXMode>`). The currently defined XML attributes of the
-DMX mode are specified in [table 57](#user-content-table-57 ).
+DMX mode are specified in [table 56](#user-content-table-56 ).
 
-<div id="table-57">
+<div id="table-56">
 
-#### Table 57. *DMX Mode Attributes*
+#### Table 56. *DMX Mode Attributes*
 
 | XML Attribute Name | Value Type                        | Description                                                                                   |
 |----|----|----|
@@ -1843,11 +1812,11 @@ DMX mode are specified in [table 57](#user-content-table-57 ).
 
 </div>
 
-DMX mode children are specified in [table 58](#user-content-table-58 ).
+DMX mode children are specified in [table 57](#user-content-table-57 ).
 
-<div id="table-58">
+<div id="table-57">
 
-#### Table 58. *DMX Mode Children*
+#### Table 57. *DMX Mode Children*
 
 | XML node                                       | Mandatory | Description                                      |
 |----|----|----|
@@ -1876,11 +1845,11 @@ of a DMX channel cannot be user-defined and must consist of a geometry
 name and the attribute name of the first logical channel with separator
 "\_". In one DMX Mode, this combination needs to be unique. Currently
 defined XML attributes of the DMX channel are specified in [table
-59](#user-content-table-59).
+58](#user-content-table-58).
 
-<div id="table-59">
+<div id="table-58">
 
-#### Table 59. *DMX Channel Attributes*
+#### Table 58. *DMX Channel Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                    |
 |----|----|----|
@@ -1913,9 +1882,9 @@ and is equal to the linked attribute name. The XML node of the logical
 channel is `<LogicalChannel>`. The currently defined XML attributes of the
 logical channel are specified in [table 59](#user-content-table-59 ).
 
-<div id="table-60">
+<div id="table-59">
 
-#### Table 60. *Logical Channel Attributes*
+#### Table 59. *Logical Channel Attributes*
 
 | XML Attribute Name | Value Type                          | Description                                                                                                                                                                                  |
 |----|----|----|
@@ -1936,11 +1905,11 @@ function](#user-content-channel-function ).
 The Fixture Type Attribute is assigned to a Channel Function and defines
 the function of its DMX Range. (XML node `<ChannelFunction>`). The
 currently defined XML attributes of channel function are specified in
-[table 61](#user-content-table-61 ).
+[table 60](#user-content-table-60 ).
 
-<div id="table-61">
+<div id="table-60">
 
-#### Table 61. *Channel Function Attributes*
+#### Table 60. *Channel Function Attributes*
 
 | XML Attribute Name | Value Type                                   | Description                                                                                                                                                   |
 |----|----|----|
@@ -1991,11 +1960,11 @@ sets](#user-content-sub-channel-set ).
 
 This section defines the channel sets of the channel function (XML node
 <ChannelSet>). The currently defined XML attributes of the channel set
-are specified in [table 62](#user-content-table-62 ).
+are specified in [table 61](#user-content-table-61 ).
 
-<div id="table-62">
+<div id="table-61">
 
-#### Table 62. *Channel Set Attributes*
+#### Table 61. *Channel Set Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                   |
 |----|----|----|
@@ -2014,11 +1983,11 @@ The channel set does not have any children.
 
 This section defines the sub channel sets of the channel function (XML node
 <SubChannelSet>). The currently defined XML attributes of the sub channel set
-are specified in [table 63](#user-content-table-63 ).
+are specified in [table 62](#user-content-table-62 ).
 
-<div id="table-63">
+<div id="table-62">
 
-#### Table 63. *Sub Channel Set Attributes*
+#### Table 62. *Sub Channel Set Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                     |
 |----|----|----|
@@ -2046,11 +2015,11 @@ relation collect has a list of a [relation](#user-content-relation ).
 
 This section defines the relation between the master DMX channel and the
 following logical channel (XML node `<Relation>`). The currently defined
-XML attributes of the relations are specified in [table 64](#user-content-table-64 ).
+XML attributes of the relations are specified in [table 63](#user-content-table-63 ).
 
-<div id="table-64">
+<div id="table-63">
 
-#### Table 64. *Relation Attributes*
+#### Table 63. *Relation Attributes*
 
 | XML Attribute Name | Value Type                               | Description                                                      |
 |----|----|----|
@@ -2127,11 +2096,11 @@ system. The macro collect currently does not have any XML attributes
 
 This section defines a DMX sequence. (XML node `<FTMacro>`). The currently
 defined XML attributes of the macro are specified in [table
-65](#user-content-table-65 ).
+64](#user-content-table-64 ).
 
-<div id="table-65">
+<div id="table-64">
 
-#### Table 65. *Macro Attributes*
+#### Table 64. *Macro Attributes*
 
 | XML Attribute Name | Value Type                        | Description                   |
 |----|----|----|
@@ -2141,11 +2110,11 @@ defined XML attributes of the macro are specified in [table
 
 </div>
 
-Macro children are specified in [table 66](#user-content-table-66 )
+Macro children are specified in [table 65](#user-content-table-65 )
 
-<div id="table-66">
+<div id="table-65">
 
-#### Table 66. *Macro Children*
+#### Table 65. *Macro Children*
 
 | XML node                          | Mandatory | Description                          |
 |----|----|----|
@@ -2164,11 +2133,11 @@ list of [MacroDMXStep](#user-content-macro-dmx-step ).
 
 This section defines a DMX step (XML node `<MacroDMXStep>`). The currently
 defined XML attributes of the macro DMX step are specified in [table
-67](#user-content-table-67 ).
+66](#user-content-table-66 ).
 
-<div id="table-67">
+<div id="table-66">
 
-#### Table 67. *Macro DMX Step Attributes*
+#### Table 66. *Macro DMX Step Attributes*
 
 | XML Attribute Name | Value Type                          | Description                                          |
 |----|----|----|
@@ -2184,11 +2153,11 @@ Value](#user-content-dmx-value ).
 
 This section defines the value for DMX channel (XML node
 <MacroDMXValue>). The currently defined XML attributes of the DMX Value
-are specified in [table 68](#user-content-table-68 ).
+are specified in [table 67](#user-content-table-67 ).
 
-<div id="table-68">
+<div id="table-67">
 
-#### Table 68. *DMX Value Attributes*
+#### Table 67. *DMX Value Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                  |
 |----|----|----|
@@ -2215,11 +2184,11 @@ This section defines one revision of a the device type (XML node
 `Revision>`). Revisions are optional. Every time a GDTF file is uploaded
 to the database, a revision with the actual time and UserID is created
 by the database. The currently defined XML attributes of the revision
-are specified in [table 69](#user-content-table-69 ).
+are specified in [table 68](#user-content-table-68 ).
 
-<div id="table-69">
+<div id="table-68">
 
-#### Table 69. *Revision Attributes*
+#### Table 68. *Revision Attributes*
 
 | XML Attribute Name | Value Type                            | Description                                                                          |
 |----|----|----|
@@ -2255,11 +2224,11 @@ If the device supports one or several additional protocols, these
 protocol specific information have to be specified. The supported
 protocol collect currently does not have any XML attributes (XML node
 `<Protocols>`). Children of supported protocol collect are specified in
-[table 70](#user-content-table-70 ).
+[table 69](#user-content-table-69 ).
 
-<div id="table-70">
+<div id="table-69">
 
-#### Table 70. *Supported Protocol Collect Children*
+#### Table 69. *Supported Protocol Collect Children*
 
 | XML node                                                   | Mandatory | Description                            |
 |----|----|----|
@@ -2277,11 +2246,11 @@ protocol collect currently does not have any XML attributes (XML node
 
 If the device supports the RDM protocol, this section defines the
 corresponding information (XML node `<FTRDM>`). The currently defined XML
-attributes of RDM are specified in [table 71](#user-content-table-71 ).
+attributes of RDM are specified in [table 70](#user-content-table-70 ).
 
-<div id="table-71">
+<div id="table-70">
 
-#### Table 71. *RDM Attributes*
+#### Table 70. *RDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
@@ -2298,11 +2267,11 @@ As children the FTRDM has a list of `SoftwareVersionID`.
 ##### General
 
 For each supported software version add an XML node `<SoftwareVersionID>`.
-The currently defined XML attributes are specified in [table 72](#user-content-table-72 ).
+The currently defined XML attributes are specified in [table 71](#user-content-table-71 ).
 
-<div id="table-72">
+<div id="table-71">
 
-#### Table 72. *SoftwareVersionID*
+#### Table 71. *SoftwareVersionID*
 
 | XML Attribute Name | Value Type                      | Description         |
 |----|----|----|
@@ -2317,11 +2286,11 @@ As children the SoftwareVersionID has a list of `DMXPersonality`.
 
 To define the supported software versions add an XML node
 `<DMXPersonality>`. The currently defined XML attributes are specified in
-[table 73](#user-content-table-73 ).
+[table 72](#user-content-table-72 ).
 
-<div id="table-73">
+<div id="table-72">
 
-#### Table 73. *DMXPersonality*
+#### Table 72. *DMXPersonality*
 
 | XML Attribute Name | Value Type                        | Description                                                       |
 |----|----|----|
@@ -2344,15 +2313,15 @@ As children the Art-Net has a list of [Maps](#user-content-map).
 
 To define a custom mapping between Art-Net values and DMX Stream values you can add an XML node
 `<Map>` as a child. The currently defined XML attributes are specified in
-[table 74](#user-content-table-74 ).
+[table 73](#user-content-table-73 ).
 
 By default, it is assumed that all the values are mapped 1:1, so only when you differ from that you can add a custom map.
 
 #### Map
 
-<div id="table-74">
+<div id="table-73">
 
-#### Table 74. *Map Attributes*
+#### Table 73. *Map Attributes*
 
 | XML Attribute Name  | Value Type                            | Description                                                       |
 |----|----|----|
@@ -2372,7 +2341,7 @@ As children the Streaming ACN has a list of [Maps](#user-content-map).
 
 To define a custom mapping between Streaming ACN values and DMX Stream values you can add an XML node
 `<Map>` as a child. The currently defined XML attributes are specified in
-[table 74](#user-content-table-74 ).
+[table 73](#user-content-table-73 ).
 
 By default, it is assumed that all the values are mapped 1:1, so only when you differ from that you can add a custom map.
 
