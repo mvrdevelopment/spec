@@ -80,6 +80,8 @@ amendments) applies.
 
 - OpenSoundControl http://opensoundcontrol.org/index.html
 
+- [ANSI E1.20 - 2010 Entertainment Technology—RDM Remote Device Management Over DMX512 Networks](https://tsp.esta.org/tsp/documents/docs/ANSI_E1-20&E1-37-1&E1-37-2.zip)
+
 
 ## Terms and definitions
 
@@ -165,6 +167,8 @@ all firmware revisions of the device.
 ./models/svg_side/yoke.svg
 ./models/svg_front/base.svg
 ./models/svg_front/yoke.svg
+./photometric/lamp1.ies
+./photometric/lamp1.ldt
 
 ```
 
@@ -202,10 +206,17 @@ specified in [Table 1](#user-content-table-1 ).
 |Rotation<a id="attrtype-rotation"/>                | {float, float, float}<br/>{float, float, float} <br/>{float, float, float} | Rotation matrix, consist of 3\*3 floats. Stored as row-major matrix, i.e. each row of the matrix is stored as a 3-component vector. Mathematical definition of the matrix is column-major, i.e. the matrix rotation is stored in the three columns. Metric system, right-handed Cartesian coordinates XYZ:<br/>X – from left (-X) to right (+X),<br/>Y – from the outside of the monitor (-Y) to the inside of the monitor (+Y),<br/>Z – from the bottom (-Z) to the top (+Z). |
 |Enum<a id="attrtype-enum"/>                        | Literal               | Possible values are predefined.|
 |DMXAddress<a id="attrtype-dmxaddress"/>            |Int, Alternative format: Universe.Address | Absolute DMX address (size 4 bytes); Alternative format: Universe – integer universe number, starting with 1; Address: address within universe from 1 to 512. Format: integer |
-|DMXValue<a id="attrtype-dmxvalue"/>                | Uint/n for ByteMirroring values <br/>Uint/ns for ByteShifting values |Special type to define DMX value where n is the byte count. The byte count can be individually specified without depending on the resolution of the DMX Channel.<br/> By default byte mirroring is used for the conversion. So 255/1 in a 16 bit channel will result in 65535.<br/>You can use the byte shifting operator to use byte shifting for the conversion. So 255/1s in a 16 bit channel will result in 65280. |
+|DMXValue<a id="attrtype-dmxvalue"/>                | Uint/n for ByteMirroring values <br/>Uint/ns for ByteShifting values|Special type to define DMX value where n is the byte count. The byte count can be individually specified without depending on the resolution of the DMX Channel.<br/> By default byte mirroring is used for the conversion. See examples below. Byte shifting and mirroring will be obsoleted in next version of the Spec and the DMXValue will have to be specified including and matching the resolution of the DMX Channel|
 |GUID<a id="attrtype-guid"/>                        | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Unique ID corresponding to RFC 4122: X–1 digit in hexadecimal notation. Example: “308EA87D-7164-42DE-8106-A6D273F57A51”. |
 |Resource<a id="attrtype-resource"/>                | String|File name of the resource file without extension and without subfolder. |
 |Pixel<a id="attrtype-pixel"/>                      | Pixel| 	Integer value representing one Pixel inside a MediaFile. Pixel count starts with zero in the top left corner.| 
+
+Examples for DMXValue:
+
+Byte mirroring: 255/1 definition in a 16 bit channel will result in 255/255 in two component notation and in 65535 integer.
+
+Byte shifting: 255/1s definition in a 16 bit channel will result in 255/0 in two component notation and in 65280 integer.
+
 
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
@@ -244,7 +255,7 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 | Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
 | Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
 | FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
-| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic.  <br />- These resource files are located in the root directory of the zip file.  |
+| Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced fixture type. |
@@ -254,6 +265,12 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 
 Fixture type node children are specified in [table 4](#user-content-table-4 ).
+
+For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the `Thumbnail` defining Movement Range and the Connection Input position. 
+* Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
+* Connection Input (Pigtail): shapes inside the SVG with fill and stroke color Green (#00FF00 (RGB: 0, 255, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a connection input (pigtail) part of the device.
+
+
 
 <div id="table-4">
 
@@ -508,14 +525,16 @@ currently defined XML attributes of the wheel slot are specified in
 
 | XML Attribute Name | Value Type | Description                                                                                                                                                                                                                                                                                                                       |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )        | The name of the wheel slot                                                                                                                                                                                                                                                                                                 |
+| Name               | [String](#user-content-attrtype-string )        | The name of the wheel slot                                                                                                                                                                                                                                                                                                 |
 | Color              | [ColorCIE](#user-content-attrtype-colorcie )   | Color of the wheel slot, Default value: {0.3127, 0.3290, 100.0 } (white) For Y give relative value compared to overall output defined in property Luminous Flux of related Beam Geometry (transmissive case).                                                                                                                     |
-| Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description; Do not define color if filter is used; Starting point: Filter Collect                                                                                                                                                                                                       |
+| Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description, Starting point: Filter Collect                                                                                                                                                                                                       |
 | MediaFileName | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
-
-
-
+| BeamInfluence      | [Enum](#user-content-attrtype-enum )   | Optional. Describes how the slot is affecting the beam. Currently defined values are "Open" - the slot is not affecting the beam, "Closed" - the slot is completely blocking the beam.|
 </div>
+
+As children the attribute node can have a list of [Prism
+Facet](#user-content-prism-facet) or [Animation
+System](#user-content-animation-system).
 
 Note 1: More information on the definitions of images used in wheel slots to
 visualize gobos, animation wheels or color wheels can be found in Annex E
@@ -526,10 +545,24 @@ done via the wheel slot index. The wheel slot index of a slot is derived
 from the order of a wheel's slots. The wheel slot index is normalized to
 1.
 
-If the wheel slot has a prism, it has to have one or several children
-called [prism facet](#user-content-prism-facet ). If the wheel slot has an
-AnimationWheel, it has to have one child called [Animation
-Wheel](#user-content-animation-wheel ).
+If the wheel slot describes a prism, it has to have one or several children
+called [Prism Facet](#user-content-prism-facet ). If the wheel slot describes
+an AnimationSystem it has to have one child called
+[AnimationSystem](#user-content-animation-system).
+
+The [attribute](#annex-a-normative-attribute-definitions) of a parent channel
+function in the linked channel set defines which XML attributes of a wheel slot
+should be used and in what order of importance:
+
+| GDTF Attribute Name | Utilized XML attribute                                      |
+|----|----|
+| Color(n)              | MediaFileName, Filter, Color                              |
+| Gobo(n)               | MediaFileName                                             |
+| Prism(n)              | Facet                                                     |
+| AnimationWheel(n)     | MediaFileName                                             |
+| AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
+| MediaContent(n)       | MediaFileName                                             |
+
 
 ##### Prism Facet
 
@@ -598,12 +631,11 @@ in [table 15](#user-content-table-15 ).
 |----|----|----|
 | [Emitters](#user-content-emitter-collect )       | No        | Describes device emitters                                                           |
 | [Filters](#user-content-filter-collect )         | No        | Describes device filters                                                            |
-| [ColorSpace](#user-content-color-space )   | No        | Describes device default color space                                                       |
-| [AdditionalColorSpaces](#user-content-color-spaces )   | No        | Describes additional device color spaces                                                        |
+| [ColorSpace](#user-content-color-space )   | No        | This section defined the device default color space and is kept for backwards compatibility. From DIN SPEC 15800:TODO or GDTF v1.3 onwards all color spaces of a device shall be decribed in the Color Space Collect (XMLnode <AdditionalColorSpaces>)                                                       |
+| [AdditionalColorSpaces](#user-content-color-spaces )   | No        | Describes device color spaces                                                        |
 | [Gamuts](#user-content-gamuts )   | No        | Describes device gamuts                                                        |
 | [DMXProfiles](#user-content-dmx-profile-collect) | No        | Describes nonlinear correlation between DMX input and physical output of a channel. |
 | [CRIs](#user-content-color-rendering-index-collect)               | No        | Describes color rendering with IES TM-30-15 (99 color samples).                     |
-| [Connectors](#user-content-connector-collect )   | No        | Obsolete now. See Geometry Collect, WiringObject. Describes physical connectors of the device.              |
 | [Properties](#user-content-properties-collect )   | No        | Describes physical properties of the device.                                        |
 
 
@@ -925,37 +957,6 @@ are specified in [table 26](#user-content-table-26 ).
 
 The color rendering index does not have any children.
 
-### Connector Collect
-  
-#### General
-
-This section defined the physical connectors and is kept for backwards compatibility. From DIN SPEC 15800:2021 or GDTF v1.2 onwards physical connectors shall be decribed as WiringObjects in the Geometry Collect. 
-It currently does not have any XML attributes (XML node `<Connectors>`). As children, the Connector Collect has a list of a [connectors](#user-content-connector ).
-
-#### Connector
-
-See Geometry Collect WiringObject. For easier transition find below the equivalent of the WiringObject.
-This section defines the connector (XML node `<Connector>`). The currently
-defined XML attributes of the connector are specified in [table
-27](#user-content-table-27 ).
-
-<div id="table-27">
-
-#### Table 27. *Connector Attributes*
-
-| XML Attribute Name | Value Type                          | Description                                                                                                                                            |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name )   | Unique Name of the connector. Now: Geometry Type WiringObject, XML Attribute: Name                                                                                                                         |
-| Type               | [Name](#user-content-attrtype-name )   | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). Now: Geometry Type WiringObject, XML Attribute: ConnectorType.                                                        |
-| DMXBreak           | [Uint](#user-content-attrtype-uint )   | Optional. Defines to which DMX Break this connector belongs to.  Obsolete now.                                                                                       |
-| Gender             | [Int](#user-content-attrtype-int )     | Connectors where the addition of the Gender value equal 0, can be connected; Default value: 0; Male Connectors are -1, Female are +1, Universal are 0. Obsolete now.  |
-| Length             | [Float](#user-content-attrtype-float ) | Defines the length of the connector's wire in meters. "0" means that there is no cable and the connector is build into the housing. Default value "0".  Obsolete now. |
-
-
-</div>
-
-The connector does not have any children.
-
 ### Properties Collect
   
 #### General
@@ -973,7 +974,6 @@ are specified in [table 28](#user-content-table-28 ).
 |----|----|----|
 | [OperatingTemperature](#user-content-operatingtemperature ) | 0 or 1 | Temperature range in which the device can be operated. |
 | [Weight](#user-content-weight )                             | 0 or 1 | Weight of the device including all accessories.        |
-| [PowerConsumption](#user-content-powerconsumption )         | Any    | Power information for a given connector.               |
 | [LegHeight](#user-content-legheight )                       | 0 or 1 | Height of the legs.                                    |
 
 
@@ -1065,10 +1065,12 @@ specified in [table 32](#user-content-table-32 ).
 | Length             | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
 | Width              | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
 | Height             | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
-| PrimitiveType      | [Enum](#user-content-attrtype-enum )       | Type of 3D model; The currently defined values are: “Undefined”, “Cube”, “Cylinder”, “Sphere”, “Base”, “Yoke”, “Head”, “Scanner”, “Conventional”, “Pigtail”, "Base1_1", "Scanner1_1", "Conventional1_1"; TODO Default value: “Undefined” |
+| PrimitiveType      | [Enum](#user-content-attrtype-enum )       | Type of 3D model; The currently defined values are: “Undefined”, “Cube”, “Cylinder”, “Sphere”, “Base”, “Yoke”, “Head”, “Scanner”, “Conventional”, “Pigtail”, "Base1_1", "Scanner1_1", "Conventional1_1"; Default value: “Undefined” |
 | File               | [Resource](#user-content-attrtype-resource )   | Optional. File name without extension and without subfolder containing description of the model. Use the following as a resource file:<br />- 3DS or GLB to file to provide 3D model.<br />- SVG file to provide the 2D symbol.<br />It is possible to add several files with the same name but different formats. Preferable format for the 3D model is GLTF. The resource files are located in subfolders of a folder called <code>./models</code>. The names of the subfolders correspond to the file format of the resource files (3ds, step, svg). The path for 3ds files would be <code>./models/3ds</code>. For glb files, it would be <code>./models/gltf</code>.</p> Software that is utilizing GDTF files should always be able to read both 3ds and GlTF file formats and should be able to write at least one of these formats. It is preferable that only one type of 3D model file formats is used within one GDTF file. |
 | SVGOffsetX            | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
 | SVGOffsetY            | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
+| SVGBottomOffsetX      | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the bottom view svg. Unit based on the SVG. Default value: 0|
+| SVGBottomOffsetY      | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the bottom view svg. Unit based on the SVG. Default value: 0|
 | SVGSideOffsetX        | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the side view svg. Unit based on the SVG. Default value: 0|
 | SVGSideOffsetY        | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the side view svg. Unit based on the SVG. Default value: 0|
 | SVGFrontOffsetX       | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the front view svg. Unit based on the SVG. Default value: 0|
@@ -1144,12 +1146,12 @@ define the insertion point in relation to the view box.
 SVG can have background filling. This filling should have the color #C8C8C8. By
 this color, any software can replace it with another color.
 
-| Type  | Description  | Folder 3DS / gltf |
+| Type  | Description  | Folder |
 |---|---|---|
 | Top View  | View from top in -Z direction. | `svg` |
-| Front View  | View from  fron in Y direction | `svg_front` |
-| Side View  | View from  fron in -X direction  | `svg_side` |
-
+| Bottom View  | View from  bottom in Z direction  | `svg_bottom` |
+| Front View  | View from  front in Y direction | `svg_front` |
+| Side View  | View from  front in -X direction  | `svg_side` |
 
 
 ![Base](media/svg/non-symetric/base.svg)
@@ -1369,7 +1371,7 @@ the Beam are specified in [table 41](#user-content-table-41 ).
 | Name                | [Name](#user-content-attrtype-name )     | The unique name of the geometry. Recommendation for a light source of a conventional or moving head or a projector is “Beam”. Note 1: Beam is usually mounted to Head or Body. Recommendation for a self-emitting single light source is “Pixel”. Note 2: Pixel is usually mounted to Head or Body. Recommendation for a number of Pixel that are controlled at the same time is “Array”. Note 3: Array is usually mounted to Head or Body. Recommendation for a light source of a moving mirror is “Mirror”. Note 4: Mirror is usually mounted to Yoke. |
 | Model               | [Name](#user-content-attrtype-name )     | Link to the corresponding model.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Position            | [Matrix](#user-content-attrtype-matrix ) | Relative position of geometry; Default value: Identity Matrix                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| LampType            | [Enum](#user-content-attrtype-enum )     | Defines type of the light source; The currently defined types are: Discharge, Tungsten, Halogen, LED; Default value “Discharge”                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| LampType            | [Enum](#user-content-attrtype-enum )     | Defines type of the light source; The currently defined types are: Discharge, Tungsten, Halogen, LED, Plasma, Laser, Other; Default value “Discharge”                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | PowerConsumption    | [Float](#user-content-attrtype-float )   | Power consumption; Default value: 1000; Unit: Watt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | LuminousFlux        | [Float](#user-content-attrtype-float )   | Intensity of all the represented light emitters; Default value: 10000; Unit: lumen                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ColorTemperature    | [Float](#user-content-attrtype-float )   | Color temperature; Default value: 6000; Unit: kelvin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -1380,7 +1382,8 @@ the Beam are specified in [table 41](#user-content-table-41 ).
 | BeamRadius          | [Float](#user-content-attrtype-float )   | Beam radius on starting point. Default value: 0.05; Unit: meter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | BeamType            | [Enum](#user-content-attrtype-enum )     | Beam Type; Specified values: "Wash", "Spot", "None", "Rectangle", "PC", "Fresnel", "Glow". Default value "Wash"
 | ColorRenderingIndex | [Uint](#user-content-attrtype-uint )     | The CRI according to TM-30 is a quantitative measure of the ability of the light source showing the object color naturally as it does as daylight reference. Size 1 byte. Default value 100.                                                                                                                                                                                                                                                                                                                                                             |
-| EmitterSpectrum     | [Node](#user-content-attrtype-node )     | Optional link to emitter in the physical description; use this to define the white light source of a subtractive color mixing system. Starting point: Emitter Collect; Default spectrum is a Black-Body with the defined ColorTemperature.                                                                                                                                                                                                                                                                                                                                                                   |
+| EmitterSpectrum     | [Node](#user-content-attrtype-node )     | Optional link to emitter in the physical description; use this to define the white light source of a subtractive color mixing system or the color for the beam when no color mixing is defined. Starting point: Emitter Collect; Default spectrum is a Black-Body with the defined ColorTemperature.                                                                                                                                                                                                                                                                                                                                                                   |
+| Photometric     | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./photometric/`.                                                                                                                                                                                                                                                                                                                                                                |
 
 </div>
 
@@ -1560,7 +1563,7 @@ The protocol doesn't have any children.
 #### General
 
 The Geometry Type Reference is used to describe multiple instances of
-the same geometry. Example: LED panel with multiple pixels. (XML node ).
+the same geometry. Example: LED panel with multiple pixels. (XML node `<GeometryReference>`).
 The currently defined XML attributes of reference are specified in
 [table 48](#user-content-table-48). 
 
@@ -1577,19 +1580,45 @@ for these geometries.
 | Position           | [Matrix](#user-content-attrtype-matrix ) | Relative position of geometry; Default value: Identity Matrix                                                                                                                                                                                                                                              |
 | Geometry           | [Name](#user-content-attrtype-name )     | Name of the referenced geometry. Only top level geometries are allowed to be referenced.                                                                                                                                                                                                                   |
 | Model              | [Name](#user-content-attrtype-name )     | Optional. Link to the corresponding model. The model only replaces the model of the parent of the referenced geometry. The models of the children of the referenced geometry are not affected. The starting point is Models Collect. If model is not set, the model is taken from the referenced geometry. |
+| Photometric              | [Resource](#user-content-attrtype-resource )     | Optional. File name without extension and without subfolder containing description of the IES or EULUMDAT file in the subfolder `./photometric/`.   The Photometric only replaces the Photometric of the parent of the referenced geometry. The Photometric of the children of the referenced geometry are not affected. The starting point is Models Collect. If Photometric is not set, the Photometric is taken from the referenced geometry. |
 
 
 </div>
 
-As children, the Geometry Type Reference has a list of breaks. The
-count of the children depends on the number of different breaks in the
-DMX channels of the referenced geometry. If the referenced geometry, for
-example, has DMX channels with DMX break 2 and 4, the geometry reference
-has to have 2 children. The first child with DMX offset for DMX break 2
-and the second child for DMX break 4. If one or more of the DMX channels
-of the referenced geometry have the special value “Overwrite” as a DMX
-break, the DMX break for those channels and the DMX offsets need to be
-defined.
+As children, the Geometry Type Reference has a list of [Breaks](#break). The
+count of the children depends on the number of different breaks in the DMX
+channels of the referenced geometry. [Listing
+Breaks](#user-content-listing-breaks) shows an example where referenced
+geometry has DMX channels with DMX break 2 and 4, the geometry reference has to
+have 2 children. The first child with DMX offset for DMX break 2 and the second
+child for DMX break 4.
+
+<div id="listing-breaks">
+
+#### Listing *Breaks*
+
+```xml
+<GeometryReference Geometry="Pixel" Name="Reference 1" Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}">
+      <Break DMXBreak="1" DMXOffset="1"/>
+      <Break DMXBreak="2" DMXOffset="1"/>
+</GeometryReference>
+```
+
+If one or more of the DMX channels of the referenced geometry have the special
+value “Overwrite” as a DMX break, the DMX break for those channels and the DMX
+offsets need to be defined and it must be the last child of the list of Breaks.
+
+<div id="listing-breaks-overwrite">
+
+#### Listing *Breaks With Overwrite*
+
+```xml
+<GeometryReference Geometry="Pixel" Name="Reference 1" Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}">
+    <Break DMXBreak="1" DMXOffset="1"/>
+    <Break DMXBreak="2" DMXOffset="1"/>
+    <Break DMXBreak="1" DMXOffset="2"/>
+</GeometryReference>
+```
 
 #### Break
 
@@ -1886,7 +1915,7 @@ defined XML attributes of the DMX channel are specified in [table
 |----|----|----|
 | DMXBreak           | [Int](#user-content-attrtype-int )           | Number of the DMXBreak; Default value: 1; Special value: “Overwrite” – means that this number will be overwritten by Geometry Reference; Size: 4 bytes                                                         |
 | Offset             | [Array of Int](#user-content-attrtype-int )  | Relative addresses of the current DMX channel from highest to least significant; Separator of values is ","; Special value: “None” – does not have any addresses; Default value: “None”; Size per int: 4 bytes |
-| InitialFunction    | [Node](#user-content-attrtype-node )         | Link to the channel function that will be activated by default for this DMXChannel. Default value is the first channel function of the first logical function of this DMX channel.                                                                                                                            |
+| InitialFunction    | [Node](#user-content-attrtype-node )         | Link to the channel function that will be activated by default for this DMXChannel. Default value is the first channel function of the first logical channel of this DMX channel.                                                                                                                            |
 | Highlight          | [DMXValue](#user-content-attrtype-dmxvalue ) | Highlight value for current channel; Special value: “None”. Default value: “None”.                                                                                                                             |
 | Geometry           | [Name](#user-content-attrtype-name )         | Name of the geometry the current channel controls.                                                                                                                                                             |
 
@@ -1944,11 +1973,11 @@ currently defined XML attributes of channel function are specified in
 
 | XML Attribute Name | Value Type                                   | Description                                                                                                                                                   |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | Unique name; Default value: Name of attribute and number of channel function.                                                                                 |
+| Name               | [Name](#user-content-attrtype-name )         | Unique name; Default value: Name of Attribute and 1-based index of Channel Function inside the Logical Channel, separated by a space; Example: "Dimmer 1".                                                                                 |
 | Attribute          | [Node](#user-content-attrtype-node )         | Link to attribute; Starting point is the attributes node. Default value: “NoFeature”.                                                                         |
 | OriginalAttribute  | [String](#user-content-attrtype-string )     | The manufacturer's original name of the attribute; Default: empty                                                                                             |
 | DMXFrom            | [DMXValue](#user-content-attrtype-dmxvalue ) | Start DMX value; The end DMX value is calculated as a DMXFrom of the next channel function – 1 or the maximum value of the DMX channel. Default value: "0/1". |
-| Default            | [DMXValue](#user-content-attrtype-dmxvalue ) | Default DMX value of channel function when activated by the control system.                                                                                   |
+| Default            | [DMXValue](#user-content-attrtype-dmxvalue ) | Default DMX value of channel function when activated by the control system. Default value: value of the DMXFrom field                                         |
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value; Default value: 0                                                                                                                        |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value; Default value: 1                                                                                                                          |
 | RealFade           | [Float](#user-content-attrtype-float )       | Time in seconds to move from min to max of the Channel Function; Default value: 0                                                                             |
@@ -1965,6 +1994,8 @@ currently defined XML attributes of channel function are specified in
 | Min                | [Float](#user-content-attrtype-float )       | Minimum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalFrom                                                                |
 | Max                | [Float](#user-content-attrtype-float )       | Maximum Physical Value that will be used for the DMX Profile. Default: Value from PhysicalTo                                                                  |
 | CustomName         | [String](#user-content-attrtype-string )     | Custom Name that can he used do adress this channel function with other command based protocols like OSC. Default: Node Name of the Channel function Example: Head_Dimmer.Dimmer.Dimmer   |
+| PhotometricFrom         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the start for the Active Channel Function for all Beams of the fixture. |
+| PhotometricTo         | [Resource](#user-content-attrtype-resource )         | Optional. IES or LDT file name without extension containing the spectral data for the end for the Active Channel Function for all Beams of the fixture. |
 
 
 
@@ -1984,7 +2015,7 @@ Where:
 
 
 As children the channel function has list of a [channel
-sets](#user-content-channel-set ) and a [sub channel
+sets](#user-content-channel-set ) and a [subchannel
 sets](#user-content-sub-channel-set ).
 
 ###### Channel Set
@@ -2010,28 +2041,51 @@ are specified in [table 62](#user-content-table-62 ).
 
 The channel set does not have any children.
 
-###### Sub Channel Set
+###### SubChannel Set
 
-This section defines the sub channel sets of the channel function (XML node
+This section defines the subchannel sets of the channel function (XML node
 <SubChannelSet>). The currently defined XML attributes of the sub channel set
 are specified in [table 63](#user-content-table-63 ).
 
 <div id="table-63">
 
-#### Table 63. *Sub Channel Set Attributes*
+#### Table 63. *SubChannel Set Attributes*
 
 | XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                     |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | The name of the sub channel set. Default: Empty                                                                                                                                                                                                              |
+| Name               | [Name](#user-content-attrtype-name )         | The name of the subchannel set. Default: Empty                                                                                                                                                                                                              |
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value                                                                                                                                                                                                                                         |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value                                                                                                                                                                                                                                           |
-| SubPhysicalUnit    | [Node](#user-content-attrtype-node )         | Link to the sub physical unit; Starting Point: Attribute                                                                                                                                                                                                     |
+| SubPhysicalUnit    | [Node](#user-content-attrtype-node )         | Link to the subphysical unit; Starting Point: Attribute                                                                                                                                                                                                     |
 | DMXProfile         | [Node](#user-content-attrtype-node )         | Optional link to the DMX Profile; Starting Point: DMX Profile Collect                                                                                                                                                                                        |
 
 
 </div>
 
-The sub channel set does not have any children.
+The subchannel set does not have any children.
+
+###### PhotometricSet
+
+This section defines the PhotometricSets of the channel function (XML node
+<PhotometricSet>). The currently defined XML attributes of the PhotometricSet
+are specified in [table 62](#user-content-table-62 ).
+
+<div id="table-62">
+
+#### Table 62. *PhotometricSet Attributes*
+
+| XML Attribute Name | Value Type                                | Description                                                                                                                                                                                                                                                     |
+|----|----|----|
+| Beam         | [Name](#user-content-attrtype-name )         | Optional link to the Beam Geometry this is for |
+| DMXFrom            | [DMXValue](#user-content-attrtype-dmxvalue ) | Start DMX value; The end DMX value is calculated as a DMXFrom of the next PhotometricSet – 1 or the maximum value of the current channel function; Default value: 0/1                      |
+| PhotometricFrom       | [Node](#user-content-attrtype-node)       | Photometric start value to start interpolating to. function.                                                                                               |
+| PhotometricTo         | [Node](#user-content-attrtype-node)       | Photometric end value.  function.                                                                                                   |
+
+
+</div>
+
+The PhotometricSet does not have any children.
+
 
 #### Relation Collect
   
@@ -2063,12 +2117,12 @@ XML attributes of the relations are specified in [table 64](#user-content-table-
 </div>
 
 The relation does not have any children. [Listing
-1](#user-content-listing-1 ) shows an example of a simple DMX mode
+DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple DMX mode
 described in XML.
 
-<div id="listing-1">
+<div id="listing-dmx-mode-with-relations">
 
-#### Listing 1. *DMX mode with relations*
+#### Listing *DMX Mode With Relations*
 
 ```
 <DMXMode Name="Default" Geometry="Body">
@@ -2100,9 +2154,9 @@ described in XML.
        </DMXChannel>  
    </DMXChannels>  
    <Relations>  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_R.ColorAdd_R.ColorAdd_R 1" Type="Multiply" />  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
-       <Relation Name="VirtualDimmer" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 1" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_R.ColorAdd_R.ColorAdd_R 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 2" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
+       <Relation Name="VirtualDimmer 3" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
    </Relations>
 </DMXMode> 
 
@@ -2261,15 +2315,14 @@ protocol collect currently does not have any XML attributes (XML node
 
 #### Table 70. *Supported Protocol Collect Children*
 
-| XML node                                                   | Mandatory | Description                            |
-|----|----|----|
-| [RDM](#user-content-rdm-section )                             | No        | Describes RDM information              |
-| [Art-Net](#user-content-art-net-section )                     | No        | Describes Art-Net information          |
-| [sACN](#user-content-streaming-acn-section )                  | No        | Describes sACN information             |
-| [PosiStageNet](#user-content-posi-stage-net-section )         | No        | Describes PosiStageNet information     |
-| [OpenSoundControl](#user-content-open-sound-control-section ) | No        | Describes OpenSoundControl information |
-| [CITP](#user-content-citp-section )                           | No        | Describes CITP information             |
-
+| XML node                                                      | Mandatory | Amount | Description                            |
+|----|----|----|----|
+| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Fixture Type RDM information |
+| [Art-Net](#user-content-art-net-section )                     | No   |  0 or 1     | Describes Art-Net information          |
+| [sACN](#user-content-streaming-acn-section )                  | No   |  0 or 1     | Describes sACN information             |
+| [PosiStageNet](#user-content-posi-stage-net-section )         | No   |  0 or 1     | Describes PosiStageNet information     |
+| [OpenSoundControl](#user-content-open-sound-control-section ) | No   |  0 or 1     | Describes OpenSoundControl information |
+| [CITP](#user-content-citp-section )                           | No   |  0 or 1     | Describes CITP information             |
 
 </div>
 
@@ -2281,7 +2334,7 @@ attributes of RDM are specified in [table 71](#user-content-table-71 ).
 
 <div id="table-71">
 
-#### Table 71. *RDM Attributes*
+#### Table 71. *FTRDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
@@ -2290,6 +2343,12 @@ attributes of RDM are specified in [table 71](#user-content-table-71 ).
 
 
 </div>
+
+
+The ManufacturerID corresponds to the RDM "ESTA Manufacturer ID".
+
+The DeviceModelID corresponds to the RDM "Device Model ID" in PID 0x0060 DEVICE_INFO.
+
 
 As children the FTRDM has a list of `SoftwareVersionID`.
 
@@ -2311,6 +2370,8 @@ The currently defined XML attributes are specified in [table 72](#user-content-t
 
 </div>
 
+The Value of SoftwareVersionID corresponds to the RDM "Software Version ID" in PID 0x0060 DEVICE_INFO.
+
 As children the SoftwareVersionID has a list of `DMXPersonality`.
 
 ##### DMXPersonality
@@ -2330,6 +2391,8 @@ To define the supported software versions add an XML node
 
 
 </div>
+
+The Value of DMXPersonality corresponds to the RDM PID 0x00E0 DMX_PERSONALITY.
 
 The DMXPersonality does not have any children.
 
@@ -2404,9 +2467,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 
 <div id="table-a1">
 
-#### Table A1. *Structure of Attribute and Subattribute*
+#### Table A1. *Structure of Attribute*
 
-| Description                      | Attribute                                                                                                                                                                                                                                                                                                 
+| Attribute                      | Description                                                                                                                                                                                                                                                                                                 
 |----------------------------------|-----------------------------| 
 | Dimmer                           | Controls the intensity of a fixture.                                                                                                                                                                                                                                                                      |
 | Pan                              | Controls the fixture's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
@@ -2974,7 +3037,7 @@ not taken into account.
            <Attribute Name="Prism(n)" Pretty="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" />  
            <Attribute Name="Prism(n)SelectSpin" Pretty="Select Spin(n)" MainAttribute="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />  
            <Attribute Name="Prism(n)Macro" Pretty="Prism(n) Macro" MainAttribute="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" />  
-           <Attribute Name="Prism(n)Pos" Pretty="Prism(n) Pos" Feature="Beam.Beam" PhysicalUnit="AngularSpeed"/>  
+           <Attribute Name="Prism(n)Pos" Pretty="Prism(n) Pos" Feature="Beam.Beam" PhysicalUnit="Angle"/>  
            <Attribute Name="Prism(n)PosRotate" Pretty="Rotate(n)" MainAttribute="Prism(n)Pos" ActivationGroup="Prism" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />  
            <Attribute Name="Effects(n)" Pretty="FX(n)" Feature="Beam.Beam" />  
            <Attribute Name="Effects(n)Rate" Pretty="FX(n) Rate" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
@@ -3220,6 +3283,7 @@ Table D.1 table shows the predefined connector types.
 
 | Type             | Description                |
 | ---------------- | -------------------------- |
+| Bare End         | Bare Ends cable            |
 | BNC              | BNC connector              |
 | TBLK             | Tag block                  |
 | TAG              | Solder tag                 |
@@ -3394,168 +3458,26 @@ If there aren't any value given by the user, the TimeOffset and DutyCycle SubPhy
 
 *Figure 10. Default PulseOpen-like attribute and their SubPhysicalUnits*
 
-# Revision History
+# Annex G. Virtual Channels, Virtual Dimmers, Visual Channels (informative)
 
-This section lists all the changes that are made to GDTF.
+[DMX Channel](#user-content-dmx-channel) with Offset of value None becomes a
+**Virtual Channel**. Virtual Channel typically does create a control surface
+(an encoder) on control desks. It does not produce real world (DMX) output, but
+it can have an effect on it's linked Geometry in a visualizer.
 
-## Version 1.1
+A Virtual Channel can contain (multiple)
+[Relations](#user-content-relation-collect), for example to color mixing
+channels, which creates a **Virtual Dimmer**. See example in [Listing
+DMX Mode With Relations](#listing-dmx-mode-with-relations). Through linking to other DMX Channels,
+the Virtual Dimmer can have a real world effect.
 
-  - Added connectors collect to the physical description; \#135
-  - Added media server attributes. Edited existing media server
-    attributes; \#134
-  - Added geometry types MediaServerLayer, MediaServerCamera,
-    MediaServerMaster, Display; \#133
-  - Added detailed definition how a gobo image is interpreted \#107
-  - Added more detailed definition of Geometry Type "Beam" \#132
-  - Changed value type of Channel Function XML attribute "Name" \#111
-  - Added XML property "CanHaveChildren" to fixture type node. \#144
-  - Added LegHeight to the properties collect \#147
-  - Added description about the origin of a fixture \#147
-  - Added XML attribute "InitialFunction" to DMX Channel, Moved Default
-    from DMX Channel to Channel Function \#153
-  - Updated XML attribute "Color" of Emitter, Filter and Wheel Slot
-    \#112
-  - Updated XML attribute "LuminousFlux" of Geometry type Beam \#158
+A Virtual Channel with Logical Channel Attribute set as NoFeature and with
+Channel Functions Attributes set to control functions on Geometries linked via
+DMX Channel becomes a **Visual Channel**. Visual Channel typically does not
+create an encoder in a controller, does not produce real world (DMX) output,
+but it can have an effect on it's linked Geometry in a visualizer.
 
-Note: The default meshes for Base, Conventional and Scanner were updated. The
-origin of the meshes is now the mounting plate.
 
-## Version 1.0
 
-  - Geometry Type Axis: Removed XML attributes "From", "To" and "Speed";
-    \#2
-  - Changed enumeration of attribute names; \#33
-  - Node Revision: added XML attribute "UserID"; \#17
-  - Revisions are optional now. Every time a GDTF file is uploaded to
-    GDTF-Share.com a revision with the actual time and UserID is created
-    by the GDTF-Share; \#17
-  - Geometry Type Geometry Reference: XML attribute "Model" added. \#24
-  - All Geometry Nodes: XML attribute "Model" now uses value type
-    "Name". \#77
-  - Node Model: Changed description of XML attribute "File"; \#79
-  - ChannelFunction: removed XML attribute DMXInvert; \#31
-  - DMX Mode Children: Removed RDM Personality; \#79
-  - Node DMXPersonality: Changed Value type of XML attribute DMXMode;
-    \#79
-  - Physical Description: Updated definition of emitters; \#34
-  - Physical Description: Added definition of filters; \#34
-  - Channel Function: Added XML attribute "Filter"; \#34
-  - Wheel Slot: Added XML attribute "Filter"; \#34
-  - Physical Description: Added definition of color space for indirect
-    color mixing; \#34
-  - Updated suggested names for Geometry Type "Geometry" and "Axis";
-    \#19
-  - Updated appendix A and B due to rework and addition of attributes;
-    \#35
-  - DMXChannel: Removed XML attributes "Coarse", "Fine", "Ultra" and
-    "Uber" and added XML attribute "Offset" instead.
-  - Fixture Type Node: Added XML attribute "LongName"; \#78
-  - Fixture Type Node: Changed description of XML attribute "ShortName";
-    \#78
-  - Fixture Type Node: Changed description of XML attribute
-    "Manufacturer"; \#78
 
-## Version 0.9
-
-  - Geometries are now always referenced by Name and not by Node Link;
-    \#23
-  - Fixed glitch in spec regarding ZIP-archive; \#8
-  - Updated example for Data Version; \#4
-  - Updated description of Model Node - Replaced wheel slot by model;
-    \#5
-  - Geometry type Beam: Changed name of XML attribute
-    "LuminousIntensity" to "LuminousFlux";
-  - Changed definition of value type "Date" corresponding to UTC;
-  - Maximum count of vertices is now defined per device and not per
-    model;
-  - Removed optional checksum per file; \#7
-  - Fixture type node: Added .svg as additional resource type for
-    thumbnail; \#25
-  - Changed maximum resolution of png files for thumbnail and wheel slot
-    to 1024x1024; \#18
-  - Updated format of value type "GUID" corresponding to RFC 4122; \#15
-  - Defined folder structure for resource files; \#11 \#28
-  - Links to all resource files do not have a file extension any longer;
-  - Added first iteration of media server attributes; \#41
-  - Added table for allowable UTF-8 chars for Names; \#64
-  - Node ChannelSet: Changed description of XML attribute
-    "WheelSlotIndex"; \#43
-  - Defined more clearly how the wheel slot index is created; \#43
-  - Updated RDM Section; \#69
-  - Node DMXChannel: The XML attribute "Frequency" was removed; \#31
-  - Node ChannelFunction: The XML attribute "EncoderInvert" was removed;
-    \#31
-  - Moved XML attributes "MibFade" and "DMXChangeTimeLimit" from the
-    DMXChannel to the LogicalChannel; \#31
-
-## Version 0.88
-
-  - Node ChannelSet: Removed defaults in XML attributes PhysicalFrom and
-    PhysicalTo;
-  - Node ChannelSet: Changed description of XML attributes Name and
-    DMXFrom;
-  - Node DMXChannel: Changed description of XML attribute Default;
-  - Node Relation: Renamed XML attribute Slave to Follower;
-  - Node Relation: Removed XML attributes DMXFrom and DMXTo;
-  - Node Relation: Removed relation type “Mode”;
-  - Node ChannelFunction: Added XML attributes ModeMaster, ModeFrom and
-    ModeTo;
-  - Added attributes CIE\_X, CIE\_Y and CIE\_Brightness;
-  - Reworked and added further attributes for gobo wheel, color wheel,
-    color mixing and prism.
-  - Updated Appendix A and Appendix B as per changes made in attributes.
-
-## Version 0.87
-
-  - Changing format of type Matrix and Rotation;
-  - New XML attribute of DMX Channel - Uber;
-  - Attribute has no more Special XML attribute;
-  - Pigtail position should not be specified in 2D or 3D files anymore.
-    Instead of it should be created a general geometry and linked to a
-    model with primitive type “Pigtail”;
-  - Measurement point does not have DMX and Color XML properties
-    anymore;
-  - Added specification to 3D mesh;
-  - Added new part Color rendering index collect;
-  - Added new part Supported protocol collect and moved RDM section to
-    this part;
-  - GDTF file should have extension “.gdtf”;
-  - Subattributes are no more part of GDTF. Instead Attributes get a new
-    XML attribute “MainAttribute”;
-  - Macro Collect moved into DMX Mode and is defined;
-  - Channel Set has no more XML attribute Real Fade;
-  - Defined measurement resolution for Emitters;
-  - Logical Channel and DMX Channel has an automatically generated name,
-    which cannot be specified in XML.
-
-## Version 0.86
-
-  - Changing XML tag for Emitter collect;
-  - XML node “Master” moved from Channel Function to Logical Channel;
-  - New predefined values for primitive type of model;
-  - Lamp geometry type is renamed to Beam;
-  - New name suggestion of General Geometry;
-  - Attribute has new XML attribute – “Special”;
-  - Default SubAttribute for Channel Function is NoFeature;
-  - Fixture Type has new XML attribute “RefFT”;
-  - RealFade XML attribute has type float;
-  - Renaming of XML Attribute MibFadeFrame to MibFade, type float;
-  - Changing type of XML attribute DMXChangeTimeLimit to float;
-  - Beam has new XML attribute FieldAngle;
-  - Wheel no longer has the XML attribute “SubAttribute”;
-  - Changing XML tags of EmitterCollect to Emitters; DMXProfileCollect
-    to DMXProfiles;
-  - New Type “DMXValue”, used to specify DMX values like Default or
-    DMXFrom;
-  - Adjusted names of predefined ActivationGroups, Attributes and
-    Subattributes;
-  - Removed predefined Attributes “MasterIntensity”, REDALL, GREENALL,
-    BLUEALL, AMBERALL, WHITEALL;
-  - Removed ActivationGroup “ColorRGBALL”.
-
-## Version 0.85
-
-  - Internal XML file has a static name “description.xml”.
-  - DMX mode collect should contain all modes and all firmware
-    revisions.
 
