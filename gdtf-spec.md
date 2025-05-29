@@ -3477,7 +3477,58 @@ DMX Channel becomes a **Visual Channel**. Visual Channel typically does not
 create an encoder in a controller, does not produce real world (DMX) output,
 but it can have an effect on it's linked Geometry in a visualizer.
 
+## Annex H. (normative) Blade Attributes Definition
 
+![Blade Attributes Descripton](media/Blade_Attributes_Description.png)
 
+### Blade(n)A
 
+Use this attribute to describe framing shutters or barndoors of the device. Use
+only the attribute Blade(n)A, when it is controlling insertion of the complete
+framing shutter (n). When looking at the projection from the fixture's point of
+view and the beam is in default position (pointing from +Z to -Z axis) then:
 
+Blade(1)A - changing its physical value from 0 to 1 means covering the beam from negative to positive values in Y axis
+
+Blade(2)A - changing its physical value from 0 to 1 means covering the beam from negative to positive values in X axis
+
+Blade(3)A - changing its physical value from 0 to 1 means covering the beam from positive to negative values in Y axis
+
+Blade(4)A - changing its physical value from 0 to 1 means covering the beam from positive to negative values in X axis
+
+The physical values describe the amount of insertion, where at 0 the blade is completely out and at 1 the blade is fully covering the beam.
+
+### Blade(n)B
+
+Use this attribute to describe framing shutters or barndoors of the device in
+which the framing shutter is controlled by adjusting its corners. When
+attribute Blade(n)B is used together with the Blade(n)A attribute, then
+attribute Blade(n)A is controlling the insertion of the first corner (A) and
+the attribute Blade(n)B is controlling the insertion of the second corner (B)
+of the framing shutter (n). When looking at the projection from the fixture's
+point of view and the beam is in default position (pointing from +Z to -Z
+axis), the corners A, B are in clockwise order, then:
+
+Blade(1)B - changing its physical value from 0 to 1 means moving of the corner from negative to positive values in Y axis
+
+Blade(2)B - changing its physical value from 0 to 1 means moving of the corner from negative to positive values in X axis
+
+Blade(3)B - changing its physical value from 0 to 1 means moving of the corner from positive to negative values in Y axis
+
+Blade(4)B - changing its physical value from 0 to 1 means moving of the corner from positive to negative values in X axis
+
+The physical values describe movement of a corner, where at 0 the corner is completely out of the beam and at 1 the corner is fully engaged.
+
+### ShaperRot
+
+This attribute allows you to describe a function which rotates the complete
+carousel of framing shutters or barndoors. Rotation from negative to positive
+angle values is counterclockwise when looking at the projection from the
+fixture's point of view.
+
+### Blade(n)Rot
+
+This attribute describes rotation of framing shutters or barndoors controlled
+by the Blade(n)A attribute only. Rotation from negative to positive angle
+values is counterclockwise when looking at the projection from the fixture's
+point of view.
