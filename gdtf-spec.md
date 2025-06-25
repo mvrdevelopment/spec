@@ -82,6 +82,7 @@ amendments) applies.
 
 - [ANSI E1.20 - 2010 Entertainment Technology—RDM Remote Device Management Over DMX512 Networks](https://tsp.esta.org/tsp/documents/docs/ANSI_E1-20&E1-37-1&E1-37-2.zip)
 
+- [Semantic Versioning 2.0](https://semver.org/)
 
 ## Terms and definitions
 
@@ -224,6 +225,12 @@ The second XML node is the GDTF node. The attribute of this node is the
 DataVersion: `<GDTF DataVersion="1.2">`
 
 The example above shows the XML node for GDTF version 1.2.
+
+From GDTF Spec version 2.0, GDTF Spec uses Semantic Versioning 2.0, where given
+a version number MAJOR.MINOR, the numbers mean:
+
+- MAJOR version for incompatible API changes
+- MINOR version for added functionality in a backward compatible manner
 
 <div id="table-2">
 
