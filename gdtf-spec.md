@@ -1082,6 +1082,15 @@ The model currently does not have any children.
 
 All models of a device combined should not exceed a maximum vertices count of 1200 for the default mesh level of detail.
 
+
+### Primitive Types
+
+Commonly used generic geometrical shapes and typical models of parts of
+lighting fixtures are defined and provided as part of the GDTF Spec in the
+attribute PrimitiveType in [table 32](#user-content-table-32). Applications
+implementing the GDTF Spec can take and use these models. The Pigtail is
+defining the place where connector (typically Wiring Objects) are placed.
+
 There are three level of details that you can define:
 
 #### Table 33. *Mesh level of detail*
