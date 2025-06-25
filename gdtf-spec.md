@@ -1926,7 +1926,12 @@ The `Geometry` should be the place in the tree of geometries where the function
 of the DMX Channel (as defined by ChannelFunction) is located either physically
 or logically. If the DMX channel doesn't have a location, put it in the top
 level geometry of the geometry tree. Attributes follow a trickle down
-principle, so they are inherited from top down. 
+principle, so they are inherited from top down.
+
+In a DMX Mode, DMX Channels must form a continuous sequence of Offsets without
+gaps. If a specific DMX Offset is unused, a corresponding DMX Channel shall
+still be defined at that Offset, and its associated LogicalChannel shall have
+the NoFeature Fixture Type Attribute assigned.
 
 As children the DMX channel has a list of [logical
 channels](#user-content-logical-channel ).
