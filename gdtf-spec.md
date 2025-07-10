@@ -3316,6 +3316,7 @@ Table D.1 table shows the predefined connector types.
 | XLR4             | 4-pin XLR                  |
 | XLR5             | 5-pin XLR                  |
 | RJ45             | 10/100 BaseT ethernet type |
+| XLRRJ45          | 10/100 BaseT ethernet type |
 | RJ11             | Telephone type             |
 | DB9              | 9-pin D-type               |
 | DB15             | 15-pin D-type              |
@@ -3346,11 +3347,10 @@ Table D.1 table shows the predefined connector types.
 | SCDUP            | Fiber optic SC DUPLEX-type |
 | SC               | Fiber optic SC-type        |
 | ST               | Fiber optic ST-type        |
-| NL4              | Speakon                    |
 | CACOM            | 8-pin LS conn              |
 | USB              | USB connector              |
-| N\_CON           | N connector                |
-| F\_CON           | F connector                |
+| N-CON            | N connector                |
+| F-CON            | F connector                |
 | IEC 60320-C7/C8  | Eurostecker                |
 | CEE 7/7          | Schutzkontakt              |
 | IEC 60320-C13/14 | IEC 60320                  |
@@ -3370,10 +3370,12 @@ Table D.1 table shows the predefined connector types.
 | Powerlock 660A   | Powerlock 660A             |
 | Powerlock 800A   | Powerlock 800A             |
 | Camlock          | Camlock                    |
-| NAC3FCA          | Powercon Blue              |
-| NAC3FCB          | Powercon Grey              |
-| PowerconTRUE1    | Powercon TRUE1             |
-| powerCONTRUE1TOP | powerCON TRUE1 TOP         |
+| PowerTwist15     | Power Twist 15A            |
+| PowerTwist20     | Power Twist 20A            |
+| PowerTwistCBC    | Power Twist CBC            |
+| SpeakerTwist2    | Speaker Twist 2            |
+| SpeakerTwist4    | Speaker Twist 4            |
+| SpeakerTwist8    | Speaker Twist 8            |
 | Socapex-16       | Socapex-16                 |
 | Socapex-7        | Socapex-7                  |
 | Socapex-9        | Socapex-9                  |
@@ -3384,6 +3386,18 @@ Table D.1 table shows the predefined connector types.
 | Stagepin         | Stagepin                   |
 | HUBBELL-6-4      | HUBBELL 6-4                |
 | DIN 56905        | Eberl                      |
+| XLROptical1      | Optical 1 XLR              |
+| XLROptical2      | Optical 2 XLR              |
+| XLROptical4      | Optical 4 XLR              |
+| XLROptical12     | Optical 12 XLR             |
+| XLROptical32     | Optical 32 XLR             |
+| LK25             | LK-25 8 channel            |
+| LK37             | LK-37 12 channel           |
+| LK54             | LK-64 16 channel           |
+| LK150            | LK-150 48 channel          |
+| SDI              | SDI                        |
+| DP               | DisplayPort                |
+| CACOM-8          | CA-COM 8 pin speaker       |
 
 
 </div>
