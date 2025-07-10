@@ -12,8 +12,7 @@ Has write access to the GitHub Spec repository.
 | Member         |  Role  | Company |
 | -------------- | ------ | --------|
 | René Berhorst  | Chair  | **MA**  | 
-| Daniel Müller  | Member | **MA**  |   
-| Moritz Staffel | Member | **VW**  |   
+| Daniel Müller  | Member | **MA**  |    
 | Petr Vaněk     | Member | **Robe**| 
 | Kevin Linzey   | Member | **VW**  | 
 
