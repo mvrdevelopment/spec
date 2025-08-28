@@ -1395,10 +1395,10 @@ The defined MVR_JOIN message Attributes are specified in Table 68.
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type           | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_JOIN                           |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the sending station to be shown on the clients UI.                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the joining station to be shown on the clients UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the sender station supports.               |
-| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of the joining station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Commits          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
 The defined MVR_JOIN response Attributes are specified in Table 69.
@@ -1411,10 +1411,10 @@ The defined MVR_JOIN response Attributes are specified in Table 69.
 | OK             | [Bool](#user-content-attrtype-bool)                       | Not Optional                                        | True when operation is successful, false when there is an error. Check the Message for more information in this case.   |
 | Message        | [String](#user-content-attrtype-string)                              | Empty String                | Human readable message if there is an error.                |                             |
 | Provider       | [String](#user-content-attrtype-string)                              | Not Optional                | The application name providing MVR Import & Export                            |
-| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the receiving station to be shown on the UI.                            |
+| StationName    | [String](#user-content-attrtype-string)                              | Not Optional                | The Name of the station sending the MVR_JOIN response to be shown on the UI.                            |
 | verMajor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
 | verMinor       | [Integer](#user-content-attrtype-integer) | 0                                                      | It is mandatory to transmit the version of the MVR file that the receiver station supports.               |
-| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID for receiving station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of the station sending the MVR_JOIN response inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Commits         | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on receiver station in the format of the `MVR_COMMIT` packet.                |                             |
 
 EXAMPLE
@@ -1491,7 +1491,7 @@ The defined MVR_LEAVE message Attributes are specified in Table 70.
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
-| FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
+| StationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the leaving station. |
 
 The defined MVR_LEAVE response Attributes are specified in Table 71.
 
@@ -1574,7 +1574,7 @@ The defined MVR_COMMIT message Attributes are specified in Table 72.
 | verMinor       | [Integer](#user-content-attrtype-integer) | Not Optional          | It is mandatory to transmit the current version of the MVR file as specified in Root File. If joining as new member send "0".               |
 | FileSize       | [Integer](#user-content-attrtype-integer) | Not Optional          |                |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | The UUID of the MVR file. Generate a UUID using |
-| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
+| StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID of the station sending the commit inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | ForStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |   []                          | Array with the station UUID that this MVR should be send to. When it is an empty array, the MVR will be send to all connected *MVR-xchange clients* |
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 | FileName   | [String](#user-content-attrtype-string) |                 | Describes the file name that can be used to store the file on disk to preserve it across multiple MVR-xchange clients. The usage of this attribute is optional, when not defined, the receiving  MVR-xchange client can decide which file name it uses to store it on disk.                   |
@@ -1598,9 +1598,10 @@ Request:
   "Type": "MVR_COMMIT",
   "verMajor":1, 
   "verMinor":6, 
-  "FileUUID":"", 
-  "ForStationsUUID":[], 
   "FileSize":256, 
+  "FileUUID":"", 
+  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
+  "ForStationsUUID":[], 
   "Comment":"My complete description of what I have changed",
 }
 Response:
@@ -1654,7 +1655,7 @@ The defined MVR_REQUEST message Attributes are specified in Table 74.
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_REQUEST-                           |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
-| FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
+| StationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
 The defined MVR_REQUEST error response Attributes are specified in Table 75.
 
@@ -1673,7 +1674,7 @@ Request:
 ```
 {
   "Type": "MVR_REQUEST",
-  "FromStationUUID":"", 
+  "StationUUID":"", 
   "FileUUID":"", 
 }
 ```
