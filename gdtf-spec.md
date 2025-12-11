@@ -256,9 +256,9 @@ attributes of the fixture type are specified in [table 3](#user-content-table-3 
 
 | XML Attribute Name | Value Type | Description  |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | Name of the fixture type. As it is based on Name, it is safe for parsing. |
-| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the fixture type. Non detailed version or an abbreviation. Can use any characters or symbols. |
-| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the fixture type, can include any characters or extra symbols. |
+| Name               | [Name](#user-content-attrtype-name )         | Name of the fixture type.|
+| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the fixture type. Non detailed version or an abbreviation. Can use any characters or symbols. Used in user interfaces in places where there is not enough space.|
+| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the fixture type, can include any characters or extra symbols.|
 | Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
 | Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
 | FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
