@@ -173,10 +173,17 @@ all firmware revisions of the device.
 
 ```
 
-The ZIP archive name is specified as follows:
+The ZIP archive name is recommended to be specified as follows:
+
 `<ManufacturerName>@<FixtureTypeName>@<OptionalComment>`
 
 Example: `generic@led@comment`
+
+It is recommended to limit the filename to the POSIX "Fully Portable Filenames"
+character set: [A-Z], [a-z], [0-9], the symbols '_' (U+005F), '-' (U+002D) and
+a maximum of one '.' (U+002E), if needed, use '_' (U+005F) or '-' (U+002D) to
+replace unsupported characters.
+
 
 UTF-8 has to be used to encode the XML file. Each XML file internally
 consists of XML nodes. Each XML node could have XML attributes and XML
