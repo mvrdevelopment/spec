@@ -1463,6 +1463,7 @@ Response:
   "Type": "MVR_JOIN_RET",
   "OK": true,
   "Message": "",
+  "Provider":"MVRApplication",
   "verMajor":1, 
   "verMinor":6, 
   "StationUUID":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
@@ -1524,7 +1525,7 @@ Request:
 ```
 {
   "Type": "MVR_LEAVE",
-  "StationUUID":"", 
+  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8"
 }
 ```
 Response:
@@ -1611,10 +1612,10 @@ Request:
   "verMajor":1, 
   "verMinor":6, 
   "FileSize":256, 
-  "FileUUID":"", 
+  "FileUUID":"8f9a8c21-1e74-4c5a-b9f0-5a5a0b7e3c11", 
   "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
-  "ForStationsUUID":[], 
-  "Comment":"My complete description of what I have changed",
+  "ForStationsUUID": [], 
+  "Comment":"My complete description of what I have changed"
 }
 Response:
 {
@@ -1665,7 +1666,7 @@ The defined MVR_REQUEST message Attributes are specified in Table 74.
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_REQUEST-                           |
+| Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_REQUEST                           |
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | FromStationsUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | Array with the station UUIDs that you want to retrieve the MVR from. |
@@ -1687,8 +1688,11 @@ Request:
 ```
 {
   "Type": "MVR_REQUEST",
-  "StationUUID":"", 
-  "FileUUID":"", 
+  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8",
+  "FromStationsUUID": [
+    "a7669ff9-bd61-4486-aea6-c190f8ba6b8c"
+  ],
+  "FileUUID":"8f9a8c21-1e74-4c5a-b9f0-5a5a0b7e3c11"
 }
 ```
 Response:
@@ -1772,7 +1776,7 @@ Request:
 {
   "Type": "MVR_NEW_SESSION_HOST",
   "ServiceName":"fancyProjectGroup._mvrxchange._tcp.local.", 
-  "ServiceURL":"", 
+  "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8"
 }
 ```
 
