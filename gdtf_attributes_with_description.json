@@ -458,7 +458,7 @@
       ],
       "definition": "Controls audio-controlled functionality of animation wheel (n).",
       "explanation": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n). When using this AnimationWheel(n)Audio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Audio as the Logical Channel attribute.",
-      "visual": "This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n).",
+      "visual": "",
       "_label": "Animation Wheel Audio"
     },
     {
