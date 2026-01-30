@@ -1437,11 +1437,11 @@ Request:
 ```
 {
   "Type": "MVR_JOIN",
-  "Provider":"MVRApplication", 
+  "Provider":"MVRApplication",
+  "StationName":"MVR Application from user A at location B",
   "verMajor":1,
   "verMinor":6, 
   "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
-  "StationName":"MVR Application from user A at location B",
   "Commits": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
@@ -1464,10 +1464,10 @@ Response:
   "OK": true,
   "Message": "",
   "Provider":"MVRApplication",
+  "StationName":"MVR Application from user A at location B",
   "verMajor":1, 
   "verMinor":6, 
   "StationUUID":"a7669ff9-bd61-4486-aea6-c190f8ba6b8c", 
-  "StationName":"MVR Application from user A at location B",
   "Commits": [
     {
       ...MVR_COMMIT_MESSAGE_ARGS
@@ -1616,6 +1616,7 @@ Request:
   "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8", 
   "ForStationsUUID": [], 
   "Comment":"My complete description of what I have changed"
+  "FileName":"Filename.mvr"
 }
 Response:
 {
@@ -1688,11 +1689,11 @@ Request:
 ```
 {
   "Type": "MVR_REQUEST",
+  "FileUUID":"8f9a8c21-1e74-4c5a-b9f0-5a5a0b7e3c11"
   "StationUUID":"4aa291a1-1a62-45fe-aabc-e90e5e2399a8",
   "FromStationsUUID": [
     "a7669ff9-bd61-4486-aea6-c190f8ba6b8c"
   ],
-  "FileUUID":"8f9a8c21-1e74-4c5a-b9f0-5a5a0b7e3c11"
 }
 ```
 Response:
@@ -1756,7 +1757,7 @@ The defined MVR_NEW_SESSION_HOST message Attributes are specified in Table 76.
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                |Defines the type of the message. Should be MVR_NEW_SESSION_HOST                           |
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
 | StationUUID      | [UUID](#user-content-attrtype-uuid) |   Not Optional                          | UUID for the station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
-| ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
+| ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceName
 
 The defined MVR_NEW_SESSION_HOST error response Attributes Attributes are specified in Table 77.
 
