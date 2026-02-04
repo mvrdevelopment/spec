@@ -8,22 +8,33 @@ On the control side, you can use the encoders to group the properties also of th
 
 ![ControlSide](./ControlSide.png)
 
-| Attribute  | Description  | What will happen in visualizers  | What the Physical Value will mean  |
-|---|---|---|---|
-| TrackerID  | Defines the tracker ID that be used as a target for the fixture.   | The fixture that is the parent of the tracker fixture, will point to the tracker with the given ID.   | The Physical Value will be interpreted as an integer ID with rounding.   |
-| TrackerCrossFade  | Defines how the value for the position and rotation of the device are calcualted. 0% means fully from the device, 100% means fully from the tracker position.  |    |
-| TrackerTime  |   |    |
-| TrackerOffsetX  | Defines the offset in X direction the device will point in relation the the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction.  | 
-| TrackerOffsetY  | Defines the offset in Y direction the device will point in relation the the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction.| 
-| TrackerOffsetZ  | Defines the offset in Z direction the device will point in relation the the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction. | 
-| TrackerMode  | Defines settings that you can make for the device and the tracker that is assigned to the device.  |    |
-| TrackerControlHeight  | Allows to define the offset in Z direction that the tracker will have for all devices using this tracker for positioning.  |    |
-| TrackerControlSpeed  | Defines how fast the device reacts to changes in the position of the tracker.  |    |
-| TrackerControlFreeze  | Defines how accurate the device reacts to changes in the position of the tracker.  |    |
-| TrackerControlBeamSize  | Defines how big the beam size for the fixture should be.   |    |
-| TrackerControlMode  | Defines settings that you can make to the tracker.  |    |
-| TrackerControlShow  | Defines settings that you can make to the show.  |    |
+## Fixture Tracking Attributes
 
+| Attribute               | Name | Description  | What will happen in visualizers  | What the Physical Value will mean  |
+|-------------------------|------|---|---|---|
+| TrackerID               | Actor/FocusPoint/Tracker ID     | Defines the tracker ID that be used as a target for the fixture.  Note1 | The fixture that is the parent of the tracker fixture, will point to the tracker with the given ID. See Note1| The Physical Value will be interpreted as an integer ID with rounding.   |
+| TrackerCrossFade        | Cross Fade     | Defines how the value for the position and rotation of the device are calculated. 0% means fully from the device, 100% means fully from the tracker position.  |    |
+| TrackerTime             | Transition Time     |   |    |
+| TrackerOffsetX          | Beam Offset X     | Defines the offset in X direction the device will point in relation the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction.  | 
+| TrackerOffsetY          | Beam Offset Y     | Defines the offset in Y direction the device will point in relation the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction.| 
+| TrackerOffsetZ          | Beam Offset Z     | Defines the offset in Z direction the device will point in relation the actual tracker position.  |    | In the global coordinate system the tracking target will offsetted with in X direction. | 
+| TrackerMode             | ? Mode     | Defines settings that you can make for the device and the tracker that is assigned to the device.  |    |
+
+## Tracker Attributes
+
+| Attribute               | Name | Description  | What will happen in visualizers  | What the Physical Value will mean  |
+|-------------------------|------|---|---|---|
+| TrackerControlHeight    |      | Allows to define the offset in Z direction that the tracker will have for all devices using this tracker for positioning.  |    |
+| TrackerControlSpeed     |      | Defines how fast the device reacts to changes in the position of the tracker.  |    |
+| TrackerControlFreeze    |      | Defines how accurate the device reacts to changes in the position of the tracker.  |    |
+| TrackerControlBeamSize  |      | Defines how big the beam size for the fixture should be.   |    |
+| TrackerControlMode      |      | Defines settings that you can make to the tracker.  |    |
+| TrackerControlShow      |      | Defines settings that you can make to the show.  |    |
+
+
+- Note1: Currently there is no "tracker" in MVR but we have concept of focus
+  points, adding an integer id to the focus point would allow to select this
+  focus point.
 
 ```xml
    <AttributeDefinitions>  
