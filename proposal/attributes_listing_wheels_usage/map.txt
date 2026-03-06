@@ -1,0 +1,10 @@
+ "_name": "TiltRotate",
+      "_prettyName": "T Rotate",
+      "_feature": "Position.PanTilt",
+      "_physicalUnit": "AngularSpeed",
+      "definition": "Controls the speed of the fixture's continuous tilt movement (vertical axis).",
+      "explanation": "For fixtures with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a fixture can rotat
+e about the tilt axis. Usually, the vertical axis.",
+      "visual": "",
+      "_label": "Tilt Rotate"
+
