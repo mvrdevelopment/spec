@@ -131,9 +131,13 @@ selfcontained binary file format of a glTF scene or model.
 
 ## File Format Definition
 
-To describe the device type, a zip file with the extension
-"*.gdtf" is used. The archive shall contain a description XML file and
-resource files. Some of the resource files are located in a folder
+To describe the device type, a ZIP archive compliant with PKWARE ZIP File Format Specification version 6.3.3, 
+using the file extension "*.gdtf", shall be used.
+The archive shall contain a description XML file and associated resource files.
+Only the STORE (no compression, method 0) and DEFLATE (method 8) compression methods shall be used. 
+No other compression methods are permitted.
+The archive shall not use encryption, password protection, or digital signature features.
+Some of the resource files are located in a folder
 structure. There are two folders defined: "./wheels" and "./models". The
 folder "./models" has subfolders for a better structural overview:
 - ./models/3ds
