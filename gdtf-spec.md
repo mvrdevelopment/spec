@@ -543,10 +543,10 @@ currently defined XML attributes of the wheel slot are specified in
 | Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description, Starting point: Filter Collect                                                                                                                                                                                                       |
 | MediaFileName      | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br /> - Recommended resolution of media server content thumbnails: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
 | BeamInfluence      | [Enum](#user-content-attrtype-enum )   | Optional. Describes how the slot is affecting the beam. Currently defined values are "Open" - the slot is not affecting the beam, "Closed" - the slot is completely blocking the beam.|
-| Duration           | [Float](#user-content-attrtype-float )    | Optional. Duration of a media content. Unit: milliseconds |
-| Width              | [Int](#user-content-attrtype-int )        | Optional. Horizontal resolution of a media content in pixels.|
-| Height             | [Int](#user-content-attrtype-int )        | Optional. Vertical resolution of a media content in pixels.|
-| FPS                | [Int](#user-content-attrtype-int )        | Optional. Number of individual images shown per second in a media content. |
+| Duration           | [Float](#user-content-attrtype-float )    | Optional. Duration of a media content. The decimal places represent milliseconds, not frames. Unit: seconds |
+| Width              | [[Uint](#user-content-attrtype-uint )     | Optional. Horizontal resolution of a media content in pixels.|
+| Height             | [Uint](#user-content-attrtype-uint )      | Optional. Vertical resolution of a media content in pixels.|
+| FPS                | [Uint](#user-content-attrtype-uint )      | Optional. Number of individual images shown per second in a media content. |
 </div>
 
 As children the attribute node can have a list of [Prism
