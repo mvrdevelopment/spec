@@ -86,6 +86,8 @@ amendments) applies.
 
 - IEC 60529 Degrees of protection provided by enclosures (IP Code)
 
+- IEC 62262 Degrees of protection provided by enclosures for electrical equipment against external mechanical impacts (IK code)
+
 - IEC 60598-2-17 Luminaires - Part 2-17: Particular requirements - Luminaires for stage lighting, television and film studios (outdoor and indoor)
 
 ## Terms and definitions
@@ -1078,11 +1080,11 @@ xx](#user-content-table-xx ).
 | XML Attribute Name | Value Type                          | Description                                                            |
 |----|----|----|
 | IPRating              | [String](#user-content-attrtype-string ) | IP Rating of the device in the format of IEC 60529. Example: IP65  |
+| IKRating              | [String](#user-content-attrtype-string ) | IK Rating of the device in the format of IEC IEC 62262. Example: IP10  |
 
 </div>
 
-The IP Rating currently does not have any children.
-
+The Ratings currently does not have any children.
 
 #### Distances
 
@@ -1100,7 +1102,7 @@ specified in [table xx](#user-content-table-xx ).
 
 </div>
 
-The Distance To Flammable currently does not have any children.
+The Distances currently does not have any children.
 
 ## Model Collect
   
