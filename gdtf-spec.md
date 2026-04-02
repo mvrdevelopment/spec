@@ -522,8 +522,7 @@ in [table 11](#user-content-table-11 ).
 
 </div>
 
-As children, Wheel has a list of [wheel
-slots](#user-content-wheel-slot ).
+As children, Wheel has a list of [wheelslots](#user-content-wheel-slot ).
 
 #### Wheel Slot
   
@@ -542,8 +541,12 @@ currently defined XML attributes of the wheel slot are specified in
 | Name               | [String](#user-content-attrtype-string )        | The name of the wheel slot                                                                                                                                                                                                                                                                                                 |
 | Color              | [ColorCIE](#user-content-attrtype-colorcie )   | Color of the wheel slot, Default value: {0.3127, 0.3290, 100.0 } (white) For Y give relative value compared to overall output defined in property Luminous Flux of related Beam Geometry (transmissive case).                                                                                                                     |
 | Filter             | [Node](#user-content-attrtype-node )       | Optional. Link to filter in the physical description, Starting point: Filter Collect                                                                                                                                                                                                       |
-| MediaFileName | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
+| MediaFileName      | [Resource](#user-content-attrtype-resource ) | Optional. PNG file name without extension containing image for specific gobos etc. <br />- Maximum resolution of picture: 1024x1024<br />- Recommended resolution of gobo: 256x256<br />- Recommended resolution of animation wheel: 256x256<br /> - Recommended resolution of media server content thumbnails: 256x256<br />These resource files are located in a folder called `./wheels` in the zip archive. Default value: empty. |
 | BeamInfluence      | [Enum](#user-content-attrtype-enum )   | Optional. Describes how the slot is affecting the beam. Currently defined values are "Open" - the slot is not affecting the beam, "Closed" - the slot is completely blocking the beam.|
+| Duration           | [Float](#user-content-attrtype-float )    | Optional. Duration of a media content. Unit: milliseconds |
+| Width              | [Int](#user-content-attrtype-int )        | Optional. Horizontal resolution of a media content in pixels.|
+| Height             | [Int](#user-content-attrtype-int )        | Optional. Vertical resolution of a media content in pixels.|
+| FPS                | [Int](#user-content-attrtype-int )        | Optional. Number of individual images shown per second in a media content. |
 </div>
 
 As children the attribute node can have a list of [Prism
@@ -575,7 +578,7 @@ should be used and in what order of importance:
 | Prism(n)              | Facet                                                     |
 | AnimationWheel(n)     | MediaFileName                                             |
 | AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
-| MediaContent(n)       | MediaFileName                                             |
+| MediaContent(n)       | MediaFileName + Duration + Width + Height + FPS           |
 
 
 ##### Prism Facet
