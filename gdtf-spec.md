@@ -1079,8 +1079,8 @@ xx](#user-content-table-xx ).
 
 | XML Attribute Name | Value Type                          | Description                                                            |
 |----|----|----|
-| IPRating              | [String](#user-content-attrtype-string ) | IP Rating of the device in the format of IEC 60529. Example: IP65  |
-| IKRating              | [String](#user-content-attrtype-string ) | IK Rating of the device in the format of IEC IEC 62262. Example: IP10  |
+| IPRating              | [String](#user-content-attrtype-string ) | Optional. IP Rating of the device in the format of IEC 60529. Example: IP65  |
+| IKRating              | [String](#user-content-attrtype-string ) | Optional. IK Rating of the device in the format of IEC 62262. Example: IK10  |
 
 </div>
 
