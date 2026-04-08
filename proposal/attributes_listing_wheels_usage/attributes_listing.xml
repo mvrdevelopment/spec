@@ -1999,7 +1999,7 @@
       UseGamut="False"
       UseColorSpace="False"/>
     <Attribute
-      Name="VideoColorKey_B"
+      Name="VideoKeyColor_B"
       Pretty="B"
       Feature="Color.ColorKey"
       PhysicalUnit="None"
