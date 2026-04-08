@@ -19,7 +19,7 @@ The folder [proposal](https://github.com/mvrdevelopment/spec/tree/main/proposal)
 
 The folder [examples](https://github.com/mvrdevelopment/spec/tree/main/examples) contains some examples of usage of the GDTF file format.
 
-The folder [meshes](https://github.com/mvrdevelopment/spec/tree/main/meshes) contains the default meshes that are used by the GDTF spec.
+The folder [meshes](https://github.com/mvrdevelopment/spec/tree/main/meshes) contains the default meshes that are used by the GDTF spec. They are free to use, modify, and distribute, including in commercial applications, without any licensing fees or royalties.
 
 ## How we work in the spec
 
