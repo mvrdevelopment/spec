@@ -1523,7 +1523,7 @@
       "_label": "Video Key Color Green"
     },
     {
-      "_name": "VideoColorKey_B",
+      "_name": "VideoKeyColor_B",
       "_prettyName": "B",
       "_feature": "Color.ColorKey",
       "_physicalUnit": "None",
