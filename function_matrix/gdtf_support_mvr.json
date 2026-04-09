@@ -1,0 +1,82 @@
+{
+    "Description":{
+        "Name":"",
+		"Versions":[
+			{
+				"Version":"Version",
+				"Date":"2021-03-03T10:56:26Z"
+			}
+		]
+    },
+	"GeneralSceneDescription": {
+		"UserData": "",
+		"Scene": {
+			"Layers": {
+				"Layer": {
+					"ChildList": {
+						"GroupObject": {
+							"ChildList": {
+								"SceneObject": {
+									"Matrix": "{1.000000,0.000000,0.000000}{0.000000,1.000000,0.000000}{0.000000,0.000000,1.000000}{-422.061886,-102.935517,0.000000}",
+									"Geometries": {
+										"Symbol": {
+											"_symdef": "CBC74831-F3B9-4A22-AEED-6D9AB4CE2009",
+											"_uuid": "9D46CE91-54E0-473D-942B-E89B2D83C600"
+										}
+									},
+									"Classing": "00000000-0000-0000-0000-000002000000",
+									"_name": "Truss Prolyte H30V-029",
+									"_uuid": "CFD03A5B-5EEC-486C-922C-A94AC0A76300"
+								}
+							},
+							"_name": "T1",
+							"_uuid": "49B282A6-727B-41ED-8508-E46E5A2D6400"
+						},
+						"SceneObject": [
+							{
+								"Classing": "00000000-0000-0000-0000-000002000000",
+								"_name": "Structural Model",
+								"_uuid": "FF904855-A10B-4F66-8A60-97F0AFC2DA00"
+							},
+							{
+								"Classing": "00000000-0000-0000-0000-000002000000",
+								"_name": "Calculation Result",
+								"_uuid": "70B2B804-E24E-4DC1-A8BD-CD82C2A41B00"
+							}
+						]
+					},
+					"_name": "None",
+					"_uuid": "00000000-0000-0000-0000-000001000000"
+				}
+			},
+			"AUXData": {
+				"Class": [
+					{
+						"_name": "None",
+						"_uuid": "00000000-0000-0000-0000-000002000000"
+					},
+					{
+						"_name": "BRB-_chords",
+						"_uuid": "0FDD4714-16F1-4922-A4BE-15B6AA376FAD"
+					},
+					{
+						"_name": "BRB-_trusspattern",
+						"_uuid": "44209452-BFDB-48F6-84EE-03FE3BFCE520"
+					}
+				],
+				"Symdef": {
+					"ChildList": {
+						"Geometry3D": {
+							"_fileName": ".glb"
+						}
+					},
+					"_name": "Truss Prolyte H30V-029",
+					"_uuid": "CBC74831-F3B9-4A22-AEED-6D9AB4CE2009"
+				}
+			}
+		},
+		"_verMajor": "1",
+		"_verMinor": "4"
+	}
+	
+}
