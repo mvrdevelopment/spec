@@ -2070,7 +2070,7 @@ are specified in [table 62](#user-content-table-62 ).
 | DMXFrom            | [DMXValue](#user-content-attrtype-dmxvalue ) | Start DMX value; The end DMX value is calculated as a DMXFrom of the next channel set – 1 or the maximum value of the current channel function; Default value: 0/1                      |
 | PhysicalFrom       | [Float](#user-content-attrtype-float )       | Physical start value. Default value is the PhysicalFrom from the parent channel function.                                                                                               |
 | PhysicalTo         | [Float](#user-content-attrtype-float )       | Physical end value. Default value is the PhysicalTo from the parent channel function.                                                                                                   |
-| WheelSlotIndex     | [Int](#user-content-attrtype-int )           | If the channel function has a link to a wheel, a corresponding slot index shall be specified. The wheel slot index results from the order of slots of the wheel which is linked in the channel function. The wheel slot index is normalized to 1. Size: 4 bytes |
+| WheelSlotIndex     | [Int](#user-content-attrtype-int )           | If the channel function has a link to a wheel and if the channel function attribute indicates wheel slot usage, a corresponding slot index shall be specified. The wheel slot index results from the order of slots of the wheel which is linked in the channel function. The wheel slot index is normalized to 1. Size: 4 bytes |
 
 
 </div>
@@ -2526,7 +2526,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Scale\_Z                         | Scaling on Y axis.                                                                                                                                                                                                                                                                                        |
 | Scale\_XYZ                       | Unified scaling on all axis.                                                                                                                                                                                                                                                                              |
 | Gobo(n)                          | The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation.                                    |
-| Gobo(n)SelectSpin                | Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function.                                                                                                                                                          |
+| Gobo(n)SelectSpin                | Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled.                 |
 | Gobo(n)SelectShake               | Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function.                                                                                                                                                                              |
 | Gobo(n)SelectEffects             | Selects gobos which run effects in gobo wheel (n).                                                                                                                                                                                                                                                        |
 | Gobo(n)WheelIndex                | Controls angle of indexed rotation of gobo wheel (n).                                                                                                                                                                                                                                                     |
@@ -2537,7 +2537,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Gobo(n)Pos                       | Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.                                                                                                                                                                         |
 | Gobo(n)PosRotate                 | Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).                                                                                                                                                                                                                       |
 | Gobo(n)PosShake                  | Controls frequency of the shake of gobos in gobo wheel (n).                                                                                                                                                                                                                                               |
-| AnimationWheel(n)                | This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots. |
+| AnimationWheel(n)                | This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. |
 | AnimationWheel(n)Audio           | Controls audio-controlled functionality of animation wheel (n).                                                                                                                                                                                                                                           |
 | AnimationWheel(n)Macro           | Selects predefined effects in animation wheel (n).                                                                                                                                                                                                                                                        |
 | AnimationWheel(n)Random          | Controls frequency of animation wheel (n) random slot selection.                                                                                                                                                                                                                                          |
@@ -2562,7 +2562,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | MediaContent(n)                  | Selects file with media content.                                                                                                                                                                                                                                                                          |
 | ModelFolder(n)                   | Selects folder that contains 3D model content. For example 3D meshes for mapping.                                                                                                                                                                                                                         |
 | ModelContent(n)                  | Selects file with 3D model content.                                                                                                                                                                                                                                                                       |
-| PlayMode                         | Defines media playback mode.                                                                                                                                                                                                                                                                              |
+| Playmode                         | Defines media playback mode.                                                                                                                                                                                                                                                                              |
 | PlayBegin                        | Defines starting point of media content playback.                                                                                                                                                                                                                                                         |
 | PlayEnd                          | Defines end point of media content playback.                                                                                                                                                                                                                                                              |
 | PlaySpeed                        | Adjusts playback speed of media content.                                                                                                                                                                                                                                                                  |
@@ -2594,7 +2594,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ColorSub\_C                      | Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
 | ColorSub\_M                      | Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
 | ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
-| ColorMacro(n)                    | Selects predefined colors that are programed in the fixture's firmware.                                                                                                                                                                                                                                   |
+| ColorMacro(n)                    | Selects predefined colors that are programmed in the fixture's firmware.                                                                                                                                                                                                                                  |
 | ColorMacro(n)Rate                | Controls the time between Color Macro steps.                                                                                                                                                                                                                                                              |
 | CTO                              | Controls the fixture's "Correct to orange" wheel or mixing system.                                                                                                                                                                                                                                        |
 | CTC                              | Controls the fixture's "Correct to color" wheel or mixing system.                                                                                                                                                                                                                                         |
@@ -2701,26 +2701,26 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Color(n)Mode                     | Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).                                                                                                                                                             |
 | ColorWheelShortcutMode           | Defines whether the color wheel takes the shortest distance between two colors.                                                                                                                                                                                                                           |
 | CyanMode                         | Controls how Cyan is used within the fixture's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
-| MagentaMode                      | Controls how Cyan is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                        |
-| YellowMode                       | Controls how Cyan is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                                 |
+| MagentaMode                      | Controls how Magenta is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                     |
+| YellowMode                       | Controls how Yellow is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
 | ColorMixMode                     | Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.                                                                                                                                                                           |
 | ChromaticMode                    | Selects chromatic behavior of the device.                                                                                                                                                                                                                                                                 |
 | ColorCalibrationMode             | Sets calibration mode (for example on/off).                                                                                                                                                                                                                                                               |
 | ColorConsistency                 | Controls consistent behavior of color.                                                                                                                                                                                                                                                                    |
 | ColorControl                     | Controls special color related functions.                                                                                                                                                                                                                                                                 |
-| ColorModelMode                   | Controls color model (CMY/RGB/HSV...).                                                                                                                                                                                                                                                                     |
+| ColorModelMode                   | Controls color model (CMY/RGB/HSV...).                                                                                                                                                                                                                                                                    |
 | ColorSettingsReset               | Resets settings of color control channel.                                                                                                                                                                                                                                                                 |
 | ColorUniformity                  | Controls behavior of color uniformity.                                                                                                                                                                                                                                                                    |
 | CRIMode                          | Controls CRI settings of output.                                                                                                                                                                                                                                                                          |
 | CustomColor                      | Custom color related functions (save, recall..).                                                                                                                                                                                                                                                          |
 | UVStability                      | Settings for UV stability color behavior.                                                                                                                                                                                                                                                                 |
-| WavelengthCorrection             | Settings for Wavelength correction of colors.                                                                                                                                                                                                                                                            |
+| WavelengthCorrection             | Settings for Wavelength correction of colors.                                                                                                                                                                                                                                                             |
 | WhiteCount                       | Controls if White LED is proportionally added to RGB.                                                                                                                                                                                                                                                     |
 | StrobeMode                       | Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.                                                                                                                                                                                                                     |
 | ZoomMode                         | Changes modes of the fixture´s zoom.                                                                                                                                                                                                                                                                      |
 | FocusMode                        | Changes modes of the fixture’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
 | IrisMode                         | Changes modes of the fixture’s iris - linear, strobe, pulse.                                                                                                                                                                                                                                              |
-| Fan(n)Mode                       | Controls fan (n) mode.                                                                                                                                                                                                                                                                                    |
+| FanMode                          | Controls fan (n) mode.                                                                                                                                                                                                                                                                                    |
 | FollowSpotMode                   | Selects follow spot control mode.                                                                                                                                                                                                                                                                         |
 | BeamEffectIndexRotateMode        | Changes mode to control either index or rotation of the beam effects.                                                                                                                                                                                                                                     |
 | IntensityMSpeed                  | Movement speed of the fixture's intensity.                                                                                                                                                                                                                                                                |
@@ -2761,12 +2761,13 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | DisplayIntensity                 | Adjusts intensity of display                                                                                                                                                                                                                                                                              |
 | DMXInput                         | Selects DMX Input                                                                                                                                                                                                                                                                                         |
 | NoFeature                        | Ranges without a functionality.                                                                                                                                                                                                                                                                           |
+| Dummy                            | Ranges without a functionality.                                                                                                                                                                                                                                                                           |
 | Blower(n)                        | Fog or hazer‘s blower feature.                                                                                                                                                                                                                                                                            |
 | Fan(n)                           | Fog or hazer's Fan feature.                                                                                                                                                                                                                                                                               |
 | Fog(n)                           | Fog or hazer's Fog feature.                                                                                                                                                                                                                                                                               |
 | Haze(n)                          | Fog or hazer's Haze feature.                                                                                                                                                                                                                                                                              |
 | LampPowerMode                    | Controls the energy consumption of the lamp.                                                                                                                                                                                                                                                              |
-| Fans                             | Controls a fixture or device fan.                                                                                                                                                                                                                                                                          |
+| Fans                             | Controls a fixture or device fan.                                                                                                                                                                                                                                                                         |
 | Blade(n)A                        | 1 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)B                        | 2 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)Rot                      | Rotates position of blade(n).                                                                                                                                                                                                                                                                             |
@@ -2799,408 +2800,4400 @@ considered as normalized. The upper and lower case of attribute names is
 not taken into account.
 
 ```
-   <AttributeDefinitions>  
-       <ActivationGroups>  
-           <ActivationGroup  Name="PanTilt" />  
-           <ActivationGroup  Name="XYZ" />  
-           <ActivationGroup  Name="Rot_XYZ" />
-           <ActivationGroup  Name="Scale_XYZ" />
-           <ActivationGroup  Name="ColorRGB" />  
-           <ActivationGroup  Name="ColorHSB" />  
-           <ActivationGroup  Name="ColorCIE" />  
-           <ActivationGroup  Name="ColorIndirect" />  
-           <ActivationGroup  Name="Gobo(n)" />  
-           <ActivationGroup  Name="Gobo(n)Pos" />  
-           <ActivationGroup  Name="AnimationWheel(n)" />  
-           <ActivationGroup  Name="AnimationWheel(n)Pos" />  
-           <ActivationGroup  Name="AnimationSystem(n)" />  
-           <ActivationGroup  Name="AnimationSystem(n)Pos" />  
-           <ActivationGroup  Name="Prism" />  
-           <ActivationGroup  Name="BeamShaper" />  
-           <ActivationGroup  Name="Shaper" />  
-       </ActivationGroups>  
-       <FeatureGroups>  
-           <FeatureGroup  Name="Dimmer">  
-               <Feature  Name="Dimmer" />  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Position">  
-               <Feature  Name="PanTilt" />  
-               <Feature  Name="XYZ" />  
-               <Feature  Name="Rotation"/>  
-               <Feature  Name="Scale"/>  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Gobo">  
-               <Feature  Name="Gobo" />  
-               <Feature  Name="Media"/>  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Color">  
-               <Feature  Name="Color" />  
-               <Feature  Name="RGB" />  
-               <Feature  Name="HSB" />  
-               <Feature  Name="CIE" />  
-               <Feature  Name="Indirect" />  
-               <Feature Name="ColorCorrection"/>  
-               <Feature Name="HSBC_Shift"/>  
-               <Feature Name="ColorKey"/>  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Beam">  
-               <Feature  Name="Beam" />  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Focus">  
-               <Feature  Name="Focus" />  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Control">  
-               <Feature  Name="Control" />  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Shapers">  
-               <Feature  Name="Shapers" />  
-           </FeatureGroup>  
-           <FeatureGroup  Name="Video">  
-               <Feature  Name="Video" />  
-           </FeatureGroup>  
-       </FeatureGroups>  
-       <Attributes>  
-           <Attribute Name="Dimmer" Pretty="Dim" Feature="Dimmer.Dimmer" />  
-           <Attribute Name="Pan" Pretty="P" ActivationGroup="PanTilt" Feature="Position.PanTilt" PhysicalUnit="Angle" />  
-           <Attribute Name="Tilt" Pretty="T" ActivationGroup="PanTilt" Feature="Position.PanTilt" PhysicalUnit="Angle" />  
-           <Attribute Name="PanRotate" Pretty="P Rotate" Feature="Position.PanTilt" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="TiltRotate" Pretty="T Rotate" Feature="Position.PanTilt" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="PositionEffect" Pretty="Pos FX" Feature="Position.PanTilt" />  
-           <Attribute Name="PositionEffectRate" Pretty="Pos FX Rate" Feature="Position.PanTilt" />  
-           <Attribute Name="PositionEffectFade" Pretty="Pos FX Fade" Feature="Position.PanTilt" />  
-           <Attribute Name="XYZ_X" Pretty="X" ActivationGroup="XYZ" Feature="Position.XYZ" PhysicalUnit="Length" />  
-           <Attribute Name="XYZ_Y" Pretty="Y" ActivationGroup="XYZ" Feature="Position.XYZ" PhysicalUnit="Length" />  
-           <Attribute Name="XYZ_Z" Pretty="Z" ActivationGroup="XYZ" Feature="Position.XYZ" PhysicalUnit="Length" /  
-           <Attribute Name="Rot_X" Pretty="Rot X" ActivationGroup="Rot_XYZ" Feature="Position.Rotation" PhysicalUnit="Angle" />  
-           <Attribute Name="Rot_Y" Pretty="Rot Y" ActivationGroup="Rot_XYZ" Feature="Position.Rotation" PhysicalUnit="Angle" />  
-           <Attribute Name="Rot_Z" Pretty="Rot Z" ActivationGroup="Rot_XYZ" Feature="Position.Rotation" PhysicalUnit="Angle" />  
-           <Attribute Name="Scale_X" Pretty="Scale X" ActivationGroup="Scale_XYZ" Feature="Position.Scale" PhysicalUnit="Percent" />  
-           <Attribute Name="Scale_Y" Pretty="Scale Y" ActivationGroup="Scale_XYZ" Feature="Position.Scale" PhysicalUnit="Percent" />  
-           <Attribute Name="Scale_Z" Pretty="Scale Z" ActivationGroup="Scale_XYZ" Feature="Position.Scale" PhysicalUnit="Percent" />  
-           <Attribute Name="Scale_XYZ" Pretty="Scale XYZ" ActivationGroup="Scale_XYZ" Feature="Position.Scale" PhysicalUnit="Percent" />  
-           <Attribute Name="Gobo(n)" Pretty="G(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)SelectSpin" Pretty="Select Spin" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)SelectShake" Pretty="Select Shake" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="20" PhysicalTo="20"/> This is the amount of shake as a percentage of the image size and defines the peak amplitude of the shake
-           <Attribute Name="Gobo(n)SelectEffects" Pretty="Select Effects" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" />  
-           <Attribute Name="Gobo(n)WheelIndex" Pretty="Wheel Index" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="Angle" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)WheelSpin" Pretty="Wheel Spin" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)WheelShake" Pretty="Wheel Shake" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="20" PhysicalTo="20"/> This is the amount of shake as a percentage of the image size and defines the peak amplitude of the shake
-           <Attribute Name="Gobo(n)WheelRandom" Pretty="Wheel Random" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)WheelAudio" Pretty="Wheel Audio" MainAttribute="Gobo(n)" ActivationGroup="Gobo(n)" Feature="Gobo.Gobo" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Gobo(n)Pos" Pretty="G(n) &lt;&gt;" ActivationGroup="Gobo(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Angle" />  
-           <Attribute Name="Gobo(n)PosRotate" Pretty="Rotate" MainAttribute="Gobo(n)Pos" ActivationGroup="Gobo(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="Gobo(n)PosShake" Pretty="Shake" MainAttribute="Gobo(n)Pos" ActivationGroup="Gobo(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Frequency" />
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="20" PhysicalTo="20"/> This defines the peak amplitude of the shake
-           <Attribute Name="AnimationWheel(n)" ActivationGroup="AnimationWheel(n)" Pretty="Anim(n)" Feature="Gobo.Gobo" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="AnimationWheel(n)Audio" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" Pretty="Anim Audio" /> 
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="AnimationWheel(n)Macro" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" Pretty="Anim FX" />
-           <Attribute Name="AnimationWheel(n)Random" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim Random" /> 
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="AnimationWheel(n)SelectEffects" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" Pretty="Anim Select FX" />  
-           <Attribute Name="AnimationWheel(n)SelectShake" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim Select Shake" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="20" PhysicalTo="20"/> This defines the peak amplitude of the shake
-           <Attribute Name="AnimationWheel(n)SelectSpin" ActivationGroup="AnimationWheel(n)" MainAttribute="AnimationWheel(n)" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" Pretty="Anim Select Spin" />
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="AnimationWheel(n)Pos" ActivationGroup="AnimationWheel(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Angle" Pretty="Anim Pos" />  
-           <Attribute Name="AnimationWheel(n)PosRotate" ActivationGroup="AnimationWheel(n)Pos" MainAttribute="AnimationWheel(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" Pretty="Anim Rotate" />  
-           <Attribute Name="AnimationWheel(n)PosShake" ActivationGroup="AnimationWheel(n)Pos" MainAttribute="AnimationWheel(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim Shake" />  
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="20" PhysicalTo="20"/> This defines the peak amplitude of the shake
-           <Attribute Name="AnimationSystem(n)" ActivationGroup="AnimationSystem(n)" Feature="Gobo.Gobo" PhysicalUnit="Percent" Pretty="Anim System"/>  
-           <Attribute Name="AnimationSystem(n)Ramp" ActivationGroup="AnimationSystem(n)" MainAttribute="AnimationSystem(n)" "Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim System Ramp"/>  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="50" PhysicalTo="50"/> This defines the duration of the ramp in relation to the period.
-              <SubPhysicalUnit Type="AmplitudeMin" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum position in relation to the whole way of the spline
-              <SubPhysicalUnit Type="AmplitudeMax" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the maximum position in relation to the whole way of the spline
-           <Attribute Name="AnimationSystem(n)Shake" ActivationGroup="AnimationSystem(n)" MainAttribute="AnimationSystem(n)" Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim System Shake/>
-              <SubPhysicalUnit Type="AmplitudeMin" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum position in relation to the whole way of the spline
-              <SubPhysicalUnit Type="AmplitudeMax" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the maximum position in relation to the whole way of the spline
-           <Attribute Name="AnimationSystem(n)Audio" ActivationGroup="AnimationSystem(n)" MainAttribute="AnimationSystem(n)" Feature="Gobo.Gobo" PhysicalUnit="None" Pretty="Anim System Audio/>  
-           <Attribute Name="AnimationSystem(n)Random" ActivationGroup="AnimationSystem(n)" MainAttribute="AnimationSystem(n)" Feature="Gobo.Gobo" PhysicalUnit="None" Pretty="Anim System Random/>  
-           <Attribute Name="AnimationSystem(n)Pos" ActivationGroup="AnimationSystem(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Angle" Pretty="Anim System Pos"/>  
-           <Attribute Name="AnimationSystem(n)PosRotate" ActivationGroup="AnimationSystem(n)Pos" MainAttribute="AnimationSystem(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="AngularSpeed" Pretty="Anim System Rotate"/>  
-           <Attribute Name="AnimationSystem(n)PosShake" ActivationGroup="AnimationSystem(n)Pos" MainAttribute="AnimationSystem(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="Frequency" Pretty="Anim System Shake"/>  
-              <SubPhysicalUnit Type="Amplitude" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the peak amplitude of the shake
-           <Attribute Name="AnimationSystem(n)PosRandom" ActivationGroup="AnimationSystem(n)Pos" MainAttribute="AnimationSystem(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="None" Pretty="Anim System Rot Random"/>  
-           <Attribute Name="AnimationSystem(n)PosAudio" ActivationGroup="AnimationSystem(n)Pos" MainAttribute="AnimationSystem(n)Pos" Feature="Gobo.Gobo" PhysicalUnit="None" Pretty="Anim System Rot Audio"/>  
-           <Attribute Name="AnimationSystem(n)Macro" Feature="Gobo.Gobo" PhysicalUnit="None" Pretty="Anim System Macro"/>  
-           <Attribute Name="MediaFolder(n)" Pretty="Media Folder(n)" Feature="Gobo.Media" />  
-           <Attribute Name="MediaContent(n)" Pretty="Media Content(n)" Feature="Gobo.Media" />  
-           <Attribute Name="ModelFolder(n)" Pretty="Model Folder(n)" Feature="Gobo.Media" PhysicalUnit="None" />  
-           <Attribute Name="ModelContent(n)" Pretty="Model Content(n)" Feature="Gobo.Media" PhysicalUnit="None" />  
-           <Attribute Name="Playmode" Pretty="Playmode" Feature="Gobo.Media" />  
-           <Attribute Name="PlayBegin" Pretty="Play Begin" Feature="Gobo.Media" PhysicalUnit="Time" />  
-           <Attribute Name="PlayEnd" Pretty="Play End" Feature="Gobo.Media" PhysicalUnit="Time" />  
-           <Attribute Name="PlaySpeed" Pretty="Play Speed" Feature="Gobo.Media" PhysicalUnit="Percent" />  
-           <Attribute Name="ColorEffects(n)" Pretty="Color FX(n)" Feature="Color.Color" />  
-           <Attribute Name="Color(n)" Pretty="C(n)" ActivationGroup="ColorRGB" Feature="Color.Color" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Color(n)WheelIndex" Pretty="Wheel Index" MainAttribute="Color(n)" ActivationGroup="ColorRGB" Feature="Color.Color" PhysicalUnit="Angle" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Color(n)WheelSpin" Pretty="Wheel Spin" MainAttribute="Color(n)" ActivationGroup="ColorRGB" Feature="Color.Color" PhysicalUnit="AngularSpeed" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Color(n)WheelRandom" Pretty="Wheel Random" MainAttribute="Color(n)" ActivationGroup="ColorRGB" Feature="Color.Color" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="Color(n)WheelAudio" Pretty="Wheel Audio" MainAttribute="Color(n)" ActivationGroup="ColorRGB" Feature="Color.Color" />  
-              <SubPhysicalUnit Type="PlacementOffset" PhysicalUnit="Degree" PhysicalFrom="270" PhysicalTo="270"/>
-           <Attribute Name="ColorAdd_R" Pretty="R" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.64,0.33,21.3" />  
-           <Attribute Name="ColorAdd_G" Pretty="G" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.3,0.6,71.5" />  
-           <Attribute Name="ColorAdd_B" Pretty="B" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.15,0.06,7.2" />  
-           <Attribute Name="ColorAdd_C" Pretty="C" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.225,0.329,78.7" />  
-           <Attribute Name="ColorAdd_M" Pretty="M" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.321,0.154,28.5" />  
-           <Attribute Name="ColorAdd_Y" Pretty="Y" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.419,0.505,92.8" />  
-           <Attribute Name="ColorAdd_RY" Pretty="Amber" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.477,0.460,57.0" />  
-           <Attribute Name="ColorAdd_GY" Pretty="Lime" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.372,0.543,82.1" />  
-           <Attribute Name="ColorAdd_GC" Pretty="Blue-Green" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.250,0.419,75.1" />  
-           <Attribute Name="ColorAdd_BC" Pretty="Light-Blue " ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.200,0.239,43.0" />  
-           <Attribute Name="ColorAdd_BM" Pretty="Purple" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.254,0.117,17.9" />  
-           <Attribute Name="ColorAdd_RM" Pretty="Pink" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.403,0.200,24.9" />  
-           <Attribute Name="ColorAdd_W" Pretty="White" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.313,0.329,100.0" />  
-           <Attribute Name="ColorAdd_WW" Pretty="WW" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.319,0.340,99.3" />  
-           <Attribute Name="ColorAdd_CW" Pretty="CW" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.306,0.329,97.9" />  
-           <Attribute Name="ColorAdd_UV" Pretty="UV" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.176,0.005,0.6"/>  
-           <Attribute Name="ColorSub_R" Pretty="R" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.64,0.33,21.3" />  
-           <Attribute Name="ColorSub_G" Pretty="G" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.3,0.6,71.5" />  
-           <Attribute Name="ColorSub_B" Pretty="B" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.15,0.06,7.2" />  
-           <Attribute Name="ColorSub_C" Pretty="C" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.225,0.329,78.7" />  
-           <Attribute Name="ColorSub_M" Pretty="M" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.321,0.154,28.5" />  
-           <Attribute Name="ColorSub_Y" Pretty="Y" ActivationGroup="ColorRGB" Feature="Color.RGB" PhysicalUnit="ColorComponent" Color="0.419,0.505,92.8" />  
-           <Attribute Name="ColorMacro(n)" Pretty="Color Macro(n)" Feature="Color.RGB" />  
-           <Attribute Name="ColorMacro(n)Rate" Pretty="Color Macro(n) Rate" Feature="Color.RGB" />  
-           <Attribute Name="CTO" Pretty="CTO" Feature="Color.Color" PhysicalUnit="Temperature" />  
-           <Attribute Name="CTC" Pretty="CTC" Feature="Color.Color" PhysicalUnit="Temperature" />  
-           <Attribute Name="CTB" Pretty="CTB" Feature="Color.Color" PhysicalUnit="Temperature" />  
-           <Attribute Name="Tint" Pretty="Tint" Feature="Color.Color" />  
-           <Attribute Name="HSB_Hue" Pretty="H" ActivationGroup="ColorHSB" Feature="Color.HSB" PhysicalUnit="Angle" />  
-           <Attribute Name="HSB_Saturation" Pretty="S" ActivationGroup="ColorHSB" Feature="Color.HSB" PhysicalUnit="Percent" />  
-           <Attribute Name="HSB_Brightness" Pretty="B" ActivationGroup="ColorHSB" Feature="Color.HSB" PhysicalUnit="Percent" />  
-           <Attribute Name="HSB_Quality" Pretty="Q" ActivationGroup="ColorHSB" Feature="Color.HSB" PhysicalUnit="Percent" />  
-           <Attribute Name="CIE_X" Pretty="X" ActivationGroup="ColorCIE" Feature="Color.CIE" />  
-           <Attribute Name="CIE_Y" Pretty="Y" ActivationGroup="ColorCIE" Feature="Color.CIE" />  
-           <Attribute Name="CIE_Brightness" Pretty="B" ActivationGroup="ColorCIE" Feature="Color.CIE" PhysicalUnit="Percent" />  
-           <Attribute Name="ColorRGB_Red" Pretty="R" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Green" Pretty="G" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Blue" Pretty="B" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Cyan" Pretty="C" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Magenta" Pretty="M" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Yellow" Pretty="Y" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="ColorRGB_Quality" Pretty="Q" ActivationGroup="ColorIndirect" Feature="Color.Indirect" />  
-           <Attribute Name="VideoBoost_R" Feature="Color.ColorCorrection" PhysicalUnit="None" Pretty="Boost R" Color="0.64,0.33,21.3" />  
-           <Attribute Name="VideoBoost_G" Pretty="Boost G" Feature="Color.ColorCorrection" PhysicalUnit="None" Color="0.3,0.6,71.5" />  
-           <Attribute Name="VideoBoost_B" Pretty="Boost B" Feature="Color.ColorCorrection" PhysicalUnit="None" Color="0.15,0.06,7.2" />  
-           <Attribute Name="VideoHueShift" Pretty="Hue Shift" Feature="Color.HSBC_Shift" PhysicalUnit="Angle" />  
-           <Attribute Name="VideoSaturation" Pretty="S" Feature="Color.HSBC_Shift" PhysicalUnit="Percent" />  
-           <Attribute Name="VideoBrightness" Pretty="B" Feature="Color.HSBC_Shift" PhysicalUnit="Percent" />  
-           <Attribute Name="VideoContrast" Pretty="C" Feature="Color.HSBC_Shift" PhysicalUnit="Percent" />  
-           <Attribute Name="VideoKeyColor_R" Pretty="R" Feature="Color.ColorKey" PhysicalUnit="None" Color="0.64,0.33,21.3" />  
-           <Attribute Name="VideoKeyColor_G" Pretty="G" Feature="Color.ColorKey" PhysicalUnit="None" Color="0.3,0.6,71.5" />  
-           <Attribute Name="VideoColorKey_B" Pretty="B" Feature="Color.ColorKey" PhysicalUnit="None" Color="0.15,0.06,7.2" />  
-           <Attribute Name="VideoKeyIntensity" Pretty="Intensity" Feature="Color.ColorKey" PhysicalUnit="Percent" />  
-           <Attribute Name="VideoKeyTolerance" Pretty="Tolerance" Feature="Color.ColorKey" PhysicalUnit="None" />  
-           <Attribute Name="StrobeDuration" Pretty="Strobe Duration" Feature="Beam.Beam" PhysicalUnit="Time" />  
-           <Attribute Name="StrobeRate" Pretty="Strobe Rate" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeFrequency" Pretty="Strobe Frequency" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="StrobeModeShutter" Pretty="StrobeM Shutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeStrobe" Pretty="StrobeM Strobe" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModePulse" Pretty="StrobeM Pulse" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModePulseOpen" Pretty="StrobeM Pulse Open" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModePulseClose" Pretty="StrobeM Pulse Close" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeRandom" Pretty="StrobeM Random" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeRandomPulse" Pretty="StrobeM Random Pulse" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeRandomPulseOpen" Pretty="StrobeM Random Pulse Open" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeRandomPulseClose" Pretty="StrobeM Random Pulse Close" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="StrobeModeEffect" Pretty="StrobeM Effect" MainAttribute="StrobeModeShutter" Feature="Beam.Beam" />  
-           <Attribute Name="Shutter(n)" Pretty="Sh(n)" Feature="Beam.Beam" />  
-           <Attribute Name="Shutter(n)Strobe" Pretty="Strobe(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="Duration" PhysicalUnit="Time" PhysicalFrom="0.025" PhysicalTo="0.025"/> This defines the duration of the on time of the strobe.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the strobe from the start as percentage of the total period.
-           <Attribute Name="Shutter(n)StrobePulse" Pretty="Pulse(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the pulse is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the pulse from the start as percentage of the total period.
-           <Attribute Name="Shutter(n)StrobePulseClose" Pretty="Pulse Close(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the ramp is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the ramp from the start as percentage of the total period.
-           <Attribute Name="Shutter(n)StrobePulseOpen" Pretty="Pulse Open(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-             <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the ramp is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the ramp from the start as percentage of the total period.
-           <Attribute Name="Shutter(n)StrobeRandom" Pretty="Random(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="Duration" PhysicalUnit="Time" PhysicalFrom="0.025" PhysicalTo="0.025"/> This defines the duration of the on time of the strobe.
-           <Attribute Name="Shutter(n)StrobeRandomPulse" Pretty="Random Pulse(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="Shutter(n)StrobeRandomPulseClose" Pretty="Random Pulse Close(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="Shutter(n)StrobeRandomPulseOpen" Pretty="Random Pulse Open(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="Shutter(n)StrobeEffect" Pretty="Effect(n)" MainAttribute="Shutter(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="Iris" Pretty="Iris" Feature="Beam.Beam" />  
-           <Attribute Name="IrisStrobe" Pretty="Strobe" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="Duration" PhysicalUnit="Time" PhysicalFrom="0.3" PhysicalTo="0.3"/> This defines the duration of the on time of the iris.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the strobe from the start as percentage of the total period.
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="IrisStrobeRandom" Pretty="Random Strobe" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="Duration" PhysicalUnit="Time" PhysicalFrom="0.3" PhysicalTo="0.3"/> This defines the duration of the on time of the iris.
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="IrisPulseClose" Pretty="Pulse Close" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the pulse of the iris is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the pulse from the start as percentage of the total period.
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="IrisPulseOpen" Pretty="Pulse Open" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the pulse of the iris is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the pulse from the start as percentage of the total period.
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="IrisRandomPulseClose" Pretty="Random Pulse Close" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="IrisRandomPulseOpen" Pretty="Random Pulse Open" MainAttribute="Iris" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="MinimumOpening" PhysicalUnit="Percent" PhysicalFrom="0" PhysicalTo="0"/> This defines the minimum percentage to which the iris closes.
-           <Attribute Name="Frost(n)" Pretty="Frost(n)" Feature="Beam.Beam" />  
-           <Attribute Name="Frost(n)PulseOpen" Pretty="Pulse Open (n)" MainAttribute="Frost(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the pulse of the frost is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the pulse from the start as percentage of the total period.
-           <Attribute Name="Frost(n)PulseClose" Pretty="Pulse Close (n)" MainAttribute="Frost(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the pulse of the frost is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the pulse from the start as percentage of the total period.
-           <Attribute Name="Frost(n)Ramp" Pretty="Ramp (n)" MainAttribute="Frost(n)" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-              <SubPhysicalUnit Type="DutyCycle" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the fraction of one period in which the ramp of the frost is on.
-              <SubPhysicalUnit Type="TimeOffset" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the offset of the end of the ramp from the start as percentage of the total period.
-           <Attribute Name="Prism(n)" Pretty="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" />  
-           <Attribute Name="Prism(n)SelectSpin" Pretty="Select Spin(n)" MainAttribute="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="Prism(n)Macro" Pretty="Prism(n) Macro" MainAttribute="Prism(n)" ActivationGroup="Prism" Feature="Beam.Beam" />  
-           <Attribute Name="Prism(n)Pos" Pretty="Prism(n) Pos" Feature="Beam.Beam" PhysicalUnit="Angle"/>  
-           <Attribute Name="Prism(n)PosRotate" Pretty="Rotate(n)" MainAttribute="Prism(n)Pos" ActivationGroup="Prism" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="Effects(n)" Pretty="FX(n)" Feature="Beam.Beam" />  
-           <Attribute Name="Effects(n)Rate" Pretty="FX(n) Rate" Feature="Beam.Beam" PhysicalUnit="Frequency" />  
-           <Attribute Name="Effects(n)Fade" Pretty="FX(n) Fade" Feature="Beam.Beam" />  
-           <Attribute Name="Effects(n)Adjust(m)" Pretty="FX(n) Adjust(m)" Feature="Beam.Beam" />  
-           <Attribute Name="Effects(n)Pos" Pretty="FX(n) Pos" Feature="Beam.Beam" PhysicalUnit="Angle" />  
-           <Attribute Name="Effects(n)PosRotate" Pretty="FX(n) Rotate" MainAttribute="Effects(n)Pos" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />              
-           <Attribute Name="EffectsSync" Pretty="FX Sync" Feature="Beam.Beam" />  
-           <Attribute Name="BeamShaper" Pretty="Beam Shaper" ActivationGroup="BeamShaper" Feature="Beam.Beam" />  
-              <SubPhysicalUnit Type="RatioHorizontal" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the size of the beam compared to the original size.
-              <SubPhysicalUnit Type="RatioVertical" PhysicalUnit="Percent" PhysicalFrom="100" PhysicalTo="100"/> This defines the size of the beam compared to the original size.
-           <Attribute Name="BeamShaperMacro" Pretty="Beam Shaper Macro" ActivationGroup="BeamShaper" Feature="Beam.Beam" />  
-           <Attribute Name="BeamShaperPos" Pretty="Beam Shaper &lt;&gt;" ActivationGroup="BeamShaper" Feature="Beam.Beam" PhysicalUnit="Angle" />  
-           <Attribute Name="BeamShaperPosRotate" Pretty="Beam Shaper Rotate" ActivationGroup="BeamShaper" Feature="Beam.Beam" PhysicalUnit="AngularSpeed" />  
-           <Attribute Name="Zoom" Pretty="Zoom" Feature="Focus.Focus" PhysicalUnit="Angle" />  
-           <Attribute Name="ZoomModeSpot" Pretty="Zoom Spot" Feature="Focus.Focus" PhysicalUnit="Angle" />  
-           <Attribute Name="ZoomModeBeam" Pretty="Zoom Beam" Feature="Focus.Focus" PhysicalUnit="Angle" />    
-           <Attribute Name="DigitalZoom" Pretty="DZoom" Feature="Focus.Focus" PhysicalUnit="Angle" />        
-           <Attribute Name="Focus(n)" Pretty="Focus(n)" Feature="Focus.Focus" />  
-           <Attribute Name="Focus(n)Adjust" Pretty="Focus(n) Adjust" Feature="Focus.Focus" />  
-           <Attribute Name="Focus(n)Distance" Pretty="Focus(n) Distance" Feature="Focus.Focus" PhysicalUnit="Length" />  
-           <Attribute Name="Control(n)" Pretty="Ctrl(n)" Feature="Control.Control" />  
-           <Attribute Name="DimmerMode" Pretty="Dim Mode" Feature="Control.Control" />  
-           <Attribute Name="DimmerCurve" Pretty="Dim Curve" Feature="Control.Control" />  
-           <Attribute Name="BlackoutMode" Pretty="Blackout Mode" Feature="Control.Control" />  
-           <Attribute Name="LEDFrequency" Pretty="LED Frequency" Feature="Control.Control" PhysicalUnit="Frequency"/>  
-           <Attribute Name="LEDZoneMode" Pretty="LED Zone Mode" Feature="Control.Control" />  
-           <Attribute Name="PixelMode" Pretty="Pixel Mode" Feature="Control.Control" />  
-           <Attribute Name="PanMode" Pretty="Pan Mode" Feature="Control.Control" />  
-           <Attribute Name="TiltMode" Pretty="Tilt Mode" Feature="Control.Control" />  
-           <Attribute Name="PanTiltMode" Pretty="PanTilt Mode" Feature="Control.Control" />  
-           <Attribute Name="PositionModes" Pretty="Pos Modes" Feature="Control.Control" />  
-           <Attribute Name="Gobo(n)WheelMode" Pretty="G(n) Mode" Feature="Control.Control" />  
-           <Attribute Name="GoboWheelShortcutMode" Pretty="Gobo Shortcut Mode" Feature="Control.Control" />  
-           <Attribute Name="AnimationWheel(n)Mode" Feature="Control.Control" Pretty="Anim Mode" />  
-           <Attribute Name="AnimationWheelShortcutMode" Pretty="Anim Shortcut Mode" Feature="Control.Control" />  
-           <Attribute Name="Color(n)Mode" Pretty="C(n) Mode" Feature="Control.Control" />  
-           <Attribute Name="ColorWheelShortcutMode" Pretty="Color Wheel Shortcut Mode" Feature="Control.Control" />  
-           <Attribute Name="CyanMode" Pretty="Cyan Mode" Feature="Control.Control" />  
-           <Attribute Name="MagentaMode" Pretty="Magenta Mode" Feature="Control.Control" />  
-           <Attribute Name="YellowMode" Pretty="Yellow Mode" Feature="Control.Control" />  
-           <Attribute Name="ColorMixMode" Pretty="Color Mix Mode" Feature="Control.Control" />  
-           <Attribute Name="ChromaticMode" Pretty="Chroma Mode" Feature="Control.Control" />  
-           <Attribute Name="ColorCalibrationMode" Pretty="CCalib Mode" Feature="Control.Control" />  
-           <Attribute Name="ColorConsistency" Pretty="Color consistency" Feature="Control.Control" />  
-           <Attribute Name="ColorControl" Pretty="Color Ctrl" Feature="Control.Control" />  
-           <Attribute Name="ColorModelMode" Pretty="ColorModel" Feature="Control.Control" />  
-           <Attribute Name="ColorSettingsReset" Pretty="Color Ctrl Rst" Feature="Control.Control" />  
-           <Attribute Name="ColorUniformity" Pretty="ColorUniform" Feature="Control.Control" />  
-           <Attribute Name="CRIMode" Pretty="CRI Mode" Feature="Control.Control" />  
-           <Attribute Name="CustomColor" Pretty="Custom Color" Feature="Control.Control" />  
-           <Attribute Name="UVStability" Pretty="UV Stab" Feature="Control.Control" />  
-           <Attribute Name="WaveLengthCorrection" Pretty="WaveLength" Feature="Control.Control" />  
-           <Attribute Name="WhiteCount" Pretty="White Count" Feature="Control.Control" />  
-           <Attribute Name="StrobeMode" Pretty="Strobe Mode" Feature="Control.Control" />  
-           <Attribute Name="ZoomMode" Pretty="Zoom Mode" Feature="Control.Control" />  
-           <Attribute Name="FocusMode" Pretty="Focus Mode" Feature="Control.Control" />  
-           <Attribute Name="IrisMode" Pretty="Iris Mode" Feature="Control.Control" />  
-           <Attribute Name="FanMode" Pretty="Fan Mode" Feature="Control.Control" />  
-           <Attribute Name="FollowSpotMode" Pretty="FollowSpot Mode" Feature="Control.Control" />  
-           <Attribute Name="BeamEffectIndexRotateMode" Pretty="Beam Effect Index Rotate Mode" Feature="Control.Control" />  
-           <Attribute Name="IntensityMSpeed" Pretty="Intensity MSpeed" Feature="Control.Control" />  
-           <Attribute Name="PositionMSpeed" Pretty="Pos MSpeed" Feature="Control.Control" />  
-           <Attribute Name="ColorMixMSpeed" Pretty="Color Mix MSpeed" Feature="Control.Control" />  
-           <Attribute Name="ColorWheelSelectMSpeed" Pretty="Color Wheel Select MSpeed" Feature="Control.Control" />  
-           <Attribute Name="GoboWheel(n)MSpeed" Pretty="Gobo Wheel(n) MSpeed" Feature="Control.Control" />  
-           <Attribute Name="IrisMSpeed" Pretty="Iris MSpeed" Feature="Control.Control" />  
-           <Attribute Name="Prism(n)MSpeed" Pretty="Prism(n) MSpeed" Feature="Control.Control" />  
-           <Attribute Name="FocusMSpeed" Pretty="Focus MSpeed" Feature="Control.Control" />  
-           <Attribute Name="Frost(n)MSpeed" Pretty="Frost(n) MSpeed" Feature="Control.Control" />  
-           <Attribute Name="ZoomMSpeed" Pretty="Zoom MSpeed" Feature="Control.Control" />  
-           <Attribute Name="FrameMSpeed" Pretty="Frame MSpeed" Feature="Control.Control" />  
-           <Attribute Name="GlobalMSpeed" Pretty="Global MSpeed" Feature="Control.Control" />  
-           <Attribute Name="ReflectorAdjust" Pretty="Reflector Adj" Feature="Control.Control" /> />  
-           <Attribute Name="FixtureGlobalReset" Pretty="Fixture Global Reset" Feature="Control.Control" />  
-           <Attribute Name="DimmerReset" Pretty="Dimmer Reset" Feature="Control.Control" />  
-           <Attribute Name="ShutterReset" Pretty="Shutter Reset" Feature="Control.Control" />  
-           <Attribute Name="BeamReset" Pretty="Beam Reset" Feature="Control.Control" />  
-           <Attribute Name="ColorMixReset" Pretty="Color Mix Reset" Feature="Control.Control" />  
-           <Attribute Name="ColorWheelReset" Pretty="Color Wheel Reset" Feature="Control.Control" />  
-           <Attribute Name="FocusReset" Pretty="Focus Reset" Feature="Control.Control" />  
-           <Attribute Name="FrameReset" Pretty="Frame Reset" Feature="Control.Control" />  
-           <Attribute Name="GoboWheelReset" Pretty="G Reset" Feature="Control.Control" />  
-           <Attribute Name="IntensityReset" Pretty="Intensity Reset" Feature="Control.Control" />  
-           <Attribute Name="IrisReset" Pretty="Iris Reset" Feature="Control.Control" />  
-           <Attribute Name="PositionReset" Pretty="Pos Reset" Feature="Control.Control" />  
-           <Attribute Name="PanReset" Pretty="Pan Reset" Feature="Control.Control" />  
-           <Attribute Name="TiltReset" Pretty="Tilt Reset" Feature="Control.Control" />  
-           <Attribute Name="ZoomReset" Pretty="Zoom Reset" Feature="Control.Control" />  
-           <Attribute Name="CTBReset" Pretty="CTB Reset" Feature="Control.Control" />  
-           <Attribute Name="CTOReset" Pretty="CTO Reset" Feature="Control.Control" />  
-           <Attribute Name="CTCReset" Pretty="CTC Reset" Feature="Control.Control" />  
-           <Attribute Name="AnimationSystemReset" Pretty="Anim Sytem Reset" Feature="Control.Control" />  
-           <Attribute Name="FixtureCalibrationReset" Pretty="Fixture Calibration Reset" Feature="Control.Control" />  
-           <Attribute Name="Function" Pretty="Function" Feature="Control.Control" />  
-           <Attribute Name="LampControl" Pretty="Lamp Ctrl" Feature="Control.Control" />  
-           <Attribute Name="DisplayIntensity" Pretty="Display Int" Feature="Control.Control" />  
-           <Attribute Name="DMXInput" Pretty="DMX Input" Feature="Control.Control" />  
-           <Attribute Name="NoFeature" Pretty="NoFeature" Feature="Control.Control" />  
-           <Attribute Name="Dummy" Pretty="Dummy" Feature="Control.Control" />  
-           <Attribute Name="Blower(n)" Pretty="Blower(n)" Feature="Control.Control" />  
-           <Attribute Name="Fan(n)" Pretty="Fan(n)" Feature="Control.Control" />  
-           <Attribute Name="Fog(n)" Pretty="Fog(n)" Feature="Control.Control" />  
-           <Attribute Name="Haze(n)" Pretty="Haze(n)" Feature="Control.Control" />  
-           <Attribute Name="LampPowerMode" Pretty="Lamp Power Mode" Feature="Control.Control" />  
-           <Attribute Name="Fans" Pretty="Fans" Feature="Control.Control" />  
-           <Attribute Name="Blade(n)A" Pretty="Blade(n)A" ActivationGroup="Shaper" Feature="Shapers.Shapers" />  
-           <Attribute Name="Blade(n)B" Pretty="Blade(n)B" ActivationGroup="Shaper" Feature="Shapers.Shapers" />  
-           <Attribute Name="Blade(n)Rot" Pretty="Blade(n) Rot" ActivationGroup="Shaper" Feature="Shapers.Shapers" PhysicalUnit="Angle" />  
-           <Attribute Name="ShaperRot" Pretty="Shaper Rot" ActivationGroup="Shaper" Feature="Shapers.Shapers" PhysicalUnit="Angle" />  
-           <Attribute Name="ShaperMacros" Pretty="Shaper Macros" Feature="Shapers.Shapers" />  
-           <Attribute Name="ShaperMacrosSpeed" Pretty="Shaper Macros Speed" Feature="Shapers.Shapers" />  
-           <Attribute Name="BladeSoft(n)A Pretty="BladeS(n)A" "Feature="Shapers.Shapers" PhysicalUnit="None" />  
-           <Attribute Name="BladeSoft(n)B" Pretty="BladeS(n)B" Feature="Shapers.Shapers" PhysicalUnit="None" />  
-           <Attribute Name="KeyStone(n)A" Pretty="KS(n)A" Feature="Shapers.Shapers" PhysicalUnit="None" />  
-           <Attribute Name="KeyStone(n)B" Pretty="KS(n)B" Feature="Shapers.Shapers" PhysicalUnit="None" />  
-           <Attribute Name="Video" Pretty="Video" Feature="Video.Video" />  
-           <Attribute Name="VideoEffect(n)Type" Pretty="Video Effect(n) Type" Feature="Video.Video" />  
-           <Attribute Name="VideoEffect(n)Parameter(m)" Pretty="Video Effect(n) Parameter(m)" Feature="Video.Video" />  
-           <Attribute Name="VideoCamera(n)" Pretty="Video Camera(n)" Feature="Video.Video" />  
-           <Attribute Name="FieldOfView" Pretty="FOV" Feature="Video.Video" PhysicalUnit="Angle" />  
-           <Attribute Name="InputSource" Pretty="ISrc" Feature="Video.Video" PhysicalUnit="None" />  
-           <Attribute Name="VideoBlendMode" Pretty="BlendMode" Feature="Video.Video" PhysicalUnit="None" />  
-           <Attribute Name="VideoSoundVolume(n)" Pretty="Volume(n)" Feature="Video.Video" PhysicalUnit="Percent" />  
-       </Attributes>  
-   </AttributeDefinitions>
 
+<?xml version="1.0"?>
+<AttributeDefinitions>
+  <ActivationGroups>
+    <ActivationGroup
+      Name="PanTilt"/>
+    <ActivationGroup
+      Name="XYZ"/>
+    <ActivationGroup
+      Name="Rot_XYZ"/>
+    <ActivationGroup
+      Name="Scale_XYZ"/>
+    <ActivationGroup
+      Name="ColorRGB"/>
+    <ActivationGroup
+      Name="ColorHSB"/>
+    <ActivationGroup
+      Name="ColorCIE"/>
+    <ActivationGroup
+      Name="ColorIndirect"/>
+    <ActivationGroup
+      Name="Gobo(n)"/>
+    <ActivationGroup
+      Name="Gobo(n)Pos"/>
+    <ActivationGroup
+      Name="AnimationWheel(n)"/>
+    <ActivationGroup
+      Name="AnimationWheel(n)Pos"/>
+    <ActivationGroup
+      Name="AnimationSystem(n)"/>
+    <ActivationGroup
+      Name="AnimationSystem(n)Pos"/>
+    <ActivationGroup
+      Name="Prism"/>
+    <ActivationGroup
+      Name="BeamShaper"/>
+    <ActivationGroup
+      Name="Shaper"/>
+  </ActivationGroups>
+  <FeatureGroups>
+    <FeatureGroup
+      Name="Dimmer">
+      <Feature
+        Name="Dimmer"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Position">
+      <Feature
+        Name="PanTilt"/>
+      <Feature
+        Name="XYZ"/>
+      <Feature
+        Name="Rotation"/>
+      <Feature
+        Name="Scale"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Gobo">
+      <Feature
+        Name="Gobo"/>
+      <Feature
+        Name="Media"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Color">
+      <Feature
+        Name="Color"/>
+      <Feature
+        Name="RGB"/>
+      <Feature
+        Name="HSB"/>
+      <Feature
+        Name="CIE"/>
+      <Feature
+        Name="Indirect"/>
+      <Feature
+        Name="ColorCorrection"/>
+      <Feature
+        Name="HSBC_Shift"/>
+      <Feature
+        Name="ColorKey"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Beam">
+      <Feature
+        Name="Beam"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Focus">
+      <Feature
+        Name="Focus"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Control">
+      <Feature
+        Name="Control"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Shapers">
+      <Feature
+        Name="Shapers"/>
+    </FeatureGroup>
+    <FeatureGroup
+      Name="Video">
+      <Feature
+        Name="Video"/>
+    </FeatureGroup>
+  </FeatureGroups>
+  <Attributes>
+    <Attribute
+      Name="Dimmer"
+      Pretty="Dim"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the intensity of a fixture."
+      Explanation="Gradual (fading) change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. Physical values go from 0 = no output, to 1 = full output. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to understand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change."
+      Label="Dimmer"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Pan"
+      Pretty="P"
+      ActivationGroup="PanTilt"
+      Feature="Position.PanTilt"
+      PhysicalUnit="Angle"
+      Definition="Controls the fixture's sideward movement (horizontal axis)."
+      Explanation="PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixture is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT."
+      Label="Pan"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Tilt"
+      Pretty="T"
+      ActivationGroup="PanTilt"
+      Feature="Position.PanTilt"
+      PhysicalUnit="Angle"
+      Definition="Controls the fixture's upward and the downward movement (vertical axis)."
+      Explanation="TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in relation with PAN."
+      Label="Tilt"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PanRotate"
+      Pretty="P Rotate"
+      Feature="Position.PanTilt"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed of the fixture's continuous pan movement (horizontal axis)."
+      Explanation="For fixtures with the ability to have a continuous pan rotation, the “Pan Rotate” control defines how fast (speed) a fixture can rotate about the pan axis. Usually, the horizontal axis."
+      Label="Pan Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TiltRotate"
+      Pretty="T Rotate"
+      Feature="Position.PanTilt"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed of the fixture's continuous tilt movement (vertical axis)."
+      Explanation="For fixtures with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a fixture can rotate about the tilt axis. Usually, the vertical axis."
+      Label="Tilt Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionEffect"
+      Pretty="Pos FX"
+      Feature="Position.PanTilt"
+      Definition="Selects the predefined position effects that are built into the fixture."
+      Explanation="Effects which are built into the fixture, are based on movement and are of manufacturer specific nature so they cannot really be visualized are described with this attribute."
+      Label="Position Effect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionEffectRate"
+      Pretty="Pos FX Rate"
+      Feature="Position.PanTilt"
+      Definition="Controls the speed of the predefined position effects that are built into the fixture."
+      Explanation="Adjusting speed of some predefined movement effects is described with this attribute."
+      Label="Position Effect Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionEffectFade"
+      Pretty="Pos FX Fade"
+      Feature="Position.PanTilt"
+      Definition="Snaps or smooth fades with timing in running predefined position effects."
+      Explanation="Use this attribute to describe functions that are adjusting fading or snapping behavior of some movement effects."
+      Label="Position Effect Fade"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="XYZ_X"
+      Pretty="X"
+      ActivationGroup="XYZ"
+      Feature="Position.XYZ"
+      PhysicalUnit="Length"
+      Definition="Defines a fixture’s x-coordinate within an XYZ coordinate system."
+      Explanation="Devices that can move straight in X-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is left/right movement of a video-layer in space."
+      Label="XYZ X"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="XYZ_Y"
+      Pretty="Y"
+      ActivationGroup="XYZ"
+      Feature="Position.XYZ"
+      PhysicalUnit="Length"
+      Definition="Defines a fixture’s y-coordinate within an XYZ coordinate system."
+      Explanation="Devices that can move straight in Y-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is forward/backward movement of a video-layer in space."
+      Label="XYZ Y"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="XYZ_Z"
+      Pretty="Z"
+      ActivationGroup="XYZ"
+      Feature="Position.XYZ"
+      PhysicalUnit="Length"
+      Definition="Defines a fixture‘s z-coordinate within an XYZ coordinate system."
+      Explanation="Devices that can move straight in Z-direction in space (opposite to distance of a pan/tilt device) describe the movement with this attribute. A typical usage is up/down movement of a video-layer in space."
+      Label="XYZ Z"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Rot_X"
+      Pretty="Rot X"
+      ActivationGroup="Rot_XYZ"
+      Feature="Position.Rotation"
+      PhysicalUnit="Angle"
+      Definition="Defines rotation around X axis."
+      Explanation="Devices that can be rotated around the X-axis in space use this attribute. A typical usage is horizontal rotation of a video-layer in space (pitch axis)."
+      Label="Rot X"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Rot_Y"
+      Pretty="Rot Y"
+      ActivationGroup="Rot_XYZ"
+      Feature="Position.Rotation"
+      PhysicalUnit="Angle"
+      Definition="Defines rotation around Y axis."
+      Explanation="Devices that can be rotated around the Y-axis in space use this attribute. A typical usage is rolling of a video-layer in space (roll axis)."
+      Label="Rot Y"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Rot_Z"
+      Pretty="Rot Z"
+      ActivationGroup="Rot_XYZ"
+      Feature="Position.Rotation"
+      PhysicalUnit="Angle"
+      Definition="Defines rotation around Z axis."
+      Explanation="Devices that can be rotated around the Z-axis in space use this attribute. A typical usage is vertical rotation of a video-layer in space (yaw axis)."
+      Label="Rot Z"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Scale_X"
+      Pretty="Scale X"
+      ActivationGroup="Scale_XYZ"
+      Feature="Position.Scale"
+      PhysicalUnit="Percent"
+      Definition="Scaling on X axis."
+      Explanation="Use this attribute to describe a function that scales the percentage of movement on an X axis."
+      Label="Scale X"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Scale_Y"
+      Pretty="Scale Y"
+      ActivationGroup="Scale_XYZ"
+      Feature="Position.Scale"
+      PhysicalUnit="Percent"
+      Definition="Scaling on Y axis."
+      Explanation="Use this attribute to describe a function that scales the percentage of movement on an Y axis."
+      Label="Scale Y"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Scale_Z"
+      Pretty="Scale Z"
+      ActivationGroup="Scale_XYZ"
+      Feature="Position.Scale"
+      PhysicalUnit="Percent"
+      Definition="Scaling on Y axis."
+      Explanation="Use this attribute to describe a function that scales the percentage of movement on an Z axis."
+      Label="Scale Z"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Scale_XYZ"
+      Pretty="Scale XYZ"
+      ActivationGroup="Scale_XYZ"
+      Feature="Position.Scale"
+      PhysicalUnit="Percent"
+      Definition="Unified scaling on all axis."
+      Explanation="Use this attribute to describe a function that scales the percentage of movement on all X, Y and Z axes."
+      Label="Scale XYZ"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Gobo(n)"
+      Pretty="G(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      Definition="The fixture’s gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel control. Selects gobos in gobo wheel (n). A different channel function sets the angle of the indexed position in the selected gobo or the angular speed of its continuous rotation."
+      Explanation="Use this attribute to select gobo in a gobo wheel for fixtures that provide gobo selection on one channel and gobo rotation/indexing on another channel(s). The actual gobo selection way - continuous or steps (when continuous, you can freely index the gobo wheel) is defined via physical properties of channel sets of this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Gobo"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)SelectSpin"
+      Pretty="Select Spin"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Definition="Selects gobos whose rotation is continuous in gobo wheel (n) and controls the angular speed of the gobo’s spin within the same channel function. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Explanation="Use this attribute to control selection and spin speed of gobos, with continuous rotation in gobo wheel, within the same channel function. When there is more than one gobo wheel a wild card (numerical identifier (n)) will be automatically added to indicate which wheel is being controlled. When using this Gobo(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectSpin as the Logical Channel attribute."
+      Label="Gobo Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)SelectShake"
+      Pretty="Select Shake"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Definition="Selects gobos which shake in gobo wheel (n) and controls the frequency of the gobo’s shake within the same channel function."
+      Explanation="Use this attribute to control selection and shake speed of gobos, with gobo shake effect in gobo wheel, within the same channel function When using this Gobo(n)SelectShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectShake as the Logical Channel attribute."
+      Label="Gobo Select Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="20"
+      PhysicalTo="20"
+      Description="This is the amount of shake as a percentage of the image size and defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="Gobo(n)SelectEffects"
+      Pretty="Select Effects"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      Definition="Selects gobos which run effects in gobo wheel (n)."
+      Explanation="Use this attribute for manufacturer defined fixture specific effects on a gobo wheel. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)SelectEffects as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)SelectEffects as the Logical Channel attribute."
+      Label="Gobo Select Effects"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Gobo(n)WheelIndex"
+      Pretty="Wheel Index"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Angle"
+      Definition="Controls angle of indexed rotation of gobo wheel (n)."
+      Explanation="Use this attribute to define indexed rotation angle of the gobo wheel for the gobos on the wheel When using this Gobo(n)WheelIndex as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelIndex as the Logical Channel attribute."
+      Label="Gobo Wheel Index"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)WheelSpin"
+      Pretty="Wheel Spin"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of gobo wheel (n)."
+      Explanation="Speed and direction of a continuous rotation of a gobo wheel ('gobo rainbow effect') is control with this attribute. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelSpin as the Logical Channel attribute."
+      Label="Gobo Wheel Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)WheelShake"
+      Pretty="Wheel Shake"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Definition="Controls frequency of the shake of gobo wheel (n)."
+      Explanation="For gobo wheel that provides wheel shaking function, this attribute allows to set the frequency of the shake. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelShake as the Logical Channel attribute."
+      Label="Gobo Wheel Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="20"
+      PhysicalTo="20"
+      Description="This is the amount of shake as a percentage of the image size and defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="Gobo(n)WheelRandom"
+      Pretty="Wheel Random"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Definition="Controls speed of gobo wheel´s (n) random gobo slot selection."
+      Explanation="Use this attribute to set the frequency of a random gobo selection. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelRandom as the Logical Channel attribute."
+      Label="Gobo Wheel Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)WheelAudio"
+      Pretty="Wheel Audio"
+      MainAttribute="Gobo(n)"
+      ActivationGroup="Gobo(n)"
+      Feature="Gobo.Gobo"
+      Definition="Controls audio-controlled functionality of gobo wheel (n)."
+      Explanation="Use this attribute to turn on audio based gobo functions, like random gobo selection in the beat of the music. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)WheelAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n). In case that Gobo(n) already exists in the same geometry, you can use the Gobo(n)WheelAudio as the Logical Channel attribute."
+      Label="Gobo Wheel Audio"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Gobo(n)Pos"
+      Pretty="G(n) &lt;&gt;"
+      ActivationGroup="Gobo(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Angle"
+      Definition="Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control."
+      Explanation="This attribute allows to set indexed position (angle) of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Gobo Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Gobo(n)PosRotate"
+      Pretty="Rotate"
+      MainAttribute="Gobo(n)Pos"
+      ActivationGroup="Gobo(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of gobos in gobo wheel (n)."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n)Pos. In case that Gobo(n)Pos already exists in the same geometry, you can use the Gobo(n)PosRotate as the Logical Channel attribute."
+      Label="Gobo Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Gobo(n)PosShake"
+      Pretty="Shake"
+      MainAttribute="Gobo(n)Pos"
+      ActivationGroup="Gobo(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Definition="Controls frequency of the shake of gobos in gobo wheel (n)."
+      Explanation="This attribute allows to set frequency of shaking of a gobo in a gobo wheel and is typically used together with Gobo(n) attribute which selects the gobo. If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Gobo(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Gobo(n)Pos. In case that Gobo(n)Pos already exists in the same geometry, you can use the Gobo(n)PosShake as the Logical Channel attribute."
+      Label="Gobo Pos Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="20"
+      PhysicalTo="20"
+      Description="This defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="AnimationWheel(n)"
+      ActivationGroup="AnimationWheel(n)"
+      Pretty="Anim(n)"
+      Feature="Gobo.Gobo"
+      Definition="This is the main attribute of the animation wheel's (n) wheel control. Selects slots in the animation wheel. A different channel function sets the angle of the indexed position in the selected slot or the angular speed of its continuous rotation. Is used for animation effects with multiple slots. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Explanation="Use this attribute to select one of the possible animators on an animation wheel for fixtures that provide animation selection on one channel and animation rotation/indexing on another channel(s). The actual animator selection way - continuous or steps (when continuous, you can freely index the animation wheel) is defined via physical properties of channel sets of this attribute. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Animation Wheel"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="AnimationWheel(n)Audio"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      Pretty="Anim Audio"
+      Definition="Controls audio-controlled functionality of animation wheel (n)."
+      Explanation="This attribute controls how the animation wheel will behave when responding to an audio source for use with the AnimationWheel(n). When using this AnimationWheel(n)Audio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Audio as the Logical Channel attribute."
+      Label="Animation Wheel Audio"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="AnimationWheel(n)Macro"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      Pretty="Anim FX"
+      Definition="Selects predefined effects in animation wheel (n)."
+      Explanation="This attribute allows for selecting a fixture's predefined macro functions for the AnimationWheel(n). When using this AnimationWheel(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Macro as the Logical Channel attribute."
+      Label="Animation Wheel Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheel(n)Random"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim Random"
+      Definition="Controls frequency of animation wheel (n) random slot selection."
+      Explanation="Use this attribute to describe random effects of the Animation wheel prepared by the manufacturer of the fixture. When using this AnimationWheel(n)Random as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)Random as the Logical Channel attribute."
+      Label="Animation Wheel Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="AnimationWheel(n)SelectEffects"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      Pretty="Anim Select FX"
+      Definition="Selects slots which run effects in animation wheel (n)."
+      Explanation="Use this attribute to describe some effects of the AnimationWheel(n) prepared by the manufacturer of the fixture. When using this AnimationWheel(n)SelectEffects as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectEffects as the Logical Channel attribute."
+      Label="Animation Wheel Select Effects"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheel(n)SelectShake"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim Select Shake"
+      Definition="Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function."
+      Explanation="When selecting a shake of an animation wheel slot and defining the frequency of the shake withing the same channel function, choose this attribute to describe the behavior. When using this AnimationWheel(n)SelectShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectShake as the Logical Channel attribute."
+      Label="Animation Wheel Select Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="20"
+      PhysicalTo="20"
+      Description="This defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="AnimationWheel(n)SelectSpin"
+      ActivationGroup="AnimationWheel(n)"
+      MainAttribute="AnimationWheel(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Pretty="Anim Select Spin"
+      Definition="Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function"
+      Explanation="When selecting a rotation of an animation wheel slot and defining the angular speed of the rotation  withing the same channel function, choose this attribute to describe the behavior. When using this AnimationWheel(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n). In case that AnimationWheel(n) already exists in the same geometry, you can use the AnimationWheel(n)SelectSpin as the Logical Channel attribute."
+      Label="Animation Wheel Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="AnimationWheel(n)Pos"
+      ActivationGroup="AnimationWheel(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Angle"
+      Pretty="Anim Pos"
+      Definition="Controls angle of indexed rotation of slots in animation wheel. This is the main attribute of animation wheel (n) wheel slot control."
+      Explanation="This attribute allows to set indexed position (angle) of a animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Animation Wheel Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheel(n)PosRotate"
+      ActivationGroup="AnimationWheel(n)Pos"
+      MainAttribute="AnimationWheel(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Pretty="Anim Rotate"
+      Definition="Controls the speed and direction of continuous rotation of slots in animation wheel (n)."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of an animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationWheel(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosRotate as the Logical Channel attribute."
+      Label="Animation Wheel Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheel(n)PosShake"
+      ActivationGroup="AnimationWheel(n)Pos"
+      MainAttribute="AnimationWheel(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim Shake"
+      Definition="Controls frequency of the shake of slots in animation wheel (n)."
+      Explanation="This attribute allows to set frequency of shaking of an animation wheel and is typically used together with AnimationWheel(n) attribute which selects the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationWheel(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationWheel(n)Pos. In case that AnimationWheel(n)Pos already exists in the same geometry, you can use the AnimationWheel(n)PosShake as the Logical Channel attribute."
+      Label="Animation Wheel Pos Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="20"
+      PhysicalTo="20"
+      Description="This defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="AnimationSystem(n)"
+      ActivationGroup="AnimationSystem(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Percent"
+      Pretty="Anim System"
+      Definition="This is the main attribute of the animation system insertion control. Controls the insertion of the fixture's animation system in the light output. Is used for animation effects where a disk is inserted into the light output."
+      Explanation="Use this attribute to select or engage an animation wheel for fixtures that provide animation selection on one channel and animation rotation/indexing on another channel(s). The actual animator selection way - continuous or steps (when continuous, you can freely index the animation wheel) is defined via physical properties of channel sets of this attribute. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Animation System"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)Ramp"
+      ActivationGroup="AnimationSystem(n)"
+      MainAttribute="AnimationSystem(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim System Ramp"
+      Definition="Sets frequency of animation system (n) insertion ramp."
+      Explanation="When using this AnimationSystem(n)Ramp as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Ramp as the Logical Channel attribute."
+      Label="Animation System Ramp"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="50"
+      PhysicalTo="50"
+      Description="This defines the duration of the ramp in relation to the period."/>
+    <SubPhysicalUnit
+      Type="AmplitudeMin"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum position in relation to the whole way of the spline"/>
+    <SubPhysicalUnit
+      Type="AmplitudeMax"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the maximum position in relation to the whole way of the spline"/>
+    <Attribute
+      Name="AnimationSystem(n)Shake"
+      ActivationGroup="AnimationSystem(n)"
+      MainAttribute="AnimationSystem(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim System Shake"
+      Definition="Sets frequency of animation system (n) insertion shake."
+      Explanation="When using this AnimationSystem(n)Shake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Shake as the Logical Channel attribute."
+      Label="Animation System Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="AmplitudeMin"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum position in relation to the whole way of the spline"/>
+    <SubPhysicalUnit
+      Type="AmplitudeMax"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the maximum position in relation to the whole way of the spline"/>
+    <Attribute
+      Name="AnimationSystem(n)Audio"
+      ActivationGroup="AnimationSystem(n)"
+      MainAttribute="AnimationSystem(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="None"
+      Pretty="Anim System Audio"
+      Definition="Controls audio-controlled functionality of animation system (n) insertion."
+      Explanation="When using this AnimationSystem(n)Audio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Audio as the Logical Channel attribute."
+      Label="Animation System Audio"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)Random"
+      ActivationGroup="AnimationSystem(n)"
+      MainAttribute="AnimationSystem(n)"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="None"
+      Pretty="Anim System Random"
+      Definition="Controls frequency of animation system (n) random insertion."
+      Explanation="When using this AnimationSystem(n)Random as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n). In case that AnimationSystem(n) already exists in the same geometry, you can use the AnimationSystem(n)Random as the Logical Channel attribute."
+      Label="Animation System Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)Pos"
+      ActivationGroup="AnimationSystem(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Angle"
+      Pretty="Anim System Pos"
+      Definition="This is the main attribute of the animation system spinning control. Controls angle of indexed rotation of animation system (n) disk."
+      Explanation="This attribute allows to set indexed position (angle) of a animation wheel and is typically used together with AnimationSystem(n) attribute which selects/engages the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Animation System Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)PosRotate"
+      ActivationGroup="AnimationSystem(n)Pos"
+      MainAttribute="AnimationSystem(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="AngularSpeed"
+      Pretty="Anim System Rotate"
+      Definition="Controls the speed and direction of continuous rotation of animation system (n) disk."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of an animation wheel and is typically used together with AnimationSystem(n) attribute which selects/engages the animation. If there is more than one animation wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this AnimationSystem(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRotate as the Logical Channel attribute."
+      Label="Animation System Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)PosShake"
+      ActivationGroup="AnimationSystem(n)Pos"
+      MainAttribute="AnimationSystem(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="Frequency"
+      Pretty="Anim System Shake"
+      Definition="Controls frequency of the shake of animation system (n) disk."
+      Explanation="When using this AnimationSystem(n)PosShake as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosShake as the Logical Channel attribute."
+      Label="Animation System Pos Shake"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Amplitude"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the peak amplitude of the shake"/>
+    <Attribute
+      Name="AnimationSystem(n)PosRandom"
+      ActivationGroup="AnimationSystem(n)Pos"
+      MainAttribute="AnimationSystem(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="None"
+      Pretty="Anim System Rot Random"
+      Definition="Controls random speed of animation system (n) disk."
+      Explanation="When using this AnimationSystem(n)PosRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosRandom as the Logical Channel attribute."
+      Label="Animation System Pos Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)PosAudio"
+      ActivationGroup="AnimationSystem(n)Pos"
+      MainAttribute="AnimationSystem(n)Pos"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="None"
+      Pretty="Anim System Rot Audio"
+      Definition="Controls audio-controlled functionality of animation system (n) disk."
+      Explanation="When using this AnimationSystem(n)PosAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to AnimationSystem(n)Pos. In case that AnimationSystem(n)Pos already exists in the same geometry, you can use the AnimationSystem(n)PosAudio as the Logical Channel attribute."
+      Label="Animation System Pos Audio"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystem(n)Macro"
+      Feature="Gobo.Gobo"
+      PhysicalUnit="None"
+      Pretty="Anim System Macro"
+      Definition="Selects predefined effects in animation system (n)."
+      Explanation="This attribute allows for selecting a fixture's predefined macro functions for the AnimationSystem(n)"
+      Label="Animation System Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="MediaFolder(n)"
+      Pretty="Media Folder(n)"
+      Feature="Gobo.Media"
+      Definition="Selects folder that contains media content."
+      Explanation="This attribute selects one of multiple folders that (usually) contain media. Any folder selection process is possible with this attribute."
+      Label="Media Folder"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="MediaContent(n)"
+      Pretty="Media Content(n)"
+      Feature="Gobo.Media"
+      Definition="Selects file with media content."
+      Explanation="This attribute selects content that usually is located in one of the folders selected. Any content selection process is possible with this attribute."
+      Label="Media Content"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ModelFolder(n)"
+      Pretty="Model Folder(n)"
+      Feature="Gobo.Media"
+      PhysicalUnit="None"
+      Definition="Selects folder that contains 3D model content. For example 3D meshes for mapping."
+      Explanation="This attribute is selects specifically one of multiple folders for 3D content. Any folder selection process is possible with this attribute. If there is more than one folder the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Model Folder"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ModelContent(n)"
+      Pretty="Model Content(n)"
+      Feature="Gobo.Media"
+      PhysicalUnit="None"
+      Definition="Selects file with 3D model content."
+      Explanation="This attribute selects a 3D model that usually is located in one of the 3D folders selected. Any content selection process is possible with this attribute. If there is more than one content folder the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Model Content"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Playmode"
+      Pretty="Playmode"
+      Definition="Defines media playback mode."
+      Feature="Gobo.Media"
+      Explanation="For devices that allow to set a mode of media playback, for example play and loop, play and stop..., use  this attribute to describe this behavior."
+      Label="Media Playmode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PlayBegin"
+      Pretty="Play Begin"
+      Feature="Gobo.Media"
+      PhysicalUnit="Time"
+      Definition="Defines starting point of media content playback."
+      Explanation="Use this attribute to describe a function that allows to set the starting time of media content playback."
+      Label="Media Play Begin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PlayEnd"
+      Pretty="Play End"
+      Feature="Gobo.Media"
+      PhysicalUnit="Time"
+      Definition="Defines end point of media content playback."
+      Explanation="Use this attribute to describe a function that allows to set the end time of media content playback."
+      Label="Media Play End"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PlaySpeed"
+      Pretty="Play Speed"
+      Feature="Gobo.Media"
+      PhysicalUnit="Percent"
+      Definition="Adjusts playback speed of media content."
+      Explanation="Use this attribute to control the speed of media content playback"
+      Label="Media Play Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorEffects(n)"
+      Pretty="Color FX(n)"
+      Feature="Color.Color"
+      Definition="Selects predefined color effects built into the fixture."
+      Explanation="Use this attribute to control selecting predefined color effects built into the fixture"
+      Label="Color Effects"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Color(n)"
+      Pretty="C(n)"
+      ActivationGroup="ColorRGB"
+      Feature="Color.Color"
+      Definition="The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control."
+      Explanation="Any device that can create colors by changing a mechanical color wheel inside the device uses this attribute to describe the different colors possible. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Color"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="True"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Color(n)WheelIndex"
+      Pretty="Wheel Index"
+      MainAttribute="Color(n)"
+      ActivationGroup="ColorRGB"
+      Feature="Color.Color"
+      PhysicalUnit="Angle"
+      Definition="Controls angle of indexed rotation of color wheel (n)"
+      Explanation="The color wheel index describes an agle of rotation of the color wheel to exactly reproduce any mixture/position of the color wheel itself. The wild card will identify which color wheel will be indexed. When using this Color(n)WheelIndex as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelIndex as the Logical Channel attribute."
+      Label="Color Wheel Index"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Color(n)WheelSpin"
+      Pretty="Wheel Spin"
+      MainAttribute="Color(n)"
+      ActivationGroup="ColorRGB"
+      Feature="Color.Color"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of color wheel (n)."
+      Explanation="For special effects of a continuous rotating color wheel this attribute controls the direction of ration and the speed of rotation. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelSpin as the Logical Channel attribute."
+      Label="Color Wheel Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Color(n)WheelRandom"
+      Pretty="Wheel Random"
+      MainAttribute="Color(n)"
+      ActivationGroup="ColorRGB"
+      Feature="Color.Color"
+      PhysicalUnit="Frequency"
+      Definition="Controls frequency of color wheel´s (n) random color slot selection."
+      Explanation="The device internal random color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelRandom as the Logical Channel attribute."
+      Label="Color Wheel Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="Color(n)WheelAudio"
+      Pretty="Wheel Audio"
+      MainAttribute="Color(n)"
+      ActivationGroup="ColorRGB"
+      Feature="Color.Color"
+      Definition="Controls audio-controlled functionality of color wheel (n)."
+      Explanation="The device internal audio-based color wheel selection frequency will be controlled by this attribute. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Color(n)WheelAudio as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Color(n). In case that Color(n) already exists in the same geometry, you can use the Color(n)WheelAudio as the Logical Channel attribute."
+      Label="Color Wheel Audio"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="PlacementOffset"
+      PhysicalUnit="Degree"
+      PhysicalFrom="270"
+      PhysicalTo="270"/>
+    <Attribute
+      Name="ColorAdd_R"
+      Pretty="R"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.64,0.33,21.3"
+      Definition="Controls the intensity of the fixture's red emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Red color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Red Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_G"
+      Pretty="G"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.3,0.6,71.5"
+      Definition="Controls the intensity of the fixture's green emitters for direct additive color mixing"
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Green color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Green Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_B"
+      Pretty="B"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.15,0.06,7.2"
+      Definition="Controls the intensity of the fixture's blue emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Blue color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Blue Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_C"
+      Pretty="C"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.225,0.329,78.7"
+      Definition="Controls the intensity of the fixture's cyan emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Cyan Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_M"
+      Pretty="M"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.321,0.154,28.5"
+      Definition="Controls the intensity of the fixture's magenta emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Magenta Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_Y"
+      Pretty="Y"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.419,0.505,92.8"
+      Definition="Controls the intensity of the fixture's yellow emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Yellow color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Yellow Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_RY"
+      Pretty="Amber"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.477,0.460,57.0"
+      Definition="Controls the intensity of the fixture's amber emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Amber color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Amber Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_GY"
+      Pretty="Lime"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.372,0.543,82.1"
+      Definition="Controls the intensity of the fixture's lime emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Lime color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Lime Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_GC"
+      Pretty="Blue-Green"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.250,0.419,75.1"
+      Definition="Controls the intensity of the fixture's blue-green emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Blue-Green color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Blue-Green Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_BC"
+      Pretty="Light-Blue "
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.200,0.239,43.0"
+      Definition="Controls the intensity of the fixture's light-blue emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Light Blue color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Light-Blue Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_BM"
+      Pretty="Purple"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.254,0.117,17.9"
+      Definition="Controls the intensity of the fixture's purple emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Purple (Deep Blue) color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Purple Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_RM"
+      Pretty="Pink"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.403,0.200,24.9"
+      Definition="Controls the intensity of the fixture's pink emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Pink color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Pink Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_W"
+      Pretty="White"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.313,0.329,100.0"
+      Definition="Controls the intensity of the fixture's white emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="White Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_WW"
+      Pretty="WW"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.319,0.340,99.3"
+      Definition="Controls the intensity of the fixture's warm white emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Warm White color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Warm-White Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_CW"
+      Pretty="CW"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.306,0.329,97.9"
+      Definition="Controls the intensity of the fixture's cool white emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Cool White color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Cool-White Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorAdd_UV"
+      Pretty="UV"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.176,0.005,0.6"
+      Definition="Controls the intensity of the fixture's UV emitters for direct additive color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive UV color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="UV Additive Direct"
+      UseEmitter="True"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_R"
+      Pretty="R"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.64,0.33,21.3"
+      Definition="Controls the insertion of the fixture's red filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Red color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Red Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_G"
+      Pretty="G"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.3,0.6,71.5"
+      Definition="Controls the insertion of the fixture's green filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Green color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Green Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_B"
+      Pretty="B"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.15,0.06,7.2"
+      Definition="Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Blue color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Blue Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_C"
+      Pretty="C"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.225,0.329,78.7"
+      Definition="Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Cyan color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Cyan Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_M"
+      Pretty="M"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.321,0.154,28.5"
+      Definition="Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Magenta color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Magenta Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSub_Y"
+      Pretty="Y"
+      ActivationGroup="ColorRGB"
+      Feature="Color.RGB"
+      PhysicalUnit="ColorComponent"
+      Color="0.419,0.505,92.8"
+      Definition="Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing."
+      Explanation="Gradual (fading) change of insertion or saturation of a subtractive Yellow color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
+      Label="Yellow Subtractive"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorMacro(n)"
+      Pretty="Color Macro(n)"
+      Feature="Color.RGB"
+      Definition="Selects predefined colors that are programmed in the fixture's firmware."
+      Explanation="Choose this attribute to control the selection of predefined fixed colors, like Color Presets or Swatchbook Colors. The individual colors are defined by linking wheel slots to channel sets. If there is more than one color macro the wild-card (n) will be incremented and the number then indicates which color macro will be controlled."
+      Label="Color Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorMacro(n)Rate"
+      Pretty="Color Macro(n) Rate"
+      Feature="Color.RGB"
+      Definition="Controls the time between Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the time or speed of the Color Macro steps."
+      Label="Color Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTO"
+      Pretty="CTO"
+      Feature="Color.Color"
+      PhysicalUnit="Temperature"
+      Definition="Controls the fixture's &quot;Correct to orange&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTO decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Label="CTO"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTC"
+      Pretty="CTC"
+      Feature="Color.Color"
+      PhysicalUnit="Temperature"
+      Definition="Controls the fixture's &quot;Correct to color&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTC either increases or decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Label="CTC"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTB"
+      Pretty="CTB"
+      Feature="Color.Color"
+      PhysicalUnit="Temperature"
+      Definition="Controls the fixture's &quot;Correct to blue&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTB increases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Label="CTB"
+      UseEmitter="False"
+      UseFilter="True"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Tint"
+      Pretty="Tint"
+      Feature="Color.Color"
+      Definition="Controls the fixture's &quot;Correct green to magenta&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that adjusts the Green/Magenta shift of a fixture's light output."
+      Label="Tint"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="HSB_Hue"
+      Pretty="H"
+      ActivationGroup="ColorHSB"
+      Feature="Color.HSB"
+      PhysicalUnit="Angle"
+      Definition="Controls the fixture's color attribute regarding the hue."
+      Explanation="Use this attribute to control the fixture's Hue (color)"
+      Label="HSB Hue"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="HSB_Saturation"
+      Pretty="S"
+      ActivationGroup="ColorHSB"
+      Feature="Color.HSB"
+      PhysicalUnit="Percent"
+      Definition="Controls the fixture's color attribute regarding the saturation."
+      Explanation="Use this attribute to control a fixture's color Saturation (richness)"
+      Label="HSB Saturation"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="HSB_Brightness"
+      Pretty="B"
+      ActivationGroup="ColorHSB"
+      Feature="Color.HSB"
+      PhysicalUnit="Percent"
+      Definition="Controls the fixture's color attribute regarding the brightness."
+      Explanation="Use this attribute to control a fixture's color Brightness"
+      Label="HSB Brightness"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="HSB_Quality"
+      Pretty="Q"
+      ActivationGroup="ColorHSB"
+      Feature="Color.HSB"
+      PhysicalUnit="Percent"
+      Definition="Controls the fixture's color attribute regarding the quality."
+      Explanation="For devices that allow to adjust quality of HSB colors, use this attribute to describe this feature."
+      Label="HSB Quality"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CIE_X"
+      Pretty="X"
+      ActivationGroup="ColorCIE"
+      Feature="Color.CIE"
+      Definition="Controls the fixture's CIE 1931 color attribute regarding the chromaticity x."
+      Explanation="Use this attribute to describe a feature that sets the x parameter of chromaticity of CIE 1931 based color definition."
+      Label="CIE X"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CIE_Y"
+      Pretty="Y"
+      ActivationGroup="ColorCIE"
+      Feature="Color.CIE"
+      Definition="Controls the fixture's CIE 1931 color attribute regarding the chromaticity y."
+      Explanation="Use this attribute to describe a feature that sets the y parameter of chromaticity of CIE 1931 based color definition."
+      Label="CIE Y"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CIE_Brightness"
+      Pretty="B"
+      ActivationGroup="ColorCIE"
+      Feature="Color.CIE"
+      PhysicalUnit="Percent"
+      Definition="Controls the fixture's CIE 1931 color attribute regarding the brightness (Y)."
+      Explanation="Use this attribute to describe a feature that sets the brightness of chromaticity of CIE 1931 based color definition."
+      Label="CIE Brightness"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorRGB_Red"
+      Pretty="R"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's red attribute for indirect RGB color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Red color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Red Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Green"
+      Pretty="G"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's green attribute for indirect RGB color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Green color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Green Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Blue"
+      Pretty="B"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's blue attribute for indirect RGB color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Blue color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Blue Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Cyan"
+      Pretty="C"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's cyan attribute for indirect CMY color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Cyan Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Magenta"
+      Pretty="M"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's magenta attribute for indirect CMY color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Magenta Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Yellow"
+      Pretty="Y"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's yellow attribute for indirect CMY color mixing."
+      Explanation="Gradual (fading) change of intensity or saturation of an additive yellow color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. physical values go from 0 = no output, to 1 = full output/saturation."
+      Label="Yellow Additive Indirect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="ColorRGB_Quality"
+      Pretty="Q"
+      ActivationGroup="ColorIndirect"
+      Feature="Color.Indirect"
+      Definition="Controls the fixture's quality attribute for indirect color mixing."
+      Explanation="Use this attribute to describe a function of the device that allows the operator to control the quality parameter of the device's color mixing."
+      Label="Additive Indirect Quality"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="True"
+      UseColorSpace="True"/>
+    <Attribute
+      Name="VideoBoost_R"
+      Feature="Color.ColorCorrection"
+      PhysicalUnit="None"
+      Pretty="Boost R"
+      Color="0.64,0.33,21.3"
+      Definition="Adjusts color boost red of content."
+      Explanation="Use this attribute to describe a function that allows to raise up intensity of red color in the media content."
+      Label="Video Boost Red"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoBoost_G"
+      Pretty="Boost G"
+      Feature="Color.ColorCorrection"
+      PhysicalUnit="None"
+      Color="0.3,0.6,71.5"
+      Definition="Adjusts color boost green of content."
+      Explanation="Use this attribute to describe a function that allows to raise up intensity of green color in the media content."
+      Label="Video Boost Green"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoBoost_B"
+      Pretty="Boost B"
+      Feature="Color.ColorCorrection"
+      PhysicalUnit="None"
+      Color="0.15,0.06,7.2"
+      Definition="Adjusts color boost blue of content."
+      Explanation="Use this attribute to describe a function that allows to raise up intensity of green color in the media content."
+      Label="Video Boost Blue"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoHueShift"
+      Pretty="Hue Shift"
+      Feature="Color.HSBC_Shift"
+      PhysicalUnit="Angle"
+      Definition="Adjusts color hue shift of content."
+      Explanation="Use this attribute to describe a function that allows to set color hue shift of media content."
+      Label="Video Hue Shift"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoSaturation"
+      Pretty="S"
+      Feature="Color.HSBC_Shift"
+      PhysicalUnit="Percent"
+      Definition="Adjusts saturation of content."
+      Explanation="Use this attribute to describe a function that allows to set saturation of media content."
+      Label="Video Saturation"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoBrightness"
+      Pretty="B"
+      Feature="Color.HSBC_Shift"
+      PhysicalUnit="Percent"
+      Definition="Adjusts brightness of content."
+      Explanation="Use this attribute to describe a function that allows to set brightness of media content."
+      Label="Video Brightness"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoContrast"
+      Pretty="C"
+      Feature="Color.HSBC_Shift"
+      PhysicalUnit="Percent"
+      Definition="Adjusts contrast of content."
+      Explanation="Use this attribute to describe a function that allows to set contrast of media content."
+      Label="Video Contrast"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoKeyColor_R"
+      Pretty="R"
+      Feature="Color.ColorKey"
+      PhysicalUnit="None"
+      Color="0.64,0.33,21.3"
+      Definition="Adjusts red color for color keying."
+      Explanation="Use this attribute to describe a function that provides media content color keying by red color."
+      Label="Video Key Color Red"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoKeyColor_G"
+      Pretty="G"
+      Feature="Color.ColorKey"
+      PhysicalUnit="None"
+      Color="0.3,0.6,71.5"
+      Definition="Adjusts green color for color keying."
+      Explanation="Use this attribute to describe a function that provides media content color keying by green color."
+      Label="Video Key Color Green"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoKeyColor_B"
+      Pretty="B"
+      Feature="Color.ColorKey"
+      PhysicalUnit="None"
+      Definition="Adjusts blue color for color keying."
+      Color="0.15,0.06,7.2"
+      Explanation="Use this attribute to describe a function that provides media content color keying by blue color."
+      Label="Video Color Key Blue"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoKeyIntensity"
+      Pretty="Intensity"
+      Feature="Color.ColorKey"
+      PhysicalUnit="Percent"
+      Definition="Adjusts intensity of color keying."
+      Explanation="Use this attribute to describe a function that adjusts the intensity of color keying."
+      Label="Video Key Intensity"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoKeyTolerance"
+      Pretty="Tolerance"
+      Feature="Color.ColorKey"
+      PhysicalUnit="None"
+      Definition="Adjusts tolerance of color keying."
+      Explanation="Use this attribute to describe a function that adjusts the tolerance value of color keying."
+      Label="Video Key Tolerance"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeDuration"
+      Pretty="Strobe Duration"
+      Feature="Beam.Beam"
+      PhysicalUnit="Time"
+      Definition="Controls the length of a strobe flash."
+      Explanation="Use this attribute to describe a function that can adjust the duration of an individual flash."
+      Label="Strobe Duration"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeRate"
+      Pretty="Strobe Rate"
+      Feature="Beam.Beam"
+      Definition="Controls the time between strobe flashes."
+      Explanation="Use this attribute to describe a function that can adjust the time between individual flashes."
+      Label="Strobe Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeFrequency"
+      Pretty="Strobe Frequency"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of strobe flashes."
+      Explanation="Setting the frequency of strobing is described with this attribute."
+      Label="Strobe Frequency"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeShutter"
+      Pretty="StrobeM Shutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode shutter. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a Shutter Mode."
+      Label="Strobe Mode Shutter"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeStrobe"
+      Pretty="StrobeM Strobe"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a Strobe Mode. When using this StrobeModeStrobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeStrobe as the Logical Channel attribute."
+      Label="Strobe Mode Strobe"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModePulse"
+      Pretty="StrobeM Pulse"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a Pulsing Strobe Mode. When using this StrobeModePulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulse as the Logical Channel attribute."
+      Label="Strobe Mode Pulse"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModePulseOpen"
+      Pretty="StrobeM PulseOpen"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower opening and faster closing behavior. When using this StrobeModePulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulseOpen as the Logical Channel attribute."
+      Label="Strobe Mode Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModePulseClose"
+      Pretty="StrobeM Pulse Close"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses with slower closing and faster opening behavior. When using this StrobeModePulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModePulseClose as the Logical Channel attribute."
+      Label="Strobe Mode Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeRandom"
+      Pretty="StrobeM Random"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode random strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random strobing. When using this StrobeModeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandom as the Logical Channel attribute."
+      Label="Strobe Mode Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeRandomPulse"
+      Pretty="StrobeM Random Pulse"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode random pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter into a mode of random pulse based strobing. When using this StrobeModeRandomPulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulse as the Logical Channel attribute."
+      Label="Strobe Mode Random Pulse"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeRandomPulseOpen"
+      Pretty="StrobeM Random Pulse Open"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower opening and faster closing behavior. When using this StrobeModeRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulseOpen as the Logical Channel attribute."
+      Label="Strobe Mode Random Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeRandomPulseClose"
+      Pretty="StrobeM Random Pulse Close"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="Use this attribute do describe a function that allows to set to shutter/strobe into a mode where the shutter pulses in random intervals with slower closing and faster opening behavior. When using this StrobeModeRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeRandomPulseClose as the Logical Channel attribute."
+      Label="Strobe Mode Random Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeModeEffect"
+      Pretty="StrobeM Effect"
+      MainAttribute="StrobeModeShutter"
+      Feature="Beam.Beam"
+      Definition="Strobe mode random shutter effect feature. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe."
+      Explanation="When using this StrobeModeEffect as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to StrobeModeShutter. In case that StrobeModeShutter already exists in the same geometry, you can use the StrobeModeEffect as the Logical Channel attribute."
+      Label="Strobe Mode Effect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Shutter(n)"
+      Pretty="Sh(n)"
+      Feature="Beam.Beam"
+      Definition="Controls the fixture´s mechanical or electronical shutter feature."
+      Explanation="Open/close style of change of intensity or brightness. Physical values go between 0 = closed, to 1 = open. If there is more than one shutter the wild-card (n) will be incremented and the number then indicates which shutter will be controlled."
+      Label="Shutter"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Shutter(n)Strobe"
+      Pretty="Strobe(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature."
+      Explanation="When using this Shutter(n)Strobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)Strobe as the Logical Channel attribute."
+      Label="Shutter Strobe"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Duration"
+      PhysicalUnit="Time"
+      PhysicalFrom="0.025"
+      PhysicalTo="0.025"
+      Description="This defines the duration of the on time of the strobe."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the strobe from the start as percentage of the total period."/>
+    <Attribute
+      Name="Shutter(n)StrobePulse"
+      Pretty="Pulse(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature."
+      Explanation="When using this Shutter(n)StrobePulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulse as the Logical Channel attribute."
+      Label="Shutter Strobe Pulse"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the pulse is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the pulse from the start as percentage of the total period."/>
+    <Attribute
+      Name="Shutter(n)StrobePulseClose"
+      Pretty="Pulse Close(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function."
+      Explanation="When using this Shutter(n)StrobePulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseClose as the Logical Channel attribute."
+      Label="Shutter Strobe Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the ramp is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the ramp from the start as percentage of the total period."/>
+    <Attribute
+      Name="Shutter(n)StrobePulseOpen"
+      Pretty="Pulse Open(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function."
+      Explanation="When using this Shutter(n)StrobePulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseOpen as the Logical Channel attribute."
+      Label="Shutter Strobe Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the ramp is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the ramp from the start as percentage of the total period."/>
+    <Attribute
+      Name="Shutter(n)StrobeRandom"
+      Pretty="Random(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature."
+      Explanation="When using this Shutter(n)StrobeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandom as the Logical Channel attribute."
+      Label="Shutter Strobe Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Duration"
+      PhysicalUnit="Time"
+      PhysicalFrom="0.025"
+      PhysicalTo="0.025"
+      Description="This defines the duration of the on time of the strobe."/>
+    <Attribute
+      Name="Shutter(n)StrobeRandomPulse"
+      Pretty="Random Pulse(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature."
+      Explanation="When using this Shutter(n)StrobeRandomPulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulse as the Logical Channel attribute."
+      Label="Shutter Strobe Random Pulse"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Shutter(n)StrobeRandomPulseClose"
+      Pretty="Random Pulse Close(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function."
+      Explanation="When using this Shutter(n)StrobeRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseClose as the Logical Channel attribute."
+      Label="Shutter Strobe Random Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Shutter(n)StrobeRandomPulseOpen"
+      Pretty="Random Pulse Open(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function."
+      Explanation="When using this Shutter(n)StrobeRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseOpen as the Logical Channel attribute."
+      Label="Shutter Strobe Random Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Shutter(n)StrobeEffect"
+      Pretty="Effect(n)"
+      MainAttribute="Shutter(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Controls the frequency of the fixture´s mechanical or electronical shutter effect feature."
+      Explanation="When using this Shutter(n)StrobeEffect as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeEffect as the Logical Channel attribute."
+      Label="Shutter Strobe Effect"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Iris"
+      Pretty="Iris"
+      Feature="Beam.Beam"
+      Definition="Controls the diameter of the fixture's beam."
+      Explanation="An iris diaphragm made of movable leaves which allows to gradually change the diameter of the beam is described with this attribute."
+      Label="Iris"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IrisStrobe"
+      Pretty="Strobe"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of the iris's strobe feature."
+      Explanation="Strobing function created by fast movements of an iris is described with this attribute. When using this IrisStrobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisStrobe as the Logical Channel attribute."
+      Label="Iris Strobe"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Duration"
+      PhysicalUnit="Time"
+      PhysicalFrom="0.3"
+      PhysicalTo="0.3"
+      Description="This defines the duration of the on time of the iris."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the strobe from the start as percentage of the total period."/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="IrisStrobeRandom"
+      Pretty="Random Strobe"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of the iris's random movement."
+      Explanation="Strobing in random intervals created by fast movements of an iris is described with this attribute. When using this IrisStrobeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisStrobeRandom as the Logical Channel attribute."
+      Label="Iris Strobe Random"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="Duration"
+      PhysicalUnit="Time"
+      PhysicalFrom="0.3"
+      PhysicalTo="0.3"
+      Description="This defines the duration of the on time of the iris."/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="IrisPulseClose"
+      Pretty="Pulse Close"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of iris's closing pulse."
+      Explanation="A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower closing and faster opening behavior. When using this IrisPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisPulseClose as the Logical Channel attribute."
+      Label="Iris Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the pulse of the iris is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the pulse from the start as percentage of the total period."/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="IrisPulseOpen"
+      Pretty="Pulse Open"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of iris's opening pulse."
+      Explanation="A function that allows to adjust frequency of an iris based strobing where the iris pulses with slower opening and faster closing behavior. When using this IrisPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisPulseOpen as the Logical Channel attribute."
+      Label="Iris Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the pulse of the iris is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the pulse from the start as percentage of the total period."/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="IrisRandomPulseClose"
+      Pretty="Random Pulse Close"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of iris's random closing pulse."
+      Explanation="A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower opening and faster closing behavior. When using this IrisRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisRandomPulseClose as the Logical Channel attribute."
+      Label="Iris Random Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="IrisRandomPulseOpen"
+      Pretty="Random Pulse Open"
+      MainAttribute="Iris"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of iris's random opening pulse."
+      Explanation="A function that allows to enable an iris based strobing in random intervals where the iris pulses with slower closing and faster opening behavior. When using this IrisRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Iris. In case that Iris already exists in the same geometry, you can use the IrisRandomPulseOpen as the Logical Channel attribute."
+      Label="Iris Random Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="MinimumOpening"
+      PhysicalUnit="Percent"
+      PhysicalFrom="0"
+      PhysicalTo="0"
+      Description="This defines the minimum percentage to which the iris closes."/>
+    <Attribute
+      Name="Frost(n)"
+      Pretty="Frost(n)"
+      Feature="Beam.Beam"
+      Definition="The ability to soften the fixture's spot light with a frosted lens."
+      Explanation="For devices that allow to control insertion of frost lens or flag into the beam, to soften it, use this attribute to describe this function."
+      Label="Frost"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Frost(n)PulseOpen"
+      Pretty="Pulse Open (n)"
+      MainAttribute="Frost(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of frost's opening pulse"
+      Explanation="Use this attribute do describe a function that allows to set to frost into a mode where the frost pulses with slower opening and faster closing behavior. When using this Frost(n)PulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseOpen as the Logical Channel attribute."
+      Label="Frost Pulse Open"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the pulse of the frost is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the pulse from the start as percentage of the total period."/>
+    <Attribute
+      Name="Frost(n)PulseClose"
+      Pretty="Pulse Close (n)"
+      MainAttribute="Frost(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of frost's closing pulse."
+      Explanation="Use this attribute do describe a function that allows to set to frost into a mode where the frost pulses with slower closing and faster opening behavior. When using this Frost(n)PulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)PulseClose as the Logical Channel attribute."
+      Label="Frost Pulse Close"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the pulse of the frost is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the pulse from the start as percentage of the total period."/>
+    <Attribute
+      Name="Frost(n)Ramp"
+      Pretty="Ramp (n)"
+      MainAttribute="Frost(n)"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Sets frequency of frost's ramp."
+      Explanation="When using this Frost(n)Ramp as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Frost(n). In case that Frost(n) already exists in the same geometry, you can use the Frost(n)Ramp as the Logical Channel attribute."
+      Label="Frost Ramp"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="DutyCycle"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the fraction of one period in which the ramp of the frost is on."/>
+    <SubPhysicalUnit
+      Type="TimeOffset"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the offset of the end of the ramp from the start as percentage of the total period."/>
+    <Attribute
+      Name="Prism(n)"
+      Pretty="Prism(n)"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      Definition="The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control."
+      Explanation="Use this attribute to select a prism in a prism wheel for fixtures that provide prism selection on one channel and prism rotation/indexing on another channel(s). If there is more than one prism wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Prism"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Prism(n)SelectSpin"
+      Pretty="Select Spin(n)"
+      MainAttribute="Prism(n)"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function."
+      Explanation="Selects prism whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)SelectSpin as the Logical Channel attribute."
+      Label="Prism Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Prism(n)Macro"
+      Pretty="Prism(n) Macro"
+      MainAttribute="Prism(n)"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      Definition="Macro functions of prism wheel (n)."
+      Explanation="Use this attribute for manufacturer defined fixture specific effects on a prisms. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute."
+      Label="Prism Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Prism(n)Pos"
+      Pretty="Prism(n) Pos"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control."
+      Explanation="This attribute allows to set indexed position (angle) of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Prism Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Prism(n)PosRotate"
+      Pretty="Rotate(n)"
+      MainAttribute="Prism(n)Pos"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of prisms in prism wheel (n)."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute."
+      Label="Prism Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)"
+      Pretty="FX(n)"
+      Feature="Beam.Beam"
+      Definition="Generically predefined macros and effects of a fixture."
+      Explanation="Use this attribute to describe some effects and macros that are not possible to describe with some specific attribute."
+      Label="Effects"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)Rate"
+      Pretty="FX(n) Rate"
+      Feature="Beam.Beam"
+      PhysicalUnit="Frequency"
+      Definition="Frequency of running effects."
+      Explanation="Use this attribute to set frequency of some unspecified, generic effects."
+      Label="Effects Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)Fade"
+      Pretty="FX(n) Fade"
+      Feature="Beam.Beam"
+      Definition="Snapping or smooth look of running effects."
+      Explanation="Use this attribute to set fade of some unspecified, generic effects."
+      Label="Effects Fade"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)Adjust(m)"
+      Pretty="FX(n) Adjust(m)"
+      Feature="Beam.Beam"
+      Definition="Controls parameter (m) of effect (n)"
+      Explanation="Use this to set some parameter of some generic effect."
+      Label="Effects Adjust"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)Pos"
+      Pretty="FX(n) Pos"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control."
+      Explanation="Use this to set angle parameter of some generic effect."
+      Label="Effects Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Effects(n)PosRotate"
+      Pretty="FX(n) Rotate"
+      MainAttribute="Effects(n)Pos"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls speed and direction of slot/effect in effect wheel (n)."
+      Explanation="When using this Effects(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Effects(n)Pos. In case that Effects(n)Pos already exists in the same geometry, you can use the Effects(n)PosRotate as the Logical Channel attribute."
+      Label="Effects Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="EffectsSync"
+      Pretty="FX Sync"
+      Feature="Beam.Beam"
+      Definition="Sets offset between running effects and effects 2."
+      Explanation="Use this attribute to describe offsets between some generic effects."
+      Label="Effects Sync"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BeamShaper"
+      Pretty="Beam Shaper"
+      ActivationGroup="BeamShaper"
+      Feature="Beam.Beam"
+      Definition="Activates fixture's beam shaper."
+      Explanation="Use this attribute to describe beam shaper function of the device."
+      Label="Beam Shaper"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <SubPhysicalUnit
+      Type="RatioHorizontal"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the size of the beam compared to the original size."/>
+    <SubPhysicalUnit
+      Type="RatioVertical"
+      PhysicalUnit="Percent"
+      PhysicalFrom="100"
+      PhysicalTo="100"
+      Description="This defines the size of the beam compared to the original size."/>
+    <Attribute
+      Name="BeamShaperMacro"
+      Pretty="Beam Shaper Macro"
+      ActivationGroup="BeamShaper"
+      Feature="Beam.Beam"
+      Definition="Predefined presets for fixture's beam shaper positions."
+      Explanation="Use this attribute to describe predefined macros of the beam shaper function of the device."
+      Label="Beam Shaper Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BeamShaperPos"
+      Pretty="Beam Shaper &lt;&gt;"
+      ActivationGroup="BeamShaper"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Indexing of fixture's beam shaper."
+      Explanation="Use this attribute to describe indexing of the beam shaper function of the device."
+      Label="Beam Shaper Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BeamShaperPosRotate"
+      Pretty="Beam Shaper Rotate"
+      ActivationGroup="BeamShaper"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Continuous rotation of fixture's beam shaper."
+      Explanation="Use this attribute to describe spinning/rotation of the beam shaper function of the device."
+      Label="Beam Shaper Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Zoom"
+      Pretty="Zoom"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Controls the spread of the fixture's beam/spot."
+      Explanation="This attribute is used to adjust the beam angle of the light source."
+      Label="Zoom"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ZoomModeSpot"
+      Pretty="Zoom Spot"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Selects spot mode of zoom."
+      Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a flat projection field definition."
+      Label="Zoom Mode Spot"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ZoomModeBeam"
+      Pretty="Zoom Beam"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Selects beam mode of zoom."
+      Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a beamy, hot-spoty type of projection."
+      Label="Zoom Mode Beam"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DigitalZoom"
+      Pretty="DZoom"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Controls the image size within the defined projection. Used on digital projection based devices"
+      Explanation="Use this to describe a zoom of for example a digital projector, where the image changes size but the beam angle remains the same."
+      Label="Digital Zoom"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Focus(n)"
+      Pretty="Focus(n)"
+      Feature="Focus.Focus"
+      Definition="Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot."
+      Explanation="Use this attribute to describe the sharpening/focusing function of the device. Some may call it the Edge."
+      Label="Focus"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Focus(n)Adjust"
+      Pretty="Focus(n) Adjust"
+      Feature="Focus.Focus"
+      Definition="Autofocuses functionality using presets."
+      Explanation="Use this attribute to describe a function which sets some parameters or behaviors that make the optical system of the device to automatically keep the projection focused."
+      Label="Focus Adjust"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Focus(n)Distance"
+      Pretty="Focus(n) Distance"
+      Feature="Focus.Focus"
+      PhysicalUnit="Length"
+      Definition="Autofocuses functionality using distance."
+      Explanation="Use this attribute to describe a function which sets a distance at which the optical system of the device will automatically keep the projection focused."
+      Label="Focus Distance"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Control(n)"
+      Pretty="Ctrl(n)"
+      Feature="Control.Control"
+      Definition="Controls the channel of a fixture."
+      Explanation="Use this attribute do describe a function (typically a DMX channel) which provides access to settings and to controls allowing changes of the behavior of the device, like striking and dousing of the lamp and so on. These individual settings or for example lamp controls are then described by their specific attributes. If there is more than one control channel the wild-card (n) will be incremented and the number then indicates which control channel will be controlled."
+      Label="Control"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DimmerMode"
+      Pretty="Dim Mode"
+      Feature="Control.Control"
+      Definition="Selects different modes of intensity."
+      Explanation="Switching between different types of dimming modes is described with this attribute."
+      Label="Dimmer Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DimmerCurve"
+      Pretty="Dim Curve"
+      Feature="Control.Control"
+      Definition="Selects different dimmer curves of the fixture."
+      Explanation="Switching between different types of dimming curves provided by the device is described with this attribute."
+      Label="Dimmer Curve"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BlackoutMode"
+      Pretty="Blackout Mode"
+      Feature="Control.Control"
+      Definition="Close the light output under certain conditions (movement correction, gobo movement, etc.)."
+      Explanation="If the device provides a way to disable light output when gobo, color or other elements are moving or when for example movement position is being restored after external manual intervention, use this attribute to describe this behavior/settings."
+      Label="Blackout Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="LEDFrequency"
+      Pretty="LED Frequency"
+      Feature="Control.Control"
+      PhysicalUnit="Frequency"
+      Definition="Controls LED frequency."
+      Explanation="Use this attribute to describe a function which allows to change frequency of LEDs."
+      Label="LED Frequency"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="LEDZoneMode"
+      Pretty="LED Zone Mode"
+      Feature="Control.Control"
+      Definition="Changes zones of LEDs."
+      Explanation="For multipixel LED devices that allow to choose which zones of LEDs are being used, use this attribute to describe this function."
+      Label="LED Zone Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PixelMode"
+      Pretty="Pixel Mode"
+      Feature="Control.Control"
+      Definition="Controls behavior of LED pixels."
+      Explanation="For multipixel devices that allow to set behavior of pixel control (for example order of LEDs), use this attribute to describe such behavior/settings."
+      Label="Pixel Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PanMode"
+      Pretty="Pan Mode"
+      Feature="Control.Control"
+      Definition="Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range."
+      Explanation="For devices that allow different modes of pan behavior, use this attribute to describe the behavior."
+      Label="Pan Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TiltMode"
+      Pretty="Tilt Mode"
+      Feature="Control.Control"
+      Definition="Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range."
+      Explanation="For devices that allow different modes of tilt behavior, use this attribute to describe the behavior."
+      Label="Tilt Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PanTiltMode"
+      Pretty="PanTilt Mode"
+      Feature="Control.Control"
+      Definition="Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range."
+      Explanation="For devices that allow different modes of behavior of pan and tilt, use this attribute to describe the behavior."
+      Label="Pan Tilt Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionModes"
+      Pretty="Pos Modes"
+      Feature="Control.Control"
+      Definition="Selects the fixture's position mode."
+      Explanation="For devices that allow different modes of behavior of their positioning system, use this attribute to describe the behavior."
+      Label="Position Modes"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Gobo(n)WheelMode"
+      Pretty="G(n) Mode"
+      Feature="Control.Control"
+      Definition="Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n)."
+      Explanation="This attribute describes selecting, indexing, and rotating of gobos in a gobo wheel (n)."
+      Label="Gobo Wheel Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="GoboWheelShortcutMode"
+      Pretty="Gobo Shortcut Mode"
+      Feature="Control.Control"
+      Definition="Defines whether the gobo wheel takes the shortest distance between two positions."
+      Explanation="This attribute describes whether the gobo wheel takes the shortest distance between two positions."
+      Label="Gobo Wheel Shortcut Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheel(n)Mode"
+      Feature="Control.Control"
+      Pretty="Anim Mode"
+      Definition="Changes control between selecting, indexing, and rotating the slots of animation wheel (n)."
+      Explanation="This attribute describes selecting, indexing, and rotating of slots in an animation wheel (n)."
+      Label="Animation Wheel Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationWheelShortcutMode"
+      Pretty="Anim Shortcut Mode"
+      Feature="Control.Control"
+      Definition="Defines whether the animation wheel takes the shortest distance between two positions."
+      Explanation="This attribute describes whether the animation wheel takes the shortest distance between two positions."
+      Label="Animation Wheel Shortcut Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Color(n)Mode"
+      Pretty="C(n) Mode"
+      Feature="Control.Control"
+      Definition="Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n)."
+      Explanation="This attribute describes between selecting, continuous selection, half selection, random selection, color spinning, etc. of colors in a color wheel (n)."
+      Label="Color Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorWheelShortcutMode"
+      Pretty="Color Wheel Shortcut Mode"
+      Feature="Control.Control"
+      Definition="Defines whether the color wheel takes the shortest distance between two colors."
+      Explanation="This attribute describes whether the color wheel takes the shortest distance between two colors."
+      Label="Color Wheel Shortcut Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CyanMode"
+      Pretty="Cyan Mode"
+      Feature="Control.Control"
+      Definition="Controls how Cyan is used within the fixture's cyan CMY-mixing feature."
+      Explanation="Use this attribute to describe the mode of operation of the Cyan."
+      Label="Cyan Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="MagentaMode"
+      Pretty="Magenta Mode"
+      Feature="Control.Control"
+      Definition="Controls how Magenta is used within the fixture's magenta CMY-mixing."
+      Explanation="Use this attribute to describe the mode of operation of the Magenta."
+      Label="Magenta Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="YellowMode"
+      Pretty="Yellow Mode"
+      Feature="Control.Control"
+      Definition="Controls how Yellow is used within the fixture's yellow CMY-mixing feature."
+      Explanation="Use this attribute to describe the mode of operation of the Yellow."
+      Label="Yellow Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorMixMode"
+      Pretty="Color Mix Mode"
+      Feature="Control.Control"
+      Definition="Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing."
+      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. "
+      Label="Color Mix Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ChromaticMode"
+      Pretty="Chroma Mode"
+      Feature="Control.Control"
+      Definition="Selects chromatic behavior of the device."
+      Explanation="Use this attribute to describe a function that defines if CCT related channels (CTC, CTO, CTB...) influence only white colors or whether CCT is applied also to mixed colors."
+      Label="Chromatic Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorCalibrationMode"
+      Pretty="CCalib Mode"
+      Feature="Control.Control"
+      Definition="Sets calibration mode (for example on/off)."
+      Explanation="Use this attribute to describe a feature that enable or disable color calibrations of the device."
+      Label="Color Calibration Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorConsistency"
+      Pretty="Color consistency"
+      Feature="Control.Control"
+      Definition="Controls consistent behavior of color."
+      Explanation="Some devices allow to eliminate inconsistencies of color mixing output due to intensity drop caused by thermal management. In devices that allow to enable/disable internal color consistency setting, use this attribute to describe a such function."
+      Label="Color Consistency"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorControl"
+      Pretty="Color Ctrl"
+      Feature="Control.Control"
+      Definition="Controls special color related functions."
+      Explanation="Use this to describe some color related control functions of the device."
+      Label="Color Control"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorModelMode"
+      Pretty="ColorModel"
+      Feature="Control.Control"
+      Definition="Controls color model (CMY/RGB/HSV...)."
+      Explanation="In devices that have a function to allow switching between various ways of color mixing (CMY, RGB, HSV...), this attribute is used to describe this function."
+      Label="Color Model Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorSettingsReset"
+      Pretty="Color Ctrl Rst"
+      Feature="Control.Control"
+      Definition="Resets settings of color control channel."
+      Explanation="Use this attribute to describe a function which allows to set various color related settings back to the default state."
+      Label="Color Settings Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorUniformity"
+      Pretty="ColorUniform"
+      Feature="Control.Control"
+      Definition="Controls behavior of color uniformity."
+      Explanation="In devices that allow to set a color uniformity between multiple fixtures use this attribute to describe a such function."
+      Label="Color Uniformity"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CRIMode"
+      Pretty="CRI Mode"
+      Feature="Control.Control"
+      Definition="Controls CRI settings of output."
+      Explanation="Use this attribute to describe a function that allows to choose a color mixing mode which is prioritizing higher Color Rendering Index."
+      Label="CRI Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CustomColor"
+      Pretty="Custom Color"
+      Feature="Control.Control"
+      Definition="Custom color related functions (save, recall..)."
+      Explanation="Use this attribute to describe a function that allows to save a custom color into the lighting device."
+      Label="Custom Color"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="UVStability"
+      Pretty="UV Stab"
+      Feature="Control.Control"
+      Definition="Settings for UV stability color behavior."
+      Explanation="Use this attribute to describe a function that allows to choose a color mixing mode which is prioritizing color stability and suppresses UV color."
+      Label="UV Stability"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="WavelengthCorrection"
+      Pretty="Wavelength"
+      Feature="Control.Control"
+      Definition="Settings for Wavelength correction of colors."
+      Explanation="Use this attribute to describe a function that allows to adjust color mixing according to corresponding wavelengths in order to achieve same colors from multiple fixtures."
+      Label="Wave Length Correction"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="WhiteCount"
+      Pretty="White Count"
+      Feature="Control.Control"
+      Definition="Controls if White LED is proportionally added to RGB."
+      Explanation="Some devices allow internal automatic intensity control of White LED  by the device, based on proportions of intensity of remaining LED emitters. Use this attribute to describe this behavior."
+      Label="White Count"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="StrobeMode"
+      Pretty="Strobe Mode"
+      Feature="Control.Control"
+      Definition="Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute."
+      Explanation="Use this attribute to describe strobe, pulse, random strobe and other modes of the shutter attribute."
+      Label="Strobe Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ZoomMode"
+      Pretty="Zoom Mode"
+      Feature="Control.Control"
+      Definition="Changes modes of the fixture´s zoom."
+      Explanation="Use this to describe the possibility to set different zoom modes, like beam mode or a spot mode."
+      Label="Zoom Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FocusMode"
+      Pretty="Focus Mode"
+      Feature="Control.Control"
+      Definition="Changes modes of the fixture’s focus - manual or auto- focus."
+      Explanation="Use this to describe a function that allows to change the mode of the focus."
+      Label="Focus Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IrisMode"
+      Pretty="Iris Mode"
+      Feature="Control.Control"
+      Definition="Changes modes of the fixture’s iris - linear, strobe, pulse."
+      Explanation="Use this to describe a function that allows to change the mode of the iris."
+      Label="Iris Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FanMode"
+      Pretty="Fan Mode"
+      Feature="Control.Control"
+      Definition="Controls fan (n) mode."
+      Explanation="Use this attribute to switch between different types of fan control modes (for example auto, high, silent)."
+      Label="Fan Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FollowSpotMode"
+      Pretty="FollowSpot Mode"
+      Feature="Control.Control"
+      Definition="Selects follow spot control mode."
+      Explanation="For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior. "
+      Label="Follow Spot Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BeamEffectIndexRotateMode"
+      Pretty="Beam Effect Index Rotate Mode"
+      Feature="Control.Control"
+      Definition="Changes mode to control either index or rotation of the beam effects."
+      Explanation="Use this to describe a function that allows to change the mode of operation of beam effects."
+      Label="Beam Effect Index Rotate Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IntensityMSpeed"
+      Pretty="Intensity MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's intensity."
+      Explanation="Use this attribute to set a speed of dimming behavior. "
+      Label="Intensity Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionMSpeed"
+      Pretty="Pos MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's pan/tilt."
+      Explanation="Use this attribute to set a speed of movement for pan/tilt."
+      Label="Position Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorMixMSpeed"
+      Pretty="Color Mix MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's ColorMix presets."
+      Explanation="Use this attribute to set a speed of movement for color mixing elements."
+      Label="Color Mix Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorWheelSelectMSpeed"
+      Pretty="Color Wheel Select MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's color wheel."
+      Explanation="Use this attribute to set a speed of movement of color wheel(s)."
+      Label="Color Wheel Select Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="GoboWheel(n)MSpeed"
+      Pretty="Gobo Wheel(n) MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's gobo wheel (n)."
+      Explanation="Use this attribute to set a speed of movement of color wheel(s). If there is more than one gobo wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Gobo Wheel Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IrisMSpeed"
+      Pretty="Iris MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's iris."
+      Explanation="Use this attribute to set a speed of movement of iris(s)."
+      Label="Iris Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Prism(n)MSpeed"
+      Pretty="Prism(n) MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's prism wheel (n)."
+      Explanation="Use this attribute to set a speed of movement of prism(s). If there is more than one prism or prism wheel the wild-card (n) will be incremented and the number then indicates which prism/wheel will be controlled."
+      Label="Prism Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FocusMSpeed"
+      Pretty="Focus MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's focus."
+      Explanation="Use this attribute to set a speed of movement of focus."
+      Label="Focus Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Frost(n)MSpeed"
+      Pretty="Frost(n) MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's frost (n)."
+      Explanation="Use this attribute to set a speed of movement of frost. If there is more than one frost the wild-card (n) will be incremented and the number then indicates which frost will be controlled."
+      Label="Frost Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ZoomMSpeed"
+      Pretty="Zoom MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's zoom."
+      Explanation="Use this attribute to set a speed of movement of zoom."
+      Label="Zoom Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FrameMSpeed"
+      Pretty="Frame MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's shapers."
+      Explanation="Use this attribute to set a speed of movement of framing."
+      Label="Frame Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="GlobalMSpeed"
+      Pretty="Global MSpeed"
+      Feature="Control.Control"
+      Definition="General speed of fixture's features."
+      Explanation="Use this attribute to set a speed of movement which is used on elements of the device."
+      Label="Global M Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ReflectorAdjust"
+      Pretty="Reflector Adj"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's frost."
+      Explanation="Adjustment of the reflector of the device (for example setting it to a hot-spot output or a flat-field output) is described with this attribute."
+      Label="Reflector Adjust"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FixtureGlobalReset"
+      Pretty="Fixture Global Reset"
+      Feature="Control.Control"
+      Definition="Generally resets the entire fixture."
+      Explanation="This attribute is describing a function that allows the operator to trigger a complete internal reset of the fixture."
+      Label="Fixture Global Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DimmerReset"
+      Pretty="Dimmer Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's dimmer."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's dimmer, dimmer flags or other dimming elements."
+      Label="Dimmer Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ShutterReset"
+      Pretty="Shutter Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's shutter."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's shutter flags or elements."
+      Label="Shutter Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BeamReset"
+      Pretty="Beam Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's beam features."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's beam lenses or elements."
+      Label="Beam Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorMixReset"
+      Pretty="Color Mix Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's color mixing system."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color mixing system."
+      Label="Color Mix Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ColorWheelReset"
+      Pretty="Color Wheel Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's color wheel."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color wheels."
+      Label="Color Wheel Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FocusReset"
+      Pretty="Focus Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's focus."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or focus lenses or elements."
+      Label="Focus Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FrameReset"
+      Pretty="Frame Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's shapers."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or framing elements."
+      Label="Frame Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="GoboWheelReset"
+      Pretty="G Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's gobo wheel."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's gobo wheels."
+      Label="Gobo Wheel Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IntensityReset"
+      Pretty="Intensity Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's intensity."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's intensity"
+      Label="Intensity Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="IrisReset"
+      Pretty="Iris Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's iris."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's iris."
+      Label="Iris Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PositionReset"
+      Pretty="Pos Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's pan/tilt."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's positional system"
+      Label="Position Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="PanReset"
+      Pretty="Pan Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's pan."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's pan."
+      Label="Pan Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TiltReset"
+      Pretty="Tilt Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's tilt."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's tilt."
+      Label="Tilt Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ZoomReset"
+      Pretty="Zoom Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's zoom."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's zoom lenses or elements."
+      Label="Zoom Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTBReset"
+      Pretty="CTB Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's CTB."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTB flags or elements."
+      Label="CTB Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTOReset"
+      Pretty="CTO Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's CTO."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTO flags or elements."
+      Label="CTO Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="CTCReset"
+      Pretty="CTC Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's CTC."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTC flags or elements."
+      Label="CTC Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="AnimationSystemReset"
+      Pretty="Anim Sytem Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's animation system features."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's animation wheels or elements."
+      Label="Animation System Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FixtureCalibrationReset"
+      Pretty="Fixture Calibration Reset"
+      Feature="Control.Control"
+      Definition="Resets the fixture's calibration."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's calibrations."
+      Label="Fixture Calibration Reset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Function"
+      Pretty="Function"
+      Feature="Control.Control"
+      Definition="Generally controls features of the fixture."
+      Explanation="If you cannot find other attribute that would describe a feature of the Power/Control channel, use this generic attribute."
+      Label="Function"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="LampControl"
+      Pretty="Lamp Ctrl"
+      Feature="Control.Control"
+      Definition="Controls the fixture's lamp on/lamp off feature."
+      Explanation="Use this attribute to describe functionality that allows to strike and douse the lamp of the fixture."
+      Label="Lamp Control"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DisplayIntensity"
+      Pretty="Display Int"
+      Feature="Control.Control"
+      Definition="Adjusts intensity of display"
+      Explanation="For fixtures with the possibility to adjust the brightness of their menu display screen, use this attribute to describe such functionality."
+      Label="Display Intensity"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="DMXInput"
+      Pretty="DMX Input"
+      Feature="Control.Control"
+      Definition="Selects DMX Input"
+      Explanation="Use this attribute to describe behavior that allows changing the source of the DMX signal. "
+      Label="DMX Input"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="NoFeature"
+      Pretty="NoFeature"
+      Feature="Control.Control"
+      Definition="Ranges without a functionality."
+      Explanation="Use this attribute for functions that do not define any functions. They might be for example reserved for later use."
+      Label="No Feature"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Dummy"
+      Pretty="Dummy"
+      Feature="Control.Control"
+      Definition="Ranges without a functionality."
+      Explanation="Use this attribute for functions that do not define any functions. They might be for example reserved for later use."
+      Label="Dummy"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Blower(n)"
+      Pretty="Blower(n)"
+      Feature="Control.Control"
+      Definition="Fog or hazer‘s blower feature."
+      Explanation="Use this attribute to describe a blower function."
+      Label="Blower"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Fan(n)"
+      Pretty="Fan(n)"
+      Feature="Control.Control"
+      Definition="Fog or hazer's Fan feature."
+      Explanation="Use this to describe a function that controls a fan of a device."
+      Label="Fan"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Fog(n)"
+      Pretty="Fog(n)"
+      Feature="Control.Control"
+      Definition="Fog or hazer's Fog feature."
+      Explanation="A function that controls fog/haze function of a fog machine."
+      Label="Fog"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Haze(n)"
+      Pretty="Haze(n)"
+      Feature="Control.Control"
+      Definition="Fog or hazer's Haze feature."
+      Explanation="A function that controls fog/haze function of a haze machine."
+      Label="Haze"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="LampPowerMode"
+      Pretty="Lamp Power Mode"
+      Feature="Control.Control"
+      Definition="Controls the energy consumption of the lamp."
+      Explanation="For devices that allow to set different lamp modes (Low Power mode, Eco mode...), use this attribute to describe this function."
+      Label="Lamp Power Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Fans"
+      Pretty="Fans"
+      Feature="Control.Control"
+      Definition="Controls a fixture or device fan."
+      Explanation="For devices that allow to set a fan speed, use this attribute to describe this function."
+      Label="Fans"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Blade(n)A"
+      Pretty="Blade(n)A"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      Definition="1 of 2 shutters that shape the top/right/bottom/left of the beam."
+      Explanation="Use this attribute to describe framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. Eventual rotation of this edge is controlled by Blade(n)Rot attribute. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter, thus together these attributes are controlling the insertion and rotation at the same time. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam."
+      Label="Blade A"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Blade(n)B"
+      Pretty="Blade(n)B"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      Definition="2 of 2 shutters that shape the top/right/bottom/left of the beam."
+      Explanation="Use this attribute to describe framing shutters or barndoors of the device in which the framing shutter is controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter, thus together these attributes are controlling the insertion and rotation at the same time. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam."
+      Label="Blade B"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Blade(n)Rot"
+      Pretty="Blade(n) Rot"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="Angle"
+      Definition="Rotates position of blade(n)."
+      Explanation="Use this attribute to describe rotation of the blades of framing shutters or barndoors. Use the (n) enumerator to set correct blade, when looking at the projection, 1 is bottom, 2 is left, 3 is top and 4 is right. (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right)."
+      Label="Blade Rot"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ShaperRot"
+      Pretty="Shaper Rot"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="Angle"
+      Definition="Rotates position of blade assembly."
+      Explanation="This attribute allows you to describe a function which rotates the complete carousel of framing shutters or barndors."
+      Label="Shaper Rot"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ShaperMacros"
+      Pretty="Shaper Macros"
+      Feature="Shapers.Shapers"
+      Definition="Predefined presets for shaper positions."
+      Explanation="This attribute allows for selecting a fixture's predefined macro functions for the Blades/Shapers."
+      Label="Shaper Macros"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="ShaperMacrosSpeed"
+      Pretty="Shaper Macros Speed"
+      Feature="Shapers.Shapers"
+      Definition="Speed of predefined effects on shapers."
+      Explanation="Use this attribute to control the speed of effects of shapers"
+      Label="Shaper Macros Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BladeSoft(n)A"
+      Pretty="BladeS(n)A"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="None"
+      Definition="1 of 2 soft edge blades that shape the top/right/bottom/left of the beam."
+      Explanation="Use this attribute to describe soft edge framing shutters or barndoors of the device. When only the Blade(n)A is used, it is controlling insertion of the complete framing shutter by moving the long edge. If both Blade(n)A and Blade(n)B are used, the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam."
+      Label="Blade Soft A"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="BladeSoft(n)B"
+      Pretty="BladeS(n)B"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="None"
+      Definition="2 of 2 soft edge blades that shape the top/right/bottom/left of the beam."
+      Explanation="Use this attribute to describe soft edge framing shutters or barndoors of the device in which the framing shutter in controlled by adjusting it's corners. This Blade(n)B is used in conjunction with the Blade(n)A attribute, where the Blade(n)A is controlling one corner and the Blade(n)B is controlling the second corner of the framing shutter. Use the (n) enumerator to set correct blade - when looking at the projection, 1 is bottom (from positive to negative values in Y axis), 2 is left (from negative to positive values on the X axis), 3 is top (from negative to positive values on the Y axis) and 4 is right (from positive to negative values on the X axis). (When looking into the device lens, 1 is top, 2 is left, 3 is bottom, 4 is right). The physical values describe the amount of insertion, where at 0 the blade is completely out of the beam and at 1 the blade is fully covering the diameter of the beam."
+      Label="Blade Soft B"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="KeyStone(n)A"
+      Pretty="KS(n)A"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="None"
+      Definition="1 of 2 corners that shape the top/right/bottom/left of the beam."
+      Explanation="This attribute describes a behavior typically used on video projection, to adjust parallax correction."
+      Label="Key Stone A"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="KeyStone(n)B"
+      Pretty="KS(n)B"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="None"
+      Definition="2 of 2 corners that shape the top/right/bottom/left of the beam."
+      Explanation="This attribute describes a behavior typically used on video projection, to adjust parallax correction."
+      Label="Key Stone B"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="Video"
+      Pretty="Video"
+      Feature="Video.Video"
+      Definition="Controls video features."
+      Explanation="Use this attribute to describe generic functions related to video controls."
+      Label="Video"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoEffect(n)Type"
+      Pretty="Video Effect(n) Type"
+      Feature="Video.Video"
+      Definition="Selects dedicated effects which are used for media."
+      Explanation="Use this attribute to describe generic video effects."
+      Label="Video Effect Type"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoEffect(n)Parameter(m)"
+      Pretty="Video Effect(n) Parameter(m)"
+      Feature="Video.Video"
+      Definition="Controls parameter (m) of VideoEffect(n)Type."
+      Explanation="Use this attribute to describe generic video effects parameters."
+      Label="Video Effect Parameter"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoCamera(n)"
+      Pretty="Video Camera(n)"
+      Feature="Video.Video"
+      Definition="Selects the video camera(n)."
+      Explanation="Use this attribute to describe features related to a video camera."
+      Label="Video Camera"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoSoundVolume(n)"
+      Pretty="Volume(n)"
+      Feature="Video.Video"
+      PhysicalUnit="Percent"
+      Definition="Adjusts sound volume."
+      Explanation="Describes the audio volume function of a device."
+      Label="Video Sound Volume"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="VideoBlendMode"
+      Pretty="BlendMode"
+      Feature="Video.Video"
+      PhysicalUnit="None"
+      Definition="Defines mode of video blending."
+      Explanation="Use this attribute to describe a function that allows to choose a mode of blending of a video output."
+      Label="Video Blend Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="InputSource"
+      Pretty="ISrc"
+      Feature="Video.Video"
+      PhysicalUnit="None"
+      Definition="Defines media input source e.g. a camera input."
+      Explanation="This attribute allows to set a video input source."
+      Label="Input Source"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="FieldOfView"
+      Pretty="FOV"
+      Feature="Video.Video"
+      PhysicalUnit="Angle"
+      Definition="Defines field of view."
+      Explanation="Use this attribute to describe features controlling field of view of video projection."
+      Label="Field Of View"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+  </Attributes>
+</AttributeDefinitions>
 ```
 
 Example for enumeration:
