@@ -1098,7 +1098,7 @@ specified in [table xx](#user-content-table-xx ).
 
 | XML Attribute Name | Value Type                          | Description                                                            |
 |----|----|----|
-| DistanceToFlammable       |  [Float](#user-content-attrtype-float )  | Minimal distance from flammable materials of all outer surfaces of the device according to IEC 60598-2-17; Unit: meter; Default value: 0       |
+| DistanceToFlammable       |  [Float](#user-content-attrtype-float )  | Minimum distance from flammable materials of all outer surfaces of the device according to IEC 60598-2-17; Unit: meter; Default value: 0       |
 
 </div>
 
