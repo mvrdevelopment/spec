@@ -474,7 +474,7 @@ in [table 9](#user-content-table-9 ).
 | UseWheelSlot       | [Enum](#user-content-attrtype-enum )         | Indication whether this attribute typically utilizes [WheelSlots](#user-content-wheel-slot ). The currently defined values are: "True", "False" |
 | UseGamut           | [Enum](#user-content-attrtype-enum )         | Indication whether this attribute typically utilizes [Gamuts](#user-content-gamuts ). The currently defined values are: "True", "False" |
 | UseColorSpace      | [Enum](#user-content-attrtype-enum )         | Indication whether this attribute typically utilizes [ColorSpaces](#user-content-color-space ). The currently defined values are: "True", "False" |
-
+| UseThumbnailExchange | [Enum](#user-content-attrtype-enum )       | Indication whether this attribute typically utilizes the exchange of media content thumbnails [WheelSlots](#user-content-wheel-slot ). The currently defined values are: "True", "False" |
 </div>
 
 As children the attribute node has a list of a [subphysical units](#user-content-subphysical-unit ).
@@ -2928,7 +2928,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Pan"
       Pretty="P"
@@ -2943,7 +2944,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Tilt"
       Pretty="T"
@@ -2958,7 +2960,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PanRotate"
       Pretty="P Rotate"
@@ -2972,7 +2975,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="TiltRotate"
       Pretty="T Rotate"
@@ -2986,7 +2990,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionEffect"
       Pretty="Pos FX"
@@ -2999,7 +3004,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionEffectRate"
       Pretty="Pos FX Rate"
@@ -3012,7 +3018,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionEffectFade"
       Pretty="Pos FX Fade"
@@ -3025,7 +3032,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="XYZ_X"
       Pretty="X"
@@ -3040,7 +3048,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="XYZ_Y"
       Pretty="Y"
@@ -3055,7 +3064,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="XYZ_Z"
       Pretty="Z"
@@ -3070,7 +3080,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Rot_X"
       Pretty="Rot X"
@@ -3085,7 +3096,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Rot_Y"
       Pretty="Rot Y"
@@ -3100,7 +3112,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Rot_Z"
       Pretty="Rot Z"
@@ -3115,7 +3128,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Scale_X"
       Pretty="Scale X"
@@ -3130,7 +3144,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Scale_Y"
       Pretty="Scale Y"
@@ -3145,7 +3160,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Scale_Z"
       Pretty="Scale Z"
@@ -3160,7 +3176,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Scale_XYZ"
       Pretty="Scale XYZ"
@@ -3175,7 +3192,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Gobo(n)"
       Pretty="G(n)"
@@ -3189,7 +3207,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3210,7 +3229,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3231,7 +3251,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3257,7 +3278,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Gobo(n)WheelIndex"
       Pretty="Wheel Index"
@@ -3273,7 +3295,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3294,7 +3317,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3315,7 +3339,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3342,7 +3367,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3362,7 +3388,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3382,7 +3409,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Gobo(n)PosRotate"
       Pretty="Rotate"
@@ -3398,7 +3426,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Gobo(n)PosShake"
       Pretty="Shake"
@@ -3414,7 +3443,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Amplitude"
       PhysicalUnit="Percent"
@@ -3434,7 +3464,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3454,7 +3485,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3474,7 +3506,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)Random"
       ActivationGroup="AnimationWheel(n)"
@@ -3490,7 +3523,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3510,7 +3544,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)SelectShake"
       ActivationGroup="AnimationWheel(n)"
@@ -3526,7 +3561,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3553,7 +3589,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3573,7 +3610,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)PosRotate"
       ActivationGroup="AnimationWheel(n)Pos"
@@ -3589,7 +3627,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)PosShake"
       ActivationGroup="AnimationWheel(n)Pos"
@@ -3605,7 +3644,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Amplitude"
       PhysicalUnit="Percent"
@@ -3626,7 +3666,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)Ramp"
       ActivationGroup="AnimationSystem(n)"
@@ -3642,7 +3683,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -3676,7 +3718,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="AmplitudeMin"
       PhysicalUnit="Percent"
@@ -3704,7 +3747,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)Random"
       ActivationGroup="AnimationSystem(n)"
@@ -3720,7 +3764,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)Pos"
       ActivationGroup="AnimationSystem(n)Pos"
@@ -3735,7 +3780,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)PosRotate"
       ActivationGroup="AnimationSystem(n)Pos"
@@ -3751,7 +3797,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)PosShake"
       ActivationGroup="AnimationSystem(n)Pos"
@@ -3767,7 +3814,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Amplitude"
       PhysicalUnit="Percent"
@@ -3789,7 +3837,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)PosAudio"
       ActivationGroup="AnimationSystem(n)Pos"
@@ -3805,7 +3854,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystem(n)Macro"
       Feature="Gobo.Gobo"
@@ -3819,7 +3869,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="MediaFolder(n)"
       Pretty="Media Folder(n)"
@@ -3832,7 +3883,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="MediaContent(n)"
       Pretty="Media Content(n)"
@@ -3845,7 +3897,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="True"/>
     <Attribute
       Name="ModelFolder(n)"
       Pretty="Model Folder(n)"
@@ -3859,7 +3912,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ModelContent(n)"
       Pretty="Model Content(n)"
@@ -3873,7 +3927,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="True"/>
     <Attribute
       Name="Playmode"
       Pretty="Playmode"
@@ -3886,7 +3941,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PlayBegin"
       Pretty="Play Begin"
@@ -3900,7 +3956,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PlayEnd"
       Pretty="Play End"
@@ -3914,7 +3971,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PlaySpeed"
       Pretty="Play Speed"
@@ -3928,7 +3986,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorEffects(n)"
       Pretty="Color FX(n)"
@@ -3941,7 +4000,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Color(n)"
       Pretty="C(n)"
@@ -3955,7 +4015,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="True"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3976,7 +4037,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -3997,7 +4059,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -4018,7 +4081,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -4038,7 +4102,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="PlacementOffset"
       PhysicalUnit="Degree"
@@ -4059,7 +4124,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_G"
       Pretty="G"
@@ -4075,7 +4141,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_B"
       Pretty="B"
@@ -4091,7 +4158,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_C"
       Pretty="C"
@@ -4107,7 +4175,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_M"
       Pretty="M"
@@ -4123,7 +4192,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_Y"
       Pretty="Y"
@@ -4139,7 +4209,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_RY"
       Pretty="Amber"
@@ -4155,7 +4226,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_GY"
       Pretty="Lime"
@@ -4171,7 +4243,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_GC"
       Pretty="Blue-Green"
@@ -4187,7 +4260,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_BC"
       Pretty="Light-Blue "
@@ -4203,7 +4277,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_BM"
       Pretty="Purple"
@@ -4219,7 +4294,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_RM"
       Pretty="Pink"
@@ -4235,7 +4311,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_W"
       Pretty="White"
@@ -4251,7 +4328,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_WW"
       Pretty="WW"
@@ -4267,7 +4345,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_CW"
       Pretty="CW"
@@ -4283,7 +4362,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_UV"
       Pretty="UV"
@@ -4299,7 +4379,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_R"
       Pretty="R"
@@ -4315,7 +4396,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_G"
       Pretty="G"
@@ -4331,7 +4413,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_B"
       Pretty="B"
@@ -4347,7 +4430,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_C"
       Pretty="C"
@@ -4363,7 +4447,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_M"
       Pretty="M"
@@ -4379,7 +4464,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSub_Y"
       Pretty="Y"
@@ -4395,7 +4481,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorMacro(n)"
       Pretty="Color Macro(n)"
@@ -4408,7 +4495,8 @@ not taken into account.
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorMacro(n)Rate"
       Pretty="Color Macro(n) Rate"
@@ -4421,7 +4509,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTO"
       Pretty="CTO"
@@ -4435,7 +4524,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTC"
       Pretty="CTC"
@@ -4449,7 +4539,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTB"
       Pretty="CTB"
@@ -4463,7 +4554,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Tint"
       Pretty="Tint"
@@ -4476,7 +4568,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="HSB_Hue"
       Pretty="H"
@@ -4491,7 +4584,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="HSB_Saturation"
       Pretty="S"
@@ -4506,7 +4600,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="HSB_Brightness"
       Pretty="B"
@@ -4521,7 +4616,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="HSB_Quality"
       Pretty="Q"
@@ -4536,7 +4632,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CIE_X"
       Pretty="X"
@@ -4550,7 +4647,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CIE_Y"
       Pretty="Y"
@@ -4564,7 +4662,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CIE_Brightness"
       Pretty="B"
@@ -4579,7 +4678,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Red"
       Pretty="R"
@@ -4593,7 +4693,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Green"
       Pretty="G"
@@ -4607,7 +4708,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Blue"
       Pretty="B"
@@ -4621,7 +4723,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Cyan"
       Pretty="C"
@@ -4635,7 +4738,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Magenta"
       Pretty="M"
@@ -4649,7 +4753,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Yellow"
       Pretty="Y"
@@ -4663,7 +4768,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorRGB_Quality"
       Pretty="Q"
@@ -4677,7 +4783,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="True"
-      UseColorSpace="True"/>
+      UseColorSpace="True"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoBoost_R"
       Feature="Color.ColorCorrection"
@@ -4692,7 +4799,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoBoost_G"
       Pretty="Boost G"
@@ -4707,7 +4815,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoBoost_B"
       Pretty="Boost B"
@@ -4722,7 +4831,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoHueShift"
       Pretty="Hue Shift"
@@ -4736,7 +4846,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoSaturation"
       Pretty="S"
@@ -4750,7 +4861,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoBrightness"
       Pretty="B"
@@ -4764,7 +4876,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoContrast"
       Pretty="C"
@@ -4778,7 +4891,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoKeyColor_R"
       Pretty="R"
@@ -4793,7 +4907,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoKeyColor_G"
       Pretty="G"
@@ -4808,7 +4923,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoKeyColor_B"
       Pretty="B"
@@ -4823,7 +4939,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoKeyIntensity"
       Pretty="Intensity"
@@ -4837,7 +4954,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoKeyTolerance"
       Pretty="Tolerance"
@@ -4851,7 +4969,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeDuration"
       Pretty="Strobe Duration"
@@ -4865,7 +4984,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeRate"
       Pretty="Strobe Rate"
@@ -4878,7 +4998,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeFrequency"
       Pretty="Strobe Frequency"
@@ -4892,7 +5013,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeShutter"
       Pretty="StrobeM Shutter"
@@ -4905,7 +5027,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeStrobe"
       Pretty="StrobeM Strobe"
@@ -4919,7 +5042,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModePulse"
       Pretty="StrobeM Pulse"
@@ -4933,7 +5057,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModePulseOpen"
       Pretty="StrobeM PulseOpen"
@@ -4947,7 +5072,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModePulseClose"
       Pretty="StrobeM Pulse Close"
@@ -4961,7 +5087,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeRandom"
       Pretty="StrobeM Random"
@@ -4975,7 +5102,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeRandomPulse"
       Pretty="StrobeM Random Pulse"
@@ -4989,7 +5117,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeRandomPulseOpen"
       Pretty="StrobeM Random Pulse Open"
@@ -5003,7 +5132,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeRandomPulseClose"
       Pretty="StrobeM Random Pulse Close"
@@ -5017,7 +5147,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeModeEffect"
       Pretty="StrobeM Effect"
@@ -5031,7 +5162,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Shutter(n)"
       Pretty="Sh(n)"
@@ -5044,7 +5176,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Shutter(n)Strobe"
       Pretty="Strobe(n)"
@@ -5059,7 +5192,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Duration"
       PhysicalUnit="Time"
@@ -5086,7 +5220,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5113,7 +5248,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5140,7 +5276,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5167,7 +5304,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Duration"
       PhysicalUnit="Time"
@@ -5188,7 +5326,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Shutter(n)StrobeRandomPulseClose"
       Pretty="Random Pulse Close(n)"
@@ -5203,7 +5342,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Shutter(n)StrobeRandomPulseOpen"
       Pretty="Random Pulse Open(n)"
@@ -5218,7 +5358,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Shutter(n)StrobeEffect"
       Pretty="Effect(n)"
@@ -5233,7 +5374,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Iris"
       Pretty="Iris"
@@ -5246,7 +5388,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IrisStrobe"
       Pretty="Strobe"
@@ -5261,7 +5404,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Duration"
       PhysicalUnit="Time"
@@ -5294,7 +5438,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="Duration"
       PhysicalUnit="Time"
@@ -5321,7 +5466,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5354,7 +5500,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5387,7 +5534,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="MinimumOpening"
       PhysicalUnit="Percent"
@@ -5408,7 +5556,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="MinimumOpening"
       PhysicalUnit="Percent"
@@ -5427,7 +5576,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Frost(n)PulseOpen"
       Pretty="Pulse Open (n)"
@@ -5442,7 +5592,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5469,7 +5620,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5496,7 +5648,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="DutyCycle"
       PhysicalUnit="Percent"
@@ -5522,7 +5675,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Prism(n)SelectSpin"
       Pretty="Select Spin(n)"
@@ -5538,7 +5692,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Prism(n)Macro"
       Pretty="Prism(n) Macro"
@@ -5553,7 +5708,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Prism(n)Pos"
       Pretty="Prism(n) Pos"
@@ -5567,7 +5723,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Prism(n)PosRotate"
       Pretty="Rotate(n)"
@@ -5583,7 +5740,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)"
       Pretty="FX(n)"
@@ -5596,7 +5754,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)Rate"
       Pretty="FX(n) Rate"
@@ -5610,7 +5769,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)Fade"
       Pretty="FX(n) Fade"
@@ -5623,7 +5783,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)Adjust(m)"
       Pretty="FX(n) Adjust(m)"
@@ -5636,7 +5797,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)Pos"
       Pretty="FX(n) Pos"
@@ -5650,7 +5812,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Effects(n)PosRotate"
       Pretty="FX(n) Rotate"
@@ -5665,7 +5828,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="EffectsSync"
       Pretty="FX Sync"
@@ -5678,7 +5842,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BeamShaper"
       Pretty="Beam Shaper"
@@ -5692,7 +5857,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <SubPhysicalUnit
       Type="RatioHorizontal"
       PhysicalUnit="Percent"
@@ -5718,7 +5884,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BeamShaperPos"
       Pretty="Beam Shaper &lt;&gt;"
@@ -5733,7 +5900,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BeamShaperPosRotate"
       Pretty="Beam Shaper Rotate"
@@ -5748,7 +5916,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Zoom"
       Pretty="Zoom"
@@ -5762,7 +5931,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ZoomModeSpot"
       Pretty="Zoom Spot"
@@ -5776,7 +5946,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ZoomModeBeam"
       Pretty="Zoom Beam"
@@ -5790,7 +5961,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DigitalZoom"
       Pretty="DZoom"
@@ -5804,7 +5976,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Focus(n)"
       Pretty="Focus(n)"
@@ -5817,7 +5990,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Focus(n)Adjust"
       Pretty="Focus(n) Adjust"
@@ -5830,7 +6004,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Focus(n)Distance"
       Pretty="Focus(n) Distance"
@@ -5844,7 +6019,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Control(n)"
       Pretty="Ctrl(n)"
@@ -5857,7 +6033,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DimmerMode"
       Pretty="Dim Mode"
@@ -5870,7 +6047,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DimmerCurve"
       Pretty="Dim Curve"
@@ -5883,7 +6061,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BlackoutMode"
       Pretty="Blackout Mode"
@@ -5896,7 +6075,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="LEDFrequency"
       Pretty="LED Frequency"
@@ -5910,7 +6090,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="LEDZoneMode"
       Pretty="LED Zone Mode"
@@ -5923,7 +6104,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PixelMode"
       Pretty="Pixel Mode"
@@ -5936,7 +6118,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PanMode"
       Pretty="Pan Mode"
@@ -5949,7 +6132,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="TiltMode"
       Pretty="Tilt Mode"
@@ -5962,7 +6146,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PanTiltMode"
       Pretty="PanTilt Mode"
@@ -5975,7 +6160,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionModes"
       Pretty="Pos Modes"
@@ -5988,7 +6174,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Gobo(n)WheelMode"
       Pretty="G(n) Mode"
@@ -6001,7 +6188,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="GoboWheelShortcutMode"
       Pretty="Gobo Shortcut Mode"
@@ -6014,7 +6202,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)Mode"
       Feature="Control.Control"
@@ -6027,7 +6216,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheelShortcutMode"
       Pretty="Anim Shortcut Mode"
@@ -6040,7 +6230,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Color(n)Mode"
       Pretty="C(n) Mode"
@@ -6053,7 +6244,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorWheelShortcutMode"
       Pretty="Color Wheel Shortcut Mode"
@@ -6066,7 +6258,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CyanMode"
       Pretty="Cyan Mode"
@@ -6079,7 +6272,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="MagentaMode"
       Pretty="Magenta Mode"
@@ -6092,7 +6286,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="YellowMode"
       Pretty="Yellow Mode"
@@ -6105,7 +6300,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorMixMode"
       Pretty="Color Mix Mode"
@@ -6118,7 +6314,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ChromaticMode"
       Pretty="Chroma Mode"
@@ -6131,7 +6328,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorCalibrationMode"
       Pretty="CCalib Mode"
@@ -6144,7 +6342,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorConsistency"
       Pretty="Color consistency"
@@ -6157,7 +6356,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorControl"
       Pretty="Color Ctrl"
@@ -6170,7 +6370,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorModelMode"
       Pretty="ColorModel"
@@ -6183,7 +6384,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorSettingsReset"
       Pretty="Color Ctrl Rst"
@@ -6196,7 +6398,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorUniformity"
       Pretty="ColorUniform"
@@ -6209,7 +6412,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CRIMode"
       Pretty="CRI Mode"
@@ -6222,7 +6426,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CustomColor"
       Pretty="Custom Color"
@@ -6235,7 +6440,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="UVStability"
       Pretty="UV Stab"
@@ -6248,7 +6454,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="WavelengthCorrection"
       Pretty="Wavelength"
@@ -6261,7 +6468,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="WhiteCount"
       Pretty="White Count"
@@ -6274,7 +6482,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="StrobeMode"
       Pretty="Strobe Mode"
@@ -6287,7 +6496,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ZoomMode"
       Pretty="Zoom Mode"
@@ -6300,7 +6510,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FocusMode"
       Pretty="Focus Mode"
@@ -6313,7 +6524,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IrisMode"
       Pretty="Iris Mode"
@@ -6326,7 +6538,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FanMode"
       Pretty="Fan Mode"
@@ -6339,7 +6552,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FollowSpotMode"
       Pretty="FollowSpot Mode"
@@ -6352,7 +6566,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BeamEffectIndexRotateMode"
       Pretty="Beam Effect Index Rotate Mode"
@@ -6365,7 +6580,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IntensityMSpeed"
       Pretty="Intensity MSpeed"
@@ -6378,7 +6594,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionMSpeed"
       Pretty="Pos MSpeed"
@@ -6391,7 +6608,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorMixMSpeed"
       Pretty="Color Mix MSpeed"
@@ -6404,7 +6622,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorWheelSelectMSpeed"
       Pretty="Color Wheel Select MSpeed"
@@ -6417,7 +6636,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="GoboWheel(n)MSpeed"
       Pretty="Gobo Wheel(n) MSpeed"
@@ -6430,7 +6650,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IrisMSpeed"
       Pretty="Iris MSpeed"
@@ -6443,7 +6664,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Prism(n)MSpeed"
       Pretty="Prism(n) MSpeed"
@@ -6456,7 +6678,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FocusMSpeed"
       Pretty="Focus MSpeed"
@@ -6469,7 +6692,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Frost(n)MSpeed"
       Pretty="Frost(n) MSpeed"
@@ -6482,7 +6706,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ZoomMSpeed"
       Pretty="Zoom MSpeed"
@@ -6495,7 +6720,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FrameMSpeed"
       Pretty="Frame MSpeed"
@@ -6508,7 +6734,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="GlobalMSpeed"
       Pretty="Global MSpeed"
@@ -6521,7 +6748,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ReflectorAdjust"
       Pretty="Reflector Adj"
@@ -6534,7 +6762,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FixtureGlobalReset"
       Pretty="Fixture Global Reset"
@@ -6547,7 +6776,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DimmerReset"
       Pretty="Dimmer Reset"
@@ -6560,7 +6790,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ShutterReset"
       Pretty="Shutter Reset"
@@ -6573,7 +6804,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BeamReset"
       Pretty="Beam Reset"
@@ -6586,7 +6818,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorMixReset"
       Pretty="Color Mix Reset"
@@ -6599,7 +6832,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorWheelReset"
       Pretty="Color Wheel Reset"
@@ -6612,7 +6846,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FocusReset"
       Pretty="Focus Reset"
@@ -6625,7 +6860,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FrameReset"
       Pretty="Frame Reset"
@@ -6638,7 +6874,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="GoboWheelReset"
       Pretty="G Reset"
@@ -6651,7 +6888,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IntensityReset"
       Pretty="Intensity Reset"
@@ -6664,7 +6902,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="IrisReset"
       Pretty="Iris Reset"
@@ -6677,7 +6916,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PositionReset"
       Pretty="Pos Reset"
@@ -6690,7 +6930,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="PanReset"
       Pretty="Pan Reset"
@@ -6703,7 +6944,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="TiltReset"
       Pretty="Tilt Reset"
@@ -6716,7 +6958,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ZoomReset"
       Pretty="Zoom Reset"
@@ -6729,7 +6972,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTBReset"
       Pretty="CTB Reset"
@@ -6742,7 +6986,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTOReset"
       Pretty="CTO Reset"
@@ -6755,7 +7000,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="CTCReset"
       Pretty="CTC Reset"
@@ -6768,7 +7014,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationSystemReset"
       Pretty="Anim Sytem Reset"
@@ -6781,7 +7028,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FixtureCalibrationReset"
       Pretty="Fixture Calibration Reset"
@@ -6794,7 +7042,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Function"
       Pretty="Function"
@@ -6807,7 +7056,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="LampControl"
       Pretty="Lamp Ctrl"
@@ -6820,7 +7070,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DisplayIntensity"
       Pretty="Display Int"
@@ -6833,7 +7084,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="DMXInput"
       Pretty="DMX Input"
@@ -6846,7 +7098,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="NoFeature"
       Pretty="NoFeature"
@@ -6859,7 +7112,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Dummy"
       Pretty="Dummy"
@@ -6872,7 +7126,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Blower(n)"
       Pretty="Blower(n)"
@@ -6885,7 +7140,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Fan(n)"
       Pretty="Fan(n)"
@@ -6898,7 +7154,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Fog(n)"
       Pretty="Fog(n)"
@@ -6911,7 +7168,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Haze(n)"
       Pretty="Haze(n)"
@@ -6924,7 +7182,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="LampPowerMode"
       Pretty="Lamp Power Mode"
@@ -6937,7 +7196,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Fans"
       Pretty="Fans"
@@ -6950,7 +7210,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Blade(n)A"
       Pretty="Blade(n)A"
@@ -6964,7 +7225,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Blade(n)B"
       Pretty="Blade(n)B"
@@ -6978,7 +7240,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Blade(n)Rot"
       Pretty="Blade(n) Rot"
@@ -6993,7 +7256,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ShaperRot"
       Pretty="Shaper Rot"
@@ -7008,7 +7272,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ShaperMacros"
       Pretty="Shaper Macros"
@@ -7021,7 +7286,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="ShaperMacrosSpeed"
       Pretty="Shaper Macros Speed"
@@ -7034,7 +7300,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BladeSoft(n)A"
       Pretty="BladeS(n)A"
@@ -7048,7 +7315,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="BladeSoft(n)B"
       Pretty="BladeS(n)B"
@@ -7062,7 +7330,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="KeyStone(n)A"
       Pretty="KS(n)A"
@@ -7076,7 +7345,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="KeyStone(n)B"
       Pretty="KS(n)B"
@@ -7090,7 +7360,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="Video"
       Pretty="Video"
@@ -7103,7 +7374,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoEffect(n)Type"
       Pretty="Video Effect(n) Type"
@@ -7116,7 +7388,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoEffect(n)Parameter(m)"
       Pretty="Video Effect(n) Parameter(m)"
@@ -7129,7 +7402,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoCamera(n)"
       Pretty="Video Camera(n)"
@@ -7142,7 +7416,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoSoundVolume(n)"
       Pretty="Volume(n)"
@@ -7156,7 +7431,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="VideoBlendMode"
       Pretty="BlendMode"
@@ -7170,7 +7446,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="InputSource"
       Pretty="ISrc"
@@ -7184,7 +7461,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="FieldOfView"
       Pretty="FOV"
@@ -7198,7 +7476,8 @@ not taken into account.
       UseWheel="False"
       UseWheelSlot="False"
       UseGamut="False"
-      UseColorSpace="False"/>
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
   </Attributes>
 </AttributeDefinitions>
 ```
