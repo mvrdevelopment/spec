@@ -84,6 +84,12 @@ amendments) applies.
 
 - [Semantic Versioning 2.0](https://semver.org/)
 
+- IEC 60529 Degrees of protection provided by enclosures (IP Code)
+
+- IEC 62262 Degrees of protection provided by enclosures for electrical equipment against external mechanical impacts (IK code)
+
+- IEC 60598-2-17 Luminaires - Part 2-17: Particular requirements - Luminaires for stage lighting, television and film studios (outdoor and indoor)
+
 ## Terms and definitions
 
 For the purposes of this document, the following terms and definitions
@@ -990,10 +996,12 @@ The color rendering index does not have any children.
 #### General
 
 This section defines the general properties of the device type (XML node
-`<Properties>`). The Properties Collect currently does not have any XML
-attributes. The currently defined children nodes of properties collect
-are specified in [table 28](#user-content-table-28 ).
+`<Properties>`).
 
+
+
+The currently defined children nodes of properties collect
+are specified in [table 28](#user-content-table-28 ).
 <div id="table-28">
 
 #### Table 28. *Properties Collect*
@@ -1003,7 +1011,8 @@ are specified in [table 28](#user-content-table-28 ).
 | [OperatingTemperature](#user-content-operatingtemperature ) | 0 or 1 | Temperature range in which the device can be operated. |
 | [Weight](#user-content-weight )                             | 0 or 1 | Weight of the device including all accessories.        |
 | [LegHeight](#user-content-legheight )                       | 0 or 1 | Height of the legs.                                    |
-
+| [Ratings](#user-content-ratings )                         | 0 or 1 | Various ratings of the device.                               |
+| [Distances](#user-content-distances )   | 0 or 1 | Distances from other objects or devices.             |
 
 </div>
 
@@ -1065,6 +1074,42 @@ currently defined XML attributes of the LegHeight are specified in
 
 The LegHeight currently does not have any children.
 
+#### Ratings
+
+This section defines Ratings of the device (XML node `<Ratings>`). The
+currently defined XML attributes of the Ratings are specified in [table
+xx](#user-content-table-xx ).
+
+<div id="table-xx">
+
+#### Table xx. *Ratings Attributes*
+
+| XML Attribute Name | Value Type                          | Description                                                            |
+|----|----|----|
+| IPRating              | [String](#user-content-attrtype-string ) | Optional. IP Rating of the device in the format of IEC 60529. Example: IP65  |
+| IKRating              | [String](#user-content-attrtype-string ) | Optional. IK Rating of the device in the format of IEC 62262. Example: IK10  |
+
+</div>
+
+The Ratings currently does not have any children.
+
+#### Distances
+
+This section defines information about required distances from the device (XML node
+`<Distances>`). The currently defined XML attributes of the Distances are
+specified in [table xx](#user-content-table-xx ).
+
+<div id="table-xx">
+
+#### Table xx. *Distances Attributes*
+
+| XML Attribute Name | Value Type                          | Description                                                            |
+|----|----|----|
+| DistanceToFlammable       |  [Float](#user-content-attrtype-float )  | Minimum distance from flammable materials of all outer surfaces of the device according to IEC 60598-2-17; Unit: meter; Default value: 0       |
+
+</div>
+
+The Distances currently does not have any children.
 
 ## Model Collect
   
