@@ -68,6 +68,52 @@ Example:
 
 The referenced geometry should contain the polygonal listening surface. Applications that calculate acoustic data can use this surface as the target area for result data such as sound pressure level maps.
 
+
+## New geometry Amplifier object
+
+Add amplifiers as GDTF-described audio devices, with MVR carrying placed instances and wiring between amplifiers, speakers, DSP/network devices, and power. Existing MVR `Connections`, `Protocols`, `Addresses`, and GDTF `WiringObject` should be reused instead of creating a separate MVR-only amplifier graph.
+
+- Add a GDTF geometry type `Amplifier` under Geometry Collect.
+- `Amplifier` uses standard geometry fields: `Name`, `Model`, `Position`.
+- Add amplifier-level attributes:
+  - `ChannelCount` integer.
+  - `AmplifierClass` enum/string, e.g. `A`, `AB`, `D`, `Other`.
+  - `DSP` bool.
+  - `SupportedSpeakerPreset` string or repeated child node, for manufacturer speaker setup/preset names.
+  - `Latency` float, milliseconds.
+  - `CoolingType` enum/string, e.g. `Passive`, `Fan`, `Other`.
+- Add child node `AmplifierChannel` under `Amplifier`, repeated once per output channel or logical output group.
+- `AmplifierChannel` attributes:
+  - `Name` required.
+  - `ChannelIndex` integer.
+  - `Mode` enum: `SingleEnded`, `Bridge`, `ParallelBridge`, `HighImpedance70V`, `HighImpedance100V`, `Other`.
+  - `OutputPower` float, watts.
+  - `LoadImpedance` float, ohms.
+  - `MinLoadImpedance` float, ohms.
+  - `MaxOutputVoltage` float, volts peak or RMS, with `VoltageMeasurement` enum `Peak`/`RMS`.
+  - `MaxOutputCurrent` float, amperes peak or RMS, with `CurrentMeasurement` enum `Peak`/`RMS`.
+  - `THDN` float, percent, optional.
+  - `CrestFactor` float, dB, optional.
+  - `FrequencyRangeMin` and `FrequencyRangeMax` float, hertz.
+  - `LinkedOutput` node reference to a GDTF `WiringObject` with speaker-level output signal.
+- Keep mains input, audio input, speaker output, network, and control interfaces as `WiringObject` nodes:
+  - Power input: `SignalType="Power"`, `ComponentType="Consumer"` plus existing power payload/voltage/frequency fields.
+  - Speaker outputs: `SignalType="AnalogAudio"` or new predefined `AmplifiedAudio`, `ComponentType="Output"`, connector types such as `NL4`, `NL8`, terminal blocks, or custom names.
+  - Analog/AES3/network audio inputs: existing `AnalogAudio`, `AES`, `Protocol`, `NetworkInput`, `NetworkInOut`.
+- Add predefined protocol names where needed:
+  - In GDTF supported protocols and MVR protocol type guidance, add `AES67`, `AES70`, `Milan`, `Dante`, and `Ravenna` as recognized audio-related names while still allowing custom protocol strings.
+- Add predefined connector types if missing:
+  - `NL2`, `NL8`, common Euroblock/Phoenix speaker terminal naming, and optionally `etherCON`; keep existing `NL4`, XLR, RJ45, and power connectors.
+- Update the `Speaker` proposal so speaker impedance can be matched against amplifier channel load and speaker wiring:
+  - Keep `Impedance` on `Speaker`.
+  - Clarify that amplifier-to-speaker links are represented through `WiringObject` plus MVR `Connection`, not by directly nesting speakers under amplifiers.
+
+In MVR:
+
+- Represent amplifier racks or standalone amplifiers as `Amplifiers` of fixtures? As `Fixture` when they need IDs, addresses, protocols, or GDTF device behavior; otherwise allow `SceneObject` with `GDTFSpec`.
+- Use existing MVR `Connections` to connect amplifier output wiring objects to speaker input wiring objects.
+- Use existing MVR `Protocols` and `Addresses/Network` for amplifier control and audio network assignment.
+
 ## MVR
 
 We need to add data for the venue transfer.
