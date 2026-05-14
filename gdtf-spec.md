@@ -1804,14 +1804,15 @@ defined XML attributes of a speaker geometry are specified in
 | Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
 | LinkedConsumer                  | [Node](#user-content-attrtype-node )  | Name of the Wire Geometry that this speaker is connected to. Need to an consumer type.                                   |
-| Impedance                  | [Float](#user-content-attrtype-float )  |  Impedance of the speaker. Note that Power consumption is defined be the LinkedConsumer consumptions.                  |
-| VerticalCoverageUp     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the ?? direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                               |
-| VerticalCoverageDown     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the ?? direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                                   |
-| HorizontalCoverageLeft     | [Float](#user-content-attrtype-float )  |  Horizontal CCoverage of the ?? direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
-| HorizontalCoverageRight     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the ?? direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
-| FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimum Frequency that the speaker supports.                                 |
-| FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximum Frequency that the speaker supports.                                 |
-| MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum SPL of the speaker in the center of distribution.                                 |
+| Impedance                  | [Float](#user-content-attrtype-float )  |  Nominal impedance of the speaker, Ohms.                  |
+| VerticalCoverageUp     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                               |
+| VerticalCoverageDown     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis)  direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                                   |
+| HorizontalCoverageLeft     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
+| HorizontalCoverageRight     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
+| SoundAngleRotationMax     | | [Float](#user-content-attrtype-float ) |Maximum rotation of the sound dispersion around the speaker axis ?? which axis |
+| FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimal frequency of the speaker at the -6 dB mark.                                |
+| FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximal frequency of the speaker at the -6 dB mark.                                 |
+| MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum sound pressure level measured at 1 meter from the speaker. The value is interpreted together with the SPL format attributes below.                                |
 
 #### Table XX. *MaxSPL Attributes*
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
@@ -1824,6 +1825,7 @@ defined XML attributes of a speaker geometry are specified in
 
 </div>
 
+TODO: Define default orientation of the speaker. Clarify if the values are for one speaker object ("speaker") or for the whole "speaker box". (Needed for MVR linking to the SoundAngleRotationMax and for the LinkedConsumer )
 
 
 ## DMX Mode Collect
