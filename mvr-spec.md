@@ -367,6 +367,7 @@ The child list (Table 18) contains a list of the following nodes:
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 | [Projector](#node-definition-projector)     | A definition of a projector.                                                 |
+| [ListeningPlane](#node-definition-listeningplane)     | A definition of a audio listening plane.                                                 |
 
 
 ## Node Definition for Parametric Objects
@@ -800,7 +801,66 @@ EXAMPLE An example of a node definition is shown below:
     </Projections>
 </Projector> 
 ```
+## Node Definition: ListeningPlane
 
+This node defines a listening plane object. The defined ListeningPlane Node Attributes are specified in Table XX.
+
+Node name: `ListeningPlane`
+
+##### Table XX — *ListeningPlane Node Attributes*
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table XX — *ListeningPlane Node Childs*
+
+| Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
+| ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)                | 0 or 1        |                                             | The location of the object inside the parent coordinate system.                                                                               |
+| [Classing](#node-definition-class)               | 0 or 1        | [UUID](#user-content-attrtype-uuid)           | The Class the object belongs to.                                                                                                              |
+| [Geometries](#node-definition-geometries)        | 1             |                                             | A list of geometrical representation objects that are part of the lisrtening plane.                                                                   |
+| [GridSpacingX]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the X direction in mm.                                                                                          |
+| [GridSpacingY]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the Y direction in mm.                                                                                         |
+| [ListeningPlaneResults]                          | Any           | Node                                        | Results of a calculation.                                                                                                                     |
+
+#### Node Definition: ListeningPlaneResults
+
+This node defines a ListeningPlaneResults.
+
+Node name: `ListeningPlaneResults`
+
+The child list (Table XX) contains a list of the following nodes:
+
+##### Table XX — *ListeningPlaneResults Node Childs*
+
+| Child Node                                        | Description                                      |
+| ------------------------------------------------- | ------------------------------------------------ |
+| [Frequency](#user-content-attrtype-float)        | Reports the frequency of the calculated results in Hz.    |
+| [Geometries](#node-definition-geometries)        | A list of geometrical representation objects that are part of the listening plane at the specified frequency.   |
+| [Classing](#node-definition-class)               | The Class this frequency geometry belongs to.  |
+| AmplitudeValues                                  | A list of measurement points and amplitude values.|
+
+##### Table XX — *AmplitudeValues Node Attributes*
+
+| Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
+| -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
+| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
+| Amplitude      | [Float](#user-content-attrtype-float) |                             | Amplitude of the measurement      |
+| Units          | [String](#user-content-attrtype-string) |                           | Measurement unit. DBZ, dB, DBSPL, dBA, dBC|
+| Color          | [CIE Color](#user-content-attrtype-ciecolor) |                      | Color used represent the amplitude value a the point.|
+
+
+EXAMPLE An example of a node definition is shown below:
+```xml
+<ListeningPlane name="Listening Plane 1" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381399">
+    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
+</ListeningPlane> 
+```
 
 ## Other Node Definition
 
