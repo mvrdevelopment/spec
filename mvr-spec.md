@@ -862,6 +862,37 @@ EXAMPLE An example of a node definition is shown below:
 </ListeningPlane> 
 ```
 
+## Node Definition: Speaker
+
+This node defines a Speaker object. The defined Speaker Node Attributes are specified in Table XX.
+
+Node name: `Speaker`
+
+##### Table XX — *Speaker Node Attributes*
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
+| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
+| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
+| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table XX — *Speaker Node Childs*
+
+| Child Node                                        | Allowed Count | Value Type                                  | Description                                                                                                                                   |
+| ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Matrix](#node-definition-matrix)                | 0 or 1        |                                             | The location of the object inside the parent coordinate system.                                                                               |
+| [Classing](#node-definition-class)               | 0 or 1        | [UUID](#user-content-attrtype-uuid)           | The Class the object belongs to.                                                                                                              |
+| GDTFSpec                                          | 0 or 1        | [FileName](#user-content-attrtype-filename) | The name of the file containing the GDTF information for this object, conforming to the DIN SPEC 15800.                                       |
+| [Addresses](#node-definition-addresses)           | 0 or 1        |                                             | The container for DMX Addresses for this object.                                                                                              |
+| [Alignments](#node-definition-alignments)         | 0 or 1        |                                             | The container for Alignments for this object.                                                                                                 |
+| [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                                                                             |
+| [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                                                                                 |
+| [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
+| [ChildList](#node-definition-childlist)           | 0 or 1        |                                             | A list of graphic objects that are part of the layer.                                                                                         |
+| [Rotation] (#node-definition-float)               | 0 or 1        |                                             | Rotation of the internal sound source.                                                                                                        |
+
+
 ## Other Node Definition
 
 ### Node Definition: Matrix
