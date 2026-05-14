@@ -1784,6 +1784,8 @@ defined XML attributes of a magnet geometry are specified in
 | Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
 
+The magnet geometry has the same children types as the geometry
+collect (see [table 34](#user-content-table-34 )).
 
 ### Geometry Type Speaker
 
@@ -1794,7 +1796,7 @@ defined XML attributes of a speaker geometry are specified in
 
 <div id="table-XX">
 
-#### Table XX. *Magnet Attributes*
+#### Table XX. *Speaker Attributes*
 
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
 |----|----|----|
@@ -1803,18 +1805,26 @@ defined XML attributes of a speaker geometry are specified in
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
 | LinkedConsumer                  | [Node](#user-content-attrtype-node )  | Name of the Wire Geometry that this speaker is connected to. Need to an consumer type.                                   |
 | Impedance                  | [Float](#user-content-attrtype-float )  |  Impedance of the speaker. Note that Power consumption is defined be the LinkedConsumer consumptions.                  |
-| VerticalCoverage     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the X db drop of the speaker in vertical distance.                                  |
-| HorizontalCoverage     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the X db drop of the speaker in horizontal distance. Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
+| VerticalCoverageUp     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the ?? direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                               |
+| VerticalCoverageDown     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the ?? direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                                   |
+| HorizontalCoverageLeft     | [Float](#user-content-attrtype-float )  |  Horizontal CCoverage of the ?? direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
+| HorizontalCoverageRight     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the ?? direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
 | FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimum Frequency that the speaker supports.                                 |
 | FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximum Frequency that the speaker supports.                                 |
 | MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum SPL of the speaker in the center of distribution.                                 |
 
-
+#### Table XX. *MaxSPL Attributes*
+| XML Attribute Name        | Value Type                                | Description                                                                                     |
+|----|----|----|
+|ExcitationSignal    | [String](#user-content-attrtype-string) | Pink noise, IEC60268, EIA426B, AES75 (enums?)| 
+|FrequencyWeighting  | [String](#user-content-attrtype-string) | None, A-Weighting, C-Weighting (enums?)|
+|Unit                | [String](#user-content-attrtype-string) | DBZ, dB, DBSPL, dBA, dBC (enums?)|
+|UnitMark            | [String](#user-content-attrtype-string) | Leq, Laeq, LCeq, F, S |
+|TimeWeighting       | [String](#user-content-attrtype-string) | Fast, Slow, Leq, Peak, (enums?)| 
 
 </div>
 
-The magnet geometry has the same children types as the geometry
-collect (see [table 34](#user-content-table-34 )).
+
 
 ## DMX Mode Collect
   
