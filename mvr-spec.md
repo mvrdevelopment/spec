@@ -123,6 +123,7 @@ as a prefix to denote negative numbers. E.g. `15` or `-6`|
 | <span id="user-content-attrtype-vector">Vector</span>      | Three Float values separated by ',' defining a 3D vector's X, Y, and Z components.<br/>Eg `1.0,2.0,3.0`|
 | <span id="user-content-attrtype-filename">FileName</span>  | The case-sensitive name of a file within the archive including the extension.<br/>The filename must not contain any FAT32 or NTFS reserved characters.<br/>The extension is delimited from the base name by full stop '.' and the base name shall not be empty.<br/>It is recommended to limit filenames to the POSIX "Fully Portable Filenames" character set: [A-Z], [a-z], [0-9], the symbols '\_' (U+005F), '-' (U+002D) and a maximum of one '.' (U+002E)<br/>Eg `My-Fixture_5.gdtf`|
 | <span id="user-content-attrtype-ciecolor">CIE Color</span> | CIE 1931 xyY absolute color point.<br/>Formatted as three Floats `x,y,Y`<br/>Eg `0.314303,0.328065,87.699166`|
+|Vector3<a id="user-content-attrtype-vector3" />                 |  {float,float,float} | Vector with 3 float components|
 | <span id="user-content-attrtype-ipv4">IPv4 Address</span>  | Common IPv4 Address in the format of dotted decimal notation.<br/>Eg `192.168.1.10` |
 | <span id="user-content-attrtype-ipv6">IPv6 Address</span>  | Common IPv6 Address in the format of hexadecimal notation.<br/>Eg `2001:0db8:85a3:0000:0000:8a2e:0370:7344` |
 
@@ -809,11 +810,11 @@ Node name: `ListeningPlane`
 
 ##### Table XX — *ListeningPlane Node Attributes*
 
-| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                          |
-| -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
-| uuid           | [UUID](#user-content-attrtype-uuid)     |  Not Optional               | The unique identifier of the object. |
-| name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object.              |
-
+| Attribute Name       | Attribute Value Type                        | Default Value when Optional | Description                          |
+| --------------       | ---------------------------------------     | --------------------------- | ------------------------------------ |
+| uuid                 | [UUID](#user-content-attrtype-uuid)         | Not Optional                | The unique identifier of the object. |
+| name                 | [String](#user-content-attrtype-string)     | Empty                       | The name of the object.              |
+| AudioDescriptionFile | [FileName](#user-content-attrtype-filename) | Empty                       | The file name, including extension, of the external file in the archive. The type of file is XML. In this file, ListeningPlaneHeatMaps are stored as per table XX|
 
 The child list (Table XX) contains a list of one of the following nodes:
 
@@ -826,15 +827,43 @@ The child list (Table XX) contains a list of one of the following nodes:
 | [Geometries](#node-definition-geometries)        | 1             |                                             | A default placeholder geometry representing the listening plane in case there are no listening plane results. Clarify.|
 | [GridSpacingX]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the X direction in mm.                                                                                          |
 | [GridSpacingY]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the Y direction in mm.                                                                                         |
-| [ListeningPlaneResults]                          | Any           | Node                                        | Results of a calculation.                                                                                                                     |
+
+##### Table XX — *ListeningPlaneHeatMaps Node Attributes*
+
+| Attribute Nam     | Attribute Value Type                    | Default Value when Optional | Description                          |
+| --------------    | --------------------------------------- | --------------------------- | ------------------------------------ |
+| Frequency         | [Float](#user-content-attrtype-float)   |  TBD                        | Reports the frequency of the calculated results in Hz.    |
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table XX — *ListeningPlane Node Childs*
+
+| Child Node                      | Allowed Count | Description                                    |
+| ------------------------------- | ------------- | ---------------------------------------------- |
+| [Face](#node-definition-face)   | 0 or any        |                                                |
+
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table XX — *Face Node Childs*
+
+| Child Node                      | Allowed Count | Description                                    |
+| ------------------------------- | ------------- | ---------------------------------------------- |
+| [Face](#node-definition-face)   | 0 or 1        |                                                |
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table XX — *Face Node Childs*
+
+| Child Node                      | Allowed Count | Description                                    |
+| ------------------------------- | ------------- | ---------------------------------------------- |
+| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
+| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
+| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
+| Color          | [CIE Color](#user-content-attrtype-ciecolor) |                      | Color used represent the amplitude value a the point.|
+
 
 #### Node Definition: ListeningPlaneResults
-
-This node defines a ListeningPlaneResults.
-
-Node name: `ListeningPlaneResults`
-
-The child list (Table XX) contains a list of the following nodes:
 
 ##### Table XX — *ListeningPlaneResults Node Childs*
 

@@ -1717,7 +1717,7 @@ defined XML attributes of a structure geometry are specified in
 | Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                        |
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix           |
 | LinkedGeometry            | [Name](#user-content-attrtype-name )      | The linked geometry.                                                    |
-| StructureType             | [Enum](#user-content-attrtype-enum )      | The type of structure. Defined values are "CenterLineBased", "Detail".  |
+| StructureType             | [Enum](#user-content-attrtype-enum )      | The type of structure. Defined values are "CenterLineBased", "Detail", "SpeakerBumper".  |
 | CrossSectionType  <a id="attrtype-crosssectiontype" />        | [Enum](#user-content-attrtype-enum )      | The type of cross section. Defined values are "TrussFramework", "Tube".       |
 | CrossSectionHeight        | [Float](#user-content-attrtype-float )    | The height of the cross section. Only for [Tubes](#user-content-attrtype-crosssectiontype ). Unit: meter.                        |
 | CrossSectionWallThickness | [Float](#user-content-attrtype-float )    | The thickness of the wall of the cross section.Only for [Tubes](#user-content-attrtype-crosssectiontype ). Unit: meter.          |
@@ -1785,6 +1785,25 @@ defined XML attributes of a magnet geometry are specified in
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
 
 The magnet geometry has the same children types as the geometry
+collect (see [table 34](#user-content-table-34 )).
+
+### Geometry Type HangingPoint
+
+This type of geometry is used to describe a hanging point, a point for attachment (XML node `<HangingPoint>`). The currently
+defined XML attributes of a hanging point geometry are specified in
+[table xx](#user-content-table-xx ).
+
+<div id="table-xx">
+
+#### Table 55. *HangingPoint Attributes*
+
+| XML Attribute Name        | Value Type                                | Description                                                                                     |
+|----|----|----|
+| Name                      | [Name](#user-content-attrtype-name )      | The unique name of the geometry.                                                                |
+| Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
+| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
+
+The hanging point geometry has the same children types as the geometry
 collect (see [table 34](#user-content-table-34 )).
 
 ### Geometry Type Speaker
