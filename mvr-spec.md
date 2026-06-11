@@ -814,7 +814,7 @@ Node name: `ListeningPlane`
 | --------------       | ---------------------------------------     | --------------------------- | ------------------------------------ |
 | uuid                 | [UUID](#user-content-attrtype-uuid)         | Not Optional                | The unique identifier of the object. |
 | name                 | [String](#user-content-attrtype-string)     | Empty                       | The name of the object.              |
-| AudioDescriptionFile | [FileName](#user-content-attrtype-filename) | Empty                       | The file name, including extension, of the external file in the archive. The type of file is XML. In this file, ListeningPlaneHeatMaps are stored as per table XX|
+| AudioDescriptionFile | [FileName](#user-content-attrtype-filename) | Empty                       | The file name, including extension, of the external XML file in the archive. The file contains a `ListeningPlaneHeatMaps` root node with one or more listening-plane heat maps. |
 
 The child list (Table XX) contains a list of one of the following nodes:
 
@@ -824,64 +824,119 @@ The child list (Table XX) contains a list of one of the following nodes:
 | ------------------------------------------------- | ------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)                | 0 or 1        |                                             | The location of the object inside the parent coordinate system.                                                                               |
 | [Classing](#node-definition-class)               | 0 or 1        | [UUID](#user-content-attrtype-uuid)           | The Class the object belongs to.                                                                                                              |
-| [Geometries](#node-definition-geometries)        | 1             |                                             | A default placeholder geometry representing the listening plane in case there are no listening plane results. Clarify.|
-| [GridSpacingX]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the X direction in mm.                                                                                          |
-| [GridSpacingY]                                   | 0 or 1        |[Float](#user-content-attrtype-float)        | Spacking of the measurement grid in the Y direction in mm.                                                                                         |
+| [Geometries](#node-definition-geometries)        | 1             |                                             | The geometry that represents the listening-plane surface. The geometry is used as the spatial target for calculation and result mapping. |
+| GridSpacingX                                     | 0 or 1        | [Float](#user-content-attrtype-float)       | Spacing of the measurement grid in the X direction in mm.                                                                                    |
+| GridSpacingY                                     | 0 or 1        | [Float](#user-content-attrtype-float)       | Spacing of the measurement grid in the Y direction in mm.                                                                                    |
 
-##### Table XX — *ListeningPlaneHeatMaps Node Attributes*
+EXAMPLE An example of a node definition is shown below:
+```xml
+<ListeningPlane AudioDescriptionFile="0A8916F5-5382-11F1-87C0-047C16FF233C.xml" name="Listening Plane" uuid="46F2E6C5-124A-4D39-BC2A-E87BD9276BDA">
+    <Geometries>
+        <Geometry3D fileName="46f2e6c5-124a-4d39-bc2a-e87bd9276bda.glb"/>
+    </Geometries>
+    <Classing>261F2B44-373C-491C-8D6A-316295DE9B6A</Classing>
+</ListeningPlane>
+```
 
-| Attribute Nam     | Attribute Value Type                    | Default Value when Optional | Description                          |
-| --------------    | --------------------------------------- | --------------------------- | ------------------------------------ |
-| Frequency         | [Float](#user-content-attrtype-float)   |  TBD                        | Reports the frequency of the calculated results in Hz.    |
+## Node Definition: ListeningPlaneHeatMaps
 
-The child list (Table XX) contains a list of one of the following nodes:
+This node defines the root element of the external listening-plane audio description file.
 
-##### Table XX — *ListeningPlane Node Childs*
+Node name: `ListeningPlaneHeatMaps`
 
-| Child Node                      | Allowed Count | Description                                    |
-| ------------------------------- | ------------- | ---------------------------------------------- |
-| [Face](#node-definition-face)   | 0 or any        |                                                |
+The child list (Table XX) contains a list of the following nodes:
+
+##### Table XX — *ListeningPlaneHeatMaps Node Childs*
+
+| Child Node                                                    | Allowed Count | Description                                                     |
+| ------------------------------------------------------------- | ------------- | --------------------------------------------------------------- |
+| [ListeningPlaneHeatMap](#node-definition-listeningplaneheatmap) | 1 or more      | A heat map for a specific frequency.                          |
 
 
-The child list (Table XX) contains a list of one of the following nodes:
+## Node Definition: ListeningPlaneHeatMap
+
+This node defines a listening-plane heat map at one frequency.
+
+Node name: `ListeningPlaneHeatMap`
+
+##### Table XX — *ListeningPlaneHeatMap Node Attributes*
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                               |
+| -------------- | --------------------------------------- | --------------------------- | --------------------------------------------------------- |
+| Frequency      | [Float](#user-content-attrtype-float)   | Not Optional                | Reports the frequency of the calculated results in Hz.    |
+
+The child list (Table XX) contains a list of the following nodes:
+
+##### Table XX — *ListeningPlaneHeatMap Node Childs*
+
+| Child Node                                    | Allowed Count | Description                                                                 |
+| --------------------------------------------- | ------------- | --------------------------------------------------------------------------- |
+| [Face](#node-definition-face)                 | 1 or more     | A triangular heat-map face.                                                  |
+
+
+## Node Definition: Face
+
+This node defines one triangular face of a listening-plane heat map.
+
+Node name: `Face`
+
+The child list (Table XX) contains a list of the following nodes:
 
 ##### Table XX — *Face Node Childs*
 
-| Child Node                      | Allowed Count | Description                                    |
-| ------------------------------- | ------------- | ---------------------------------------------- |
-| [Face](#node-definition-face)   | 0 or 1        |                                                |
-
-The child list (Table XX) contains a list of one of the following nodes:
-
-##### Table XX — *Face Node Childs*
-
-| Child Node                      | Allowed Count | Description                                    |
-| ------------------------------- | ------------- | ---------------------------------------------- |
-| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
-| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
-| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
-| Color          | [CIE Color](#user-content-attrtype-ciecolor) |                      | Color used represent the amplitude value a the point.|
+| Child Node                                  | Allowed Count | Description                                  |
+| ------------------------------------------- | ------------- | -------------------------------------------- |
+| [Vertex](#node-definition-vertex)           | 3             | The three vertices of the triangular face.   |
+| [Color](#node-definition-color)             | 1             | The face color used to represent the value.  |
 
 
-#### Node Definition: ListeningPlaneResults
+## Node Definition: Vertex
 
-##### Table XX — *ListeningPlaneResults Node Childs*
+This node defines a 3D vertex used by a listening-plane heat-map face.
 
-| Child Node                                        | Description                                      |
-| ------------------------------------------------- | ------------------------------------------------ |
-| [Frequency](#user-content-attrtype-float)        | Reports the frequency of the calculated results in Hz.    |
-| [Geometries](#node-definition-geometries)        | A list of geometrical representation objects that are part of the listening plane at the specified frequency.   |
-| [Classing](#node-definition-class)               | The Class this frequency geometry belongs to.  |
-| AmplitudeValues                                  | A list of measurement points and amplitude values.|
+Node name: `Vertex`
 
-##### Table XX — *AmplitudeValues Node Attributes*
+The defined Vertex Node Value Types are specified in Table XX.
 
-| Attribute Name | Attribute Value Type                  | Default Value when Optional | Description                        |
-| -------------- | ------------------------------------- | --------------------------- | ---------------------------------- |
-| Point          | [Vector3](#user-content-attrtype-vector3) |                         | The cordinate of the measurement. |
-| Amplitude      | [Float](#user-content-attrtype-float) |                             | Amplitude of the measurement      |
-| Units          | [String](#user-content-attrtype-string) |                           | Measurement unit. DBZ, dB, DBSPL, dBA, dBC|
-| Color          | [CIE Color](#user-content-attrtype-ciecolor) |                      | Color used represent the amplitude value a the point.|
+##### Table XX — *Vertex Node Value Types*
+
+| Value Type                              | Default Value When Missing | Description                            |
+| --------------------------------------- | -------------------------- | -------------------------------------- |
+| [Vector3](#user-content-attrtype-vector3) | Not Optional               | The vertex position in millimeters.    |
+
+## Node Definition: Color
+
+This node defines a CIE color used by a listening-plane heat-map face.
+
+Node name: `Color`
+
+The defined Color Node Value Types are specified in Table XX.
+
+##### Table XX — *Color Node Value Types*
+
+| Value Type                              | Default Value When Missing | Description                            |
+| --------------------------------------- | -------------------------- | -------------------------------------- |
+| [CIE Color](#user-content-attrtype-ciecolor) | Not Optional               | The face color used to represent the value. |
+
+EXAMPLE An example of a node definition is shown below:
+```xml
+<ListeningPlaneHeatMaps>
+    <ListeningPlaneHeatMap Frequency="1000">
+        <Face>
+            <Vertex>0,0,0</Vertex>
+            <Vertex>11800,0,0</Vertex>
+            <Vertex>11800,-31600,0</Vertex>
+            <Color>0.314303,0.328065,87.699166</Color>
+        </Face>
+        <Face>
+            <Vertex>0,0,0</Vertex>
+            <Vertex>11800,-31600,0</Vertex>
+            <Vertex>0,-31600,0</Vertex>
+            <Color>0.314303,0.328065,87.699166</Color>
+        </Face>
+    </ListeningPlaneHeatMap>
+</ListeningPlaneHeatMaps>
+```
 
 
 EXAMPLE An example of a node definition is shown below:
@@ -1899,4 +1954,3 @@ UUIDs are randomly generated numbers which are, practically speaking, unique and
 One of the most important aspects of UUIDs in MVR is that they are persistent. A UUID should identify an item throughout its entire life cycle. This means that if a document is exported, then objects should have the same UUID every time an export is performed.
 One use case for UUIDs is importing or merging MVRs into an existing document. This is one reason that persistent UUIDs are valuable. If you export an MVR from one program, open it in another, and make modifications, then you may want to incorporate those changes into the original document. By cross referencing UUIDs, you can avoid creating duplicate objects and instead update existing ones.
 UUIDs are also used inside of the MVR file format as a form of reference. For example, a symbol instance shall refer to a symbol definition. Because the symbol definition is given a UUID, the symbol instance can reference its symbol through the use of this UUID.
-
