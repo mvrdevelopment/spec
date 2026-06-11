@@ -1642,12 +1642,14 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Defined values are "B", "C", "D", "K", "Z".                                          |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
 | WireGroup           | [String](#user-content-attrtype-string )  | Name of the group to which this wiring object belong.                                             |
-| BatteryType         | [Enum](#ser-content-attrtype-enum )       | The Type of the Battery Unit. Defined values are "Soldered", "Replacable", "Quickswap", "External". |
-| BatteryOperation  <a id="attrtype-batteryoperation" />  | [Enum](#user-content-attrtype-enum )      | The  function of the Fixture under Battery Power. Defined values are "Configuration", "Operation". |
-| BatteryRuntime      | [Float](#user-content-attrtype-float )    | The Runtime of the Fixture under Battery Power. Only for [Operation](#attrtype-batteryoperation ).
-| ChargingTime        | [Float](#user-content-attrtype-float )    | The Time it takes to charge the Fixture from 0 to 100%.                                           |
-| UN                  | [Integer](#user-content-attrtype-integer ) | Defines the Battery UN number for fixture transport                   |
-
+| BatteryInstallationType | [Enum](#user-content-attrtype-enum )       | The Installation Type of the Battery. Defined values are "Internal", "External", "Removable", "Replaceable", "HotSwappable", "Integrated", "Other". Default value: "TBD"|
+| BatteryOperationMode <a id="attrtype-batteryoperationmode" />| [Enum](#user-content-attrtype-enum )      | The  function of the Device under Battery Power. Defined values are "Configuration", "Operation". Default value: "TBD"|
+| BatteryEnergyCapacity      | [Float](#user-content-attrtype-float )    | The Energy Capacity of the Battery in watt-hours (Wh) Default value: "TBD" |
+| BatteryMaxPower | [Float](#user-content-attrtype-float) | The maximum output power of the Battery, in watts (W). Default value: "TBD"|
+| BatteryChargingTime | [Float](#user-content-attrtype-float )    | The Time in seconds it takes to charge the Battery from 0 to 100%. Default value: "TBD"|
+| BatteryUNTransportCode | [Array of Int](#user-content-attrtype-int ) | Defines the Battery UN numbers for transport. Default value: "TBD"|
+| BatteryTechnology | [Enum](#user-content-attrtype-enum ) | The Technology Chemistry of the Battery. Defined values are "Li-ion", "LiPo", "LiFePO4", "LTO", "Lead-acid", "AGM", "Gel", "NiMH","NiCd","Sodium-ion", "Alkaline","Lithium-primary","Other". Default value: "Other" Default value: "TBD"|
+| BatteryRechargeable | [Enum](#user-content-attrtype-enum ) | If the Battery can be charged. Defined values are "Yes", "No". Default value: "TBD"|
 
 </div>
 
