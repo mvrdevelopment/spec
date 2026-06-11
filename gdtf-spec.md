@@ -192,7 +192,6 @@ specified in [Table 1](#user-content-table-1 ).
 |Int<a id="attrtype-int" />                         | Integer               | Signed integer|
 |Hex<a id="attrtype-hex" />                         | Integer               | Number in hexadecimal  notation; Default value: 0|
 |Float<a id="user-content-attrtype-float" />        | float                 | Floating point numeric; Separator: "."|
-|Bool<a id="User-content-attrtrype-boolean" />   | Bool               | A boolean value. When representing true inidcate with true, when false indicate with false.|
 |String<a id="attrtype-string" />                   | Literal               | Text|
 |Name<a id="attrtype-name" />                       | restricted Literal    | Unique object names; The allowed characters are listed in [AnnexC](#user-content-table-c1) Default value: object type with an index in parent.|
 |Date<a id="attrtype-date" />                       | yyyy-mm-ddThh:mm:ss   |  Date and time corresponding to UTC +00:00 (Coordinated Universal Time): yyyy – year, mm – month, dd – day, hh – hours (24 format), mm – minutes, ss – seconds. Example: “2016-06-21T11:22:48” |
