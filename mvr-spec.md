@@ -938,14 +938,6 @@ EXAMPLE An example of a node definition is shown below:
 </ListeningPlaneHeatMaps>
 ```
 
-
-EXAMPLE An example of a node definition is shown below:
-```xml
-<ListeningPlane name="Listening Plane 1" uuid="BEF95EB8-98AC-4217-B10D-FB4B83381399">
-    <Matrix>{0.158127,-0.987419,0.000000}{0.987419,0.158127,0.000000}{0.000000,0.000000,1.000000}{6020.939200,2838.588955,4978.134459}</Matrix>
-</ListeningPlane> 
-```
-
 ## Node Definition: Speaker
 
 This node defines a Speaker object. The defined Speaker Node Attributes are specified in Table XX.
