@@ -848,10 +848,10 @@ The child list (Table XX) contains a list of the following nodes:
 
 ##### Table XX — *ListeningPlaneHeatMaps Node Childs*
 
-| Child Node                                                    | Allowed Count | Description                                                     |
-| ------------------------------------------------------------- | ------------- | --------------------------------------------------------------- |
-| [ListeningPlaneHeatMap](#node-definition-listeningplaneheatmap) | 1 or more      | A heat map for a specific frequency.                          |
-
+| Child Node                                                    | Allowed Count |  Attribute Value Type                          | Description                            |
+| ------------------------------------------------------------- | ------------- | -----------------------------------------------| -------------------------------------- |
+| [ListeningPlaneHeatMap](#node-definition-listeningplaneheatmap) | 1 or more   |                                             | A heat map for a specific frequency.   |
+| [Classing](#node-definition-class)                             | 0 or 1       | [UUID](#user-content-attrtype-uuid)         | The Class the object belongs to.       |
 
 ## Node Definition: ListeningPlaneHeatMap
 
@@ -864,6 +864,7 @@ Node name: `ListeningPlaneHeatMap`
 | Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                               |
 | -------------- | --------------------------------------- | --------------------------- | --------------------------------------------------------- |
 | Frequency      | [Float](#user-content-attrtype-float)   | Not Optional                | Reports the frequency of the calculated results in Hz.    |
+| Units          | [Enum](#user-content-attrtype-enum)     | Not Optional                | Measurement units. DBZ, dB, dBSPL, dBA, dBC               |
 
 The child list (Table XX) contains a list of the following nodes:
 
@@ -879,6 +880,12 @@ The child list (Table XX) contains a list of the following nodes:
 This node defines one triangular face of a listening-plane heat map.
 
 Node name: `Face`
+
+##### Table XX — *Face Node Attributes*
+
+| Attribute Name | Attribute Value Type                    | Default Value when Optional | Description                                               |
+| -------------- | --------------------------------------- | --------------------------- | --------------------------------------------------------- |
+| Amplitude      | [Float](#user-content-attrtype-float)   | 0                | Relative volume level represented by this face.    |
 
 The child list (Table XX) contains a list of the following nodes:
 
@@ -921,7 +928,8 @@ The defined Color Node Value Types are specified in Table XX.
 EXAMPLE An example of a node definition is shown below:
 ```xml
 <ListeningPlaneHeatMaps>
-    <ListeningPlaneHeatMap Frequency="1000">
+    <ListeningPlaneHeatMap Frequency="1000" Units="DBZ">
+    <Classing>E61F2E44-373C-491C-8D6A-316295DE9B6A</Classing>
         <Face>
             <Vertex>0,0,0</Vertex>
             <Vertex>11800,0,0</Vertex>
