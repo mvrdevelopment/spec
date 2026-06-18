@@ -1818,17 +1818,15 @@ defined XML attributes of a speaker geometry are specified in
 #### Table XX. *Speaker Attributes*
 
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
-|----|----|----|
-| Name                      | [Name](#user-content-attrtype-name )      | The unique name of the geometry.                                                                |
-| Model                     | [Name](#user-content-attrtype-name )      | Link to the corresponding model.                                                                |
-| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                   |
-| LinkedConsumer                  | [Node](#user-content-attrtype-node )  | Name of the Wire Geometry that this speaker is connected to. Need to an consumer type.                                   |
+|----|----|----|                                                             |
+| Model                     | [Name](#user-content-attrtype-name )      | Optional. Link to the corresponding model.                                                                |
+| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of model location and point of orign for ; Default value: Identity Matrix                                   |
 | Impedance                  | [Float](#user-content-attrtype-float )  |  Nominal impedance of the speaker, Ohms.                  |
 | VerticalCoverageUp     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                               |
 | VerticalCoverageDown     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis)  direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                                   |
 | HorizontalCoverageLeft     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
 | HorizontalCoverageRight     | [Float](#user-content-attrtype-float )  |  Horizontal Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees)  Note that this values are defined in the Global Coordinate System of the GDTF.                                 |
-| SoundAngleRotationMax     | | [Float](#user-content-attrtype-float ) |Maximum rotation of the sound dispersion around the speaker axis ?? which axis |
+| SoundAngleRotationMax      | [Float](#user-content-attrtype-float ) |Maximum rotation of the sound dispersion around the speaker axis ?? which axis |
 | FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimal frequency of the speaker at the -6 dB mark.                                |
 | FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximal frequency of the speaker at the -6 dB mark.                                 |
 | MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum sound pressure level measured at 1 meter from the speaker. The value is interpreted together with the SPL format attributes below.                                |
@@ -1836,17 +1834,46 @@ defined XML attributes of a speaker geometry are specified in
 #### Table XX. *MaxSPL Attributes*
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
 |----|----|----|
-|ExcitationSignal    | [String](#user-content-attrtype-string) | Pink noise, IEC60268, EIA426B, AES75 (enums?)| 
-|FrequencyWeighting  | [String](#user-content-attrtype-string) | None, A-Weighting, C-Weighting (enums?)|
-|Unit                | [String](#user-content-attrtype-string) | DBZ, dB, DBSPL, dBA, dBC (enums?)|
-|UnitMark            | [String](#user-content-attrtype-string) | Leq, Laeq, LCeq, F, S |
-|TimeWeighting       | [String](#user-content-attrtype-string) | Fast, Slow, Leq, Peak, (enums?)| 
+|ExcitationSignal    | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Pink noise, IEC60268, EIA426B, AES75| 
+|FrequencyWeighting  | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: None, A-Weighting, C-Weighting |
+|Unit                | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: DBZ, dB, DBSPL, dBA, dBC |
+|UnitMark            | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Leq, Laeq, LCeq, F, S |
+|TimeWeighting       | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Fast, Slow, Leq, Peak | 
 
 </div>
 
 TODO: Define default orientation of the speaker. Clarify if the values are for one speaker object ("speaker") or for the whole "speaker box". (Needed for MVR linking to the SoundAngleRotationMax and for the LinkedConsumer )
-
-
+EXAMPLE An example of a node definition is shown below:
+```xml
+<FixtureType CanHaveChildren="No" Description="" FixtureTypeID="DEB0148A-286C-4B42-A360-9852A0DEE350" LongName="Speaker" Manufacturer="VladiTest" Name="TestSpeaker" RefFT="" ShortName="Speaker" Thumbnail="" ThumbnailOffsetX="0" ThumbnailOffsetY="0">
+    <PhysicalDescriptions>
+       <Properties>
+        <OperatingTemperature High="40.000000" Low="0.000000"/>
+        <Weight Value="0.000000"/>
+        <Speaker
+           Model="Speaker1"
+           Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,-0.247247}{0.000000,0.000000,1.000000,0.217105}{0,0,0,1}"
+           Impedance="200.000000"
+           VerticalCoverageUp="30.000000"
+           VerticalCoverageDown="30.000000"
+           HorizontalCoverageUp="30.000000"
+           HorizontalCoverageDown="30.000000"
+           SoundAngleRotationMax="30.000000"
+           FrequencyMin="120.000000"
+           FrequencyMax="20.000000"
+           MaxSPL="55.000000"  />
+      </Properties>
+    </PhysicalDescriptions>
+    <Models>
+      <Model File="" Height="1.000000" Length="0.500000" Name="AudioDevice" PrimitiveType="Cube" SVGFrontOffsetX="0.000000" SVGFrontOffsetY="0.000000" SVGOffsetX="0.000000" SVGOffsetY="0.000000" SVGSideOffsetX="0.000000" SVGSideOffsetY="0.000000" Width="0.500000"/>
+    </Models>
+    <Geometries>
+      <Geometry Model="AudioDevice" Name="AudioDevice" Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}{0,0,0,1}">        
+      </Geometry>
+    </Geometries>
+  </FixtureType>
+```
+ToDO: *MaxSPL Attributes* Do we need to restructure above to support the attributes
 ## DMX Mode Collect
   
 ### General
