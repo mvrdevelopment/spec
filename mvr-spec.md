@@ -817,9 +817,9 @@ EXAMPLE An example of a node definition is shown below:
 ### Node Definition: Cable
 
 This node defines a cable object. Cable describes the physical realization of a
-connection between two GDTF `WiringObject` nodes. A cable has one start and one
-end and may carry one or more signals. The defined Cable Node Attributes are
-specified in Table XX.
+connection between two [Connection](#node-definition-connection) nodes. A cable
+has one start and one end and may carry one or more signals. The defined Cable
+Node Attributes are specified in Table XX.
 
 Node name: `Cable`
 
@@ -847,11 +847,11 @@ Table xx - Signal Node attributes:
 
 | Attribute Name | Value Type / Unit | Description                                                         |
 | -------------- | ----------------: | ------------------------------------------------------------------- |
-| type           | [String](#user-content-attrtype-string) | Signal type, using GDTF `WiringObject` signal types where possible. |
+| type           | [String](#user-content-attrtype-string) | Signal type, DIN SPEC 15800 [Signal Type](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#table-50-wiring-object-attributes) where possible.|
 | crossSection   | [Float](#user-content-attrtype-float)   | Conductor cross-section where applicable. Unit: mm², Default: 0     |
 | impedance      | [Float](#user-content-attrtype-float)   | Cable impedance where applicable.  Unit: Ohm, Default: 0            |
 | voltageRating  | [Float](#user-content-attrtype-float)   | Optional voltage rating.     Unit: volt, Default: 0                 |
-| currentRating  | [Float](#user-content-attrtype-float)   | Optional current rating.     Unit: amp, Default: 0                  |
+| currentRating  | [Float](#user-content-attrtype-float)   | Optional current rating.     Unit: ampere, Default: 0                  |
 
 Example:
 
