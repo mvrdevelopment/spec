@@ -1818,7 +1818,7 @@ defined XML attributes of a speaker geometry are specified in
 #### Table XX. *Speaker Attributes*
 
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
-|----|----|----|                                                             |
+|----|----|----|                                                             
 | Model                     | [Name](#user-content-attrtype-name )      | Optional. Link to the corresponding model.                                                                |
 | Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of model location and point of orign for ; Default value: Identity Matrix                                   |
 | Impedance                  | [Float](#user-content-attrtype-float )  |  Nominal impedance of the speaker, Ohms.                  |
