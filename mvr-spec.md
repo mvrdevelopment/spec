@@ -368,6 +368,7 @@ The child list (Table 18) contains a list of the following nodes:
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 | [Projector](#node-definition-projector)     | A definition of a projector.                                                 |
+| [Cable](#node-definition-cable)     | A definition of a cable.                                                             |
 
 
 ## Node Definition for Parametric Objects
@@ -813,6 +814,76 @@ EXAMPLE An example of a node definition is shown below:
 </Projector> 
 ```
 
+### Node Definition: Cable
+
+This node defines a cable object. Cable describes the physical realization of a
+connection between two GDTF `WiringObject` nodes. A cable has one start and one
+end and may carry one or more signals. The defined Cable Node Attributes are
+specified in Table XX.
+
+Node name: `Cable`
+
+Table xx - Cable Node attributes:
+
+| Attribute Name     | Value Type / Unit | Description                                                                             |
+| ------------------ | ----------------: | --------------------------------------------------------------------------------------- |
+| uuid               | [UUID](#user-content-attrtype-uuid)  | Unique identifier of the cable.                                      |
+| name               | [String](#user-content-attrtype-string)  | Cable name.                                                      |
+| cableType          | [String](#user-content-attrtype-string)  | Cable type, model, or construction.                              |
+| length             | [Float](#user-content-attrtype-float)| Cable length. Unit: meter. Default value: 0                          |
+| installationRating | [String](#user-content-attrtype-string)  | Optional rating such as plenum, riser, outdoor, touring, or manufacturer-specific text. |
+
+The child list (Table XX) contains a list of one of the following nodes:
+
+##### Table xx — *Cable Node Childs*
+
+| Child Node                        | Allowed Count   | Description                         |
+| ----------------------------------| --------------- | ----------------------------------- |
+| [Signal](#node-definition-signal) | 1 or any        | The type of the signal used.        |
+
+The defined Signal Node Attributes are specified in Table XX.
+
+Table xx - Signal Node attributes:
+
+| Attribute Name | Value Type / Unit | Description                                                         |
+| -------------- | ----------------: | ------------------------------------------------------------------- |
+| type           | [String](#user-content-attrtype-string) | Signal type, using GDTF `WiringObject` signal types where possible. |
+| crossSection   | [Float](#user-content-attrtype-float)   | Conductor cross-section where applicable. Unit: mm², Default: 0     |
+| impedance      | [Float](#user-content-attrtype-float)   | Cable impedance where applicable.  Unit: Ohm, Default: 0            |
+| voltageRating  | [Float](#user-content-attrtype-float)   | Optional voltage rating.     Unit: volt, Default: 0                 |
+| currentRating  | [Float](#user-content-attrtype-float)   | Optional current rating.     Unit: amp, Default: 0                  |
+
+Example:
+
+```xml
+<Cable
+  uuid="7C6B12E5-0AC9-45B2-99EA-5C7C9D9F5A10"
+  name="Low Voltage PSU Feed 25m Hybrid"
+  cableType="Plenum rated 2x4mm2 Hybrid"
+  length="25.0"
+  installationRating="Plenum">
+
+  <Signal
+    type="Power"
+    crossSection="4.0"
+    voltageRating="60"
+    currentRating="12.5"/>
+
+  <Signal
+    type="DMX512"
+    impedance="50"/>
+</Cable>
+```
+
+Extend MVR `Connection` with a `cable` UUID attribute linking the logical connection to its physical cable.
+
+```xml
+<Connection
+  own="LowVoltageOutput"
+  other="LowVoltageInput"
+  toObject="..."
+  cable="7C6B12E5-0AC9-45B2-99EA-5C7C9D9F5A10"/>
+```
 
 ## Other Node Definition
 
