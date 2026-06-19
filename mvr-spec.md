@@ -849,6 +849,7 @@ Table xx - Signal Node attributes:
 | -------------- | ----------------: | ------------------------------------------------------------------- |
 | type           | [String](#user-content-attrtype-string) | Signal type, DIN SPEC 15800 [Signal Type](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#table-50-wiring-object-attributes) where possible.|
 | crossSection   | [Float](#user-content-attrtype-float)   | Conductor cross-section where applicable. Unit: mm², Default: 0     |
+| conductorAmount   | [Integer](#user-content-attrtype-integer)   | Amount of conductors. Default: 0  |
 | impedance      | [Float](#user-content-attrtype-float)   | Cable impedance where applicable.  Unit: Ohm, Default: 0            |
 | voltageRating  | [Float](#user-content-attrtype-float)   | Optional voltage rating.     Unit: volt, Default: 0                 |
 | currentRating  | [Float](#user-content-attrtype-float)   | Optional current rating.     Unit: ampere, Default: 0                  |
@@ -865,12 +866,14 @@ Example:
 
   <Signal
     type="Power"
+    conductorAmount="3"
     crossSection="4.0"
     voltageRating="60"
     currentRating="12.5"/>
 
   <Signal
     type="DMX512"
+    conductorAmount="3"
     impedance="50"/>
 </Cable>
 ```
