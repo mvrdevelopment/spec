@@ -825,7 +825,7 @@ Node name: `Cable`
 
 Table xx - Cable Node attributes:
 
-| Attribute Name     | Value Type / Unit | Description                                                                             |
+| Attribute Name     | Value Type        | Description                                                                             |
 | ------------------ | ----------------: | --------------------------------------------------------------------------------------- |
 | uuid               | [UUID](#user-content-attrtype-uuid)  | Unique identifier of the cable.                                      |
 | name               | [String](#user-content-attrtype-string)  | Cable name.                                                      |
@@ -845,7 +845,7 @@ The defined Signal Node Attributes are specified in Table XX.
 
 Table xx - Signal Node attributes:
 
-| Attribute Name | Value Type / Unit | Description                                                         |
+| Attribute Name | Value Type        | Description                                                         |
 | -------------- | ----------------: | ------------------------------------------------------------------- |
 | type           | [String](#user-content-attrtype-string) | Signal type, DIN SPEC 15800 [Signal Type](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#table-50-wiring-object-attributes) where possible.|
 | crossSection   | [Float](#user-content-attrtype-float)   | Conductor cross-section where applicable. Unit: mm², Default: 0     |
@@ -878,7 +878,7 @@ Example:
 </Cable>
 ```
 
-Extend MVR `Connection` with a `cable` UUID attribute linking the logical connection to its physical cable.
+`Connection` with a `cable` UUID attribute linking the logical connection to its physical cable.
 
 ```xml
 <Connection
@@ -1297,6 +1297,7 @@ Node name: `Connection`
 | own            | [String](#user-content-attrtype-string)     | Mandatory                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
 | other          | [String](#user-content-attrtype-string)     | Mandatory                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
 | toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
+| cable          | [UUID](#user-content-attrtype-uuid)       | Empty String               | UUID of the cable used for this connection.                                                                                                                                                                                                       |
 
 ### Node Definition: Mappings
 
