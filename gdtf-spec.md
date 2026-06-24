@@ -1826,6 +1826,25 @@ xx](#user-content-table-xx).
 | CapacityPercentage   | [Int](#user-content-attrtype-int ) | Percentage of battery capacity between 1 and 100 for which the charging time is provided. Default value: "0"|
 | Time         | [Int](#user-content-attrtype-int )       |  The Time in seconds it takes to charge the defined percentage. Default value: "0"|
 
+Example of Battery:
+
+```xml
+<Battery Name="MainBattery"
+       Model="MainBattery"
+       Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}
+       {0.000000,0.000000,0.000000,1.000000}"
+       InstallationType="Removable"
+       OperationMode="Operation"
+       Voltage="14.8"
+       EnergyCapacity="118.4"
+       MaxPower="180"
+       Technology="Li-ion"
+       Rechargeable="Yes">
+  <ChargingTime CapacityPercentage="80" Time="2700" />
+  <ChargingTime CapacityPercentage="100" Time="5400" />
+</Battery>
+```
+
 ### Geometry Type Inventory
 
 This type of geometry is used to describe a geometry used for the inventory (XML node `<Inventory>`). The currently
