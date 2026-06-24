@@ -1812,6 +1812,7 @@ This type of geometry is used to describe a speaker in a audio device. (XML node
 defined XML attributes of a speaker geometry are specified in
 [table 55](#user-content-table-XX ).
 
+Note: `<Speaker>` data is typically represents the completed speaker assembly and not the individual emitters; however mutiple `<Speaker>` nodes can be used if required.
 
 <div id="table-XX">
 
@@ -1819,8 +1820,8 @@ defined XML attributes of a speaker geometry are specified in
 
 | XML Attribute Name        | Value Type                                | Description                                                                                     |
 |----|----|----|                                                             
-| Model                     | [Name](#user-content-attrtype-name )      | Optional. Link to the corresponding model.                                                                |
-| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of model location and point of orign for ; Default value: Identity Matrix                                   |
+| Model                     | [Name](#user-content-attrtype-name )      | Optional. Link to the corresponding model. Can be empty.                                                                |
+| Position                  | [Matrix](#user-content-attrtype-matrix )  | Relative position of model location and point of orign for coverage calculation and sound emission. Default value: Identity Matrix                                   |
 | Impedance                  | [Float](#user-content-attrtype-float )  |  Nominal impedance of the speaker, Ohms.                  |
 | VerticalCoverageUp     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis) direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                               |
 | VerticalCoverageDown     | [Float](#user-content-attrtype-float )  |  Vertical Coverage of the sound angle ?? (todo: define the axis)  direction.  (Degrees) Note that this values are defined in the Global Coordinate System of the GDTF.                                   |
@@ -1829,20 +1830,17 @@ defined XML attributes of a speaker geometry are specified in
 | SoundAngleRotationMax      | [Float](#user-content-attrtype-float ) |Maximum rotation of the sound dispersion around the speaker axis ?? which axis |
 | FrequencyRangeMin   | [Float](#user-content-attrtype-float )  |  Minimal frequency of the speaker at the -6 dB mark.                                |
 | FrequencyRangeMax   | [Float](#user-content-attrtype-float )  |  Maximal frequency of the speaker at the -6 dB mark.                                 |
-| MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum sound pressure level measured at 1 meter from the speaker. The value is interpreted together with the SPL format attributes below.                                |
-
-#### Table XX. *MaxSPL Attributes*
-| XML Attribute Name        | Value Type                                | Description                                                                                     |
-|----|----|----|
-|ExcitationSignal    | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Pink noise, IEC60268, EIA426B, AES75| 
-|FrequencyWeighting  | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: None, A-Weighting, C-Weighting |
-|Unit                | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: DBZ, dB, DBSPL, dBA, dBC |
-|UnitMark            | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Leq, Laeq, LCeq, F, S |
-|TimeWeighting       | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Fast, Slow, Leq, Peak | 
+| MaxSPL   | [Float](#user-content-attrtype-float )  |  Maximum sound pressure level measured at 1 meter from the speaker. The value is interpreted together with the SPL format attributes below.|                    
+| SPLExcitationSignal    | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Pink noise, IEC60268, EIA426B, AES75| 
+| SPLFrequencyWeighting  | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: None, A-Weighting, C-Weighting |
+| SPLUnit                | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: DBZ, dB, DBSPL, dBA, dBC |
+| SPLUnitMark            | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Leq, Laeq, LCeq, F, S |
+| SPLTimeWeighting       | [Enum](#user-content-attrtype-enum ) |  The currently defined unit values are: Fast, Slow, Leq, Peak | 
 
 </div>
+ 
+TODO: Define default orientation of the speaker. 
 
-TODO: Define default orientation of the speaker. Clarify if the values are for one speaker object ("speaker") or for the whole "speaker box". (Needed for MVR linking to the SoundAngleRotationMax and for the LinkedConsumer )
 EXAMPLE An example of a node definition is shown below:
 ```xml
 <FixtureType CanHaveChildren="No" Description="" FixtureTypeID="DEB0148A-286C-4B42-A360-9852A0DEE350" LongName="Speaker" Manufacturer="VladiTest" Name="TestSpeaker" RefFT="" ShortName="Speaker" Thumbnail="" ThumbnailOffsetX="0" ThumbnailOffsetY="0">
@@ -1861,7 +1859,12 @@ EXAMPLE An example of a node definition is shown below:
            SoundAngleRotationMax="30.000000"
            FrequencyMin="120.000000"
            FrequencyMax="20.000000"
-           MaxSPL="55.000000"  />
+           MaxSPL="55.000000" 
+           SPLExcitationSignal="Pink noise"
+           SPLFrequencyWeighting=None"
+           SPLUnit="DBX"
+           SPLUnitMark="Leq"
+           SPLTimeWeighting="Fast"/>
       </Properties>
     </PhysicalDescriptions>
     <Models>
