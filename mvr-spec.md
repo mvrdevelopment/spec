@@ -817,9 +817,8 @@ EXAMPLE An example of a node definition is shown below:
 ### Node Definition: Cable
 
 This node defines a cable object. Cable describes the physical realization of a
-connection between two [Connection](#node-definition-connection) nodes. A cable
-has one start and one end and may carry one or more signals. The defined Cable
-Node Attributes are specified in Table XX.
+connection between two [Connection](#node-definition-connection) nodes. The
+defined Cable Node Attributes are specified in Table XX.
 
 Node name: `Cable`
 
@@ -829,64 +828,9 @@ Table xx - Cable Node attributes:
 | ------------------ | ----------------: | --------------------------------------------------------------------------------------- |
 | uuid               | [UUID](#user-content-attrtype-uuid)  | Unique identifier of the cable.                                      |
 | name               | [String](#user-content-attrtype-string)  | Cable name.                                                      |
-| cableType          | [String](#user-content-attrtype-string)  | Cable type, model, or construction.                              |
 | length             | [Float](#user-content-attrtype-float)| Cable length. Unit: meter. Default value: 0                          |
-| installationRating | [String](#user-content-attrtype-string)  | Optional rating such as plenum, riser, outdoor, touring, or manufacturer-specific text. |
-
-The child list (Table XX) contains a list of one of the following nodes:
-
-##### Table xx — *Cable Node Childs*
-
-| Child Node                        | Allowed Count   | Description                         |
-| ----------------------------------| --------------- | ----------------------------------- |
-| [Signal](#node-definition-signal) | 1 or any        | The type of the signal used.        |
-
-The defined Signal Node Attributes are specified in Table XX.
-
-Table xx - Signal Node attributes:
-
-| Attribute Name | Value Type        | Description                                                         |
-| -------------- | ----------------: | ------------------------------------------------------------------- |
-| type           | [String](#user-content-attrtype-string) | Signal type, DIN SPEC 15800 [Signal Type](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#table-50-wiring-object-attributes) where possible.|
-| crossSection   | [Float](#user-content-attrtype-float)   | Conductor cross-section where applicable. Unit: mm², Default: 0     |
-| conductorAmount   | [Integer](#user-content-attrtype-integer)   | Amount of conductors. Default: 0  |
-| impedance      | [Float](#user-content-attrtype-float)   | Cable impedance where applicable.  Unit: Ohm, Default: 0            |
-| voltageRating  | [Float](#user-content-attrtype-float)   | Optional voltage rating.     Unit: volt, Default: 0                 |
-| currentRating  | [Float](#user-content-attrtype-float)   | Optional current rating.     Unit: ampere, Default: 0                  |
-
-Example:
-
-```xml
-<Cable
-  uuid="7C6B12E5-0AC9-45B2-99EA-5C7C9D9F5A10"
-  name="Low Voltage PSU Feed 25m Hybrid"
-  cableType="Plenum rated 2x4mm2 Hybrid"
-  length="25.0"
-  installationRating="Plenum">
-
-  <Signal
-    type="Power"
-    conductorAmount="3"
-    crossSection="4.0"
-    voltageRating="60"
-    currentRating="12.5"/>
-
-  <Signal
-    type="DMX512"
-    conductorAmount="3"
-    impedance="50"/>
-</Cable>
-```
-
-`Connection` with a `cable` UUID attribute linking the logical connection to its physical cable.
-
-```xml
-<Connection
-  own="LowVoltageOutput"
-  other="LowVoltageInput"
-  toObject="..."
-  cable="7C6B12E5-0AC9-45B2-99EA-5C7C9D9F5A10"/>
-```
+| GDTFSpec           | [FileName](#user-content-attrtype-filename) | Optional. The name of the GDTF or `gdtt` file containing a reusable cable catalog. |
+| GDTFMode           | [String](#user-content-attrtype-string) | Optional. The name of the cable object definition inside the GDTF file referenced by `GDTFSpec`. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined. |
 
 ## Other Node Definition
 
@@ -1886,4 +1830,3 @@ UUIDs are randomly generated numbers which are, practically speaking, unique and
 One of the most important aspects of UUIDs in MVR is that they are persistent. A UUID should identify an item throughout its entire life cycle. This means that if a document is exported, then objects should have the same UUID every time an export is performed.
 One use case for UUIDs is importing or merging MVRs into an existing document. This is one reason that persistent UUIDs are valuable. If you export an MVR from one program, open it in another, and make modifications, then you may want to incorporate those changes into the original document. By cross referencing UUIDs, you can avoid creating duplicate objects and instead update existing ones.
 UUIDs are also used inside of the MVR file format as a form of reference. For example, a symbol instance shall refer to a symbol definition. Because the symbol definition is given a UUID, the symbol instance can reference its symbol through the use of this UUID.
-
