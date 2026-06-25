@@ -1739,7 +1739,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | ConnectorType   <a id="attrtype-connectortype" />    | [Name](#user-content-attrtype-name )      | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). This is not applicable for Component Types Fuses. Custom type of connector can also be defined, for example "Loose End".|
 | Position            | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                     |
 | ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut". |
-| SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
+| SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "PowerDC", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
 | PinCount            | [Int](#user-content-attrtype-int )        | The number of available pins of the connector type to connect internal wiring to it.              |
 | ElectricalPayLoad   | [Float](#user-content-attrtype-float )    | The electrical consumption in Watts. Only for [Consumers](#user-content-attrtype-connectortype ). Unit: Watt.                                         |
 | VoltageRangeMax     | [Float](#user-content-attrtype-float )    | The voltage range's maximum value. Only for [Consumers](#user-content-attrtype-connectortype ). Unit:volt.                                           |
@@ -1754,8 +1754,6 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Defined values are "B", "C", "D", "K", "Z".                                          |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
 | WireGroup           | [String](#user-content-attrtype-string )  | Name of the group to which this wiring object belong.                                             |
-
-
 </div>
 
 The wiring object has the same children types as the geometry
@@ -1782,6 +1780,70 @@ defined XML attributes of a pin patch are specified in [table 51](#user-content-
 </div>
 
 The pin patch doesn't have any children.
+
+### Geometry Type Battery
+
+This type of geometry is used to describe a geometry used for the battery (XML node `<Battery>`). The currently
+defined XML attributes of a battery geometry are specified in
+[table xx](#user-content-table-xx ).
+
+<div id="table-xx">
+
+#### Table xx. *Battery Attributes*
+
+| XML Attribute Name  | Value Type                               | Description                                                    |
+|----|----|----|
+| Name            | [Name](#user-content-attrtype-name )     | The unique name of the geometry.                               |
+| Model           | [Name](#user-content-attrtype-name )     | Link to the corresponding model.                               |
+| Position        | [Matrix](#user-content-attrtype-matrix ) | Relative position of geometry; Default value: Identity Matrix  |
+| InstallationType| [Enum](#user-content-attrtype-enum )     | The Installation Type of the Battery. Defined values are "Internal", "Removable", "Replaceable", "HotSwappable", "Integrated", "Other". Default value: "Internal"|
+| OperationMode <a id="attrtype-operationmode" />| [Enum](#user-content-attrtype-enum )      | The  function of the Device under Battery Power. Defined values are "Configuration", "Operation". Default value: "Operation"|
+| Voltage         | [Float](#user-content-attrtype-float )    | The voltage output of the battery. Unit: volt. Default value: "0"                     |
+| EnergyCapacity  | [Float](#user-content-attrtype-float )   | The Energy Capacity of the Battery in watt-hours (Wh) Default value: "0" |
+| MaxPower        | [Float](#user-content-attrtype-float)    | The maximum output power of the Battery, in watts (W). Default value: "0"|
+| UNTransportCode | [Array of String](#user-content-attrtype-string) | Defines the Battery UN numbers for transport. Default value: empty array|
+| Technology      | [Enum](#user-content-attrtype-enum )     | The Technology Chemistry of the Battery. Defined values are "Li-ion", "LiPo", "LiFePO4", "LTO", "Lead-acid", "AGM", "Gel", "NiMH","NiCd","Sodium-ion", "Alkaline","Lithium-primary","Other". Default value: "Other" Default value: "Li-ion"|
+| Rechargeable    | [Enum](#user-content-attrtype-enum )     | If the Battery can be charged. Defined values are "Yes", "No". Default value: "Yes"|
+</div>
+
+The battery has the same children types as the geometry collect (see [table
+34](#user-content-table-34 )). In addition, it also has a list of charging
+times (XML node `<ChargingTime>`) as children.
+
+#### Charging Time
+
+This XML node (XML node `<ChargingTime>`) specifies the time it takes for the
+battery to be charged to a given capacity percentage. The currently defined XML
+attributes of the charging time are specified in [table
+xx](#user-content-table-xx).
+
+<div id="table-xx">
+
+#### Table xx. *Charging Time Attributes*
+
+| XML Attribute Name  | Value Type                               | Description                                                                                            |
+|----|----|----|
+| CapacityPercentage   | [Int](#user-content-attrtype-int ) | Percentage of battery capacity between 1 and 100 for which the charging time is provided. Default value: "0"|
+| Time         | [Int](#user-content-attrtype-int )       |  The Time in seconds it takes to charge the defined percentage. Default value: "0"|
+
+Example of Battery:
+
+```xml
+<Battery Name="MainBattery"
+       Model="MainBattery"
+       Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}
+       {0.000000,0.000000,0.000000,1.000000}"
+       InstallationType="Removable"
+       OperationMode="Operation"
+       Voltage="14.8"
+       EnergyCapacity="118.4"
+       MaxPower="180"
+       Technology="Li-ion"
+       Rechargeable="Yes">
+  <ChargingTime CapacityPercentage="80" Time="2700" />
+  <ChargingTime CapacityPercentage="100" Time="5400" />
+</Battery>
+```
 
 ### Geometry Type Inventory
 
