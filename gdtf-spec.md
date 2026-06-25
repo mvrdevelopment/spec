@@ -1215,6 +1215,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
 | [Magnet](#user-content-geometry-type-magnet )                         | Any    | Geometry that describes a point where other geometries should be attached.                     |
 | [Speaker](#user-content-geometry-type-audio )                         | Any    | Geometry that describes a audio source.                     |
+| [Amplifier](#user-content-geometry-type-amplifier )                         | Any    | Geometry that describes an audio amplifier.                     |
 
 
 </div>
@@ -1877,6 +1878,85 @@ EXAMPLE An example of a node definition is shown below:
   </FixtureType>
 ```
 ToDO: *MaxSPL Attributes* Do we need to restructure above to support the attributes
+
+### Geometry Type Amplifier
+
+This type of geometry is used to describe an amplifier in an audio device. (XML node `<Amplifier>`). The currently
+defined XML attributes of an Amplifier geometry are specified in [table xx](#user-content-table-XX ).
+
+
+#### Table XX. *Amplifier Attributes*
+
+| Attribute Name | Value Type / Unit | Description                                  |
+| -------------- | ----------------: | -------------------------------------------- |
+| Name           | [Name](#user-content-attrtype-name ) | Unique name of the geometry.                 |
+| Model          | [Name](#user-content-attrtype-name ) | Link to the corresponding model.             |
+| Position       | [Matrix](#user-content-attrtype-matrix )   | Relative position of geometry; Default value: Identity Matrix    |
+| AmplifierClass | [Enum](#user-content-attrtype-enum ) |Defined values are: `A`, `AB`, `D`, `Other`. Default: Other               |
+| DSP            | [Enum](#user-content-attrtype-enum )| Defines whether the amplifier includes DSP. Defined values are "Yes", "No". Default value: "No"
+| Latency        | [Float](#user-content-attrtype-float ) | Amplifier or amplifier/DSP latency.  Unit: ms. Default: 0                  |
+| CoolingType    | [Enum](#user-content-attrtype-enum )|Defined values are: `Passive`, `Fan`, `Other`. Default value: Other            |
+
+As children the Amplifier has a list of [Amplifier Channel](#user-content-amplifier-channel).
+
+#### AmplifierChannel
+
+AmplifierChannel describes one amplifier output channel. The currently defined
+XML attributes of AmplifierChannel are specified in [table
+xx](#user-content-table-xx).
+
+#### Table xx. *Amplifier Channel Attributes*
+
+| Attribute Name     | Value Type / Unit | Description                                                                                                            |
+| ------------------ | ----------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| Name               | [Name](#user-content-attrtype-name )  | Required unique channel name.                                                                                                 |
+| ChannelIndex       | [Int](#user-content-attrtype-int ) | Channel index.                                                                                                         |
+| Mode               | [Enum](#user-content-attrtype-enum ) | Defined values are: `SingleEnded`, `Bridge`, `ParallelBridge`, `HighImpedance70V`, `HighImpedance100V`, `Other`. Default value: Other                          |
+| OutputPower        | [Float](#user-content-attrtype-float )| Rated output power for the documented condition. Unit: watt. Default value: 0                                                                     |
+| LoadImpedance      | [Float](#user-content-attrtype-float ) | Nominal load impedance for the rating. Unit: ohm. Default value: 0                                                                                |
+| MinLoadImpedance   | [Float](#user-content-attrtype-float ) | Minimum supported load impedance. Unit: ohm. Default value: 0                                                                                   |
+| MaxOutputVoltage   | [Float](#user-content-attrtype-float ) | Maximum output voltage. Unit: volt. Default value: 0                                                                                               |
+| VoltageMeasurement | [Enum](#user-content-attrtype-enum ) | Defined values are: `Peak`, `RMS`. Default value: TBD.                                                                                                         |
+| MaxOutputCurrent   | [Float](#user-content-attrtype-float ) | Maximum output current. Unit: ampere. Default value: 0                                                                                                |
+| CurrentMeasurement | [Enum](#user-content-attrtype-enum ) | Defined values are: `Peak`, `RMS`. Default value: TBD                                                                                                      |
+| THDN               | [Float](#user-content-attrtype-float ) | Optional total harmonic distortion plus noise. Unit: percent. Default value: 0                                                                       |
+| CrestFactor        | [Float](#user-content-attrtype-float ) | Optional crest factor for the rating. Unit: decibel. Default value: 0                                                                               |
+| FrequencyRangeMin  | [Float](#user-content-attrtype-float ) | Minimum frequency of the amplifier channel. Unit: hertz. Default value: 0                                                                           |
+| FrequencyRangeMax  | [Float](#user-content-attrtype-float ) | Maximum frequency of the amplifier channel. Unit: hertz. Default value: 0                                                                           |
+| LinkedOutput       | [Node](#user-content-attrtype-node )   | Optional link to the GDTF `WiringObject` that represents the amplifier channel output. Starting point is the[Geometries Collect](#user-content-geometry-collect)|
+| LinkedSpeaker      | [Node](#user-content-attrtype-node )   | Optional link to the `Speaker` geometry fed by this amplifier channel when the speaker is inside the same GDTF device. Starting point is the [Geometries Collect](#user-content-geometry-collect)|
+
+For a self-powered loudspeaker, the `Amplifier` and `Speaker` should normally be children of the same device hierarchy.
+
+The amplifier channel may link to the internal speaker output `WiringObject` and/or directly to the `Speaker` geometry through `LinkedSpeaker`.
+
+For a passive loudspeaker driven by an external amplifier, do not directly link the external amplifier’s GDTF to the passive speaker’s GDTF. The instance-to-instance relationship belongs in MVR using `Connections`.
+
+EXAMPLE:
+
+```xml
+  <Amplifier
+    Name="AmplifierModule"
+    Model="AmplifierModule"
+    Position="{1,0,0,0}{0,1,0,0}{0,0,1,0}{0,0,0,1}"
+    ChannelCount="1"
+    AmplifierClass="D"
+    DSP="Yes"
+    Latency="2.5"
+    CoolingType="Passive">
+    <AmplifierChannel
+      Name="LFHF"
+      ChannelIndex="1"
+      Mode="SingleEnded"
+      OutputPower="900"
+      LoadImpedance="4"
+      MinLoadImpedance="4"
+      FrequencyRangeMin="45"
+      FrequencyRangeMax="18000"
+      LinkedOutput="InternalAmpOut1"
+      LinkedSpeaker="AcousticSource"/>
+  </Amplifier>
+```
 ## DMX Mode Collect
   
 ### General
