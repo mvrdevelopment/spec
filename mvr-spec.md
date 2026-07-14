@@ -910,19 +910,6 @@ The defined Vertex Node Value Types are specified in Table XX.
 | Value Type                              | Default Value When Missing | Description                            |
 | --------------------------------------- | -------------------------- | -------------------------------------- |
 | [Vector3](#user-content-attrtype-vector3) | Not Optional               | The vertex position in millimeters.    |
-
-## Node Definition: Color
-
-This node defines a CIE color used by a listening-plane heat-map face.
-
-Node name: `Color`
-
-The defined Color Node Value Types are specified in Table XX.
-
-##### Table XX — *Color Node Value Types*
-
-| Value Type                              | Default Value When Missing | Description                            |
-| --------------------------------------- | -------------------------- | -------------------------------------- |
 | [CIE Color](#user-content-attrtype-ciecolor) | Not Optional               | The face color used to represent the value. |
 
 EXAMPLE An example of a node definition is shown below:
