@@ -1,4 +1,22 @@
-## Cable definition GDTF
+# Cable definition GDTF
+
+## Linked issues:
+
+https://github.com/mvrdevelopment/spec/issues/296
+https://github.com/mvrdevelopment/spec/issues/288
+
+## Problem
+
+Requirements: allow to exchange information about cables, connecting Connections in MVR.
+
+## Proposal
+
+Create a Cable Geometry in GDTF with specific fields.
+Create a Cable object in MVR, link it to GDTF file.
+Link cable to Connections objects.
+See edited gdtf-spec.md and mvr-spec.md for modifications.
+
+## Examples
 
 ### Power cable, Schuko to Schuko
 
