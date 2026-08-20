@@ -368,6 +368,7 @@ The child list (Table 18) contains a list of the following nodes:
 | [Truss](#node-definition-truss)             | A definition of a truss.                                                     |
 | [VideoScreen](#node-definition-videoscreen) | A definition of a video screen.                                              |
 | [Projector](#node-definition-projector)     | A definition of a projector.                                                 |
+| [Cable](#node-definition-cable)     | A definition of a cable.                                                             |
 
 
 ## Node Definition for Parametric Objects
@@ -813,6 +814,23 @@ EXAMPLE An example of a node definition is shown below:
 </Projector> 
 ```
 
+### Node Definition: Cable
+
+This node defines a cable object. Cable describes the physical realization of a
+connection between two [Connection](#node-definition-connection) nodes. The
+defined Cable Node Attributes are specified in Table XX.
+
+Node name: `Cable`
+
+Table xx - Cable Node attributes:
+
+| Attribute Name     | Value Type        | Description                                                                             |
+| ------------------ | ----------------: | --------------------------------------------------------------------------------------- |
+| uuid               | [UUID](#user-content-attrtype-uuid)  | Unique identifier of the cable.                                      |
+| name               | [String](#user-content-attrtype-string)  | Cable name.                                                      |
+| length             | [Float](#user-content-attrtype-float)| Cable length. Unit: meter. Default value: 0                          |
+| GDTFSpec           | [FileName](#user-content-attrtype-filename) | Optional. The name of the GDTF or `gdtt` file containing a reusable cable catalog. |
+| GDTFMode           | [String](#user-content-attrtype-string) | Optional. The name of the cable object definition inside the GDTF file referenced by `GDTFSpec`. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined. |
 
 ## Other Node Definition
 
@@ -1223,6 +1241,7 @@ Node name: `Connection`
 | own            | [String](#user-content-attrtype-string)     | Mandatory                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF.                                     |
 | other          | [String](#user-content-attrtype-string)     | Mandatory                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
 | toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
+| cable          | [UUID](#user-content-attrtype-uuid)       | Empty String               | UUID of the cable used for this connection.                                                                                                                                                                                                       |
 
 ### Node Definition: Mappings
 
@@ -1811,4 +1830,3 @@ UUIDs are randomly generated numbers which are, practically speaking, unique and
 One of the most important aspects of UUIDs in MVR is that they are persistent. A UUID should identify an item throughout its entire life cycle. This means that if a document is exported, then objects should have the same UUID every time an export is performed.
 One use case for UUIDs is importing or merging MVRs into an existing document. This is one reason that persistent UUIDs are valuable. If you export an MVR from one program, open it in another, and make modifications, then you may want to incorporate those changes into the original document. By cross referencing UUIDs, you can avoid creating duplicate objects and instead update existing ones.
 UUIDs are also used inside of the MVR file format as a form of reference. For example, a symbol instance shall refer to a symbol definition. Because the symbol definition is given a UUID, the symbol instance can reference its symbol through the use of this UUID.
-
