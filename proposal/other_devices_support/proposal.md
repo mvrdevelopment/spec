@@ -58,31 +58,43 @@ Cons:
 In MVR, Fixure, Truss, Support, Video screen, and Projector already exist, other specific objects like Cable, Speaker, Amplifier... can be added.
 
 
-2. In GDTF, Define specific modes for each MVR object type, with fields specific for the device
+2. In GDTF, Define specific modes for each MVR object type. Keep only the Geometry link there:
 
 ```xml
 <FixtureType FixtureTypeID="755C3C57-609C-4F8F-8F69-80B96F090996" Name="My Cables" ...>
   <CableModes>
-    <CableMode Description="" Geometry="Power Cable Schuko to Schuko" Name="Power Cable Schuko to Schuko"
-     LengthMin="1.0"
-     LengthMax="25.0"
-     AvailableLengths="1.0,5.0,10.0,25.0"
-     LengthArbitrary="True"
-    />
+    <CableMode Description="" Geometry="Power Cable Schuko to Schuko" Name="1m Power Cable Schuko to Schuko" />
+    <CableMode Description="" Geometry="Power Cable Schuko to Schuko" Name="2m Power Cable Schuko to Schuko" />
+    <CableMode Description="" Geometry="Power Cable Schuko to Schuko" Name="3m Power Cable Schuko to Schuko" />
   </CableModes>
+
+    <SpeakerModes>
+      <SpeakerMode Geometry="..." Name="Audio mode">
+      <SpeakerMode Geometry="..." Name="Audio mode">
+      <SpeakerMode Geometry="..." Name="Audio mode">
+    </SpeakerModes>
+
+
+  <DMXModes>
+    <DMXMode Description="" Name="My Power Cable"/>
+    <DMXMode Description="" Name="My Power Cable"/>
+    <DMXMode Description="" Name="My Power Cable"/>
+    <DMXMode Description="" Name="My Power Cable"/>
+  </DMXModes>
+
   <Geometries>
-    <Cable Name="Power Cable Schuko to Schuko"
-     ...
+  ...
      />
-     ...
 ```
+
+MVR:
 ```xml
   <Cable
     uuid="7C6B12E5-0AC9-45B2-99EA-5C7C9D9F5A10"
     name="Low Voltage PSU Feed 25m Hybrid"
-    length="25.0"
+    length="7"
     GDTFSpec="MyFixtureFamily.gdtf"
-    CableMode="DMX cable">
+    GDTFMode="Select one of the modes available in the GDTF fixture">
   </Cable>
 ```
 Cable:
@@ -93,7 +105,8 @@ GDTF: for devices primarly Speaker - SpeakerModes - SpeakerMode
 MVR: Speaker - SpeakerMode
 
 
-Note: Instead of "CableModes", "CableTypes - CableType" or other better wording could be used.
+
+
 
 3. as #2, but also define generic "DeviceModes - DeviceMode" for non specific devices.
 
@@ -140,3 +153,5 @@ For example:
 <TrussType FixtureTypeID="755C3C57-609C-4F8F-8F69-80B96F090996" Name="My Cables" ...>
 <CableType FixtureTypeID="755C3C57-609C-4F8F-8F69-80B96F090996" Name="My Cables" ...>
 
+Cons:
+    - we would need to define "common" geometries and all other "shared" parts for combination devices
