@@ -499,6 +499,7 @@ The child list (Table 26) contains a list of one of the following nodes:
 | [CustomCommands](#node-definition-customcommands) | 0 or 1 |                                           | The container for custom command for this fixture.                                                                                  |
 | [Overwrites](#node-definition-overwrites) | 0 or 1      |                                              | The container for overwrites for this fixture.                                                                                              |
 | [Connections](#node-definition-connections) | 0 or 1    |                                              | The container for connections for this fixture.                                                                                            |
+| [Circuits](#node-definition-circuits)             | 0 or 1        |                                              | The container for power circuits for this fixture.                                                                                           |
 | Color                                | 0 or 1        | [CIE Color](#user-content-attrtype-ciecolor) | A color assigned to a fixture. If it is not defined, there is no color for the fixture.                                                       |
 | CustomIdType                            | 0 or 1        | [Integer](#user-content-attrtype-integer)    | Defines the CustomID Type this fixture belongs to. A Custom ID Type defines to which group of objects this objects belongs as an additional object identifier.  The types for the custom ID Types are defined below. |
 | CustomId                                | 0 or 1        | [Integer](#user-content-attrtype-integer)    | The CustomId ID is an identifier for the instance of this fixture within the Custom ID Type that can be used to activate / select them for programming.   |
@@ -549,6 +550,9 @@ EXAMPLE An example of a node definition is shown below:
         <CustomCommand>Body_Pan,f 50</CustomCommand>
         <CustomCommand>Yoke_Tilt,f 50</CustomCommand>
     </CustomCommands>
+    <Circuits>
+        <Circuit name="LX1.1" number="3"/>
+    </Circuits>
     <Overwrites>
             <Overwrite universal="Universal Wheel 1.Universal Wheel Slot 1" target="Wheel 1.Wheel Slot"/>
             <Overwrite universal="Universal Emitter 1" target="Emitter 1" />
@@ -710,6 +714,7 @@ The child list (Table 32) contains a list of one of the following nodes:
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                              | The container for custom command for this object.                                                                                             |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                              | The container for overwrites for this object.                                                                                                 |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                              | The container for connections for this object.                                                                                                |
+| [Circuits](#node-definition-circuits)             | 0 or 1        |                                              | The container for power circuits for this object.                                                                                           |
 | [ChildList](#node-definition-childlist) | 0 or 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
 | FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
@@ -731,6 +736,10 @@ EXAMPLE An example of a node definition is shown below:
     <FixtureID>25</FixtureID>
     <UnitNumber>0</UnitNumber>
     <CustomId>0</CustomId>
+    <Circuits>
+        <Circuit name="VID-DISTRO.1" number="1"/>
+        <Circuit name="VID-DISTRO.1" number="2"/>
+    </Circuits>
     <Sources>
     movie.mov
    </Sources>
@@ -770,6 +779,7 @@ The child list (Table 34) contains a list of one of the following nodes:
 | [CustomCommands](#node-definition-customcommands) | 0 or 1        |                                             | The container for custom command for this object.                                                                                             |
 | [Overwrites](#node-definition-overwrites)         | 0 or 1        |                                             | The container for overwrites for this object.                                                                                                 |
 | [Connections](#node-definition-connections)       | 0 or 1        |                                             | The container for connections for this object.                                                                                                |
+| [Circuits](#node-definition-circuits)             | 0 or 1        |                                              | The container for power circuits for this object.                                                                                           |
 | [ChildList](#node-definition-childlist) | 0 or 1             | A list of graphic objects that are part of the layer.                                                                                                                                                                                                                            |
 | FixtureID                               | 1             | [String](#user-content-attrtype-string)      | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                  |
 | FixtureIDNumeric                        | 1             | [Integer](#user-content-attrtype-integer)    | The Fixture ID is an identifier for the instance of this fixture that can be used to activate / select them for programming.                |
@@ -792,6 +802,9 @@ EXAMPLE An example of a node definition is shown below:
     <FixtureID>25</FixtureID>
     <UnitNumber>0</UnitNumber>
     <CustomId>0</CustomId>
+    <Circuits>
+        <Circuit name="FOH.2" number="4"/>
+    </Circuits>
     <Projections>
         <Projection>movie.mov
             
@@ -1212,15 +1225,62 @@ Node name: `Connection`
 | other          | [String](#user-content-attrtype-string)     | Mandatory                  | Node Link to the Geometry with DIN SPEC 15800 Type [Wiring Object](https://github.com/mvrdevelopment/spec/blob/main/gdtf-spec.md#geometry-type-wiring-object) . Starting point is the Geometry Collect of the linked GDTF of the object defined in `toObject`. |
 | toObject       | [UUID](#user-content-attrtype-uuid)       | Mandatory                  | UUID of an other object in the scene.                                                                                                                                                                                                           |
 
+### Node Definition: Circuits
+
+This node defines a group of Circuit. It describes the power circuits an object is connected to.
+
+Node name: `Circuits`
+
+The child list (Table 62) contains a list of the following nodes:
+
+##### Table 62 — *Circuits Node Childs*
+
+| Child Node                              | Allowed Count | Description                                              |
+| --------------------------------------- | ------------- | -------------------------------------------------------- |
+| [Circuit](#node-definition-circuit)     | 0 or any      | Contains the definition of one power circuit connection. |
+
+If the `Circuits` node is not present or contains no `Circuit` children, the object is not assigned to any circuit.
+
+
+#### Node Definition: Circuit
+
+This node defines one power circuit that the parent object is connected to. A circuit is identified only by the pair of its `name` and `number`; there is no central list of circuits in the scene. All objects that carry a `Circuit` with the same `name` and `number` are connected to the same physical circuit (for example several luminaires on one two-fer, or objects from different departments fed from the same outlet). The defined Circuit Node Attributes are specified in Table 63.
+
+Node name: `Circuit`
+
+##### Table 63 — *Circuit Node Attributes*
+
+| Attribute Name | Attribute Value Type                      | Default Value | Description                                                                                                                                                                       |
+| -------------- | ----------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name           | [String](#user-content-attrtype-string)   | Mandatory     | The name of the circuit. Typically the name of the multicable, dimmer rack or power distributor the circuit belongs to. The value shall not contain whitespace or comma (`,`) characters. |
+| number         | [Integer](#user-content-attrtype-integer) | Mandatory     | The number of the circuit within `name`. The value shall be 1 or greater.                                                                                                        |
+
+Two `Circuit` nodes refer to the same circuit when their `name` values are equal (case-sensitive, after removing leading and trailing whitespace) and their `number` values are equal.
+
+The `Circuit` is a logical label for the power connection and is independent of the [Connection](#node-definition-connection) node, which describes a physical link between wiring objects. Both may be present on the same object.
+
+Unlike `FixtureID` and `CustomId`, circuits are not inherited from a multipatch parent. Every object, including multipatch children, defines its own circuits.
+
+Recommended naming: The `name` should be built from the name of the [Position](#node-definition-position) the object is attached to, followed by a dot (`.`) and the index of the multicable on that position. The `number` is then the circuit number within that multicable. Example: `LX1.1` with number `3` is the third circuit of the first multicable on position `LX1`. When no multicable is used, `name` may be the name of the dimmer rack or power distributor, and `number` the outlet number.
+
+EXAMPLE An example of a node definition is shown below:
+
+```xml
+<Circuits>
+    <Circuit name="LX1.1" number="3"/>
+</Circuits>
+```
+
+
 ### Node Definition: Mappings
 
 This node defines a group of Mappings.
 
 Node name: `Mappings`
 
-The child list (Table 62) contains a list of the following nodes:
+The child list (Table 64) contains a list of the following nodes:
 
-##### Table 62 — *Mappings Node Childs*
+##### Table 64 — *Mappings Node Childs*
 
 | Child Node                            | Allowed Count | Description                  |
 | ------------------------------------- | ------------- | ---------------------------- |
@@ -1231,19 +1291,19 @@ It is only allowed to have one Mapping linked to the same Mapping Definition onc
 
 #### Node Definition: Mapping
 
-This node defines a Mapping. The defined Mapping Node Attributes are specified in Table 63.
+This node defines a Mapping. The defined Mapping Node Attributes are specified in Table 65.
 
 Node name: `Mapping`
 
-##### Table 63 — *Mapping Node Attributes*
+##### Table 65 — *Mapping Node Attributes*
 
 | Attribute Name | Attribute Value Type                |  Description                                                                                |
 | -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------- |
 | linkedDef      | [UUID](#user-content-attrtype-uuid) | The unique identifier of the MappingDefinition node that will be the source of the mapping. |
 
-The child list (Table 64) contains a list of the following nodes:
+The child list (Table 66) contains a list of the following nodes:
 
-##### Table 64 — *Mapping Node Childs*
+##### Table 66 — *Mapping Node Childs*
 
 | Child Node | Allowed Count | Value Type | Description                                                                                    |
 | ---------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------  |
@@ -1281,10 +1341,10 @@ The service name shall be `_mvrxchange._tcp.local.`. The sub service name shall 
 . Each client shall negotiate a unique hostname via the methods described in the mDNS standards. Each client shall have a PTR, SRV, TXT and A and/or AAAA
 record.
 
-The TXT record should contain the information given in Table 65:
+The TXT record should contain the information given in Table 67:
 
 
-##### Table 65 — *TXT Record Attributes*
+##### Table 67 — *TXT Record Attributes*
 
 | Attribute Name | Attribute Value Type                |  Description                                                                   |
 | -------------- | ----------------------------------- | ----------------------------------------------------------------------------- |
@@ -1312,9 +1372,9 @@ Packages define how the message will be send to the MVR-xchange client, while th
 
 ### TCP Mode
 
-When in TCP Mode, all messages are send via TCP directly to the client. The packet is encoded as specified in Table 66:
+When in TCP Mode, all messages are send via TCP directly to the client. The packet is encoded as specified in Table 68:
 
-##### Table 66 — *Packet & Message Definitions*
+##### Table 68 — *Packet & Message Definitions*
 
 | Type    | Symbol  |
 |---|---|
@@ -1338,9 +1398,9 @@ uint64 MVR_PAYLOAD_LENGTH
 char[] MVR_PAYLOAD_BUFFER
 ```
 
-Where the following applies (Table 67):
+Where the following applies (Table 69):
 
-##### Table 67 — *Data Type MVR-xchange package*
+##### Table 69 — *Data Type MVR-xchange package*
 
 | Type    | Symbol  |
 |---|---|
@@ -1387,9 +1447,9 @@ Figure 4 shows the Websocket mode for a MVR-xchange client joining MVR-xchange g
 |---|---|
 | ![media/MVR_Join_3.png](media/MVR_Join_3.png)  |  ![media/MVR_Join_4.png](media/MVR_Join_4.png) |
 
-The defined MVR_JOIN message Attributes are specified in Table 68.
+The defined MVR_JOIN message Attributes are specified in Table 70.
 
-##### Table 68 — *MVR_JOIN message Attributes*
+##### Table 70 — *MVR_JOIN message Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1401,9 +1461,9 @@ The defined MVR_JOIN message Attributes are specified in Table 68.
 | StationUUID    | [UUID](#user-content-attrtype-uuid) |   Not Optional                                               | UUID of sending station inside the network. This UUID should be persistent across multiple start-ups of the same software on the same computer |
 | Commits          | [Array of `MVR_COMMIT`](#user-content-attrtype-string)  | Empty Array                              | List all available MVR files that are on sender station in the format of the `MVR_COMMIT` packet.                |                             |
 
-The defined MVR_JOIN response Attributes are specified in Table 69.
+The defined MVR_JOIN response Attributes are specified in Table 71.
 
-##### Table 69 — *MVR_JOIN response Attributes*
+##### Table 71 — *MVR_JOIN response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1484,18 +1544,18 @@ In order to join again, the client needs to send a `MVR_JOIN` message again.
 |---|---|
 | ![media/MVR_Leave_1.png](media/MVR_Leave_2.png)  |  ![media/MVR_Leave_2.png](media/MVR_Leave_1.png) |
 
-The defined MVR_LEAVE message Attributes are specified in Table 70.
+The defined MVR_LEAVE message Attributes are specified in Table 72.
 
-##### Table 70 — *MVR_LEAVE message Attributes*
+##### Table 72 — *MVR_LEAVE message Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
 | Type       | [String](#user-content-attrtype-string)                              | Not Optional                | Defines the type of the message. Should be MVR_LEAVE                         |
 | FromStationUUID      | [UUID](#user-content-attrtype-uuid) |           Not Optional                  | The UUID of the station. |
 
-The defined MVR_LEAVE response Attributes are specified in Table 71.
+The defined MVR_LEAVE response Attributes are specified in Table 73.
 
-##### Table 71 — *MVR_LEAVE response Attributes*
+##### Table 73 — *MVR_LEAVE response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1563,9 +1623,9 @@ Figure 8 displays the process when the server is the station who is providing a 
 |---|
 | ![media/MVR_Commit_3.png](media/MVR_Commit_3.png)  |
 
-The defined MVR_COMMIT message Attributes are specified in Table 72.
+The defined MVR_COMMIT message Attributes are specified in Table 74.
 
-##### Table 72 — *MVR_COMMIT message Attributes*
+##### Table 74 — *MVR_COMMIT message Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1579,9 +1639,9 @@ The defined MVR_COMMIT message Attributes are specified in Table 72.
 | Comment       | [String](#user-content-attrtype-string)                              |                 | Describes the changes made in this version of the MVR file.                            |
 | FileName   | [String](#user-content-attrtype-string) |                 | Describes the file name that can be used to store the file on disk to preserve it across multiple MVR-xchange clients. The usage of this attribute is optional, when not defined, the receiving  MVR-xchange client can decide which file name it uses to store it on disk.                   |
 
-The defined MVR_COMMIT response Attributes are specified in Table 73.
+The defined MVR_COMMIT response Attributes are specified in Table 75.
 
-##### Table 73 — *MVR_COMMIT response Attributes*
+##### Table 75 — *MVR_COMMIT response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1646,9 +1706,9 @@ Figure 10 shows the TCP mode for a MVR-xchange client that is requesting a file.
 |---|---|
 | ![media/MVR_Request_mDNS3.png](media/MVR_Request_mDNS3.png)  |  ![media/MVR_Request_mDNS4.png](media/MVR_Request_mDNS4.png) |
 
-The defined MVR_REQUEST message Attributes are specified in Table 74.
+The defined MVR_REQUEST message Attributes are specified in Table 76.
 
-##### Table 74 — *MVR_REQUEST message Attributes*
+##### Table 76 — *MVR_REQUEST message Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1656,9 +1716,9 @@ The defined MVR_REQUEST message Attributes are specified in Table 74.
 | FileUUID      | [UUID](#user-content-attrtype-uuid) |   Last MVR File from station                          | The UUID of the requested MVR file. If not set, the last available file is sent. |
 | FromStationUUID      | Array of [UUID](#user-content-attrtype-uuid) |                             | The UUID of the station that you want to retrieve the MVR from. |
 
-The defined MVR_REQUEST error response Attributes are specified in Table 75.
+The defined MVR_REQUEST error response Attributes are specified in Table 77.
 
-##### Table 75 — *MVR_REQUEST error response Attributes*
+##### Table 77 — *MVR_REQUEST error response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1729,9 +1789,9 @@ When the receiving nodes are in WebSocket Mode:
 
 Each receiver will try to switch into TCP Mode by connecting to the mDNS service given in `ServiceName` and send a `MVR_JOIN` Message. If this is successful, the nodes switch to TCP Mode and establish their own mDNS client as described above. OK: true is returned in this case. If the new mDNS service is not reachable OK: false is returned.
 
-The defined MVR_NEW_SESSION_HOST message Attributes are specified in Table 76.
+The defined MVR_NEW_SESSION_HOST message Attributes are specified in Table 78.
 
-##### Table 76 — *MVR_NEW_SESSION_HOST message Attributes*
+##### Table 78 — *MVR_NEW_SESSION_HOST message Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
@@ -1739,9 +1799,9 @@ The defined MVR_NEW_SESSION_HOST message Attributes are specified in Table 76.
 | ServiceName      | [String](#user-content-attrtype-string) |   Empty                          | New mDNS Service Name to connect to. If Empty, ignore. Cannot be set together with ServiceURL |
 | ServiceURL      |  [String](#user-content-attrtype-string) | Empty. | New WebSocket Service URL to connect to. If Empty, ignore. Cannot be set together with ServiceURL
 
-The defined MVR_NEW_SESSION_HOST error response Attributes Attributes are specified in Table 77.
+The defined MVR_NEW_SESSION_HOST error response Attributes Attributes are specified in Table 79.
 
-##### Table 77 — *MVR_NEW_SESSION_HOST error response Attributes*
+##### Table 79 — *MVR_NEW_SESSION_HOST error response Attributes*
 
 | Attribute Name | Attribute Value Type                | Default Value when Optional | Description                                                                   |
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
