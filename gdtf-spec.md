@@ -1049,7 +1049,7 @@ specified in [table 30](#user-content-table-30 ).
 | XML Attribute Name | Value Type                          | Description                                                                      |
 |----|----|----|
 | Value              | [Float](#user-content-attrtype-float ) | Weight of the device including all accessories. Unit: kilogram. Default value: 0 |
-| CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 )|  Optional. Offset from the origin of the geometry tree root. Unit: meter.|
+| CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 )|  Optional, valid only for devices without moving parts. Offset from the origin of the geometry tree root.  Unit: meter.|
 
 </div>
 
