@@ -2565,6 +2565,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Tilt                             | Controls the fixture's upward and the downward movement (vertical axis).                                                                                                                                                                                                                                  |
 | PanRotate                        | Controls the speed of the fixture's continuous pan movement (horizontal axis).                                                                                                                                                                                                                            |
 | TiltRotate                       | Controls the speed of the fixture's continuous tilt movement (vertical axis).                                                                                                                                                                                                                             |
+| PanMode                          | Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
+| TiltMode                         | Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
+| PanTiltMode                      | Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
 | PositionEffect                   | Selects the predefined position effects that are built into the fixture.                                                                                                                                                                                                                                  |
 | PositionEffectRate               | Controls the speed of the predefined position effects that are built into the fixture.                                                                                                                                                                                                                    |
 | PositionEffectFade               | Snaps or smooth fades with timing in running predefined position effects.                                                                                                                                                                                                                                 |
@@ -2587,6 +2590,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Gobo(n)WheelShake                | Controls frequency of the shake of gobo wheel (n).                                                                                                                                                                                                                                                        |
 | Gobo(n)WheelRandom               | Controls speed of gobo wheel´s (n) random gobo slot selection.                                                                                                                                                                                                                                            |
 | Gobo(n)WheelAudio                | Controls audio-controlled functionality of gobo wheel (n).                                                                                                                                                                                                                                                |
+| Gobo(n)WheelMode                 | Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).                                                                                                                                                                                                                    |
 | Gobo(n)Pos                       | Controls angle of indexed rotation of gobos in gobo wheel (n). This is the main attribute of gobo wheel’s (n) wheel slot control.                                                                                                                                                                         |
 | Gobo(n)PosRotate                 | Controls the speed and direction of continuous rotation of gobos in gobo wheel (n).                                                                                                                                                                                                                       |
 | Gobo(n)PosShake                  | Controls frequency of the shake of gobos in gobo wheel (n).                                                                                                                                                                                                                                               |
@@ -2597,6 +2601,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | AnimationWheel(n)SelectEffects   | Selects slots which run effects in animation wheel (n).                                                                                                                                                                                                                                                   |
 | AnimationWheel(n)SelectShake     | Selects slots which shake in animation wheel and controls the frequency of the slots shake within the same channel function.                                                                                                                                                                              |
 | AnimationWheel(n)SelectSpin      | Selects slots whose rotation is continuous in animation wheel and controls the angular speed of the slot spin within the same channel function                                                                                                                                                            |
+| AnimationWheel(n)Mode            | Changes control between selecting, indexing, and rotating the slots of animation wheel (n).                                                                                                                                                                                                               |
 | AnimationWheel(n)Pos             | Controls angle of indexed rotation of slots in animation wheel. This is the main attribute of animation wheel (n) wheel slot control.                                                                                                                                                                     |
 | AnimationWheel(n)PosRotate       | Controls the speed and direction of continuous rotation of slots in animation wheel (n).                                                                                                                                                                                                                  |
 | AnimationWheel(n)PosShake        | Controls frequency of the shake of slots in animation wheel (n).                                                                                                                                                                                                                                          |
@@ -2625,6 +2630,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Color(n)WheelSpin                | Controls the speed and direction of continuous rotation of color wheel (n).                                                                                                                                                                                                                               |
 | Color(n)WheelRandom              | Controls frequency of color wheel´s (n) random color slot selection.                                                                                                                                                                                                                                      |
 | Color(n)WheelAudio               | Controls audio-controlled functionality of color wheel (n).                                                                                                                                                                                                                                               |
+| Color(n)Mode                     | Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).                                                                                                                                                             |
 | ColorAdd\_R                      | Controls the intensity of the fixture's red emitters for direct additive color mixing.                                                                                                                                                                                                                    |
 | ColorAdd\_G                      | Controls the intensity of the fixture's green emitters for direct additive color mixing                                                                                                                                                                                                                   |
 | ColorAdd\_B                      | Controls the intensity of the fixture's blue emitters for direct additive color mixing.                                                                                                                                                                                                                   |
@@ -2649,6 +2655,10 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
 | ColorMacro(n)                    | Selects predefined colors that are programmed in the fixture's firmware.                                                                                                                                                                                                                                  |
 | ColorMacro(n)Rate                | Controls the time between Color Macro steps.                                                                                                                                                                                                                                                              |
+| CyanMode                         | Controls how Cyan is used within the fixture's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
+| MagentaMode                      | Controls how Magenta is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                     |
+| YellowMode                       | Controls how Yellow is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
+| ColorMixMode                     | Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.                                                                                                                                                                           |
 | CTO                              | Controls the fixture's "Correct to orange" wheel or mixing system.                                                                                                                                                                                                                                        |
 | CTC                              | Controls the fixture's "Correct to color" wheel or mixing system.                                                                                                                                                                                                                                         |
 | CTB                              | Controls the fixture's "Correct to blue" wheel or mixing system.                                                                                                                                                                                                                                          |
@@ -2682,6 +2692,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | StrobeDuration                   | Controls the length of a strobe flash.                                                                                                                                                                                                                                                                    |
 | StrobeRate                       | Controls the time between strobe flashes.                                                                                                                                                                                                                                                                 |
 | StrobeFrequency                  | Controls the frequency of strobe flashes.                                                                                                                                                                                                                                                                 |
+| StrobeMode                       | Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.                                                                                                                                                                                                                     |
 | StrobeModeShutter                | Strobe mode shutter. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                                         |
 | StrobeModeStrobe                 | Strobe mode strobe. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                                          |
 | StrobeModePulse                  | Strobe mode pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                                           |
@@ -2709,6 +2720,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | IrisPulseOpen                    | Sets frequency of iris's opening pulse.                                                                                                                                                                                                                                                                   |
 | IrisRandomPulseClose             | Sets frequency of iris's random closing pulse.                                                                                                                                                                                                                                                            |
 | IrisRandomPulseOpen              | Sets frequency of iris's random opening pulse.                                                                                                                                                                                                                                                            |
+| IrisMode                         | Changes modes of the fixture’s iris - linear, strobe, pulse.                                                                                                                                                                                                                                              |
 | Frost(n)                         | The ability to soften the fixture's spot light with a frosted lens.                                                                                                                                                                                                                                       |
 | Frost(n)PulseOpen                | Sets frequency of frost's opening pulse                                                                                                                                                                                                                                                                   |
 | Frost(n)PulseClose               | Sets frequency of frost's closing pulse.                                                                                                                                                                                                                                                                  |
@@ -2730,10 +2742,12 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | BeamShaperPos                    | Indexing of fixture's beam shaper.                                                                                                                                                                                                                                                                        |
 | BeamShaperPosRotate              | Continuous rotation of fixture's beam shaper.                                                                                                                                                                                                                                                             |
 | Zoom                             | Controls the spread of the fixture's beam/spot.                                                                                                                                                                                                                                                           |
+| ZoomMode                         | Changes modes of the fixture´s zoom.                                                                                                                                                                                                                                                                      |
 | ZoomModeSpot                     | Selects spot mode of zoom.                                                                                                                                                                                                                                                                                |
 | ZoomModeBeam                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
 | DigitalZoom                      | Controls the image size within the defined projection. Used on digital projection based devices                                                                                                                                                                                                           |
 | Focus(n)                         | Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
+| Focus(n)Mode                     | Changes modes of the fixture’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
 | Focus(n)Adjust                   | Autofocuses functionality using presets.                                                                                                                                                                                                                                                                  |
 | Focus(n)Distance                 | Autofocuses functionality using distance.                                                                                                                                                                                                                                                                 |
 | Control(n)                       | Controls the channel of a fixture.                                                                                                                                                                                                                                                                        |
@@ -2743,20 +2757,10 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | LEDFrequency                     | Controls LED frequency.                                                                                                                                                                                                                                                                                   |
 | LEDZoneMode                      | Changes zones of LEDs.                                                                                                                                                                                                                                                                                    |
 | PixelMode                        | Controls behavior of LED pixels.                                                                                                                                                                                                                                                                          |
-| PanMode                          | Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
-| TiltMode                         | Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
-| PanTiltMode                      | Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
 | PositionModes                    | Selects the fixture's position mode.                                                                                                                                                                                                                                                                      |
-| Gobo(n)WheelMode                 | Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).                                                                                                                                                                                                                    |
 | GoboWheelShortcutMode            | Defines whether the gobo wheel takes the shortest distance between two positions.                                                                                                                                                                                                                         |
-| AnimationWheel(n)Mode            | Changes control between selecting, indexing, and rotating the slots of animation wheel (n).                                                                                                                                                                                                               |
 | AnimationWheelShortcutMode       | Defines whether the animation wheel takes the shortest distance between two positions.                                                                                                                                                                                                                    |
-| Color(n)Mode                     | Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).                                                                                                                                                             |
 | ColorWheelShortcutMode           | Defines whether the color wheel takes the shortest distance between two colors.                                                                                                                                                                                                                           |
-| CyanMode                         | Controls how Cyan is used within the fixture's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
-| MagentaMode                      | Controls how Magenta is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                     |
-| YellowMode                       | Controls how Yellow is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
-| ColorMixMode                     | Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.                                                                                                                                                                           |
 | ChromaticMode                    | Selects chromatic behavior of the device.                                                                                                                                                                                                                                                                 |
 | ColorCalibrationMode             | Sets calibration mode (for example on/off).                                                                                                                                                                                                                                                               |
 | ColorConsistency                 | Controls consistent behavior of color.                                                                                                                                                                                                                                                                    |
@@ -2769,10 +2773,6 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | UVStability                      | Settings for UV stability color behavior.                                                                                                                                                                                                                                                                 |
 | WavelengthCorrection             | Settings for Wavelength correction of colors.                                                                                                                                                                                                                                                             |
 | WhiteCount                       | Controls if White LED is proportionally added to RGB.                                                                                                                                                                                                                                                     |
-| StrobeMode                       | Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute.                                                                                                                                                                                                                     |
-| ZoomMode                         | Changes modes of the fixture´s zoom.                                                                                                                                                                                                                                                                      |
-| FocusMode                        | Changes modes of the fixture’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
-| IrisMode                         | Changes modes of the fixture’s iris - linear, strobe, pulse.                                                                                                                                                                                                                                              |
 | FanMode                          | Controls fan mode.                                                                                                                                                                                                                                                                                    |
 | FollowSpotMode                   | Selects follow spot control mode.                                                                                                                                                                                                                                                                         |
 | BeamEffectIndexRotateMode        | Changes mode to control either index or rotation of the beam effects.                                                                                                                                                                                                                                     |
@@ -3031,6 +3031,48 @@ not taken into account.
       Definition="Controls the speed of the fixture's continuous tilt movement (vertical axis)."
       Explanation="For fixtures with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a fixture can rotate about the tilt axis. Usually, the vertical axis."
       Label="Tilt Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PanMode"
+      Pretty="Pan Mode"
+      Feature="Position.PanTilt"
+      Definition="Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range."
+      Explanation="For devices that allow different modes of pan behavior, use this attribute to describe the behavior."
+      Label="Pan Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="TiltMode"
+      Pretty="Tilt Mode"
+      Feature="Position.PanTilt"
+      Definition="Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range."
+      Explanation="For devices that allow different modes of tilt behavior, use this attribute to describe the behavior."
+      Label="Tilt Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PanTiltMode"
+      Pretty="PanTilt Mode"
+      Feature="Position.PanTilt"
+      Definition="Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range."
+      Explanation="For devices that allow different modes of behavior of pan and tilt, use this attribute to describe the behavior."
+      Label="Pan Tilt Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -3442,6 +3484,20 @@ not taken into account.
       PhysicalFrom="270"
       PhysicalTo="270"/>
     <Attribute
+      Name="Gobo(n)WheelMode"
+      Pretty="G(n) Mode"
+      Feature="Gobo.Gobo"
+      Definition="Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n)."
+      Explanation="This attribute describes selecting, indexing, and rotating of gobos in a gobo wheel (n)."
+      Label="Gobo Wheel Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="Gobo(n)Pos"
       Pretty="G(n) &lt;&gt;"
       ActivationGroup="Gobo(n)Pos"
@@ -3642,6 +3698,20 @@ not taken into account.
       PhysicalUnit="Degree"
       PhysicalFrom="270"
       PhysicalTo="270"/>
+    <Attribute
+      Name="AnimationWheel(n)Mode"
+      Feature="Gobo.Gobo"
+      Pretty="Anim Mode"
+      Definition="Changes control between selecting, indexing, and rotating the slots of animation wheel (n)."
+      Explanation="This attribute describes selecting, indexing, and rotating of slots in an animation wheel (n)."
+      Label="Animation Wheel Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
     <Attribute
       Name="AnimationWheel(n)Pos"
       ActivationGroup="AnimationWheel(n)Pos"
@@ -4156,6 +4226,20 @@ not taken into account.
       PhysicalFrom="270"
       PhysicalTo="270"/>
     <Attribute
+      Name="Color(n)Mode"
+      Pretty="C(n) Mode"
+      Feature="Color.Color"
+      Definition="Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n)."
+      Explanation="This attribute describes between selecting, continuous selection, half selection, random selection, color spinning, etc. of colors in a color wheel (n)."
+      Label="Color Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="ColorAdd_R"
       Pretty="R"
       ActivationGroup="ColorRGB"
@@ -4550,6 +4634,62 @@ not taken into account.
       Definition="Controls the time between Color Macro steps."
       Explanation="Use this attribute to describe a function which is setting the time or speed of the Color Macro steps."
       Label="Color Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="CyanMode"
+      Pretty="Cyan Mode"
+      Feature="Color.RGB"
+      Definition="Controls how Cyan is used within the fixture's cyan CMY-mixing feature."
+      Explanation="Use this attribute to describe the mode of operation of the Cyan."
+      Label="Cyan Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="MagentaMode"
+      Pretty="Magenta Mode"
+      Feature="Color.RGB"
+      Definition="Controls how Magenta is used within the fixture's magenta CMY-mixing."
+      Explanation="Use this attribute to describe the mode of operation of the Magenta."
+      Label="Magenta Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="YellowMode"
+      Pretty="Yellow Mode"
+      Feature="Color.RGB"
+      Definition="Controls how Yellow is used within the fixture's yellow CMY-mixing feature."
+      Explanation="Use this attribute to describe the mode of operation of the Yellow."
+      Label="Yellow Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMixMode"
+      Pretty="Color Mix Mode"
+      Feature="Color.RGB"
+      Definition="Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing."
+      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. "
+      Label="Color Mix Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -5054,6 +5194,20 @@ not taken into account.
       Definition="Controls the frequency of strobe flashes."
       Explanation="Setting the frequency of strobing is described with this attribute."
       Label="Strobe Frequency"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+        <Attribute
+      Name="StrobeMode"
+      Pretty="Strobe Mode"
+      Feature="Beam.Beam"
+      Definition="Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute."
+      Explanation="Use this attribute to describe strobe, pulse, random strobe and other modes of the shutter attribute."
+      Label="Strobe Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -5611,6 +5765,20 @@ not taken into account.
       PhysicalTo="0"
       Description="This defines the minimum percentage to which the iris closes."/>
     <Attribute
+      Name="IrisMode"
+      Pretty="Iris Mode"
+      Feature="Beam.Beam"
+      Definition="Changes modes of the fixture’s iris - linear, strobe, pulse."
+      Explanation="Use this to describe a function that allows to change the mode of the iris."
+      Label="Iris Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="Frost(n)"
       Pretty="Frost(n)"
       Feature="Beam.Beam"
@@ -5980,8 +6148,23 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="ZoomMode"
+      Pretty="Zoom Mode"
+      Feature="Focus.Focus"
+      Definition="Changes modes of the fixture´s zoom."
+      Explanation="Use this to describe the possibility to set different zoom modes, like beam mode or a spot mode."
+      Label="Zoom Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="ZoomModeSpot"
       Pretty="Zoom Spot"
+      MainAttribute="ZoomMode"
       Feature="Focus.Focus"
       PhysicalUnit="Angle"
       Definition="Selects spot mode of zoom."
@@ -5997,6 +6180,7 @@ not taken into account.
     <Attribute
       Name="ZoomModeBeam"
       Pretty="Zoom Beam"
+      MainAttribute="ZoomMode"
       Feature="Focus.Focus"
       PhysicalUnit="Angle"
       Definition="Selects beam mode of zoom."
@@ -6031,6 +6215,20 @@ not taken into account.
       Definition="Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot."
       Explanation="Use this attribute to describe the sharpening/focusing function of the device. Some may call it the Edge."
       Label="Focus"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Focus(n)Mode"
+      Pretty="Focus Mode"
+      Feature="Focus.Focus"
+      Definition="Changes modes of the fixture’s focus - manual or auto- focus."
+      Explanation="Use this to describe a function that allows to change the mode of the focus."
+      Label="Focus Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6167,68 +6365,12 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
-      Name="PanMode"
-      Pretty="Pan Mode"
-      Feature="Control.Control"
-      Definition="Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range."
-      Explanation="For devices that allow different modes of pan behavior, use this attribute to describe the behavior."
-      Label="Pan Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="TiltMode"
-      Pretty="Tilt Mode"
-      Feature="Control.Control"
-      Definition="Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range."
-      Explanation="For devices that allow different modes of tilt behavior, use this attribute to describe the behavior."
-      Label="Tilt Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="PanTiltMode"
-      Pretty="PanTilt Mode"
-      Feature="Control.Control"
-      Definition="Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range."
-      Explanation="For devices that allow different modes of behavior of pan and tilt, use this attribute to describe the behavior."
-      Label="Pan Tilt Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
       Name="PositionModes"
       Pretty="Pos Modes"
       Feature="Control.Control"
       Definition="Selects the fixture's position mode."
       Explanation="For devices that allow different modes of behavior of their positioning system, use this attribute to describe the behavior."
       Label="Position Modes"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="Gobo(n)WheelMode"
-      Pretty="G(n) Mode"
-      Feature="Control.Control"
-      Definition="Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n)."
-      Explanation="This attribute describes selecting, indexing, and rotating of gobos in a gobo wheel (n)."
-      Label="Gobo Wheel Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6251,20 +6393,6 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
-      Name="AnimationWheel(n)Mode"
-      Feature="Control.Control"
-      Pretty="Anim Mode"
-      Definition="Changes control between selecting, indexing, and rotating the slots of animation wheel (n)."
-      Explanation="This attribute describes selecting, indexing, and rotating of slots in an animation wheel (n)."
-      Label="Animation Wheel Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
       Name="AnimationWheelShortcutMode"
       Pretty="Anim Shortcut Mode"
       Feature="Control.Control"
@@ -6279,82 +6407,12 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
-      Name="Color(n)Mode"
-      Pretty="C(n) Mode"
-      Feature="Control.Control"
-      Definition="Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n)."
-      Explanation="This attribute describes between selecting, continuous selection, half selection, random selection, color spinning, etc. of colors in a color wheel (n)."
-      Label="Color Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
       Name="ColorWheelShortcutMode"
       Pretty="Color Wheel Shortcut Mode"
       Feature="Control.Control"
       Definition="Defines whether the color wheel takes the shortest distance between two colors."
       Explanation="This attribute describes whether the color wheel takes the shortest distance between two colors."
       Label="Color Wheel Shortcut Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="CyanMode"
-      Pretty="Cyan Mode"
-      Feature="Control.Control"
-      Definition="Controls how Cyan is used within the fixture's cyan CMY-mixing feature."
-      Explanation="Use this attribute to describe the mode of operation of the Cyan."
-      Label="Cyan Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="MagentaMode"
-      Pretty="Magenta Mode"
-      Feature="Control.Control"
-      Definition="Controls how Magenta is used within the fixture's magenta CMY-mixing."
-      Explanation="Use this attribute to describe the mode of operation of the Magenta."
-      Label="Magenta Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="YellowMode"
-      Pretty="Yellow Mode"
-      Feature="Control.Control"
-      Definition="Controls how Yellow is used within the fixture's yellow CMY-mixing feature."
-      Explanation="Use this attribute to describe the mode of operation of the Yellow."
-      Label="Yellow Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="ColorMixMode"
-      Pretty="Color Mix Mode"
-      Feature="Control.Control"
-      Definition="Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing."
-      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. "
-      Label="Color Mix Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6523,62 +6581,6 @@ not taken into account.
       Definition="Controls if White LED is proportionally added to RGB."
       Explanation="Some devices allow internal automatic intensity control of White LED  by the device, based on proportions of intensity of remaining LED emitters. Use this attribute to describe this behavior."
       Label="White Count"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="StrobeMode"
-      Pretty="Strobe Mode"
-      Feature="Control.Control"
-      Definition="Changes strobe style - strobe, pulse, random strobe, etc. - of the shutter attribute."
-      Explanation="Use this attribute to describe strobe, pulse, random strobe and other modes of the shutter attribute."
-      Label="Strobe Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="ZoomMode"
-      Pretty="Zoom Mode"
-      Feature="Control.Control"
-      Definition="Changes modes of the fixture´s zoom."
-      Explanation="Use this to describe the possibility to set different zoom modes, like beam mode or a spot mode."
-      Label="Zoom Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="FocusMode"
-      Pretty="Focus Mode"
-      Feature="Control.Control"
-      Definition="Changes modes of the fixture’s focus - manual or auto- focus."
-      Explanation="Use this to describe a function that allows to change the mode of the focus."
-      Label="Focus Mode"
-      UseEmitter="False"
-      UseFilter="False"
-      UseWheel="False"
-      UseWheelSlot="False"
-      UseGamut="False"
-      UseColorSpace="False"
-      UseThumbnailExchange="False"/>
-    <Attribute
-      Name="IrisMode"
-      Pretty="Iris Mode"
-      Feature="Control.Control"
-      Definition="Changes modes of the fixture’s iris - linear, strobe, pulse."
-      Explanation="Use this to describe a function that allows to change the mode of the iris."
-      Label="Iris Mode"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
