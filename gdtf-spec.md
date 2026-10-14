@@ -7906,3 +7906,24 @@ This attribute describes rotation of framing shutters or barndoors controlled
 by the Blade(n)A attribute only. Rotation from negative to positive angle
 values is counterclockwise when looking at the projection from the fixture's
 point of view.
+
+# Annex I. Name, ShortName, LongName (informative)
+
+The [Name, ShortName, and LongName attributes](#table-3-fixture-type-node-attributes)
+identify a fixture type and provide names for different uses.
+
+The **Name** attribute is the basis for the GDTF file name. It uses the [Name
+value type](#user-content-attrtype-name), so its value follows the character
+restrictions defined in [Annex C](#user-content-table-c1). When deriving a file
+name from this value, characters that are unsuitable for file names are
+typically replaced with underscores (`_`). To maximize portability, it is
+recommended to use only the POSIX "Fully Portable Filenames" character set:
+`A–Z`, `a–z`, `0–9`, `_` (U+005F), `-` (U+002D), and at most one period (`.`
+U+002E). For example: `My-Fixture_5.gdtf`.
+
+The **LongName** attribute provides the detailed, complete name of the fixture
+type. It may include any characters or symbols and is recommended for fixture
+lists and search.
+
+The **ShortName** attribute provides an abbreviated name for use in user
+interfaces where space is limited.
