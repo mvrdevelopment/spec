@@ -2619,6 +2619,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | PlayEnd                          | Defines end point of media content playback.                                                                                                                                                                                                                                                              |
 | PlaySpeed                        | Adjusts playback speed of media content.                                                                                                                                                                                                                                                                  |
 | ColorEffects(n)                  | Selects predefined color effects built into the fixture.                                                                                                                                                                                                                                                  |
+| ColorEffects(n)Size              | Size of running color effects.                                                                                                                                                                                                                                                                            |
+| ColorEffects(n)Level             | Level of running color effects.                                                                                                                                                                                                                                                                           |
+| ColorEffects(n)Position          | Position of running color effects.                                                                                                                                                                                                                                                                        |
 | Color(n)                         | The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.                                                                                                                                                                          |
 | Color(n)WheelIndex               | Controls angle of indexed rotation of color wheel (n)                                                                                                                                                                                                                                                     |
 | Color(n)WheelSpin                | Controls the speed and direction of continuous rotation of color wheel (n).                                                                                                                                                                                                                               |
@@ -2723,6 +2726,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Effects(n)Adjust(m)              | Controls parameter (m) of effect (n)                                                                                                                                                                                                                                                                      |
 | Effects(n)Pos                    | Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control.                                                                                                                                                    |
 | Effects(n)PosRotate              | Controls speed and direction of slot/effect in effect wheel (n).                                                                                                                                                                                                                                          |
+| Effects(n)Size                   | Size of running effects.                                                                                                                                                                                                                                                                                  |
+| Effects(n)Level                  | Level of running effects.                                                                                                                                                                                                                                                                                 |
+| Effects(n)Position               | Position of running effects.                                                                                                                                                                                                                                                                              |
 | EffectsSync                      | Sets offset between running effects and effects 2.                                                                                                                                                                                                                                                        |
 | BeamShaper                       | Activates fixture's beam shaper.                                                                                                                                                                                                                                                                          |
 | BeamShaperMacro                  | Predefined presets for fixture's beam shaper positions.                                                                                                                                                                                                                                                   |
@@ -4043,6 +4049,48 @@ not taken into account.
       Label="Color Effects"
       UseEmitter="False"
       UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorEffects(n)Size"
+      Pretty="Color FX(n)Size"
+      Feature="Color.Color"
+      Definition="Size of running color effects."
+      Explanation="Use this attribute to control size of the predefined color effects built into the fixture."
+      Label="Color Effects Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorEffects(n)Level"
+      Pretty="Color FX(n)Level"
+      Feature="Color.Color"
+      Definition="Level of running color effects."
+      Explanation="Use this attribute to control level of the predefined color effects built into the fixture."
+      Label="Color Effects Level"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorEffects(n)Position"
+      Pretty="Color FX(n)Position"
+      Feature="Color.Color"
+      Definition="Position of running color effects."
+      Explanation="Use this attribute to control position of the predefined color effects built into the fixture."
+      Label="Color Effects Position"
+      UseEmitter="False"
+      UseFilter="False"
       UseWheel="True"
       UseWheelSlot="False"
       UseGamut="False"
@@ -4310,7 +4358,7 @@ not taken into account.
       UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_BC"
-      Pretty="Light-Blue "
+      Pretty="Light-Blue"
       ActivationGroup="ColorRGB"
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
@@ -5877,6 +5925,48 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="Effects(n)Size"
+      Pretty="FX(n) Size"
+      Feature="Beam.Beam"
+      Definition="Size of running effects(n)"
+      Explanation="Use this attribute to control size of the predefined effects(n) built into the fixture."
+      Label="Effect Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Effects(n)Level"
+      Pretty="FX(n) Level"
+      Feature="Beam.Beam"
+      Definition="Level of running effects(n)"
+      Explanation="Use this attribute to control level of the predefined effects(n) built into the fixture."
+      Label="Effect Level"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Effects(n)Position"
+      Pretty="FX(n) Position"
+      Feature="Beam.Beam"
+      Definition="Position of running effects(n)"
+      Explanation="Use this attribute to control position of the predefined effects(n) built into the fixture."
+      Label="Effect Position"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="EffectsSync"
       Pretty="FX Sync"
       Feature="Beam.Beam"
@@ -6368,7 +6458,7 @@ not taken into account.
       Pretty="Color Mix Mode"
       Feature="Control.Control"
       Definition="Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing."
-      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. "
+      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture."
       Label="Color Mix Mode"
       UseEmitter="False"
       UseFilter="False"
@@ -6620,7 +6710,7 @@ not taken into account.
       Pretty="FollowSpot Mode"
       Feature="Control.Control"
       Definition="Selects follow spot control mode."
-      Explanation="For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior. "
+      Explanation="For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior."
       Label="Follow Spot Mode"
       UseEmitter="False"
       UseFilter="False"
@@ -6648,7 +6738,7 @@ not taken into account.
       Pretty="Intensity MSpeed"
       Feature="Control.Control"
       Definition="Movement speed of the fixture's intensity."
-      Explanation="Use this attribute to set a speed of dimming behavior. "
+      Explanation="Use this attribute to set a speed of dimming behavior."
       Label="Intensity Speed"
       UseEmitter="False"
       UseFilter="False"
@@ -7152,7 +7242,7 @@ not taken into account.
       Pretty="DMX Input"
       Feature="Control.Control"
       Definition="Selects DMX Input"
-      Explanation="Use this attribute to describe behavior that allows changing the source of the DMX signal. "
+      Explanation="Use this attribute to describe behavior that allows changing the source of the DMX signal."
       Label="DMX Input"
       UseEmitter="False"
       UseFilter="False"
