@@ -2731,6 +2731,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Zoom                             | Controls the spread of the fixture's beam/spot.                                                                                                                                                                                                                                                           |
 | ZoomModeSpot                     | Selects spot mode of zoom.                                                                                                                                                                                                                                                                                |
 | ZoomModeBeam                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
+| ZoomModeWash                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
 | DigitalZoom                      | Controls the image size within the defined projection. Used on digital projection based devices                                                                                                                                                                                                           |
 | Focus(n)                         | Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
 | Focus(n)Adjust                   | Autofocuses functionality using presets.                                                                                                                                                                                                                                                                  |
@@ -6001,6 +6002,21 @@ not taken into account.
       Definition="Selects beam mode of zoom."
       Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a beamy, hot-spoty type of projection."
       Label="Zoom Mode Beam"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ZoomModeWash"
+      Pretty="Zoom Wash"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Selects beam mode of zoom."
+      Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a wash type of projection."
+      Label="Zoom Mode Wash"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
