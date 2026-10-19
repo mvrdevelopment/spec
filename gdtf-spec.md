@@ -1205,15 +1205,19 @@ displayed in a hanging position.
 
 ![Device Offsets](media/Models_device_offsets_1.1.png) Figure 3. Offsets of the parts
 
-In Figure 3 the green arrow displays the offset of the yoke related to
-the base. The magenta arrow displays the offset of the head related to
-the yoke. The offsets are to be defined by the position matrix of the
-according geometry ([table 35](#user-content-table-35 ) – [table 55](#user-content-table-55 )). 
-It is important that the axis of rotation of
-each device part is exactly positioned (see Figure 4).
-
+In Figure 3 the green arrow displays the offset of the yoke related to the
+base. The magenta arrow displays the offset of the head related to the yoke.
+The offsets are to be defined by the position matrix of the according geometry
+([table 35](#user-content-table-35 ) – [table 55](#user-content-table-55 )).
 
 ![media/Models\_device\_rotation.png](media/Models_device_rotation.png) Figure 4. Positions of rotation axis
+
+It is important that the axis of rotation of each device part is exactly
+positioned (see Figure 4).The direction of rotation is defined by the Right-
+handed Cartesian Coordinates XYZ ([table
+1](#table-1--xml-attribute-value-types), the green and the blue round arrows
+are indicating positive rotation. See another example in [Annex H. (normative)
+Blade Attributes Definition](#annex-h-normative-blade-attributes-definition).
 
 The dimension XML attributes of model (see [table
 32](#user-content-table-32 )) are always used, no matter the scaling and
