@@ -308,7 +308,7 @@ Node name: `Class`
 | -------------- | ----------------------------------- | --------------------------- | ----------------------------------- |
 | uuid           | [UUID](#user-content-attrtype-uuid) | Not Optional                | The unique identifier of the class. |
 | name           | [String](#user-content-attrtype-string)              |                             | The name of the Class.              |
-
+| color          | [Color](#user-content-attrtype-ciecolor)|                        | A color assigned to a class for UI identification. If it is not defined, there is no color for the class.|
 
 ### Node Definition: Layers
 
