@@ -337,6 +337,7 @@ Node name: `Layer`
 | -------------- | --------------------------------------- | --------------------------- | ------------------------------------ |
 | uuid           | [UUID](#user-content-attrtype-uuid)     | Not Optional                | The unique identifier of the object. |
 | name           | [String](#user-content-attrtype-string) | Empty                       | The name of the object               |
+| color          | [Color](#user-content-attrtype-ciecolor)| Empty                       | A color assigned to a layer for UI identification. If it is not defined, there is no color for the layer.|
 
 The child list (Table 17) contains a list of layer nodes:
 
@@ -346,7 +347,6 @@ The child list (Table 17) contains a list of layer nodes:
 | --------------------------------------- | ------------- | -------------------------------------------------------------------- |
 | [Matrix](#node-definition-matrix)       | 0 or 1        | The transformation matrix that defines the location and orientation of this the layer inside its global coordinate space. This effectively defines local coordinate space for the objects inside. The Matrix of the Layer is only allowed to have a vertical Transform (elevation). Rotation and scale must be identity. Rotation and scale must be identity, means no rotation and no scale. |
 | [ChildList](#node-definition-childlist) | 0 or 1            | A list of graphic objects that are part of the layer.           |
-| [Color](#user-content-attrtype-ciecolor) | 0 or 1       | A color assigned to a layer for UI identification. If it is not defined, there is no color for the layer.|
 
 
 ## Node Definition: ChildList
