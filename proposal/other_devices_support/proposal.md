@@ -155,3 +155,16 @@ For example:
 
 Cons:
     - we would need to define "common" geometries and all other "shared" parts for combination devices
+
+6. Rename DMXModes to Modes.
+
+DMXModes is mandatory
+
+Children would be modes:
+- SpeakerMode
+- TrussMode
+- CableMode
+- DMXMode
+- ...
+
+Only one type of mode can be present, minimal amount is 1. This is a breaking change, GDTF version will need to be 2.
