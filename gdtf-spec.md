@@ -1288,6 +1288,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [GeometryReference](#user-content-geometry-type-reference )           | Any    | Reference to already described geometries.                                                     |
 | [Laser](#user-content-geometry-type-laser )                           | Any    | Geometry with a laser light output.                                                            |
 | [WiringObject](#user-content-geometry-type-wiring-object )            | Any    | Geometry that describes an internal wiring for power or data.                                  |
+| [Cable](#user-content-geometry-type-cable )                           | Any    | Geometry that describes a cable assembly.                                                      |
 | [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a fixture (like a rain cover). |
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
@@ -1782,6 +1783,65 @@ defined XML attributes of a pin patch are specified in [table 51](#user-content-
 </div>
 
 The pin patch doesn't have any children.
+
+### Geometry Type Cable
+
+#### General
+
+This type of geometry is used to describe a cable assembly (XML node
+`<Cable>`).
+
+The currently defined XML attributes of the cable geometry are specified in
+[table 52](#table-52 ).
+
+<div id="table-52">
+
+#### Table 52. *Cable Attributes*
+
+| XML Attribute Name | Value Type                               | Description                                                                 |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name )     | Unique name of the cable definition.                                        |
+| CableType          | [String](#user-content-attrtype-string ) | Cable type, model, or construction.                                         |
+| LengthMin          | [Float](#user-content-attrtype-float )   | Minimum supported cable length. Unit: meter. Default value: 0.             |
+| LengthMax          | [Float](#user-content-attrtype-float )   | Maximum supported cable length. Unit: meter. Default value: 0.             |
+| LengthArbitrary    | [Enum](#user-content-attrtype-enum )     | Indication whether an arbitrary length is available. The currently defined values are: "True", "False". Default: "False". |
+| Diameter           | [Float](#user-content-attrtype-float )   | Outer shell diameter. Unit: meter. Default value: 0.             |
+| WeightPerMeter     | [Float](#user-content-attrtype-float )   | Weight per meter. Unit: kilogram. Default value: 0.             |
+| AvailableLengths   | [Array of Float](#user-content-attrtype-float )  | Array of available cable lengths. Unit: meter. Separator of values is ",". Default value: 0. |
+| InstallationRating | [String](#user-content-attrtype-string ) | Optional rating such as plenum, riser, outdoor, touring, or manufacturer-specific text. |
+
+</div>
+
+The cable geometry has the same children types as the geometry collect (see
+[table 34](#user-content-table-34 )). In addition, the cable has one or more
+`Conductors` children that describe the bundled conductors or signal paths
+carried by the cable.
+
+### Node Definition: Conductors
+
+This node defines one internal conductor bundle of a cable assembly.
+The defined Conductors node attributes are specified in
+[table-conductors-attributes](#table-conductors-attributes ).
+
+Node name: `Conductors`
+
+<div id="table-conductors-attributes">
+
+#### Table XX. *Conductors Attributes*
+
+| XML Attribute Name | Value Type                               | Description                                                                 |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name )     | Unique name of the conductor bundle within the cable geometry.              |
+| Type               | [String](#user-content-attrtype-string ) | Conductor type. Predefined values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". |
+| CrossSection       | [Float](#user-content-attrtype-float )   | Conductor cross-section where applicable. Unit: mm². Default value: 0.      |
+| ConductorAmount    | [Integer](#user-content-attrtype-integer ) | Amount of conductors. Default value: 0.                                     |
+| Impedance          | [Float](#user-content-attrtype-float )   | Cable impedance where applicable. Unit: Ohm. Default value: 0.             |
+| VoltageRating      | [Float](#user-content-attrtype-float )   | Optional voltage rating. Unit: volt. Default value: 0.                     |
+| CurrentRating      | [Float](#user-content-attrtype-float )   | Optional current rating. Unit: ampere. Default value: 0.                    |
+
+</div>
+
+The Conductors node has Pin Patch (XML node `<PinPatch>`) children.
 
 ### Geometry Type Inventory
 
