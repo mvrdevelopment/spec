@@ -2090,6 +2090,8 @@ currently defined XML attributes of channel function are specified in
 
 </div>
 
+The channel functions of a logical channel shall describe the entire value range of the DMX channel. No gaps are allowed.
+
 Note:  
 For command based control systems, you can control the fixture by sending it a string in the following style:  
 `"/FIXTURE_ID/CUSTOM_NAME_CHANNELFUCTION ,f FLOAT_VALUE_PHYSICAL"`  
