@@ -2650,8 +2650,31 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ColorSub\_C                      | Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
 | ColorSub\_M                      | Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
 | ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
+| IntensityMacro(n)                  | Selects predefined intensity levels that are programmed in the fixture's firmware.                                                                                                             |
+| IntensityMacro(n)Rate                 | Controls the frequency of Intensity Macro steps.                                                                                                                                               |
+| IntensityMacro(n)Time                 | Controls the duration of Intensity Macro steps.                                                                                                                                                |
+| IntensityMacro(n)Size                 | Controls the size of Intensity Macro steps.                                                                                                                                                    |
+| IntensityMacro(n)Offset               | Controls the phase offset of Intensity Macro steps.                                                                                                                                            |
+| PositionMacro(n)                   | Selects predefined positions that are programmed in the fixture's firmware.                                                                                                                    |
+| PositionMacro(n)Rate                 | Controls the frequency of Position Macro steps.                                                                                                                                                |
+| PositionMacro(n)Time                 | Controls the duration of Position Macro steps.                                                                                                                                                 |
+| PositionMacro(n)Size                 | Controls the size of Position Macro steps.                                                                                                                                                     |
+| PositionMacro(n)Offset               | Controls the phase offset of Position Macro steps.                                                                                                                                             |
+| GoboMacro(n)                       | Selects predefined gobos that are programmed in the fixture's firmware.                                                                                                                        |
+| GoboMacro(n)Rate                   | Controls the frequency of Gobo Macro steps.                                                                                                                                                    |
+| GoboMacro(n)Time                   | Controls the duration of Gobo Macro steps.                                                                                                                                                     |
+| GoboMacro(n)Size                   | Controls the size of Gobo Macro steps.                                                                                                                                                         |
+| GoboMacro(n)Offset                 | Controls the phase offset of Gobo Macro steps.                                                                                                                                                 |
+| BeamMacro(n)                       | Selects predefined beam settings that are programmed in the fixture's firmware.                                                                                                                |
+| BeamMacro(n)Rate                   | Controls the frequency of Beam Macro steps.                                                                                                                                                    |
+| BeamMacro(n)Time                   | Controls the duration of Beam Macro steps.                                                                                                                                                     |
+| BeamMacro(n)Size                   | Controls the size of Beam Macro steps.                                                                                                                                                         |
+| BeamMacro(n)Offset                 | Controls the phase offset of Beam Macro steps.                                                                                                                                                 |
 | ColorMacro(n)                    | Selects predefined colors that are programmed in the fixture's firmware.                                                                                                                                                                                                                                  |
 | ColorMacro(n)Rate                | Controls the time between Color Macro steps.                                                                                                                                                                                                                                                              |
+| ColorMacro(n)Time                 | Controls the duration of Color Macro steps.                                                                                                                                                                                                    |
+| ColorMacro(n)Size                 | Controls the size of Color Macro steps.                                                                                                                                                                                                        |
+| ColorMacro(n)Offset               | Controls the phase offset of Color Macro steps.                                                                                                                                                                                                |
 | CTO                              | Controls the fixture's "Correct to orange" wheel or mixing system.                                                                                                                                                                                                                                        |
 | CTC                              | Controls the fixture's "Correct to color" wheel or mixing system.                                                                                                                                                                                                                                         |
 | CTB                              | Controls the fixture's "Correct to blue" wheel or mixing system.                                                                                                                                                                                                                                          |
@@ -4587,6 +4610,286 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="IntensityMacro(n)"
+      Pretty="Intensity Macro(n)"
+      Feature="Dimmer.Dimmer"
+      Definition="Selects predefined intensity levels that are programmed in the fixture's firmware."
+      Explanation="Choose this attribute to control the selection of predefined intensity levels programmed in the fixture's firmware. If there is more than one intensity macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Intensity Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Rate"
+      Pretty="Intensity Macro(n) Rate"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the frequency of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Intensity Macro steps."
+      Label="Intensity Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Time"
+      Pretty="Intensity Macro(n) Time"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the duration of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Intensity Macro steps."
+      Label="Intensity Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Size"
+      Pretty="Intensity Macro(n) Size"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the size of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Intensity Macro steps."
+      Label="Intensity Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Offset"
+      Pretty="Intensity Macro(n) Offset"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the phase offset of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Intensity Macro steps."
+      Label="Intensity Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)"
+      Pretty="Position Macro(n)"
+      Feature="Position.PanTilt"
+      Definition="Selects predefined positions that are programmed in the fixture's firmware."
+      Explanation="Choose this attribute to control the selection of predefined positions programmed in the fixture's firmware. If there is more than one position macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Position Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Rate"
+      Pretty="Position Macro(n) Rate"
+      Feature="Position.PanTilt"
+      Definition="Controls the frequency of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Position Macro steps."
+      Label="Position Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Time"
+      Pretty="Position Macro(n) Time"
+      Feature="Position.PanTilt"
+      Definition="Controls the duration of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Position Macro steps."
+      Label="Position Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Size"
+      Pretty="Position Macro(n) Size"
+      Feature="Position.PanTilt"
+      Definition="Controls the size of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Position Macro steps."
+      Label="Position Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Offset"
+      Pretty="Position Macro(n) Offset"
+      Feature="Position.PanTilt"
+      Definition="Controls the phase offset of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Position Macro steps."
+      Label="Position Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)"
+      Pretty="Gobo Macro(n)"
+      Feature="Gobo.Gobo"
+      Definition="Selects predefined gobos that are programmed in the fixture's firmware."
+      Explanation="Choose this attribute to control the selection of predefined gobos programmed in the fixture's firmware. If there is more than one gobo macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Gobo Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Rate"
+      Pretty="Gobo Macro(n) Rate"
+      Feature="Gobo.Gobo"
+      Definition="Controls the frequency of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Gobo Macro steps."
+      Label="Gobo Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Time"
+      Pretty="Gobo Macro(n) Time"
+      Feature="Gobo.Gobo"
+      Definition="Controls the duration of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Gobo Macro steps."
+      Label="Gobo Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Size"
+      Pretty="Gobo Macro(n) Size"
+      Feature="Gobo.Gobo"
+      Definition="Controls the size of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Gobo Macro steps."
+      Label="Gobo Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Offset"
+      Pretty="Gobo Macro(n) Offset"
+      Feature="Gobo.Gobo"
+      Definition="Controls the phase offset of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Gobo Macro steps."
+      Label="Gobo Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)"
+      Pretty="Beam Macro(n)"
+      Feature="Beam.Beam"
+      Definition="Selects predefined beam settings that are programmed in the fixture's firmware."
+      Explanation="Choose this attribute to control the selection of predefined beam settings programmed in the fixture's firmware. If there is more than one beam macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Beam Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Rate"
+      Pretty="Beam Macro(n) Rate"
+      Feature="Beam.Beam"
+      Definition="Controls the frequency of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Beam Macro steps."
+      Label="Beam Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Time"
+      Pretty="Beam Macro(n) Time"
+      Feature="Beam.Beam"
+      Definition="Controls the duration of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Beam Macro steps."
+      Label="Beam Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Size"
+      Pretty="Beam Macro(n) Size"
+      Feature="Beam.Beam"
+      Definition="Controls the size of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Beam Macro steps."
+      Label="Beam Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Offset"
+      Pretty="Beam Macro(n) Offset"
+      Feature="Beam.Beam"
+      Definition="Controls the phase offset of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Beam Macro steps."
+      Label="Beam Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="ColorMacro(n)"
       Pretty="Color Macro(n)"
       Feature="Color.RGB"
@@ -4607,6 +4910,48 @@ not taken into account.
       Definition="Controls the time between Color Macro steps."
       Explanation="Use this attribute to describe a function which is setting the time or speed of the Color Macro steps."
       Label="Color Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Time"
+      Pretty="Color Macro(n) Time"
+      Feature="Color.RGB"
+      Definition="Controls the duration of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Color Macro steps."
+      Label="Color Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Size"
+      Pretty="Color Macro(n) Size"
+      Feature="Color.RGB"
+      Definition="Controls the size of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Color Macro steps."
+      Label="Color Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Offset"
+      Pretty="Color Macro(n) Offset"
+      Feature="Color.RGB"
+      Definition="Controls the phase offset of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Color Macro steps."
+      Label="Color Macro Offset"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
