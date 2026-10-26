@@ -307,7 +307,7 @@ For SVG files defining the `Thumbnail` view must be the view from bottom in Z di
 | [PhysicalDescriptions](#user-content-physical-descriptions ) | No        | Contains additional physical descriptions.                                                  |
 | [Models](#user-content-model-collect )                       | No        | Contains models of physically separated parts of the device.                                |
 | [Geometries](#user-content-geometry-collect )                | Yes       | Describes physically separated parts of the device.                                         |
-| [DMXModes](#user-content-dmx-mode-collect )                  | Yes       | Contains descriptions of the DMX modes.                                                     |
+| [Modes](#user-content-mode-collect )                         | Yes       | Contains descriptions of the modes of the device.                                           |
 | [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the fixture type.                                                  |
 | [FTPresets](#user-content-fixture-type-preset-collect )              | No        | Is used to transfer user-defined and fixture type specific presets to other show files.     |
 | [Protocols](#user-content-fixture-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
@@ -1925,15 +1925,104 @@ any faces of other geometries in order to not block the rendered sound plane.
 
 The speaker geometry emits its sound into negative Y direction.
 
-## DMX Mode Collect
+## Mode Collect
   
 ### General
 
-This section is describes all DMX modes of the device. If firmware
-revisions change a DMX footprint, then such revisions should be
-specified as new DMX mode. The DMX mode collect currently does not have
-any attributes (XML node `<DMXModes>`). As a child the fixture type DMX
-mode collect has DMX modes.
+This section describes all modes of operation of the device. For devices with
+DMX, if a firmware revision changes the DMX footprint, the revision should be
+specified as a new DMX mode. The mode collect currently does not have any
+attributes (XML node `<Modes>`).
+
+The fixture type mode collect has the following child mode types:
+
+##### Table xx — *Mode Node Children*
+
+| Child Node | Description |
+|----|----|
+| [AudioMode](#user-content-audio-mode) | Describes an audio device or a speaker. |
+| [CableMode](#user-content-cable-mode) | Describes a cable. |
+| [SupportMode](#user-content-support-mode) | Describes a structure or support. |
+| [TrussMode](#user-content-truss-mode) | Describes a truss.|
+| [DMXMode](#user-content-dmx-mode) | Describes the logical control of a device in a specific DMX mode. |
+
+### Audio Mode
+
+Each Audio mode describes an audio device or speaker in a specific mode (XML
+node `<AudioMode>`). Its XML attributes are specified in [table
+xx](#user-content-audio-mode-attributes).
+
+<div id="audio-mode-attributes">
+
+#### Table xx. *Audio Mode Attributes*
+
+| XML Attribute Name | Value Type                        | Description                                                                                   |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Audio mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Audio mode                                                               |
+| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
+
+</div>
+
+Audio Mode does not have any children.
+
+### Cable Mode
+
+Each Cable mode describes a cable (XML node `<CableMode>`).  Its XML attributes
+are specified in [table xx](#user-content-cable-mode-attributes).
+
+<div id="cable-mode-attributes">
+
+#### Table xx. *Cable Mode Attributes*
+
+| XML Attribute Name | Value Type                        | Description                                                                                   |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Cable mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Cable mode                                                               |
+| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
+
+</div>
+
+Cable Mode does not have any children.
+
+### Support Mode
+
+Each Support mode describes a structure or a support (XML node
+`<SupportMode>`). Its XML attributes are specified in [table
+xx](#user-content-support-mode-attributes).
+
+<div id="support-mode-attributes">
+
+#### Table xx. *Support Mode Attributes*
+
+| XML Attribute Name | Value Type                        | Description                                                                                   |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Support mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Support mode                                                               |
+| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
+
+</div>
+
+Support Mode does not have any children.
+
+### Truss Mode
+
+Each Truss mode describes a truss (XML node `<TrussMode>`).  Its XML attributes
+are specified in [table xx](#user-content-truss-mode-attributes).
+
+<div id="truss-mode-attributes">
+
+#### Table xx. *Truss Mode Attributes*
+
+| XML Attribute Name | Value Type                        | Description                                                                                   |
+|----|----|----|
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Truss mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Truss mode                                                               |
+| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
+
+</div>
+
+Truss Mode does not have any children.
 
 ### DMX Mode
 
