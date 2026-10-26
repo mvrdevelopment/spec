@@ -593,6 +593,7 @@ should be used and in what order of importance:
 | Color(n)              | MediaFileName, Filter, Color                              |
 | Gobo(n)               | MediaFileName                                             |
 | Prism(n)              | Facet                                                     |
+| Kaleidoscope(n)       | Facet + MediaFileName                                     |
 | AnimationWheel(n)     | MediaFileName                                             |
 | AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
 | MediaContent(n)       | MediaFileName + Duration + Width + Height + FPS           |
@@ -2720,6 +2721,12 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Prism(n)Macro                    | Macro functions of prism wheel (n).                                                                                                                                                                                                                                                                       |
 | Prism(n)Pos                      | Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.                                                                                                                                                                        |
 | Prism(n)PosRotate                | Controls the speed and direction of continuous rotation of prisms in prism wheel (n).                                                                                                                                                                                                                     |
+| Kaleidoscope(n)                  | The fixture’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control. |
+| Kaleidoscope(n)SelectSpin        | Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function.                                                                                                                                   |
+| Kaleidoscope(n)Macro             | Macro functions of kaleidoscope wheel (n).                                                                                                                                                                                                                                                                 |
+| Kaleidoscope(n)Pos               | Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control.                                                                                                                                                    |
+| Kaleidoscope(n)PosRotate         | Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n).                                                                                                                                                                                                        |
+| Kaleidoscope(n)MSpeed            | Movement speed of the fixture's kaleidoscope wheel (n).                                                                                                                                                                                                                                                   |
 | Effects(n)                       | Generically predefined macros and effects of a fixture.                                                                                                                                                                                                                                                   |
 | Effects(n)Rate                   | Frequency of running effects.                                                                                                                                                                                                                                                                             |
 | Effects(n)Fade                   | Snapping or smooth look of running effects.                                                                                                                                                                                                                                                               |
@@ -2893,6 +2900,8 @@ not taken into account.
       Name="AnimationSystem(n)Pos"/>
     <ActivationGroup
       Name="Prism"/>
+    <ActivationGroup
+      Name="Kaleidoscope"/>
     <ActivationGroup
       Name="BeamShaper"/>
     <ActivationGroup
@@ -5829,6 +5838,100 @@ not taken into account.
       Definition="Controls the speed and direction of continuous rotation of prisms in prism wheel (n)."
       Explanation="This attribute allows to set speed and direction of continuous rotation of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute."
       Label="Prism Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)"
+      Pretty="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      Definition="The fixture’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control."
+      Explanation="Use this attribute to select a kaleidoscope in a kaleidoscope wheel for fixtures that provide kaleidoscope selection on one channel and kaleidoscope rotation/indexing on another channel(s). If there is more than one kaleidoscope wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Kaleidoscope"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)SelectSpin"
+      Pretty="Select Spin(n)"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function."
+      Explanation="Selects kaleidoscope whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)SelectSpin as the Logical Channel attribute."
+      Label="Kaleidoscope Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)Macro"
+      Pretty="Kaleidoscope(n) Macro"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      Definition="Macro functions of kaleidoscope wheel (n)."
+      Explanation="Use this attribute for manufacturer defined fixture specific effects on a kaleidoscopes. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)Macro as the Logical Channel attribute."
+      Label="Kaleidoscope Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)Pos"
+      Pretty="Kaleidoscope(n) Pos"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control."
+      Explanation="This attribute allows to set indexed position (angle) of a kaleidoscope in a kaleidoscope wheel and is typically used together with Kaleidoscope(n) attribute which selects the kaleidoscope. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Kaleidoscope Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)PosRotate"
+      Pretty="Rotate(n)"
+      MainAttribute="Kaleidoscope(n)Pos"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n)."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of a kaleidoscope in a kaleidoscope wheel and is typically used together with Kaleidoscope(n) attribute which selects the kaleidoscope. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n)Pos. In case that Kaleidoscope(n)Pos already exists in the same geometry, you can use the Kaleidoscope(n)PosRotate as the Logical Channel attribute."
+      Label="Kaleidoscope Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)MSpeed"
+      Pretty="Kaleidoscope(n) MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the fixture's kaleidoscope wheel (n)."
+      Explanation="Use this attribute to set a speed of movement of kaleidoscope(s). If there is more than one kaleidoscope or kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which kaleidoscope/wheel will be controlled."
+      Label="Kaleidoscope Speed"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
