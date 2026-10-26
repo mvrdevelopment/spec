@@ -2741,11 +2741,13 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Frost(n)Ramp                     | Sets frequency of frost's ramp.                                                                                                                                                                                                                                                                           |
 | Prism(n)                         | The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.                               |
 | Prism(n)SelectSpin               | Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.                                                                                                                                                       |
+| Prism(n)SelectPos                | Selects prisms whose orientation is indexed in prism wheel (n) and controls the angle of the prism’s orientation within the same channel function.                                                                                                                                                          |
 | Prism(n)Macro                    | Macro functions of prism wheel (n).                                                                                                                                                                                                                                                                       |
 | Prism(n)Pos                      | Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.                                                                                                                                                                        |
 | Prism(n)PosRotate                | Controls the speed and direction of continuous rotation of prisms in prism wheel (n).                                                                                                                                                                                                                     |
 | Kaleidoscope(n)                  | The fixture’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control. |
 | Kaleidoscope(n)SelectSpin        | Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function.                                                                                                                                   |
+| Kaleidoscope(n)SelectPos         | Selects kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and controls the angle of the kaleidoscope’s orientation within the same channel function.                                                                                                                                      |
 | Kaleidoscope(n)Macro             | Macro functions of kaleidoscope wheel (n).                                                                                                                                                                                                                                                                 |
 | Kaleidoscope(n)Pos               | Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control.                                                                                                                                                    |
 | Kaleidoscope(n)PosRotate         | Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n).                                                                                                                                                                                                        |
@@ -6143,6 +6145,23 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="Prism(n)SelectPos"
+      Pretty="Select Pos(n)"
+      MainAttribute="Prism(n)"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Selects prisms whose orientation is indexed in prism wheel (n) and controls the angle of the prism’s orientation within the same channel function."
+      Explanation="Use this attribute to select prisms whose orientation is indexed in prism wheel (n) and to control the angle of the orientation within the same channel function. If there is more than one prism wheel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)SelectPos as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)."
+      Label="prism Select Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="Prism(n)Macro"
       Pretty="Prism(n) Macro"
       MainAttribute="Prism(n)"
@@ -6215,6 +6234,23 @@ not taken into account.
       Definition="Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function."
       Explanation="Selects kaleidoscope whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)SelectSpin as the Logical Channel attribute."
       Label="Kaleidoscope Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)SelectPos"
+      Pretty="Select Pos(n)"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Selects kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and controls the angle of the kaleidoscope’s orientation within the same channel function."
+      Explanation="Use this attribute to select kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and to control the angle of the orientation within the same channel function. If there is more than one kaleidoscope wheel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)SelectPos as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n)."
+      Label="kaleidoscope Select Pos"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
