@@ -1929,19 +1929,22 @@ The speaker geometry emits its sound into negative Y direction.
   
 ### General
 
-This section describes all modes of operation of the device. For devices with
+This section describes all modes/configurations/types/devices/specification/variants/classes/
+
+of operation of the device. For devices with
 DMX, if a firmware revision changes the DMX footprint, the revision should be
 specified as a new DMX mode. The mode collect currently does not have any
 attributes (XML node `<Modes>`).
 
-The fixture type mode collect has the following child mode types:
+The fixture type mode collect has the following children, which define the type
+of the device. Only one type of device can be specified
 
 ##### Table xx — *Mode Node Children*
 
 | Child Node | Description |
 |----|----|
-| [AudioMode](#user-content-audio-mode) | Describes an audio device or a speaker. |
-| [CableMode](#user-content-cable-mode) | Describes a cable. |
+| [AudioMode](#user-content-audio-mode) | Defines an Audio device mode.|
+| [CableMode](#user-content-cable-mode) | Defines a Cable configuration.|
 | [SupportMode](#user-content-support-mode) | Describes a structure or support. |
 | [TrussMode](#user-content-truss-mode) | Describes a truss.|
 | [DMXMode](#user-content-dmx-mode) | Describes the logical control of a device in a specific DMX mode. |
