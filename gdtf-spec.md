@@ -185,7 +185,7 @@ all firmware revisions of the device.
 
 The ZIP archive name is recommended to be specified as follows:
 
-`<ManufacturerName>@<DeviceType>@<OptionalComment>`
+`<ManufacturerName>@<DeviceTypeName>@<OptionalComment>`
 
 Example: `generic@led@comment`
 
@@ -282,7 +282,7 @@ attributes of the device type are specified in [table 3](#user-content-table-3 )
 | Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
-| RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced device type. |
+| RefDT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced device type. |
 | CanHaveChildren    | [Enum](#user-content-attrtype-enum )         | Describes if it is possible to mount other devices to this device. Value: “Yes”, “No”. Default value: “Yes” |
 
 </div>
@@ -309,8 +309,7 @@ For SVG files defining the `Thumbnail` view must be the view from bottom in Z di
 | [Geometries](#user-content-geometry-collect )                | Yes       | Describes physically separated parts of the device.                                         |
 | [Modes](#user-content-mode-collect )                         | Yes       | Contains descriptions of the modes of the device.                                           |
 | [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the device type.                                                  |
-| [FTPresets](#user-content-device-type-preset-collect )              | No        | Is used to transfer user-defined and device type specific presets to other show files.     |
-| [Protocols](#user-content-device-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
+| [Protocols](#user-content-protocol)                        | No        | Is used to specify supported protocols.                                                     |
 
 
 </div>
@@ -322,7 +321,7 @@ sections is mandatory as specified in [table 4](#user-content-table-4 ).
 
 ### General
 
-This section defines the attribute definitions for the Dixture Type
+This section defines the attribute definitions for the Fixture Type
 Attributes.
 
 Note 1: More information on the definitions of attributes can be found in Annex
@@ -1115,7 +1114,7 @@ The Distances currently does not have any children.
   
 ### General
 
-Each device is divided into smaller parts: body, yoke, head and so on.
+Each device is divided into smaller parts: for example body, yoke, head and so on.
 These are called geometries. Each geometry has a separate model
 description and a physical description. Model collect contains model
 descriptions of the device parts. The model collect currently does not
@@ -1181,9 +1180,15 @@ There are three level of details that you can define:
 Low and High meshes definitions are optional. Place the file with the same name in the defined folder.
 
 
-The device shall be drawn in a hanging position displaying the front
+TODO: clarify the drawing orientation for different device type.
+
+Lighting device shall be drawn in a hanging position displaying the front
 view. That results in the pan axis is Z aligned, and the tilt axis is X
 aligned.
+
+Audio device shall be drawn in TODO position displaying the front.
+
+Other devices should be drawn in the
 
 The metric system consists of the Right-handed Cartesian Coordinates
 XYZ: X – from left (-X) to right (+X), Y – from the outside of the
@@ -1931,17 +1936,12 @@ The speaker geometry emits its sound into negative Y direction.
 
 This section describes all modes, configurations, or variants of operation of the device. For devices with
 DMX, if a firmware revision changes the DMX footprint, the revision should be
-specified as a new mode. The mode collect currently does not have any
+specified as a new Mode. The mode collect currently does not have any
 attributes (XML node `<Modes>`).
 
-The device type mode collect has the following children, which define the type
-of the device. Only one type of device can be specified
+As a child the fixture type DMX mode collect has DMX modes.
 
-##### Table xx — *Mode Node Children*
-
-| Child Node | Description |
-|----|----|
-| [Mode](#user-content-mode) | Describes the logical control of a device in a specific mode or a device configuration or variant |
+TODO: make all Modes capitalized, fixup the Mode children
 
 ### Mode
 
@@ -1972,7 +1972,7 @@ Mode children are specified in [table 58](#user-content-table-58 ).
 |----|----|----|
 | [DMXChannels](#user-content-dmx-channel-collect ) | No       | Description of all DMX channels used in the mode |
 | [Relations](#user-content-relation-collect )      | No        | Description of relations between channels        |
-| [FTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  |
+| [DTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  | TODO find and fix all
 
 
 </div>
@@ -2383,20 +2383,6 @@ are specified in [table 69](#user-content-table-69 ).
 
 The revision does not have any children.
 
-
-## Device Type Preset Collect
-  
-### General
-
-This section defines device type specific presets. It currently does
-not have any XML attributes (XML node `FTPresets>`). As children the
-Device Preset Collect has a list of [FTPreset](#user-content-device-type-preset-collect )
-(device type preset).
-
-### Device Type Preset
-
-This section has not yet been defined (XML node `<FTPreset>`).
-
 ## Supported Protocol Collect
   
 ### General
@@ -2413,7 +2399,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 | XML node                                                      | Mandatory | Amount | Description                            |
 |----|----|----|----|
-| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Device Type RDM information |
+| [DTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Device Type RDM information |
 | [Art-Net](#user-content-art-net-section )                     | No   |  0 or 1     | Describes Art-Net information          |
 | [sACN](#user-content-streaming-acn-section )                  | No   |  0 or 1     | Describes sACN information             |
 | [PosiStageNet](#user-content-posi-stage-net-section )         | No   |  0 or 1     | Describes PosiStageNet information     |
@@ -2425,12 +2411,12 @@ protocol collect currently does not have any XML attributes (XML node
 ### RDM Section
 
 If the device supports the RDM protocol, this section defines the
-corresponding information (XML node `<FTRDM>`). The currently defined XML
+corresponding information (XML node `<DTRDM>`). The currently defined XML
 attributes of RDM are specified in [table 71](#user-content-table-71 ).
 
 <div id="table-71">
 
-#### Table 71. *FTRDM Attributes*
+#### Table 71. *DTRDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
@@ -2446,7 +2432,7 @@ The ManufacturerID corresponds to the RDM "ESTA Manufacturer ID".
 The DeviceModelID corresponds to the RDM "Device Model ID" in PID 0x0060 DEVICE_INFO.
 
 
-As children the FTRDM has a list of `SoftwareVersionID`.
+As children the DTRDM has a list of `SoftwareVersionID`.
 
 #### SoftwareVersionID
   
