@@ -172,3 +172,6 @@ Children would be:
 
 Only one type of variant can be present, minimal amount is 1. This is a breaking change, GDTF version will need to be 2.
 
+After all our discussions, this has created large amount of complexity by trying to piece together different combinations of the "Variants"
+
+7. Rename FixtureType to DeviceType, DMXModes to Modes, and DMXMode to Mode, but not create all the variants as this creates a very complex rule set.

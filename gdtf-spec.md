@@ -8,20 +8,20 @@ complex, and the development of these devices happens faster than ever.
 New devices are designed with very involved structures; they have
 numerous complex color-mixing systems and mode dependencies. To give the
 user access to the enormous flexibility of existing devices, a method of
-providing accurate fixture type data, and controlling and
+providing accurate device type data, and controlling and
 pre-visualizing devices quickly and precisely as possible, is needed.
 The "General Device Type Format" (GDTF) is that method.
 
 There are many different lighting consoles and software manufacturers on
 the market, and all of them use different file formats and methods of
-getting the fixture control information into their systems. The
-development of new high-end fixtures at an amazing rate creates a lack
+getting the device control information into their systems. The
+development of new high-end device at an amazing rate creates a lack
 of available control data on the side of the console and
-pre-visualization software manufacturers. Also, fixture manufacturers
+pre-visualization software manufacturers. Also, device manufacturers
 are often approached directly by their clients with requests to support
-them with accurate fixture types. As there are so many different
+them with accurate device types. As there are so many different
 consoles and visualizers on the market, this process requires vast
-knowledge of many different systems. Fixture manufacturers would need to
+knowledge of many different systems. Device manufacturers would need to
 understand how every console or visualizer works, and how to provide the
 required data. A format description is needed that not only provides all
 of the required control information, but also structures it in a
@@ -29,9 +29,9 @@ hierarchical way matching that of the described device.
 
 The lighting designer who would like to use these devices has to deal
 with such obstacles. Designers often receive the device control data of
-a specific new fixture later than expected. Also, the data may be
+a specific new device later than expected. Also, the data may be
 incomplete, because it was not created with the latest information from
-the fixture manufacturer.
+the device manufacturer.
 
 These issues demonstrate that our industry needs a standardized way of
 defining the description of intelligent and complex devices. This
@@ -104,7 +104,7 @@ standardization at the following addresses:
 
 descriptive name of the specification
 
-### Fixture Type Attribute
+### Device Type Attribute
 
 singular mutually exclusive control function 
 Note 1 to entry: Definitions of common attributes can be found in Annex A.
@@ -116,15 +116,15 @@ Note 1 to entry: As example Pan & Tilt are paired to gain control over Position.
 
 ### Feature
 
-element that’s groups the Fixture Type Attributes into a structured way for easier access and search
+element that’s groups the Device Type Attributes into a structured way for easier access and search
 
 ### Feature Groups
 
-element that’s groups the Fixture Type Features into a logical way for easier access and search
+element that’s groups the Device Type Features into a logical way for easier access and search
 
 ### DMXBreak
 
-term used when a fixture needs more than one DMX start address
+term used when a device needs more than one DMX start address
 
 ### glTF
 
@@ -151,7 +151,7 @@ folder "./models" has subfolders for a better structural overview:
 - ./models/svg
 
 The description.xml file
-contains the description of the device type and all DMX modes as well as
+contains the description of the device type and all Modes as well as
 all firmware revisions of the device.
 
 ```
@@ -185,7 +185,7 @@ all firmware revisions of the device.
 
 The ZIP archive name is recommended to be specified as follows:
 
-`<ManufacturerName>@<FixtureTypeName>@<OptionalComment>`
+`<ManufacturerName>@<DeviceType>@<OptionalComment>`
 
 Example: `generic@led@comment`
 
@@ -260,35 +260,35 @@ a version number MAJOR.MINOR, the numbers mean:
 
 </div>
 
-## Fixture Type Node
+## Device Type Node
 
-The FixtureType node is the starting point of the description of the
-fixture type within the XML file. The defined Fixture Type Node
-attributes of the fixture type are specified in [table 3](#user-content-table-3 ).
+The DeviceType node is the starting point of the description of the
+device type within the XML file. The defined Device Type Node
+attributes of the device type are specified in [table 3](#user-content-table-3 ).
 
 
 <div id="table-3">
 
-#### Table 3. *Fixture Type Node Attributes*
+#### Table 3. *Device Type Node Attributes*
 
 | XML Attribute Name | Value Type | Description  |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | Name of the fixture type.|
-| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the fixture type. Non detailed version or an abbreviation. Can use any characters or symbols. Used in user interfaces in places where there is not enough space.|
-| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the fixture type, can include any characters or extra symbols.|
-| Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
-| Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
-| FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
+| Name               | [Name](#user-content-attrtype-name )         | Name of the device type.|
+| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the device type. Non detailed version or an abbreviation. Can use any characters or symbols. Used in user interfaces in places where there is not enough space.|
+| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the device type, can include any characters or extra symbols.|
+| Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the device type.|
+| Description        | [String](#user-content-attrtype-string )     | Description of the device type. |
+| DeviceTypeID       | [GUID](#user-content-attrtype-guid )         | Unique number of the device type. |
 | Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
-| RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced fixture type. |
+| RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced device type. |
 | CanHaveChildren    | [Enum](#user-content-attrtype-enum )         | Describes if it is possible to mount other devices to this device. Value: “Yes”, “No”. Default value: “Yes” |
 
 </div>
 
 
-Fixture type node children are specified in [table 4](#user-content-table-4 ).
+Device type node children are specified in [table 4](#user-content-table-4 ).
 
 For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the `Thumbnail` defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
@@ -298,19 +298,19 @@ For SVG files defining the `Thumbnail` view must be the view from bottom in Z di
 
 <div id="table-4">
 
-#### Table 4. *Fixture Type Node Children*
+#### Table 4. *Device Type Node Children*
 
 | Child Node                                                | Mandatory | Description                                                                                 |
 |----|----|----|
-| [AttributeDefinitions](#user-content-attribute-definitions ) | Yes       | Defines all Fixture Type Attributes that are used in the fixture type.                      |
+| [AttributeDefinitions](#user-content-attribute-definitions ) | Yes       | Defines all Device Type Attributes that are used in the device type.                      |
 | [Wheels](#user-content-wheel-collect )                       | No        | Defines the physical or virtual color wheels, gobo wheels, media server content and others. |
 | [PhysicalDescriptions](#user-content-physical-descriptions ) | No        | Contains additional physical descriptions.                                                  |
 | [Models](#user-content-model-collect )                       | No        | Contains models of physically separated parts of the device.                                |
 | [Geometries](#user-content-geometry-collect )                | Yes       | Describes physically separated parts of the device.                                         |
 | [Modes](#user-content-mode-collect )                         | Yes       | Contains descriptions of the modes of the device.                                           |
-| [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the fixture type.                                                  |
-| [FTPresets](#user-content-fixture-type-preset-collect )              | No        | Is used to transfer user-defined and fixture type specific presets to other show files.     |
-| [Protocols](#user-content-fixture-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
+| [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the device type.                                                  |
+| [FTPresets](#user-content-device-type-preset-collect )              | No        | Is used to transfer user-defined and device type specific presets to other show files.     |
+| [Protocols](#user-content-device-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
 
 
 </div>
@@ -322,13 +322,13 @@ sections is mandatory as specified in [table 4](#user-content-table-4 ).
 
 ### General
 
-This section defines the attribute definitions for the Fixture Type
+This section defines the attribute definitions for the Dixture Type
 Attributes.
 
 Note 1: More information on the definitions of attributes can be found in Annex
 A "Attribute Definitions"". 
 
-Note 2: All currently defined Fixture Type Attributes can be found in Annex B
+Note 2: All currently defined Device Type Attributes can be found in Annex B
 "Attribute Listing".
 
 Note 3: All currently defined activation groups can be found in Annex B
@@ -349,7 +349,7 @@ are specified in [table 5](#user-content-table-5 ).
 |----|----|----|
 | [ActivationGroups](#user-content-activation-group) | No        | Defines which attributes are to be activated together. For example, Pan and Tilt are in the same activation group.                      |
 | [FeatureGroups](#user-content-feature-group)       | Yes       | Describes the logical grouping of attributes. For example, Gobo 1 and Gobo 2 are grouped in the feature Gobo of the feature group Gobo. |
-| [Attributes](#user-content-attribute)              | Yes       | List of Fixture Type Attributes that are used. Predefindes fixtury type attributes can be found in Annex A.                             |
+| [Attributes](#user-content-attribute)              | Yes       | List of Device Type Attributes that are used. Predefindes fixtury type attributes can be found in Annex A.                             |
 
 </div>
 
@@ -358,10 +358,10 @@ are specified in [table 5](#user-content-table-5 ).
   
 #### General
 
-This section defines groups of Fixture Type Attributes that are intended
+This section defines groups of Device Type Attributes that are intended
 to be used together.
 
-Example: Usually Pan and Tilt are Fixture Type Attributes that shall be
+Example: Usually Pan and Tilt are Device Type Attributes that shall be
 activated together to be able to store and recreate any position.
 
 The current activation groups node does not have any XML attributes (XML
@@ -391,7 +391,7 @@ The activation group does not have any children.
   
 #### General
 
-This section defines the logical grouping of Fixture Type Attributes
+This section defines the logical grouping of Device Type Attributes
 (XML node `<FeatureGroups>`).
 
 Note 1: A feature group can contain more than one logical control unit. A
@@ -448,13 +448,13 @@ The feature does not have any children.
 
 #### General
 
-This section defines the Fixture Type Attributes (XML node
+This section defines the Device Type Attributes (XML node
 `<Attributes>`). As children the attributes node has a list of a
 [attributes](#user-content-attribute ).
 
 #### Attribute
 
-This section defines the Fixture Type Attribute (XML node `<Attribute>`).
+This section defines the Device Type Attribute (XML node `<Attribute>`).
 The currently defined XML attributes of the attribute Node are specified
 in [table 9](#user-content-table-9 ).
 
@@ -522,7 +522,7 @@ are described by wheels.
   
 #### General
 
-Each wheel describes a single physical or virtual wheel of the fixture
+Each wheel describes a single physical or virtual wheel of the device
 type. If the real device has wheels you can change, then all wheel
 configurations have to be described. Wheel has the following XML node:
 `<Wheel>`. The currently defined XML attributes of the wheel are specified
@@ -865,7 +865,7 @@ have any XML attributes (XML node `<Gamuts>`). As children, gamut collect has a 
 
 #### Gamut
 
-This section defines the color gamut of the fixture (XML node `<Gamut>`), which is the set of attainable colors by the fixture. The currently defined XML attributes of a gamut
+This section defines the color gamut of the device (XML node `<Gamut>`), which is the set of attainable colors by the device. The currently defined XML attributes of a gamut
 are specified in [table 22](#user-content-table-22 ).
 
 <div id="table-22">
@@ -1118,7 +1118,7 @@ The Distances currently does not have any children.
 Each device is divided into smaller parts: body, yoke, head and so on.
 These are called geometries. Each geometry has a separate model
 description and a physical description. Model collect contains model
-descriptions of the fixture parts. The model collect currently does not
+descriptions of the device parts. The model collect currently does not
 have any XML attributes (XML node `<Models>`). As children, Model Collect
 has a list of [model](#user-content-model ).
 
@@ -1172,8 +1172,8 @@ There are three level of details that you can define:
 
 | LOD  | Description  |  Folder 3DS / gltf |
 |---|---|---|
-| Low  | Optional; This is the mesh for fixtures that are far away from the camera. It should have 30% of the the vertexes from the default mesh vertex count.  | `3ds_low` / `gltf_low`  |
-| Default  | This is the default mesh that is used for real time visualization in preprogramming tool. It should have the minimum vertex count possible, while still looking like the fixture in 3D.  | `3ds` / `gltf` |
+| Low  | Optional; This is the mesh for devices that are far away from the camera. It should have 30% of the the vertexes from the default mesh vertex count.  | `3ds_low` / `gltf_low`  |
+| Default  | This is the default mesh that is used for real time visualization in preprogramming tool. It should have the minimum vertex count possible, while still looking like the devices in 3D.  | `3ds` / `gltf` |
 | High  | Optional; This is high quality mesh targeting non-realtime applications, where the vertex count is not that important. There is no limit for the vertex count. | `3ds_high` / `gltf_high`  |
 
 </div>
@@ -1194,7 +1194,7 @@ top (+Z). 0,0,0 – center base plate. See Figure 2.
 "media/Models_device_hanging_1.1.png") Figure 2. Device in a hanging
 position – front view
 
-The mesh of each fixture part shall be drawn around its own suspension
+The mesh of each device part shall be drawn around its own suspension
 point. The zero point of a device does not necessarily have to contain
 the offset related to the yoke, but it must be centered on its axis of
 rotation. The offset is defined by the geometry and has to be related to
@@ -1288,7 +1288,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [GeometryReference](#user-content-geometry-type-reference )           | Any    | Reference to already described geometries.                                                     |
 | [Laser](#user-content-geometry-type-laser )                           | Any    | Geometry with a laser light output.                                                            |
 | [WiringObject](#user-content-geometry-type-wiring-object )            | Any    | Geometry that describes an internal wiring for power or data.                                  |
-| [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a fixture (like a rain cover). |
+| [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a device (like a rain cover). |
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
 | [Magnet](#user-content-geometry-type-magnet )                         | Any    | Geometry that describes a point where other geometries should be attached.                     |
@@ -1920,141 +1920,57 @@ The currently defined XML attributes of the speaker are specified in [table 56](
 The speaker geometry has the same children types as the geometry
 collect (see [table 34](#user-content-table-34 )).
 
-Use the Geometry Type "Speaker" to describe the position of the fixture's sound output. The origin of the Geometry Type "Speaker" should not be covered by 
+Use the Geometry Type "Speaker" to describe the position of the device's sound output. The origin of the Geometry Type "Speaker" should not be covered by 
 any faces of other geometries in order to not block the rendered sound plane.
 
 The speaker geometry emits its sound into negative Y direction.
 
-## Mode Collect
+## Modes Collect
   
 ### General
 
-This section describes all modes/configurations/types/devices/specification/variants/classes/
-
-of operation of the device. For devices with
+This section describes all modes, configurations, or variants of operation of the device. For devices with
 DMX, if a firmware revision changes the DMX footprint, the revision should be
-specified as a new DMX mode. The mode collect currently does not have any
+specified as a new mode. The mode collect currently does not have any
 attributes (XML node `<Modes>`).
 
-The fixture type mode collect has the following children, which define the type
+The device type mode collect has the following children, which define the type
 of the device. Only one type of device can be specified
 
 ##### Table xx — *Mode Node Children*
 
 | Child Node | Description |
 |----|----|
-| [AudioMode](#user-content-audio-mode) | Defines an Audio device mode.|
-| [CableMode](#user-content-cable-mode) | Defines a Cable configuration.|
-| [SupportMode](#user-content-support-mode) | Describes a structure or support. |
-| [TrussMode](#user-content-truss-mode) | Describes a truss.|
-| [DMXMode](#user-content-dmx-mode) | Describes the logical control of a device in a specific DMX mode. |
+| [Mode](#user-content-mode) | Describes the logical control of a device in a specific mode or a device configuration or variant |
 
-### Audio Mode
+### Mode
 
-Each Audio mode describes an audio device or speaker in a specific mode (XML
-node `<AudioMode>`). Its XML attributes are specified in [table
-xx](#user-content-audio-mode-attributes).
-
-<div id="audio-mode-attributes">
-
-#### Table xx. *Audio Mode Attributes*
-
-| XML Attribute Name | Value Type                        | Description                                                                                   |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Audio mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the Audio mode                                                               |
-| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
-
-</div>
-
-Audio Mode does not have any children.
-
-### Cable Mode
-
-Each Cable mode describes a cable (XML node `<CableMode>`).  Its XML attributes
-are specified in [table xx](#user-content-cable-mode-attributes).
-
-<div id="cable-mode-attributes">
-
-#### Table xx. *Cable Mode Attributes*
-
-| XML Attribute Name | Value Type                        | Description                                                                                   |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Cable mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the Cable mode                                                               |
-| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
-
-</div>
-
-Cable Mode does not have any children.
-
-### Support Mode
-
-Each Support mode describes a structure or a support (XML node
-`<SupportMode>`). Its XML attributes are specified in [table
-xx](#user-content-support-mode-attributes).
-
-<div id="support-mode-attributes">
-
-#### Table xx. *Support Mode Attributes*
-
-| XML Attribute Name | Value Type                        | Description                                                                                   |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Support mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the Support mode                                                               |
-| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
-
-</div>
-
-Support Mode does not have any children.
-
-### Truss Mode
-
-Each Truss mode describes a truss (XML node `<TrussMode>`).  Its XML attributes
-are specified in [table xx](#user-content-truss-mode-attributes).
-
-<div id="truss-mode-attributes">
-
-#### Table xx. *Truss Mode Attributes*
-
-| XML Attribute Name | Value Type                        | Description                                                                                   |
-|----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Truss mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the Truss mode                                                               |
-| Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
-
-</div>
-
-Truss Mode does not have any children.
-
-### DMX Mode
-
-Each DMX mode describes logical control part of the device in a specific
-mode (XML node `<DMXMode>`). The currently defined XML attributes of the
-DMX mode are specified in [table 57](#user-content-table-57 ).
+Each Mode describes logical control part or device configuration or variant of the device in a specific
+mode (XML node `<Mode>`). The currently defined XML attributes of the
+mode are specified in [table 57](#user-content-table-57 ).
 
 <div id="table-57">
 
-#### Table 57. *DMX Mode Attributes*
+#### Table 57. *Mode Attributes*
 
 | XML Attribute Name | Value Type                        | Description                                                                                   |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the DMX mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the DMX mode                                                               |
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the mode                                                               |
 | Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
 
 
 </div>
 
-DMX mode children are specified in [table 58](#user-content-table-58 ).
+Mode children are specified in [table 58](#user-content-table-58 ).
 
 <div id="table-58">
 
-#### Table 58. *DMX Mode Children*
+#### Table 58. *Mode Children*
 
 | XML node                                       | Mandatory | Description                                      |
 |----|----|----|
-| [DMXChannels](#user-content-dmx-channel-collect ) | Yes       | Description of all DMX channels used in the mode |
+| [DMXChannels](#user-content-dmx-channel-collect ) | No       | Description of all DMX channels used in the mode |
 | [Relations](#user-content-relation-collect )      | No        | Description of relations between channels        |
 | [FTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  |
 
@@ -2106,16 +2022,16 @@ principle, so they are inherited from top down.
 In a DMX Mode, DMX Channels must form a continuous sequence of Offsets without
 gaps. If a specific DMX Offset is unused, a corresponding DMX Channel shall
 still be defined at that Offset, and its associated LogicalChannel shall have
-the NoFeature Fixture Type Attribute assigned.
+the NoFeature Device Type Attribute assigned.
 
 As children the DMX channel has a list of [logical
 channels](#user-content-logical-channel ).
 
 ###### Logical Channel
 
-The Fixture Type Attribute is assigned to a LogicalChannel and defines
+The Device Type Attribute is assigned to a LogicalChannel and defines
 the function of the LogicalChannel. All logical channels that are
-children of the same DMX channel are mutually exclusive. In a DMX mode,
+children of the same DMX channel are mutually exclusive. In a mode,
 only one logical channel with the same attribute can reference the same
 geometry at a time. The name of a Logical Channel cannot be user-defined
 and is equal to the linked attribute name. The XML node of the logical
@@ -2142,7 +2058,7 @@ function](#user-content-channel-function ).
 
 ###### Channel Function
 
-The Fixture Type Attribute is assigned to a Channel Function and defines
+The Device Type Attribute is assigned to a Channel Function and defines
 the function of its DMX Range. (XML node `<ChannelFunction>`). The
 currently defined XML attributes of channel function are specified in
 [table 61](#user-content-table-61 ).
@@ -2167,7 +2083,7 @@ currently defined XML attributes of channel function are specified in
 | Filter             | [Node](#user-content-attrtype-node )         | Optional. Link to a filter in the physical description; Starting point: Filter Collect                                                                        |
 | ColorSpace         | [Node](#user-content-attrtype-node )         | Optional. Link to a color space in the physical description; Starting point: Physical Descriptions Collect                                                    |
 | Gamut              | [Node](#user-content-attrtype-node )         | Optional. Link to a gamut in the physical description; Starting point: Gamut Collect                                                                          |
-| ModeMaster         | [Node](#user-content-attrtype-node )         | Optional. Link to DMX Channel or Channel Function; Starting point DMX mode.                                                                                   |
+| ModeMaster         | [Node](#user-content-attrtype-node )         | Optional. Link to DMX Channel or Channel Function; Starting point Mode.                                                                                   |
 | ModeFrom           | [DMXValue](#user-content-attrtype-dmxvalue ) | Only used together with ModeMaster; DMX start value; Default value: 0/1                                                                                       |
 | ModeTo             | [DMXValue](#user-content-attrtype-dmxvalue ) | Only used together with ModeMaster; DMX end value; Default value: 0/1                                                                                         |
 | DMXProfile         | [Node](#user-content-attrtype-node )         | Optional link to DMX Profile; Starting point: DMX Profile Collect                                                                                             |
@@ -2182,16 +2098,16 @@ currently defined XML attributes of channel function are specified in
 </div>
 
 Note:  
-For command based control systems, you can control the fixture by sending it a string in the following style:  
-`"/FIXTURE_ID/CUSTOM_NAME_CHANNELFUCTION ,f FLOAT_VALUE_PHYSICAL"`  
+For command based control systems, you can control the device by sending it a string in the following style:  
+`"/DEVICE_ID/CUSTOM_NAME_CHANNELFUCTION ,f FLOAT_VALUE_PHYSICAL"`  
 or   
-`"/FIXTURE_ID/CUSTOM_NAME_CHANNELFUCTION/percent ,f FLOAT_VALUE_PERCENT"`
+`"/DEVICE_ID/CUSTOM_NAME_CHANNELFUCTION/percent ,f FLOAT_VALUE_PERCENT"`
 
 Where:  
-- FIXTURE_ID is the fixture ID is the value defined for the fixture instance.
+- DEVICE_ID is the device ID is the value defined for the device instance.
 - CUSTOM_NAME_CHANNELFUCTION is the Custom Name for the ChannelFunction. Note that all "." Separators can be replaced with "/".
-- FLOAT_VALUE_PHYSICAL is the physical value that the fixture should adopt. The values will be capped by the fixture by PhysicalFrom and PhysicalTo.
-- FLOAT_VALUE_PERCENT is the percent value that the fixture should adopt. The values can be between 0 and 100.
+- FLOAT_VALUE_PHYSICAL is the physical value that the device should adopt. The values will be capped by the device by PhysicalFrom and PhysicalTo.
+- FLOAT_VALUE_PERCENT is the percent value that the device should adopt. The values can be between 0 and 100.
 
 
 As children the channel function has list of a [channel
@@ -2289,15 +2205,15 @@ XML attributes of the relations are specified in [table 64](#user-content-table-
 | XML Attribute Name | Value Type                               | Description                                                      |
 |----|----|----|
 | Name               | [Name](#user-content-attrtype-name )     | The unique name of the relation                                  |
-| Master             | [Node](#user-content-attrtype-node )     | Link to the master DMX channel; Starting point: DMX mode         |
-| Follower           | [Node](#user-content-attrtype-node )     | Link to the following channel function; Starting point: DMX mode |
+| Master             | [Node](#user-content-attrtype-node )     | Link to the master DMX channel; Starting point: Mode         |
+| Follower           | [Node](#user-content-attrtype-node )     | Link to the following channel function; Starting point: Mode |
 | Type               | [Enum](#user-content-attrtype-enum )     | Type of the relation; Values: “Multiply”, “Override”             |
 
 
 </div>
 
 The relation does not have any children. [Listing
-DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple DMX mode
+DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple Mode
 described in XML.
 
 <div id="listing-dmx-mode-with-relations">
@@ -2305,7 +2221,7 @@ described in XML.
 #### Listing *DMX Mode With Relations*
 
 ```
-<DMXMode Name="Default" Geometry="Body">
+<Mode Name="Default" Geometry="Body">
 
    <DMXChannels>  
        <DMXChannel Highlight="255/1" Geometry="Pixel">  
@@ -2338,7 +2254,7 @@ described in XML.
        <Relation Name="VirtualDimmer 2" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
        <Relation Name="VirtualDimmer 3" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
    </Relations>
-</DMXMode> 
+</Mode> 
 
 ```
 
@@ -2468,16 +2384,16 @@ are specified in [table 69](#user-content-table-69 ).
 The revision does not have any children.
 
 
-## Fixture Type Preset Collect
+## Device Type Preset Collect
   
 ### General
 
-This section defines fixture type specific presets. It currently does
+This section defines device type specific presets. It currently does
 not have any XML attributes (XML node `FTPresets>`). As children the
-Fixture Preset Collect has a list of [FTPreset](#user-content-fixture-type-preset-collect )
-(fixture type preset).
+Device Preset Collect has a list of [FTPreset](#user-content-device-type-preset-collect )
+(device type preset).
 
-### Fixture Type Preset
+### Device Type Preset
 
 This section has not yet been defined (XML node `<FTPreset>`).
 
@@ -2497,7 +2413,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 | XML node                                                      | Mandatory | Amount | Description                            |
 |----|----|----|----|
-| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Fixture Type RDM information |
+| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Device Type RDM information |
 | [Art-Net](#user-content-art-net-section )                     | No   |  0 or 1     | Describes Art-Net information          |
 | [sACN](#user-content-streaming-acn-section )                  | No   |  0 or 1     | Describes sACN information             |
 | [PosiStageNet](#user-content-posi-stage-net-section )         | No   |  0 or 1     | Describes PosiStageNet information     |
@@ -2567,7 +2483,7 @@ To define the supported software versions add an XML node
 | XML Attribute Name | Value Type                        | Description                                                       |
 |----|----|----|
 | Value              | [Hex](#user-content-attrtype-hex )   | Hex Value of the DMXPersonality                                   |
-| DMXMode            | [Name](#user-content-attrtype-name ) | Link to the DMX Mode that can be used with this software version. |
+| Mode            | [Name](#user-content-attrtype-name ) | Link to the Mode that can be used with this software version. |
 
 
 </div>
@@ -2634,15 +2550,15 @@ This section has not yet been defined (XML node `<CITP>`).
 
 ## Annex A. (normative) Attribute Definitions
 
-To describe the fixture types attributes are used. Attributes define the
+To describe the device types attributes are used. Attributes define the
 function. (n) and (m) are wildcards for the enumeration of attributes
 like Gobo(n) - Gobo1 and Gobo2 or VideoEffect(n)Parameter(m) -
-VideoEffect1Parameter1 and VideoEffect1Parameter2. Fixture Type
+VideoEffect1Parameter1 and VideoEffect1Parameter2. Device Type
 Attributes without wildcards (n) or (m) are not enumerated. The
-enumeration starts with 1. The currently defined Fixture Type Attributes
+enumeration starts with 1. The currently defined Device Type Attributes
 are specified in [table A1](#user-content-table-a1).
 
-Note 1: The predefined Fixture Type Attributes are the preferred to use Fixture
+Note 1: The predefined Device Type Attributes are the preferred to use Device
 Type Attribute. At any time user defined attributes can be introduced as well.
 
 <div id="table-a1">
@@ -2652,16 +2568,16 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Attribute                      | Description                                                                                                                                                                                                                                                                                                 
 |----------------------------------|-----------------------------| 
 | Dimmer                           | Controls the intensity of a fixture.                                                                                                                                                                                                                                                                      |
-| Pan                              | Controls the fixture's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
-| Tilt                             | Controls the fixture's upward and the downward movement (vertical axis).                                                                                                                                                                                                                                  |
-| PanRotate                        | Controls the speed of the fixture's continuous pan movement (horizontal axis).                                                                                                                                                                                                                            |
-| TiltRotate                       | Controls the speed of the fixture's continuous tilt movement (vertical axis).                                                                                                                                                                                                                             |
-| PositionEffect                   | Selects the predefined position effects that are built into the fixture.                                                                                                                                                                                                                                  |
-| PositionEffectRate               | Controls the speed of the predefined position effects that are built into the fixture.                                                                                                                                                                                                                    |
+| Pan                              | Controls the device's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
+| Tilt                             | Controls the device's upward and the downward movement (vertical axis).                                                                                                                                                                                                                                  |
+| PanRotate                        | Controls the speed of the device's continuous pan movement (horizontal axis).                                                                                                                                                                                                                            |
+| TiltRotate                       | Controls the speed of the device's continuous tilt movement (vertical axis).                                                                                                                                                                                                                             |
+| PositionEffect                   | Selects the predefined position effects that are built into the device.                                                                                                                                                                                                                                  |
+| PositionEffectRate               | Controls the speed of the predefined position effects that are built into the device.                                                                                                                                                                                                                    |
 | PositionEffectFade               | Snaps or smooth fades with timing in running predefined position effects.                                                                                                                                                                                                                                 |
-| XYZ\_X                           | Defines a fixture’s x-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
-| XYZ\_Y                           | Defines a fixture’s y-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
-| XYZ\_Z                           | Defines a fixture‘s z-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_X                           | Defines a device’s x-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_Y                           | Defines a device’s y-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_Z                           | Defines a device‘s z-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
 | Rot\_X                           | Defines rotation around X axis.                                                                                                                                                                                                                                                                           |
 | Rot\_Y                           | Defines rotation around Y axis.                                                                                                                                                                                                                                                                           |
 | Rot\_Z                           | Defines rotation around Z axis.                                                                                                                                                                                                                                                                           |
@@ -2827,17 +2743,17 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Focus(n)                         | Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
 | Focus(n)Adjust                   | Autofocuses functionality using presets.                                                                                                                                                                                                                                                                  |
 | Focus(n)Distance                 | Autofocuses functionality using distance.                                                                                                                                                                                                                                                                 |
-| Control(n)                       | Controls the channel of a fixture.                                                                                                                                                                                                                                                                        |
+| Control(n)                       | Controls the channel of a device.                                                                                                                                                                                                                                                                        |
 | DimmerMode                       | Selects different modes of intensity.                                                                                                                                                                                                                                                                     |
 | DimmerCurve                      | Selects different dimmer curves of the fixture.                                                                                                                                                                                                                                                           |
 | BlackoutMode                     | Close the light output under certain conditions (movement correction, gobo movement, etc.).                                                                                                                                                                                                               |
 | LEDFrequency                     | Controls LED frequency.                                                                                                                                                                                                                                                                                   |
 | LEDZoneMode                      | Changes zones of LEDs.                                                                                                                                                                                                                                                                                    |
 | PixelMode                        | Controls behavior of LED pixels.                                                                                                                                                                                                                                                                          |
-| PanMode                          | Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
-| TiltMode                         | Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
-| PanTiltMode                      | Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
-| PositionModes                    | Selects the fixture's position mode.                                                                                                                                                                                                                                                                      |
+| PanMode                          | Selects device's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
+| TiltMode                         | Selects device's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
+| PanTiltMode                      | Selects device's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
+| PositionModes                    | Selects the device's position mode.                                                                                                                                                                                                                                                                      |
 | Gobo(n)WheelMode                 | Changes control between selecting, indexing, and rotating the gobos of gobo wheel (n).                                                                                                                                                                                                                    |
 | GoboWheelShortcutMode            | Defines whether the gobo wheel takes the shortest distance between two positions.                                                                                                                                                                                                                         |
 | AnimationWheel(n)Mode            | Changes control between selecting, indexing, and rotating the slots of animation wheel (n).                                                                                                                                                                                                               |
@@ -2868,7 +2784,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | FollowSpotMode                   | Selects follow spot control mode.                                                                                                                                                                                                                                                                         |
 | BeamEffectIndexRotateMode        | Changes mode to control either index or rotation of the beam effects.                                                                                                                                                                                                                                     |
 | IntensityMSpeed                  | Movement speed of the fixture's intensity.                                                                                                                                                                                                                                                                |
-| PositionMSpeed                   | Movement speed of the fixture's pan/tilt.                                                                                                                                                                                                                                                                 |
+| PositionMSpeed                   | Movement speed of the device's pan/tilt.                                                                                                                                                                                                                                                                 |
 | ColorMixMSpeed                   | Movement speed of the fixture's ColorMix presets.                                                                                                                                                                                                                                                         |
 | ColorWheelSelectMSpeed           | Movement speed of the fixture's color wheel.                                                                                                                                                                                                                                                              |
 | GoboWheel(n)MSpeed               | Movement speed of the fixture's gobo wheel (n).                                                                                                                                                                                                                                                           |
@@ -2880,7 +2796,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | FrameMSpeed                      | Movement speed of the fixture's shapers.                                                                                                                                                                                                                                                                  |
 | GlobalMSpeed                     | General speed of fixture's features.                                                                                                                                                                                                                                                                      |
 | ReflectorAdjust                  | Movement speed of the fixture's frost.                                                                                                                                                                                                                                                                    |
-| FixtureGlobalReset               | Generally resets the entire fixture.                                                                                                                                                                                                                                                                      |
+| FixtureGlobalReset               | Generally resets the entire device.                                                                                                                                                                                                                                                                      |
 | DimmerReset                      | Resets the fixture's dimmer.                                                                                                                                                                                                                                                                              |
 | ShutterReset                     | Resets the fixture's shutter.                                                                                                                                                                                                                                                                             |
 | BeamReset                        | Resets the fixture's beam features.                                                                                                                                                                                                                                                                       |
@@ -2892,15 +2808,15 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | IntensityReset                   | Resets the fixture's intensity.                                                                                                                                                                                                                                                                           |
 | IrisReset                        | Resets the fixture's iris.                                                                                                                                                                                                                                                                                |
 | PositionReset                    | Resets the fixture's pan/tilt.                                                                                                                                                                                                                                                                            |
-| PanReset                         | Resets the fixture's pan.                                                                                                                                                                                                                                                                                 |
-| TiltReset                        | Resets the fixture's tilt.                                                                                                                                                                                                                                                                                |
+| PanReset                         | Resets the device's pan.                                                                                                                                                                                                                                                                                 |
+| TiltReset                        | Resets the device's tilt.                                                                                                                                                                                                                                                                                |
 | ZoomReset                        | Resets the fixture's zoom.                                                                                                                                                                                                                                                                                |
 | CTBReset                         | Resets the fixture's CTB.                                                                                                                                                                                                                                                                                 |
 | CTOReset                         | Resets the fixture's CTO.                                                                                                                                                                                                                                                                                 |
 | CTCReset                         | Resets the fixture's CTC.                                                                                                                                                                                                                                                                                 |
 | AnimationSystemReset             | Resets the fixture's animation system features.                                                                                                                                                                                                                                                           |
 | FixtureCalibrationReset          | Resets the fixture's calibration.                                                                                                                                                                                                                                                                         |
-| Function                         | Generally controls features of the fixture.                                                                                                                                                                                                                                                               |
+| Function                         | Generally controls features of the device.                                                                                                                                                                                                                                                               |
 | LampControl                      | Controls the fixture's lamp on/lamp off feature.                                                                                                                                                                                                                                                          |
 | DisplayIntensity                 | Adjusts intensity of display                                                                                                                                                                                                                                                                              |
 | DMXInput                         | Selects DMX Input                                                                                                                                                                                                                                                                                         |
@@ -2911,7 +2827,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Fog(n)                           | Fog or hazer's Fog feature.                                                                                                                                                                                                                                                                               |
 | Haze(n)                          | Fog or hazer's Haze feature.                                                                                                                                                                                                                                                                              |
 | LampPowerMode                    | Controls the energy consumption of the lamp.                                                                                                                                                                                                                                                              |
-| Fans                             | Controls a fixture or device fan.                                                                                                                                                                                                                                                                         |
+| Fans                             | Controls a device or device fan.                                                                                                                                                                                                                                                                         |
 | Blade(n)A                        | 1 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)B                        | 2 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)Rot                      | Rotates position of blade(n).                                                                                                                                                                                                                                                                             |
