@@ -1179,16 +1179,15 @@ There are three level of details that you can define:
 
 Low and High meshes definitions are optional. Place the file with the same name in the defined folder.
 
+Devices shall be drawn in their most typical usage position:
 
-TODO: clarify the drawing orientation for different device type.
+- Lighting device and audio devices shall be drawn in a hanging position (the
+  devices are drawn upside down). Devices like haze machines, controllers,
+  distribution boxes shall be drawn in normal position.
 
-Lighting device shall be drawn in a hanging position displaying the front
-view. That results in the pan axis is Z aligned, and the tilt axis is X
-aligned.
-
-Audio device shall be drawn in TODO position displaying the front.
-
-Other devices should be drawn in the
+- Devices with moving parts should be drawn in position displaying the front
+  view. That results in the pan axis is Z aligned, and the tilt axis is X
+  aligned.
 
 The metric system consists of the Right-handed Cartesian Coordinates
 XYZ: X – from left (-X) to right (+X), Y – from the outside of the
@@ -1936,18 +1935,16 @@ The speaker geometry emits its sound into negative Y direction.
 
 This section describes all modes, configurations, or variants of operation of the device. For devices with
 DMX, if a firmware revision changes the DMX footprint, the revision should be
-specified as a new Mode. The mode collect currently does not have any
+specified as a new Mode. The Modes collect currently does not have any
 attributes (XML node `<Modes>`).
 
-As a child the fixture type DMX mode collect has DMX modes.
-
-TODO: make all Modes capitalized, fixup the Mode children
+As a child the device type Modes collect has one or multiple [Mode](#user-content-mode) elements.
 
 ### Mode
 
 Each Mode describes logical control part or device configuration or variant of the device in a specific
 mode (XML node `<Mode>`). The currently defined XML attributes of the
-mode are specified in [table 57](#user-content-table-57 ).
+Mode are specified in [table 57](#user-content-table-57 ).
 
 <div id="table-57">
 
@@ -1955,8 +1952,8 @@ mode are specified in [table 57](#user-content-table-57 ).
 
 | XML Attribute Name | Value Type                        | Description                                                                                   |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the mode                                                               |
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Mode                                                               |
 | Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
 
 
@@ -1970,9 +1967,9 @@ Mode children are specified in [table 58](#user-content-table-58 ).
 
 | XML node                                       | Mandatory | Description                                      |
 |----|----|----|
-| [DMXChannels](#user-content-dmx-channel-collect ) | No       | Description of all DMX channels used in the mode |
+| [DMXChannels](#user-content-dmx-channel-collect ) | No       | Description of all DMX channels used in the Mode |
 | [Relations](#user-content-relation-collect )      | No        | Description of relations between channels        |
-| [DTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  | TODO find and fix all
+| [DTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  |
 
 
 </div>
@@ -1993,7 +1990,7 @@ channels](#user-content-dmx-channel ).
 This section defines the DMX channel (XML node `<DMXChannel>`). The name
 of a DMX channel cannot be user-defined and must consist of a geometry
 name and the attribute name of the first logical channel with separator
-"\_". In one DMX Mode, this combination needs to be unique. Currently
+"\_". In one Mode, this combination needs to be unique. Currently
 defined XML attributes of the DMX channel are specified in [table
 59](#user-content-table-59).
 
@@ -2019,7 +2016,7 @@ or logically. If the DMX channel doesn't have a location, put it in the top
 level geometry of the geometry tree. Attributes follow a trickle down
 principle, so they are inherited from top down.
 
-In a DMX Mode, DMX Channels must form a continuous sequence of Offsets without
+In a Mode, DMX Channels must form a continuous sequence of Offsets without
 gaps. If a specific DMX Offset is unused, a corresponding DMX Channel shall
 still be defined at that Offset, and its associated LogicalChannel shall have
 the NoFeature Device Type Attribute assigned.
@@ -2031,7 +2028,7 @@ channels](#user-content-logical-channel ).
 
 The Device Type Attribute is assigned to a LogicalChannel and defines
 the function of the LogicalChannel. All logical channels that are
-children of the same DMX channel are mutually exclusive. In a mode,
+children of the same DMX channel are mutually exclusive. In a Mode,
 only one logical channel with the same attribute can reference the same
 geometry at a time. The name of a Logical Channel cannot be user-defined
 and is equal to the linked attribute name. The XML node of the logical
@@ -2268,14 +2265,14 @@ described in XML.
 
 This section describes DMX sequences to be executed by the control
 system. The macro collect currently does not have any XML attributes
-(XML node `<FTMacros>`). As children the macro collect has a list of a
+(XML node `<DTMacros>`). As children the macro collect has a list of a
 [macro](#user-content-macro ).
 
 ##### Macro
   
 ###### General
 
-This section defines a DMX sequence. (XML node `<FTMacro>`). The currently
+This section defines a DMX sequence. (XML node `<DTMacro>`). The currently
 defined XML attributes of the macro are specified in [table
 65](#user-content-table-65 ).
 
