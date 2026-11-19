@@ -1153,7 +1153,7 @@ specified in [table 32](#user-content-table-32 ).
 
 The model currently does not have any children.
 
-All models of a device combined should not exceed a maximum vertices count of 1200 for the default mesh level of detail.
+All models of a device combined should not exceed a maximum vertices count of 2500 for the default mesh level of detail.
 
 
 ### Primitive Types
