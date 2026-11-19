@@ -1179,15 +1179,15 @@ There are three level of details that you can define:
 
 Low and High meshes definitions are optional. Place the file with the same name in the defined folder.
 
-Devices shall be drawn in their most typical usage position:
+Devices shall be drawn in their most typical usage position, displaying the
+front view:
 
-- Lighting device and audio devices shall be drawn in a hanging position (the
+- Lighting devices and audio devices shall be drawn in a hanging position (the
   devices are drawn upside down). Devices like haze machines, controllers,
   distribution boxes shall be drawn in normal position.
 
-- Devices with moving parts should be drawn in position displaying the front
-  view. That results in the pan axis is Z aligned, and the tilt axis is X
-  aligned.
+- For devices with moving parts, this results in the pan axis being Z aligned,
+  and the tilt axis is X aligned.
 
 The metric system consists of the Right-handed Cartesian Coordinates
 XYZ: X – from left (-X) to right (+X), Y – from the outside of the
