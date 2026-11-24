@@ -2934,6 +2934,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Blade(n)B                        | 2 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)Rot                      | Rotates position of blade(n).                                                                                                                                                                                                                                                                             |
 | ShaperRot                        | Rotates position of blade assembly.                                                                                                                                                                                                                                                                       |
+| ShaperRotate                     | Controls the speed and direction of continuous rotation of the blade assembly.                                                                                                                                                                                                                            |
 | ShaperMacros                     | Predefined presets for shaper positions.                                                                                                                                                                                                                                                                  |
 | ShaperMacrosSpeed                | Speed of predefined effects on shapers.                                                                                                                                                                                                                                                                   |
 | BladeSoft(n)A                    | 1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                 |
@@ -7983,6 +7984,22 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="ShaperRotate"
+      Pretty="Shaper Rotate"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of the blade assembly."
+      Explanation="Use this attribute to describe continuous rotation of the complete carousel of framing shutters or barndoors. Use ShaperRot for indexing ranges and ShaperRotate for continuous rotation ranges."
+      Label="Shaper Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="ShaperMacros"
       Pretty="Shaper Macros"
       Feature="Shapers.Shapers"
@@ -8558,10 +8575,18 @@ The physical values describe movement of a corner, where at 0 the corner is comp
 
 ### ShaperRot
 
-This attribute allows you to describe a function which rotates the complete
-carousel of framing shutters or barndoors. Rotation from negative to positive
-angle values is counterclockwise when looking at the projection from the
-fixture's point of view.
+This attribute allows you to describe a function which indexes/rotates the
+complete carousel of framing shutters or barndoors. Rotation from negative to
+positive angle values is counterclockwise when looking at the projection from
+the fixture's point of view.
+
+### ShaperRotate
+
+This attribute controls the speed and direction of continuous rotation of the
+complete carousel of framing shutters or barndoors. Positive values mean
+counterclockwise rotation when looking at the projection from the fixture's
+point of view. Negative values mean clockwise rotation, and zero means no
+rotation.
 
 ### Blade(n)Rot
 
