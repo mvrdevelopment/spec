@@ -2847,6 +2847,32 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | VideoBlendMode                   | Defines mode of video blending.                                                                                                                                                                                                                                                                           |
 | InputSource                      | Defines media input source e.g. a camera input.                                                                                                                                                                                                                                                           |
 | FieldOfView                      | Defines field of view.                                                                                                                                                                                                                                                                                    |
+| TR_Fixture_TargetID              | Selects the tracking target assigned to a fixture. |
+| TR_Fixture_CrossFade             | Defines the contribution of tracking control relative to console control for a fixture. |
+| TR_Fixture_CrossFadeTime         | Defines the duration of a tracking assignment or control-source transition for a fixture. |
+| TR_Fixture_OffsetX               | Defines the X-axis offset applied to a tracking target for one fixture. |
+| TR_Fixture_OffsetY               | Defines the Y-axis offset applied to a tracking target for one fixture. |
+| TR_Fixture_OffsetZ               | Defines the Z-axis offset applied to a tracking target for one fixture. |
+| TR_Fixture_Mode                  | Selects the tracking control or merge mode for a fixture. |
+| TR_Fixture_BeamSize              | Defines the requested beam diameter at the effective tracking target point for one fixture. |
+| TR_Fixture_BeamSizeEnable        | Enables or disables automatic maintenance of beam diameter at fixture scope. |
+| TR_Fixture_Prediction            | Defines the prediction time used to compensate tracking response for a fixture. |
+| TR_Fixture_PositionDelay         | Defines the delay applied to tracking position data used by a fixture. |
+| TR_Target_OffsetZ                | Defines the Z offset applied to a tracking target for all fixtures following that target. |
+| TR_Target_BeamSize               | Defines the requested beam diameter at a tracking target for fixtures following that target. |
+| TR_Target_BeamSizeEnable         | Enables or disables automatic maintenance of beam diameter at target scope. |
+| TR_Target_Enable                 | Enables or disables a logical tracking target. |
+| TR_Target_Mode                   | Selects the operating mode of a tracking target. |
+| TR_Target_Fallback               | Selects the fallback behavior or position source for a tracking target. |
+| TR_Target_Freeze                 | Defines the strength of movement suppression applied to a tracking target. |
+| TR_Target_Speed                  | Adjusts the tracking movement response for a target. |
+| TR_Target_SpeedPreset            | Selects a motion-response preset for fixtures following a tracking target. |
+| TR_Target_Acceleration           | Scales the configured acceleration response associated with a tracking target. |
+| TR_Global_CrossFade              | Defines the contribution of tracking control relative to console control at system scope. |
+| TR_Global_OffsetZ                | Defines a Z offset applied to the tracking output at system scope. |
+| TR_Global_PredictionPreset       | Selects a prediction preset for the tracking system output. |
+| TR_Show_Preset                   | Recalls a stored tracking configuration or scene. |
+| TR_Show_Bank                     | Selects a collection of stored show-level tracking presets. |
 
 </div>
 
@@ -2899,7 +2925,6 @@ not taken into account.
       Name="BeamShaper"/>
     <ActivationGroup
       Name="Shaper"/>
-           <ActivationGroup  Name="Tracking" />  
   </ActivationGroups>
   <FeatureGroups>
     <FeatureGroup
@@ -2969,11 +2994,17 @@ not taken into account.
       <Feature
         Name="Video"/>
     </FeatureGroup>
-           <FeatureGroup  Name="Tracking">  
-               <Feature  Name="Fixture" />  
-               <Feature  Name="Actor" />  
-               <Feature  Name="Control" />  
-           </FeatureGroup>  
+    <FeatureGroup
+      Name="Tracking">
+      <Feature
+        Name="Fixture"/>
+      <Feature
+        Name="Target"/>
+      <Feature
+        Name="Global"/>
+      <Feature
+        Name="Show"/>
+    </FeatureGroup>
   </FeatureGroups>
   <Attributes>
     <Attribute
@@ -7540,19 +7571,370 @@ not taken into account.
       UseGamut="False"
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
-           <Attribute Name="TrackerID" Pretty="ID" Feature="Tracking.Fixture" PhysicalUnit="None"/>  
-           <Attribute Name="TrackerCrossFade" Pretty="Cross Fade" Feature="Tracking.Fixture" PhysicalUnit="Percent"/>  
-           <Attribute Name="TrackerTime" Pretty="Tine" Feature="Tracking.Fixture" PhysicalUnit="Time"/>  
-           <Attribute Name="TrackerOffsetX" Pretty="Offset X" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerOffsetY" Pretty="Offset Y" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerOffsetZ" Pretty="Offset Z" Feature="Tracking.Fixture" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerMode" Pretty="Mode" Feature="Tracking.Fixture" PhysicalUnit="None"/>  
-           <Attribute Name="TrackerControlHeight" Pretty="Height" Feature="Tracking.Actor" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlSpeed" Pretty="Speed" Feature="Tracking.Actor" PhysicalUnit="Speed"/>  
-           <Attribute Name="TrackerControlFreeze" Pretty="Freeze" Feature="Tracking.Actor" PhysicalUnit="Percent"/>  
-           <Attribute Name="TrackerControlBeamSize" Pretty="Beam Size" Feature="Tracking.Actor" PhysicalUnit="Length"/>  
-           <Attribute Name="TrackerControlMode" Pretty="Control Mode" Feature="Tracking.Actor" PhysicalUnit="None"/>  
-           <Attribute Name="TrackerControlShow" Pretty="Show Mode" Feature="Tracking.Control" PhysicalUnit="None"/>  
+    <Attribute
+      Name="TR_Fixture_TargetID"
+      Pretty="Target ID"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="None"
+      Definition="Selects the tracking target assigned to a fixture."
+      Explanation="Use for assignment to a logical actor, target or focus point in the tracking system."
+      Label="Tracking Fixture Target ID"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_CrossFade"
+      Pretty="Fixt Fade"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Percent"
+      Definition="Defines the contribution of tracking control relative to console control for a fixture."
+      Explanation="Physical 0 means console control and physical 100 means tracking control. Intermediate values describe the tracking contribution for parameters participating in the merge."
+      Label="Tracking Fixture Crossfade"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_CrossFadeTime"
+      Pretty="Fixt Time"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Time"
+      Definition="Defines the duration of a tracking assignment or control-source transition for a fixture."
+      Explanation="Physical values are seconds. Use for the time taken to move from one target assignment or control source to another."
+      Label="Tracking Fixture Transition Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_OffsetX"
+      Pretty="Fixt Ofs X"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Length"
+      Definition="Defines the X-axis offset applied to a tracking target for one fixture."
+      Explanation="Physical values are signed metres; zero means no offset. Apply the offset to the effective aim point for this fixture."
+      Label="Tracking Fixture Offset X"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_OffsetY"
+      Pretty="Fixt Ofs Y"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Length"
+      Definition="Defines the Y-axis offset applied to a tracking target for one fixture."
+      Explanation="Physical values are signed metres; zero means no offset. Apply the offset to the effective aim point for this fixture."
+      Label="Tracking Fixture Offset Y"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_OffsetZ"
+      Pretty="Fixt Ofs Z"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Length"
+      Definition="Defines the Z-axis offset applied to a tracking target for one fixture."
+      Explanation="Physical values are signed metres; zero means no offset. Apply the offset to the effective aim point for this fixture."
+      Label="Tracking Fixture Offset Z"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_Mode"
+      Pretty="Fixt Mode"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="None"
+      Definition="Selects the tracking control or merge mode for a fixture."
+      Explanation="Use for choices such as console control, tracking control or control of selected parameters by an operator."
+      Label="Tracking Fixture Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_OffsetZ"
+      Pretty="Tgt Ofs Z"
+      Feature="Tracking.Target"
+      PhysicalUnit="Length"
+      Definition="Defines the Z offset applied to a tracking target for all fixtures following that target."
+      Explanation="Physical values are signed metres; zero means no offset. Use to move the effective target point relative to its measured or calculated position. This is a target-level adjustment, distinct from a per-fixture offset."
+      Label="Tracking Target Z Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_BeamSize"
+      Pretty="Tgt Beam Size"
+      Feature="Tracking.Target"
+      PhysicalUnit="Length"
+      Definition="Defines the requested beam diameter at a tracking target for fixtures following that target."
+      Explanation="Physical values are metres of diameter at the effective target point."
+      Label="Tracking Target Beam Diameter"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_BeamSize"
+      Pretty="Fixt Beam Size"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Length"
+      Definition="Defines the requested beam diameter at the effective tracking target point for one fixture."
+      Explanation="Physical values are metres of diameter. Use for a fixture-specific constant beam-size setting maintained through supported zoom, iris or related controls as distance changes."
+      Label="Tracking Fixture Beam Diameter"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_BeamSizeEnable"
+      Pretty="Fixt BeamSize Enab"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="None"
+      Definition="Enables or disables automatic maintenance of beam diameter at fixture scope."
+      Explanation="Use for describing enable, disable, idle and other choices."
+      Label="Tracking Fixture Beam Size Enable"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_BeamSizeEnable"
+      Pretty="Tgt BeamSize Enab"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Enables or disables automatic maintenance of beam diameter at target scope."
+      Explanation="Use for describing enable, disable, idle and other choices."
+      Label="Tracking Target Beam Size Enable"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_Prediction"
+      Pretty="Fixt Pred"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Time"
+      Definition="Defines the prediction time used to compensate tracking response for a fixture."
+      Explanation="Physical values are seconds; zero means no prediction."
+      Label="Tracking Fixture Prediction Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Fixture_PositionDelay"
+      Pretty="Fixt Delay"
+      Feature="Tracking.Fixture"
+      PhysicalUnit="Time"
+      Definition="Defines the delay applied to tracking position data used by a fixture."
+      Explanation="Physical values are seconds; zero means the current position."
+      Label="Tracking Fixture Position Delay"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Enable"
+      Pretty="Tgt Enable"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Enables or disables a logical tracking target."
+      Explanation="Describe enable, disable, idle selections and more."
+      Label="Tracking Target Enable"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Mode"
+      Pretty="Tgt Mode"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Selects the operating mode of a tracking target."
+      Explanation="Use for target-level operating modes such as active, inactive or forced 2D tracking."
+      Label="Tracking Target Mode"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Fallback"
+      Pretty="Tgt Fallback"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Selects the fallback behavior or position source for a tracking target."
+      Explanation="Use for choices such as automatic fallback when the primary position source is lost, disabling fallback or forcing a fallback position source."
+      Label="Tracking Target Fallback"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Freeze"
+      Pretty="Tgt Freeze"
+      Feature="Tracking.Target"
+      PhysicalUnit="Percent"
+      Definition="Defines the strength of movement suppression applied to a tracking target."
+      Explanation="Physical 0 means no movement suppression and physical 100 means holding the effective target position. Intermediate values suppress small movements according to the system filter."
+      Label="Tracking Target Freeze"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Speed"
+      Pretty="Tgt Speed"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Adjusts the tracking movement response for a target."
+      Explanation="Use for a speed or movement-response adjustment. The setting affects the target or fixtures following that target, according to the tracking system."
+      Label="Tracking Target Speed"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_SpeedPreset"
+      Pretty="Tgt Speed"
+      Feature="Tracking.Target"
+      PhysicalUnit="None"
+      Definition="Selects a motion-response preset for fixtures following a tracking target."
+      Explanation="Use for tracking response presets such as slow, medium and fast."
+      Label="Tracking Target Motion Preset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Target_Acceleration"
+      Pretty="Tgt Accel"
+      Feature="Tracking.Target"
+      PhysicalUnit="Percent"
+      Definition="Scales the configured acceleration response associated with a tracking target."
+      Explanation="Physical values are a percentage of the acceleration response configured in the system. Zero means no added acceleration response and 100 means the full configured response."
+      Label="Tracking Target Acceleration Scale"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Global_CrossFade"
+      Pretty="Trk GFade"
+      Feature="Tracking.Global"
+      PhysicalUnit="Percent"
+      Definition="Defines the contribution of tracking control relative to console control at system scope."
+      Explanation="Physical 0 means console control and physical 100 means tracking control."
+      Label="Tracking Global Crossfade"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Global_OffsetZ"
+      Pretty="Trk GOfs Z"
+      Feature="Tracking.Global"
+      PhysicalUnit="Length"
+      Definition="Defines a Z offset applied to the tracking output at system scope."
+      Explanation="Physical values are signed metres; zero means no offset. Use when the channel adjusts the tracking system output globally rather than a selected target or fixture."
+      Label="Tracking Global Z Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Global_PredictionPreset"
+      Pretty="Trk GPred"
+      Feature="Tracking.Global"
+      PhysicalUnit="None"
+      Definition="Selects a prediction preset for the tracking system output."
+      Explanation="Use for prediction settings, including off and named prediction levels."
+      Label="Tracking Global Prediction Preset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Show_Preset"
+      Pretty="Trk Show Preset"
+      Feature="Tracking.Show"
+      PhysicalUnit="None"
+      Definition="Recalls a stored tracking configuration or scene."
+      Explanation="Use for a named show-level tracking preset, scene or chapter."
+      Label="Tracking Show Preset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
+    <Attribute
+      Name="TR_Show_Bank"
+      Pretty="Trk Show Bank"
+      Feature="Tracking.Show"
+      PhysicalUnit="None"
+      Definition="Selects a collection of stored show-level tracking presets."
+      Explanation="Use when a bank or book is a collection that provides the context for show-preset selection."
+      Label="Tracking Show Preset Bank"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"/>
   </Attributes>
 </AttributeDefinitions>
 ```
