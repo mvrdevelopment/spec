@@ -1049,7 +1049,7 @@ specified in [table 30](#user-content-table-30 ).
 | XML Attribute Name | Value Type                          | Description                                                                      |
 |----|----|----|
 | Value              | [Float](#user-content-attrtype-float ) | Weight of the device including all accessories. Unit: kilogram. Default value: 0 |
-| CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 )|  Optional, valid only for devices without moving parts. Offset from the origin of the geometry tree root.  Unit: meter.|
+| CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 )| Optional unless weight and center of gravity data is provided per model, in which case it must be provided. Overall center of gravity of the device for the default configuration of the geometry tree. Offset from the origin of the geometry tree root. Unit: meter. |
 
 </div>
 
@@ -1138,6 +1138,8 @@ specified in [table 32](#user-content-table-32 ).
 | Length             | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
 | Width              | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
 | Height             | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
+| Weight             | [Float](#user-content-attrtype-float )     | Optional if CenterOfGravity is not defined. Weight of the fixture part represented by the model. Used only to calculate the overall center of gravity of the device. Unit: kilogram. |
+| CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 ) | Optional if Weight is not defined. Center of gravity of the fixture part represented by the model, expressed as an offset from the model origin in the model's coordinate system. Unit: meter. |
 | PrimitiveType      | [Enum](#user-content-attrtype-enum )       | Type of 3D model; The currently defined values are: “Undefined”, “Cube”, “Cylinder”, “Sphere”, “Base”, “Yoke”, “Head”, “Scanner”, “Conventional”, “Pigtail”, "Base1_1", "Scanner1_1", "Conventional1_1"; Default value: “Undefined” |
 | File               | [Resource](#user-content-attrtype-resource )   | Optional. File name without extension and without subfolder containing description of the model. Use the following as a resource file:<br />- 3DS or GLB to file to provide 3D model.<br />- SVG file to provide the 2D symbol.<br />It is possible to add several files with the same name but different formats. Preferable format for the 3D model is GLTF. The resource files are located in subfolders of a folder called <code>./models</code>. The names of the subfolders correspond to the file format of the resource files (3ds, step, svg). The path for 3ds files would be <code>./models/3ds</code>. For glb files, it would be <code>./models/gltf</code>.</p> Software that is utilizing GDTF files should always be able to read both 3ds and GlTF file formats and should be able to write at least one of these formats. It is preferable that only one type of 3D model file formats is used within one GDTF file.<br />All dimensions in 3DS files are interpreted in millimeters (1 unit = 1 mm).|
 | SVGOffsetX            | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
