@@ -1,4 +1,4 @@
-GDTF Version 1.2 Draft 1
+GDTF Version 2.0 Draft 1
 
 # Introduction
 
@@ -239,9 +239,9 @@ Byte shifting: 255/1s definition in a 16 bit channel will result in 255/0 in two
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
 The second XML node is the GDTF node. The attribute of this node is the
-DataVersion: `<GDTF DataVersion="1.2">`
+DataVersion: `<GDTF DataVersion="2.0">`
 
-The example above shows the XML node for GDTF version 1.2.
+The example above shows the XML node for GDTF version 2.0 .
 
 From GDTF Spec version 2.0, GDTF Spec uses Semantic Versioning 2.0, where given
 a version number MAJOR.MINOR, the numbers mean:
