@@ -1,27 +1,27 @@
-GDTF Version 1.2 Draft 1
+GDTF Version 2.0 Draft 1
 
 # Introduction
 
-In the lighting and entertainment industry, lighting fixtures
-(luminaires and other controllable devices) have become more and more
+In the lighting and entertainment industry, controllable devices
+(including luminaires) have become more and more
 complex, and the development of these devices happens faster than ever.
 New devices are designed with very involved structures; they have
 numerous complex color-mixing systems and mode dependencies. To give the
 user access to the enormous flexibility of existing devices, a method of
-providing accurate fixture type data, and controlling and
+providing accurate device type data, and controlling and
 pre-visualizing devices quickly and precisely as possible, is needed.
 The "General Device Type Format" (GDTF) is that method.
 
 There are many different lighting consoles and software manufacturers on
 the market, and all of them use different file formats and methods of
-getting the fixture control information into their systems. The
-development of new high-end fixtures at an amazing rate creates a lack
+getting the device control information into their systems. The
+development of new high-end device at an amazing rate creates a lack
 of available control data on the side of the console and
-pre-visualization software manufacturers. Also, fixture manufacturers
+pre-visualization software manufacturers. Also, device manufacturers
 are often approached directly by their clients with requests to support
-them with accurate fixture types. As there are so many different
+them with accurate device types. As there are so many different
 consoles and visualizers on the market, this process requires vast
-knowledge of many different systems. Fixture manufacturers would need to
+knowledge of many different systems. Device manufacturers would need to
 understand how every console or visualizer works, and how to provide the
 required data. A format description is needed that not only provides all
 of the required control information, but also structures it in a
@@ -29,9 +29,9 @@ hierarchical way matching that of the described device.
 
 The lighting designer who would like to use these devices has to deal
 with such obstacles. Designers often receive the device control data of
-a specific new fixture later than expected. Also, the data may be
+a specific new device later than expected. Also, the data may be
 incomplete, because it was not created with the latest information from
-the fixture manufacturer.
+the device manufacturer.
 
 These issues demonstrate that our industry needs a standardized way of
 defining the description of intelligent and complex devices. This
@@ -104,7 +104,7 @@ standardization at the following addresses:
 
 descriptive name of the specification
 
-### Fixture Type Attribute
+### Device Type Attribute
 
 singular mutually exclusive control function 
 Note 1 to entry: Definitions of common attributes can be found in Annex A.
@@ -116,15 +116,15 @@ Note 1 to entry: As example Pan & Tilt are paired to gain control over Position.
 
 ### Feature
 
-element that’s groups the Fixture Type Attributes into a structured way for easier access and search
+element that’s groups the Device Type Attributes into a structured way for easier access and search
 
 ### Feature Groups
 
-element that’s groups the Fixture Type Features into a logical way for easier access and search
+element that’s groups the Device Type Features into a logical way for easier access and search
 
 ### DMXBreak
 
-term used when a fixture needs more than one DMX start address
+term used when a device needs more than one DMX start address
 
 ### glTF
 
@@ -151,7 +151,7 @@ folder "./models" has subfolders for a better structural overview:
 - ./models/svg
 
 The description.xml file
-contains the description of the device type and all DMX modes as well as
+contains the description of the device type and all Modes as well as
 all firmware revisions of the device.
 
 ```
@@ -185,7 +185,7 @@ all firmware revisions of the device.
 
 The ZIP archive name is recommended to be specified as follows:
 
-`<ManufacturerName>@<FixtureTypeName>@<OptionalComment>`
+`<ManufacturerName>@<DeviceTypeName>@<OptionalComment>`
 
 Example: `generic@led@comment`
 
@@ -239,9 +239,9 @@ Byte shifting: 255/1s definition in a 16 bit channel will result in 255/0 in two
 The first XML node is always the XML description node: `<?xml version="1.0" encoding="UTF-8"?>`
 
 The second XML node is the GDTF node. The attribute of this node is the
-DataVersion: `<GDTF DataVersion="1.2">`
+DataVersion: `<GDTF DataVersion="2.0">`
 
-The example above shows the XML node for GDTF version 1.2.
+The example above shows the XML node for GDTF version 2.0 .
 
 From GDTF Spec version 2.0, GDTF Spec uses Semantic Versioning 2.0, where given
 a version number MAJOR.MINOR, the numbers mean:
@@ -260,35 +260,35 @@ a version number MAJOR.MINOR, the numbers mean:
 
 </div>
 
-## Fixture Type Node
+## Device Type Node
 
-The FixtureType node is the starting point of the description of the
-fixture type within the XML file. The defined Fixture Type Node
-attributes of the fixture type are specified in [table 3](#user-content-table-3 ).
+The DeviceType node is the starting point of the description of the
+device type within the XML file. The defined Device Type Node
+attributes of the device type are specified in [table 3](#user-content-table-3 ).
 
 
 <div id="table-3">
 
-#### Table 3. *Fixture Type Node Attributes*
+#### Table 3. *Device Type Node Attributes*
 
 | XML Attribute Name | Value Type | Description  |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )         | Name of the fixture type.|
-| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the fixture type. Non detailed version or an abbreviation. Can use any characters or symbols. Used in user interfaces in places where there is not enough space.|
-| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the fixture type, can include any characters or extra symbols.|
-| Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the fixture type.|
-| Description        | [String](#user-content-attrtype-string )     | Description of the fixture type. |
-| FixtureTypeID      | [GUID](#user-content-attrtype-guid )         | Unique number of the fixture type. |
+| Name               | [Name](#user-content-attrtype-name )         | Name of the device type.|
+| ShortName          | [String](#user-content-attrtype-string )     | Shortened name of the device type. Non detailed version or an abbreviation. Can use any characters or symbols. Used in user interfaces in places where there is not enough space.|
+| LongName           | [String](#user-content-attrtype-string )     | Detailed, complete name of the device type, can include any characters or extra symbols.|
+| Manufacturer       | [String](#user-content-attrtype-string )     | Manufacturer of the device type.|
+| Description        | [String](#user-content-attrtype-string )     | Description of the device type. |
+| DeviceTypeID       | [GUID](#user-content-attrtype-guid )         | Unique number of the device type. |
 | Thumbnail          | [Resource](#user-content-attrtype-resource ) | Optional. File name without extension containing description of the thumbnail. Use the following as a resource file: <br />- png file to provide the rasterized picture. Maximum resolution of picture: 1024x1024 <br />- svg file to provide the vector graphic as viewed from bottom in Z direction.  <br />- These resource files are located in the root directory of the zip file.  |
 | ThumbnailOffsetX   | [Int](#user-content-attrtype-int )           | Horizontal offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
 | ThumbnailOffsetY   | [Int](#user-content-attrtype-int )           | Vertical offset in pixels from the top left of the viewbox to the insertion point on a label. Default value: 0 |
-| RefFT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced fixture type. |
+| RefDT              | [GUID](#user-content-attrtype-guid )         | Optional. GUID of the referenced device type. |
 | CanHaveChildren    | [Enum](#user-content-attrtype-enum )         | Describes if it is possible to mount other devices to this device. Value: “Yes”, “No”. Default value: “Yes” |
 
 </div>
 
 
-Fixture type node children are specified in [table 4](#user-content-table-4 ).
+Device type node children are specified in [table 4](#user-content-table-4 ).
 
 For SVG files defining the `Thumbnail` view must be the view from bottom in Z direction. You can mark the elements in the `Thumbnail` defining Movement Range and the Connection Input position. 
 * Movement Range: shapes inside the SVG with fill and stroke color Red (#FF0000(RGB: 255, 0, 0)) and with fill and stroke opacity 0, allow software to identify these shapes as a movement range of the device.
@@ -298,19 +298,18 @@ For SVG files defining the `Thumbnail` view must be the view from bottom in Z di
 
 <div id="table-4">
 
-#### Table 4. *Fixture Type Node Children*
+#### Table 4. *Device Type Node Children*
 
 | Child Node                                                | Mandatory | Description                                                                                 |
 |----|----|----|
-| [AttributeDefinitions](#user-content-attribute-definitions ) | Yes       | Defines all Fixture Type Attributes that are used in the fixture type.                      |
+| [AttributeDefinitions](#user-content-attribute-definitions ) | Yes       | Defines all Device Type Attributes that are used in the device type.                      |
 | [Wheels](#user-content-wheel-collect )                       | No        | Defines the physical or virtual color wheels, gobo wheels, media server content and others. |
 | [PhysicalDescriptions](#user-content-physical-descriptions ) | No        | Contains additional physical descriptions.                                                  |
 | [Models](#user-content-model-collect )                       | No        | Contains models of physically separated parts of the device.                                |
 | [Geometries](#user-content-geometry-collect )                | Yes       | Describes physically separated parts of the device.                                         |
-| [DMXModes](#user-content-dmx-mode-collect )                  | Yes       | Contains descriptions of the DMX modes.                                                     |
-| [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the fixture type.                                                  |
-| [FTPresets](#user-content-fixture-type-preset-collect )              | No        | Is used to transfer user-defined and fixture type specific presets to other show files.     |
-| [Protocols](#user-content-fixture-type-preset-collect)                        | No        | Is used to specify supported protocols.                                                     |
+| [Modes](#user-content-mode-collect )                         | Yes       | Contains descriptions of the modes of the device.                                           |
+| [Revisions](#user-content-revision-collect )                 | No        | Describes the history of the device type.                                                  |
+| [Protocols](#user-content-protocol)                        | No        | Is used to specify supported protocols.                                                     |
 
 
 </div>
@@ -322,13 +321,13 @@ sections is mandatory as specified in [table 4](#user-content-table-4 ).
 
 ### General
 
-This section defines the attribute definitions for the Fixture Type
+This section defines the attribute definitions for the Device Type
 Attributes.
 
 Note 1: More information on the definitions of attributes can be found in Annex
 A "Attribute Definitions"". 
 
-Note 2: All currently defined Fixture Type Attributes can be found in Annex B
+Note 2: All currently defined Device Type Attributes can be found in Annex B
 "Attribute Listing".
 
 Note 3: All currently defined activation groups can be found in Annex B
@@ -349,7 +348,7 @@ are specified in [table 5](#user-content-table-5 ).
 |----|----|----|
 | [ActivationGroups](#user-content-activation-group) | No        | Defines which attributes are to be activated together. For example, Pan and Tilt are in the same activation group.                      |
 | [FeatureGroups](#user-content-feature-group)       | Yes       | Describes the logical grouping of attributes. For example, Gobo 1 and Gobo 2 are grouped in the feature Gobo of the feature group Gobo. |
-| [Attributes](#user-content-attribute)              | Yes       | List of Fixture Type Attributes that are used. Predefindes fixtury type attributes can be found in Annex A.                             |
+| [Attributes](#user-content-attribute)              | Yes       | List of Device Type Attributes that are used. Predefined Device Type Attributes can be found in Annex A.                             |
 
 </div>
 
@@ -358,10 +357,10 @@ are specified in [table 5](#user-content-table-5 ).
   
 #### General
 
-This section defines groups of Fixture Type Attributes that are intended
+This section defines groups of Device Type Attributes that are intended
 to be used together.
 
-Example: Usually Pan and Tilt are Fixture Type Attributes that shall be
+Example: Usually Pan and Tilt are Device Type Attributes that shall be
 activated together to be able to store and recreate any position.
 
 The current activation groups node does not have any XML attributes (XML
@@ -391,7 +390,7 @@ The activation group does not have any children.
   
 #### General
 
-This section defines the logical grouping of Fixture Type Attributes
+This section defines the logical grouping of Device Type Attributes
 (XML node `<FeatureGroups>`).
 
 Note 1: A feature group can contain more than one logical control unit. A
@@ -448,13 +447,13 @@ The feature does not have any children.
 
 #### General
 
-This section defines the Fixture Type Attributes (XML node
+This section defines the Device Type Attributes (XML node
 `<Attributes>`). As children the attributes node has a list of a
 [attributes](#user-content-attribute ).
 
 #### Attribute
 
-This section defines the Fixture Type Attribute (XML node `<Attribute>`).
+This section defines the Device Type Attribute (XML node `<Attribute>`).
 The currently defined XML attributes of the attribute Node are specified
 in [table 9](#user-content-table-9 ).
 
@@ -522,7 +521,7 @@ are described by wheels.
   
 #### General
 
-Each wheel describes a single physical or virtual wheel of the fixture
+Each wheel describes a single physical or virtual wheel of the device
 type. If the real device has wheels you can change, then all wheel
 configurations have to be described. Wheel has the following XML node:
 `<Wheel>`. The currently defined XML attributes of the wheel are specified
@@ -865,7 +864,7 @@ have any XML attributes (XML node `<Gamuts>`). As children, gamut collect has a 
 
 #### Gamut
 
-This section defines the color gamut of the fixture (XML node `<Gamut>`), which is the set of attainable colors by the fixture. The currently defined XML attributes of a gamut
+This section defines the color gamut of the device (XML node `<Gamut>`), which is the set of attainable colors by the device. The currently defined XML attributes of a gamut
 are specified in [table 22](#user-content-table-22 ).
 
 <div id="table-22">
@@ -1115,10 +1114,10 @@ The Distances currently does not have any children.
   
 ### General
 
-Each device is divided into smaller parts: body, yoke, head and so on.
+Each device is divided into smaller parts: for example body, yoke, head and so on.
 These are called geometries. Each geometry has a separate model
 description and a physical description. Model collect contains model
-descriptions of the fixture parts. The model collect currently does not
+descriptions of the device parts. The model collect currently does not
 have any XML attributes (XML node `<Models>`). As children, Model Collect
 has a list of [model](#user-content-model ).
 
@@ -1172,18 +1171,23 @@ There are three level of details that you can define:
 
 | LOD  | Description  |  Folder 3DS / gltf |
 |---|---|---|
-| Low  | Optional; This is the mesh for fixtures that are far away from the camera. It should have 30% of the the vertexes from the default mesh vertex count.  | `3ds_low` / `gltf_low`  |
-| Default  | This is the default mesh that is used for real time visualization in preprogramming tool. It should have the minimum vertex count possible, while still looking like the fixture in 3D.  | `3ds` / `gltf` |
+| Low  | Optional; This is the mesh for devices that are far away from the camera. It should have 30% of the the vertexes from the default mesh vertex count.  | `3ds_low` / `gltf_low`  |
+| Default  | This is the default mesh that is used for real time visualization in preprogramming tool. It should have the minimum vertex count possible, while still looking like the devices in 3D.  | `3ds` / `gltf` |
 | High  | Optional; This is high quality mesh targeting non-realtime applications, where the vertex count is not that important. There is no limit for the vertex count. | `3ds_high` / `gltf_high`  |
 
 </div>
 
 Low and High meshes definitions are optional. Place the file with the same name in the defined folder.
 
+Devices shall be drawn in their most typical usage position, displaying the
+front view:
 
-The device shall be drawn in a hanging position displaying the front
-view. That results in the pan axis is Z aligned, and the tilt axis is X
-aligned.
+- Lighting devices and audio devices shall be drawn in a hanging position (the
+  devices are drawn upside down). Devices like haze machines, controllers,
+  distribution boxes shall be drawn in normal position.
+
+- For devices with moving parts, this results in the pan axis being Z aligned,
+  and the tilt axis is X aligned.
 
 The metric system consists of the Right-handed Cartesian Coordinates
 XYZ: X – from left (-X) to right (+X), Y – from the outside of the
@@ -1194,7 +1198,7 @@ top (+Z). 0,0,0 – center base plate. See Figure 2.
 "media/Models_device_hanging_1.1.png") Figure 2. Device in a hanging
 position – front view
 
-The mesh of each fixture part shall be drawn around its own suspension
+The mesh of each device part shall be drawn around its own suspension
 point. The zero point of a device does not necessarily have to contain
 the offset related to the yoke, but it must be centered on its axis of
 rotation. The offset is defined by the geometry and has to be related to
@@ -1292,7 +1296,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [GeometryReference](#user-content-geometry-type-reference )           | Any    | Reference to already described geometries.                                                     |
 | [Laser](#user-content-geometry-type-laser )                           | Any    | Geometry with a laser light output.                                                            |
 | [WiringObject](#user-content-geometry-type-wiring-object )            | Any    | Geometry that describes an internal wiring for power or data.                                  |
-| [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a fixture (like a rain cover). |
+| [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a device (like a rain cover). |
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
 | [Magnet](#user-content-geometry-type-magnet )                         | Any    | Geometry that describes a point where other geometries should be attached.                     |
@@ -1926,51 +1930,52 @@ The currently defined XML attributes of the speaker are specified in [table 56](
 The speaker geometry has the same children types as the geometry
 collect (see [table 34](#user-content-table-34 )).
 
-Use the Geometry Type "Speaker" to describe the position of the fixture's sound output. The origin of the Geometry Type "Speaker" should not be covered by 
+Use the Geometry Type "Speaker" to describe the position of the device's sound output. The origin of the Geometry Type "Speaker" should not be covered by 
 any faces of other geometries in order to not block the rendered sound plane.
 
 The speaker geometry emits its sound into negative Y direction.
 
-## DMX Mode Collect
+## Modes Collect
   
 ### General
 
-This section is describes all DMX modes of the device. If firmware
-revisions change a DMX footprint, then such revisions should be
-specified as new DMX mode. The DMX mode collect currently does not have
-any attributes (XML node `<DMXModes>`). As a child the fixture type DMX
-mode collect has DMX modes.
+This section describes all modes, configurations, or variants of operation of the device. For devices with
+DMX, if a firmware revision changes the DMX footprint, the revision should be
+specified as a new Mode. The Modes collect currently does not have any
+attributes (XML node `<Modes>`).
 
-### DMX Mode
+As a child the device type Modes collect has one or multiple [Mode](#user-content-mode) elements.
 
-Each DMX mode describes logical control part of the device in a specific
-mode (XML node `<DMXMode>`). The currently defined XML attributes of the
-DMX mode are specified in [table 57](#user-content-table-57 ).
+### Mode
+
+Each Mode describes logical control part or device configuration or variant of the device in a specific
+mode (XML node `<Mode>`). The currently defined XML attributes of the
+Mode are specified in [table 57](#user-content-table-57 ).
 
 <div id="table-57">
 
-#### Table 57. *DMX Mode Attributes*
+#### Table 57. *Mode Attributes*
 
 | XML Attribute Name | Value Type                        | Description                                                                                   |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name ) | The unique name of the DMX mode                                                               |
-| Description        | [String](#user-content-attrtype-string ) | Description of the DMX mode                                                               |
+| Name               | [Name](#user-content-attrtype-name ) | The unique name of the Mode                                                               |
+| Description        | [String](#user-content-attrtype-string ) | Description of the Mode                                                               |
 | Geometry           | [Name](#user-content-attrtype-name ) | Name of the first geometry in the device; Only top level geometries are allowed to be linked. |
 
 
 </div>
 
-DMX mode children are specified in [table 58](#user-content-table-58 ).
+Mode children are specified in [table 58](#user-content-table-58 ).
 
 <div id="table-58">
 
-#### Table 58. *DMX Mode Children*
+#### Table 58. *Mode Children*
 
 | XML node                                       | Mandatory | Description                                      |
 |----|----|----|
-| [DMXChannels](#user-content-dmx-channel-collect ) | Yes       | Description of all DMX channels used in the mode |
+| [DMXChannels](#user-content-dmx-channel-collect ) | No       | Description of all DMX channels used in the Mode |
 | [Relations](#user-content-relation-collect )      | No        | Description of relations between channels        |
-| [FTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  |
+| [DTMacros](#user-content-macro-collect )      | No        | Is used to describe macros of the manufacturer.  |
 
 
 </div>
@@ -1991,7 +1996,7 @@ channels](#user-content-dmx-channel ).
 This section defines the DMX channel (XML node `<DMXChannel>`). The name
 of a DMX channel cannot be user-defined and must consist of a geometry
 name and the attribute name of the first logical channel with separator
-"\_". In one DMX Mode, this combination needs to be unique. Currently
+"\_". In one Mode, this combination needs to be unique. Currently
 defined XML attributes of the DMX channel are specified in [table
 59](#user-content-table-59).
 
@@ -2017,19 +2022,19 @@ or logically. If the DMX channel doesn't have a location, put it in the top
 level geometry of the geometry tree. Attributes follow a trickle down
 principle, so they are inherited from top down.
 
-In a DMX Mode, DMX Channels must form a continuous sequence of Offsets without
+In a Mode, DMX Channels must form a continuous sequence of Offsets without
 gaps. If a specific DMX Offset is unused, a corresponding DMX Channel shall
 still be defined at that Offset, and its associated LogicalChannel shall have
-the NoFeature Fixture Type Attribute assigned.
+the NoFeature Device Type Attribute assigned.
 
 As children the DMX channel has a list of [logical
 channels](#user-content-logical-channel ).
 
 ###### Logical Channel
 
-The Fixture Type Attribute is assigned to a LogicalChannel and defines
+The Device Type Attribute is assigned to a LogicalChannel and defines
 the function of the LogicalChannel. All logical channels that are
-children of the same DMX channel are mutually exclusive. In a DMX mode,
+children of the same DMX channel are mutually exclusive. In a Mode,
 only one logical channel with the same attribute can reference the same
 geometry at a time. The name of a Logical Channel cannot be user-defined
 and is equal to the linked attribute name. The XML node of the logical
@@ -2056,7 +2061,7 @@ function](#user-content-channel-function ).
 
 ###### Channel Function
 
-The Fixture Type Attribute is assigned to a Channel Function and defines
+The Device Type Attribute is assigned to a Channel Function and defines
 the function of its DMX Range. (XML node `<ChannelFunction>`). The
 currently defined XML attributes of channel function are specified in
 [table 61](#user-content-table-61 ).
@@ -2081,7 +2086,7 @@ currently defined XML attributes of channel function are specified in
 | Filter             | [Node](#user-content-attrtype-node )         | Optional. Link to a filter in the physical description; Starting point: Filter Collect                                                                        |
 | ColorSpace         | [Node](#user-content-attrtype-node )         | Optional. Link to a color space in the physical description; Starting point: Physical Descriptions Collect                                                    |
 | Gamut              | [Node](#user-content-attrtype-node )         | Optional. Link to a gamut in the physical description; Starting point: Gamut Collect                                                                          |
-| ModeMaster         | [Node](#user-content-attrtype-node )         | Optional. Link to DMX Channel or Channel Function; Starting point DMX mode.                                                                                   |
+| ModeMaster         | [Node](#user-content-attrtype-node )         | Optional. Link to DMX Channel or Channel Function; Starting point Mode.                                                                                   |
 | ModeFrom           | [DMXValue](#user-content-attrtype-dmxvalue ) | Only used together with ModeMaster; DMX start value; Default value: 0/1                                                                                       |
 | ModeTo             | [DMXValue](#user-content-attrtype-dmxvalue ) | Only used together with ModeMaster; DMX end value; Default value: 0/1                                                                                         |
 | ModeDefault        | [DMXValue](#user-content-attrtype-dmxvalue ) | Only used together with ModeMaster; DMX default value for the DMX Channel or Channel Function linked via ModeMaster. This value is applied only if the DMX value cannot be determined based on physical value or wheel slot index; Default value: 0/1                                                                                         |
@@ -2099,16 +2104,16 @@ currently defined XML attributes of channel function are specified in
 The channel functions of a logical channel shall describe the entire value range of the DMX channel. No gaps are allowed.
 
 Note:  
-For command based control systems, you can control the fixture by sending it a string in the following style:  
-`"/FIXTURE_ID/CUSTOM_NAME_CHANNELFUCTION ,f FLOAT_VALUE_PHYSICAL"`  
+For command based control systems, you can control the device by sending it a string in the following style:  
+`"/DEVICE_ID/CUSTOM_NAME_CHANNELFUCTION ,f FLOAT_VALUE_PHYSICAL"`  
 or   
-`"/FIXTURE_ID/CUSTOM_NAME_CHANNELFUCTION/percent ,f FLOAT_VALUE_PERCENT"`
+`"/DEVICE_ID/CUSTOM_NAME_CHANNELFUCTION/percent ,f FLOAT_VALUE_PERCENT"`
 
 Where:  
-- FIXTURE_ID is the fixture ID is the value defined for the fixture instance.
+- DEVICE_ID is the device ID is the value defined for the device instance.
 - CUSTOM_NAME_CHANNELFUCTION is the Custom Name for the ChannelFunction. Note that all "." Separators can be replaced with "/".
-- FLOAT_VALUE_PHYSICAL is the physical value that the fixture should adopt. The values will be capped by the fixture by PhysicalFrom and PhysicalTo.
-- FLOAT_VALUE_PERCENT is the percent value that the fixture should adopt. The values can be between 0 and 100.
+- FLOAT_VALUE_PHYSICAL is the physical value that the device should adopt. The values will be capped by the device by PhysicalFrom and PhysicalTo.
+- FLOAT_VALUE_PERCENT is the percent value that the device should adopt. The values can be between 0 and 100.
 
 
 As children the channel function has list of a [channel
@@ -2206,15 +2211,15 @@ XML attributes of the relations are specified in [table 64](#user-content-table-
 | XML Attribute Name | Value Type                               | Description                                                      |
 |----|----|----|
 | Name               | [Name](#user-content-attrtype-name )     | The unique name of the relation                                  |
-| Master             | [Node](#user-content-attrtype-node )     | Link to the master DMX channel; Starting point: DMX mode         |
-| Follower           | [Node](#user-content-attrtype-node )     | Link to the following channel function; Starting point: DMX mode |
+| Master             | [Node](#user-content-attrtype-node )     | Link to the master DMX channel; Starting point: Mode         |
+| Follower           | [Node](#user-content-attrtype-node )     | Link to the following channel function; Starting point: Mode |
 | Type               | [Enum](#user-content-attrtype-enum )     | Type of the relation; Values: “Multiply”, “Override”             |
 
 
 </div>
 
 The relation does not have any children. [Listing
-DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple DMX mode
+DMX Mode With Relations](#listing-dmx-mode-with-relations) shows an example of a simple Mode
 described in XML.
 
 <div id="listing-dmx-mode-with-relations">
@@ -2222,7 +2227,7 @@ described in XML.
 #### Listing *DMX Mode With Relations*
 
 ```
-<DMXMode Name="Default" Geometry="Body">
+<Mode Name="Default" Geometry="Body">
 
    <DMXChannels>  
        <DMXChannel Highlight="255/1" Geometry="Pixel">  
@@ -2255,7 +2260,7 @@ described in XML.
        <Relation Name="VirtualDimmer 2" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_G.ColorAdd_G.ColorAdd_G 1" Type="Multiply" />  
        <Relation Name="VirtualDimmer 3" Master="Pixel_Dimmer" Follower="Pixel_ColorAdd_B.ColorAdd_B.ColorAdd_B 1" Type="Multiply" />  
    </Relations>
-</DMXMode> 
+</Mode> 
 
 ```
 
@@ -2269,14 +2274,14 @@ described in XML.
 
 This section describes DMX sequences to be executed by the control
 system. The macro collect currently does not have any XML attributes
-(XML node `<FTMacros>`). As children the macro collect has a list of a
+(XML node `<DTMacros>`). As children the macro collect has a list of a
 [macro](#user-content-macro ).
 
 ##### Macro
   
 ###### General
 
-This section defines a DMX sequence. (XML node `<FTMacro>`). The currently
+This section defines a DMX sequence. (XML node `<DTMacro>`). The currently
 defined XML attributes of the macro are specified in [table
 65](#user-content-table-65 ).
 
@@ -2384,20 +2389,6 @@ are specified in [table 69](#user-content-table-69 ).
 
 The revision does not have any children.
 
-
-## Fixture Type Preset Collect
-  
-### General
-
-This section defines fixture type specific presets. It currently does
-not have any XML attributes (XML node `FTPresets>`). As children the
-Fixture Preset Collect has a list of [FTPreset](#user-content-fixture-type-preset-collect )
-(fixture type preset).
-
-### Fixture Type Preset
-
-This section has not yet been defined (XML node `<FTPreset>`).
-
 ## Supported Protocol Collect
   
 ### General
@@ -2414,7 +2405,7 @@ protocol collect currently does not have any XML attributes (XML node
 
 | XML node                                                      | Mandatory | Amount | Description                            |
 |----|----|----|----|
-| [FTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Fixture Type RDM information |
+| [DTRDM](#user-content-rdm-section )                           | No   |  0 or 1     | Describes Device Type RDM information |
 | [Art-Net](#user-content-art-net-section )                     | No   |  0 or 1     | Describes Art-Net information          |
 | [sACN](#user-content-streaming-acn-section )                  | No   |  0 or 1     | Describes sACN information             |
 | [PosiStageNet](#user-content-posi-stage-net-section )         | No   |  0 or 1     | Describes PosiStageNet information     |
@@ -2426,12 +2417,12 @@ protocol collect currently does not have any XML attributes (XML node
 ### RDM Section
 
 If the device supports the RDM protocol, this section defines the
-corresponding information (XML node `<FTRDM>`). The currently defined XML
+corresponding information (XML node `<DTRDM>`). The currently defined XML
 attributes of RDM are specified in [table 71](#user-content-table-71 ).
 
 <div id="table-71">
 
-#### Table 71. *FTRDM Attributes*
+#### Table 71. *DTRDM Attributes*
 
 | XML Attribute Name | Value Type                      | Description            |
 |----|----|----|
@@ -2447,7 +2438,7 @@ The ManufacturerID corresponds to the RDM "ESTA Manufacturer ID".
 The DeviceModelID corresponds to the RDM "Device Model ID" in PID 0x0060 DEVICE_INFO.
 
 
-As children the FTRDM has a list of `SoftwareVersionID`.
+As children the DTRDM has a list of `SoftwareVersionID`.
 
 #### SoftwareVersionID
   
@@ -2484,7 +2475,7 @@ To define the supported software versions add an XML node
 | XML Attribute Name | Value Type                        | Description                                                       |
 |----|----|----|
 | Value              | [Hex](#user-content-attrtype-hex )   | Hex Value of the DMXPersonality                                   |
-| DMXMode            | [Name](#user-content-attrtype-name ) | Link to the DMX Mode that can be used with this software version. |
+| Mode            | [Name](#user-content-attrtype-name ) | Link to the Mode that can be used with this software version. |
 
 
 </div>
@@ -2551,15 +2542,15 @@ This section has not yet been defined (XML node `<CITP>`).
 
 ## Annex A. (normative) Attribute Definitions
 
-To describe the fixture types attributes are used. Attributes define the
+To describe the device types attributes are used. Attributes define the
 function. (n) and (m) are wildcards for the enumeration of attributes
 like Gobo(n) - Gobo1 and Gobo2 or VideoEffect(n)Parameter(m) -
-VideoEffect1Parameter1 and VideoEffect1Parameter2. Fixture Type
+VideoEffect1Parameter1 and VideoEffect1Parameter2. Device Type
 Attributes without wildcards (n) or (m) are not enumerated. The
-enumeration starts with 1. The currently defined Fixture Type Attributes
+enumeration starts with 1. The currently defined Device Type Attributes
 are specified in [table A1](#user-content-table-a1).
 
-Note 1: The predefined Fixture Type Attributes are the preferred to use Fixture
+Note 1: The predefined Device Type Attributes are the preferred to use Device
 Type Attribute. At any time user defined attributes can be introduced as well.
 
 <div id="table-a1">
@@ -2568,20 +2559,20 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 
 | Attribute                      | Description                                                                                                                                                                                                                                                                                                 
 |----------------------------------|-----------------------------| 
-| Dimmer                           | Controls the intensity of a fixture.                                                                                                                                                                                                                                                                      |
-| Pan                              | Controls the fixture's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
-| Tilt                             | Controls the fixture's upward and the downward movement (vertical axis).                                                                                                                                                                                                                                  |
-| PanRotate                        | Controls the speed of the fixture's continuous pan movement (horizontal axis).                                                                                                                                                                                                                            |
-| TiltRotate                       | Controls the speed of the fixture's continuous tilt movement (vertical axis).                                                                                                                                                                                                                             |
-| PanMode                          | Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
-| TiltMode                         | Selects fixture's tilt mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
-| PanTiltMode                      | Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
-| PositionEffect                   | Selects the predefined position effects that are built into the fixture.                                                                                                                                                                                                                                  |
-| PositionEffectRate               | Controls the speed of the predefined position effects that are built into the fixture.                                                                                                                                                                                                                    |
+| Dimmer                           | Controls the intensity of a device.                                                                                                                                                                                                                                                                      |
+| Pan                              | Controls the device's sideward movement (horizontal axis).                                                                                                                                                                                                                                               |
+| Tilt                             | Controls the device's upward and the downward movement (vertical axis).                                                                                                                                                                                                                                  |
+| PanRotate                        | Controls the speed of the device's continuous pan movement (horizontal axis).                                                                                                                                                                                                                            |
+| TiltRotate                       | Controls the speed of the device's continuous tilt movement (vertical axis).                                                                                                                                                                                                                             |
+| PanMode                          | Selects device's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range.                                                                                                                                                                                             |
+| TiltMode                         | Selects device's tilt mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range.                                                                                                                                                                                           |
+| PanTiltMode                      | Selects device's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range.                                                                                                                                                                                                 |
+| PositionEffect                   | Selects the predefined position effects that are built into the device.                                                                                                                                                                                                                                  |
+| PositionEffectRate               | Controls the speed of the predefined position effects that are built into the device.                                                                                                                                                                                                                    |
 | PositionEffectFade               | Snaps or smooth fades with timing in running predefined position effects.                                                                                                                                                                                                                                 |
-| XYZ\_X                           | Defines a fixture’s x-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
-| XYZ\_Y                           | Defines a fixture’s y-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
-| XYZ\_Z                           | Defines a fixture‘s z-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_X                           | Defines a device’s x-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_Y                           | Defines a device’s y-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
+| XYZ\_Z                           | Defines a device‘s z-coordinate within an XYZ coordinate system.                                                                                                                                                                                                                                         |
 | Rot\_X                           | Defines rotation around X axis.                                                                                                                                                                                                                                                                           |
 | Rot\_Y                           | Defines rotation around Y axis.                                                                                                                                                                                                                                                                           |
 | Rot\_Z                           | Defines rotation around Z axis.                                                                                                                                                                                                                                                                           |
@@ -2632,59 +2623,59 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | PlayBegin                        | Defines starting point of media content playback.                                                                                                                                                                                                                                                         |
 | PlayEnd                          | Defines end point of media content playback.                                                                                                                                                                                                                                                              |
 | PlaySpeed                        | Adjusts playback speed of media content.                                                                                                                                                                                                                                                                  |
-| ColorEffects(n)                  | Selects predefined color effects built into the fixture.                                                                                                                                                                                                                                                  |
-| Color(n)                         | The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.                                                                                                                                                                          |
+| ColorEffects(n)                  | Selects predefined color effects built into the device.                                                                                                                                                                                                                                                  |
+| Color(n)                         | The device’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.                                                                                                                                                                          |
 | Color(n)WheelIndex               | Controls angle of indexed rotation of color wheel (n)                                                                                                                                                                                                                                                     |
 | Color(n)WheelSpin                | Controls the speed and direction of continuous rotation of color wheel (n).                                                                                                                                                                                                                               |
 | Color(n)WheelRandom              | Controls frequency of color wheel´s (n) random color slot selection.                                                                                                                                                                                                                                      |
 | Color(n)WheelAudio               | Controls audio-controlled functionality of color wheel (n).                                                                                                                                                                                                                                               |
 | Color(n)Mode                     | Changes control between selecting, continuous selection, half selection, random selection, color spinning, etc. in colors of color wheel (n).                                                                                                                                                             |
-| ColorAdd\_R                      | Controls the intensity of the fixture's red emitters for direct additive color mixing.                                                                                                                                                                                                                    |
-| ColorAdd\_G                      | Controls the intensity of the fixture's green emitters for direct additive color mixing                                                                                                                                                                                                                   |
-| ColorAdd\_B                      | Controls the intensity of the fixture's blue emitters for direct additive color mixing.                                                                                                                                                                                                                   |
-| ColorAdd\_C                      | Controls the intensity of the fixture's cyan emitters for direct additive color mixing.                                                                                                                                                                                                                   |
-| ColorAdd\_M                      | Controls the intensity of the fixture's magenta emitters for direct additive color mixing.                                                                                                                                                                                                                |
-| ColorAdd\_Y                      | Controls the intensity of the fixture's yellow emitters for direct additive color mixing.                                                                                                                                                                                                                 |
-| ColorAdd\_RY                     | Controls the intensity of the fixture's amber emitters for direct additive color mixing.                                                                                                                                                                                                                  |
-| ColorAdd\_GY                     | Controls the intensity of the fixture's lime emitters for direct additive color mixing.                                                                                                                                                                                                                   |
-| ColorAdd\_GC                     | Controls the intensity of the fixture's blue-green emitters for direct additive color mixing.                                                                                                                                                                                                             |
-| ColorAdd\_BC                     | Controls the intensity of the fixture's light-blue emitters for direct additive color mixing.                                                                                                                                                                                                             |
-| ColorAdd\_BM                     | Controls the intensity of the fixture's purple emitters for direct additive color mixing.                                                                                                                                                                                                                 |
-| ColorAdd\_RM                     | Controls the intensity of the fixture's pink emitters for direct additive color mixing.                                                                                                                                                                                                                   |
-| ColorAdd\_W                      | Controls the intensity of the fixture's white emitters for direct additive color mixing.                                                                                                                                                                                                                  |
-| ColorAdd\_WW                     | Controls the intensity of the fixture's warm white emitters for direct additive color mixing.                                                                                                                                                                                                             |
-| ColorAdd\_CW                     | Controls the intensity of the fixture's cool white emitters for direct additive color mixing.                                                                                                                                                                                                             |
-| ColorAdd\_UV                     | Controls the intensity of the fixture's UV emitters for direct additive color mixing.                                                                                                                                                                                                                     |
-| ColorSub\_R                      | Controls the insertion of the fixture's red filter flag for direct subtractive color mixing.                                                                                                                                                                                                              |
-| ColorSub\_G                      | Controls the insertion of the fixture's green filter flag for direct subtractive color mixing.                                                                                                                                                                                                            |
-| ColorSub\_B                      | Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
-| ColorSub\_C                      | Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
-| ColorSub\_M                      | Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
-| ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
-| ColorMacro(n)                    | Selects predefined colors that are programmed in the fixture's firmware.                                                                                                                                                                                                                                  |
+| ColorAdd\_R                      | Controls the intensity of the device's red emitters for direct additive color mixing.                                                                                                                                                                                                                    |
+| ColorAdd\_G                      | Controls the intensity of the device's green emitters for direct additive color mixing                                                                                                                                                                                                                   |
+| ColorAdd\_B                      | Controls the intensity of the device's blue emitters for direct additive color mixing.                                                                                                                                                                                                                   |
+| ColorAdd\_C                      | Controls the intensity of the device's cyan emitters for direct additive color mixing.                                                                                                                                                                                                                   |
+| ColorAdd\_M                      | Controls the intensity of the device's magenta emitters for direct additive color mixing.                                                                                                                                                                                                                |
+| ColorAdd\_Y                      | Controls the intensity of the device's yellow emitters for direct additive color mixing.                                                                                                                                                                                                                 |
+| ColorAdd\_RY                     | Controls the intensity of the device's amber emitters for direct additive color mixing.                                                                                                                                                                                                                  |
+| ColorAdd\_GY                     | Controls the intensity of the device's lime emitters for direct additive color mixing.                                                                                                                                                                                                                   |
+| ColorAdd\_GC                     | Controls the intensity of the device's blue-green emitters for direct additive color mixing.                                                                                                                                                                                                             |
+| ColorAdd\_BC                     | Controls the intensity of the device's light-blue emitters for direct additive color mixing.                                                                                                                                                                                                             |
+| ColorAdd\_BM                     | Controls the intensity of the device's purple emitters for direct additive color mixing.                                                                                                                                                                                                                 |
+| ColorAdd\_RM                     | Controls the intensity of the device's pink emitters for direct additive color mixing.                                                                                                                                                                                                                   |
+| ColorAdd\_W                      | Controls the intensity of the device's white emitters for direct additive color mixing.                                                                                                                                                                                                                  |
+| ColorAdd\_WW                     | Controls the intensity of the device's warm white emitters for direct additive color mixing.                                                                                                                                                                                                             |
+| ColorAdd\_CW                     | Controls the intensity of the device's cool white emitters for direct additive color mixing.                                                                                                                                                                                                             |
+| ColorAdd\_UV                     | Controls the intensity of the device's UV emitters for direct additive color mixing.                                                                                                                                                                                                                     |
+| ColorSub\_R                      | Controls the insertion of the device's red filter flag for direct subtractive color mixing.                                                                                                                                                                                                              |
+| ColorSub\_G                      | Controls the insertion of the device's green filter flag for direct subtractive color mixing.                                                                                                                                                                                                            |
+| ColorSub\_B                      | Controls the insertion of the device's blue filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
+| ColorSub\_C                      | Controls the insertion of the device's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
+| ColorSub\_M                      | Controls the insertion of the device's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
+| ColorSub\_Y                      | Controls the insertion of the device's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
+| ColorMacro(n)                    | Selects predefined colors that are programmed in the device's firmware.                                                                                                                                                                                                                                  |
 | ColorMacro(n)Rate                | Controls the time between Color Macro steps.                                                                                                                                                                                                                                                              |
-| CyanMode                         | Controls how Cyan is used within the fixture's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
-| MagentaMode                      | Controls how Magenta is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                     |
-| YellowMode                       | Controls how Yellow is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
+| CyanMode                         | Controls how Cyan is used within the device's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
+| MagentaMode                      | Controls how Magenta is used within the device's magenta CMY-mixing.                                                                                                                                                                                                                                     |
+| YellowMode                       | Controls how Yellow is used within the device's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
 | ColorMixMode                     | Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing.                                                                                                                                                                           |
-| CTO                              | Controls the fixture's "Correct to orange" wheel or mixing system.                                                                                                                                                                                                                                        |
-| CTC                              | Controls the fixture's "Correct to color" wheel or mixing system.                                                                                                                                                                                                                                         |
-| CTB                              | Controls the fixture's "Correct to blue" wheel or mixing system.                                                                                                                                                                                                                                          |
-| Tint                             | Controls the fixture's "Correct green to magenta" wheel or mixing system.                                                                                                                                                                                                                                 |
-| HSB\_Hue                         | Controls the fixture's color attribute regarding the hue.                                                                                                                                                                                                                                                 |
-| HSB\_Saturation                  | Controls the fixture's color attribute regarding the saturation.                                                                                                                                                                                                                                          |
-| HSB\_Brightness                  | Controls the fixture's color attribute regarding the brightness.                                                                                                                                                                                                                                          |
-| HSB\_Quality                     | Controls the fixture's color attribute regarding the quality.                                                                                                                                                                                                                                             |
-| CIE\_X                           | Controls the fixture's CIE 1931 color attribute regarding the chromaticity x.                                                                                                                                                                                                                             |
-| CIE\_Y                           | Controls the fixture's CIE 1931 color attribute regarding the chromaticity y.                                                                                                                                                                                                                             |
-| CIE\_Brightness                  | Controls the fixture's CIE 1931 color attribute regarding the brightness (Y).                                                                                                                                                                                                                             |
-| ColorRGB\_Red                    | Controls the fixture's red attribute for indirect RGB color mixing.                                                                                                                                                                                                                                       |
-| ColorRGB\_Green                  | Controls the fixture's green attribute for indirect RGB color mixing.                                                                                                                                                                                                                                     |
-| ColorRGB\_Blue                   | Controls the fixture's blue attribute for indirect RGB color mixing.                                                                                                                                                                                                                                      |
-| ColorRGB\_Cyan                   | Controls the fixture's cyan attribute for indirect CMY color mixing.                                                                                                                                                                                                                                      |
-| ColorRGB\_Magenta                | Controls the fixture's magenta attribute for indirect CMY color mixing.                                                                                                                                                                                                                                   |
-| ColorRGB\_Yellow                 | Controls the fixture's yellow attribute for indirect CMY color mixing.                                                                                                                                                                                                                                    |
-| ColorRGB\_Quality                | Controls the fixture's quality attribute for indirect color mixing.                                                                                                                                                                                                                                       |
+| CTO                              | Controls the device's "Correct to orange" wheel or mixing system.                                                                                                                                                                                                                                        |
+| CTC                              | Controls the device's "Correct to color" wheel or mixing system.                                                                                                                                                                                                                                         |
+| CTB                              | Controls the device's "Correct to blue" wheel or mixing system.                                                                                                                                                                                                                                          |
+| Tint                             | Controls the device's "Correct green to magenta" wheel or mixing system.                                                                                                                                                                                                                                 |
+| HSB\_Hue                         | Controls the device's color attribute regarding the hue.                                                                                                                                                                                                                                                 |
+| HSB\_Saturation                  | Controls the device's color attribute regarding the saturation.                                                                                                                                                                                                                                          |
+| HSB\_Brightness                  | Controls the device's color attribute regarding the brightness.                                                                                                                                                                                                                                          |
+| HSB\_Quality                     | Controls the device's color attribute regarding the quality.                                                                                                                                                                                                                                             |
+| CIE\_X                           | Controls the device's CIE 1931 color attribute regarding the chromaticity x.                                                                                                                                                                                                                             |
+| CIE\_Y                           | Controls the device's CIE 1931 color attribute regarding the chromaticity y.                                                                                                                                                                                                                             |
+| CIE\_Brightness                  | Controls the device's CIE 1931 color attribute regarding the brightness (Y).                                                                                                                                                                                                                             |
+| ColorRGB\_Red                    | Controls the device's red attribute for indirect RGB color mixing.                                                                                                                                                                                                                                       |
+| ColorRGB\_Green                  | Controls the device's green attribute for indirect RGB color mixing.                                                                                                                                                                                                                                     |
+| ColorRGB\_Blue                   | Controls the device's blue attribute for indirect RGB color mixing.                                                                                                                                                                                                                                      |
+| ColorRGB\_Cyan                   | Controls the device's cyan attribute for indirect CMY color mixing.                                                                                                                                                                                                                                      |
+| ColorRGB\_Magenta                | Controls the device's magenta attribute for indirect CMY color mixing.                                                                                                                                                                                                                                   |
+| ColorRGB\_Yellow                 | Controls the device's yellow attribute for indirect CMY color mixing.                                                                                                                                                                                                                                    |
+| ColorRGB\_Quality                | Controls the device's quality attribute for indirect color mixing.                                                                                                                                                                                                                                       |
 | VideoBoost\_R                    | Adjusts color boost red of content.                                                                                                                                                                                                                                                                       |
 | VideoBoost\_G                    | Adjusts color boost green of content.                                                                                                                                                                                                                                                                     |
 | VideoBoost\_B                    | Adjusts color boost blue of content.                                                                                                                                                                                                                                                                      |
@@ -2711,34 +2702,34 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | StrobeModeRandomPulseOpen        | Strobe mode random opening pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                            |
 | StrobeModeRandomPulseClose       | Strobe mode random closing pulse. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                            |
 | StrobeModeEffect                 | Strobe mode random shutter effect feature. Use this attribute together with StrobeFrequency to define the type of the shutter / strobe.                                                                                                                                                                   |
-| Shutter(n)                       | Controls the fixture´s mechanical or electronical shutter feature.                                                                                                                                                                                                                                        |
-| Shutter(n)Strobe                 | Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature.                                                                                                                                                                                                                |
-| Shutter(n)StrobePulse            | Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature.                                                                                                                                                                                                                 |
-| Shutter(n)StrobePulseClose       | Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                              |
-| Shutter(n)StrobePulseOpen        | Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                              |
-| Shutter(n)StrobeRandom           | Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature.                                                                                                                                                                                                         |
-| Shutter(n)StrobeRandomPulse      | Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature.                                                                                                                                                                                                          |
-| Shutter(n)StrobeRandomPulseClose | Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                       |
-| Shutter(n)StrobeRandomPulseOpen  | Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                       |
-| Shutter(n)StrobeEffect           | Controls the frequency of the fixture´s mechanical or electronical shutter effect feature.                                                                                                                                                                                                                |
-| Iris                             | Controls the diameter of the fixture's beam.                                                                                                                                                                                                                                                              |
+| Shutter(n)                       | Controls the device´s mechanical or electronical shutter feature.                                                                                                                                                                                                                                        |
+| Shutter(n)Strobe                 | Controls the frequency of the device´s mechanical or electronical strobe shutter feature.                                                                                                                                                                                                                |
+| Shutter(n)StrobePulse            | Controls the frequency of the device´s mechanical or electronical pulse shutter feature.                                                                                                                                                                                                                 |
+| Shutter(n)StrobePulseClose       | Controls the frequency of the device´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                              |
+| Shutter(n)StrobePulseOpen        | Controls the frequency of the device´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                              |
+| Shutter(n)StrobeRandom           | Controls the frequency of the device´s mechanical or electronical random strobe shutter feature.                                                                                                                                                                                                         |
+| Shutter(n)StrobeRandomPulse      | Controls the frequency of the device´s mechanical or electronical random pulse shutter feature.                                                                                                                                                                                                          |
+| Shutter(n)StrobeRandomPulseClose | Controls the frequency of the device´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                       |
+| Shutter(n)StrobeRandomPulseOpen  | Controls the frequency of the device´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function.                                                                                                                                                       |
+| Shutter(n)StrobeEffect           | Controls the frequency of the device´s mechanical or electronical shutter effect feature.                                                                                                                                                                                                                |
+| Iris                             | Controls the diameter of the device's beam.                                                                                                                                                                                                                                                              |
 | IrisStrobe                       | Sets frequency of the iris's strobe feature.                                                                                                                                                                                                                                                              |
 | IrisStrobeRandom                 | Sets frequency of the iris's random movement.                                                                                                                                                                                                                                                             |
 | IrisPulseClose                   | Sets frequency of iris's closing pulse.                                                                                                                                                                                                                                                                   |
 | IrisPulseOpen                    | Sets frequency of iris's opening pulse.                                                                                                                                                                                                                                                                   |
 | IrisRandomPulseClose             | Sets frequency of iris's random closing pulse.                                                                                                                                                                                                                                                            |
 | IrisRandomPulseOpen              | Sets frequency of iris's random opening pulse.                                                                                                                                                                                                                                                            |
-| IrisMode                         | Changes modes of the fixture’s iris - linear, strobe, pulse.                                                                                                                                                                                                                                              |
+| IrisMode                         | Changes modes of the device’s iris - linear, strobe, pulse.                                                                                                                                                                                                                                              |
 | Frost(n)                         | The ability to soften the fixture's spot light with a frosted lens.                                                                                                                                                                                                                                       |
 | Frost(n)PulseOpen                | Sets frequency of frost's opening pulse                                                                                                                                                                                                                                                                   |
 | Frost(n)PulseClose               | Sets frequency of frost's closing pulse.                                                                                                                                                                                                                                                                  |
 | Frost(n)Ramp                     | Sets frequency of frost's ramp.                                                                                                                                                                                                                                                                           |
-| Prism(n)                         | The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.                               |
+| Prism(n)                         | The device’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.                               |
 | Prism(n)SelectSpin               | Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.                                                                                                                                                       |
 | Prism(n)Macro                    | Macro functions of prism wheel (n).                                                                                                                                                                                                                                                                       |
 | Prism(n)Pos                      | Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.                                                                                                                                                                        |
 | Prism(n)PosRotate                | Controls the speed and direction of continuous rotation of prisms in prism wheel (n).                                                                                                                                                                                                                     |
-| Effects(n)                       | Generically predefined macros and effects of a fixture.                                                                                                                                                                                                                                                   |
+| Effects(n)                       | Generically predefined macros and effects of a device.                                                                                                                                                                                                                                                   |
 | Effects(n)Rate                   | Frequency of running effects.                                                                                                                                                                                                                                                                             |
 | Effects(n)Fade                   | Snapping or smooth look of running effects.                                                                                                                                                                                                                                                               |
 | Effects(n)Adjust(m)              | Controls parameter (m) of effect (n)                                                                                                                                                                                                                                                                      |
@@ -2749,23 +2740,23 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | BeamShaperMacro                  | Predefined presets for fixture's beam shaper positions.                                                                                                                                                                                                                                                   |
 | BeamShaperPos                    | Indexing of fixture's beam shaper.                                                                                                                                                                                                                                                                        |
 | BeamShaperPosRotate              | Continuous rotation of fixture's beam shaper.                                                                                                                                                                                                                                                             |
-| Zoom                             | Controls the spread of the fixture's beam/spot.                                                                                                                                                                                                                                                           |
-| ZoomMode                         | Changes modes of the fixture´s zoom.                                                                                                                                                                                                                                                                      |
+| Zoom                             | Controls the spread of the device's beam/spot.                                                                                                                                                                                                                                                           |
+| ZoomMode                         | Changes modes of the device´s zoom.                                                                                                                                                                                                                                                                      |
 | ZoomModeSpot                     | Selects spot mode of zoom.                                                                                                                                                                                                                                                                                |
 | ZoomModeBeam                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
 | DigitalZoom                      | Controls the image size within the defined projection. Used on digital projection based devices                                                                                                                                                                                                           |
-| Focus(n)                         | Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
-| Focus(n)Mode                     | Changes modes of the fixture’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
+| Focus(n)                         | Controls the sharpness of the device's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
+| Focus(n)Mode                     | Changes modes of the device’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
 | Focus(n)Adjust                   | Autofocuses functionality using presets.                                                                                                                                                                                                                                                                  |
 | Focus(n)Distance                 | Autofocuses functionality using distance.                                                                                                                                                                                                                                                                 |
-| Control(n)                       | Controls the channel of a fixture.                                                                                                                                                                                                                                                                        |
+| Control(n)                       | Controls the channel of a device.                                                                                                                                                                                                                                                                        |
 | DimmerMode                       | Selects different modes of intensity.                                                                                                                                                                                                                                                                     |
-| DimmerCurve                      | Selects different dimmer curves of the fixture.                                                                                                                                                                                                                                                           |
+| DimmerCurve                      | Selects different dimmer curves of the device.                                                                                                                                                                                                                                                           |
 | BlackoutMode                     | Close the light output under certain conditions (movement correction, gobo movement, etc.).                                                                                                                                                                                                               |
 | LEDFrequency                     | Controls LED frequency.                                                                                                                                                                                                                                                                                   |
 | LEDZoneMode                      | Changes zones of LEDs.                                                                                                                                                                                                                                                                                    |
 | PixelMode                        | Controls behavior of LED pixels.                                                                                                                                                                                                                                                                          |
-| PositionModes                    | Selects the fixture's position mode.                                                                                                                                                                                                                                                                      |
+| PositionModes                    | Selects the device's position mode.                                                                                                                                                                                                                                                                      |
 | GoboWheelShortcutMode            | Defines whether the gobo wheel takes the shortest distance between two positions.                                                                                                                                                                                                                         |
 | AnimationWheelShortcutMode       | Defines whether the animation wheel takes the shortest distance between two positions.                                                                                                                                                                                                                    |
 | ColorWheelShortcutMode           | Defines whether the color wheel takes the shortest distance between two colors.                                                                                                                                                                                                                           |
@@ -2784,40 +2775,40 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | FanMode                          | Controls fan mode.                                                                                                                                                                                                                                                                                    |
 | FollowSpotMode                   | Selects follow spot control mode.                                                                                                                                                                                                                                                                         |
 | BeamEffectIndexRotateMode        | Changes mode to control either index or rotation of the beam effects.                                                                                                                                                                                                                                     |
-| IntensityMSpeed                  | Movement speed of the fixture's intensity.                                                                                                                                                                                                                                                                |
-| PositionMSpeed                   | Movement speed of the fixture's pan/tilt.                                                                                                                                                                                                                                                                 |
-| ColorMixMSpeed                   | Movement speed of the fixture's ColorMix presets.                                                                                                                                                                                                                                                         |
-| ColorWheelSelectMSpeed           | Movement speed of the fixture's color wheel.                                                                                                                                                                                                                                                              |
+| IntensityMSpeed                  | Movement speed of the device's intensity.                                                                                                                                                                                                                                                                |
+| PositionMSpeed                   | Movement speed of the device's pan/tilt.                                                                                                                                                                                                                                                                 |
+| ColorMixMSpeed                   | Movement speed of the device's ColorMix presets.                                                                                                                                                                                                                                                         |
+| ColorWheelSelectMSpeed           | Movement speed of the device's color wheel.                                                                                                                                                                                                                                                              |
 | GoboWheel(n)MSpeed               | Movement speed of the fixture's gobo wheel (n).                                                                                                                                                                                                                                                           |
-| IrisMSpeed                       | Movement speed of the fixture's iris.                                                                                                                                                                                                                                                                     |
-| Prism(n)MSpeed                   | Movement speed of the fixture's prism wheel (n).                                                                                                                                                                                                                                                          |
-| FocusMSpeed                      | Movement speed of the fixture's focus.                                                                                                                                                                                                                                                                    |
+| IrisMSpeed                       | Movement speed of the device's iris.                                                                                                                                                                                                                                                                     |
+| Prism(n)MSpeed                   | Movement speed of the device's prism wheel (n).                                                                                                                                                                                                                                                          |
+| FocusMSpeed                      | Movement speed of the device's focus.                                                                                                                                                                                                                                                                    |
 | Frost(n)MSpeed                   | Movement speed of the fixture's frost (n).                                                                                                                                                                                                                                                                |
-| ZoomMSpeed                       | Movement speed of the fixture's zoom.                                                                                                                                                                                                                                                                     |
-| FrameMSpeed                      | Movement speed of the fixture's shapers.                                                                                                                                                                                                                                                                  |
-| GlobalMSpeed                     | General speed of fixture's features.                                                                                                                                                                                                                                                                      |
-| ReflectorAdjust                  | Movement speed of the fixture's frost.                                                                                                                                                                                                                                                                    |
-| FixtureGlobalReset               | Generally resets the entire fixture.                                                                                                                                                                                                                                                                      |
-| DimmerReset                      | Resets the fixture's dimmer.                                                                                                                                                                                                                                                                              |
-| ShutterReset                     | Resets the fixture's shutter.                                                                                                                                                                                                                                                                             |
-| BeamReset                        | Resets the fixture's beam features.                                                                                                                                                                                                                                                                       |
-| ColorMixReset                    | Resets the fixture's color mixing system.                                                                                                                                                                                                                                                                 |
-| ColorWheelReset                  | Resets the fixture's color wheel.                                                                                                                                                                                                                                                                         |
-| FocusReset                       | Resets the fixture's focus.                                                                                                                                                                                                                                                                               |
-| FrameReset                       | Resets the fixture's shapers.                                                                                                                                                                                                                                                                             |
+| ZoomMSpeed                       | Movement speed of the device's zoom.                                                                                                                                                                                                                                                                     |
+| FrameMSpeed                      | Movement speed of the device's shapers.                                                                                                                                                                                                                                                                  |
+| GlobalMSpeed                     | General speed of device's features.                                                                                                                                                                                                                                                                      |
+| ReflectorAdjust                  | Adjusts the fixture's reflector to change the light output distribution.                                                                                                                                                                                                                                                                    |
+| FixtureGlobalReset               | Generally resets the entire device.                                                                                                                                                                                                                                                                      |
+| DimmerReset                      | Resets the device's dimmer.                                                                                                                                                                                                                                                                              |
+| ShutterReset                     | Resets the device's shutter.                                                                                                                                                                                                                                                                             |
+| BeamReset                        | Resets the device's beam features.                                                                                                                                                                                                                                                                       |
+| ColorMixReset                    | Resets the device's color mixing system.                                                                                                                                                                                                                                                                 |
+| ColorWheelReset                  | Resets the device's color wheel.                                                                                                                                                                                                                                                                         |
+| FocusReset                       | Resets the device's focus.                                                                                                                                                                                                                                                                               |
+| FrameReset                       | Resets the device's shapers.                                                                                                                                                                                                                                                                             |
 | GoboWheelReset                   | Resets the fixture's gobo wheel.                                                                                                                                                                                                                                                                          |
-| IntensityReset                   | Resets the fixture's intensity.                                                                                                                                                                                                                                                                           |
-| IrisReset                        | Resets the fixture's iris.                                                                                                                                                                                                                                                                                |
-| PositionReset                    | Resets the fixture's pan/tilt.                                                                                                                                                                                                                                                                            |
-| PanReset                         | Resets the fixture's pan.                                                                                                                                                                                                                                                                                 |
-| TiltReset                        | Resets the fixture's tilt.                                                                                                                                                                                                                                                                                |
-| ZoomReset                        | Resets the fixture's zoom.                                                                                                                                                                                                                                                                                |
-| CTBReset                         | Resets the fixture's CTB.                                                                                                                                                                                                                                                                                 |
-| CTOReset                         | Resets the fixture's CTO.                                                                                                                                                                                                                                                                                 |
-| CTCReset                         | Resets the fixture's CTC.                                                                                                                                                                                                                                                                                 |
+| IntensityReset                   | Resets the device's intensity.                                                                                                                                                                                                                                                                           |
+| IrisReset                        | Resets the device's iris.                                                                                                                                                                                                                                                                                |
+| PositionReset                    | Resets the device's pan/tilt.                                                                                                                                                                                                                                                                            |
+| PanReset                         | Resets the device's pan.                                                                                                                                                                                                                                                                                 |
+| TiltReset                        | Resets the device's tilt.                                                                                                                                                                                                                                                                                |
+| ZoomReset                        | Resets the device's zoom.                                                                                                                                                                                                                                                                                |
+| CTBReset                         | Resets the device's CTB.                                                                                                                                                                                                                                                                                 |
+| CTOReset                         | Resets the device's CTO.                                                                                                                                                                                                                                                                                 |
+| CTCReset                         | Resets the device's CTC.                                                                                                                                                                                                                                                                                 |
 | AnimationSystemReset             | Resets the fixture's animation system features.                                                                                                                                                                                                                                                           |
-| FixtureCalibrationReset          | Resets the fixture's calibration.                                                                                                                                                                                                                                                                         |
-| Function                         | Generally controls features of the fixture.                                                                                                                                                                                                                                                               |
+| FixtureCalibrationReset          | Resets the device's calibration.                                                                                                                                                                                                                                                                         |
+| Function                         | Generally controls features of the device.                                                                                                                                                                                                                                                               |
 | LampControl                      | Controls the fixture's lamp on/lamp off feature.                                                                                                                                                                                                                                                          |
 | DisplayIntensity                 | Adjusts intensity of display                                                                                                                                                                                                                                                                              |
 | DMXInput                         | Selects DMX Input                                                                                                                                                                                                                                                                                         |
@@ -2828,7 +2819,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Fog(n)                           | Fog or hazer's Fog feature.                                                                                                                                                                                                                                                                               |
 | Haze(n)                          | Fog or hazer's Haze feature.                                                                                                                                                                                                                                                                              |
 | LampPowerMode                    | Controls the energy consumption of the lamp.                                                                                                                                                                                                                                                              |
-| Fans                             | Controls a fixture or device fan.                                                                                                                                                                                                                                                                         |
+| Fans                             | Controls a device fan.                                                                                                                                                                                                                                                                         |
 | Blade(n)A                        | 1 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)B                        | 2 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)Rot                      | Rotates position of blade(n).                                                                                                                                                                                                                                                                             |
@@ -2974,7 +2965,7 @@ not taken into account.
       Name="Dimmer"
       Pretty="Dim"
       Feature="Dimmer.Dimmer"
-      Definition="Controls the intensity of a fixture."
+      Definition="Controls the intensity of a device."
       Explanation="Gradual (fading) change of intensity or brightness or in some cases even opacity shall be controlled with this attribute. Physical values go from 0 = no output, to 1 = full output. If a software makes use of an overall intensity control such as a grandmaster, it is important for the application to understand which attribute to change. In that scenario the dimmer attribute shall be the main intensity, brightness or opacity change."
       Label="Dimmer"
       UseEmitter="False"
@@ -2990,8 +2981,8 @@ not taken into account.
       ActivationGroup="PanTilt"
       Feature="Position.PanTilt"
       PhysicalUnit="Angle"
-      Definition="Controls the fixture's sideward movement (horizontal axis)."
-      Explanation="PAN is one part of the movement that usually controls the horizontal movement. In regards to the fixture the Attribute of PAN will control the overall rotation around the basement of the fixture. If the fixture is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT."
+      Definition="Controls the device's sideward movement (horizontal axis)."
+      Explanation="PAN is one part of the movement that usually controls the horizontal movement. In regards to the device the Attribute of PAN will control the overall rotation around the basement of the device. If the device is mounted hanging it usually moves around the Z-axis. But PAN can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually PAN is used in relation with TILT."
       Label="Pan"
       UseEmitter="False"
       UseFilter="False"
@@ -3006,8 +2997,8 @@ not taken into account.
       ActivationGroup="PanTilt"
       Feature="Position.PanTilt"
       PhysicalUnit="Angle"
-      Definition="Controls the fixture's upward and the downward movement (vertical axis)."
-      Explanation="TILT is one part of the movement that usually controls the vertical movement .In regards to the fixture the Attribute of TILT will control the overall rotation around the yoke-axis of the fixture. If the fixture is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in relation with PAN."
+      Definition="Controls the device's upward and the downward movement (vertical axis)."
+      Explanation="TILT is one part of the movement that usually controls the vertical movement .In regards to the device the Attribute of TILT will control the overall rotation around the yoke-axis of the device. If the device is mounted hanging it usually moves around the x-axis or y-axis, depending on the PAN. TILT can also be used for virtual control of media server layers or other objects in virtual 3D environments. Usually TILT is used in relation with PAN."
       Label="Tilt"
       UseEmitter="False"
       UseFilter="False"
@@ -3021,8 +3012,8 @@ not taken into account.
       Pretty="P Rotate"
       Feature="Position.PanTilt"
       PhysicalUnit="AngularSpeed"
-      Definition="Controls the speed of the fixture's continuous pan movement (horizontal axis)."
-      Explanation="For fixtures with the ability to have a continuous pan rotation, the “Pan Rotate” control defines how fast (speed) a fixture can rotate about the pan axis. Usually, the horizontal axis."
+      Definition="Controls the speed of the device's continuous pan movement (horizontal axis)."
+      Explanation="For devices with the ability to have a continuous pan rotation, the “Pan Rotate” control defines how fast (speed) a device can rotate about the pan axis. Usually, the horizontal axis."
       Label="Pan Rotate"
       UseEmitter="False"
       UseFilter="False"
@@ -3036,8 +3027,8 @@ not taken into account.
       Pretty="T Rotate"
       Feature="Position.PanTilt"
       PhysicalUnit="AngularSpeed"
-      Definition="Controls the speed of the fixture's continuous tilt movement (vertical axis)."
-      Explanation="For fixtures with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a fixture can rotate about the tilt axis. Usually, the vertical axis."
+      Definition="Controls the speed of the device's continuous tilt movement (vertical axis)."
+      Explanation="For devices with the ability to have a continuous tilt rotation, the “Tilt Rotate” control defines how fast (speed) a device can rotate about the tilt axis. Usually, the vertical axis."
       Label="Tilt Rotate"
       UseEmitter="False"
       UseFilter="False"
@@ -3050,7 +3041,7 @@ not taken into account.
       Name="PanMode"
       Pretty="Pan Mode"
       Feature="Position.PanTilt"
-      Definition="Selects fixture's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range."
+      Definition="Selects device's pan mode. Selects between a limited pan range (e.g. -270 to 270) or a continuous pan range."
       Explanation="For devices that allow different modes of pan behavior, use this attribute to describe the behavior."
       Label="Pan Mode"
       UseEmitter="False"
@@ -3064,7 +3055,7 @@ not taken into account.
       Name="TiltMode"
       Pretty="Tilt Mode"
       Feature="Position.PanTilt"
-      Definition="Selects fixture's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range."
+      Definition="Selects device's pan mode. Selects between a limited tilt range (e.g. -130 to 130) or a continuous tilt range."
       Explanation="For devices that allow different modes of tilt behavior, use this attribute to describe the behavior."
       Label="Tilt Mode"
       UseEmitter="False"
@@ -3078,7 +3069,7 @@ not taken into account.
       Name="PanTiltMode"
       Pretty="PanTilt Mode"
       Feature="Position.PanTilt"
-      Definition="Selects fixture's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range."
+      Definition="Selects device's pan/tilt mode. Selects between a limited pan/tilt range or a continuous pan/tilt range."
       Explanation="For devices that allow different modes of behavior of pan and tilt, use this attribute to describe the behavior."
       Label="Pan Tilt Mode"
       UseEmitter="False"
@@ -3092,8 +3083,8 @@ not taken into account.
       Name="PositionEffect"
       Pretty="Pos FX"
       Feature="Position.PanTilt"
-      Definition="Selects the predefined position effects that are built into the fixture."
-      Explanation="Effects which are built into the fixture, are based on movement and are of manufacturer specific nature so they cannot really be visualized are described with this attribute."
+      Definition="Selects the predefined position effects that are built into the device."
+      Explanation="Effects which are built into the device, are based on movement and are of manufacturer specific nature so they cannot really be visualized are described with this attribute."
       Label="Position Effect"
       UseEmitter="False"
       UseFilter="False"
@@ -3106,7 +3097,7 @@ not taken into account.
       Name="PositionEffectRate"
       Pretty="Pos FX Rate"
       Feature="Position.PanTilt"
-      Definition="Controls the speed of the predefined position effects that are built into the fixture."
+      Definition="Controls the speed of the predefined position effects that are built into the device."
       Explanation="Adjusting speed of some predefined movement effects is described with this attribute."
       Label="Position Effect Rate"
       UseEmitter="False"
@@ -3136,7 +3127,7 @@ not taken into account.
       ActivationGroup="XYZ"
       Feature="Position.XYZ"
       PhysicalUnit="Length"
-      Definition="Defines a fixture’s x-coordinate within an XYZ coordinate system."
+      Definition="Defines a device’s x-coordinate within an XYZ coordinate system."
       Explanation="Devices that can move straight in X-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is left/right movement of a video-layer in space."
       Label="XYZ X"
       UseEmitter="False"
@@ -3152,7 +3143,7 @@ not taken into account.
       ActivationGroup="XYZ"
       Feature="Position.XYZ"
       PhysicalUnit="Length"
-      Definition="Defines a fixture’s y-coordinate within an XYZ coordinate system."
+      Definition="Defines a device’s y-coordinate within an XYZ coordinate system."
       Explanation="Devices that can move straight in Y-direction in space (opposite to pan or tilt circular movement) describe the movement with this attribute. A typical usage is forward/backward movement of a video-layer in space."
       Label="XYZ Y"
       UseEmitter="False"
@@ -3168,7 +3159,7 @@ not taken into account.
       ActivationGroup="XYZ"
       Feature="Position.XYZ"
       PhysicalUnit="Length"
-      Definition="Defines a fixture‘s z-coordinate within an XYZ coordinate system."
+      Definition="Defines a device‘s z-coordinate within an XYZ coordinate system."
       Explanation="Devices that can move straight in Z-direction in space (opposite to distance of a pan/tilt device) describe the movement with this attribute. A typical usage is up/down movement of a video-layer in space."
       Label="XYZ Z"
       UseEmitter="False"
@@ -4116,8 +4107,8 @@ not taken into account.
       Name="ColorEffects(n)"
       Pretty="Color FX(n)"
       Feature="Color.Color"
-      Definition="Selects predefined color effects built into the fixture."
-      Explanation="Use this attribute to control selecting predefined color effects built into the fixture"
+      Definition="Selects predefined color effects built into the device."
+      Explanation="Use this attribute to control selecting predefined color effects built into the device"
       Label="Color Effects"
       UseEmitter="False"
       UseFilter="False"
@@ -4131,7 +4122,7 @@ not taken into account.
       Pretty="C(n)"
       ActivationGroup="ColorRGB"
       Feature="Color.Color"
-      Definition="The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control."
+      Definition="The device’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control."
       Explanation="Any device that can create colors by changing a mechanical color wheel inside the device uses this attribute to describe the different colors possible. If there is more than one color wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
       Label="Color"
       UseEmitter="False"
@@ -4254,7 +4245,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.64,0.33,21.3"
-      Definition="Controls the intensity of the fixture's red emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's red emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Red color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Red Additive Direct"
       UseEmitter="True"
@@ -4271,7 +4262,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.3,0.6,71.5"
-      Definition="Controls the intensity of the fixture's green emitters for direct additive color mixing"
+      Definition="Controls the intensity of the device's green emitters for direct additive color mixing"
       Explanation="Gradual (fading) change of intensity or saturation of an additive Green color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Green Additive Direct"
       UseEmitter="True"
@@ -4288,7 +4279,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.15,0.06,7.2"
-      Definition="Controls the intensity of the fixture's blue emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's blue emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Blue color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Blue Additive Direct"
       UseEmitter="True"
@@ -4305,7 +4296,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.225,0.329,78.7"
-      Definition="Controls the intensity of the fixture's cyan emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's cyan emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Cyan Additive Direct"
       UseEmitter="True"
@@ -4322,7 +4313,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.321,0.154,28.5"
-      Definition="Controls the intensity of the fixture's magenta emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's magenta emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Magenta Additive Direct"
       UseEmitter="True"
@@ -4339,7 +4330,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.419,0.505,92.8"
-      Definition="Controls the intensity of the fixture's yellow emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's yellow emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Yellow color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Yellow Additive Direct"
       UseEmitter="True"
@@ -4356,7 +4347,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.477,0.460,57.0"
-      Definition="Controls the intensity of the fixture's amber emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's amber emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Amber color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Amber Additive Direct"
       UseEmitter="True"
@@ -4373,7 +4364,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.372,0.543,82.1"
-      Definition="Controls the intensity of the fixture's lime emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's lime emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Lime color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Lime Additive Direct"
       UseEmitter="True"
@@ -4390,7 +4381,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.250,0.419,75.1"
-      Definition="Controls the intensity of the fixture's blue-green emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's blue-green emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Blue-Green color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Blue-Green Additive Direct"
       UseEmitter="True"
@@ -4407,7 +4398,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.200,0.239,43.0"
-      Definition="Controls the intensity of the fixture's light-blue emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's light-blue emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Light Blue color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Light-Blue Additive Direct"
       UseEmitter="True"
@@ -4424,7 +4415,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.254,0.117,17.9"
-      Definition="Controls the intensity of the fixture's purple emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's purple emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Purple (Deep Blue) color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Purple Additive Direct"
       UseEmitter="True"
@@ -4441,7 +4432,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.403,0.200,24.9"
-      Definition="Controls the intensity of the fixture's pink emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's pink emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Pink color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Pink Additive Direct"
       UseEmitter="True"
@@ -4458,7 +4449,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.313,0.329,100.0"
-      Definition="Controls the intensity of the fixture's white emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's white emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive White color/emitter with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="White Additive Direct"
       UseEmitter="True"
@@ -4475,7 +4466,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.319,0.340,99.3"
-      Definition="Controls the intensity of the fixture's warm white emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's warm white emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Warm White color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Warm-White Additive Direct"
       UseEmitter="True"
@@ -4492,7 +4483,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.306,0.329,97.9"
-      Definition="Controls the intensity of the fixture's cool white emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's cool white emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Cool White color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Cool-White Additive Direct"
       UseEmitter="True"
@@ -4509,7 +4500,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.176,0.005,0.6"
-      Definition="Controls the intensity of the fixture's UV emitters for direct additive color mixing."
+      Definition="Controls the intensity of the device's UV emitters for direct additive color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive UV color/emitter/flag with direct access to the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="UV Additive Direct"
       UseEmitter="True"
@@ -4526,7 +4517,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.64,0.33,21.3"
-      Definition="Controls the insertion of the fixture's red filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's red filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Red color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Red Subtractive"
       UseEmitter="False"
@@ -4543,7 +4534,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.3,0.6,71.5"
-      Definition="Controls the insertion of the fixture's green filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's green filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Green color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Green Subtractive"
       UseEmitter="False"
@@ -4560,7 +4551,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.15,0.06,7.2"
-      Definition="Controls the insertion of the fixture's blue filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's blue filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Blue color flag/filter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Blue Subtractive"
       UseEmitter="False"
@@ -4577,7 +4568,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.225,0.329,78.7"
-      Definition="Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's cyan filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Cyan color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Cyan Subtractive"
       UseEmitter="False"
@@ -4594,7 +4585,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.321,0.154,28.5"
-      Definition="Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's magenta filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Magenta color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Magenta Subtractive"
       UseEmitter="False"
@@ -4611,7 +4602,7 @@ not taken into account.
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
       Color="0.419,0.505,92.8"
-      Definition="Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing."
+      Definition="Controls the insertion of the device's yellow filter flag for direct subtractive color mixing."
       Explanation="Gradual (fading) change of insertion or saturation of a subtractive Yellow color flag/filter/emitter with direct access to the color. The color is the resulting color when the filter is fully inserted. Physical values go from 0 = no insertion/no color, to 1 = full insertion/full color saturation."
       Label="Yellow Subtractive"
       UseEmitter="False"
@@ -4625,7 +4616,7 @@ not taken into account.
       Name="ColorMacro(n)"
       Pretty="Color Macro(n)"
       Feature="Color.RGB"
-      Definition="Selects predefined colors that are programmed in the fixture's firmware."
+      Definition="Selects predefined colors that are programmed in the device's firmware."
       Explanation="Choose this attribute to control the selection of predefined fixed colors, like Color Presets or Swatchbook Colors. The individual colors are defined by linking wheel slots to channel sets. If there is more than one color macro the wild-card (n) will be incremented and the number then indicates which color macro will be controlled."
       Label="Color Macro"
       UseEmitter="False"
@@ -4653,7 +4644,7 @@ not taken into account.
       Name="CyanMode"
       Pretty="Cyan Mode"
       Feature="Color.RGB"
-      Definition="Controls how Cyan is used within the fixture's cyan CMY-mixing feature."
+      Definition="Controls how Cyan is used within the device's cyan CMY-mixing feature."
       Explanation="Use this attribute to describe the mode of operation of the Cyan."
       Label="Cyan Mode"
       UseEmitter="False"
@@ -4667,7 +4658,7 @@ not taken into account.
       Name="MagentaMode"
       Pretty="Magenta Mode"
       Feature="Color.RGB"
-      Definition="Controls how Magenta is used within the fixture's magenta CMY-mixing."
+      Definition="Controls how Magenta is used within the device's magenta CMY-mixing."
       Explanation="Use this attribute to describe the mode of operation of the Magenta."
       Label="Magenta Mode"
       UseEmitter="False"
@@ -4681,7 +4672,7 @@ not taken into account.
       Name="YellowMode"
       Pretty="Yellow Mode"
       Feature="Color.RGB"
-      Definition="Controls how Yellow is used within the fixture's yellow CMY-mixing feature."
+      Definition="Controls how Yellow is used within the device's yellow CMY-mixing feature."
       Explanation="Use this attribute to describe the mode of operation of the Yellow."
       Label="Yellow Mode"
       UseEmitter="False"
@@ -4696,7 +4687,7 @@ not taken into account.
       Pretty="Color Mix Mode"
       Feature="Color.RGB"
       Definition="Changes control between selecting continuous selection, half selection, random selection, color spinning, etc. in color mixing."
-      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the fixture, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the fixture. "
+      Explanation="For devices, that allow setting of mode of operation or relationship of elements of the color mixing system of the device, for example color wheel selection modes, or additive/subtractive/... relationship of color mixing systems within the device. "
       Label="Color Mix Mode"
       UseEmitter="False"
       UseFilter="False"
@@ -4710,8 +4701,8 @@ not taken into account.
       Pretty="CTO"
       Feature="Color.Color"
       PhysicalUnit="Temperature"
-      Definition="Controls the fixture's &quot;Correct to orange&quot; wheel or mixing system."
-      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTO decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Definition="Controls the device's &quot;Correct to orange&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a device's light output. CTO decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
       Label="CTO"
       UseEmitter="False"
       UseFilter="True"
@@ -4725,8 +4716,8 @@ not taken into account.
       Pretty="CTC"
       Feature="Color.Color"
       PhysicalUnit="Temperature"
-      Definition="Controls the fixture's &quot;Correct to color&quot; wheel or mixing system."
-      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTC either increases or decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Definition="Controls the device's &quot;Correct to color&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a device's light output. CTC either increases or decreases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
       Label="CTC"
       UseEmitter="False"
       UseFilter="True"
@@ -4740,8 +4731,8 @@ not taken into account.
       Pretty="CTB"
       Feature="Color.Color"
       PhysicalUnit="Temperature"
-      Definition="Controls the fixture's &quot;Correct to blue&quot; wheel or mixing system."
-      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a fixture's light output. CTB increases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
+      Definition="Controls the device's &quot;Correct to blue&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that modifies the Color Temperature of a device's light output. CTB increases the Color Temperature from its default. Physical values describe the resulting Color Temperature."
       Label="CTB"
       UseEmitter="False"
       UseFilter="True"
@@ -4754,8 +4745,8 @@ not taken into account.
       Name="Tint"
       Pretty="Tint"
       Feature="Color.Color"
-      Definition="Controls the fixture's &quot;Correct green to magenta&quot; wheel or mixing system."
-      Explanation="Choose this attribute to control a function that adjusts the Green/Magenta shift of a fixture's light output."
+      Definition="Controls the device's &quot;Correct green to magenta&quot; wheel or mixing system."
+      Explanation="Choose this attribute to control a function that adjusts the Green/Magenta shift of a device's light output."
       Label="Tint"
       UseEmitter="False"
       UseFilter="False"
@@ -4770,8 +4761,8 @@ not taken into account.
       ActivationGroup="ColorHSB"
       Feature="Color.HSB"
       PhysicalUnit="Angle"
-      Definition="Controls the fixture's color attribute regarding the hue."
-      Explanation="Use this attribute to control the fixture's Hue (color)"
+      Definition="Controls the device's color attribute regarding the hue."
+      Explanation="Use this attribute to control the device's Hue (color)"
       Label="HSB Hue"
       UseEmitter="False"
       UseFilter="False"
@@ -4786,8 +4777,8 @@ not taken into account.
       ActivationGroup="ColorHSB"
       Feature="Color.HSB"
       PhysicalUnit="Percent"
-      Definition="Controls the fixture's color attribute regarding the saturation."
-      Explanation="Use this attribute to control a fixture's color Saturation (richness)"
+      Definition="Controls the device's color attribute regarding the saturation."
+      Explanation="Use this attribute to control a device's color Saturation (richness)"
       Label="HSB Saturation"
       UseEmitter="False"
       UseFilter="False"
@@ -4802,8 +4793,8 @@ not taken into account.
       ActivationGroup="ColorHSB"
       Feature="Color.HSB"
       PhysicalUnit="Percent"
-      Definition="Controls the fixture's color attribute regarding the brightness."
-      Explanation="Use this attribute to control a fixture's color Brightness"
+      Definition="Controls the device's color attribute regarding the brightness."
+      Explanation="Use this attribute to control a device's color Brightness"
       Label="HSB Brightness"
       UseEmitter="False"
       UseFilter="False"
@@ -4818,7 +4809,7 @@ not taken into account.
       ActivationGroup="ColorHSB"
       Feature="Color.HSB"
       PhysicalUnit="Percent"
-      Definition="Controls the fixture's color attribute regarding the quality."
+      Definition="Controls the device's color attribute regarding the quality."
       Explanation="For devices that allow to adjust quality of HSB colors, use this attribute to describe this feature."
       Label="HSB Quality"
       UseEmitter="False"
@@ -4833,7 +4824,7 @@ not taken into account.
       Pretty="X"
       ActivationGroup="ColorCIE"
       Feature="Color.CIE"
-      Definition="Controls the fixture's CIE 1931 color attribute regarding the chromaticity x."
+      Definition="Controls the device's CIE 1931 color attribute regarding the chromaticity x."
       Explanation="Use this attribute to describe a feature that sets the x parameter of chromaticity of CIE 1931 based color definition."
       Label="CIE X"
       UseEmitter="False"
@@ -4848,7 +4839,7 @@ not taken into account.
       Pretty="Y"
       ActivationGroup="ColorCIE"
       Feature="Color.CIE"
-      Definition="Controls the fixture's CIE 1931 color attribute regarding the chromaticity y."
+      Definition="Controls the device's CIE 1931 color attribute regarding the chromaticity y."
       Explanation="Use this attribute to describe a feature that sets the y parameter of chromaticity of CIE 1931 based color definition."
       Label="CIE Y"
       UseEmitter="False"
@@ -4864,7 +4855,7 @@ not taken into account.
       ActivationGroup="ColorCIE"
       Feature="Color.CIE"
       PhysicalUnit="Percent"
-      Definition="Controls the fixture's CIE 1931 color attribute regarding the brightness (Y)."
+      Definition="Controls the device's CIE 1931 color attribute regarding the brightness (Y)."
       Explanation="Use this attribute to describe a feature that sets the brightness of chromaticity of CIE 1931 based color definition."
       Label="CIE Brightness"
       UseEmitter="False"
@@ -4879,7 +4870,7 @@ not taken into account.
       Pretty="R"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's red attribute for indirect RGB color mixing."
+      Definition="Controls the device's red attribute for indirect RGB color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Red color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Red Additive Indirect"
       UseEmitter="False"
@@ -4894,7 +4885,7 @@ not taken into account.
       Pretty="G"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's green attribute for indirect RGB color mixing."
+      Definition="Controls the device's green attribute for indirect RGB color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Green color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Green Additive Indirect"
       UseEmitter="False"
@@ -4909,7 +4900,7 @@ not taken into account.
       Pretty="B"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's blue attribute for indirect RGB color mixing."
+      Definition="Controls the device's blue attribute for indirect RGB color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Blue color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Blue Additive Indirect"
       UseEmitter="False"
@@ -4924,7 +4915,7 @@ not taken into account.
       Pretty="C"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's cyan attribute for indirect CMY color mixing."
+      Definition="Controls the device's cyan attribute for indirect CMY color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Cyan color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Cyan Additive Indirect"
       UseEmitter="False"
@@ -4939,7 +4930,7 @@ not taken into account.
       Pretty="M"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's magenta attribute for indirect CMY color mixing."
+      Definition="Controls the device's magenta attribute for indirect CMY color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive Magenta color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. Physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Magenta Additive Indirect"
       UseEmitter="False"
@@ -4954,7 +4945,7 @@ not taken into account.
       Pretty="Y"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's yellow attribute for indirect CMY color mixing."
+      Definition="Controls the device's yellow attribute for indirect CMY color mixing."
       Explanation="Gradual (fading) change of intensity or saturation of an additive yellow color/emitter/flag, where the device is making internal adjustments of the color and the operator thus has an indirect control of the color. physical values go from 0 = no output, to 1 = full output/saturation."
       Label="Yellow Additive Indirect"
       UseEmitter="False"
@@ -4969,7 +4960,7 @@ not taken into account.
       Pretty="Q"
       ActivationGroup="ColorIndirect"
       Feature="Color.Indirect"
-      Definition="Controls the fixture's quality attribute for indirect color mixing."
+      Definition="Controls the device's quality attribute for indirect color mixing."
       Explanation="Use this attribute to describe a function of the device that allows the operator to control the quality parameter of the device's color mixing."
       Label="Additive Indirect Quality"
       UseEmitter="False"
@@ -5376,7 +5367,7 @@ not taken into account.
       Name="Shutter(n)"
       Pretty="Sh(n)"
       Feature="Beam.Beam"
-      Definition="Controls the fixture´s mechanical or electronical shutter feature."
+      Definition="Controls the device´s mechanical or electronical shutter feature."
       Explanation="Open/close style of change of intensity or brightness. Physical values go between 0 = closed, to 1 = open. If there is more than one shutter the wild-card (n) will be incremented and the number then indicates which shutter will be controlled."
       Label="Shutter"
       UseEmitter="False"
@@ -5392,7 +5383,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical strobe shutter feature."
+      Definition="Controls the frequency of the device´s mechanical or electronical strobe shutter feature."
       Explanation="When using this Shutter(n)Strobe as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)Strobe as the Logical Channel attribute."
       Label="Shutter Strobe"
       UseEmitter="False"
@@ -5420,7 +5411,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical pulse shutter feature."
+      Definition="Controls the frequency of the device´s mechanical or electronical pulse shutter feature."
       Explanation="When using this Shutter(n)StrobePulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulse as the Logical Channel attribute."
       Label="Shutter Strobe Pulse"
       UseEmitter="False"
@@ -5448,7 +5439,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function."
+      Definition="Controls the frequency of the device´s mechanical or electronical closing pulse shutter feature. The pulse is described by a ramp function."
       Explanation="When using this Shutter(n)StrobePulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseClose as the Logical Channel attribute."
       Label="Shutter Strobe Pulse Close"
       UseEmitter="False"
@@ -5476,7 +5467,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function."
+      Definition="Controls the frequency of the device´s mechanical or electronical opening pulse shutter feature. The pulse is described by a ramp function."
       Explanation="When using this Shutter(n)StrobePulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobePulseOpen as the Logical Channel attribute."
       Label="Shutter Strobe Pulse Open"
       UseEmitter="False"
@@ -5504,7 +5495,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical random strobe shutter feature."
+      Definition="Controls the frequency of the device´s mechanical or electronical random strobe shutter feature."
       Explanation="When using this Shutter(n)StrobeRandom as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandom as the Logical Channel attribute."
       Label="Shutter Strobe Random"
       UseEmitter="False"
@@ -5526,7 +5517,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical random pulse shutter feature."
+      Definition="Controls the frequency of the device´s mechanical or electronical random pulse shutter feature."
       Explanation="When using this Shutter(n)StrobeRandomPulse as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulse as the Logical Channel attribute."
       Label="Shutter Strobe Random Pulse"
       UseEmitter="False"
@@ -5542,7 +5533,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function."
+      Definition="Controls the frequency of the device´s mechanical or electronical random closing pulse shutter feature. The pulse is described by a ramp function."
       Explanation="When using this Shutter(n)StrobeRandomPulseClose as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseClose as the Logical Channel attribute."
       Label="Shutter Strobe Random Pulse Close"
       UseEmitter="False"
@@ -5558,7 +5549,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function."
+      Definition="Controls the frequency of the device´s mechanical or electronical random opening pulse shutter feature. The pulse is described by a ramp function."
       Explanation="When using this Shutter(n)StrobeRandomPulseOpen as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeRandomPulseOpen as the Logical Channel attribute."
       Label="Shutter Strobe Random Pulse Open"
       UseEmitter="False"
@@ -5574,7 +5565,7 @@ not taken into account.
       MainAttribute="Shutter(n)"
       Feature="Beam.Beam"
       PhysicalUnit="Frequency"
-      Definition="Controls the frequency of the fixture´s mechanical or electronical shutter effect feature."
+      Definition="Controls the frequency of the device´s mechanical or electronical shutter effect feature."
       Explanation="When using this Shutter(n)StrobeEffect as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Shutter(n). In case that Shutter(n) already exists in the same geometry, you can use the Shutter(n)StrobeEffect as the Logical Channel attribute."
       Label="Shutter Strobe Effect"
       UseEmitter="False"
@@ -5588,7 +5579,7 @@ not taken into account.
       Name="Iris"
       Pretty="Iris"
       Feature="Beam.Beam"
-      Definition="Controls the diameter of the fixture's beam."
+      Definition="Controls the diameter of the device's beam."
       Explanation="An iris diaphragm made of movable leaves which allows to gradually change the diameter of the beam is described with this attribute."
       Label="Iris"
       UseEmitter="False"
@@ -5776,7 +5767,7 @@ not taken into account.
       Name="IrisMode"
       Pretty="Iris Mode"
       Feature="Beam.Beam"
-      Definition="Changes modes of the fixture’s iris - linear, strobe, pulse."
+      Definition="Changes modes of the device’s iris - linear, strobe, pulse."
       Explanation="Use this to describe a function that allows to change the mode of the iris."
       Label="Iris Mode"
       UseEmitter="False"
@@ -5889,8 +5880,8 @@ not taken into account.
       Pretty="Prism(n)"
       ActivationGroup="Prism"
       Feature="Beam.Beam"
-      Definition="The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control."
-      Explanation="Use this attribute to select a prism in a prism wheel for fixtures that provide prism selection on one channel and prism rotation/indexing on another channel(s). If there is more than one prism wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Definition="The device’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control."
+      Explanation="Use this attribute to select a prism in a prism wheel for devices that provide prism selection on one channel and prism rotation/indexing on another channel(s). If there is more than one prism wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
       Label="Prism"
       UseEmitter="False"
       UseFilter="False"
@@ -5923,7 +5914,7 @@ not taken into account.
       ActivationGroup="Prism"
       Feature="Beam.Beam"
       Definition="Macro functions of prism wheel (n)."
-      Explanation="Use this attribute for manufacturer defined fixture specific effects on a prisms. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute."
+      Explanation="Use this attribute for manufacturer defined device specific effects on a prisms. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n). In case that Prism(n) already exists in the same geometry, you can use the Prism(n)Macro as the Logical Channel attribute."
       Label="Prism Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -5968,7 +5959,7 @@ not taken into account.
       Name="Effects(n)"
       Pretty="FX(n)"
       Feature="Beam.Beam"
-      Definition="Generically predefined macros and effects of a fixture."
+      Definition="Generically predefined macros and effects of a device."
       Explanation="Use this attribute to describe some effects and macros that are not possible to describe with some specific attribute."
       Label="Effects"
       UseEmitter="False"
@@ -6145,7 +6136,7 @@ not taken into account.
       Pretty="Zoom"
       Feature="Focus.Focus"
       PhysicalUnit="Angle"
-      Definition="Controls the spread of the fixture's beam/spot."
+      Definition="Controls the spread of the device's beam/spot."
       Explanation="This attribute is used to adjust the beam angle of the light source."
       Label="Zoom"
       UseEmitter="False"
@@ -6159,7 +6150,7 @@ not taken into account.
       Name="ZoomMode"
       Pretty="Zoom Mode"
       Feature="Focus.Focus"
-      Definition="Changes modes of the fixture´s zoom."
+      Definition="Changes modes of the device´s zoom."
       Explanation="Use this to describe the possibility to set different zoom modes, like beam mode or a spot mode."
       Label="Zoom Mode"
       UseEmitter="False"
@@ -6220,7 +6211,7 @@ not taken into account.
       Name="Focus(n)"
       Pretty="Focus(n)"
       Feature="Focus.Focus"
-      Definition="Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot."
+      Definition="Controls the sharpness of the device's spot light. Can blur or sharpen the edge of the spot."
       Explanation="Use this attribute to describe the sharpening/focusing function of the device. Some may call it the Edge."
       Label="Focus"
       UseEmitter="False"
@@ -6234,7 +6225,7 @@ not taken into account.
       Name="Focus(n)Mode"
       Pretty="Focus Mode"
       Feature="Focus.Focus"
-      Definition="Changes modes of the fixture’s focus - manual or auto- focus."
+      Definition="Changes modes of the device’s focus - manual or auto- focus."
       Explanation="Use this to describe a function that allows to change the mode of the focus."
       Label="Focus Mode"
       UseEmitter="False"
@@ -6277,7 +6268,7 @@ not taken into account.
       Name="Control(n)"
       Pretty="Ctrl(n)"
       Feature="Control.Control"
-      Definition="Controls the channel of a fixture."
+      Definition="Controls the channel of a device."
       Explanation="Use this attribute do describe a function (typically a DMX channel) which provides access to settings and to controls allowing changes of the behavior of the device, like striking and dousing of the lamp and so on. These individual settings or for example lamp controls are then described by their specific attributes. If there is more than one control channel the wild-card (n) will be incremented and the number then indicates which control channel will be controlled."
       Label="Control"
       UseEmitter="False"
@@ -6305,7 +6296,7 @@ not taken into account.
       Name="DimmerCurve"
       Pretty="Dim Curve"
       Feature="Control.Control"
-      Definition="Selects different dimmer curves of the fixture."
+      Definition="Selects different dimmer curves of the device."
       Explanation="Switching between different types of dimming curves provided by the device is described with this attribute."
       Label="Dimmer Curve"
       UseEmitter="False"
@@ -6376,7 +6367,7 @@ not taken into account.
       Name="PositionModes"
       Pretty="Pos Modes"
       Feature="Control.Control"
-      Definition="Selects the fixture's position mode."
+      Definition="Selects the device's position mode."
       Explanation="For devices that allow different modes of behavior of their positioning system, use this attribute to describe the behavior."
       Label="Position Modes"
       UseEmitter="False"
@@ -6517,7 +6508,7 @@ not taken into account.
       Pretty="ColorUniform"
       Feature="Control.Control"
       Definition="Controls behavior of color uniformity."
-      Explanation="In devices that allow to set a color uniformity between multiple fixtures use this attribute to describe a such function."
+      Explanation="In devices that allow to set a color uniformity between multiple devices use this attribute to describe a such function."
       Label="Color Uniformity"
       UseEmitter="False"
       UseFilter="False"
@@ -6573,7 +6564,7 @@ not taken into account.
       Pretty="Wavelength"
       Feature="Control.Control"
       Definition="Settings for Wavelength correction of colors."
-      Explanation="Use this attribute to describe a function that allows to adjust color mixing according to corresponding wavelengths in order to achieve same colors from multiple fixtures."
+      Explanation="Use this attribute to describe a function that allows to adjust color mixing according to corresponding wavelengths in order to achieve same colors from multiple devices."
       Label="Wave Length Correction"
       UseEmitter="False"
       UseFilter="False"
@@ -6600,7 +6591,7 @@ not taken into account.
       Name="FanMode"
       Pretty="Fan Mode"
       Feature="Control.Control"
-      Definition="Controls fan (n) mode."
+      Definition="Controls fan mode."
       Explanation="Use this attribute to switch between different types of fan control modes (for example auto, high, silent)."
       Label="Fan Mode"
       UseEmitter="False"
@@ -6642,7 +6633,7 @@ not taken into account.
       Name="IntensityMSpeed"
       Pretty="Intensity MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's intensity."
+      Definition="Movement speed of the device's intensity."
       Explanation="Use this attribute to set a speed of dimming behavior. "
       Label="Intensity Speed"
       UseEmitter="False"
@@ -6656,7 +6647,7 @@ not taken into account.
       Name="PositionMSpeed"
       Pretty="Pos MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's pan/tilt."
+      Definition="Movement speed of the device's pan/tilt."
       Explanation="Use this attribute to set a speed of movement for pan/tilt."
       Label="Position Speed"
       UseEmitter="False"
@@ -6670,7 +6661,7 @@ not taken into account.
       Name="ColorMixMSpeed"
       Pretty="Color Mix MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's ColorMix presets."
+      Definition="Movement speed of the device's ColorMix presets."
       Explanation="Use this attribute to set a speed of movement for color mixing elements."
       Label="Color Mix Speed"
       UseEmitter="False"
@@ -6684,7 +6675,7 @@ not taken into account.
       Name="ColorWheelSelectMSpeed"
       Pretty="Color Wheel Select MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's color wheel."
+      Definition="Movement speed of the device's color wheel."
       Explanation="Use this attribute to set a speed of movement of color wheel(s)."
       Label="Color Wheel Select Speed"
       UseEmitter="False"
@@ -6712,7 +6703,7 @@ not taken into account.
       Name="IrisMSpeed"
       Pretty="Iris MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's iris."
+      Definition="Movement speed of the device's iris."
       Explanation="Use this attribute to set a speed of movement of iris(s)."
       Label="Iris Speed"
       UseEmitter="False"
@@ -6726,7 +6717,7 @@ not taken into account.
       Name="Prism(n)MSpeed"
       Pretty="Prism(n) MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's prism wheel (n)."
+      Definition="Movement speed of the device's prism wheel (n)."
       Explanation="Use this attribute to set a speed of movement of prism(s). If there is more than one prism or prism wheel the wild-card (n) will be incremented and the number then indicates which prism/wheel will be controlled."
       Label="Prism Speed"
       UseEmitter="False"
@@ -6740,7 +6731,7 @@ not taken into account.
       Name="FocusMSpeed"
       Pretty="Focus MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's focus."
+      Definition="Movement speed of the device's focus."
       Explanation="Use this attribute to set a speed of movement of focus."
       Label="Focus Speed"
       UseEmitter="False"
@@ -6768,7 +6759,7 @@ not taken into account.
       Name="ZoomMSpeed"
       Pretty="Zoom MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's zoom."
+      Definition="Movement speed of the device's zoom."
       Explanation="Use this attribute to set a speed of movement of zoom."
       Label="Zoom Speed"
       UseEmitter="False"
@@ -6782,7 +6773,7 @@ not taken into account.
       Name="FrameMSpeed"
       Pretty="Frame MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's shapers."
+      Definition="Movement speed of the device's shapers."
       Explanation="Use this attribute to set a speed of movement of framing."
       Label="Frame Speed"
       UseEmitter="False"
@@ -6796,7 +6787,7 @@ not taken into account.
       Name="GlobalMSpeed"
       Pretty="Global MSpeed"
       Feature="Control.Control"
-      Definition="General speed of fixture's features."
+      Definition="General speed of device's features."
       Explanation="Use this attribute to set a speed of movement which is used on elements of the device."
       Label="Global M Speed"
       UseEmitter="False"
@@ -6810,7 +6801,7 @@ not taken into account.
       Name="ReflectorAdjust"
       Pretty="Reflector Adj"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's frost."
+      Definition="Adjusts the fixture's reflector to change the light output distribution."
       Explanation="Adjustment of the reflector of the device (for example setting it to a hot-spot output or a flat-field output) is described with this attribute."
       Label="Reflector Adjust"
       UseEmitter="False"
@@ -6824,8 +6815,8 @@ not taken into account.
       Name="FixtureGlobalReset"
       Pretty="Fixture Global Reset"
       Feature="Control.Control"
-      Definition="Generally resets the entire fixture."
-      Explanation="This attribute is describing a function that allows the operator to trigger a complete internal reset of the fixture."
+      Definition="Generally resets the entire device."
+      Explanation="This attribute is describing a function that allows the operator to trigger a complete internal reset of the device."
       Label="Fixture Global Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6838,8 +6829,8 @@ not taken into account.
       Name="DimmerReset"
       Pretty="Dimmer Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's dimmer."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's dimmer, dimmer flags or other dimming elements."
+      Definition="Resets the device's dimmer."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's dimmer, dimmer flags or other dimming elements."
       Label="Dimmer Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6852,8 +6843,8 @@ not taken into account.
       Name="ShutterReset"
       Pretty="Shutter Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's shutter."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's shutter flags or elements."
+      Definition="Resets the device's shutter."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's shutter flags or elements."
       Label="Shutter Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6866,8 +6857,8 @@ not taken into account.
       Name="BeamReset"
       Pretty="Beam Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's beam features."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's beam lenses or elements."
+      Definition="Resets the device's beam features."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's beam lenses or elements."
       Label="Beam Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6880,8 +6871,8 @@ not taken into account.
       Name="ColorMixReset"
       Pretty="Color Mix Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's color mixing system."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color mixing system."
+      Definition="Resets the device's color mixing system."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's color mixing system."
       Label="Color Mix Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6894,8 +6885,8 @@ not taken into account.
       Name="ColorWheelReset"
       Pretty="Color Wheel Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's color wheel."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's color wheels."
+      Definition="Resets the device's color wheel."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's color wheels."
       Label="Color Wheel Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6908,8 +6899,8 @@ not taken into account.
       Name="FocusReset"
       Pretty="Focus Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's focus."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or focus lenses or elements."
+      Definition="Resets the device's focus."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's framing shutter or focus lenses or elements."
       Label="Focus Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6922,8 +6913,8 @@ not taken into account.
       Name="FrameReset"
       Pretty="Frame Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's shapers."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's framing shutter or framing elements."
+      Definition="Resets the device's shapers."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's framing shutter or framing elements."
       Label="Frame Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6950,8 +6941,8 @@ not taken into account.
       Name="IntensityReset"
       Pretty="Intensity Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's intensity."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's intensity"
+      Definition="Resets the device's intensity."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's intensity"
       Label="Intensity Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6964,8 +6955,8 @@ not taken into account.
       Name="IrisReset"
       Pretty="Iris Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's iris."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's iris."
+      Definition="Resets the device's iris."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's iris."
       Label="Iris Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6978,8 +6969,8 @@ not taken into account.
       Name="PositionReset"
       Pretty="Pos Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's pan/tilt."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's positional system"
+      Definition="Resets the device's pan/tilt."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's positional system"
       Label="Position Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -6992,8 +6983,8 @@ not taken into account.
       Name="PanReset"
       Pretty="Pan Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's pan."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's pan."
+      Definition="Resets the device's pan."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's pan."
       Label="Pan Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7006,8 +6997,8 @@ not taken into account.
       Name="TiltReset"
       Pretty="Tilt Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's tilt."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's tilt."
+      Definition="Resets the device's tilt."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's tilt."
       Label="Tilt Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7020,8 +7011,8 @@ not taken into account.
       Name="ZoomReset"
       Pretty="Zoom Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's zoom."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's zoom lenses or elements."
+      Definition="Resets the device's zoom."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's zoom lenses or elements."
       Label="Zoom Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7034,8 +7025,8 @@ not taken into account.
       Name="CTBReset"
       Pretty="CTB Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's CTB."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTB flags or elements."
+      Definition="Resets the device's CTB."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's CTB flags or elements."
       Label="CTB Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7048,8 +7039,8 @@ not taken into account.
       Name="CTOReset"
       Pretty="CTO Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's CTO."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTO flags or elements."
+      Definition="Resets the device's CTO."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's CTO flags or elements."
       Label="CTO Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7062,8 +7053,8 @@ not taken into account.
       Name="CTCReset"
       Pretty="CTC Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's CTC."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's CTC flags or elements."
+      Definition="Resets the device's CTC."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's CTC flags or elements."
       Label="CTC Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7090,8 +7081,8 @@ not taken into account.
       Name="FixtureCalibrationReset"
       Pretty="Fixture Calibration Reset"
       Feature="Control.Control"
-      Definition="Resets the fixture's calibration."
-      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the fixture's calibrations."
+      Definition="Resets the device's calibration."
+      Explanation="This attribute is describing a function that allows the operator to trigger an internal reset of the device's calibrations."
       Label="Fixture Calibration Reset"
       UseEmitter="False"
       UseFilter="False"
@@ -7104,7 +7095,7 @@ not taken into account.
       Name="Function"
       Pretty="Function"
       Feature="Control.Control"
-      Definition="Generally controls features of the fixture."
+      Definition="Generally controls features of the device."
       Explanation="If you cannot find other attribute that would describe a feature of the Power/Control channel, use this generic attribute."
       Label="Function"
       UseEmitter="False"
@@ -7133,7 +7124,7 @@ not taken into account.
       Pretty="Display Int"
       Feature="Control.Control"
       Definition="Adjusts intensity of display"
-      Explanation="For fixtures with the possibility to adjust the brightness of their menu display screen, use this attribute to describe such functionality."
+      Explanation="For devices with the possibility to adjust the brightness of their menu display screen, use this attribute to describe such functionality."
       Label="Display Intensity"
       UseEmitter="False"
       UseFilter="False"
@@ -7258,7 +7249,7 @@ not taken into account.
       Name="Fans"
       Pretty="Fans"
       Feature="Control.Control"
-      Definition="Controls a fixture or device fan."
+      Definition="Controls a device fan."
       Explanation="For devices that allow to set a fan speed, use this attribute to describe this function."
       Label="Fans"
       UseEmitter="False"
@@ -7335,7 +7326,7 @@ not taken into account.
       Pretty="Shaper Macros"
       Feature="Shapers.Shapers"
       Definition="Predefined presets for shaper positions."
-      Explanation="This attribute allows for selecting a fixture's predefined macro functions for the Blades/Shapers."
+      Explanation="This attribute allows for selecting a device's predefined macro functions for the Blades/Shapers."
       Label="Shaper Macros"
       UseEmitter="False"
       UseFilter="False"
@@ -7870,7 +7861,7 @@ but it can have an effect on it's linked Geometry in a visualizer.
 
 Use this attribute to describe framing shutters or barndoors of the device. Use
 only the attribute Blade(n)A, when it is controlling insertion of the complete
-framing shutter (n). When looking at the projection from the fixture's point of
+framing shutter (n). When looking at the projection from the device's point of
 view and the beam is in default position (pointing from +Z to -Z axis) then:
 
 Blade(1)A - changing its physical value from 0 to 1 means covering the beam from negative to positive values in Y axis
@@ -7890,7 +7881,7 @@ which the framing shutter is controlled by adjusting its corners. When
 attribute Blade(n)B is used together with the Blade(n)A attribute, then
 attribute Blade(n)A is controlling the insertion of the first corner (A) and
 the attribute Blade(n)B is controlling the insertion of the second corner (B)
-of the framing shutter (n). When looking at the projection from the fixture's
+of the framing shutter (n). When looking at the projection from the device's
 point of view and the beam is in default position (pointing from +Z to -Z
 axis), the corners A, B are in clockwise order, then:
 
@@ -7909,19 +7900,19 @@ The physical values describe movement of a corner, where at 0 the corner is comp
 This attribute allows you to describe a function which rotates the complete
 carousel of framing shutters or barndoors. Rotation from negative to positive
 angle values is counterclockwise when looking at the projection from the
-fixture's point of view.
+device's point of view.
 
 ### Blade(n)Rot
 
 This attribute describes rotation of framing shutters or barndoors controlled
 by the Blade(n)A attribute only. Rotation from negative to positive angle
-values is counterclockwise when looking at the projection from the fixture's
+values is counterclockwise when looking at the projection from the device's
 point of view.
 
 # Annex I. Name, ShortName, LongName (informative)
 
 The [Name, ShortName, and LongName attributes](#table-3-fixture-type-node-attributes)
-identify a fixture type and provide names for different uses.
+identify a device type and provide names for different uses.
 
 The **Name** attribute is the basis for the GDTF file name. It uses the [Name
 value type](#user-content-attrtype-name), so its value follows the character
@@ -7932,8 +7923,8 @@ recommended to use only the POSIX "Fully Portable Filenames" character set:
 `A–Z`, `a–z`, `0–9`, `_` (U+005F), `-` (U+002D), and at most one period (`.`
 U+002E). For example: `My-Fixture_5.gdtf`.
 
-The **LongName** attribute provides the detailed, complete name of the fixture
-type. It may include any characters or symbols and is recommended for fixture
+The **LongName** attribute provides the detailed, complete name of the device
+type. It may include any characters or symbols and is recommended for device
 lists and search.
 
 The **ShortName** attribute provides an abbreviated name for use in user
