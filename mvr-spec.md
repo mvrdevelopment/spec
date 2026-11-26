@@ -831,7 +831,7 @@ Table xx - Cable Node attributes:
 | name               | [String](#user-content-attrtype-string)  | Cable name.                                                      |
 | length             | [Float](#user-content-attrtype-float)| Cable length. Unit: meter. Default value: 0                          |
 | GDTFSpec           | [FileName](#user-content-attrtype-filename) | Optional. The name of the GDTF or `gdtt` file containing a reusable cable catalog. |
-| GDTFMode           | [String](#user-content-attrtype-string) | Optional. The name of the cable object definition inside the GDTF file referenced by `GDTFSpec`. This has to match the name of a DMXMode in the GDTF file. Mandatory when `GDTFSpec` as been defined. |
+| GDTFMode           | [String](#user-content-attrtype-string) | Optional. The name of the cable object definition inside the GDTF file referenced by `GDTFSpec`. This has to match the name of a Mode in the GDTF file. Mandatory when `GDTFSpec` as been defined. |
 
 ## Other Node Definition
 

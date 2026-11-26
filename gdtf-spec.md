@@ -1798,11 +1798,11 @@ This type of geometry is used to describe a cable assembly (XML node
 `<Cable>`).
 
 The currently defined XML attributes of the cable geometry are specified in
-[table 52](#table-52 ).
+[table xx](#table-cable-attributes ).
 
-<div id="table-52">
+<div id="table-cable-attributes">
 
-#### Table 52. *Cable Attributes*
+#### Table xx. *Cable Attributes*
 
 | XML Attribute Name | Value Type                               | Description                                                                 |
 |----|----|----|
@@ -1840,7 +1840,7 @@ Node name: `Conductors`
 | Name               | [Name](#user-content-attrtype-name )     | Unique name of the conductor bundle within the cable geometry.              |
 | Type               | [String](#user-content-attrtype-string ) | Conductor type. Predefined values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". |
 | CrossSection       | [Float](#user-content-attrtype-float )   | Conductor cross-section where applicable. Unit: mm². Default value: 0.      |
-| ConductorAmount    | [Integer](#user-content-attrtype-integer ) | Amount of conductors. Default value: 0.                                     |
+| ConductorAmount    | [Int](#user-content-attrtype-int ) | Amount of conductors. Default value: 0.                                     |
 | Impedance          | [Float](#user-content-attrtype-float )   | Cable impedance where applicable. Unit: Ohm. Default value: 0.             |
 | VoltageRating      | [Float](#user-content-attrtype-float )   | Optional voltage rating. Unit: volt. Default value: 0.                     |
 | CurrentRating      | [Float](#user-content-attrtype-float )   | Optional current rating. Unit: ampere. Default value: 0.                    |
