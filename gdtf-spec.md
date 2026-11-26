@@ -2727,22 +2727,22 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ColorSub\_C                      | Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
 | ColorSub\_M                      | Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
 | ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
-| IntensityMacro(n)                  | Selects predefined intensity levels that are programmed in the fixture's firmware.                                                                                                             |
+| IntensityMacro(n)                  | Selects predefined intensity levels that are programmed in the device's firmware.                                                                                                             |
 | IntensityMacro(n)Rate                 | Controls the frequency of Intensity Macro steps.                                                                                                                                               |
 | IntensityMacro(n)Time                 | Controls the duration of Intensity Macro steps.                                                                                                                                                |
 | IntensityMacro(n)Size                 | Controls the size of Intensity Macro steps.                                                                                                                                                    |
 | IntensityMacro(n)Offset               | Controls the phase offset of Intensity Macro steps.                                                                                                                                            |
-| PositionMacro(n)                   | Selects predefined positions that are programmed in the fixture's firmware.                                                                                                                    |
+| PositionMacro(n)                   | Selects predefined positions that are programmed in the device's firmware.                                                                                                                    |
 | PositionMacro(n)Rate                 | Controls the frequency of Position Macro steps.                                                                                                                                                |
 | PositionMacro(n)Time                 | Controls the duration of Position Macro steps.                                                                                                                                                 |
 | PositionMacro(n)Size                 | Controls the size of Position Macro steps.                                                                                                                                                     |
 | PositionMacro(n)Offset               | Controls the phase offset of Position Macro steps.                                                                                                                                             |
-| GoboMacro(n)                       | Selects predefined gobos that are programmed in the fixture's firmware.                                                                                                                        |
+| GoboMacro(n)                       | Selects predefined gobos that are programmed in the device's firmware.                                                                                                                        |
 | GoboMacro(n)Rate                   | Controls the frequency of Gobo Macro steps.                                                                                                                                                    |
 | GoboMacro(n)Time                   | Controls the duration of Gobo Macro steps.                                                                                                                                                     |
 | GoboMacro(n)Size                   | Controls the size of Gobo Macro steps.                                                                                                                                                         |
 | GoboMacro(n)Offset                 | Controls the phase offset of Gobo Macro steps.                                                                                                                                                 |
-| BeamMacro(n)                       | Selects predefined beam settings that are programmed in the fixture's firmware.                                                                                                                |
+| BeamMacro(n)                       | Selects predefined beam settings that are programmed in the device's firmware.                                                                                                                |
 | BeamMacro(n)Rate                   | Controls the frequency of Beam Macro steps.                                                                                                                                                    |
 | BeamMacro(n)Time                   | Controls the duration of Beam Macro steps.                                                                                                                                                     |
 | BeamMacro(n)Size                   | Controls the size of Beam Macro steps.                                                                                                                                                         |
@@ -2828,13 +2828,13 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Prism(n)Macro                    | Macro functions of prism wheel (n).                                                                                                                                                                                                                                                                       |
 | Prism(n)Pos                      | Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.                                                                                                                                                                        |
 | Prism(n)PosRotate                | Controls the speed and direction of continuous rotation of prisms in prism wheel (n).                                                                                                                                                                                                                     |
-| Kaleidoscope(n)                  | The fixture’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control. |
+| Kaleidoscope(n)                  | The device’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control. |
 | Kaleidoscope(n)SelectSpin        | Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function.                                                                                                                                   |
 | Kaleidoscope(n)SelectPos         | Selects kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and controls the angle of the kaleidoscope’s orientation within the same channel function.                                                                                                                                      |
 | Kaleidoscope(n)Macro             | Macro functions of kaleidoscope wheel (n).                                                                                                                                                                                                                                                                 |
 | Kaleidoscope(n)Pos               | Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control.                                                                                                                                                    |
 | Kaleidoscope(n)PosRotate         | Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n).                                                                                                                                                                                                        |
-| Kaleidoscope(n)MSpeed            | Movement speed of the fixture's kaleidoscope wheel (n).                                                                                                                                                                                                                                                   |
+| Kaleidoscope(n)MSpeed            | Movement speed of the device's kaleidoscope wheel (n).                                                                                                                                                                                                                                                   |
 | Effects(n)                       | Generically predefined macros and effects of a fixture.                                                                                                                                                                                                                                                   |
 | Effects(n)Rate                   | Frequency of running effects.                                                                                                                                                                                                                                                                             |
 | Effects(n)Fade                   | Snapping or smooth look of running effects.                                                                                                                                                                                                                                                               |
@@ -4235,7 +4235,7 @@ not taken into account.
       Pretty="Color FX(n)Size"
       Feature="Color.Color"
       Definition="Size of running color effects."
-      Explanation="Use this attribute to control size of the predefined color effects built into the fixture."
+      Explanation="Use this attribute to control size of the predefined color effects built into the device."
       Label="Color Effects Size"
       UseEmitter="False"
       UseFilter="False"
@@ -4249,7 +4249,7 @@ not taken into account.
       Pretty="Color FX(n)Level"
       Feature="Color.Color"
       Definition="Level of running color effects."
-      Explanation="Use this attribute to control level of the predefined color effects built into the fixture."
+      Explanation="Use this attribute to control level of the predefined color effects built into the device."
       Label="Color Effects Level"
       UseEmitter="False"
       UseFilter="False"
@@ -4263,7 +4263,7 @@ not taken into account.
       Pretty="Color FX(n)Position"
       Feature="Color.Color"
       Definition="Position of running color effects."
-      Explanation="Use this attribute to control position of the predefined color effects built into the fixture."
+      Explanation="Use this attribute to control position of the predefined color effects built into the device."
       Label="Color Effects Position"
       UseEmitter="False"
       UseFilter="False"
@@ -4771,8 +4771,8 @@ not taken into account.
       Name="IntensityMacro(n)"
       Pretty="Intensity Macro(n)"
       Feature="Dimmer.Dimmer"
-      Definition="Selects predefined intensity levels that are programmed in the fixture's firmware."
-      Explanation="Choose this attribute to control the selection of predefined intensity levels programmed in the fixture's firmware. If there is more than one intensity macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Definition="Selects predefined intensity levels that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined intensity levels programmed in the device's firmware. If there is more than one intensity macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
       Label="Intensity Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -4841,8 +4841,8 @@ not taken into account.
       Name="PositionMacro(n)"
       Pretty="Position Macro(n)"
       Feature="Position.PanTilt"
-      Definition="Selects predefined positions that are programmed in the fixture's firmware."
-      Explanation="Choose this attribute to control the selection of predefined positions programmed in the fixture's firmware. If there is more than one position macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Definition="Selects predefined positions that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined positions programmed in the device's firmware. If there is more than one position macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
       Label="Position Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -4911,8 +4911,8 @@ not taken into account.
       Name="GoboMacro(n)"
       Pretty="Gobo Macro(n)"
       Feature="Gobo.Gobo"
-      Definition="Selects predefined gobos that are programmed in the fixture's firmware."
-      Explanation="Choose this attribute to control the selection of predefined gobos programmed in the fixture's firmware. If there is more than one gobo macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Definition="Selects predefined gobos that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined gobos programmed in the device's firmware. If there is more than one gobo macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
       Label="Gobo Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -4981,8 +4981,8 @@ not taken into account.
       Name="BeamMacro(n)"
       Pretty="Beam Macro(n)"
       Feature="Beam.Beam"
-      Definition="Selects predefined beam settings that are programmed in the fixture's firmware."
-      Explanation="Choose this attribute to control the selection of predefined beam settings programmed in the fixture's firmware. If there is more than one beam macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Definition="Selects predefined beam settings that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined beam settings programmed in the device's firmware. If there is more than one beam macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
       Label="Beam Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -6454,8 +6454,8 @@ not taken into account.
       Pretty="Kaleidoscope(n)"
       ActivationGroup="Kaleidoscope"
       Feature="Beam.Beam"
-      Definition="The fixture’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control."
-      Explanation="Use this attribute to select a kaleidoscope in a kaleidoscope wheel for fixtures that provide kaleidoscope selection on one channel and kaleidoscope rotation/indexing on another channel(s). If there is more than one kaleidoscope wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Definition="The device’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control."
+      Explanation="Use this attribute to select a kaleidoscope in a kaleidoscope wheel for devices that provide kaleidoscope selection on one channel and kaleidoscope rotation/indexing on another channel(s). If there is more than one kaleidoscope wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
       Label="Kaleidoscope"
       UseEmitter="False"
       UseFilter="False"
@@ -6505,7 +6505,7 @@ not taken into account.
       ActivationGroup="Kaleidoscope"
       Feature="Beam.Beam"
       Definition="Macro functions of kaleidoscope wheel (n)."
-      Explanation="Use this attribute for manufacturer defined fixture specific effects on a kaleidoscopes. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)Macro as the Logical Channel attribute."
+      Explanation="Use this attribute for manufacturer defined device specific effects on a kaleidoscopes. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)Macro as the Logical Channel attribute."
       Label="Kaleidoscope Macro"
       UseEmitter="False"
       UseFilter="False"
@@ -6550,7 +6550,7 @@ not taken into account.
       Name="Kaleidoscope(n)MSpeed"
       Pretty="Kaleidoscope(n) MSpeed"
       Feature="Control.Control"
-      Definition="Movement speed of the fixture's kaleidoscope wheel (n)."
+      Definition="Movement speed of the device's kaleidoscope wheel (n)."
       Explanation="Use this attribute to set a speed of movement of kaleidoscope(s). If there is more than one kaleidoscope or kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which kaleidoscope/wheel will be controlled."
       Label="Kaleidoscope Speed"
       UseEmitter="False"
@@ -6653,7 +6653,7 @@ not taken into account.
       Pretty="FX(n) Size"
       Feature="Beam.Beam"
       Definition="Size of running effects(n)"
-      Explanation="Use this attribute to control size of the predefined effects(n) built into the fixture."
+      Explanation="Use this attribute to control size of the predefined effects(n) built into the device."
       Label="Effect Size"
       UseEmitter="False"
       UseFilter="False"
@@ -6667,7 +6667,7 @@ not taken into account.
       Pretty="FX(n) Level"
       Feature="Beam.Beam"
       Definition="Level of running effects(n)"
-      Explanation="Use this attribute to control level of the predefined effects(n) built into the fixture."
+      Explanation="Use this attribute to control level of the predefined effects(n) built into the device."
       Label="Effect Level"
       UseEmitter="False"
       UseFilter="False"
@@ -6681,7 +6681,7 @@ not taken into account.
       Pretty="FX(n) Position"
       Feature="Beam.Beam"
       Definition="Position of running effects(n)"
-      Explanation="Use this attribute to control position of the predefined effects(n) built into the fixture."
+      Explanation="Use this attribute to control position of the predefined effects(n) built into the device."
       Label="Effect Position"
       UseEmitter="False"
       UseFilter="False"
