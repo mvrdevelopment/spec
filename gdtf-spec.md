@@ -1806,14 +1806,14 @@ The currently defined XML attributes of the cable geometry are specified in
 
 | XML Attribute Name | Value Type                               | Description                                                                 |
 |----|----|----|
-| Name               | [Name](#user-content-attrtype-name )     | Unique name of the cable definition.                                        |
+| Name               | [Name](#user-content-attrtype-name )     | Unique name of the cable geometry.                                        |
 | CableType          | [String](#user-content-attrtype-string ) | Cable type, model, or construction.                                         |
 | LengthMin          | [Float](#user-content-attrtype-float )   | Minimum supported cable length. Unit: meter. Default value: 0.             |
 | LengthMax          | [Float](#user-content-attrtype-float )   | Maximum supported cable length. Unit: meter. Default value: 0.             |
 | LengthArbitrary    | [Enum](#user-content-attrtype-enum )     | Indication whether an arbitrary length is available. The currently defined values are: "True", "False". Default: "False". |
 | Diameter           | [Float](#user-content-attrtype-float )   | Outer shell diameter. Unit: meter. Default value: 0.             |
-| WeightPerMeter     | [Float](#user-content-attrtype-float )   | Weight per meter. Unit: kilogram. Default value: 0.             |
-| AvailableLengths   | [Array of Float](#user-content-attrtype-float )  | Array of available cable lengths. Unit: meter. Separator of values is ",". Default value: 0. |
+| WeightPerMeter     | [Float](#user-content-attrtype-float )   | Optional. Weight per meter. Unit: kilogram.         |
+| AvailableLengths   | [Array of Float](#user-content-attrtype-float )  | Optional. Array of available cable lengths. Unit: meter. Separator of values is ",". |
 | InstallationRating | [String](#user-content-attrtype-string ) | Optional rating such as plenum, riser, outdoor, touring, or manufacturer-specific text. |
 
 </div>
@@ -1840,10 +1840,10 @@ Node name: `Conductors`
 | Name               | [Name](#user-content-attrtype-name )     | Unique name of the conductor bundle within the cable geometry.              |
 | Type               | [String](#user-content-attrtype-string ) | Conductor type. Predefined values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". |
 | CrossSection       | [Float](#user-content-attrtype-float )   | Conductor cross-section where applicable. Unit: mm². Default value: 0.      |
-| ConductorAmount    | [Int](#user-content-attrtype-int ) | Amount of conductors. Default value: 0.                                     |
-| Impedance          | [Float](#user-content-attrtype-float )   | Cable impedance where applicable. Unit: Ohm. Default value: 0.             |
-| VoltageRating      | [Float](#user-content-attrtype-float )   | Optional voltage rating. Unit: volt. Default value: 0.                     |
-| CurrentRating      | [Float](#user-content-attrtype-float )   | Optional current rating. Unit: ampere. Default value: 0.                    |
+| ConductorAmount    | [Int](#user-content-attrtype-int )       | Amount of conductors. Default value: 0. TODO: perhaps there is a better name for conductor                                     |
+| Impedance          | [Float](#user-content-attrtype-float )   | Optional impedance where applicable. Unit: Ohm.|
+| VoltageRating      | [Float](#user-content-attrtype-float )   | Optional voltage rating. Unit: volt.              |
+| CurrentRating      | [Float](#user-content-attrtype-float )   | Optional current rating. Unit: ampere.         |
 
 </div>
 
