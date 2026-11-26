@@ -1292,6 +1292,7 @@ of geometry collect are specified in [table 34](#user-content-table-34 ).
 | [GeometryReference](#user-content-geometry-type-reference )           | Any    | Reference to already described geometries.                                                     |
 | [Laser](#user-content-geometry-type-laser )                           | Any    | Geometry with a laser light output.                                                            |
 | [WiringObject](#user-content-geometry-type-wiring-object )            | Any    | Geometry that describes an internal wiring for power or data.                                  |
+| [Battery](#user-content-geometry-type-battery )                       | Any    | Geometry that describes a battery.                                                             |
 | [Inventory](#user-content-geometry-type-inventory )                   | Any    | Geometry that describes an additional item that can be used for a fixture (like a rain cover). |
 | [Structure](#user-content-geometry-type-structure )                   | Any    | Geometry that describes the internal framing of an object (like members).                      |
 | [Support](#user-content-geometry-type-support )                       | Any    | Geometry that describes a support like a base plate or a hoist.                                |
@@ -1743,7 +1744,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | ConnectorType   <a id="attrtype-connectortype" />    | [Name](#user-content-attrtype-name )      | The type of the connector. Find a list of predefined types in [Annex D](#user-content-table-d1 ). This is not applicable for Component Types Fuses. Custom type of connector can also be defined, for example "Loose End".|
 | Position            | [Matrix](#user-content-attrtype-matrix )  | Relative position of geometry; Default value: Identity Matrix                                     |
 | ComponentType       | [Enum](#user-content-attrtype-enum )      | The type of the electrical component used. Defined values are "Input", "Output", "PowerSource", "Consumer", "Fuse", "NetworkProvider", "NetworkInput", "NetworkOutput", "NetworkInOut". |
-| SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
+| SignalType          | [String](#user-content-attrtype-string )  | The type of the signal used. Predefinded values are "Power", "PowerDC", "DMX512", "Protocol", "AES", "AnalogVideo", "AnalogAudio". When you have a custom protocol, you can add it here.        |
 | PinCount            | [Int](#user-content-attrtype-int )        | The number of available pins of the connector type to connect internal wiring to it.              |
 | ElectricalPayLoad   | [Float](#user-content-attrtype-float )    | The electrical consumption in Watts. Only for [Consumers](#user-content-attrtype-connectortype ). Unit: Watt.                                         |
 | VoltageRangeMax     | [Float](#user-content-attrtype-float )    | The voltage range's maximum value. Only for [Consumers](#user-content-attrtype-connectortype ). Unit:volt.                                           |
@@ -1760,8 +1761,6 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | EarthLeakageCurrent | [Float](#user-content-attrtype-float )    | The electrical current that flows from a device's live conductors to earth during normal operation. Unit: ampere |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
 | WireGroup           | [String](#user-content-attrtype-string )  | Name of the group to which this wiring object belong.                                             |
-
-
 </div>
 
 The wiring object has the same children types as the geometry
@@ -1788,6 +1787,70 @@ defined XML attributes of a pin patch are specified in [table 51](#user-content-
 </div>
 
 The pin patch doesn't have any children.
+
+### Geometry Type Battery
+
+This type of geometry is used to describe a geometry used for the battery (XML node `<Battery>`). The currently
+defined XML attributes of a battery geometry are specified in
+[table xx](#user-content-table-xx ).
+
+<div id="table-xx">
+
+#### Table xx. *Battery Attributes*
+
+| XML Attribute Name  | Value Type                               | Description                                                    |
+|----|----|----|
+| Name            | [Name](#user-content-attrtype-name )     | The unique name of the geometry.                               |
+| Model           | [Name](#user-content-attrtype-name )     | Link to the corresponding model.                               |
+| Position        | [Matrix](#user-content-attrtype-matrix ) | Relative position of geometry; Default value: Identity Matrix  |
+| InstallationType| [Enum](#user-content-attrtype-enum )     | The Installation Type of the Battery. Defined values are "Integrated", "Replaceable", "HotSwappable", "Other". Default value: "Integrated"|
+| OperationMode <a id="attrtype-operationmode" />| [Enum](#user-content-attrtype-enum )      | The  function of the Device under Battery Power. Defined values are "Configuration", "Operation". Default value: "Operation"|
+| Voltage         | [Float](#user-content-attrtype-float )    | The nominal output voltage of the battery. Unit: volt. Default value: "0"                     |
+| EnergyCapacity  | [Float](#user-content-attrtype-float )   | The rated energy capacity. Unit: Wh. Default value: "0" |
+| MaxPower        | [Float](#user-content-attrtype-float)    | Optional. The maximum continuous output power of the battery. Unit: Watt.|
+| UNTransportCode | [Array of String](#user-content-attrtype-string) | Optional. Defines the battery UN numbers for transport. Each entry consists of the prefix "UN" followed by four digits. Separator of values is ",".|
+| Technology      | [Enum](#user-content-attrtype-enum )     | Optional. The Technology Chemistry of the Battery. Defined values are "Li-ion", "LiPo", "LiFePO4", "LTO", "Lead-acid", "AGM", "Gel", "NiMH","NiCd","Sodium-ion", "Alkaline","Lithium-primary","Other".|
+| Rechargeable    | [Enum](#user-content-attrtype-enum )     | If the Battery can be charged. Defined values are "Yes", "No". Default value: "Yes"|
+</div>
+
+The battery has an optional list of charging times (XML node `<ChargingTime>`) as
+children.
+
+#### Charging Time
+
+This XML node (XML node `<ChargingTime>`) specifies the time it takes for the
+battery to be charged to a given capacity percentage. The currently defined XML
+attributes of the charging time are specified in [table
+xx](#user-content-table-xx).
+
+<div id="table-xx">
+
+#### Table xx. *Charging Time Attributes*
+
+| XML Attribute Name  | Value Type                               | Description                                                                                            |
+|----|----|----|
+| CapacityPercentage   | [Int](#user-content-attrtype-int ) | Percentage of battery capacity between 1 and 100 for which the charging time is provided. Default value: "1"|
+| Time         | [Int](#user-content-attrtype-int )       |  The Time in seconds it takes to charge the defined percentage. Default value: "0"|
+
+Example of Battery:
+
+```xml
+<Battery Name="MainBattery"
+       Model="MainBattery"
+       Position="{1.000000,0.000000,0.000000,0.000000}{0.000000,1.000000,0.000000,0.000000}{0.000000,0.000000,1.000000,0.000000}
+       {0.000000,0.000000,0.000000,1.000000}"
+       InstallationType="Replaceable"
+       OperationMode="Operation"
+       Voltage="14.8"
+       EnergyCapacity="118.4"
+       MaxPower="180"
+       UNTransportCode="UN3480,UN3481"
+       Technology="Li-ion"
+       Rechargeable="Yes">
+  <ChargingTime CapacityPercentage="80" Time="2700" />
+  <ChargingTime CapacityPercentage="100" Time="5400" />
+</Battery>
+```
 
 ### Geometry Type Inventory
 
