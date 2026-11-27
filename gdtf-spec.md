@@ -1140,8 +1140,8 @@ specified in [table 32](#user-content-table-32 ).
 | Height             | [Float](#user-content-attrtype-float )     | Unit: meter; Default value: 0 |
 | Weight             | [Float](#user-content-attrtype-float )     | Optional if CenterOfGravity is not defined. Weight of the device part represented by the model. Used only to calculate the overall center of gravity of the device. Unit: kilogram. |
 | CenterOfGravity    | [Vector3](#user-content-attrtype-vector3 ) | Optional if Weight is not defined. Center of gravity of the device part represented by the model, expressed as an offset from the model origin in the model's coordinate system. Unit: meter. |
-| PrimitiveType      | [Enum](#user-content-attrtype-enum )       | Type of 3D model; The currently defined values are: “Undefined”, “Cube”, “Cylinder”, “Sphere”, “Base”, “Yoke”, “Head”, “Scanner”, “Conventional”, “Pigtail”, "Base1_1", "Scanner1_1", "Conventional1_1"; Default value: “Undefined” |
-| File               | [Resource](#user-content-attrtype-resource )   | Optional. File name without extension and without subfolder containing description of the model. Use the following as a resource file:<br />- 3DS or GLB to file to provide 3D model.<br />- SVG file to provide the 2D symbol.<br />It is possible to add several files with the same name but different formats. Preferable format for the 3D model is GLTF. The resource files are located in subfolders of a folder called <code>./models</code>. The names of the subfolders correspond to the file format of the resource files (3ds, step, svg). The path for 3ds files would be <code>./models/3ds</code>. For glb files, it would be <code>./models/gltf</code>.</p> Software that is utilizing GDTF files should always be able to read both 3ds and GlTF file formats and should be able to write at least one of these formats. It is preferable that only one type of 3D model file formats is used within one GDTF file.<br />All dimensions in 3DS files are interpreted in millimeters (1 unit = 1 mm).|
+| PrimitiveType      | [Enum](#user-content-attrtype-enum )       | Generic 3D model used when no 3D resource file is available (see [Model Resource Selection](#model-resource-selection)). The currently defined values are: “Undefined”, “Cube”, “Cylinder”, “Sphere”, “Base”, “Yoke”, “Head”, “Scanner”, “Conventional”, “Pigtail”, "Base1_1", "Scanner1_1", "Conventional1_1"; Default value: “Undefined” |
+| File               | [Resource](#user-content-attrtype-resource )   | Optional. File name without extension and without subfolder containing description of the model. The relation to PrimitiveType is defined in [Model Resource Selection](#model-resource-selection). Use the following as a resource file:<br />- 3DS or GLB file to provide the 3D model.<br />- SVG file to provide the 2D symbol.<br />It is possible to add several files with the same name but different formats. Preferable format for the 3D model is GLTF. The resource files are located in subfolders of a folder called <code>./models</code>. The names of the subfolders correspond to the file format of the resource files (3ds, gltf, svg). The path for 3ds files would be <code>./models/3ds</code>. For glb files, it would be <code>./models/gltf</code>.<br />Software that is utilizing GDTF files should always be able to read both 3ds and GlTF file formats and should be able to write at least one of these formats. It is preferable that only one type of 3D model file formats is used within one GDTF file.<br />All dimensions in 3DS files are interpreted in millimeters (1 unit = 1 mm).|
 | SVGOffsetX            | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
 | SVGOffsetY            | [Float](#user-content-attrtype-float )  | Offset in Y from the 0,0 point to the desired insertion point of the top view svg. Unit based on the SVG. Default value: 0|
 | SVGBottomOffsetX      | [Float](#user-content-attrtype-float )  | Offset in X from the 0,0 point to the desired insertion point of the bottom view svg. Unit based on the SVG. Default value: 0|
@@ -1157,6 +1157,25 @@ The model currently does not have any children.
 
 All models of a device combined should not exceed a maximum vertices count of 2500 for the default mesh level of detail.
 
+### Model Resource Selection
+
+The attributes `PrimitiveType` and `File` may both be specified for the same
+model. If a 3D resource file referenced by `File` is available, that resource
+shall be used for the 3D representation in preference to `PrimitiveType`.
+If both GLB and 3DS resources are available, GLB is the preferred format.
+
+If `File` is omitted or empty, or no referenced 3D resource file is available,
+the generic model specified by `PrimitiveType` shall be used. The value
+“Undefined” means that no generic model is specified. If no 3D resource file
+is available and `PrimitiveType` is “Undefined”, the model supplies no 3D
+representation. The dimensions defined by `Length`, `Width` and `Height`
+apply to both resource files and generic models.
+
+SVG resources referenced by `File` provide the 2D symbols independently of
+the 3D representation. A model may therefore use a generic model specified
+by `PrimitiveType` for its 3D representation and an SVG resource referenced
+by `File` for its 2D symbol. The presence of an SVG resource does not affect
+the selection of the 3D representation.
 
 ### Primitive Types
 
