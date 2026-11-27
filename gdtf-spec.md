@@ -1758,7 +1758,7 @@ defined XML attributes of a wiring object geometry are specified in [table 50](#
 | SignalLayer         | [Integer](#user-content-attrtype-integer )  | The layer of the Signal Type. In one device, all wiring geometry that use the same Signal Layers are connected. Special value 0: Connected to all geometries. |
 | CosPhi              | [Float](#user-content-attrtype-float )    | The Power Factor of the device. Only for consumers.                                               |
 | FuseCurrent         | [Float](#user-content-attrtype-float )    | The fuse value. Only for fuses. Unit: ampere.                                                                   |
-| FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Defined values are "B", "C", "D", "K", "Z".                                          |
+| FuseRating          | [Enum](#user-content-attrtype-enum )      | Fuse Rating. Only for fuses. Defined values are "B", "C", "D", "K", "Z".                                          |
 | InrushCurrent       | [Float](#user-content-attrtype-float )    | The maximum instantaneous current drawn by an electrical device when it is first switched on. Unit: ampere |
 | EarthLeakageCurrent | [Float](#user-content-attrtype-float )    | The electrical current that flows from a device's live conductors to earth during normal operation. Unit: ampere |
 | Orientation         | [Enum](#user-content-attrtype-enum )      | Where the pins are placed on the object. Defined values are "Left", "Right", "Top", "Bottom".     |
