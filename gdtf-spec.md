@@ -593,6 +593,7 @@ should be used and in what order of importance:
 | Color(n)              | MediaFileName, Filter, Color                              |
 | Gobo(n)               | MediaFileName                                             |
 | Prism(n)              | Facet                                                     |
+| Kaleidoscope(n)       | Facet + MediaFileName                                     |
 | AnimationWheel(n)     | MediaFileName                                             |
 | AnimationSystem(n)    | MediaFileName + AnimationSystem                           |
 | MediaContent(n)       | MediaFileName + Duration + Width + Height + FPS           |
@@ -2695,6 +2696,9 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | PlayEnd                          | Defines end point of media content playback.                                                                                                                                                                                                                                                              |
 | PlaySpeed                        | Adjusts playback speed of media content.                                                                                                                                                                                                                                                                  |
 | ColorEffects(n)                  | Selects predefined color effects built into the fixture.                                                                                                                                                                                                                                                  |
+| ColorEffects(n)Size              | Size of running color effects.                                                                                                                                                                                                                                                                            |
+| ColorEffects(n)Level             | Level of running color effects.                                                                                                                                                                                                                                                                           |
+| ColorEffects(n)Position          | Position of running color effects.                                                                                                                                                                                                                                                                        |
 | Color(n)                         | The fixture’s color wheel (n). Selects colors in color wheel (n). This is the main attribute of color wheel’s (n) wheel control.                                                                                                                                                                          |
 | Color(n)WheelIndex               | Controls angle of indexed rotation of color wheel (n)                                                                                                                                                                                                                                                     |
 | Color(n)WheelSpin                | Controls the speed and direction of continuous rotation of color wheel (n).                                                                                                                                                                                                                               |
@@ -2723,8 +2727,31 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ColorSub\_C                      | Controls the insertion of the fixture's cyan filter flag for direct subtractive color mixing.                                                                                                                                                                                                             |
 | ColorSub\_M                      | Controls the insertion of the fixture's magenta filter flag for direct subtractive color mixing.                                                                                                                                                                                                          |
 | ColorSub\_Y                      | Controls the insertion of the fixture's yellow filter flag for direct subtractive color mixing.                                                                                                                                                                                                           |
+| IntensityMacro(n)                  | Selects predefined intensity levels that are programmed in the device's firmware.                                                                                                             |
+| IntensityMacro(n)Rate                 | Controls the frequency of Intensity Macro steps.                                                                                                                                               |
+| IntensityMacro(n)Time                 | Controls the duration of Intensity Macro steps.                                                                                                                                                |
+| IntensityMacro(n)Size                 | Controls the size of Intensity Macro steps.                                                                                                                                                    |
+| IntensityMacro(n)Offset               | Controls the phase offset of Intensity Macro steps.                                                                                                                                            |
+| PositionMacro(n)                   | Selects predefined positions that are programmed in the device's firmware.                                                                                                                    |
+| PositionMacro(n)Rate                 | Controls the frequency of Position Macro steps.                                                                                                                                                |
+| PositionMacro(n)Time                 | Controls the duration of Position Macro steps.                                                                                                                                                 |
+| PositionMacro(n)Size                 | Controls the size of Position Macro steps.                                                                                                                                                     |
+| PositionMacro(n)Offset               | Controls the phase offset of Position Macro steps.                                                                                                                                             |
+| GoboMacro(n)                       | Selects predefined gobos that are programmed in the device's firmware.                                                                                                                        |
+| GoboMacro(n)Rate                   | Controls the frequency of Gobo Macro steps.                                                                                                                                                    |
+| GoboMacro(n)Time                   | Controls the duration of Gobo Macro steps.                                                                                                                                                     |
+| GoboMacro(n)Size                   | Controls the size of Gobo Macro steps.                                                                                                                                                         |
+| GoboMacro(n)Offset                 | Controls the phase offset of Gobo Macro steps.                                                                                                                                                 |
+| BeamMacro(n)                       | Selects predefined beam settings that are programmed in the device's firmware.                                                                                                                |
+| BeamMacro(n)Rate                   | Controls the frequency of Beam Macro steps.                                                                                                                                                    |
+| BeamMacro(n)Time                   | Controls the duration of Beam Macro steps.                                                                                                                                                     |
+| BeamMacro(n)Size                   | Controls the size of Beam Macro steps.                                                                                                                                                         |
+| BeamMacro(n)Offset                 | Controls the phase offset of Beam Macro steps.                                                                                                                                                 |
 | ColorMacro(n)                    | Selects predefined colors that are programmed in the fixture's firmware.                                                                                                                                                                                                                                  |
 | ColorMacro(n)Rate                | Controls the time between Color Macro steps.                                                                                                                                                                                                                                                              |
+| ColorMacro(n)Time                 | Controls the duration of Color Macro steps.                                                                                                                                                                                                    |
+| ColorMacro(n)Size                 | Controls the size of Color Macro steps.                                                                                                                                                                                                        |
+| ColorMacro(n)Offset               | Controls the phase offset of Color Macro steps.                                                                                                                                                                                                |
 | CyanMode                         | Controls how Cyan is used within the fixture's cyan CMY-mixing feature.                                                                                                                                                                                                                                   |
 | MagentaMode                      | Controls how Magenta is used within the fixture's magenta CMY-mixing.                                                                                                                                                                                                                                     |
 | YellowMode                       | Controls how Yellow is used within the fixture's yellow CMY-mixing feature.                                                                                                                                                                                                                               |
@@ -2797,15 +2824,26 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Frost(n)Ramp                     | Sets frequency of frost's ramp.                                                                                                                                                                                                                                                                           |
 | Prism(n)                         | The fixture’s prism wheel (n). Selects prisms in prism wheel (n). A different channel function sets the angle of the indexed position in the selected prism or the angular speed of its continuous rotation. This is the main attribute of prism wheel’s (n) wheel control.                               |
 | Prism(n)SelectSpin               | Selects prisms whose rotation is continuous in prism wheel (n) and controls the angular speed of the prism’s spin within the same channel function.                                                                                                                                                       |
+| Prism(n)SelectPos                | Selects prisms whose orientation is indexed in prism wheel (n) and controls the angle of the prism’s orientation within the same channel function.                                                                                                                                                          |
 | Prism(n)Macro                    | Macro functions of prism wheel (n).                                                                                                                                                                                                                                                                       |
 | Prism(n)Pos                      | Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control.                                                                                                                                                                        |
 | Prism(n)PosRotate                | Controls the speed and direction of continuous rotation of prisms in prism wheel (n).                                                                                                                                                                                                                     |
+| Kaleidoscope(n)                  | The device’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control. |
+| Kaleidoscope(n)SelectSpin        | Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function.                                                                                                                                   |
+| Kaleidoscope(n)SelectPos         | Selects kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and controls the angle of the kaleidoscope’s orientation within the same channel function.                                                                                                                                      |
+| Kaleidoscope(n)Macro             | Macro functions of kaleidoscope wheel (n).                                                                                                                                                                                                                                                                 |
+| Kaleidoscope(n)Pos               | Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control.                                                                                                                                                    |
+| Kaleidoscope(n)PosRotate         | Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n).                                                                                                                                                                                                        |
+| Kaleidoscope(n)MSpeed            | Movement speed of the device's kaleidoscope wheel (n).                                                                                                                                                                                                                                                   |
 | Effects(n)                       | Generically predefined macros and effects of a fixture.                                                                                                                                                                                                                                                   |
 | Effects(n)Rate                   | Frequency of running effects.                                                                                                                                                                                                                                                                             |
 | Effects(n)Fade                   | Snapping or smooth look of running effects.                                                                                                                                                                                                                                                               |
 | Effects(n)Adjust(m)              | Controls parameter (m) of effect (n)                                                                                                                                                                                                                                                                      |
 | Effects(n)Pos                    | Controls angle of indexed rotation of slot/effect in effect wheel/macro (n). This is the main attribute of effect wheel/macro (n) slot/effect control.                                                                                                                                                    |
 | Effects(n)PosRotate              | Controls speed and direction of slot/effect in effect wheel (n).                                                                                                                                                                                                                                          |
+| Effects(n)Size                   | Size of running effects.                                                                                                                                                                                                                                                                                  |
+| Effects(n)Level                  | Level of running effects.                                                                                                                                                                                                                                                                                 |
+| Effects(n)Position               | Position of running effects.                                                                                                                                                                                                                                                                              |
 | EffectsSync                      | Sets offset between running effects and effects 2.                                                                                                                                                                                                                                                        |
 | BeamShaper                       | Activates fixture's beam shaper.                                                                                                                                                                                                                                                                          |
 | BeamShaperMacro                  | Predefined presets for fixture's beam shaper positions.                                                                                                                                                                                                                                                   |
@@ -2815,6 +2853,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | ZoomMode                         | Changes modes of the fixture´s zoom.                                                                                                                                                                                                                                                                      |
 | ZoomModeSpot                     | Selects spot mode of zoom.                                                                                                                                                                                                                                                                                |
 | ZoomModeBeam                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
+| ZoomModeWash                     | Selects beam mode of zoom.                                                                                                                                                                                                                                                                                |
 | DigitalZoom                      | Controls the image size within the defined projection. Used on digital projection based devices                                                                                                                                                                                                           |
 | Focus(n)                         | Controls the sharpness of the fixture's spot light. Can blur or sharpen the edge of the spot.                                                                                                                                                                                                             |
 | Focus(n)Mode                     | Changes modes of the fixture’s focus - manual or auto- focus.                                                                                                                                                                                                                                             |
@@ -2895,6 +2934,7 @@ Type Attribute. At any time user defined attributes can be introduced as well.
 | Blade(n)B                        | 2 of 2 shutters that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                         |
 | Blade(n)Rot                      | Rotates position of blade(n).                                                                                                                                                                                                                                                                             |
 | ShaperRot                        | Rotates position of blade assembly.                                                                                                                                                                                                                                                                       |
+| ShaperRotate                     | Controls the speed and direction of continuous rotation of the blade assembly.                                                                                                                                                                                                                            |
 | ShaperMacros                     | Predefined presets for shaper positions.                                                                                                                                                                                                                                                                  |
 | ShaperMacrosSpeed                | Speed of predefined effects on shapers.                                                                                                                                                                                                                                                                   |
 | BladeSoft(n)A                    | 1 of 2 soft edge blades that shape the top/right/bottom/left of the beam.                                                                                                                                                                                                                                 |
@@ -2957,6 +2997,8 @@ not taken into account.
       Name="AnimationSystem(n)Pos"/>
     <ActivationGroup
       Name="Prism"/>
+    <ActivationGroup
+      Name="Kaleidoscope"/>
     <ActivationGroup
       Name="BeamShaper"/>
     <ActivationGroup
@@ -4189,6 +4231,48 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="ColorEffects(n)Size"
+      Pretty="Color FX(n)Size"
+      Feature="Color.Color"
+      Definition="Size of running color effects."
+      Explanation="Use this attribute to control size of the predefined color effects built into the device."
+      Label="Color Effects Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorEffects(n)Level"
+      Pretty="Color FX(n)Level"
+      Feature="Color.Color"
+      Definition="Level of running color effects."
+      Explanation="Use this attribute to control level of the predefined color effects built into the device."
+      Label="Color Effects Level"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorEffects(n)Position"
+      Pretty="Color FX(n)Position"
+      Feature="Color.Color"
+      Definition="Position of running color effects."
+      Explanation="Use this attribute to control position of the predefined color effects built into the device."
+      Label="Color Effects Position"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="True"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="Color(n)"
       Pretty="C(n)"
       ActivationGroup="ColorRGB"
@@ -4464,7 +4548,7 @@ not taken into account.
       UseThumbnailExchange="False"/>
     <Attribute
       Name="ColorAdd_BC"
-      Pretty="Light-Blue "
+      Pretty="Light-Blue"
       ActivationGroup="ColorRGB"
       Feature="Color.RGB"
       PhysicalUnit="ColorComponent"
@@ -4684,6 +4768,286 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="IntensityMacro(n)"
+      Pretty="Intensity Macro(n)"
+      Feature="Dimmer.Dimmer"
+      Definition="Selects predefined intensity levels that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined intensity levels programmed in the device's firmware. If there is more than one intensity macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Intensity Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Rate"
+      Pretty="Intensity Macro(n) Rate"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the frequency of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Intensity Macro steps."
+      Label="Intensity Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Time"
+      Pretty="Intensity Macro(n) Time"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the duration of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Intensity Macro steps."
+      Label="Intensity Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Size"
+      Pretty="Intensity Macro(n) Size"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the size of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Intensity Macro steps."
+      Label="Intensity Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="IntensityMacro(n)Offset"
+      Pretty="Intensity Macro(n) Offset"
+      Feature="Dimmer.Dimmer"
+      Definition="Controls the phase offset of Intensity Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Intensity Macro steps."
+      Label="Intensity Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)"
+      Pretty="Position Macro(n)"
+      Feature="Position.PanTilt"
+      Definition="Selects predefined positions that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined positions programmed in the device's firmware. If there is more than one position macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Position Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Rate"
+      Pretty="Position Macro(n) Rate"
+      Feature="Position.PanTilt"
+      Definition="Controls the frequency of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Position Macro steps."
+      Label="Position Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Time"
+      Pretty="Position Macro(n) Time"
+      Feature="Position.PanTilt"
+      Definition="Controls the duration of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Position Macro steps."
+      Label="Position Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Size"
+      Pretty="Position Macro(n) Size"
+      Feature="Position.PanTilt"
+      Definition="Controls the size of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Position Macro steps."
+      Label="Position Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="PositionMacro(n)Offset"
+      Pretty="Position Macro(n) Offset"
+      Feature="Position.PanTilt"
+      Definition="Controls the phase offset of Position Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Position Macro steps."
+      Label="Position Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)"
+      Pretty="Gobo Macro(n)"
+      Feature="Gobo.Gobo"
+      Definition="Selects predefined gobos that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined gobos programmed in the device's firmware. If there is more than one gobo macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Gobo Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Rate"
+      Pretty="Gobo Macro(n) Rate"
+      Feature="Gobo.Gobo"
+      Definition="Controls the frequency of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Gobo Macro steps."
+      Label="Gobo Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Time"
+      Pretty="Gobo Macro(n) Time"
+      Feature="Gobo.Gobo"
+      Definition="Controls the duration of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Gobo Macro steps."
+      Label="Gobo Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Size"
+      Pretty="Gobo Macro(n) Size"
+      Feature="Gobo.Gobo"
+      Definition="Controls the size of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Gobo Macro steps."
+      Label="Gobo Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="GoboMacro(n)Offset"
+      Pretty="Gobo Macro(n) Offset"
+      Feature="Gobo.Gobo"
+      Definition="Controls the phase offset of Gobo Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Gobo Macro steps."
+      Label="Gobo Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)"
+      Pretty="Beam Macro(n)"
+      Feature="Beam.Beam"
+      Definition="Selects predefined beam settings that are programmed in the device's firmware."
+      Explanation="Choose this attribute to control the selection of predefined beam settings programmed in the device's firmware. If there is more than one beam macro the wild-card (n) will be incremented and the number then indicates which macro will be controlled."
+      Label="Beam Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Rate"
+      Pretty="Beam Macro(n) Rate"
+      Feature="Beam.Beam"
+      Definition="Controls the frequency of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the frequency of the Beam Macro steps."
+      Label="Beam Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Time"
+      Pretty="Beam Macro(n) Time"
+      Feature="Beam.Beam"
+      Definition="Controls the duration of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Beam Macro steps."
+      Label="Beam Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Size"
+      Pretty="Beam Macro(n) Size"
+      Feature="Beam.Beam"
+      Definition="Controls the size of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Beam Macro steps."
+      Label="Beam Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="BeamMacro(n)Offset"
+      Pretty="Beam Macro(n) Offset"
+      Feature="Beam.Beam"
+      Definition="Controls the phase offset of Beam Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Beam Macro steps."
+      Label="Beam Macro Offset"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="ColorMacro(n)"
       Pretty="Color Macro(n)"
       Feature="Color.RGB"
@@ -4704,6 +5068,48 @@ not taken into account.
       Definition="Controls the time between Color Macro steps."
       Explanation="Use this attribute to describe a function which is setting the time or speed of the Color Macro steps."
       Label="Color Macro Rate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Time"
+      Pretty="Color Macro(n) Time"
+      Feature="Color.RGB"
+      Definition="Controls the duration of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the duration of the Color Macro steps."
+      Label="Color Macro Time"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Size"
+      Pretty="Color Macro(n) Size"
+      Feature="Color.RGB"
+      Definition="Controls the size of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the size of the Color Macro steps."
+      Label="Color Macro Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ColorMacro(n)Offset"
+      Pretty="Color Macro(n) Offset"
+      Feature="Color.RGB"
+      Definition="Controls the phase offset of Color Macro steps."
+      Explanation="Use this attribute to describe a function which is setting the phase offset of the Color Macro steps."
+      Label="Color Macro Offset"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -5979,6 +6385,23 @@ not taken into account.
       UseColorSpace="False"
       UseThumbnailExchange="False"/>
     <Attribute
+      Name="Prism(n)SelectPos"
+      Pretty="Select Pos(n)"
+      MainAttribute="Prism(n)"
+      ActivationGroup="Prism"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Selects prisms whose orientation is indexed in prism wheel (n) and controls the angle of the prism’s orientation within the same channel function."
+      Explanation="Use this attribute to select prisms whose orientation is indexed in prism wheel (n) and to control the angle of the orientation within the same channel function. If there is more than one prism wheel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)SelectPos as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)."
+      Label="prism Select Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
       Name="Prism(n)Macro"
       Pretty="Prism(n) Macro"
       MainAttribute="Prism(n)"
@@ -5998,7 +6421,7 @@ not taken into account.
       Name="Prism(n)Pos"
       Pretty="Prism(n) Pos"
       Feature="Beam.Beam"
-      PhysicalUnit="AngularSpeed"
+      PhysicalUnit="Angle"
       Definition="Controls angle of indexed rotation of prisms in prism wheel (n). This is the main attribute of prism wheel’s 1 wheel slot control."
       Explanation="This attribute allows to set indexed position (angle) of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
       Label="Prism Pos"
@@ -6019,6 +6442,117 @@ not taken into account.
       Definition="Controls the speed and direction of continuous rotation of prisms in prism wheel (n)."
       Explanation="This attribute allows to set speed and direction of continuous rotation of a prism in a prism wheel and is typically used together with Prism(n) attribute which selects the prism. If there is more than one prism wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Prism(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Prism(n)Pos. In case that Prism(n)Pos already exists in the same geometry, you can use the Prism(n)PosRotate as the Logical Channel attribute."
       Label="Prism Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)"
+      Pretty="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      Definition="The device’s kaleidoscope wheel (n). Selects kaleidoscopes in kaleidoscope wheel (n). A different channel function sets the angle of the indexed position in the selected kaleidoscope or the angular speed of its continuous rotation. This is the main attribute of kaleidoscope wheel’s (n) wheel control."
+      Explanation="Use this attribute to select a kaleidoscope in a kaleidoscope wheel for devices that provide kaleidoscope selection on one channel and kaleidoscope rotation/indexing on another channel(s). If there is more than one kaleidoscope wheel or carousel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Kaleidoscope"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)SelectSpin"
+      Pretty="Select Spin(n)"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Selects kaleidoscopes whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function."
+      Explanation="Selects kaleidoscope whose rotation is continuous in kaleidoscope wheel (n) and controls the angular speed of the kaleidoscope’s spin within the same channel function. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)SelectSpin as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)SelectSpin as the Logical Channel attribute."
+      Label="Kaleidoscope Select Spin"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)SelectPos"
+      Pretty="Select Pos(n)"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Selects kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and controls the angle of the kaleidoscope’s orientation within the same channel function."
+      Explanation="Use this attribute to select kaleidoscopes whose orientation is indexed in kaleidoscope wheel (n) and to control the angle of the orientation within the same channel function. If there is more than one kaleidoscope wheel, the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)SelectPos as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n)."
+      Label="kaleidoscope Select Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)Macro"
+      Pretty="Kaleidoscope(n) Macro"
+      MainAttribute="Kaleidoscope(n)"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      Definition="Macro functions of kaleidoscope wheel (n)."
+      Explanation="Use this attribute for manufacturer defined device specific effects on a kaleidoscopes. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)Macro as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n). In case that Kaleidoscope(n) already exists in the same geometry, you can use the Kaleidoscope(n)Macro as the Logical Channel attribute."
+      Label="Kaleidoscope Macro"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)Pos"
+      Pretty="Kaleidoscope(n) Pos"
+      Feature="Beam.Beam"
+      PhysicalUnit="Angle"
+      Definition="Controls angle of indexed rotation of kaleidoscopes in kaleidoscope wheel (n). This is the main attribute of kaleidoscope wheel’s 1 wheel slot control."
+      Explanation="This attribute allows to set indexed position (angle) of a kaleidoscope in a kaleidoscope wheel and is typically used together with Kaleidoscope(n) attribute which selects the kaleidoscope. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled."
+      Label="Kaleidoscope Pos"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)PosRotate"
+      Pretty="Rotate(n)"
+      MainAttribute="Kaleidoscope(n)Pos"
+      ActivationGroup="Kaleidoscope"
+      Feature="Beam.Beam"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of kaleidoscopes in kaleidoscope wheel (n)."
+      Explanation="This attribute allows to set speed and direction of continuous rotation of a kaleidoscope in a kaleidoscope wheel and is typically used together with Kaleidoscope(n) attribute which selects the kaleidoscope. If there is more than one kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which wheel will be controlled. When using this Kaleidoscope(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Kaleidoscope(n)Pos. In case that Kaleidoscope(n)Pos already exists in the same geometry, you can use the Kaleidoscope(n)PosRotate as the Logical Channel attribute."
+      Label="Kaleidoscope Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Kaleidoscope(n)MSpeed"
+      Pretty="Kaleidoscope(n) MSpeed"
+      Feature="Control.Control"
+      Definition="Movement speed of the device's kaleidoscope wheel (n)."
+      Explanation="Use this attribute to set a speed of movement of kaleidoscope(s). If there is more than one kaleidoscope or kaleidoscope wheel the wild-card (n) will be incremented and the number then indicates which kaleidoscope/wheel will be controlled."
+      Label="Kaleidoscope Speed"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6107,6 +6641,48 @@ not taken into account.
       Definition="Controls speed and direction of slot/effect in effect wheel (n)."
       Explanation="When using this Effects(n)PosRotate as a Channel Function attribute, make sure that the attribute for the Logical Channel is set to Effects(n)Pos. In case that Effects(n)Pos already exists in the same geometry, you can use the Effects(n)PosRotate as the Logical Channel attribute."
       Label="Effects Pos Rotate"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Effects(n)Size"
+      Pretty="FX(n) Size"
+      Feature="Beam.Beam"
+      Definition="Size of running effects(n)"
+      Explanation="Use this attribute to control size of the predefined effects(n) built into the device."
+      Label="Effect Size"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Effects(n)Level"
+      Pretty="FX(n) Level"
+      Feature="Beam.Beam"
+      Definition="Level of running effects(n)"
+      Explanation="Use this attribute to control level of the predefined effects(n) built into the device."
+      Label="Effect Level"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="Effects(n)Position"
+      Pretty="FX(n) Position"
+      Feature="Beam.Beam"
+      Definition="Position of running effects(n)"
+      Explanation="Use this attribute to control position of the predefined effects(n) built into the device."
+      Label="Effect Position"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6256,6 +6832,21 @@ not taken into account.
       Definition="Selects beam mode of zoom."
       Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a beamy, hot-spoty type of projection."
       Label="Zoom Mode Beam"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ZoomModeWash"
+      Pretty="Zoom Wash"
+      Feature="Focus.Focus"
+      PhysicalUnit="Angle"
+      Definition="Selects beam mode of zoom."
+      Explanation="On devices with a Zoom which can be set to various types of projections, use this attribute to describe a Zoom mode with a wash type of projection."
+      Label="Zoom Mode Wash"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -6677,7 +7268,7 @@ not taken into account.
       Pretty="FollowSpot Mode"
       Feature="Control.Control"
       Definition="Selects follow spot control mode."
-      Explanation="For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior. "
+      Explanation="For fixtures that allow remote enabling/disabling various types of follow spot related features, use this attribute to describe the behavior."
       Label="Follow Spot Mode"
       UseEmitter="False"
       UseFilter="False"
@@ -6705,7 +7296,7 @@ not taken into account.
       Pretty="Intensity MSpeed"
       Feature="Control.Control"
       Definition="Movement speed of the fixture's intensity."
-      Explanation="Use this attribute to set a speed of dimming behavior. "
+      Explanation="Use this attribute to set a speed of dimming behavior."
       Label="Intensity Speed"
       UseEmitter="False"
       UseFilter="False"
@@ -7209,7 +7800,7 @@ not taken into account.
       Pretty="DMX Input"
       Feature="Control.Control"
       Definition="Selects DMX Input"
-      Explanation="Use this attribute to describe behavior that allows changing the source of the DMX signal. "
+      Explanation="Use this attribute to describe behavior that allows changing the source of the DMX signal."
       Label="DMX Input"
       UseEmitter="False"
       UseFilter="False"
@@ -7385,6 +7976,22 @@ not taken into account.
       Definition="Rotates position of blade assembly."
       Explanation="This attribute allows you to describe a function which rotates the complete carousel of framing shutters or barndors."
       Label="Shaper Rot"
+      UseEmitter="False"
+      UseFilter="False"
+      UseWheel="False"
+      UseWheelSlot="False"
+      UseGamut="False"
+      UseColorSpace="False"
+      UseThumbnailExchange="False"/>
+    <Attribute
+      Name="ShaperRotate"
+      Pretty="Shaper Rotate"
+      ActivationGroup="Shaper"
+      Feature="Shapers.Shapers"
+      PhysicalUnit="AngularSpeed"
+      Definition="Controls the speed and direction of continuous rotation of the blade assembly."
+      Explanation="Use this attribute to describe continuous rotation of the complete carousel of framing shutters or barndoors. Use ShaperRot for indexing ranges and ShaperRotate for continuous rotation ranges."
+      Label="Shaper Rotate"
       UseEmitter="False"
       UseFilter="False"
       UseWheel="False"
@@ -7968,10 +8575,18 @@ The physical values describe movement of a corner, where at 0 the corner is comp
 
 ### ShaperRot
 
-This attribute allows you to describe a function which rotates the complete
-carousel of framing shutters or barndoors. Rotation from negative to positive
-angle values is counterclockwise when looking at the projection from the
-fixture's point of view.
+This attribute allows you to describe a function which indexes/rotates the
+complete carousel of framing shutters or barndoors. Rotation from negative to
+positive angle values is counterclockwise when looking at the projection from
+the fixture's point of view.
+
+### ShaperRotate
+
+This attribute controls the speed and direction of continuous rotation of the
+complete carousel of framing shutters or barndoors. Positive values mean
+counterclockwise rotation when looking at the projection from the fixture's
+point of view. Negative values mean clockwise rotation, and zero means no
+rotation.
 
 ### Blade(n)Rot
 
